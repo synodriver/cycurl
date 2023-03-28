@@ -53,7 +53,7 @@ elif uname.system == "Windows":
     filename = "./curl-impersonate.tar.gz"
 else:
     if is_musl():
-        url = f"https://img.yifei.me/file/onefly-public/static/2023/libcurl-impersonate-v{VERSION}.{uname.machine}-linux-musl.tar.gz"
+        url = f"https://img.yifei.me/file/onefly-public/static/2023/libcurl-impersonate-v{VERSION}.{uname.machine}-linux-musl.zip"
     else:
         url = f"https://github.com/lwthiker/curl-impersonate/releases/download/v{VERSION}/libcurl-impersonate-v{VERSION}.{uname.machine}-linux-gnu.tar.gz"
     filename = "./curl-impersonate.tar.gz"
