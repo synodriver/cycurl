@@ -35,6 +35,11 @@ print("Download firefox certs, see: https://curl.se/docs/caextract.html")
 urlretrieve("https://curl.se/ca/cacert.pem", "curl_cffi/cacert.pem", reporthook)
 
 
+def is_musl():
+    libc, version = platform.libc_ver()
+    return libc != "glibc"
+
+
 if uname.system == "Darwin":
     if uname.machine == "arm64":
         # TODO Download my own build of libcurl-impersonate for M1 Mac
@@ -47,7 +52,10 @@ elif uname.system == "Windows":
     url = f"https://github.com/yifeikong/curl-impersonate-win/releases/download/v{VERSION}/curl-impersonate-chrome.tar.gz"
     filename = "./curl-impersonate.tar.gz"
 else:
-    url = f"https://github.com/lwthiker/curl-impersonate/releases/download/v{VERSION}/libcurl-impersonate-v{VERSION}.{uname.machine}-linux-gnu.tar.gz"
+    if is_musl():
+        url = f"https://img.yifei.me/file/onefly-public/static/2023/libcurl-impersonate-v{VERSION}.{uname.machine}-linux-musl.tar.gz"
+    else:
+        url = f"https://github.com/lwthiker/curl-impersonate/releases/download/v{VERSION}/libcurl-impersonate-v{VERSION}.{uname.machine}-linux-gnu.tar.gz"
     filename = "./curl-impersonate.tar.gz"
 if os.path.exists(filename):
     print("libcurl-impersonate already exists")
