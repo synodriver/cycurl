@@ -54,9 +54,10 @@ elif uname.system == "Windows":
 else:
     if is_musl():
         url = f"https://f004.backblazeb2.com/file/onefly-public/static/2023/libcurl-impersonate-v{VERSION}.{uname.machine}-linux-musl.zip"
+        filename = "./curl-impersonate.zip"
     else:
         url = f"https://github.com/lwthiker/curl-impersonate/releases/download/v{VERSION}/libcurl-impersonate-v{VERSION}.{uname.machine}-linux-gnu.tar.gz"
-    filename = "./curl-impersonate.tar.gz"
+        filename = "./curl-impersonate.tar.gz"
 if os.path.exists(filename):
     print("libcurl-impersonate already exists")
 else:
