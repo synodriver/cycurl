@@ -558,8 +558,8 @@ cdef extern from "curl/curl.h" nogil:
     int CURLE_SSL_CLIENTCERT
     int CURLE_UNRECOVERABLE_POLL
 
-    int CURL_WRITEFUNC_PAUSE
-    int CURL_WRITEFUNC_ERROR
+    unsigned int CURL_WRITEFUNC_PAUSE
+    unsigned int CURL_WRITEFUNC_ERROR
 
     int CURL_POLL_NONE
     int CURL_POLL_IN

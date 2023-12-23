@@ -73,7 +73,7 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
     total = size*nmemb
     callback = <object>userdata
     wrote = callback(<bytes>ptr[:total])
-    if <int>wrote == curl.CURL_WRITEFUNC_PAUSE or <int>wrote == curl.CURL_WRITEFUNC_ERROR:
+    if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:
         return wrote
     # should make this an exception in future versions
     if wrote != total:
@@ -178,7 +178,7 @@ cdef class Curl:
                 code=errcode,
             )
 
-    cpdef inline int setopt(self, int option, object value):
+    cpdef inline int setopt(self, int option, object value) except -1:
         """Wrapper for curl_easy_setopt.
     
         Parameters:
@@ -197,12 +197,12 @@ cdef class Curl:
 
         # Convert value
         cdef:
-            void* c_value
+            void* c_value = NULL
             int value_type = option / 10000 * 10000
             int intval
             bytes bytesval
             int ret
-        if value_type == 0:
+        if value_type == 30000 or value_type == 0:
             # c_value = ffi.new("int*", value)
             intval = <int>value
             c_value = <void*>&intval
@@ -231,11 +231,12 @@ cdef class Curl:
         elif value_type == 10000:
             if isinstance(value, str):
                 bytesval = value.encode()
+                c_value = <void *> <const char *> bytesval
                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
-            else:
+            elif isinstance(value, bytes):
                 bytesval = value
                 # c_value = <void*><const char*>value
-            c_value = <void*><const char *> bytesval
+                c_value = <void*><const char *> bytesval
             # Must keep a reference, otherwise may be GCed.
             if option == curl.CURLOPT_POSTFIELDS:
                 self._body_handle = bytesval
