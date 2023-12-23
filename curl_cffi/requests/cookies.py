@@ -69,9 +69,7 @@ class CurlMorsel:
 
     def to_curl_format(self):
         if not self.hostname:
-            raise RequestsError(
-                "Domain not found for cookie {}={}".format(self.name, self.value)
-            )
+            raise RequestsError(f"Domain not found for cookie {self.name}={self.value}")
         return "\t".join(
             [
                 self.hostname,
@@ -113,12 +111,11 @@ class CurlMorsel:
             path=self.path,
             path_specified=bool(self.path),
             secure=self.secure,
-            # using if explicitly to make it clear.
             expires=None if self.expires == 0 else self.expires,
-            discard=True if self.expires == 0 else False,
+            discard=self.expires == 0,
             comment=None,
             comment_url=None,
-            rest=dict(http_only=self.http_only),  # type: ignore
+            rest=dict(http_only=self.http_only),
             rfc2109=False,
         )
 
@@ -242,9 +239,9 @@ class Cookies(typing.MutableMapping[str, str]):
         value = None
         matched_domain = ""
         for cookie in self.jar:
-            if cookie.name == name:
-                if domain is None or cookie.domain == domain:
-                    if path is None or cookie.path == path:
+            if domain is None or cookie.domain == domain:
+                if path is None or cookie.path == path:
+                    if cookie.name == name:
                         # if cookies on two different domains do not share a same value
                         if (
                             value is not None
@@ -260,9 +257,7 @@ class Cookies(typing.MutableMapping[str, str]):
                         value = cookie.value
                         matched_domain = cookie.domain or ""
 
-        if value is None:
-            return default
-        return value
+        return default if value is None else value
 
     def delete(
         self,

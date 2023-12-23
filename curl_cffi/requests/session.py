@@ -83,9 +83,7 @@ def _update_url_params(url: str, params: Dict) -> str:
 
     # Converting URL argument to proper query string
     encoded_get_args = urlencode(parsed_get_args, doseq=True)
-    # Creating new parsed result object based on provided with new
-    # URL arguments. Same thing happens inside of urlparse.
-    new_url = ParseResult(
+    return ParseResult(
         parsed_url.scheme,
         parsed_url.netloc,
         parsed_url.path,
@@ -94,13 +92,11 @@ def _update_url_params(url: str, params: Dict) -> str:
         parsed_url.fragment,
     ).geturl()
 
-    return new_url
-
 
 def _update_header_line(header_lines: List[str], key: str, value: str):
     """Update header line list by key value pair."""
     for idx, line in enumerate(header_lines):
-        if line.lower().startswith(key.lower() + ":"):
+        if line.lower().startswith(f"{key.lower()}:"):
             header_lines[idx] = f"{key}: {value}"
             break
     else:  # if not break
@@ -229,7 +225,7 @@ class BaseSession:
         # Tell libcurl to be aware of bodies and related headers when,
         # 1. POST/PUT/PATCH, even if the body is empty, it's up to curl to decide what to do;
         # 2. GET/DELETE with body, although it's against the RFC, some applications. e.g. Elasticsearch, use this.
-        if body or method in ("POST", "PUT", "PATCH"):
+        if body or method in {"POST", "PUT", "PATCH"}:
             c.setopt(CurlOpt.POSTFIELDS, body)
             # necessary if body contains '\0'
             c.setopt(CurlOpt.POSTFIELDSIZE, len(body))
@@ -244,7 +240,7 @@ class BaseSession:
         host_header = h.get("Host")
         if host_header is not None:
             u = urlparse(url)
-            if host_header == u.netloc or host_header == u.hostname:
+            if host_header in [u.netloc, u.hostname]:
                 try:
                     del h["Host"]
                 except KeyError:
@@ -536,14 +532,13 @@ class Session(BaseSession):
 
     @property
     def curl(self):
-        if self._use_thread_local_curl:
-            if self._is_customized_curl:
-                warnings.warn("Creating fresh curl handle in different thread.")
-            if not getattr(self._local, "curl", None):
-                self._local.curl = Curl(debug=self.debug)
-            return self._local.curl
-        else:
+        if not self._use_thread_local_curl:
             return self._curl
+        if self._is_customized_curl:
+            warnings.warn("Creating fresh curl handle in different thread.")
+        if not getattr(self._local, "curl", None):
+            self._local.curl = Curl(debug=self.debug)
+        return self._local.curl
 
     @property
     def executor(self):
@@ -789,8 +784,7 @@ class AsyncSession(BaseSession):
         self._closed = True
         while True:
             try:
-                curl = self.pool.get_nowait()
-                if curl:
+                if curl := self.pool.get_nowait():
                     curl.close()
             except asyncio.QueueEmpty:
                 break

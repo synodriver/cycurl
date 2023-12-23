@@ -199,26 +199,14 @@ class SelectorThread:
                 rs, ws, xs = select.select(to_read, to_write, to_write)
                 ws = ws + xs
             except OSError as e:
-                # After remove_reader or remove_writer is called, the file
-                # descriptor may subsequently be closed on the event loop
-                # thread. It's possible that this select thread hasn't
-                # gotten into the select system call by the time that
-                # happens in which case (at least on macOS), select may
-                # raise a "bad file descriptor" error. If we get that
-                # error, check and see if we're also being woken up by
-                # polling the waker alone. If we are, just return to the
-                # event loop and we'll get the updated set of file
-                # descriptors on the next iteration. Otherwise, raise the
-                # original error.
-                if e.errno == getattr(errno, "WSAENOTSOCK", errno.EBADF):
-                    rs, _, _ = select.select([self._waker_r.fileno()], [], [], 0)
-                    if rs:
-                        ws = []
-                    else:
-                        raise
-                else:
+                if e.errno != getattr(errno, "WSAENOTSOCK", errno.EBADF):
                     raise
 
+                rs, _, _ = select.select([self._waker_r.fileno()], [], [], 0)
+                if rs:
+                    ws = []
+                else:
+                    raise
             try:
                 self._real_loop.call_soon_threadsafe(self._handle_select, rs, ws)
             except RuntimeError:

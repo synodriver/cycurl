@@ -54,9 +54,7 @@ def buffer_callback(ptr, size, nmemb, userdata):
     return nmemb * size
 
 def ensure_int(s):
-    if not s:
-        return 0
-    return int(s)
+    return 0 if not s else int(s)
 
 @ffi.def_extern()
 def write_callback(ptr, size, nmemb, userdata):
@@ -64,7 +62,7 @@ def write_callback(ptr, size, nmemb, userdata):
     callback = ffi.from_handle(userdata)
     wrote = callback(ffi.buffer(ptr, nmemb)[:])
     wrote = ensure_int(wrote)
-    if wrote == CURL_WRITEFUNC_PAUSE or wrote == CURL_WRITEFUNC_ERROR:
+    if wrote in [CURL_WRITEFUNC_PAUSE, CURL_WRITEFUNC_ERROR]:
         return wrote
     # should make this an exception in future versions
     if wrote != nmemb * size:
@@ -178,15 +176,12 @@ class Curl:
             lib._curl_easy_setopt(self._curl, CurlOpt.WRITEFUNCTION, lib.write_callback)
             option = CurlOpt.HEADERDATA
         elif value_type == "char*":
-            if isinstance(value, str):
-                c_value = value.encode()
-            else:
-                c_value = value
+            c_value = value.encode() if isinstance(value, str) else value
             # Must keep a reference, otherwise may be GCed.
             if option == CurlOpt.POSTFIELDS:
                 self._body_handle = c_value
         else:
-            raise NotImplementedError("Option unsupported: %s" % option)
+            raise NotImplementedError(f"Option unsupported: {option}")
 
         if option == CurlOpt.HTTPHEADER:
             for header in value:
@@ -286,8 +281,7 @@ class Curl:
         """This is not a full copy of entire curl object in python. For example, headers
         handle is not copied, you have to set them again."""
         new_handle = lib.curl_easy_duphandle(self._curl)
-        c = Curl(cacert=self._cacert, debug=self._debug, handle=new_handle)
-        return c
+        return Curl(cacert=self._cacert, debug=self._debug, handle=new_handle)
 
     def reset(self):
         """Reset all curl options, wrapper for curl_easy_reset."""
