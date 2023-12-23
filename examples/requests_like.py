@@ -1,4 +1,4 @@
-from curl_cffi import requests
+from cycurl import requests
 
 
 r = requests.get("https://tls.browserleaks.com/json")

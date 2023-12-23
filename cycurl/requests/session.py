@@ -12,13 +12,13 @@ from typing import Callable, Dict, List, Any, Optional, Tuple, Union, cast
 from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urlparse
 from concurrent.futures import ThreadPoolExecutor
 
-
-from .. import AsyncCurl, Curl, CurlError, CurlInfo, CurlOpt, CurlHttpVersion
-from ..curl import CURL_WRITEFUNC_ERROR
-from .cookies import Cookies, CookieTypes, CurlMorsel
-from .errors import RequestsError
-from .headers import Headers, HeaderTypes
-from .models import Request, Response
+import cycurl._curl as m
+from cycurl._curl import AsyncCurl, Curl, CurlError, CurlHttpVersion
+from cycurl._curl import CURL_WRITEFUNC_ERROR
+from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
+from cycurl.requests.errors import RequestsError
+from cycurl.requests.headers import Headers, HeaderTypes
+from cycurl.requests.models import Request, Response
 
 try:
     import gevent
@@ -199,16 +199,16 @@ class BaseSession:
 
         # method
         if method == "POST":
-            c.setopt(CurlOpt.POST, 1)
+            c.setopt(m.CURLOPT_POST, 1)
         elif method != "GET":
-            c.setopt(CurlOpt.CUSTOMREQUEST, method.encode())
+            c.setopt(m.CURLOPT_CUSTOMREQUEST, method.encode())
 
         # url
         if self.params:
             url = _update_url_params(url, self.params)
         if params:
             url = _update_url_params(url, params)
-        c.setopt(CurlOpt.URL, url.encode())
+        c.setopt(m.CURLOPT_URL, url.encode())
 
         # data/body/json
         if isinstance(data, dict):
@@ -230,9 +230,9 @@ class BaseSession:
         # 1. POST/PUT/PATCH, even if the body is empty, it's up to curl to decide what to do;
         # 2. GET/DELETE with body, although it's against the RFC, some applications. e.g. Elasticsearch, use this.
         if body or method in ("POST", "PUT", "PATCH"):
-            c.setopt(CurlOpt.POSTFIELDS, body)
+            c.setopt(m.CURLOPT_POSTFIELDS, body)
             # necessary if body contains '\0'
-            c.setopt(CurlOpt.POSTFIELDSIZE, len(body))
+            c.setopt(m.CURLOPT_POSTFIELDSIZE, len(body))
 
         # headers
         h = Headers(self.headers)
@@ -260,21 +260,21 @@ class BaseSession:
                 header_lines, "Content-Type", "application/x-www-form-urlencoded"
             )
         # print("header lines", header_lines)
-        c.setopt(CurlOpt.HTTPHEADER, [h.encode() for h in header_lines])
+        c.setopt(m.CURLOPT_HTTPHEADER, [h.encode() for h in header_lines])
 
         req = Request(url, h, method)
 
         # cookies
-        c.setopt(CurlOpt.COOKIEFILE, b"")  # always enable the curl cookie engine first
-        c.setopt(CurlOpt.COOKIELIST, "ALL")  # remove all the old cookies first.
+        c.setopt(m.CURLOPT_COOKIEFILE, b"")  # always enable the curl cookie engine first
+        c.setopt(m.CURLOPT_COOKIELIST, "ALL")  # remove all the old cookies first.
 
         for morsel in self.cookies.get_cookies_for_curl(req):
             # print("Setting", morsel.to_curl_format())
-            curl.setopt(CurlOpt.COOKIELIST, morsel.to_curl_format())
+            curl.setopt(m.CURLOPT_COOKIELIST, morsel.to_curl_format())
         if cookies:
             temp_cookies = Cookies(cookies)
             for morsel in temp_cookies.get_cookies_for_curl(req):
-                curl.setopt(CurlOpt.COOKIELIST, morsel.to_curl_format())
+                curl.setopt(m.CURLOPT_COOKIELIST, morsel.to_curl_format())
 
         # files
         if files:
@@ -286,8 +286,8 @@ class BaseSession:
                 username, password = self.auth
             if auth:
                 username, password = auth
-            c.setopt(CurlOpt.USERNAME, username.encode())  # type: ignore
-            c.setopt(CurlOpt.PASSWORD, password.encode())  # type: ignore
+            c.setopt(m.CURLOPT_USERNAME, username.encode())  # type: ignore
+            c.setopt(m.CURLOPT_PASSWORD, password.encode())  # type: ignore
 
         # timeout
         if timeout is not_set:
@@ -298,24 +298,24 @@ class BaseSession:
         if isinstance(timeout, tuple):
             connect_timeout, read_timeout = timeout
             all_timeout = connect_timeout + read_timeout
-            c.setopt(CurlOpt.CONNECTTIMEOUT_MS, int(connect_timeout * 1000))
+            c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(connect_timeout * 1000))
             if not stream:
-                c.setopt(CurlOpt.TIMEOUT_MS, int(all_timeout * 1000))
+                c.setopt(m.CURLOPT_TIMEOUT_MS, int(all_timeout * 1000))
         else:
             if not stream:
-                c.setopt(CurlOpt.TIMEOUT_MS, int(timeout * 1000))  # type: ignore
+                c.setopt(m.CURLOPT_TIMEOUT_MS, int(timeout * 1000))  # type: ignore
             else:
-                c.setopt(CurlOpt.CONNECTTIMEOUT_MS, int(timeout * 1000))  # type: ignore
+                c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(timeout * 1000))  # type: ignore
 
         # allow_redirects
         c.setopt(
-            CurlOpt.FOLLOWLOCATION,
+            m.CURLOPT_FOLLOWLOCATION,
             int(self.allow_redirects if allow_redirects is None else allow_redirects),
         )
 
         # max_redirects
         c.setopt(
-            CurlOpt.MAXREDIRS,
+            m.CURLOPT_MAXREDIRS,
             self.max_redirects if max_redirects is None else max_redirects,
         )
 
@@ -325,7 +325,7 @@ class BaseSession:
         if proxies:
             if url.startswith("http://"):
                 if proxies["http"] is not None:
-                    c.setopt(CurlOpt.PROXY, proxies["http"])
+                    c.setopt(m.CURLOPT_PROXY, proxies["http"])
             elif url.startswith("https://"):
                 if proxies["https"] is not None:
                     if proxies["https"].startswith("https://"):
@@ -333,31 +333,31 @@ class BaseSession:
                             "You are using http proxy WRONG, the prefix should be 'http://' not 'https://',"
                             "see: https://github.com/yifeikong/curl_cffi/issues/6"
                         )
-                    c.setopt(CurlOpt.PROXY, proxies["https"])
+                    c.setopt(m.CURLOPT_PROXY, proxies["https"])
                     # for http proxy, need to tell curl to enable tunneling
                     if not proxies["https"].startswith("socks"):
-                        c.setopt(CurlOpt.HTTPPROXYTUNNEL, 1)
+                        c.setopt(m.CURLOPT_HTTPPROXYTUNNEL, 1)
 
         # verify
         if verify is False or not self.verify and verify is None:
-            c.setopt(CurlOpt.SSL_VERIFYPEER, 0)
-            c.setopt(CurlOpt.SSL_VERIFYHOST, 0)
+            c.setopt(m.CURLOPT_SSL_VERIFYPEER, 0)
+            c.setopt(m.CURLOPT_SSL_VERIFYHOST, 0)
 
         # cert for this single request
         if isinstance(verify, str):
-            c.setopt(CurlOpt.CAINFO, verify)
+            c.setopt(m.CURLOPT_CAINFO, verify)
 
         # cert for the session
         if verify in (None, True) and isinstance(self.verify, str):
-            c.setopt(CurlOpt.CAINFO, self.verify)
+            c.setopt(m.CURLOPT_CAINFO, self.verify)
 
         # referer
         if referer:
-            c.setopt(CurlOpt.REFERER, referer.encode())
+            c.setopt(m.CURLOPT_REFERER, referer.encode())
 
         # accept_encoding
         if accept_encoding is not None:
-            c.setopt(CurlOpt.ACCEPT_ENCODING, accept_encoding.encode())
+            c.setopt(m.CURLOPT_ACCEPT_ENCODING, accept_encoding.encode())
 
         # impersonate
         impersonate = impersonate or self.impersonate
@@ -372,7 +372,7 @@ class BaseSession:
         # http_version, after impersonate, which will change this to http2
         http_version = http_version or self.http_version
         if http_version:
-            c.setopt(CurlOpt.HTTP_VERSION, http_version)
+            c.setopt(m.CURLOPT_HTTP_VERSION, http_version)
 
         # set extra curl options, must come after impersonate, because it will alter some options
         for k, v in self.curl_options.items():
@@ -395,37 +395,37 @@ class BaseSession:
                 q.put_nowait(chunk)
                 return len(chunk)
 
-            c.setopt(CurlOpt.WRITEFUNCTION, qput)  # type: ignore
+            c.setopt(m.CURLOPT_WRITEFUNCTION, qput)  # type: ignore
         elif content_callback is not None:
-            c.setopt(CurlOpt.WRITEFUNCTION, content_callback)
+            c.setopt(m.CURLOPT_WRITEFUNCTION, content_callback)
         else:
             buffer = BytesIO()
-            c.setopt(CurlOpt.WRITEDATA, buffer)
+            c.setopt(m.CURLOPT_WRITEDATA, buffer)
         header_buffer = BytesIO()
-        c.setopt(CurlOpt.HEADERDATA, header_buffer)
+        c.setopt(m.CURLOPT_HEADERDATA, header_buffer)
 
         if method == "HEAD":
-            c.setopt(CurlOpt.NOBODY, 1)
+            c.setopt(m.CURLOPT_NOBODY, 1)
 
         # interface
         interface = interface or self.interface
         if interface:
-            c.setopt(CurlOpt.INTERFACE, interface.encode())
+            c.setopt(m.CURLOPT_INTERFACE, interface.encode())
 
         # max_recv_speed
         # do not check, since 0 is a valid value to disable it
-        c.setopt(CurlOpt.MAX_RECV_SPEED_LARGE, max_recv_speed)
+        c.setopt(m.CURLOPT_MAX_RECV_SPEED_LARGE, max_recv_speed)
 
         return req, buffer, header_buffer, q, header_recved, quit_now
 
     def _parse_response(self, curl, buffer, header_buffer):
         c = curl
         rsp = Response(c)
-        rsp.url = cast(bytes, c.getinfo(CurlInfo.EFFECTIVE_URL)).decode()
+        rsp.url = cast(bytes, c.getinfo(m.CURLINFO_EFFECTIVE_URL)).decode()
         if buffer:
             rsp.content = buffer.getvalue()  # type: ignore
-        rsp.http_version = cast(int, c.getinfo(CurlInfo.HTTP_VERSION))
-        rsp.status_code = cast(int, c.getinfo(CurlInfo.RESPONSE_CODE))
+        rsp.http_version = cast(int, c.getinfo(m.CURLINFO_HTTP_VERSION))
+        rsp.status_code = cast(int, c.getinfo(m.CURLINFO_RESPONSE_CODE))
         rsp.ok = 200 <= rsp.status_code < 400
         header_lines = header_buffer.getvalue().splitlines()
 
@@ -447,9 +447,9 @@ class BaseSession:
         rsp.headers = Headers(header_list)
         # print("Set-cookie", rsp.headers["set-cookie"])
         morsels = [
-            CurlMorsel.from_curl_format(l) for l in c.getinfo(CurlInfo.COOKIELIST)
+            CurlMorsel.from_curl_format(l) for l in c.getinfo(m.CURLINFO_COOKIELIST)
         ]
-        # for l in c.getinfo(CurlInfo.COOKIELIST):
+        # for l in c.getinfo(m.CURLINFO_COOKIELIST):
         #     print("Curl Cookies", l.decode())
 
         self.cookies.update_cookies_from_curl(morsels)
@@ -457,15 +457,15 @@ class BaseSession:
         # print("Cookies after extraction", self.cookies)
 
         content_type = rsp.headers.get("Content-Type", default="")
-        m = re.search(r"charset=([\w-]+)", content_type)
-        charset = m.group(1) if m else "utf-8"
+        match = re.search(r"charset=([\w-]+)", content_type)
+        charset = match.group(1) if match else "utf-8"
 
         rsp.charset = charset
         rsp.encoding = charset  # TODO use chardet
 
-        rsp.elapsed = cast(float, c.getinfo(CurlInfo.TOTAL_TIME))
-        rsp.redirect_count = cast(int, c.getinfo(CurlInfo.REDIRECT_COUNT))
-        rsp.redirect_url = cast(bytes, c.getinfo(CurlInfo.REDIRECT_URL)).decode()
+        rsp.elapsed = cast(float, c.getinfo(m.CURLINFO_TOTAL_TIME))
+        rsp.redirect_count = cast(int, c.getinfo(m.CURLINFO_REDIRECT_COUNT))
+        rsp.redirect_url = cast(bytes, c.getinfo(m.CURLINFO_REDIRECT_URL)).decode()
 
         for info in self.curl_infos:
             rsp.infos[info] = c.getinfo(info)
@@ -912,7 +912,7 @@ class AsyncSession(BaseSession):
                 # curl.debug()
                 task = self.acurl.add_handle(curl)
                 await task
-                # print(curl.getinfo(CurlInfo.CAINFO))
+                # print(curl.getinfo(m.CURLINFO_CAINFO))
             except CurlError as e:
                 rsp = self._parse_response(curl, buffer, header_buffer)
                 rsp.request = req

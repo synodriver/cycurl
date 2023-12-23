@@ -21,12 +21,12 @@ from functools import partial
 from io import BytesIO
 from typing import Callable, Dict, Optional, Tuple, Union
 
-from ..const import CurlHttpVersion
-from .cookies import Cookies, CookieTypes
-from .models import Request, Response
-from .errors import RequestsError
-from .headers import Headers, HeaderTypes
-from .session import AsyncSession, BrowserType, Session
+from cycurl._curl import CurlHttpVersion
+from cycurl.requests.cookies import Cookies, CookieTypes
+from cycurl.requests.models import Request, Response
+from cycurl.requests.errors import RequestsError
+from cycurl.requests.headers import Headers, HeaderTypes
+from cycurl.requests.session import AsyncSession, BrowserType, Session
 
 # ThreadType = Literal["eventlet", "gevent", None]
 

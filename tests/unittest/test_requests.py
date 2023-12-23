@@ -5,9 +5,8 @@ import json
 
 import pytest
 
-from curl_cffi import requests, CurlOpt
-from curl_cffi.const import CurlECode, CurlInfo
-
+from cycurl import requests
+from cycurl import *
 
 def test_head(server):
     r = requests.head(str(server.url))
@@ -194,7 +193,7 @@ def test_follow_redirects(server):
 def test_too_many_redirects(server):
     with pytest.raises(requests.RequestsError) as e:
         requests.get(str(server.url.copy_with(path="/redirect_loop")), max_redirects=2)
-    assert e.value.code == CurlECode.TOO_MANY_REDIRECTS
+    assert e.value.code == CURLE_TOO_MANY_REDIRECTS
     assert e.value.response.status_code == 301  # type: ignore
 
 
@@ -362,7 +361,7 @@ def test_cookies_with_special_chars(server):
 # https://github.com/yifeikong/curl_cffi/issues/119
 def test_cookies_mislead_by_host(server):
     s = requests.Session(debug=True)
-    s.curl.setopt(CurlOpt.RESOLVE, ["example.com:8000:127.0.0.1"])
+    s.curl.setopt(CURLOPT_RESOLVE, ["example.com:8000:127.0.0.1"])
     s.cookies.set("foo", "bar")
     print("URL is: ", str(server.url))
     # TODO replace hard-coded url with server.url.replace(host="example.com")
@@ -374,7 +373,7 @@ def test_cookies_mislead_by_host(server):
 # https://github.com/yifeikong/curl_cffi/issues/119
 def test_cookies_redirect_to_another_domain(server):
     s = requests.Session()
-    s.curl.setopt(CurlOpt.RESOLVE, ["google.com:8000:127.0.0.1"])
+    s.curl.setopt(CURLOPT_RESOLVE, ["google.com:8000:127.0.0.1"])
     s.cookies.set("foo", "google.com", domain="google.com")
     r = s.get(
         str(server.url.copy_with(path="/redirect_to")),
@@ -388,7 +387,7 @@ def test_cookies_redirect_to_another_domain(server):
 def test_cookies_wo_hostname_redirect_to_another_domain(server):
     s = requests.Session(debug=True)
     s.curl.setopt(
-        CurlOpt.RESOLVE,
+        CURLOPT_RESOLVE,
         [
             "example.com:8000:127.0.0.1",
             "google.com:8000:127.0.0.1",
@@ -487,7 +486,7 @@ def test_stream_incomplete_read(server):
             with s.stream("GET", url) as r:
                 for _ in r.iter_content():
                     continue
-        assert e.value.code == CurlECode.PARTIAL_FILE
+        assert e.value.code == CURLE_PARTIAL_FILE
 
 
 def test_stream_incomplete_read_without_close(server):
@@ -500,7 +499,7 @@ def test_stream_incomplete_read_without_close(server):
             for _ in r.iter_content():
                 continue
 
-        assert e.value.code == CurlECode.PARTIAL_FILE
+        assert e.value.code == CURLE_PARTIAL_FILE
 
 
 def test_stream_redirect_loop(server):
@@ -509,7 +508,7 @@ def test_stream_redirect_loop(server):
         with pytest.raises(requests.RequestsError) as e:
             with s.stream("GET", url, max_redirects=2):
                 pass
-        assert e.value.code == CurlECode.TOO_MANY_REDIRECTS
+        assert e.value.code == CURLE_TOO_MANY_REDIRECTS
         assert e.value.response.status_code == 301  # type: ignore
 
 
@@ -520,7 +519,7 @@ def test_stream_redirect_loop_without_close(server):
             # if the error happens receiving header, it's raised right away
             s.get(url, max_redirects=2, stream=True)
 
-        assert e.value.code == CurlECode.TOO_MANY_REDIRECTS
+        assert e.value.code == CURLE_TOO_MANY_REDIRECTS
         assert e.value.response.status_code == 301  # type: ignore
 
 
@@ -549,7 +548,7 @@ def test_stream_auto_close_with_header_errors(server):
     url = str(server.url.copy_with(path="/redirect_loop"))
     with pytest.raises(requests.RequestsError) as e:
         s.get(url, max_redirects=2, stream=True)
-    assert e.value.code == CurlECode.TOO_MANY_REDIRECTS
+    assert e.value.code == CURLE_TOO_MANY_REDIRECTS
     assert e.value.response.status_code == 301  # type: ignore
 
     url = str(server.url.copy_with(path="/"))
@@ -560,7 +559,7 @@ def test_stream_options_persist(server):
     s = requests.Session()
 
     # set here instead of when requesting
-    s.curl.setopt(CurlOpt.USERAGENT, b"foo/1.0")
+    s.curl.setopt(CURLOPT_USERAGENT, b"foo/1.0")
 
     url = str(server.url.copy_with(path="/echo_headers"))
     r = s.get(url, stream=True)
@@ -591,7 +590,7 @@ def test_stream_close_early(server):
 # Does not work
 # def test_max_recv_speed(server):
 #     s = requests.Session()
-#     s.curl.setopt(CurlOpt.BUFFERSIZE, 1024 * 1024)
+#     s.curl.setopt(CURLOPT_BUFFERSIZE, 1024 * 1024)
 #     url = str(server.url.copy_with(path="/large"))
 #     # from http://xcal1.vodafone.co.uk/
 #     url = "http://212.183.159.230/200MB.zip"
@@ -603,8 +602,8 @@ def test_stream_close_early(server):
 
 
 def test_curl_infos(server):
-    s = requests.Session(curl_infos=[CurlInfo.PRIMARY_IP])
+    s = requests.Session(curl_infos=[CURLINFO_PRIMARY_IP])
 
     r = s.get(str(server.url))
 
-    assert r.infos[CurlInfo.PRIMARY_IP] == b"127.0.0.1"
+    assert r.infos[CURLINFO_PRIMARY_IP] == b"127.0.0.1"

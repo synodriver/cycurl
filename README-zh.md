@@ -28,7 +28,7 @@ TLS 或者 JA3 指纹。如果你莫名其妙地被某个网站封锁了，可�
 ### 类 requests
 
 ```python
-from curl_cffi import requests
+from cycurl import requests
 
 # 注意 impersonate 这个参数
 r = requests.get("https://tls.browserleaks.com/json", impersonate="chrome110")
@@ -76,7 +76,7 @@ print(r.json())
 ### asyncio
 
 ```python
-from curl_cffi.requests import AsyncSession
+from cycurl.requests import AsyncSession
 
 async with AsyncSession() as s:
     r = await s.get("https://example.com")
@@ -86,7 +86,7 @@ async with AsyncSession() as s:
 
 ```python
 import asyncio
-from curl_cffi.requests import AsyncSession
+from cycurl.requests import AsyncSession
 
 urls = [
     "https://googel.com/",
@@ -107,13 +107,13 @@ async with AsyncSession() as s:
 另外，你还可以使用类似 curl 的底层 API：
 
 ```python
-from curl_cffi import Curl, CurlOpt
+from cycurl import Curl, CurlOpt
 from io import BytesIO
 
 buffer = BytesIO()
 c = Curl()
-c.setopt(CurlOpt.URL, b'https://tls.browserleaks.com/json')
-c.setopt(CurlOpt.WRITEDATA, buffer)
+c.setopt(CURLOPT_URL, b'https://tls.browserleaks.com/json')
+c.setopt(CURLOPT_WRITEDATA, buffer)
 
 c.impersonate("chrome110")
 

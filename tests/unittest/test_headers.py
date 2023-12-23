@@ -1,4 +1,4 @@
-from curl_cffi.requests import Headers
+from cycurl.requests import Headers
 
 
 def test_headers():

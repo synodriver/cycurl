@@ -1,4 +1,4 @@
-from curl_cffi import requests
+from cycurl import requests
 
 
 def test_post_with_no_body():

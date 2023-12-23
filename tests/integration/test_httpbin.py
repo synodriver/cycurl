@@ -1,6 +1,6 @@
 import pytest
-from curl_cffi import requests, CurlHttpVersion, CurlOpt
-
+from cycurl import *
+from cycurl import requests
 
 #######################################################################################
 # testing httpbin
@@ -55,7 +55,7 @@ def test_curl_options():
     assert r.http_version == CurlHttpVersion.V2_0
     r = requests.get(
         url,
-        curl_options={CurlOpt.HTTP_VERSION: CurlHttpVersion.V1_1},
+        curl_options={CURLOPT_HTTP_VERSION: CurlHttpVersion.V1_1},
         impersonate="chrome110",
         default_headers=False,
     )

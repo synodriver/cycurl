@@ -43,7 +43,7 @@ To install beta releases:
 ### requests-like
 
 ```python
-from curl_cffi import requests
+from cycurl import requests
 
 # Notice the impersonate parameter
 r = requests.get("https://tls.browserleaks.com/json", impersonate="chrome110")
@@ -91,7 +91,7 @@ Supported impersonate versions, as supported by [curl-impersonate](https://githu
 ### asyncio
 
 ```python
-from curl_cffi.requests import AsyncSession
+from cycurl.requests import AsyncSession
 
 async with AsyncSession() as s:
     r = await s.get("https://example.com")
@@ -101,7 +101,7 @@ More concurrency:
 
 ```python
 import asyncio
-from curl_cffi.requests import AsyncSession
+from cycurl.requests import AsyncSession
 
 urls = [
     "https://googel.com/",
@@ -122,13 +122,13 @@ async with AsyncSession() as s:
 Alternatively, you can use the low-level curl-like API:
 
 ```python
-from curl_cffi import Curl, CurlOpt
+from cycurl import Curl, CurlOpt
 from io import BytesIO
 
 buffer = BytesIO()
 c = Curl()
-c.setopt(CurlOpt.URL, b'https://tls.browserleaks.com/json')
-c.setopt(CurlOpt.WRITEDATA, buffer)
+c.setopt(CURLOPT_URL, b'https://tls.browserleaks.com/json')
+c.setopt(CURLOPT_WRITEDATA, buffer)
 
 c.impersonate("chrome110")
 

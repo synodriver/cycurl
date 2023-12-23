@@ -1,5 +1,5 @@
 import asyncio
-from curl_cffi import requests
+from cycurl import requests
 
 
 async def main():

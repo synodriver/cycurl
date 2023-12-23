@@ -5,7 +5,7 @@ monkey.patch_all()
 import threading
 import time
 
-from curl_cffi import requests
+from cycurl import requests
 
 
 def delay():

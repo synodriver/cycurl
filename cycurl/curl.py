@@ -175,7 +175,7 @@ class Curl:
         elif option == CurlOpt.HEADERFUNCTION:
             c_value = ffi.new_handle(value)
             self._header_handle = c_value
-            lib._curl_easy_setopt(self._curl, CurlOpt.WRITEFUNCTION, lib.write_callback)
+            lib._curl_easy_setopt(self._curl, CurlOpt.HEADERFUNCTION, lib.write_callback)
             option = CurlOpt.HEADERDATA
         elif value_type == "char*":
             if isinstance(value, str):
@@ -281,6 +281,7 @@ class Curl:
             if self._headers != ffi.NULL:
                 lib.curl_slist_free_all(self._headers)
             self._headers = ffi.NULL
+        # fixme: clean resolve
 
     def duphandle(self):
         """This is not a full copy of entire curl object in python. For example, headers

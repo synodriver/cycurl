@@ -1,5 +1,5 @@
 import pytest
-from curl_cffi import requests
+from cycurl import requests
 
 
 JA3_URL = "https://tls.browserleaks.com/json"

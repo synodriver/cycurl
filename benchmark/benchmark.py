@@ -6,8 +6,8 @@ import aiohttp
 import pycurl
 import tls_client
 import httpx
-import curl_cffi
-import curl_cffi.requests
+import cycurl
+import cycurl.requests
 import uvloop
 import queue
 import threading
@@ -34,12 +34,12 @@ class FakePycurlSession:
 
 class FakeCurlCffiSession:
     def __init__(self):
-        self.c = curl_cffi.Curl()
+        self.c = cycurl.Curl()
 
     def get(self, url):
         buffer = BytesIO()
-        self.c.setopt(curl_cffi.CurlOpt.URL, url)
-        self.c.setopt(curl_cffi.CurlOpt.WRITEDATA, buffer)
+        self.c.setopt(cycurl.CURLOPT_URL, url)
+        self.c.setopt(cycurl.CURLOPT_WRITEDATA, buffer)
         # self.c.setopt(pycurl.CAINFO, certifi.where())
         self.c.perform()
 
@@ -55,7 +55,7 @@ for size in ["1k", "20k", "200k"]:
         ("requests", requests.Session),
         ("httpx_sync", httpx.Client),
         ("tls_client", tls_client.Session),
-        ("curl_cffi_sync", curl_cffi.requests.Session),
+        ("curl_cffi_sync", cycurl.requests.Session),
         ("curl_cffi_raw", FakeCurlCffiSession),
         ("pycurl", FakePycurlSession),
     ]:
@@ -107,7 +107,7 @@ for size in ["1k", "20k", "200k"]:
         ("requests", requests.Session),
         ("httpx_sync", httpx.Client),
         ("tls_client", tls_client.Session),
-        ("curl_cffi_sync", curl_cffi.requests.Session),
+        ("curl_cffi_sync", cycurl.requests.Session),
         ("curl_cffi_raw", FakeCurlCffiSession),
         ("pycurl", FakePycurlSession),
     ]:
@@ -134,7 +134,7 @@ for size in ["1k", "20k", "200k"]:
         for name, worker, SessionClass in [
             ("aiohttp", aiohttp_worker, aiohttp.ClientSession),
             ("httpx_async", httpx_worker, httpx.AsyncClient),
-            ("curl_cffi_async", httpx_worker, curl_cffi.requests.AsyncSession),
+            ("curl_cffi_async", httpx_worker, cycurl.requests.AsyncSession),
         ]:
             q = asyncio.Queue()
             for _ in range(1000):

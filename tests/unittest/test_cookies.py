@@ -1,8 +1,8 @@
 import pytest
-from curl_cffi.requests.models import Request
-from curl_cffi.requests.cookies import Cookies, CurlMorsel
-from curl_cffi.requests.headers import Headers
-from curl_cffi.requests.errors import CookieConflict, RequestsError
+from cycurl.requests.models import Request
+from cycurl.requests.cookies import Cookies, CurlMorsel
+from cycurl.requests.headers import Headers
+from cycurl.requests.errors import CookieConflict, RequestsError
 
 
 def test_cookies_conflict():

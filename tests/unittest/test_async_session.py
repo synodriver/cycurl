@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from curl_cffi.requests import AsyncSession, RequestsError
+from cycurl.requests import AsyncSession, RequestsError
 
 
 async def test_get(server):
