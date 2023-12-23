@@ -58,9 +58,7 @@ def normalize_header_value(
     """
     Coerce str/bytes into a strictly byte-wise HTTP header value.
     """
-    if isinstance(value, bytes):
-        return value
-    return value.encode(encoding or "ascii")
+    return value if isinstance(value, bytes) else value.encode(encoding or "ascii")
 
 
 class Headers(typing.MutableMapping[str, str]):
@@ -235,13 +233,11 @@ class Headers(typing.MutableMapping[str, str]):
         """
         normalized_key = key.lower().encode(self.encoding)
 
-        items = [
+        if items := [
             header_value.decode(self.encoding)
             for _, header_key, header_value in self._list
             if header_key == normalized_key
-        ]
-
-        if items:
+        ]:
             return ", ".join(items)
 
         raise KeyError(key)

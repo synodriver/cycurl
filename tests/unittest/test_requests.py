@@ -364,7 +364,7 @@ def test_cookies_mislead_by_host(server):
     s = requests.Session(debug=True)
     s.curl.setopt(CurlOpt.RESOLVE, ["example.com:8000:127.0.0.1"])
     s.cookies.set("foo", "bar")
-    print("URL is: ", str(server.url))
+    print("URL is: ", server.url)
     # TODO replace hard-coded url with server.url.replace(host="example.com")
     r = s.get("http://example.com:8000", headers={"Host": "example.com"})
     r = s.get(str(server.url.copy_with(path="/echo_cookies")))
@@ -564,9 +564,7 @@ def test_stream_options_persist(server):
 
     url = str(server.url.copy_with(path="/echo_headers"))
     r = s.get(url, stream=True)
-    buffer = []
-    for line in r.iter_lines():
-        buffer.append(line)
+    buffer = list(r.iter_lines())
     data = json.loads(b"".join(buffer))
     assert data["User-agent"][0] == "foo/1.0"
 

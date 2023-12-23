@@ -67,7 +67,7 @@ for size in ["1k", "20k", "200k"]:
         stats[name] = dur
         results.append({"name": name, "size": size, "duration": dur})
 
-    print("One worker, {}: ".format(size), stats)
+    print(f"One worker, {size}: ", stats)
 
 df = pd.DataFrame(results)
 df.to_csv("single_worker.csv", index=False, float_format='%.4f')
