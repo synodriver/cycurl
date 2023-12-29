@@ -38,7 +38,7 @@ elif uname.system == "Darwin":
     extra_objects = ["./dep/macos_v0.6.0-alpha.1.x86_64/libcurl-impersonate-chrome.a"]
 else:
     library_dirs = ["./dep/linux_latest/chromelibs"]
-    extra_objects = ["./dep/linux_latest/libcurl-impersonate-chrome.a"]
+    extra_objects = ["./dep/linux_latest/chromelibs/libcurl-impersonate-chrome.a"]
 
 extensions = [
     Extension(
@@ -79,7 +79,7 @@ def main():
     version: str = get_version()
     dis = get_dis()
     setup(
-        name="ftea",
+        name="cycurl",
         version=version,
         url="https://github.com/synodriver/cycurl",
         packages=packages,
