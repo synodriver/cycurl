@@ -29,20 +29,16 @@ def reporthook(blocknum, blocksize, totalsize):
 
 
 if uname.system == "Darwin":
-    if uname.machine == "arm64":
-        # TODO Download my own build of libcurl-impersonate for M1 Mac
-        url = ""
-        filename = "./curl-impersonate.tar.gz"
-    else:
-        url = f"https://github.com/lwthiker/curl-impersonate/releases/download/v{VERSION}/libcurl-impersonate-v{VERSION}.{uname.machine}-macos.tar.gz"
-        filename = "./curl-impersonate.tar.gz"
+    url = (
+        ""
+        if uname.machine == "arm64"
+        else f"https://github.com/lwthiker/curl-impersonate/releases/download/v{VERSION}/libcurl-impersonate-v{VERSION}.{uname.machine}-macos.tar.gz"
+    )
 elif uname.system == "Windows":
     url = f"https://github.com/yifeikong/curl-impersonate-win/releases/download/v{VERSION}/curl-impersonate-chrome.tar.gz"
-    filename = "./curl-impersonate.tar.gz"
 else:
     url = f"https://github.com/lwthiker/curl-impersonate/releases/download/v{VERSION}/libcurl-impersonate-v{VERSION}.{uname.machine}-linux-gnu.tar.gz"
-    filename = "./curl-impersonate.tar.gz"
-
+filename = "./curl-impersonate.tar.gz"
 if url:
     print(f"Download libcurl-impersonate-chrome from {url}")
     urlretrieve(url, filename, (None if os.getenv("GITHUB_ACTIONS") else reporthook))
