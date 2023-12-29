@@ -35,10 +35,10 @@ if uname.system == "Windows":
     shutil.copy("./dep/win/libcurl.dll", "./cycurl")
 elif uname.system == "Darwin":
     library_dirs = ["./dep/macos_v0.6.0-alpha.1.x86_64"]
-    extra_objects = ["./dep/macos_v0.6.0-alpha.1.x86_64/libcurl-impersonate-chrome.a"]
+    extra_objects = ["./dep/macos_v0.6.0-alpha.1.x86_64/libcurl-impersonate-chrome.4.dylib"]
 else:
     library_dirs = ["./dep/linux_latest/chromelibs"]
-    extra_objects = ["./dep/linux_latest/chromelibs/libcurl-impersonate-chrome.a"]
+    extra_objects = ["./dep/linux_latest/chromelibs/libcurl-impersonate-chrome.so.4.8.0"]
 
 extensions = [
     Extension(
