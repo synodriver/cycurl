@@ -5,14 +5,14 @@
     "distutils": {
         "depends": [],
         "extra_objects": [
-            "/home/curl-impersonate/build/chromelibs/libcurl-impersonate-chrome.so.4.8.0"
+            "./dep/win/libcurl.lib"
         ],
         "include_dirs": [
-            "/home/curl-impersonate/build/curl-8.1.1/include",
+            "./dep/curl-8.1.1/include",
             "E:\\pyproject\\curl_cffi\\cycurl\\ffi"
         ],
         "library_dirs": [
-            "/home/curl-impersonate/build/chromelibs"
+            "./dep/win"
         ],
         "name": "cycurl._curl",
         "sources": [
@@ -2796,6 +2796,9 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
 
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
+
+/* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_unsigned_int(unsigned int value);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
@@ -8532,7 +8535,7 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
  *     total = size*nmemb
  *     callback = <object>userdata             # <<<<<<<<<<<<<<
  *     wrote = callback(<bytes>ptr[:total])
- *     if wrote == <size_t>curl.CURL_WRITEFUNC_PAUSE or wrote == <size_t>curl.CURL_WRITEFUNC_ERROR:
+ *     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:
  */
   __pyx_t_1 = ((PyObject *)__pyx_v_userdata);
   __Pyx_INCREF(__pyx_t_1);
@@ -8543,7 +8546,7 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
  *     total = size*nmemb
  *     callback = <object>userdata
  *     wrote = callback(<bytes>ptr[:total])             # <<<<<<<<<<<<<<
- *     if wrote == <size_t>curl.CURL_WRITEFUNC_PAUSE or wrote == <size_t>curl.CURL_WRITEFUNC_ERROR:
+ *     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:
  *         return wrote
  */
   __pyx_t_2 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_ptr + 0, __pyx_v_total - 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
@@ -8579,24 +8582,24 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
   /* "cycurl/_curl.pyx":76
  *     callback = <object>userdata
  *     wrote = callback(<bytes>ptr[:total])
- *     if wrote == <size_t>curl.CURL_WRITEFUNC_PAUSE or wrote == <size_t>curl.CURL_WRITEFUNC_ERROR:             # <<<<<<<<<<<<<<
+ *     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:             # <<<<<<<<<<<<<<
  *         return wrote
  *     # should make this an exception in future versions
  */
-  __pyx_t_8 = (__pyx_v_wrote == ((size_t)CURL_WRITEFUNC_PAUSE));
+  __pyx_t_8 = (((unsigned int)__pyx_v_wrote) == CURL_WRITEFUNC_PAUSE);
   if (!__pyx_t_8) {
   } else {
     __pyx_t_7 = __pyx_t_8;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_8 = (__pyx_v_wrote == ((size_t)CURL_WRITEFUNC_ERROR));
+  __pyx_t_8 = (((unsigned int)__pyx_v_wrote) == CURL_WRITEFUNC_ERROR);
   __pyx_t_7 = __pyx_t_8;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_7) {
 
     /* "cycurl/_curl.pyx":77
  *     wrote = callback(<bytes>ptr[:total])
- *     if wrote == <size_t>curl.CURL_WRITEFUNC_PAUSE or wrote == <size_t>curl.CURL_WRITEFUNC_ERROR:
+ *     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:
  *         return wrote             # <<<<<<<<<<<<<<
  *     # should make this an exception in future versions
  *     if wrote != total:
@@ -8607,7 +8610,7 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
     /* "cycurl/_curl.pyx":76
  *     callback = <object>userdata
  *     wrote = callback(<bytes>ptr[:total])
- *     if wrote == <size_t>curl.CURL_WRITEFUNC_PAUSE or wrote == <size_t>curl.CURL_WRITEFUNC_ERROR:             # <<<<<<<<<<<<<<
+ *     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:             # <<<<<<<<<<<<<<
  *         return wrote
  *     # should make this an exception in future versions
  */
@@ -36266,7 +36269,7 @@ if (!__Pyx_RefNanny) {
  * CURL_WRITEFUNC_ERROR             = curl.CURL_WRITEFUNC_ERROR
  * 
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(CURL_WRITEFUNC_PAUSE); if (unlikely(!__pyx_t_2)) __PYX_ERR(3, 509, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_unsigned_int(CURL_WRITEFUNC_PAUSE); if (unlikely(!__pyx_t_2)) __PYX_ERR(3, 509, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_CURL_WRITEFUNC_PAUSE, __pyx_t_2) < 0) __PYX_ERR(3, 509, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -36278,7 +36281,7 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(CURL_WRITEFUNC_ERROR); if (unlikely(!__pyx_t_2)) __PYX_ERR(3, 510, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_unsigned_int(CURL_WRITEFUNC_ERROR); if (unlikely(!__pyx_t_2)) __PYX_ERR(3, 510, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_CURL_WRITEFUNC_ERROR, __pyx_t_2) < 0) __PYX_ERR(3, 510, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -45418,6 +45421,70 @@ bad:
         from_bytes = PyObject_GetAttrString((PyObject*)&PyLong_Type, "from_bytes");
         if (!from_bytes) return NULL;
         py_bytes = PyBytes_FromStringAndSize((char*)bytes, sizeof(int));
+        if (!py_bytes) goto limited_bad;
+        order_str = PyUnicode_FromString(little ? "little" : "big");
+        if (!order_str) goto limited_bad;
+        arg_tuple = PyTuple_Pack(2, py_bytes, order_str);
+        if (!arg_tuple) goto limited_bad;
+        if (!is_unsigned) {
+            kwds = PyDict_New();
+            if (!kwds) goto limited_bad;
+            if (PyDict_SetItemString(kwds, "signed", __Pyx_NewRef(Py_True))) goto limited_bad;
+        }
+        result = PyObject_Call(from_bytes, arg_tuple, kwds);
+        limited_bad:
+        Py_XDECREF(kwds);
+        Py_XDECREF(arg_tuple);
+        Py_XDECREF(order_str);
+        Py_XDECREF(py_bytes);
+        Py_XDECREF(from_bytes);
+        return result;
+#endif
+    }
+}
+
+/* CIntToPy */
+  static CYTHON_INLINE PyObject* __Pyx_PyInt_From_unsigned_int(unsigned int value) {
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+    const unsigned int neg_one = (unsigned int) -1, const_zero = (unsigned int) 0;
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic pop
+#endif
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(unsigned int) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(unsigned int) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(unsigned int) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(unsigned int) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(unsigned int) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+#if !CYTHON_COMPILING_IN_LIMITED_API && PY_VERSION_HEX < 0x030d0000
+        return _PyLong_FromByteArray(bytes, sizeof(unsigned int),
+                                     little, !is_unsigned);
+#else
+        PyObject *from_bytes, *result = NULL;
+        PyObject *py_bytes = NULL, *arg_tuple = NULL, *kwds = NULL, *order_str = NULL;
+        from_bytes = PyObject_GetAttrString((PyObject*)&PyLong_Type, "from_bytes");
+        if (!from_bytes) return NULL;
+        py_bytes = PyBytes_FromStringAndSize((char*)bytes, sizeof(unsigned int));
         if (!py_bytes) goto limited_bad;
         order_str = PyUnicode_FromString(little ? "little" : "big");
         if (!order_str) goto limited_bad;

@@ -25,13 +25,23 @@ class build_ext_compiler_check(build_ext):
             ext.extra_compile_args.extend(args)
         super().build_extensions()
 
+if uname.system == 'Windows':
+    library_dirs = ['./dep/win']
+    extra_objects = ["./dep/win/libcurl.lib"]
+elif uname.system == "Darwin":
+    library_dirs = ['./dep/macos_v0.6.0-alpha.1.x86_64']
+    extra_objects = ["./dep/macos_v0.6.0-alpha.1.x86_64/libcurl-impersonate-chrome.a"]
+else:
+    library_dirs = ['./dep/linux_latest/chromelibs']
+    extra_objects = ["./dep/linux_latest/libcurl-impersonate-chrome.a"]
+
 extensions = [
     Extension(
         "cycurl._curl",
         ["cycurl/_curl.pyx", os.path.join(os.path.dirname(__file__), "cycurl", "ffi", "shim.c")],
-        include_dirs=[f"/home/curl-impersonate/build/curl-8.1.1/include", os.path.join(os.path.dirname(__file__), "cycurl", "ffi")],
-        library_dirs=[f"/home/curl-impersonate/build/chromelibs"],
-        extra_objects=["/home/curl-impersonate/build/chromelibs/libcurl-impersonate-chrome.so.4.8.0"],
+        include_dirs=[f"./dep/curl-8.1.1/include", os.path.join(os.path.dirname(__file__), "cycurl", "ffi")],
+        library_dirs=library_dirs,
+        extra_objects=extra_objects,
         extra_compile_args=(
         ["-Wno-implicit-function-declaration"] if uname.system == "Darwin" else []
     ),
