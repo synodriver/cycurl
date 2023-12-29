@@ -7,10 +7,10 @@ __all__ = ["Cookies"]
 import re
 import time
 import typing
+import warnings
+from dataclasses import dataclass
 from http.cookiejar import Cookie, CookieJar
 from urllib.parse import urlparse
-from dataclasses import dataclass
-import warnings
 
 from .errors import CookieConflict, RequestsError
 

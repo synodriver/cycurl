@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import os
-import re
-from collections import defaultdict
 import platform
+import re
+import shutil
+from collections import defaultdict
 
 from Cython.Build import cythonize
 from setuptools import Extension, find_packages, setup
@@ -17,6 +18,8 @@ for compiler, args in [
     BUILD_ARGS[compiler] = args
 
 uname = platform.uname()
+
+
 class build_ext_compiler_check(build_ext):
     def build_extensions(self):
         compiler = self.compiler.compiler_type
@@ -25,26 +28,31 @@ class build_ext_compiler_check(build_ext):
             ext.extra_compile_args.extend(args)
         super().build_extensions()
 
-if uname.system == 'Windows':
-    library_dirs = ['./dep/win']
+
+if uname.system == "Windows":
+    library_dirs = ["./dep/win"]
     extra_objects = ["./dep/win/libcurl.lib"]
+    shutil.copy("./dep/win/libcurl.dll", "./cycurl")
 elif uname.system == "Darwin":
-    library_dirs = ['./dep/macos_v0.6.0-alpha.1.x86_64']
+    library_dirs = ["./dep/macos_v0.6.0-alpha.1.x86_64"]
     extra_objects = ["./dep/macos_v0.6.0-alpha.1.x86_64/libcurl-impersonate-chrome.a"]
 else:
-    library_dirs = ['./dep/linux_latest/chromelibs']
+    library_dirs = ["./dep/linux_latest/chromelibs"]
     extra_objects = ["./dep/linux_latest/libcurl-impersonate-chrome.a"]
 
 extensions = [
     Extension(
         "cycurl._curl",
-        ["cycurl/_curl.pyx", os.path.join(os.path.dirname(__file__), "cycurl", "ffi", "shim.c")],
-        include_dirs=[f"./dep/curl-8.1.1/include", os.path.join(os.path.dirname(__file__), "cycurl", "ffi")],
+        ["cycurl/_curl.pyx", "cycurl/ffi/shim.c"],
+        include_dirs=[
+            f"./dep/curl-8.1.1/include",
+            os.path.join(os.path.dirname(__file__), "cycurl", "ffi"),
+        ],
         library_dirs=library_dirs,
         extra_objects=extra_objects,
         extra_compile_args=(
-        ["-Wno-implicit-function-declaration"] if uname.system == "Darwin" else []
-    ),
+            ["-Wno-implicit-function-declaration"] if uname.system == "Darwin" else []
+        ),
     ),
 ]
 
@@ -82,7 +90,7 @@ def main():
         author="synodriver",
         author_email="diguohuangjiajinweijun@gmail.com",
         python_requires=">=3.6",
-        setup_requires=["cython"],
+        setup_requires=["cython>=3"],
         license="BSD",
         classifiers=[
             "Development Status :: 4 - Beta",

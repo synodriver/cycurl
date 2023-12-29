@@ -1,12 +1,12 @@
+import queue
 import warnings
 from json import loads
 from typing import Optional
-import queue
 
 from .. import Curl
-from .headers import Headers
 from .cookies import Cookies
 from .errors import RequestsError
+from .headers import Headers
 
 
 def clear_queue(q: queue.Queue):

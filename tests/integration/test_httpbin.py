@@ -1,4 +1,5 @@
 import pytest
+
 from cycurl import *
 from cycurl import requests
 

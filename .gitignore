@@ -4,6 +4,7 @@ Release
 *.pyc
 *.pyd
 *.so
+*.dll
 *.o
 **/__pycache__
 .venv
@@ -12,7 +13,7 @@ build/
 dist/
 wheelhouse/
 curl.egg-info/
-curl_cffi.egg-info/
+cycurl.egg-info/
 cycurl/cacert.pem
 # curl_cffi/const.py
 curl-*/

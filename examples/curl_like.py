@@ -2,7 +2,6 @@ from io import BytesIO
 
 from cycurl import *
 
-
 buffer = BytesIO()
 c = Curl()
 c.setopt(CURLOPT_CUSTOMREQUEST, b"GET")

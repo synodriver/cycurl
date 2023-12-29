@@ -1,20 +1,25 @@
 import asyncio
-from contextlib import contextmanager, asynccontextmanager
+import queue
 import re
 import threading
 import warnings
-import queue
+from concurrent.futures import ThreadPoolExecutor
+from contextlib import asynccontextmanager, contextmanager
 from enum import Enum
 from functools import partialmethod
 from io import BytesIO
 from json import dumps
-from typing import Callable, Dict, List, Any, Optional, Tuple, Union, cast
+from typing import Any, Callable, Dict, List, Optional, Tuple, Union, cast
 from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urlparse
-from concurrent.futures import ThreadPoolExecutor
 
 import cycurl._curl as m
-from cycurl._curl import AsyncCurl, Curl, CurlError, CurlHttpVersion
-from cycurl._curl import CURL_WRITEFUNC_ERROR
+from cycurl._curl import (
+    CURL_WRITEFUNC_ERROR,
+    AsyncCurl,
+    Curl,
+    CurlError,
+    CurlHttpVersion,
+)
 from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
@@ -265,7 +270,9 @@ class BaseSession:
         req = Request(url, h, method)
 
         # cookies
-        c.setopt(m.CURLOPT_COOKIEFILE, b"")  # always enable the curl cookie engine first
+        c.setopt(
+            m.CURLOPT_COOKIEFILE, b""
+        )  # always enable the curl cookie engine first
         c.setopt(m.CURLOPT_COOKIELIST, "ALL")  # remove all the old cookies first.
 
         for morsel in self.cookies.get_cookies_for_curl(req):
@@ -323,20 +330,28 @@ class BaseSession:
         if self.proxies:
             proxies = {**self.proxies, **(proxies or {})}
         if proxies:
-            if url.startswith("http://"):
-                if proxies["http"] is not None:
-                    c.setopt(m.CURLOPT_PROXY, proxies["http"])
-            elif url.startswith("https://"):
-                if proxies["https"] is not None:
-                    if proxies["https"].startswith("https://"):
-                        raise RequestsError(
-                            "You are using http proxy WRONG, the prefix should be 'http://' not 'https://',"
-                            "see: https://github.com/yifeikong/curl_cffi/issues/6"
-                        )
-                    c.setopt(m.CURLOPT_PROXY, proxies["https"])
-                    # for http proxy, need to tell curl to enable tunneling
-                    if not proxies["https"].startswith("socks"):
-                        c.setopt(m.CURLOPT_HTTPPROXYTUNNEL, 1)
+            parts = urlparse(url)
+            proxy = proxies.get(parts.scheme, proxies.get("all"))
+            if parts.hostname:
+                proxy = (
+                    proxies.get(
+                        f"{parts.scheme}://{parts.hostname}",
+                        proxies.get(f"all://{parts.hostname}"),
+                    )
+                    or proxy
+                )
+
+            if proxy is not None:
+                if parts.scheme == "https" and proxy.startswith("https://"):
+                    raise RequestsError(
+                        "You are using http proxy WRONG, the prefix should be 'http://' not 'https://',"
+                        "see: https://github.com/yifeikong/curl_cffi/issues/6"
+                    )
+
+                c.setopt(m.CURLOPT_PROXY, proxy)
+                # for http proxy, need to tell curl to enable tunneling
+                if not proxy.startswith("socks"):
+                    c.setopt(m.CURLOPT_HTTPPROXYTUNNEL, 1)
 
         # verify
         if verify is False or not self.verify and verify is None:

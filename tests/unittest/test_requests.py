@@ -1,12 +1,13 @@
 import base64
+import json
 import time
 from io import BytesIO
-import json
 
 import pytest
 
-from cycurl import requests
 from cycurl import *
+from cycurl import requests
+
 
 def test_head(server):
     r = requests.head(str(server.url))
@@ -424,6 +425,37 @@ def test_session_with_headers(server):
     r = s.get(str(server.url), headers={"Foo": "bar"})
     r = s.get(str(server.url), headers={"Foo": "baz"})
     assert r.status_code == 200
+
+
+# https://github.com/yifeikong/curl_cffi/pull/171
+def test_session_with_hostname_proxies(server, proxy_server):
+    proxies = {
+        f"all://{server.url.host}": f"http://{proxy_server.flags.hostname}:{proxy_server.flags.port}"
+    }
+    s = requests.Session(proxies=proxies)
+    url = str(server.url.copy_with(path="/echo_headers"))
+    r = s.get(url)
+    assert r.text == "Hello from man in the middle"
+
+
+# https://github.com/yifeikong/curl_cffi/pull/171
+def test_session_with_http_proxies(server, proxy_server):
+    proxies = {
+        "http": f"http://{proxy_server.flags.hostname}:{proxy_server.flags.port}"
+    }
+    s = requests.Session(proxies=proxies)
+    url = str(server.url.copy_with(path="/echo_headers"))
+    r = s.get(url)
+    assert r.text == "Hello from man in the middle"
+
+
+# https://github.com/yifeikong/curl_cffi/pull/171
+def test_session_with_all_proxies(server, proxy_server):
+    proxies = {"all": f"http://{proxy_server.flags.hostname}:{proxy_server.flags.port}"}
+    s = requests.Session(proxies=proxies)
+    url = str(server.url.copy_with(path="/echo_headers"))
+    r = s.get(url)
+    assert r.text == "Hello from man in the middle"
 
 
 def test_stream_iter_content(server):

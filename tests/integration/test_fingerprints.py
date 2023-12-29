@@ -1,6 +1,6 @@
 import pytest
-from cycurl import requests
 
+from cycurl import requests
 
 JA3_URL = "https://tls.browserleaks.com/json"
 # Copied from my browser on macOS
@@ -34,5 +34,3 @@ def test_impersonate_safari():
 def test_impersonate_unknown():
     with pytest.raises(requests.RequestsError, match="not supported"):
         requests.get(JA3_URL, impersonate="unknown")
-
-

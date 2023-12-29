@@ -1,5 +1,6 @@
-from cycurl import AsyncCurl, Curl
 import cycurl as m
+from cycurl import AsyncCurl, Curl
+
 
 async def test_init(server):
     ac = AsyncCurl()
