@@ -32,8 +32,8 @@ cdef extern from "curl/curl.h" nogil:
         void *whatever # message-specific data
         int result  # return code for transfer
     struct CURLMsg:
-       int msg       # what this message means */
-       CURL *easy_handle # the handle it concerns */
+       int msg       # what this message means
+       CURL *easy_handle # the handle it concerns
        _msgdata data
     CURLM *curl_multi_init()
     int curl_multi_cleanup(CURLM *curlm)
@@ -48,7 +48,21 @@ cdef extern from "curl/curl.h" nogil:
     # multi callbacks
     ctypedef int (*socket_function)(CURL *curl, int sockfd, int what, void *clientp, void *socketp)
     ctypedef int (*timer_function)(CURLM *curlm, long timeout_ms, void *clientp)
-
+    # ws
+    struct curl_ws_frame:
+      int age              # zero
+      int flags            # See the CURLWS_* defines
+      long long offset    # the offset of this data into the frame
+      long long bytesleft # number of pending bytes left of the payload
+      size_t len           # size of the current data chunk
+    int curl_ws_recv(CURL *curl, void *buffer, size_t buflen,
+                          size_t *recv,
+                          curl_ws_frame ** metap)
+    int curl_ws_send(CURL *curl, const void *buffer,
+                                  size_t buflen, size_t *sent,
+                                  long long framesize,
+                                  unsigned int sendflags)
+    curl_ws_frame *curl_ws_meta(CURL *curl)
     # consts
     int CURL_ERROR_SIZE
 
@@ -155,6 +169,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURLOPT_FTP_CREATE_MISSING_DIRS
     int CURLOPT_PROXYAUTH
     int CURLOPT_FTP_RESPONSE_TIMEOUT
+    int CURLOPT_SERVER_RESPONSE_TIMEOUT
     int CURLOPT_IPRESOLVE
     int CURLOPT_MAXFILESIZE
     int CURLOPT_INFILESIZE_LARGE
@@ -359,6 +374,22 @@ cdef extern from "curl/curl.h" nogil:
     int CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER
     int CURLOPT_HTTP2_NO_SERVER_PUSH
     int CURLOPT_SSL_PERMUTE_EXTENSIONS
+    # int CURLOPT_PROTOCOLS_STR
+    # int CURLOPT_REDIR_PROTOCOLS_STR
+    # int CURLOPT_WS_OPTIONS
+    # int CURLOPT_CA_CACHE_TIMEOUT
+    # int CURLOPT_QUICK_EXIT
+    # int CURLOPT_HTTPBASEHEADER
+    # int CURLOPT_SSL_SIG_HASH_ALGS
+    # int CURLOPT_SSL_ENABLE_ALPS
+    # int CURLOPT_SSL_CERT_COMPRESSION
+    # int CURLOPT_SSL_ENABLE_TICKET
+    # int CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER
+    # int CURLOPT_HTTP2_SETTINGS
+    # int CURLOPT_SSL_PERMUTE_EXTENSIONS
+    # int CURLOPT_HTTP2_WINDOW_UPDATE
+    # int CURLOPT_ECH
+
 
     int CURLINFO_TEXT
     int CURLINFO_HEADER_IN
@@ -575,6 +606,15 @@ cdef extern from "curl/curl.h" nogil:
     int CURL_CSELECT_ERR
 
     int CURLMSG_DONE
+
+    int CURLWS_TEXT
+    int CURLWS_BINARY
+    int CURLWS_CONT
+    int CURLWS_CLOSE
+    int CURLWS_PING
+    int CURLWS_OFFSET
+    int CURLWS_PONG
+    int CURLWS_RAW_MODE
 
 
 cdef extern from "shim.h" nogil:

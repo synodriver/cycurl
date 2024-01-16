@@ -9,7 +9,7 @@ from enum import Enum
 from functools import partialmethod
 from io import BytesIO
 from json import dumps
-from typing import Any, Callable, Dict, List, Optional, Tuple, Union, cast
+from typing import Any, Callable, Dict, List, Optional, Tuple, Union, cast, TYPE_CHECKING
 from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urlparse
 
 import cycurl._curl as m
@@ -24,6 +24,7 @@ from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.models import Request, Response
+from cycurl.requests.websockets import WebSocket
 
 try:
     import gevent
@@ -35,6 +36,19 @@ try:
 except ImportError:
     pass
 
+if TYPE_CHECKING:
+    from typing_extensions import TypedDict
+
+    class ProxySpec(TypedDict, total=False):
+        all: str
+        http: str
+        https: str
+        ws: str
+        wss: str
+
+else:
+    ProxySpec = Dict[str, str]
+
 
 class BrowserType(str, Enum):
     edge99 = "edge99"
@@ -45,13 +59,28 @@ class BrowserType(str, Enum):
     chrome104 = "chrome104"
     chrome107 = "chrome107"
     chrome110 = "chrome110"
+    chrome116 = "chrome116"
+    chrome119 = "chrome119"
+    chrome120 = "chrome120"
     chrome99_android = "chrome99_android"
     safari15_3 = "safari15_3"
     safari15_5 = "safari15_5"
+    safari17_0 = "safari17_0"
+    safari17_2_ios = "safari17_2_ios"
+
+    chrome = "chrome120"
+    safari = "safari17_0"
+    safari_ios = "safari17_2_ios"
 
     @classmethod
     def has(cls, item):
         return item in cls.__members__
+
+
+class BrowserSpec:
+    """A more structured way of selecting browsers"""
+
+    # TODO
 
 
 def _update_url_params(url: str, params: Dict) -> str:
@@ -138,7 +167,9 @@ class BaseSession:
         headers: Optional[HeaderTypes] = None,
         cookies: Optional[CookieTypes] = None,
         auth: Optional[Tuple[str, str]] = None,
-        proxies: Optional[dict] = None,
+        proxies: Optional[ProxySpec] = None,
+        proxy: Optional[str] = None,
+        proxy_auth: Optional[Tuple[str, str]] = None,
         params: Optional[dict] = None,
         verify: bool = True,
         timeout: Union[float, Tuple[float, float]] = 30,
@@ -156,7 +187,6 @@ class BaseSession:
         self.headers = Headers(headers)
         self.cookies = Cookies(cookies)
         self.auth = auth
-        self.proxies = proxies or {}
         self.params = params
         self.verify = verify
         self.timeout = timeout
@@ -170,6 +200,13 @@ class BaseSession:
         self.http_version = http_version
         self.debug = debug
         self.interface = interface
+
+        if proxy and proxies:
+            raise TypeError("Cannot specify both 'proxy' and 'proxies'")
+        if proxy:
+            proxies = {"all": proxy}
+        self.proxies: ProxySpec = proxies or {}
+        self.proxy_auth = proxy_auth
 
     def _set_curl_options(
         self,
@@ -186,7 +223,9 @@ class BaseSession:
         timeout: Optional[Union[float, Tuple[float, float], object]] = not_set,
         allow_redirects: Optional[bool] = None,
         max_redirects: Optional[int] = None,
-        proxies: Optional[dict] = None,
+        proxies: Optional[ProxySpec] = None,
+        proxy: Optional[str] = None,
+        proxy_auth: Optional[Tuple[str, str]] = None,
         verify: Optional[Union[bool, str]] = None,
         referer: Optional[str] = None,
         accept_encoding: Optional[str] = "gzip, deflate, br",
@@ -244,7 +283,7 @@ class BaseSession:
         h.update(headers)
 
         # remove Host header if it's unnecessary, otherwise curl maybe confused.
-        # Host header will be automatically add by curl if it's not present.
+        # Host header will be automatically added by curl if it's not present.
         # https://github.com/yifeikong/curl_cffi/issues/119
         host_header = h.get("Host")
         if host_header is not None:
@@ -327,8 +366,13 @@ class BaseSession:
         )
 
         # proxies
-        if self.proxies:
-            proxies = {**self.proxies, **(proxies or {})}
+        if proxy and proxies:
+            raise TypeError("Cannot specify both 'proxy' and 'proxies'")
+        if proxy:
+            proxies = {"all": proxy}
+        if proxies is None:
+            proxies = self.proxies
+
         if proxies:
             parts = urlparse(url)
             proxy = proxies.get(parts.scheme, proxies.get("all"))
@@ -343,15 +387,24 @@ class BaseSession:
 
             if proxy is not None:
                 if parts.scheme == "https" and proxy.startswith("https://"):
-                    raise RequestsError(
-                        "You are using http proxy WRONG, the prefix should be 'http://' not 'https://',"
-                        "see: https://github.com/yifeikong/curl_cffi/issues/6"
+                    warnings.warn(
+                        "You may be using http proxy WRONG, the prefix should be 'http://' not 'https://',"
+                        "see: https://github.com/yifeikong/curl_cffi/issues/6",
+                        RuntimeWarning,
+                        stacklevel=2,
                     )
 
                 c.setopt(m.CURLOPT_PROXY, proxy)
                 # for http proxy, need to tell curl to enable tunneling
                 if not proxy.startswith("socks"):
                     c.setopt(m.CURLOPT_HTTPPROXYTUNNEL, 1)
+
+                # proxy_auth
+                proxy_auth = proxy_auth or self.proxy_auth
+                if proxy_auth:
+                    username, password = proxy_auth
+                    c.setopt(m.CURLOPT_PROXYUSERNAME, username.encode())
+                    c.setopt(m.CURLOPT_PROXYPASSWORD, password.encode())
 
         # verify
         if verify is False or not self.verify and verify is None:
@@ -515,6 +568,8 @@ class Session(BaseSession):
             cookies: cookies to add in the session.
             auth: HTTP basic auth, a tuple of (username, password), only basic auth is supported.
             proxies: dict of proxies to use, format: {"http": proxy_url, "https": proxy_url}.
+            proxy: proxy to use, format: "http://proxy_url". Cannot be used with the above parameter.
+            proxy_auth: HTTP basic auth for proxy, a tuple of (username, password).
             params: query string for the session.
             verify: whether to verify https certs.
             timeout: how many seconds to wait before giving up. In stream mode, only connect_timeout will be set.
@@ -584,6 +639,31 @@ class Session(BaseSession):
         finally:
             rsp.close()
 
+    def ws_connect(
+        self,
+        url,
+        *args,
+        on_message: Optional[Callable[[WebSocket, str], None]] = None,
+        on_error: Optional[Callable[[WebSocket, str], None]] = None,
+        on_open: Optional[Callable] = None,
+        on_close: Optional[Callable] = None,
+        **kwargs,
+    ):
+        self._set_curl_options(self.curl, "GET", url, *args, **kwargs)
+
+        # https://curl.se/docs/websocket.html
+        self.curl.setopt(m.CURLOPT_CONNECT_ONLY, 2)
+        self.curl.perform()
+
+        return WebSocket(
+            self,
+            self.curl,
+            on_message=on_message,
+            on_error=on_error,
+            on_open=on_open,
+            on_close=on_close,
+        )
+
     def request(
         self,
         method: str,
@@ -598,7 +678,9 @@ class Session(BaseSession):
         timeout: Optional[Union[float, Tuple[float, float]]] = None,
         allow_redirects: Optional[bool] = None,
         max_redirects: Optional[int] = None,
-        proxies: Optional[dict] = None,
+        proxies: Optional[ProxySpec] = None,
+        proxy: Optional[str] = None,
+        proxy_auth: Optional[Tuple[str, str]] = None,
         verify: Optional[bool] = None,
         referer: Optional[str] = None,
         accept_encoding: Optional[str] = "gzip, deflate, br",
@@ -634,6 +716,8 @@ class Session(BaseSession):
             allow_redirects=allow_redirects,
             max_redirects=max_redirects,
             proxies=proxies,
+            proxy=proxy,
+            proxy_auth=proxy_auth,
             verify=verify,
             referer=referer,
             accept_encoding=accept_encoding,
@@ -739,6 +823,8 @@ class AsyncSession(BaseSession):
             cookies: cookies to add in the session.
             auth: HTTP basic auth, a tuple of (username, password), only basic auth is supported.
             proxies: dict of proxies to use, format: {"http": proxy_url, "https": proxy_url}.
+            proxy: proxy to use, format: "http://proxy_url". Cannot be used with the above parameter.
+            proxy_auth: HTTP basic auth for proxy, a tuple of (username, password).
             params: query string for the session.
             verify: whether to verify https certs.
             timeout: how many seconds to wait before giving up.
@@ -757,16 +843,20 @@ class AsyncSession(BaseSession):
             ```
         """
         super().__init__(**kwargs)
-        self.loop = loop
+        self._loop = loop
         self._acurl = async_curl
         self.max_clients = max_clients
         self._closed = False
         self.init_pool()
 
     @property
+    def loop(self):
+        if self._loop is None:
+            self._loop = asyncio.get_running_loop()
+        return self._loop
+
+    @property
     def acurl(self):
-        if self.loop is None:
-            self.loop = asyncio.get_running_loop()
         if self._acurl is None:
             self._acurl = AsyncCurl(loop=self.loop)
         return self._acurl
@@ -827,6 +917,14 @@ class AsyncSession(BaseSession):
         finally:
             await rsp.aclose()
 
+    async def ws_connect(self, url, *args, **kwargs):
+        curl = await self.pop_curl()
+        # curl.debug()
+        self._set_curl_options(curl, "GET", url, *args, **kwargs)
+        curl.setopt(m.CURLOPT_CONNECT_ONLY, 2)  # https://curl.se/docs/websocket.html
+        await self.loop.run_in_executor(None, curl.perform)
+        return WebSocket(self, curl)
+
     async def request(
         self,
         method: str,
@@ -841,7 +939,9 @@ class AsyncSession(BaseSession):
         timeout: Optional[Union[float, Tuple[float, float]]] = None,
         allow_redirects: Optional[bool] = None,
         max_redirects: Optional[int] = None,
-        proxies: Optional[dict] = None,
+        proxies: Optional[ProxySpec] = None,
+        proxy: Optional[str] = None,
+        proxy_auth: Optional[Tuple[str, str]] = None,
         verify: Optional[bool] = None,
         referer: Optional[str] = None,
         accept_encoding: Optional[str] = "gzip, deflate, br",
@@ -870,6 +970,8 @@ class AsyncSession(BaseSession):
             allow_redirects=allow_redirects,
             max_redirects=max_redirects,
             proxies=proxies,
+            proxy=proxy,
+            proxy_auth=proxy_auth,
             verify=verify,
             referer=referer,
             accept_encoding=accept_encoding,

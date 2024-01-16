@@ -2,6 +2,7 @@ __all__ = [
     "Session",
     "AsyncSession",
     "BrowserType",
+    # "CurlWsFlag",
     "request",
     "head",
     "get",
@@ -15,6 +16,9 @@ __all__ = [
     "Headers",
     "Request",
     "Response",
+    "WebSocket",
+    "WebSocketError",
+    "WsCloseCode",
 ]
 
 from functools import partial
@@ -26,7 +30,8 @@ from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.models import Request, Response
-from cycurl.requests.session import AsyncSession, BrowserType, Session
+from cycurl.requests.session import AsyncSession, BrowserType, Session, ProxySpec
+from cycurl.requests.websockets import WebSocket, WebSocketError, WsCloseCode
 
 # ThreadType = Literal["eventlet", "gevent", None]
 
@@ -44,7 +49,9 @@ def request(
     timeout: Union[float, Tuple[float, float]] = 30,
     allow_redirects: bool = True,
     max_redirects: int = -1,
-    proxies: Optional[dict] = None,
+    proxies: Optional[ProxySpec] = None,
+    proxy: Optional[str] = None,
+    proxy_auth: Optional[Tuple[str, str]] = None,
     verify: Optional[bool] = None,
     referer: Optional[str] = None,
     accept_encoding: Optional[str] = "gzip, deflate, br",
@@ -73,6 +80,8 @@ def request(
         allow_redirects: whether to allow redirection.
         max_redirects: max redirect counts, default unlimited(-1).
         proxies: dict of proxies to use, format: {"http": proxy_url, "https": proxy_url}.
+        proxy: proxy to use, format: "http://proxy_url". Cannot be used with the above parameter.
+        proxy_auth: HTTP basic auth for proxy, a tuple of (username, password).
         verify: whether to verify https certs.
         referer: shortcut for setting referer header.
         accept_encoding: shortcut for setting accept-encoding header.
@@ -103,6 +112,8 @@ def request(
             allow_redirects=allow_redirects,
             max_redirects=max_redirects,
             proxies=proxies,
+            proxy=proxy,
+            proxy_auth=proxy_auth,
             verify=verify,
             referer=referer,
             accept_encoding=accept_encoding,

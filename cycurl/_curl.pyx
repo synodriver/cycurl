@@ -6,6 +6,7 @@ from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport PyCapsule_CheckExact, PyCapsule_GetPointer, PyCapsule_New
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
+from libc.stdint cimport uint8_t
 
 include "consts.pxi"
 
@@ -89,6 +90,37 @@ cdef list slist_to_list(curl.curl_slist *head) with gil:
 @cython.final
 @cython.no_gc
 @cython.freelist(8)
+cdef class WSFrame:
+    cdef curl.curl_ws_frame* frame
+    @staticmethod
+    cdef inline WSFrame from_ptr(curl.curl_ws_frame* frame):
+        cdef WSFrame self = WSFrame.__new__(WSFrame)
+        self.frame = frame
+        return self
+
+    @property
+    def age(self):
+        return self.frame.age
+
+    @property
+    def flags(self):
+        return self.frame.flags
+
+    @property
+    def offset(self):
+        return self.frame.offset
+
+    @property
+    def bytesleft(self):
+        return self.frame.bytesleft
+
+    @property
+    def len(self):
+        return self.frame.len
+
+@cython.final
+@cython.no_gc
+@cython.freelist(8)
 cdef class Curl:
     """
     Wrapper for `curl_easy_*` functions of libcurl.
@@ -149,6 +181,43 @@ cdef class Curl:
         """Close and cleanup curl handle, wrapper for curl_easy_cleanup"""
         self._close()
 
+    cpdef inline tuple ws_recv(self, size_t n = 1024):
+        cdef char* buffer = <char*>PyMem_Malloc(n)
+        if buffer==NULL:
+            raise MemoryError
+        cdef size_t n_recv
+        cdef int ret
+        cdef curl.curl_ws_frame* frame = NULL
+        # buffer = ffi.new("char[]", n)
+        # n_recv = ffi.new("int *")
+        # p_frame = ffi.new("struct curl_ws_frame **")
+        try:
+            with nogil:
+                ret = curl.curl_ws_recv(self._curl, <void *>buffer, n, &n_recv, &frame)
+            self._check_error(ret, "WS_RECV")
+
+            # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html
+            return <bytes>buffer[: n_recv], WSFrame.from_ptr(frame)
+        finally:
+            PyMem_Free(buffer)
+
+    cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):
+        cdef size_t n_sent
+        cdef int ret
+        # n_sent = ffi.new("int *")
+        # buffer = ffi.from_buffer(payload)
+        with nogil:
+            ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &n_sent, 0, flags)
+        self._check_error(ret, "WS_SEND")
+        return n_sent
+
+    def ws_close(self):
+        self.ws_send(b"", curl.CURLWS_CLOSE)
+
+    def ws_meta(self):
+        cdef curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
+        return WSFrame.from_ptr(frame)
+
     cdef inline void _set_error_buffer(self) nogil:
         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
         if ret != 0:
@@ -159,6 +228,9 @@ cdef class Curl:
                 self.setopt(curl.CURLOPT_VERBOSE, 1)
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
 
+    def debug(self):
+        self.setopt(CURLOPT_VERBOSE, 1)
+        curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
 
     cdef int _check_error(self, int errcode, str args) except -1:
         error = self._get_error(errcode, args)
