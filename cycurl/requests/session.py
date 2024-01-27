@@ -1,4 +1,5 @@
 import asyncio
+import math
 import queue
 import re
 import threading
@@ -9,7 +10,18 @@ from enum import Enum
 from functools import partialmethod
 from io import BytesIO
 from json import dumps
-from typing import Any, Callable, Dict, List, Optional, Tuple, Union, cast, TYPE_CHECKING
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Callable,
+    Dict,
+    List,
+    Optional,
+    Sequence,
+    Tuple,
+    Union,
+    cast,
+)
 from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urlparse
 
 import cycurl._curl as m
@@ -19,9 +31,10 @@ from cycurl._curl import (
     Curl,
     CurlError,
     CurlHttpVersion,
+    CurlMime,
 )
 from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
-from cycurl.requests.errors import RequestsError
+from cycurl.requests.errors import RequestsError, SessionClosed
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.models import Request, Response
 from cycurl.requests.websockets import WebSocket
@@ -183,6 +196,7 @@ class BaseSession:
         http_version: Optional[CurlHttpVersion] = None,
         debug: bool = False,
         interface: Optional[str] = None,
+        cert: Optional[Union[str, Tuple[str, str]]] = None,
     ):
         self.headers = Headers(headers)
         self.cookies = Cookies(cookies)
@@ -200,6 +214,7 @@ class BaseSession:
         self.http_version = http_version
         self.debug = debug
         self.interface = interface
+        self.cert = cert
 
         if proxy and proxies:
             raise TypeError("Cannot specify both 'proxy' and 'proxies'")
@@ -207,6 +222,8 @@ class BaseSession:
             proxies = {"all": proxy}
         self.proxies: ProxySpec = proxies or {}
         self.proxy_auth = proxy_auth
+
+        self._closed = False
 
     def _set_curl_options(
         self,
@@ -234,8 +251,10 @@ class BaseSession:
         default_headers: Optional[bool] = None,
         http_version: Optional[CurlHttpVersion] = None,
         interface: Optional[str] = None,
+        cert: Optional[Union[str, Tuple[str, str]]] = None,
         stream: bool = False,
         max_recv_speed: int = 0,
+        multipart: Optional[CurlMime] = None,
         queue_class: Any = None,
         event_class: Any = None,
     ):
@@ -324,7 +343,14 @@ class BaseSession:
 
         # files
         if files:
-            raise NotImplementedError("Files has not been implemented.")
+            raise NotImplementedError("files is not supported, use `multipart`.")
+
+        # multipart
+        if multipart:
+            # multipart will overrides postfields
+            for k, v in cast(dict, data or {}).items():
+                multipart.addpart(name=k, data=v)
+            c.setopt(m.CURLOPT_MIMEPOST, multipart._form)
 
         # auth
         if self.auth or auth:
@@ -345,13 +371,15 @@ class BaseSession:
             connect_timeout, read_timeout = timeout
             all_timeout = connect_timeout + read_timeout
             c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(connect_timeout * 1000))
-            if not stream:
-                c.setopt(m.CURLOPT_TIMEOUT_MS, int(all_timeout * 1000))
         else:
-            if not stream:
-                c.setopt(m.CURLOPT_TIMEOUT_MS, int(timeout * 1000))  # type: ignore
-            else:
-                c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(timeout * 1000))  # type: ignore
+            all_timeout = cast(int, timeout)
+
+        if stream:
+            # trick from: https://github.com/yifeikong/curl_cffi/issues/156
+            c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
+            c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(all_timeout))
+        else:
+            c.setopt(m.CURLOPT_TIMEOUT_MS, int(all_timeout * 1000))
 
         # allow_redirects
         c.setopt(
@@ -426,6 +454,16 @@ class BaseSession:
         # accept_encoding
         if accept_encoding is not None:
             c.setopt(m.CURLOPT_ACCEPT_ENCODING, accept_encoding.encode())
+
+        # cert
+        cert = cert or self.cert
+        if cert:
+            if isinstance(cert, str):
+                c.setopt(m.CURLOPT_SSLCERT, cert)
+            else:
+                cert, key = cert
+                c.setopt(m.CURLOPT_SSLCERT, cert)
+                c.setopt(m.CURLOPT_SSLKEY, key)
 
         # impersonate
         impersonate = impersonate or self.impersonate
@@ -540,6 +578,10 @@ class BaseSession:
 
         return rsp
 
+    def _check_session_closed(self):
+        if self._closed:
+            raise SessionClosed("Session is closed, cannot send request.")
+
 
 # ThreadType = Literal["eventlet", "gevent", None]
 
@@ -572,7 +614,7 @@ class Session(BaseSession):
             proxy_auth: HTTP basic auth for proxy, a tuple of (username, password).
             params: query string for the session.
             verify: whether to verify https certs.
-            timeout: how many seconds to wait before giving up. In stream mode, only connect_timeout will be set.
+            timeout: how many seconds to wait before giving up.
             trust_env: use http_proxy/https_proxy and other environments, default True.
             allow_redirects: whether to allow redirection.
             max_redirects: max redirect counts, default unlimited(-1).
@@ -629,6 +671,7 @@ class Session(BaseSession):
 
     def close(self):
         """Close the session."""
+        self._closed = True
         self.curl.close()
 
     @contextmanager
@@ -649,6 +692,8 @@ class Session(BaseSession):
         on_close: Optional[Callable] = None,
         **kwargs,
     ):
+        self._check_session_closed()
+
         self._set_curl_options(self.curl, "GET", url, *args, **kwargs)
 
         # https://curl.se/docs/websocket.html
@@ -689,10 +734,14 @@ class Session(BaseSession):
         default_headers: Optional[bool] = None,
         http_version: Optional[CurlHttpVersion] = None,
         interface: Optional[str] = None,
+        cert: Optional[Union[str, Tuple[str, str]]] = None,
         stream: bool = False,
         max_recv_speed: int = 0,
+        multipart: Optional[CurlMime] = None,
     ) -> Response:
         """Send the request, see [curl_cffi.requests.request](/api/curl_cffi.requests/#curl_cffi.requests.request) for details on parameters."""
+
+        self._check_session_closed()
 
         # clone a new curl instance for streaming response
         if stream:
@@ -728,6 +777,8 @@ class Session(BaseSession):
             interface=interface,
             stream=stream,
             max_recv_speed=max_recv_speed,
+            multipart=multipart,
+            cert=cert,
             queue_class=queue.Queue,
             event_class=threading.Event,
         )
@@ -846,7 +897,6 @@ class AsyncSession(BaseSession):
         self._loop = loop
         self._acurl = async_curl
         self.max_clients = max_clients
-        self._closed = False
         self.init_pool()
 
     @property
@@ -918,6 +968,8 @@ class AsyncSession(BaseSession):
             await rsp.aclose()
 
     async def ws_connect(self, url, *args, **kwargs):
+        self._check_session_closed()
+
         curl = await self.pop_curl()
         # curl.debug()
         self._set_curl_options(curl, "GET", url, *args, **kwargs)
@@ -950,10 +1002,14 @@ class AsyncSession(BaseSession):
         default_headers: Optional[bool] = None,
         http_version: Optional[CurlHttpVersion] = None,
         interface: Optional[str] = None,
+        cert: Optional[Union[str, Tuple[str, str]]] = None,
         stream: bool = False,
         max_recv_speed: int = 0,
+        multipart: Optional[CurlMime] = None,
     ):
         """Send the request, see [curl_cffi.requests.request](/api/curl_cffi.requests/#curl_cffi.requests.request) for details on parameters."""
+        self._check_session_closed()
+
         curl = await self.pop_curl()
         req, buffer, header_buffer, q, header_recved, quit_now = self._set_curl_options(
             curl=curl,
@@ -982,6 +1038,8 @@ class AsyncSession(BaseSession):
             interface=interface,
             stream=stream,
             max_recv_speed=max_recv_speed,
+            multipart=multipart,
+            cert=cert,
             queue_class=asyncio.Queue,
             event_class=asyncio.Event,
         )

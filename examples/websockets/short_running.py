@@ -1,4 +1,5 @@
 import asyncio
+
 from cycurl import requests
 
 URL = "ws://echo.websocket.events"

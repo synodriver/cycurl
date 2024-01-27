@@ -109,12 +109,20 @@ class WebSocket:
                             code = struct.unpack_from("!H", msg)[0]
                             reason = msg[2:].decode()
                         except UnicodeDecodeError:
-                            raise WebSocketError("Invalid close message", WsCloseCode.INVALID_DATA)
+                            raise WebSocketError(
+                                "Invalid close message", WsCloseCode.INVALID_DATA
+                            )
                         except Exception:
-                            raise WebSocketError("Invalid close frame", WsCloseCode.PROTOCOL_ERROR)
+                            raise WebSocketError(
+                                "Invalid close frame", WsCloseCode.PROTOCOL_ERROR
+                            )
                         else:
-                            if code < 3000 and (code not in WsCloseCode or code == 1005):
-                                raise WebSocketError("Invalid close code", WsCloseCode.PROTOCOL_ERROR)
+                            if code < 3000 and (
+                                code not in WsCloseCode or code == 1005
+                            ):
+                                raise WebSocketError(
+                                    "Invalid close code", WsCloseCode.PROTOCOL_ERROR
+                                )
                     if self.on_close:
                         self.on_close(self, code, reason)
             except WebSocketError as e:

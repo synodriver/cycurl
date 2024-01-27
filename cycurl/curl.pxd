@@ -63,6 +63,20 @@ cdef extern from "curl/curl.h" nogil:
                                   long long framesize,
                                   unsigned int sendflags)
     curl_ws_frame *curl_ws_meta(CURL *curl)
+
+    ctypedef struct curl_mime:
+        pass
+    ctypedef struct curl_mimepart:
+        pass
+    curl_mime *curl_mime_init(CURL *easy)  # -> form
+    curl_mimepart *curl_mime_addpart(curl_mime *mime)  # -> part/field
+    int curl_mime_name(curl_mimepart *part, const char *name)
+    int curl_mime_data(curl_mimepart *part, const char *data, size_t datasize)
+    int curl_mime_type(curl_mimepart *part, const char *mimetype)
+    int curl_mime_filename(curl_mimepart *part, const char *filename)
+    int curl_mime_filedata(curl_mimepart *part, const char *filename)
+    void curl_mime_free(curl_mime *mime)
+
     # consts
     int CURL_ERROR_SIZE
 

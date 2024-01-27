@@ -70,7 +70,6 @@ with open(CONST_FILE, "w") as f:
     f.write("    V3 = 30  # Makes use of explicit HTTP/3 without fallback.\n")
     f.write("\n\n")
 
-
     f.write("class CurlWsFlag(IntEnum):\n")
     f.write("    TEXT       = (1<<0)\n")
     f.write("    BINARY     = (1<<1)\n")

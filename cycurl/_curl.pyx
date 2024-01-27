@@ -1,12 +1,16 @@
 # cython: language_level=3
 # cython: cdivision=True
+from pathlib import Path
+
 cimport cython
 from cpython.float cimport PyFloat_FromDouble
+from cpython.bytes cimport PyBytes_GET_SIZE
 from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
-from cpython.pycapsule cimport PyCapsule_CheckExact, PyCapsule_GetPointer, PyCapsule_New
-from libc.stdio cimport fflush, fprintf, fwrite, stderr
+from cpython.pycapsule cimport (PyCapsule_CheckExact, PyCapsule_GetPointer,
+                                PyCapsule_New)
 from libc.stdint cimport uint8_t
+from libc.stdio cimport fflush, fprintf, fwrite, stderr
 
 include "consts.pxi"
 
@@ -306,6 +310,8 @@ cdef class Curl:
                 bytesval = value
                 # c_value = <void*><const char*>value
                 c_value = <void*><const char *> bytesval
+            elif PyCapsule_CheckExact(value):
+                c_value = PyCapsule_GetPointer(value, NULL)
             # Must keep a reference, otherwise may be GCed.
             if option == curl.CURLOPT_POSTFIELDS:
                 self._body_handle = bytesval
@@ -723,3 +729,88 @@ cdef class AsyncCurl:
         cdef object future = self._pop_future(curl)
         if future and not future.done() and not future.cancelled():
             future.set_exception(exception)
+
+@cython.freelist(8)
+@cython.no_gc
+@cython.final
+cdef class CurlMime:
+    cdef:
+        Curl _curl
+        curl.curl_mime *form
+
+    def __init__(self, Curl curl_ = None):
+        self._curl = curl_ if curl_ else Curl()
+        self.form = curl.curl_mime_init(self._curl._curl)
+
+    @property
+    def _form(self):
+        return PyCapsule_New(self.form, NULL, NULL)
+
+    cpdef inline addpart(
+        self,
+        str name,
+        str content_type = None,
+        str filename = None,
+        object local_path = None,  # Optional[Union[str, bytes, Path]]
+        object data = None,
+    ):
+        cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)
+        cdef int ret
+        cdef bytes bytesname = name.encode()
+        ret = curl.curl_mime_name(part, <const char *>bytesname)
+        if ret != 0:
+            raise CurlError("Add field failed.")
+
+        # mime type
+        cdef bytes bytescontent_type
+        if content_type is not None:
+            bytescontent_type = content_type.encode()
+            ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
+            if ret != 0:
+                raise CurlError("Add field failed.")
+
+        # remote file name
+        cdef bytes bytesfilename
+        if filename is not None:
+            bytesfilename = filename.encode()
+            ret = curl.curl_mime_filename(part, <const char *>bytesfilename)
+            if ret != 0:
+                raise CurlError("Add field failed.")
+
+        if local_path is not None and data is not None:
+            raise CurlError("Can not use local_path and data at the same time.")
+
+        # this is a filename
+        if local_path is not None:
+            if not isinstance(local_path, bytes):
+                local_path = str(local_path).encode()
+            if not Path(local_path.decode()).exists():
+                raise FileNotFoundError(f"File not found at {local_path}")
+            ret = curl.curl_mime_filedata(part, <const char *>local_path)
+            if ret != 0:
+                raise CurlError("Add field failed.")
+
+        if data is not None:
+            if not isinstance(data, bytes):
+                data = str(data).encode()
+            ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
+            if ret != 0:
+                raise CurlError("Add data failed.")
+
+    @classmethod
+    def from_list(cls, list files):  # files: List[dict]
+        cdef CurlMime form = cls()
+        for file in files:
+            form.addpart(**file)
+        return form
+
+    cpdef inline attach(self, Curl curl_ = None):
+        cdef Curl c = curl_ if curl_ is not None else self._curl
+        c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
+
+    def close(self):
+        curl.curl_mime_free(self.form)
+        self.form = NULL
+
+    def __del__(self):
+        self.close()

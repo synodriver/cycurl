@@ -25,12 +25,12 @@ from functools import partial
 from io import BytesIO
 from typing import Callable, Dict, Optional, Tuple, Union
 
-from cycurl._curl import CurlHttpVersion
+from cycurl._curl import CurlHttpVersion, CurlMime
 from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.models import Request, Response
-from cycurl.requests.session import AsyncSession, BrowserType, Session, ProxySpec
+from cycurl.requests.session import AsyncSession, BrowserType, ProxySpec, Session
 from cycurl.requests.websockets import WebSocket, WebSocketError, WsCloseCode
 
 # ThreadType = Literal["eventlet", "gevent", None]
@@ -63,6 +63,8 @@ def request(
     http_version: Optional[CurlHttpVersion] = None,
     debug: bool = False,
     interface: Optional[str] = None,
+    multipart: Optional[CurlMime] = None,
+    cert: Optional[Union[str, Tuple[str, str]]] = None,
 ) -> Response:
     """Send an http request.
 
@@ -122,6 +124,8 @@ def request(
             default_headers=default_headers,
             http_version=http_version,
             interface=interface,
+            multipart=multipart,
+            cert=cert,
         )
 
 
