@@ -49,13 +49,12 @@ cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, vo
     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:
         fprintf(stderr, "SSL OUT:")
         fwrite(data, sizeof(char), size, stderr)
-        fprintf(stderr, "\n")
     elif type_ == curl.CURLINFO_DATA_IN or type_ == curl.CURLINFO_DATA_OUT:
         fprintf(stderr, "DATA OUT:")
         fwrite(data, sizeof(char), size, stderr)
-        fprintf(stderr, "\n")
     else:
         fwrite(data, sizeof(char), size, stderr)
+    fprintf(stderr, "\n")
     fflush(stderr)
     return 0
 
@@ -555,6 +554,7 @@ cdef int timer_function(curl.CURLM *curlm, long timeout_ms, void *clientp) with 
     """
     cdef AsyncCurl async_curl = <AsyncCurl><object>clientp
     # print("time out in %sms" % timeout_ms)
+    # A timeout_ms value of -1 means you should delete the timer.
     if timeout_ms == -1:
         for timer in async_curl._timers:
             timer.cancel()
@@ -573,20 +573,18 @@ cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, 
     cdef AsyncCurl async_curl = <AsyncCurl><object>clientp
     cdef object loop = async_curl.loop
 
-    if what & curl.CURL_POLL_IN or what & curl.CURL_POLL_OUT or what & curl.CURL_POLL_REMOVE:
-        if sockfd in async_curl._sockfds:
-            loop.remove_reader(sockfd)
-            loop.remove_writer(sockfd)
-            async_curl._sockfds.remove(sockfd)
-        elif what & curl.CURL_POLL_REMOVE:
-            raise TypeError(f"File descriptor {sockfd} not found.")
-
+    # Always remove and re-add fd
+    if sockfd in async_curl._sockfds:
+        loop.remove_reader(sockfd)
+        loop.remove_writer(sockfd)
     if what & curl.CURL_POLL_IN:
         loop.add_reader(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_IN)
         async_curl._sockfds.add(sockfd)
     if what & curl.CURL_POLL_OUT:
         loop.add_writer(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_OUT)
         async_curl._sockfds.add(sockfd)
+    if what & curl.CURL_POLL_REMOVE:
+        async_curl._sockfds.remove(sockfd)
     return 0
 
 @cython.final

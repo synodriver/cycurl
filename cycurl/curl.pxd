@@ -632,4 +632,4 @@ cdef extern from "curl/curl.h" nogil:
 
 
 cdef extern from "shim.h" nogil:
-    int _curl_easy_setopt(void * curl, int option, void * param)
+    int _curl_easy_setopt(CURL * curl, int option, void * param)

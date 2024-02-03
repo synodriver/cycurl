@@ -2,7 +2,7 @@
 
 #define INTEGER_OPTION_MAX 10000
 
-int _curl_easy_setopt(void* curl, int option, void* parameter) {
+int _curl_easy_setopt(CURL* curl, int option, void* parameter) {
     // printf("****** hijack test begins: \n");
     // int val = curl_easy_setopt(instance->curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
     // printf("****** hijack test ends. opt: %d, val: %d, result is: %d\n", CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0, val);

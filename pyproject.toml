@@ -1,23 +1,21 @@
 [project]
 name = "cycurl"
-version = "0.6.0b8"
+version = "0.6.0b9"
 authors = [{ name = "Yifei Kong", email = "kong@yifei.me" }]
 description = "Ultra fast python binding for curl-impersonate via cython"
 license = { file = "LICENSE" }
 dependencies = [
     "cython >= 3",
     "certifi",
-    "typing_extensions; python_version < '3.8'",
 ]
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.88"
 urls = { "repository" = "https://github.com/synodriver/cycurl" }
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -92,11 +90,12 @@ build-backend = "setuptools.build_meta"
 # skip = ["*-musllinux_*", "*-win32", "*-manylinux_i686"]
 # Building for these platforms is enough since we are using abi3 packages
 build = [
-    "cp37-macosx_x86_64",
-    "cp37-win_amd64",
-    "cp37-win32",
-    "cp37-manylinux_x86_64",
-    "cp37-manylinux_aarch64",
+    "cp38-macosx_x86_64",
+    "cp39-macosx_arm64",
+    "cp38-win_amd64",
+    "cp38-win32",
+    "cp38-manylinux_x86_64",
+    "cp38-manylinux_aarch64",
 ]
 before-all = "make preprocess"
 test-requires = "pytest"
@@ -107,6 +106,8 @@ test-skip = "pp*"
 # configure cibuildwheel to build native archs ('auto'), and some emulated ones
 [tool.cibuildwheel.linux]
 archs = ["auto", "aarch64"]
+environment = { LD_LIBRARY_PATH="$HOME/.local/lib" }
+environment-pass = ["LD_LIBRARY_PATH"]
 
 
 [tool.cibuildwheel.macos]

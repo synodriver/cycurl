@@ -34,10 +34,16 @@ if uname.system == "Windows":
     extra_objects = ["./dep/win/libcurl.lib"]
     shutil.copy("./dep/win/libcurl.dll", "./cycurl")
 elif uname.system == "Darwin":
-    library_dirs = ["./dep/macos_v0.6.0-alpha.1.x86_64"]
-    extra_objects = [
-        "./dep/macos_v0.6.0-alpha.1.x86_64/libcurl-impersonate-chrome.4.dylib"
-    ]
+    if platform.machine() == "x86_64":
+        library_dirs = ["./dep/macos_v0.6.0-alpha.1.x86_64"]
+        extra_objects = [
+            "./dep/macos_v0.6.0-alpha.1.x86_64/libcurl-impersonate-chrome.4.dylib"
+        ]
+    else:
+        library_dirs = ["./dep/macos_arm"]
+        extra_objects = [
+            "./dep/macos_arm/libcurl-impersonate-chrome.4.dylib"
+        ]
 else:
     library_dirs = ["./dep/linux_latest/chromelibs"]
     extra_objects = [
@@ -47,10 +53,10 @@ else:
 extensions = [
     Extension(
         "cycurl._curl",
-        ["cycurl/_curl.pyx", "cycurl/ffi/shim.c"],
+        ["cycurl/_curl.pyx", "ffi/shim.c"],
         include_dirs=[
             f"./dep/curl-8.1.1/include",
-            os.path.join(os.path.dirname(__file__), "cycurl", "ffi"),
+            "ffi",
         ],
         library_dirs=library_dirs,
         extra_objects=extra_objects,
@@ -76,7 +82,7 @@ def get_version() -> str:
     return result[0]
 
 
-packages = find_packages(exclude=("test", "tests.*", "test*"))
+packages = ["cycurl"]
 
 
 def main():

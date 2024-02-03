@@ -1,4 +1,4 @@
 include cycurl/*
 include cycurl/*.dll
-include cycurl/ffi/*
+recursive-include ffi *
 recursive-include dep *

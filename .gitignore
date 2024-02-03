@@ -19,7 +19,6 @@ cycurl/cacert.pem
 curl-*/
 *.tar.xz
 *.tar.gz
-.patched
 .preprocessed
-.so_downloaded
 include/
+.DS_Store
