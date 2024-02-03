@@ -19,7 +19,7 @@ jobs:
     name: Build sdist wheel
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: |
           make preprocess
           pipx run build --sdist
@@ -27,7 +27,7 @@ jobs:
         with:
           path: ./dist/*.tar.gz
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       - run: |
@@ -40,9 +40,9 @@ jobs:
       matrix:
         os: [ubuntu-22.04, macos-12, macos-14, windows-2019]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
