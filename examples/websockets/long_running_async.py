@@ -5,7 +5,6 @@ import asyncio
 
 from cycurl import requests
 
-
 async def on_message(ws, message):
     print(message)
 

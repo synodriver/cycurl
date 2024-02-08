@@ -23,17 +23,15 @@ __all__ = [
 
 from functools import partial
 from io import BytesIO
-from typing import Callable, Dict, Optional, Tuple, Union
+from typing import Callable, Dict, Optional, Tuple, Union, Literal
 
 from cycurl._curl import CurlHttpVersion, CurlMime
 from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.models import Request, Response
-from cycurl.requests.session import AsyncSession, BrowserType, ProxySpec, Session
+from cycurl.requests.session import AsyncSession, BrowserType, ProxySpec, Session, ThreadType
 from cycurl.requests.websockets import WebSocket, WebSocketError, WsCloseCode
-
-# ThreadType = Literal["eventlet", "gevent", None]
 
 
 def request(
@@ -57,7 +55,7 @@ def request(
     accept_encoding: Optional[str] = "gzip, deflate, br",
     content_callback: Optional[Callable] = None,
     impersonate: Optional[Union[str, BrowserType]] = None,
-    thread: Optional[str] = None,
+    thread: Optional[ThreadType] = None,
     default_headers: Optional[bool] = None,
     curl_options: Optional[dict] = None,
     http_version: Optional[CurlHttpVersion] = None,

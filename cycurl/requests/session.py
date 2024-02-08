@@ -20,6 +20,8 @@ from typing import (
     Sequence,
     Tuple,
     Union,
+    TypedDict,
+    Literal,
     cast,
 )
 from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urlparse
@@ -50,7 +52,6 @@ except ImportError:
     pass
 
 if TYPE_CHECKING:
-    from typing_extensions import TypedDict
 
     class ProxySpec(TypedDict, total=False):
         all: str
@@ -62,6 +63,7 @@ if TYPE_CHECKING:
 else:
     ProxySpec = Dict[str, str]
 
+ThreadType = Literal["eventlet", "gevent"]
 
 class BrowserType(str, Enum):
     edge99 = "edge99"
@@ -371,15 +373,20 @@ class BaseSession:
             connect_timeout, read_timeout = timeout
             all_timeout = connect_timeout + read_timeout
             c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(connect_timeout * 1000))
-        else:
-            all_timeout = cast(int, timeout)
+            if not stream:
+                c.setopt(m.CURLOPT_TIMEOUT_MS, int(all_timeout * 1000))
+            else:
+                # trick from: https://github.com/yifeikong/curl_cffi/issues/156
+                c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
+                c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(all_timeout))  # type: ignore
 
-        if stream:
-            # trick from: https://github.com/yifeikong/curl_cffi/issues/156
-            c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
-            c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(all_timeout))
         else:
-            c.setopt(m.CURLOPT_TIMEOUT_MS, int(all_timeout * 1000))
+            if not stream:
+                c.setopt(m.CURLOPT_TIMEOUT_MS, int(timeout * 1000))  # type: ignore
+            else:
+                c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(timeout * 1000))  # type: ignore
+                c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
+                c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(timeout))  # type: ignore
 
         # allow_redirects
         c.setopt(
@@ -583,9 +590,6 @@ class BaseSession:
             raise SessionClosed("Session is closed, cannot send request.")
 
 
-# ThreadType = Literal["eventlet", "gevent", None]
-
-
 class Session(BaseSession):
     """A request session, cookies and connections will be reused. This object is thread-safe,
     but it's recommended to use a seperate session for each thread."""
@@ -593,7 +597,7 @@ class Session(BaseSession):
     def __init__(
         self,
         curl: Optional[Curl] = None,
-        thread: Optional[str] = None,
+        thread: Optional[ThreadType] = None,
         use_thread_local_curl: bool = True,
         **kwargs,
     ):
