@@ -49,6 +49,10 @@ else:
     extra_objects = [
         "./dep/linux_latest/chromelibs/libcurl-impersonate-chrome.so.4.8.0"
     ]
+    # library_diexit(rs = ["./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu"]
+    # extra_objects = [
+    #     "./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu/libcurl-impersonate-chrome.so.4.8.0"
+    # ]
 
 extensions = [
     Extension(
