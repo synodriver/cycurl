@@ -114,6 +114,11 @@ def test_headers(server):
     assert headers["Foo"][0] == "bar"
 
 
+def test_charset_parse(server):
+    r = requests.get( str(server.url.copy_with(path="/gbk")))
+    assert r.charset == "gbk"
+
+
 def test_content_type_header_with_json(server):
     # FIXME: this actually does not work, because the test server uvicorn will merge
     # Content-Type headers, so it always works even if there is duplicate headers.
@@ -168,6 +173,11 @@ def test_auth(server):
 def test_timeout(server):
     with pytest.raises(requests.RequestsError):
         requests.get(str(server.url.copy_with(path="/slow_response")), timeout=0.1)
+
+
+def test_session_timeout(server):
+    with pytest.raises(requests.RequestsError):
+        requests.Session(timeout=0.1).get(str(server.url.copy_with(path="/slow_response")))
 
 
 def test_post_timeout(server):

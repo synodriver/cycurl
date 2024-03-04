@@ -139,7 +139,7 @@ def test_timeout(server):
     url = str(server.url.copy_with(path="/slow_response"))
     c.setopt(CURLOPT_URL, url.encode())
     c.setopt(CURLOPT_TIMEOUT_MS, 100)
-    with pytest.raises(CurlError, match=r"ErrCode: 28"):
+    with pytest.raises(CurlError, match=r"curl: \(28\)"):
         c.perform()
 
 
@@ -149,7 +149,7 @@ def test_repeated_headers_after_error(server):
     c.setopt(CURLOPT_URL, url.encode())
     c.setopt(CURLOPT_TIMEOUT_MS, 100)
     c.setopt(CURLOPT_HTTPHEADER, [b"Foo: bar"])
-    with pytest.raises(CurlError, match=r"ErrCode: 28"):
+    with pytest.raises(CurlError, match=r"curl: \(28\)"):
         c.perform()
 
     # another request
@@ -202,7 +202,7 @@ def test_https_proxy_using_connect(server):
     c.setopt(CURLOPT_HTTPPROXYTUNNEL, 1)
     buffer = BytesIO()
     c.setopt(CURLOPT_WRITEDATA, buffer)
-    with pytest.raises(CurlError, match=r"ErrCode: 35"):
+    with pytest.raises(CurlError, match=r"curl: \(35\)"):
         c.perform()
 
 

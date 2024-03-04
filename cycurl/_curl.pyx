@@ -17,6 +17,7 @@ include "consts.pxi"
 import asyncio
 import re
 import sys
+from contextlib import suppress
 import warnings
 from enum import IntEnum
 from http.cookies import SimpleCookie
@@ -46,6 +47,7 @@ class CurlError(Exception):
 
 
 cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, void *clientp) nogil:
+    """ffi callback for curl debug info"""
     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:
         fprintf(stderr, "SSL OUT:")
         fwrite(data, sizeof(char), size, stderr)
@@ -60,6 +62,7 @@ cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, vo
 
 
 cdef size_t buffer_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:
+    """ffi callback for curl write function, directly writes to a buffer"""
     cdef size_t total = size*nmemb
     cdef object stream
     stream = <object>userdata
@@ -67,6 +70,7 @@ cdef size_t buffer_callback(char *ptr, size_t size, size_t nmemb, void *userdata
     return total
 
 cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:
+    """ffi callback for curl write function, calls the callback python function"""
     cdef:
         size_t total
         object callback
@@ -82,6 +86,7 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
     return total
 
 cdef list slist_to_list(curl.curl_slist *head) with gil:
+    """Converts curl slist to a python list."""
     cdef list result = []
     cdef curl.curl_slist *ptr = head
     while ptr:
@@ -140,7 +145,14 @@ cdef class Curl:
         char* _error_buffer # char[256]
         bint _debug
 
-    def __cinit__(self, str cacert = DEFAULT_CACERT, bint debug = False, object handle = None):
+    def __cinit__(self, str cacert = "", bint debug = False, object handle = None):
+        """
+        Parameters:
+            cacert: CA cert path to use, by default, cycurl uses its own bundled cert.
+            cacert: CA cert path to use, by default, cycurl uses certs from ``certifi``.
+            debug: whether to show curl debug messages.
+            handle: a curl handle in PyCapsule from ``curl_easy_init``.
+        """
         # assert PyCapsule_CheckExact(handle)
         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
         if self._error_buffer == NULL:
@@ -155,7 +167,7 @@ cdef class Curl:
             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)
         self._headers = NULL
         self._resolve = NULL
-        self._cacert = cacert
+        self._cacert = cacert or DEFAULT_CACERT
         self._is_cert_set = False
         self._write_handle = None
         self._header_handle = None
@@ -181,10 +193,18 @@ cdef class Curl:
         self._close()
 
     def close(self):
-        """Close and cleanup curl handle, wrapper for curl_easy_cleanup"""
+        """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
         self._close()
 
     cpdef inline tuple ws_recv(self, size_t n = 1024):
+        """Receive a frame from a websocket connection.
+        Args:
+            n: maximum data to receive.
+        Returns:
+            a tuple of frame content and curl frame meta struct.
+        Raises:
+            CurlError: if failed.
+        """
         cdef char* buffer = <char*>PyMem_Malloc(n)
         if buffer==NULL:
             raise MemoryError
@@ -205,6 +225,15 @@ cdef class Curl:
             PyMem_Free(buffer)
 
     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):
+        """Send data to a websocket connection.
+        Args:
+            payload: content to send.
+            flags: websocket flag to set for the frame, default: binary.
+        Returns:
+            0 if no error.
+        Raises:
+            CurlError: if failed.
+        """
         cdef size_t n_sent
         cdef int ret
         # n_sent = ffi.new("int *")
@@ -232,6 +261,7 @@ cdef class Curl:
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
 
     def debug(self):
+        """Set debug to True"""
         self.setopt(CURLOPT_VERBOSE, 1)
         curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
 
@@ -244,18 +274,20 @@ cdef class Curl:
         if errcode != 0:
             errmsg = (<bytes>self._error_buffer).decode()
             return CurlError(
-                f"Failed to {args}, ErrCode: {errcode}, Reason: '{errmsg}'. "
-                "This may be a libcurl error, "
+                f"Failed to {args}, curl: ({errcode}) {errmsg}. "
                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
                 code=errcode,
             )
 
     cpdef inline int setopt(self, int option, object value) except -1:
-        """Wrapper for curl_easy_setopt.
+        """Wrapper for ``curl_easy_setopt``.
     
         Parameters:
-            option: option to set, use the constants from CURLOPT_X enum
+            option: option to set, using constants from CURLOPT_
             value: value to set, strings will be handled automatically
+
+        Returns:
+            0 if no error, see ``CURLE_``.
         """
         # input_option = {
         #     # this should be int in curl, but cffi requires pointer for void*
@@ -337,10 +369,12 @@ cdef class Curl:
         return ret
 
     cpdef inline object getinfo(self, int option):
-        """Wrapper for curl_easy_getinfo. Gets information in response after curl perform.
-    
+        """Wrapper for ``curl_easy_getinfo``. Gets information in response after curl perform.
         Parameters:
-            option: option to get info of, use the constants from CurlInfo enum
+            option: option to get info of, use the constants from CURLINFO_
+            option: option to get info of, using constants from ``CURLINFO_`` constants
+        Returns:
+            value retrieved from last perform.
         """
         # ret_option = {
         #     0x100000: "char**",
@@ -393,6 +427,9 @@ cdef class Curl:
         Parameters:
             target: browser to impersonate.
             default_headers: whether to add default headers, like User-Agent.
+        
+        Returns:
+            0 if no error.
         """
         cdef bytes data = target.encode()
         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)
@@ -403,10 +440,13 @@ cdef class Curl:
             self._check_error(ret, "set cacert")
 
     cpdef inline int perform(self, clear_headers: bool = True) except -1:
-        """Wrapper for curl_easy_perform, performs a curl request.
+        """Wrapper for ``curl_easy_perform``, performs a curl request.
 
         Parameters:
             clear_headers: clear header slist used in this perform
+        
+        Raises:
+            CurlError: if the perform was not successful.
         """
         # make sure we set a cacert store
         cdef int ret
@@ -437,7 +477,8 @@ cdef class Curl:
             self._resolve = NULL
 
     cpdef inline Curl duphandle(self):
-        """This is not a full copy of entire curl object in python. For example, headers
+        """Wrapper for ``curl_easy_duphandle``.
+        This is not a full copy of entire curl object in python. For example, headers
         handle is not copied, you have to set them again."""
         cdef curl.CURL *new_handle
         with nogil:
@@ -448,7 +489,7 @@ cdef class Curl:
         return c
 
     def reset(self):
-        """Reset all curl options, wrapper for curl_easy_reset."""
+        """Reset all curl options, wrapper for ``curl_easy_reset``."""
         self._is_cert_set = False
         if self._curl:
             with nogil:
@@ -459,7 +500,7 @@ cdef class Curl:
             self._resolve = NULL
 
     def parse_cookie_headers(self, list headers) -> SimpleCookie:
-        """Extract cookies.SimpleCookie from header lines.
+        """Extract ``cookies.SimpleCookie`` from header lines.
 
         Parameters:
             headers: list of headers in bytes.
@@ -475,13 +516,16 @@ cdef class Curl:
 
     @staticmethod
     def get_reason_phrase(bytes status_line) -> bytes:
-        """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+        """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
         m = re.match(rb"HTTP/\d\.\d [0-9]{3} (.*)", status_line)
         return m.group(1) if m else b""
 
     @staticmethod
     def parse_status_line(status_line: bytes) -> tuple:
-        """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+        """Parse status line.
+        Returns:
+            http_version, status_code, and reason phrase
+        """
         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
         if not m:
             return CurlHttpVersion.V1_0, 0, b""
@@ -600,11 +644,11 @@ cdef class AsyncCurl:
         object _checker  # asyncio.Task
         object _timers   # WeakSet
 
-    def __cinit__(self, str cacert = DEFAULT_CACERT, object loop=None):
+    def __cinit__(self, str cacert = "", object loop=None):
         self._curlm = curl.curl_multi_init()
         if self._curlm == NULL:
             raise MemoryError
-        self._cacert = cacert
+        self._cacert = cacert or DEFAULT_CACERT
         self._curl2future = {}  # curl to future map
         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
         self._sockfds = set()  # sockfds
@@ -626,10 +670,12 @@ cdef class AsyncCurl:
         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETDATA, <void*>self)
         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)
 
-    cpdef inline close(self):
+    async def close(self):
         """Close and cleanup running timers, readers, writers and handles."""
-        # Close force timeout checker
+        # Close and wait for the force timeout checker to complete
         self._checker.cancel()
+        with suppress(asyncio.CancelledError):
+            await self._checker
         # Close all pending futures
         for curl_, future in self._curl2future.items():
             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
@@ -732,11 +778,17 @@ cdef class AsyncCurl:
 @cython.no_gc
 @cython.final
 cdef class CurlMime:
+    """Wrapper for the ``curl_mime_`` API."""
+
     cdef:
         Curl _curl
         curl.curl_mime *form
 
     def __init__(self, Curl curl_ = None):
+        """
+        Args:
+            curl: Curl instance to use.
+        """
         self._curl = curl_ if curl_ else Curl()
         self.form = curl.curl_mime_init(self._curl._curl)
 
@@ -752,6 +804,15 @@ cdef class CurlMime:
         object local_path = None,  # Optional[Union[str, bytes, Path]]
         object data = None,
     ):
+        """Add a mime part for a mutlipart html form.
+        Note: You can only use either local_path or data, not both.
+        Args:
+            name: name of the field.
+            content_type: content_type for the field. for example: ``image/png``.
+            filename: filename for the server.
+            local_path: file to upload on local disk.
+            data: file content to upload.
+        """
         cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)
         cdef int ret
         cdef bytes bytesname = name.encode()
@@ -797,16 +858,20 @@ cdef class CurlMime:
 
     @classmethod
     def from_list(cls, list files):  # files: List[dict]
+        """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
         cdef CurlMime form = cls()
         for file in files:
             form.addpart(**file)
         return form
 
     cpdef inline attach(self, Curl curl_ = None):
+        """Attach the mime instance to a curl instance."""
         cdef Curl c = curl_ if curl_ is not None else self._curl
         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
 
     def close(self):
+        """Close the mime instance and underlying files. This method must be called after
+        ``perform`` or ``request``."""
         curl.curl_mime_free(self.form)
         self.form = NULL
 

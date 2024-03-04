@@ -1,6 +1,7 @@
 import asyncio
 import sys
 import warnings
+from contextlib import suppress
 from typing import Any
 from weakref import WeakSet, WeakKeyDictionary
 
@@ -121,9 +122,14 @@ class AsyncCurl:
     """Wrapper around curl_multi handle to provide asyncio support. It uses the libcurl
     socket_action APIs."""
 
-    def __init__(self, cacert: str = DEFAULT_CACERT, loop=None):
+    def __init__(self, cacert: str = "", loop=None):
+        """
+        Parameters:
+            cacert: CA cert path to use, by default, curl_cffi uses certs from ``certifi``.
+            loop: EventLoop to use.
+        """
         self._curlm = lib.curl_multi_init()
-        self._cacert = cacert
+        self._cacert = cacert or DEFAULT_CACERT
         self._curl2future = {}  # curl to future map
         self._curl2curl = {}  # c curl to Curl
         self._sockfds = set()  # sockfds
@@ -141,22 +147,29 @@ class AsyncCurl:
         self.setopt(CurlMOpt.SOCKETDATA, self._self_handle)
         self.setopt(CurlMOpt.TIMERDATA, self._self_handle)
 
-    def close(self):
+    async def close(self):
         """Close and cleanup running timers, readers, writers and handles."""
-        # Close force timeout checker
+
+        # Close and wait for the force timeout checker to complete
         self._checker.cancel()
+        with suppress(asyncio.CancelledError):
+            await self._checker
+
         # Close all pending futures
         for curl, future in self._curl2future.items():
             lib.curl_multi_remove_handle(self._curlm, curl._curl)
             if not future.done() and not future.cancelled():
                 future.set_result(None)
+
         # Cleanup curl_multi handle
         lib.curl_multi_cleanup(self._curlm)
         self._curlm = None
+
         # Remove add readers and writers
         for sockfd in self._sockfds:
             self.loop.remove_reader(sockfd)
             self.loop.remove_writer(sockfd)
+
         # Cancel all time functions
         for timer in self._timers:
             timer.cancel()

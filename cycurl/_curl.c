@@ -1648,7 +1648,8 @@ struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct____init__;
 struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext;
 struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_2__thread_manager;
 struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector;
-struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout;
+struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close;
+struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout;
 struct __pyx_array_obj;
 struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
@@ -1663,31 +1664,31 @@ struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_attach;
 struct __pyx_defaults;
 typedef struct __pyx_defaults __pyx_defaults;
 
-/* "cycurl/_curl.pyx":187
+/* "cycurl/_curl.pyx":199
  *         self._close()
  * 
  *     cpdef inline tuple ws_recv(self, size_t n = 1024):             # <<<<<<<<<<<<<<
- *         cdef char* buffer = <char*>PyMem_Malloc(n)
- *         if buffer==NULL:
+ *         """Receive a frame from a websocket connection.
+ *         Args:
  */
 struct __pyx_opt_args_6cycurl_5_curl_4Curl_ws_recv {
   int __pyx_n;
   size_t n;
 };
 
-/* "cycurl/_curl.pyx":207
+/* "cycurl/_curl.pyx":227
  *             PyMem_Free(buffer)
  * 
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):             # <<<<<<<<<<<<<<
- *         cdef size_t n_sent
- *         cdef int ret
+ *         """Send data to a websocket connection.
+ *         Args:
  */
 struct __pyx_opt_args_6cycurl_5_curl_4Curl_ws_send {
   int __pyx_n;
   unsigned int flags;
 };
 
-/* "cycurl/_curl.pyx":390
+/* "cycurl/_curl.pyx":424
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
@@ -1699,11 +1700,11 @@ struct __pyx_opt_args_6cycurl_5_curl_4Curl_impersonate {
   int default_headers;
 };
 
-/* "cycurl/_curl.pyx":405
+/* "cycurl/_curl.pyx":442
  *             self._check_error(ret, "set cacert")
  * 
  *     cpdef inline int perform(self, clear_headers: bool = True) except -1:             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_perform, performs a curl request.
+ *         """Wrapper for ``curl_easy_perform``, performs a curl request.
  * 
  */
 struct __pyx_opt_args_6cycurl_5_curl_4Curl_perform {
@@ -1711,7 +1712,7 @@ struct __pyx_opt_args_6cycurl_5_curl_4Curl_perform {
   PyObject *clear_headers;
 };
 
-/* "cycurl/_curl.pyx":425
+/* "cycurl/_curl.pyx":465
  *             self.clean_after_perform(clear_headers)
  * 
  *     cpdef inline clean_after_perform(self, clear_headers: bool = True):             # <<<<<<<<<<<<<<
@@ -1723,7 +1724,7 @@ struct __pyx_opt_args_6cycurl_5_curl_4Curl_clean_after_perform {
   PyObject *clear_headers;
 };
 
-/* "cycurl/_curl.pyx":747
+/* "cycurl/_curl.pyx":799
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -1738,12 +1739,12 @@ struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_addpart {
   PyObject *data;
 };
 
-/* "cycurl/_curl.pyx":805
+/* "cycurl/_curl.pyx":867
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
+ *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
- *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  */
 struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_attach {
   int __pyx_n;
@@ -1753,7 +1754,7 @@ struct __pyx_defaults {
   PyObject *__pyx_arg_code;
 };
 
-/* "cycurl/_curl.pyx":96
+/* "cycurl/_curl.pyx":101
  * @cython.no_gc
  * @cython.freelist(8)
  * cdef class WSFrame:             # <<<<<<<<<<<<<<
@@ -1767,7 +1768,7 @@ struct __pyx_obj_6cycurl_5_curl_WSFrame {
 };
 
 
-/* "cycurl/_curl.pyx":127
+/* "cycurl/_curl.pyx":132
  * @cython.no_gc
  * @cython.freelist(8)
  * cdef class Curl:             # <<<<<<<<<<<<<<
@@ -1790,7 +1791,7 @@ struct __pyx_obj_6cycurl_5_curl_Curl {
 };
 
 
-/* "cycurl/_curl.pyx":592
+/* "cycurl/_curl.pyx":636
  * @cython.final
  * @cython.no_gc
  * cdef class AsyncCurl:             # <<<<<<<<<<<<<<
@@ -1811,12 +1812,12 @@ struct __pyx_obj_6cycurl_5_curl_AsyncCurl {
 };
 
 
-/* "cycurl/_curl.pyx":734
+/* "cycurl/_curl.pyx":780
  * @cython.no_gc
  * @cython.final
  * cdef class CurlMime:             # <<<<<<<<<<<<<<
- *     cdef:
- *         Curl _curl
+ *     """Wrapper for the ``curl_mime_`` API."""
+ * 
  */
 struct __pyx_obj_6cycurl_5_curl_CurlMime {
   PyObject_HEAD
@@ -1869,7 +1870,7 @@ struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_2__thread_manager {
 };
 
 
-/* "cycurl/_curl.pyx":514
+/* "cycurl/_curl.pyx":558
  *     """
  * 
  *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -1884,14 +1885,35 @@ struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector {
 };
 
 
-/* "cycurl/_curl.pyx":649
+/* "cycurl/_curl.pyx":673
+ *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)
+ * 
+ *     async def close(self):             # <<<<<<<<<<<<<<
+ *         """Close and cleanup running timers, readers, writers and handles."""
+ *         # Close and wait for the force timeout checker to complete
+ */
+struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close {
+  PyObject_HEAD
+  PyObject *__pyx_v_curl_;
+  PyObject *__pyx_v_future;
+  struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self;
+  PyObject *__pyx_v_sockfd;
+  PyObject *__pyx_v_timer;
+  PyObject *__pyx_t_0;
+  PyObject *__pyx_t_1;
+  PyObject *__pyx_t_2;
+  PyObject *__pyx_t_3;
+};
+
+
+/* "cycurl/_curl.pyx":695
  *             timer.cancel()
  * 
  *     async def _force_timeout(self):             # <<<<<<<<<<<<<<
  *         while True:
  *             if not self._curlm:
  */
-struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout {
+struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout {
   PyObject_HEAD
   struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self;
 };
@@ -1974,7 +1996,7 @@ struct __pyx_memoryviewslice_obj {
 
 
 
-/* "cycurl/_curl.pyx":96
+/* "cycurl/_curl.pyx":101
  * @cython.no_gc
  * @cython.freelist(8)
  * cdef class WSFrame:             # <<<<<<<<<<<<<<
@@ -1989,7 +2011,7 @@ static struct __pyx_vtabstruct_6cycurl_5_curl_WSFrame *__pyx_vtabptr_6cycurl_5_c
 static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_WSFrame *__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr(struct curl_ws_frame *);
 
 
-/* "cycurl/_curl.pyx":127
+/* "cycurl/_curl.pyx":132
  * @cython.no_gc
  * @cython.freelist(8)
  * cdef class Curl:             # <<<<<<<<<<<<<<
@@ -2030,7 +2052,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
 static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_curl_4Curl_duphandle(struct __pyx_obj_6cycurl_5_curl_Curl *, int __pyx_skip_dispatch);
 
 
-/* "cycurl/_curl.pyx":592
+/* "cycurl/_curl.pyx":636
  * @cython.final
  * @cython.no_gc
  * cdef class AsyncCurl:             # <<<<<<<<<<<<<<
@@ -2040,7 +2062,6 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
 
 struct __pyx_vtabstruct_6cycurl_5_curl_AsyncCurl {
   PyObject *(*_setup)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *);
-  PyObject *(*close)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, int __pyx_skip_dispatch);
   PyObject *(*add_handle)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, struct __pyx_obj_6cycurl_5_curl_Curl *, int __pyx_skip_dispatch);
   int (*socket_action)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, int, int, int __pyx_skip_dispatch);
   PyObject *(*process_data)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, int, int, int __pyx_skip_dispatch);
@@ -2051,7 +2072,6 @@ struct __pyx_vtabstruct_6cycurl_5_curl_AsyncCurl {
 };
 static struct __pyx_vtabstruct_6cycurl_5_curl_AsyncCurl *__pyx_vtabptr_6cycurl_5_curl_AsyncCurl;
 static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *);
-static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_close(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, int __pyx_skip_dispatch);
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, struct __pyx_obj_6cycurl_5_curl_Curl *, int __pyx_skip_dispatch);
 static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, int, int, int __pyx_skip_dispatch);
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, int, int, int __pyx_skip_dispatch);
@@ -2061,12 +2081,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, struct __pyx_obj_6cycurl_5_curl_Curl *, PyObject *);
 
 
-/* "cycurl/_curl.pyx":734
+/* "cycurl/_curl.pyx":780
  * @cython.no_gc
  * @cython.final
  * cdef class CurlMime:             # <<<<<<<<<<<<<<
- *     cdef:
- *         Curl _curl
+ *     """Wrapper for the ``curl_mime_`` API."""
+ * 
  */
 
 struct __pyx_vtabstruct_6cycurl_5_curl_CurlMime {
@@ -3495,7 +3515,6 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_4Curl_clean_after_perform *__pyx_optional_args); /* proto*/
 static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_curl_4Curl_duphandle(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self, CYTHON_UNUSED int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto*/
-static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_close(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, CYTHON_UNUSED int __pyx_skip_dispatch); /* proto*/
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl_, CYTHON_UNUSED int __pyx_skip_dispatch); /* proto*/
 static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask, CYTHON_UNUSED int __pyx_skip_dispatch); /* proto*/
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask, CYTHON_UNUSED int __pyx_skip_dispatch); /* proto*/
@@ -3645,7 +3664,8 @@ static const char __pyx_k_1_1[] = "1.1";
 static const char __pyx_k_2_0[] = "2.0";
 static const char __pyx_k_Any[] = "Any";
 static const char __pyx_k_Set[] = "Set";
-static const char __pyx_k__12[] = "";
+static const char __pyx_k__10[] = "";
+static const char __pyx_k__12[] = ") ";
 static const char __pyx_k__13[] = " ";
 static const char __pyx_k__81[] = "_";
 static const char __pyx_k_abc[] = "abc";
@@ -3675,7 +3695,7 @@ static const char __pyx_k_args[] = "args";
 static const char __pyx_k_base[] = "base";
 static const char __pyx_k_bool[] = "bool";
 static const char __pyx_k_code[] = "code";
-static const char __pyx_k_curl[] = "curl_";
+static const char __pyx_k_curl[] = ", curl: (";
 static const char __pyx_k_data[] = "data";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_done[] = "done";
@@ -3735,12 +3755,12 @@ static const char __pyx_k_sleep[] = "sleep";
 static const char __pyx_k_start[] = "start";
 static const char __pyx_k_super[] = "super";
 static const char __pyx_k_throw[] = "throw";
+static const char __pyx_k_timer[] = "timer";
 static const char __pyx_k_tuple[] = "tuple";
 static const char __pyx_k_value[] = "value";
 static const char __pyx_k_where[] = "where";
 static const char __pyx_k_win32[] = "win32";
 static const char __pyx_k_write[] = "write";
-static const char __pyx_k_Reason[] = ", Reason: '";
 static const char __pyx_k_Thread[] = "Thread";
 static const char __pyx_k_atexit[] = "atexit";
 static const char __pyx_k_attach[] = "attach";
@@ -3749,7 +3769,8 @@ static const char __pyx_k_cancel[] = "cancel";
 static const char __pyx_k_cb_map[] = "cb_map";
 static const char __pyx_k_closed[] = "_closed";
 static const char __pyx_k_cookie[] = "cookie";
-static const char __pyx_k_curl_2[] = "curl";
+static const char __pyx_k_curl_2[] = "curl_";
+static const char __pyx_k_curl_3[] = "curl";
 static const char __pyx_k_daemon[] = "daemon";
 static const char __pyx_k_decode[] = "decode";
 static const char __pyx_k_enable[] = "enable";
@@ -3757,6 +3778,7 @@ static const char __pyx_k_encode[] = "encode";
 static const char __pyx_k_exists[] = "exists";
 static const char __pyx_k_fileno[] = "fileno";
 static const char __pyx_k_format[] = "format";
+static const char __pyx_k_future[] = "future";
 static const char __pyx_k_handle[] = "handle";
 static const char __pyx_k_header[] = "header";
 static const char __pyx_k_import[] = "__import__";
@@ -3779,7 +3801,6 @@ static const char __pyx_k_thread[] = "_thread";
 static const char __pyx_k_typing[] = "typing";
 static const char __pyx_k_unpack[] = "unpack";
 static const char __pyx_k_update[] = "update";
-static const char __pyx_k_ErrCode[] = ", ErrCode: ";
 static const char __pyx_k_IntEnum[] = "IntEnum";
 static const char __pyx_k_OSError[] = "OSError";
 static const char __pyx_k_WSFrame[] = "WSFrame";
@@ -3832,6 +3853,7 @@ static const char __pyx_k_selector[] = "_selector";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_setopt_2[] = "setopt";
 static const char __pyx_k_setstate[] = "__setstate__";
+static const char __pyx_k_suppress[] = "suppress";
 static const char __pyx_k_to_write[] = "to_write";
 static const char __pyx_k_warnings[] = "warnings";
 static const char __pyx_k_ws_close[] = "ws_close";
@@ -3865,6 +3887,7 @@ static const char __pyx_k_add_handle[] = "add_handle";
 static const char __pyx_k_add_reader[] = "add_reader";
 static const char __pyx_k_add_writer[] = "add_writer";
 static const char __pyx_k_call_later[] = "call_later";
+static const char __pyx_k_contextlib[] = "contextlib";
 static const char __pyx_k_ev_bitmask[] = "ev_bitmask";
 static const char __pyx_k_local_path[] = "local_path";
 static const char __pyx_k_loop_close[] = "loop_close";
@@ -3974,6 +3997,7 @@ static const char __pyx_k_CURLOPT_SSLKEY[] = "CURLOPT_SSLKEY";
 static const char __pyx_k_CURLOPT_STDERR[] = "CURLOPT_STDERR";
 static const char __pyx_k_CURLOPT_UPLOAD[] = "CURLOPT_UPLOAD";
 static const char __pyx_k_CURL_POLL_NONE[] = "CURL_POLL_NONE";
+static const char __pyx_k_CancelledError[] = "CancelledError";
 static const char __pyx_k_CurlMime_close[] = "CurlMime.close";
 static const char __pyx_k_Curl_duphandle[] = "Curl.duphandle";
 static const char __pyx_k_DEFAULT_CACERT[] = "DEFAULT_CACERT";
@@ -4552,7 +4576,7 @@ static const char __pyx_k_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5[] = "CURLOPT_SSH_HOST_
 static const char __pyx_k_Can_not_use_local_path_and_data[] = "Can not use local_path and data at the same time.";
 static const char __pyx_k_Define_add_reader_methods_to_be[] = "Define ``add_reader`` methods to be called in a background select thread.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user;\n    all callbacks are run on the wrapped event loop's thread.\n\n    Typically used via ``AddThreadSelectorEventLoop``,\n    but can be attached to a running asyncio loop.\n    ";
 static const char __pyx_k_Proactor_event_loop_does_not_im[] = "\n    Proactor event loop does not implement add_reader family of methods required.\n    Registering an additional selector thread for add_reader support.\n    To avoid this warning use:\n        asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())\n    ";
-static const char __pyx_k_This_may_be_a_libcurl_error_See[] = "'. This may be a libcurl error, See https://curl.se/libcurl/c/libcurl-errors.html first for more details.";
+static const char __pyx_k_See_https_curl_se_libcurl_c_lib[] = ". See https://curl.se/libcurl/c/libcurl-errors.html first for more details.";
 static const char __pyx_k_get_selector_locals__close_sele[] = "_get_selector.<locals>._close_selector_and_loop";
 static const char __pyx_k_typing_AsyncGenerator_None_None[] = "typing.AsyncGenerator[None, None]";
 static const char __pyx_k_AddThreadSelectorEventLoop___get[] = "AddThreadSelectorEventLoop.__getattribute__";
@@ -4699,13 +4723,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *
 static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, PyObject *__pyx_v_cacert, PyObject *__pyx_v_loop); /* proto */
 static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_4close(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_6_force_timeout(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_9add_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl_); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_11socket_action(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_13process_data(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_15remove_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_17__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_19__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_7_force_timeout(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_10add_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl_); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_12socket_action(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_14process_data(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_16remove_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5_curl_CurlMime *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl_); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_obj_6cycurl_5_curl_CurlMime *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(struct __pyx_obj_6cycurl_5_curl_CurlMime *__pyx_v_self, PyObject *__pyx_v_name, PyObject *__pyx_v_content_type, PyObject *__pyx_v_filename, PyObject *__pyx_v_local_path, PyObject *__pyx_v_data); /* proto */
@@ -4723,7 +4747,8 @@ static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct____init__(PyType
 static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_2__thread_manager(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3__get_selector(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4__force_timeout(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4_close(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_5__force_timeout(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_array(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_Enum(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -4800,7 +4825,8 @@ typedef struct {
   PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext;
   PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_2__thread_manager;
   PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector;
-  PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout;
+  PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close;
+  PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout;
   PyObject *__pyx_type___pyx_array;
   PyObject *__pyx_type___pyx_MemviewEnum;
   PyObject *__pyx_type___pyx_memoryview;
@@ -4814,7 +4840,8 @@ typedef struct {
   PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext;
   PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_2__thread_manager;
   PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector;
-  PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout;
+  PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close;
+  PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout;
   PyTypeObject *__pyx_array_type;
   PyTypeObject *__pyx_MemviewEnum_type;
   PyTypeObject *__pyx_memoryview_type;
@@ -5378,6 +5405,7 @@ typedef struct {
   PyObject *__pyx_kp_s_Callable_None;
   PyObject *__pyx_kp_u_Can_not_use_local_path_and_data;
   PyObject *__pyx_kp_s_Can_only_create_a_buffer_that_is;
+  PyObject *__pyx_n_s_CancelledError;
   PyObject *__pyx_kp_s_Cannot_assign_to_read_only_memor;
   PyObject *__pyx_kp_s_Cannot_create_writable_memory_vi;
   PyObject *__pyx_kp_u_Cannot_index_with_type;
@@ -5422,7 +5450,6 @@ typedef struct {
   PyObject *__pyx_n_s_EBADF;
   PyObject *__pyx_n_s_Ellipsis;
   PyObject *__pyx_kp_s_Empty_shape_tuple_for_cython_arr;
-  PyObject *__pyx_kp_u_ErrCode;
   PyObject *__pyx_kp_u_Failed_to;
   PyObject *__pyx_kp_u_Failed_to_set_error_buffer;
   PyObject *__pyx_n_s_FileDescriptorLike;
@@ -5463,9 +5490,9 @@ typedef struct {
   PyObject *__pyx_n_u_ProactorEventLoop;
   PyObject *__pyx_kp_u_Proactor_event_loop_does_not_im;
   PyObject *__pyx_n_s_Protocol;
-  PyObject *__pyx_kp_u_Reason;
   PyObject *__pyx_n_s_RuntimeError;
   PyObject *__pyx_n_s_RuntimeWarning;
+  PyObject *__pyx_kp_u_See_https_curl_se_libcurl_c_lib;
   PyObject *__pyx_n_s_SelectorThread;
   PyObject *__pyx_n_s_SelectorThread___init;
   PyObject *__pyx_n_s_SelectorThread___init___locals_l;
@@ -5486,7 +5513,6 @@ typedef struct {
   PyObject *__pyx_n_s_Set;
   PyObject *__pyx_n_s_SimpleCookie;
   PyObject *__pyx_kp_s_Step_may_not_be_zero_axis_d;
-  PyObject *__pyx_kp_u_This_may_be_a_libcurl_error_See;
   PyObject *__pyx_n_s_Thread;
   PyObject *__pyx_kp_u_Tornado_selector;
   PyObject *__pyx_n_s_Tuple;
@@ -5511,7 +5537,9 @@ typedef struct {
   PyObject *__pyx_n_s_WeakSet;
   PyObject *__pyx_kp_s_Wrap_an_event_loop_to_add_implem;
   PyObject *__pyx_kp_u_Wrote_bytes_received_bytes;
-  PyObject *__pyx_kp_b__12;
+  PyObject *__pyx_kp_b__10;
+  PyObject *__pyx_kp_u__10;
+  PyObject *__pyx_kp_u__12;
   PyObject *__pyx_n_s__126;
   PyObject *__pyx_kp_u__13;
   PyObject *__pyx_kp_u__2;
@@ -5572,14 +5600,16 @@ typedef struct {
   PyObject *__pyx_kp_s_collections_abc;
   PyObject *__pyx_n_s_consume_waker;
   PyObject *__pyx_n_s_content_type;
+  PyObject *__pyx_n_s_contextlib;
   PyObject *__pyx_kp_s_contiguous_and_direct;
   PyObject *__pyx_kp_s_contiguous_and_indirect;
   PyObject *__pyx_n_s_cookie;
   PyObject *__pyx_n_s_count;
   PyObject *__pyx_n_s_create_future;
   PyObject *__pyx_n_s_create_task;
-  PyObject *__pyx_n_s_curl;
+  PyObject *__pyx_kp_u_curl;
   PyObject *__pyx_n_s_curl_2;
+  PyObject *__pyx_n_s_curl_3;
   PyObject *__pyx_kp_s_cycurl__asyncio_selector_pxi;
   PyObject *__pyx_n_s_cycurl__curl;
   PyObject *__pyx_kp_s_cycurl__curl_pyx;
@@ -5621,6 +5651,7 @@ typedef struct {
   PyObject *__pyx_n_s_frame;
   PyObject *__pyx_n_s_from_list;
   PyObject *__pyx_n_s_functools;
+  PyObject *__pyx_n_s_future;
   PyObject *__pyx_kp_u_gc;
   PyObject *__pyx_n_s_get_reason_phrase;
   PyObject *__pyx_n_s_get_running_loop;
@@ -5769,6 +5800,7 @@ typedef struct {
   PyObject *__pyx_kp_s_stringsource;
   PyObject *__pyx_n_s_struct;
   PyObject *__pyx_n_s_super;
+  PyObject *__pyx_n_s_suppress;
   PyObject *__pyx_n_s_sys;
   PyObject *__pyx_n_s_target;
   PyObject *__pyx_n_s_test;
@@ -5778,6 +5810,7 @@ typedef struct {
   PyObject *__pyx_n_s_thread_manager_handle;
   PyObject *__pyx_n_s_threading;
   PyObject *__pyx_n_s_throw;
+  PyObject *__pyx_n_s_timer;
   PyObject *__pyx_n_s_to_read;
   PyObject *__pyx_n_s_to_write;
   PyObject *__pyx_n_s_tuple;
@@ -5821,9 +5854,7 @@ typedef struct {
   PyObject *__pyx_int_136983863;
   PyObject *__pyx_int_184977713;
   PyObject *__pyx_int_neg_1;
-  PyObject *__pyx_k__10;
   unsigned int __pyx_k__11;
-  PyObject *__pyx_k__19;
   PyObject *__pyx_slice__5;
   PyObject *__pyx_tuple__4;
   PyObject *__pyx_tuple__8;
@@ -5868,6 +5899,7 @@ typedef struct {
   PyObject *__pyx_tuple__94;
   PyObject *__pyx_tuple__96;
   PyObject *__pyx_tuple__103;
+  PyObject *__pyx_tuple__106;
   PyObject *__pyx_tuple__107;
   PyObject *__pyx_tuple__109;
   PyObject *__pyx_tuple__112;
@@ -5878,6 +5910,7 @@ typedef struct {
   PyObject *__pyx_codeobj__16;
   PyObject *__pyx_codeobj__17;
   PyObject *__pyx_codeobj__18;
+  PyObject *__pyx_codeobj__19;
   PyObject *__pyx_codeobj__20;
   PyObject *__pyx_codeobj__32;
   PyObject *__pyx_codeobj__34;
@@ -5925,7 +5958,6 @@ typedef struct {
   PyObject *__pyx_codeobj__102;
   PyObject *__pyx_codeobj__104;
   PyObject *__pyx_codeobj__105;
-  PyObject *__pyx_codeobj__106;
   PyObject *__pyx_codeobj__108;
   PyObject *__pyx_codeobj__110;
   PyObject *__pyx_codeobj__111;
@@ -5997,8 +6029,10 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_2__thread_manager);
   Py_CLEAR(clear_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector);
   Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector);
-  Py_CLEAR(clear_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout);
-  Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout);
+  Py_CLEAR(clear_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close);
+  Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close);
+  Py_CLEAR(clear_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout);
+  Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout);
   Py_CLEAR(clear_module_state->__pyx_array_type);
   Py_CLEAR(clear_module_state->__pyx_type___pyx_array);
   Py_CLEAR(clear_module_state->__pyx_MemviewEnum_type);
@@ -6566,6 +6600,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_s_Callable_None);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Can_not_use_local_path_and_data);
   Py_CLEAR(clear_module_state->__pyx_kp_s_Can_only_create_a_buffer_that_is);
+  Py_CLEAR(clear_module_state->__pyx_n_s_CancelledError);
   Py_CLEAR(clear_module_state->__pyx_kp_s_Cannot_assign_to_read_only_memor);
   Py_CLEAR(clear_module_state->__pyx_kp_s_Cannot_create_writable_memory_vi);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Cannot_index_with_type);
@@ -6610,7 +6645,6 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_EBADF);
   Py_CLEAR(clear_module_state->__pyx_n_s_Ellipsis);
   Py_CLEAR(clear_module_state->__pyx_kp_s_Empty_shape_tuple_for_cython_arr);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_ErrCode);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Failed_to);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Failed_to_set_error_buffer);
   Py_CLEAR(clear_module_state->__pyx_n_s_FileDescriptorLike);
@@ -6651,9 +6685,9 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_u_ProactorEventLoop);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Proactor_event_loop_does_not_im);
   Py_CLEAR(clear_module_state->__pyx_n_s_Protocol);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_Reason);
   Py_CLEAR(clear_module_state->__pyx_n_s_RuntimeError);
   Py_CLEAR(clear_module_state->__pyx_n_s_RuntimeWarning);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_See_https_curl_se_libcurl_c_lib);
   Py_CLEAR(clear_module_state->__pyx_n_s_SelectorThread);
   Py_CLEAR(clear_module_state->__pyx_n_s_SelectorThread___init);
   Py_CLEAR(clear_module_state->__pyx_n_s_SelectorThread___init___locals_l);
@@ -6674,7 +6708,6 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_Set);
   Py_CLEAR(clear_module_state->__pyx_n_s_SimpleCookie);
   Py_CLEAR(clear_module_state->__pyx_kp_s_Step_may_not_be_zero_axis_d);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_This_may_be_a_libcurl_error_See);
   Py_CLEAR(clear_module_state->__pyx_n_s_Thread);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Tornado_selector);
   Py_CLEAR(clear_module_state->__pyx_n_s_Tuple);
@@ -6699,7 +6732,9 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_WeakSet);
   Py_CLEAR(clear_module_state->__pyx_kp_s_Wrap_an_event_loop_to_add_implem);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Wrote_bytes_received_bytes);
-  Py_CLEAR(clear_module_state->__pyx_kp_b__12);
+  Py_CLEAR(clear_module_state->__pyx_kp_b__10);
+  Py_CLEAR(clear_module_state->__pyx_kp_u__10);
+  Py_CLEAR(clear_module_state->__pyx_kp_u__12);
   Py_CLEAR(clear_module_state->__pyx_n_s__126);
   Py_CLEAR(clear_module_state->__pyx_kp_u__13);
   Py_CLEAR(clear_module_state->__pyx_kp_u__2);
@@ -6760,14 +6795,16 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_s_collections_abc);
   Py_CLEAR(clear_module_state->__pyx_n_s_consume_waker);
   Py_CLEAR(clear_module_state->__pyx_n_s_content_type);
+  Py_CLEAR(clear_module_state->__pyx_n_s_contextlib);
   Py_CLEAR(clear_module_state->__pyx_kp_s_contiguous_and_direct);
   Py_CLEAR(clear_module_state->__pyx_kp_s_contiguous_and_indirect);
   Py_CLEAR(clear_module_state->__pyx_n_s_cookie);
   Py_CLEAR(clear_module_state->__pyx_n_s_count);
   Py_CLEAR(clear_module_state->__pyx_n_s_create_future);
   Py_CLEAR(clear_module_state->__pyx_n_s_create_task);
-  Py_CLEAR(clear_module_state->__pyx_n_s_curl);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_curl);
   Py_CLEAR(clear_module_state->__pyx_n_s_curl_2);
+  Py_CLEAR(clear_module_state->__pyx_n_s_curl_3);
   Py_CLEAR(clear_module_state->__pyx_kp_s_cycurl__asyncio_selector_pxi);
   Py_CLEAR(clear_module_state->__pyx_n_s_cycurl__curl);
   Py_CLEAR(clear_module_state->__pyx_kp_s_cycurl__curl_pyx);
@@ -6809,6 +6846,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_frame);
   Py_CLEAR(clear_module_state->__pyx_n_s_from_list);
   Py_CLEAR(clear_module_state->__pyx_n_s_functools);
+  Py_CLEAR(clear_module_state->__pyx_n_s_future);
   Py_CLEAR(clear_module_state->__pyx_kp_u_gc);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_reason_phrase);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_running_loop);
@@ -6957,6 +6995,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_s_stringsource);
   Py_CLEAR(clear_module_state->__pyx_n_s_struct);
   Py_CLEAR(clear_module_state->__pyx_n_s_super);
+  Py_CLEAR(clear_module_state->__pyx_n_s_suppress);
   Py_CLEAR(clear_module_state->__pyx_n_s_sys);
   Py_CLEAR(clear_module_state->__pyx_n_s_target);
   Py_CLEAR(clear_module_state->__pyx_n_s_test);
@@ -6966,6 +7005,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_thread_manager_handle);
   Py_CLEAR(clear_module_state->__pyx_n_s_threading);
   Py_CLEAR(clear_module_state->__pyx_n_s_throw);
+  Py_CLEAR(clear_module_state->__pyx_n_s_timer);
   Py_CLEAR(clear_module_state->__pyx_n_s_to_read);
   Py_CLEAR(clear_module_state->__pyx_n_s_to_write);
   Py_CLEAR(clear_module_state->__pyx_n_s_tuple);
@@ -7009,8 +7049,6 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_int_136983863);
   Py_CLEAR(clear_module_state->__pyx_int_184977713);
   Py_CLEAR(clear_module_state->__pyx_int_neg_1);
-  Py_CLEAR(clear_module_state->__pyx_k__10);
-  Py_CLEAR(clear_module_state->__pyx_k__19);
   Py_CLEAR(clear_module_state->__pyx_slice__5);
   Py_CLEAR(clear_module_state->__pyx_tuple__4);
   Py_CLEAR(clear_module_state->__pyx_tuple__8);
@@ -7055,6 +7093,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_tuple__94);
   Py_CLEAR(clear_module_state->__pyx_tuple__96);
   Py_CLEAR(clear_module_state->__pyx_tuple__103);
+  Py_CLEAR(clear_module_state->__pyx_tuple__106);
   Py_CLEAR(clear_module_state->__pyx_tuple__107);
   Py_CLEAR(clear_module_state->__pyx_tuple__109);
   Py_CLEAR(clear_module_state->__pyx_tuple__112);
@@ -7065,6 +7104,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_codeobj__16);
   Py_CLEAR(clear_module_state->__pyx_codeobj__17);
   Py_CLEAR(clear_module_state->__pyx_codeobj__18);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__19);
   Py_CLEAR(clear_module_state->__pyx_codeobj__20);
   Py_CLEAR(clear_module_state->__pyx_codeobj__32);
   Py_CLEAR(clear_module_state->__pyx_codeobj__34);
@@ -7112,7 +7152,6 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_codeobj__102);
   Py_CLEAR(clear_module_state->__pyx_codeobj__104);
   Py_CLEAR(clear_module_state->__pyx_codeobj__105);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__106);
   Py_CLEAR(clear_module_state->__pyx_codeobj__108);
   Py_CLEAR(clear_module_state->__pyx_codeobj__110);
   Py_CLEAR(clear_module_state->__pyx_codeobj__111);
@@ -7162,8 +7201,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_2__thread_manager);
   Py_VISIT(traverse_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector);
   Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector);
-  Py_VISIT(traverse_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout);
-  Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout);
+  Py_VISIT(traverse_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close);
+  Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close);
+  Py_VISIT(traverse_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout);
+  Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout);
   Py_VISIT(traverse_module_state->__pyx_array_type);
   Py_VISIT(traverse_module_state->__pyx_type___pyx_array);
   Py_VISIT(traverse_module_state->__pyx_MemviewEnum_type);
@@ -7731,6 +7772,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_s_Callable_None);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Can_not_use_local_path_and_data);
   Py_VISIT(traverse_module_state->__pyx_kp_s_Can_only_create_a_buffer_that_is);
+  Py_VISIT(traverse_module_state->__pyx_n_s_CancelledError);
   Py_VISIT(traverse_module_state->__pyx_kp_s_Cannot_assign_to_read_only_memor);
   Py_VISIT(traverse_module_state->__pyx_kp_s_Cannot_create_writable_memory_vi);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Cannot_index_with_type);
@@ -7775,7 +7817,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_EBADF);
   Py_VISIT(traverse_module_state->__pyx_n_s_Ellipsis);
   Py_VISIT(traverse_module_state->__pyx_kp_s_Empty_shape_tuple_for_cython_arr);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_ErrCode);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Failed_to);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Failed_to_set_error_buffer);
   Py_VISIT(traverse_module_state->__pyx_n_s_FileDescriptorLike);
@@ -7816,9 +7857,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_u_ProactorEventLoop);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Proactor_event_loop_does_not_im);
   Py_VISIT(traverse_module_state->__pyx_n_s_Protocol);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_Reason);
   Py_VISIT(traverse_module_state->__pyx_n_s_RuntimeError);
   Py_VISIT(traverse_module_state->__pyx_n_s_RuntimeWarning);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_See_https_curl_se_libcurl_c_lib);
   Py_VISIT(traverse_module_state->__pyx_n_s_SelectorThread);
   Py_VISIT(traverse_module_state->__pyx_n_s_SelectorThread___init);
   Py_VISIT(traverse_module_state->__pyx_n_s_SelectorThread___init___locals_l);
@@ -7839,7 +7880,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_Set);
   Py_VISIT(traverse_module_state->__pyx_n_s_SimpleCookie);
   Py_VISIT(traverse_module_state->__pyx_kp_s_Step_may_not_be_zero_axis_d);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_This_may_be_a_libcurl_error_See);
   Py_VISIT(traverse_module_state->__pyx_n_s_Thread);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Tornado_selector);
   Py_VISIT(traverse_module_state->__pyx_n_s_Tuple);
@@ -7864,7 +7904,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_WeakSet);
   Py_VISIT(traverse_module_state->__pyx_kp_s_Wrap_an_event_loop_to_add_implem);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Wrote_bytes_received_bytes);
-  Py_VISIT(traverse_module_state->__pyx_kp_b__12);
+  Py_VISIT(traverse_module_state->__pyx_kp_b__10);
+  Py_VISIT(traverse_module_state->__pyx_kp_u__10);
+  Py_VISIT(traverse_module_state->__pyx_kp_u__12);
   Py_VISIT(traverse_module_state->__pyx_n_s__126);
   Py_VISIT(traverse_module_state->__pyx_kp_u__13);
   Py_VISIT(traverse_module_state->__pyx_kp_u__2);
@@ -7925,14 +7967,16 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_s_collections_abc);
   Py_VISIT(traverse_module_state->__pyx_n_s_consume_waker);
   Py_VISIT(traverse_module_state->__pyx_n_s_content_type);
+  Py_VISIT(traverse_module_state->__pyx_n_s_contextlib);
   Py_VISIT(traverse_module_state->__pyx_kp_s_contiguous_and_direct);
   Py_VISIT(traverse_module_state->__pyx_kp_s_contiguous_and_indirect);
   Py_VISIT(traverse_module_state->__pyx_n_s_cookie);
   Py_VISIT(traverse_module_state->__pyx_n_s_count);
   Py_VISIT(traverse_module_state->__pyx_n_s_create_future);
   Py_VISIT(traverse_module_state->__pyx_n_s_create_task);
-  Py_VISIT(traverse_module_state->__pyx_n_s_curl);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_curl);
   Py_VISIT(traverse_module_state->__pyx_n_s_curl_2);
+  Py_VISIT(traverse_module_state->__pyx_n_s_curl_3);
   Py_VISIT(traverse_module_state->__pyx_kp_s_cycurl__asyncio_selector_pxi);
   Py_VISIT(traverse_module_state->__pyx_n_s_cycurl__curl);
   Py_VISIT(traverse_module_state->__pyx_kp_s_cycurl__curl_pyx);
@@ -7974,6 +8018,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_frame);
   Py_VISIT(traverse_module_state->__pyx_n_s_from_list);
   Py_VISIT(traverse_module_state->__pyx_n_s_functools);
+  Py_VISIT(traverse_module_state->__pyx_n_s_future);
   Py_VISIT(traverse_module_state->__pyx_kp_u_gc);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_reason_phrase);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_running_loop);
@@ -8122,6 +8167,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_s_stringsource);
   Py_VISIT(traverse_module_state->__pyx_n_s_struct);
   Py_VISIT(traverse_module_state->__pyx_n_s_super);
+  Py_VISIT(traverse_module_state->__pyx_n_s_suppress);
   Py_VISIT(traverse_module_state->__pyx_n_s_sys);
   Py_VISIT(traverse_module_state->__pyx_n_s_target);
   Py_VISIT(traverse_module_state->__pyx_n_s_test);
@@ -8131,6 +8177,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_thread_manager_handle);
   Py_VISIT(traverse_module_state->__pyx_n_s_threading);
   Py_VISIT(traverse_module_state->__pyx_n_s_throw);
+  Py_VISIT(traverse_module_state->__pyx_n_s_timer);
   Py_VISIT(traverse_module_state->__pyx_n_s_to_read);
   Py_VISIT(traverse_module_state->__pyx_n_s_to_write);
   Py_VISIT(traverse_module_state->__pyx_n_s_tuple);
@@ -8174,8 +8221,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_int_136983863);
   Py_VISIT(traverse_module_state->__pyx_int_184977713);
   Py_VISIT(traverse_module_state->__pyx_int_neg_1);
-  Py_VISIT(traverse_module_state->__pyx_k__10);
-  Py_VISIT(traverse_module_state->__pyx_k__19);
   Py_VISIT(traverse_module_state->__pyx_slice__5);
   Py_VISIT(traverse_module_state->__pyx_tuple__4);
   Py_VISIT(traverse_module_state->__pyx_tuple__8);
@@ -8220,6 +8265,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_tuple__94);
   Py_VISIT(traverse_module_state->__pyx_tuple__96);
   Py_VISIT(traverse_module_state->__pyx_tuple__103);
+  Py_VISIT(traverse_module_state->__pyx_tuple__106);
   Py_VISIT(traverse_module_state->__pyx_tuple__107);
   Py_VISIT(traverse_module_state->__pyx_tuple__109);
   Py_VISIT(traverse_module_state->__pyx_tuple__112);
@@ -8230,6 +8276,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_codeobj__16);
   Py_VISIT(traverse_module_state->__pyx_codeobj__17);
   Py_VISIT(traverse_module_state->__pyx_codeobj__18);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__19);
   Py_VISIT(traverse_module_state->__pyx_codeobj__20);
   Py_VISIT(traverse_module_state->__pyx_codeobj__32);
   Py_VISIT(traverse_module_state->__pyx_codeobj__34);
@@ -8277,7 +8324,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_codeobj__102);
   Py_VISIT(traverse_module_state->__pyx_codeobj__104);
   Py_VISIT(traverse_module_state->__pyx_codeobj__105);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__106);
   Py_VISIT(traverse_module_state->__pyx_codeobj__108);
   Py_VISIT(traverse_module_state->__pyx_codeobj__110);
   Py_VISIT(traverse_module_state->__pyx_codeobj__111);
@@ -8362,7 +8408,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_type_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext __pyx_mstate_global->__pyx_type_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext
 #define __pyx_type_6cycurl_5_curl___pyx_scope_struct_2__thread_manager __pyx_mstate_global->__pyx_type_6cycurl_5_curl___pyx_scope_struct_2__thread_manager
 #define __pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector __pyx_mstate_global->__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector
-#define __pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout __pyx_mstate_global->__pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout
+#define __pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close __pyx_mstate_global->__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close
+#define __pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout __pyx_mstate_global->__pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout
 #define __pyx_type___pyx_array __pyx_mstate_global->__pyx_type___pyx_array
 #define __pyx_type___pyx_MemviewEnum __pyx_mstate_global->__pyx_type___pyx_MemviewEnum
 #define __pyx_type___pyx_memoryview __pyx_mstate_global->__pyx_type___pyx_memoryview
@@ -8376,7 +8423,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext
 #define __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_2__thread_manager __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_2__thread_manager
 #define __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector
-#define __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout
+#define __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close
+#define __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout
 #define __pyx_array_type __pyx_mstate_global->__pyx_array_type
 #define __pyx_MemviewEnum_type __pyx_mstate_global->__pyx_MemviewEnum_type
 #define __pyx_memoryview_type __pyx_mstate_global->__pyx_memoryview_type
@@ -8940,6 +8988,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_s_Callable_None __pyx_mstate_global->__pyx_kp_s_Callable_None
 #define __pyx_kp_u_Can_not_use_local_path_and_data __pyx_mstate_global->__pyx_kp_u_Can_not_use_local_path_and_data
 #define __pyx_kp_s_Can_only_create_a_buffer_that_is __pyx_mstate_global->__pyx_kp_s_Can_only_create_a_buffer_that_is
+#define __pyx_n_s_CancelledError __pyx_mstate_global->__pyx_n_s_CancelledError
 #define __pyx_kp_s_Cannot_assign_to_read_only_memor __pyx_mstate_global->__pyx_kp_s_Cannot_assign_to_read_only_memor
 #define __pyx_kp_s_Cannot_create_writable_memory_vi __pyx_mstate_global->__pyx_kp_s_Cannot_create_writable_memory_vi
 #define __pyx_kp_u_Cannot_index_with_type __pyx_mstate_global->__pyx_kp_u_Cannot_index_with_type
@@ -8984,7 +9033,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_EBADF __pyx_mstate_global->__pyx_n_s_EBADF
 #define __pyx_n_s_Ellipsis __pyx_mstate_global->__pyx_n_s_Ellipsis
 #define __pyx_kp_s_Empty_shape_tuple_for_cython_arr __pyx_mstate_global->__pyx_kp_s_Empty_shape_tuple_for_cython_arr
-#define __pyx_kp_u_ErrCode __pyx_mstate_global->__pyx_kp_u_ErrCode
 #define __pyx_kp_u_Failed_to __pyx_mstate_global->__pyx_kp_u_Failed_to
 #define __pyx_kp_u_Failed_to_set_error_buffer __pyx_mstate_global->__pyx_kp_u_Failed_to_set_error_buffer
 #define __pyx_n_s_FileDescriptorLike __pyx_mstate_global->__pyx_n_s_FileDescriptorLike
@@ -9025,9 +9073,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_u_ProactorEventLoop __pyx_mstate_global->__pyx_n_u_ProactorEventLoop
 #define __pyx_kp_u_Proactor_event_loop_does_not_im __pyx_mstate_global->__pyx_kp_u_Proactor_event_loop_does_not_im
 #define __pyx_n_s_Protocol __pyx_mstate_global->__pyx_n_s_Protocol
-#define __pyx_kp_u_Reason __pyx_mstate_global->__pyx_kp_u_Reason
 #define __pyx_n_s_RuntimeError __pyx_mstate_global->__pyx_n_s_RuntimeError
 #define __pyx_n_s_RuntimeWarning __pyx_mstate_global->__pyx_n_s_RuntimeWarning
+#define __pyx_kp_u_See_https_curl_se_libcurl_c_lib __pyx_mstate_global->__pyx_kp_u_See_https_curl_se_libcurl_c_lib
 #define __pyx_n_s_SelectorThread __pyx_mstate_global->__pyx_n_s_SelectorThread
 #define __pyx_n_s_SelectorThread___init __pyx_mstate_global->__pyx_n_s_SelectorThread___init
 #define __pyx_n_s_SelectorThread___init___locals_l __pyx_mstate_global->__pyx_n_s_SelectorThread___init___locals_l
@@ -9048,7 +9096,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_Set __pyx_mstate_global->__pyx_n_s_Set
 #define __pyx_n_s_SimpleCookie __pyx_mstate_global->__pyx_n_s_SimpleCookie
 #define __pyx_kp_s_Step_may_not_be_zero_axis_d __pyx_mstate_global->__pyx_kp_s_Step_may_not_be_zero_axis_d
-#define __pyx_kp_u_This_may_be_a_libcurl_error_See __pyx_mstate_global->__pyx_kp_u_This_may_be_a_libcurl_error_See
 #define __pyx_n_s_Thread __pyx_mstate_global->__pyx_n_s_Thread
 #define __pyx_kp_u_Tornado_selector __pyx_mstate_global->__pyx_kp_u_Tornado_selector
 #define __pyx_n_s_Tuple __pyx_mstate_global->__pyx_n_s_Tuple
@@ -9073,7 +9120,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_WeakSet __pyx_mstate_global->__pyx_n_s_WeakSet
 #define __pyx_kp_s_Wrap_an_event_loop_to_add_implem __pyx_mstate_global->__pyx_kp_s_Wrap_an_event_loop_to_add_implem
 #define __pyx_kp_u_Wrote_bytes_received_bytes __pyx_mstate_global->__pyx_kp_u_Wrote_bytes_received_bytes
-#define __pyx_kp_b__12 __pyx_mstate_global->__pyx_kp_b__12
+#define __pyx_kp_b__10 __pyx_mstate_global->__pyx_kp_b__10
+#define __pyx_kp_u__10 __pyx_mstate_global->__pyx_kp_u__10
+#define __pyx_kp_u__12 __pyx_mstate_global->__pyx_kp_u__12
 #define __pyx_n_s__126 __pyx_mstate_global->__pyx_n_s__126
 #define __pyx_kp_u__13 __pyx_mstate_global->__pyx_kp_u__13
 #define __pyx_kp_u__2 __pyx_mstate_global->__pyx_kp_u__2
@@ -9134,14 +9183,16 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_s_collections_abc __pyx_mstate_global->__pyx_kp_s_collections_abc
 #define __pyx_n_s_consume_waker __pyx_mstate_global->__pyx_n_s_consume_waker
 #define __pyx_n_s_content_type __pyx_mstate_global->__pyx_n_s_content_type
+#define __pyx_n_s_contextlib __pyx_mstate_global->__pyx_n_s_contextlib
 #define __pyx_kp_s_contiguous_and_direct __pyx_mstate_global->__pyx_kp_s_contiguous_and_direct
 #define __pyx_kp_s_contiguous_and_indirect __pyx_mstate_global->__pyx_kp_s_contiguous_and_indirect
 #define __pyx_n_s_cookie __pyx_mstate_global->__pyx_n_s_cookie
 #define __pyx_n_s_count __pyx_mstate_global->__pyx_n_s_count
 #define __pyx_n_s_create_future __pyx_mstate_global->__pyx_n_s_create_future
 #define __pyx_n_s_create_task __pyx_mstate_global->__pyx_n_s_create_task
-#define __pyx_n_s_curl __pyx_mstate_global->__pyx_n_s_curl
+#define __pyx_kp_u_curl __pyx_mstate_global->__pyx_kp_u_curl
 #define __pyx_n_s_curl_2 __pyx_mstate_global->__pyx_n_s_curl_2
+#define __pyx_n_s_curl_3 __pyx_mstate_global->__pyx_n_s_curl_3
 #define __pyx_kp_s_cycurl__asyncio_selector_pxi __pyx_mstate_global->__pyx_kp_s_cycurl__asyncio_selector_pxi
 #define __pyx_n_s_cycurl__curl __pyx_mstate_global->__pyx_n_s_cycurl__curl
 #define __pyx_kp_s_cycurl__curl_pyx __pyx_mstate_global->__pyx_kp_s_cycurl__curl_pyx
@@ -9183,6 +9234,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_frame __pyx_mstate_global->__pyx_n_s_frame
 #define __pyx_n_s_from_list __pyx_mstate_global->__pyx_n_s_from_list
 #define __pyx_n_s_functools __pyx_mstate_global->__pyx_n_s_functools
+#define __pyx_n_s_future __pyx_mstate_global->__pyx_n_s_future
 #define __pyx_kp_u_gc __pyx_mstate_global->__pyx_kp_u_gc
 #define __pyx_n_s_get_reason_phrase __pyx_mstate_global->__pyx_n_s_get_reason_phrase
 #define __pyx_n_s_get_running_loop __pyx_mstate_global->__pyx_n_s_get_running_loop
@@ -9331,6 +9383,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_s_stringsource __pyx_mstate_global->__pyx_kp_s_stringsource
 #define __pyx_n_s_struct __pyx_mstate_global->__pyx_n_s_struct
 #define __pyx_n_s_super __pyx_mstate_global->__pyx_n_s_super
+#define __pyx_n_s_suppress __pyx_mstate_global->__pyx_n_s_suppress
 #define __pyx_n_s_sys __pyx_mstate_global->__pyx_n_s_sys
 #define __pyx_n_s_target __pyx_mstate_global->__pyx_n_s_target
 #define __pyx_n_s_test __pyx_mstate_global->__pyx_n_s_test
@@ -9340,6 +9393,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_thread_manager_handle __pyx_mstate_global->__pyx_n_s_thread_manager_handle
 #define __pyx_n_s_threading __pyx_mstate_global->__pyx_n_s_threading
 #define __pyx_n_s_throw __pyx_mstate_global->__pyx_n_s_throw
+#define __pyx_n_s_timer __pyx_mstate_global->__pyx_n_s_timer
 #define __pyx_n_s_to_read __pyx_mstate_global->__pyx_n_s_to_read
 #define __pyx_n_s_to_write __pyx_mstate_global->__pyx_n_s_to_write
 #define __pyx_n_s_tuple __pyx_mstate_global->__pyx_n_s_tuple
@@ -9383,9 +9437,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_int_136983863 __pyx_mstate_global->__pyx_int_136983863
 #define __pyx_int_184977713 __pyx_mstate_global->__pyx_int_184977713
 #define __pyx_int_neg_1 __pyx_mstate_global->__pyx_int_neg_1
-#define __pyx_k__10 __pyx_mstate_global->__pyx_k__10
 #define __pyx_k__11 __pyx_mstate_global->__pyx_k__11
-#define __pyx_k__19 __pyx_mstate_global->__pyx_k__19
 #define __pyx_slice__5 __pyx_mstate_global->__pyx_slice__5
 #define __pyx_tuple__4 __pyx_mstate_global->__pyx_tuple__4
 #define __pyx_tuple__8 __pyx_mstate_global->__pyx_tuple__8
@@ -9430,6 +9482,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_tuple__94 __pyx_mstate_global->__pyx_tuple__94
 #define __pyx_tuple__96 __pyx_mstate_global->__pyx_tuple__96
 #define __pyx_tuple__103 __pyx_mstate_global->__pyx_tuple__103
+#define __pyx_tuple__106 __pyx_mstate_global->__pyx_tuple__106
 #define __pyx_tuple__107 __pyx_mstate_global->__pyx_tuple__107
 #define __pyx_tuple__109 __pyx_mstate_global->__pyx_tuple__109
 #define __pyx_tuple__112 __pyx_mstate_global->__pyx_tuple__112
@@ -9440,6 +9493,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__16 __pyx_mstate_global->__pyx_codeobj__16
 #define __pyx_codeobj__17 __pyx_mstate_global->__pyx_codeobj__17
 #define __pyx_codeobj__18 __pyx_mstate_global->__pyx_codeobj__18
+#define __pyx_codeobj__19 __pyx_mstate_global->__pyx_codeobj__19
 #define __pyx_codeobj__20 __pyx_mstate_global->__pyx_codeobj__20
 #define __pyx_codeobj__32 __pyx_mstate_global->__pyx_codeobj__32
 #define __pyx_codeobj__34 __pyx_mstate_global->__pyx_codeobj__34
@@ -9487,7 +9541,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__102 __pyx_mstate_global->__pyx_codeobj__102
 #define __pyx_codeobj__104 __pyx_mstate_global->__pyx_codeobj__104
 #define __pyx_codeobj__105 __pyx_mstate_global->__pyx_codeobj__105
-#define __pyx_codeobj__106 __pyx_mstate_global->__pyx_codeobj__106
 #define __pyx_codeobj__108 __pyx_mstate_global->__pyx_codeobj__108
 #define __pyx_codeobj__110 __pyx_mstate_global->__pyx_codeobj__110
 #define __pyx_codeobj__111 __pyx_mstate_global->__pyx_codeobj__111
@@ -23128,7 +23181,7 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":43
+/* "cycurl/_curl.pyx":44
  *     """Base exception for cycurl package"""
  * 
  *     def __init__(self, msg, code: int = 0, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -23146,18 +23199,18 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6__defaults__(CYTHON_UNUSED PyObject *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__defaults__", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_code);
   __Pyx_GIVEREF(__Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_code);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_code)) __PYX_ERR(0, 43, __pyx_L1_error);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_code)) __PYX_ERR(0, 44, __pyx_L1_error);
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error);
   __Pyx_INCREF(Py_None);
   __Pyx_GIVEREF(Py_None);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, Py_None)) __PYX_ERR(0, 43, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, Py_None)) __PYX_ERR(0, 44, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -23248,7 +23301,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -23256,22 +23309,22 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 3, 1); __PYX_ERR(0, 43, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 3, 1); __PYX_ERR(0, 44, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_code);
           if (value) { values[2] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
         const Py_ssize_t used_pos_args = (kwd_pos_args < 3) ? kwd_pos_args : 3;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, __pyx_v_kwargs, values + 0, used_pos_args, "__init__") < 0)) __PYX_ERR(0, 43, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, __pyx_v_kwargs, values + 0, used_pos_args, "__init__") < 0)) __PYX_ERR(0, 44, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -23292,7 +23345,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 43, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 44, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -23308,7 +23361,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_code), (&PyInt_Type), 0, "code", 1))) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_code), (&PyInt_Type), 0, "code", 1))) __PYX_ERR(0, 44, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlError___init__(__pyx_self, __pyx_v_self, __pyx_v_msg, __pyx_v_code, __pyx_v_args, __pyx_v_kwargs);
 
   /* function exit code */
@@ -23340,7 +23393,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlError___init__(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 1);
 
-  /* "cycurl/_curl.pyx":44
+  /* "cycurl/_curl.pyx":45
  * 
  *     def __init__(self, msg, code: int = 0, *args, **kwargs):
  *         super().__init__(msg, *args, **kwargs)             # <<<<<<<<<<<<<<
@@ -23348,49 +23401,49 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlError___init__(CYTHON_UNUSED PyObj
  * 
  */
   __pyx_t_1 = __Pyx_CyFunction_GetClassObj(__pyx_self);
-  if (!__pyx_t_1) { PyErr_SetString(PyExc_SystemError, "super(): empty __class__ cell"); __PYX_ERR(0, 44, __pyx_L1_error) }
+  if (!__pyx_t_1) { PyErr_SetString(PyExc_SystemError, "super(): empty __class__ cell"); __PYX_ERR(0, 45, __pyx_L1_error) }
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_self);
   __Pyx_GIVEREF(__pyx_v_self);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_self)) __PYX_ERR(0, 44, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_self)) __PYX_ERR(0, 45, __pyx_L1_error);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_msg);
   __Pyx_GIVEREF(__pyx_v_msg);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_msg)) __PYX_ERR(0, 44, __pyx_L1_error);
-  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_v_args); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_msg)) __PYX_ERR(0, 45, __pyx_L1_error);
+  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_v_args); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":45
+  /* "cycurl/_curl.pyx":46
  *     def __init__(self, msg, code: int = 0, *args, **kwargs):
  *         super().__init__(msg, *args, **kwargs)
  *         self.code = code             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_code, __pyx_v_code) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_code, __pyx_v_code) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":43
+  /* "cycurl/_curl.pyx":44
  *     """Base exception for cycurl package"""
  * 
  *     def __init__(self, msg, code: int = 0, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -23414,12 +23467,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlError___init__(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":48
+/* "cycurl/_curl.pyx":49
  * 
  * 
  * cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, void *clientp) nogil:             # <<<<<<<<<<<<<<
+ *     """ffi callback for curl debug info"""
  *     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:
- *         fprintf(stderr, "SSL OUT:")
  */
 
 static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_curl_, int __pyx_v_type_, char *__pyx_v_data, size_t __pyx_v_size, CYTHON_UNUSED void *__pyx_v_clientp) {
@@ -23427,9 +23480,9 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
   int __pyx_t_1;
   int __pyx_t_2;
 
-  /* "cycurl/_curl.pyx":49
- * 
+  /* "cycurl/_curl.pyx":51
  * cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, void *clientp) nogil:
+ *     """ffi callback for curl debug info"""
  *     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:             # <<<<<<<<<<<<<<
  *         fprintf(stderr, "SSL OUT:")
  *         fwrite(data, sizeof(char), size, stderr)
@@ -23445,8 +23498,8 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":50
- * cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, void *clientp) nogil:
+    /* "cycurl/_curl.pyx":52
+ *     """ffi callback for curl debug info"""
  *     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:
  *         fprintf(stderr, "SSL OUT:")             # <<<<<<<<<<<<<<
  *         fwrite(data, sizeof(char), size, stderr)
@@ -23454,7 +23507,7 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
  */
     (void)(fprintf(stderr, ((char const *)"SSL OUT:")));
 
-    /* "cycurl/_curl.pyx":51
+    /* "cycurl/_curl.pyx":53
  *     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:
  *         fprintf(stderr, "SSL OUT:")
  *         fwrite(data, sizeof(char), size, stderr)             # <<<<<<<<<<<<<<
@@ -23463,9 +23516,9 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
  */
     (void)(fwrite(__pyx_v_data, (sizeof(char)), __pyx_v_size, stderr));
 
-    /* "cycurl/_curl.pyx":49
- * 
+    /* "cycurl/_curl.pyx":51
  * cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, void *clientp) nogil:
+ *     """ffi callback for curl debug info"""
  *     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:             # <<<<<<<<<<<<<<
  *         fprintf(stderr, "SSL OUT:")
  *         fwrite(data, sizeof(char), size, stderr)
@@ -23473,7 +23526,7 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":52
+  /* "cycurl/_curl.pyx":54
  *         fprintf(stderr, "SSL OUT:")
  *         fwrite(data, sizeof(char), size, stderr)
  *     elif type_ == curl.CURLINFO_DATA_IN or type_ == curl.CURLINFO_DATA_OUT:             # <<<<<<<<<<<<<<
@@ -23491,7 +23544,7 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
   __pyx_L6_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":53
+    /* "cycurl/_curl.pyx":55
  *         fwrite(data, sizeof(char), size, stderr)
  *     elif type_ == curl.CURLINFO_DATA_IN or type_ == curl.CURLINFO_DATA_OUT:
  *         fprintf(stderr, "DATA OUT:")             # <<<<<<<<<<<<<<
@@ -23500,7 +23553,7 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
  */
     (void)(fprintf(stderr, ((char const *)"DATA OUT:")));
 
-    /* "cycurl/_curl.pyx":54
+    /* "cycurl/_curl.pyx":56
  *     elif type_ == curl.CURLINFO_DATA_IN or type_ == curl.CURLINFO_DATA_OUT:
  *         fprintf(stderr, "DATA OUT:")
  *         fwrite(data, sizeof(char), size, stderr)             # <<<<<<<<<<<<<<
@@ -23509,7 +23562,7 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
  */
     (void)(fwrite(__pyx_v_data, (sizeof(char)), __pyx_v_size, stderr));
 
-    /* "cycurl/_curl.pyx":52
+    /* "cycurl/_curl.pyx":54
  *         fprintf(stderr, "SSL OUT:")
  *         fwrite(data, sizeof(char), size, stderr)
  *     elif type_ == curl.CURLINFO_DATA_IN or type_ == curl.CURLINFO_DATA_OUT:             # <<<<<<<<<<<<<<
@@ -23519,7 +23572,7 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":56
+  /* "cycurl/_curl.pyx":58
  *         fwrite(data, sizeof(char), size, stderr)
  *     else:
  *         fwrite(data, sizeof(char), size, stderr)             # <<<<<<<<<<<<<<
@@ -23531,7 +23584,7 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
   }
   __pyx_L3:;
 
-  /* "cycurl/_curl.pyx":57
+  /* "cycurl/_curl.pyx":59
  *     else:
  *         fwrite(data, sizeof(char), size, stderr)
  *     fprintf(stderr, "\n")             # <<<<<<<<<<<<<<
@@ -23540,7 +23593,7 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
  */
   (void)(fprintf(stderr, ((char const *)"\n")));
 
-  /* "cycurl/_curl.pyx":58
+  /* "cycurl/_curl.pyx":60
  *         fwrite(data, sizeof(char), size, stderr)
  *     fprintf(stderr, "\n")
  *     fflush(stderr)             # <<<<<<<<<<<<<<
@@ -23549,7 +23602,7 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
  */
   (void)(fflush(stderr));
 
-  /* "cycurl/_curl.pyx":59
+  /* "cycurl/_curl.pyx":61
  *     fprintf(stderr, "\n")
  *     fflush(stderr)
  *     return 0             # <<<<<<<<<<<<<<
@@ -23559,12 +23612,12 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":48
+  /* "cycurl/_curl.pyx":49
  * 
  * 
  * cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, void *clientp) nogil:             # <<<<<<<<<<<<<<
+ *     """ffi callback for curl debug info"""
  *     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:
- *         fprintf(stderr, "SSL OUT:")
  */
 
   /* function exit code */
@@ -23572,12 +23625,12 @@ static int __pyx_f_6cycurl_5_curl_debug_function(CYTHON_UNUSED CURL *__pyx_v_cur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":62
+/* "cycurl/_curl.pyx":64
  * 
  * 
  * cdef size_t buffer_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:             # <<<<<<<<<<<<<<
+ *     """ffi callback for curl write function, directly writes to a buffer"""
  *     cdef size_t total = size*nmemb
- *     cdef object stream
  */
 
 static size_t __pyx_f_6cycurl_5_curl_buffer_callback(char *__pyx_v_ptr, size_t __pyx_v_size, size_t __pyx_v_nmemb, void *__pyx_v_userdata) {
@@ -23598,16 +23651,16 @@ static size_t __pyx_f_6cycurl_5_curl_buffer_callback(char *__pyx_v_ptr, size_t _
   #endif
   __Pyx_RefNannySetupContext("buffer_callback", 0);
 
-  /* "cycurl/_curl.pyx":63
- * 
+  /* "cycurl/_curl.pyx":66
  * cdef size_t buffer_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:
+ *     """ffi callback for curl write function, directly writes to a buffer"""
  *     cdef size_t total = size*nmemb             # <<<<<<<<<<<<<<
  *     cdef object stream
  *     stream = <object>userdata
  */
   __pyx_v_total = (__pyx_v_size * __pyx_v_nmemb);
 
-  /* "cycurl/_curl.pyx":65
+  /* "cycurl/_curl.pyx":68
  *     cdef size_t total = size*nmemb
  *     cdef object stream
  *     stream = <object>userdata             # <<<<<<<<<<<<<<
@@ -23619,16 +23672,16 @@ static size_t __pyx_f_6cycurl_5_curl_buffer_callback(char *__pyx_v_ptr, size_t _
   __pyx_v_stream = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":66
+  /* "cycurl/_curl.pyx":69
  *     cdef object stream
  *     stream = <object>userdata
  *     stream.write(<bytes>ptr[:total])             # <<<<<<<<<<<<<<
  *     return total
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_stream, __pyx_n_s_write); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_stream, __pyx_n_s_write); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_ptr + 0, __pyx_v_total - 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_ptr + 0, __pyx_v_total - 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -23649,13 +23702,13 @@ static size_t __pyx_f_6cycurl_5_curl_buffer_callback(char *__pyx_v_ptr, size_t _
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":67
+  /* "cycurl/_curl.pyx":70
  *     stream = <object>userdata
  *     stream.write(<bytes>ptr[:total])
  *     return total             # <<<<<<<<<<<<<<
@@ -23665,12 +23718,12 @@ static size_t __pyx_f_6cycurl_5_curl_buffer_callback(char *__pyx_v_ptr, size_t _
   __pyx_r = __pyx_v_total;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":62
+  /* "cycurl/_curl.pyx":64
  * 
  * 
  * cdef size_t buffer_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:             # <<<<<<<<<<<<<<
+ *     """ffi callback for curl write function, directly writes to a buffer"""
  *     cdef size_t total = size*nmemb
- *     cdef object stream
  */
 
   /* function exit code */
@@ -23690,12 +23743,12 @@ static size_t __pyx_f_6cycurl_5_curl_buffer_callback(char *__pyx_v_ptr, size_t _
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":69
+/* "cycurl/_curl.pyx":72
  *     return total
  * 
  * cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:             # <<<<<<<<<<<<<<
+ *     """ffi callback for curl write function, calls the callback python function"""
  *     cdef:
- *         size_t total
  */
 
 static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __pyx_v_size, size_t __pyx_v_nmemb, void *__pyx_v_userdata) {
@@ -23720,7 +23773,7 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
   #endif
   __Pyx_RefNannySetupContext("write_callback", 0);
 
-  /* "cycurl/_curl.pyx":74
+  /* "cycurl/_curl.pyx":78
  *         object callback
  *         size_t wrote
  *     total = size*nmemb             # <<<<<<<<<<<<<<
@@ -23729,7 +23782,7 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
  */
   __pyx_v_total = (__pyx_v_size * __pyx_v_nmemb);
 
-  /* "cycurl/_curl.pyx":75
+  /* "cycurl/_curl.pyx":79
  *         size_t wrote
  *     total = size*nmemb
  *     callback = <object>userdata             # <<<<<<<<<<<<<<
@@ -23741,14 +23794,14 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
   __pyx_v_callback = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":76
+  /* "cycurl/_curl.pyx":80
  *     total = size*nmemb
  *     callback = <object>userdata
  *     wrote = callback(<bytes>ptr[:total])             # <<<<<<<<<<<<<<
  *     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:
  *         return wrote
  */
-  __pyx_t_2 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_ptr + 0, __pyx_v_total - 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_ptr + 0, __pyx_v_total - 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_callback);
   __pyx_t_3 = __pyx_v_callback; __pyx_t_4 = NULL;
@@ -23770,15 +23823,15 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_6 = __Pyx_PyInt_As_size_t(__pyx_t_1); if (unlikely((__pyx_t_6 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_size_t(__pyx_t_1); if (unlikely((__pyx_t_6 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_wrote = __pyx_t_6;
 
-  /* "cycurl/_curl.pyx":77
+  /* "cycurl/_curl.pyx":81
  *     callback = <object>userdata
  *     wrote = callback(<bytes>ptr[:total])
  *     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:             # <<<<<<<<<<<<<<
@@ -23796,7 +23849,7 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_7) {
 
-    /* "cycurl/_curl.pyx":78
+    /* "cycurl/_curl.pyx":82
  *     wrote = callback(<bytes>ptr[:total])
  *     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:
  *         return wrote             # <<<<<<<<<<<<<<
@@ -23806,7 +23859,7 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
     __pyx_r = __pyx_v_wrote;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":77
+    /* "cycurl/_curl.pyx":81
  *     callback = <object>userdata
  *     wrote = callback(<bytes>ptr[:total])
  *     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:             # <<<<<<<<<<<<<<
@@ -23815,7 +23868,7 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
  */
   }
 
-  /* "cycurl/_curl.pyx":80
+  /* "cycurl/_curl.pyx":84
  *         return wrote
  *     # should make this an exception in future versions
  *     if wrote != total:             # <<<<<<<<<<<<<<
@@ -23825,24 +23878,24 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
   __pyx_t_7 = (__pyx_v_wrote != __pyx_v_total);
   if (__pyx_t_7) {
 
-    /* "cycurl/_curl.pyx":81
+    /* "cycurl/_curl.pyx":85
  *     # should make this an exception in future versions
  *     if wrote != total:
  *         warnings.warn("Wrote bytes != received bytes.", RuntimeWarning)             # <<<<<<<<<<<<<<
  *     return total
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_warnings); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_warnings); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_warn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_warn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":80
+    /* "cycurl/_curl.pyx":84
  *         return wrote
  *     # should make this an exception in future versions
  *     if wrote != total:             # <<<<<<<<<<<<<<
@@ -23851,7 +23904,7 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
  */
   }
 
-  /* "cycurl/_curl.pyx":82
+  /* "cycurl/_curl.pyx":86
  *     if wrote != total:
  *         warnings.warn("Wrote bytes != received bytes.", RuntimeWarning)
  *     return total             # <<<<<<<<<<<<<<
@@ -23861,12 +23914,12 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
   __pyx_r = __pyx_v_total;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":69
+  /* "cycurl/_curl.pyx":72
  *     return total
  * 
  * cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:             # <<<<<<<<<<<<<<
+ *     """ffi callback for curl write function, calls the callback python function"""
  *     cdef:
- *         size_t total
  */
 
   /* function exit code */
@@ -23886,12 +23939,12 @@ static size_t __pyx_f_6cycurl_5_curl_write_callback(char *__pyx_v_ptr, size_t __
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":84
+/* "cycurl/_curl.pyx":88
  *     return total
  * 
  * cdef list slist_to_list(curl.curl_slist *head) with gil:             # <<<<<<<<<<<<<<
+ *     """Converts curl slist to a python list."""
  *     cdef list result = []
- *     cdef curl.curl_slist *ptr = head
  */
 
 static PyObject *__pyx_f_6cycurl_5_curl_slist_to_list(struct curl_slist *__pyx_v_head) {
@@ -23911,20 +23964,20 @@ static PyObject *__pyx_f_6cycurl_5_curl_slist_to_list(struct curl_slist *__pyx_v
   #endif
   __Pyx_RefNannySetupContext("slist_to_list", 0);
 
-  /* "cycurl/_curl.pyx":85
- * 
+  /* "cycurl/_curl.pyx":90
  * cdef list slist_to_list(curl.curl_slist *head) with gil:
+ *     """Converts curl slist to a python list."""
  *     cdef list result = []             # <<<<<<<<<<<<<<
  *     cdef curl.curl_slist *ptr = head
  *     while ptr:
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_result = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":86
- * cdef list slist_to_list(curl.curl_slist *head) with gil:
+  /* "cycurl/_curl.pyx":91
+ *     """Converts curl slist to a python list."""
  *     cdef list result = []
  *     cdef curl.curl_slist *ptr = head             # <<<<<<<<<<<<<<
  *     while ptr:
@@ -23932,7 +23985,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_slist_to_list(struct curl_slist *__pyx_v
  */
   __pyx_v_ptr = __pyx_v_head;
 
-  /* "cycurl/_curl.pyx":87
+  /* "cycurl/_curl.pyx":92
  *     cdef list result = []
  *     cdef curl.curl_slist *ptr = head
  *     while ptr:             # <<<<<<<<<<<<<<
@@ -23943,19 +23996,19 @@ static PyObject *__pyx_f_6cycurl_5_curl_slist_to_list(struct curl_slist *__pyx_v
     __pyx_t_2 = (__pyx_v_ptr != 0);
     if (!__pyx_t_2) break;
 
-    /* "cycurl/_curl.pyx":88
+    /* "cycurl/_curl.pyx":93
  *     cdef curl.curl_slist *ptr = head
  *     while ptr:
  *         result.append(<bytes>(ptr.data))             # <<<<<<<<<<<<<<
  *         ptr = ptr.next
  *     curl.curl_slist_free_all(head)
  */
-    __pyx_t_1 = __Pyx_PyBytes_FromString(__pyx_v_ptr->data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBytes_FromString(__pyx_v_ptr->data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 93, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":89
+    /* "cycurl/_curl.pyx":94
  *     while ptr:
  *         result.append(<bytes>(ptr.data))
  *         ptr = ptr.next             # <<<<<<<<<<<<<<
@@ -23966,7 +24019,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_slist_to_list(struct curl_slist *__pyx_v
     __pyx_v_ptr = __pyx_t_4;
   }
 
-  /* "cycurl/_curl.pyx":90
+  /* "cycurl/_curl.pyx":95
  *         result.append(<bytes>(ptr.data))
  *         ptr = ptr.next
  *     curl.curl_slist_free_all(head)             # <<<<<<<<<<<<<<
@@ -23975,7 +24028,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_slist_to_list(struct curl_slist *__pyx_v
  */
   curl_slist_free_all(__pyx_v_head);
 
-  /* "cycurl/_curl.pyx":91
+  /* "cycurl/_curl.pyx":96
  *         ptr = ptr.next
  *     curl.curl_slist_free_all(head)
  *     return result             # <<<<<<<<<<<<<<
@@ -23987,12 +24040,12 @@ static PyObject *__pyx_f_6cycurl_5_curl_slist_to_list(struct curl_slist *__pyx_v
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":84
+  /* "cycurl/_curl.pyx":88
  *     return total
  * 
  * cdef list slist_to_list(curl.curl_slist *head) with gil:             # <<<<<<<<<<<<<<
+ *     """Converts curl slist to a python list."""
  *     cdef list result = []
- *     cdef curl.curl_slist *ptr = head
  */
 
   /* function exit code */
@@ -24010,7 +24063,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_slist_to_list(struct curl_slist *__pyx_v
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":99
+/* "cycurl/_curl.pyx":104
  *     cdef curl.curl_ws_frame* frame
  *     @staticmethod
  *     cdef inline WSFrame from_ptr(curl.curl_ws_frame* frame):             # <<<<<<<<<<<<<<
@@ -24028,19 +24081,19 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_WSFrame *__pyx_f_6cycurl_5_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("from_ptr", 1);
 
-  /* "cycurl/_curl.pyx":100
+  /* "cycurl/_curl.pyx":105
  *     @staticmethod
  *     cdef inline WSFrame from_ptr(curl.curl_ws_frame* frame):
  *         cdef WSFrame self = WSFrame.__new__(WSFrame)             # <<<<<<<<<<<<<<
  *         self.frame = frame
  *         return self
  */
-  __pyx_t_1 = ((PyObject *)__pyx_tp_new_6cycurl_5_curl_WSFrame(((PyTypeObject *)__pyx_ptype_6cycurl_5_curl_WSFrame), __pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_tp_new_6cycurl_5_curl_WSFrame(((PyTypeObject *)__pyx_ptype_6cycurl_5_curl_WSFrame), __pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF((PyObject *)__pyx_t_1);
   __pyx_v_self = ((struct __pyx_obj_6cycurl_5_curl_WSFrame *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":101
+  /* "cycurl/_curl.pyx":106
  *     cdef inline WSFrame from_ptr(curl.curl_ws_frame* frame):
  *         cdef WSFrame self = WSFrame.__new__(WSFrame)
  *         self.frame = frame             # <<<<<<<<<<<<<<
@@ -24049,7 +24102,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_WSFrame *__pyx_f_6cycurl_5_
  */
   __pyx_v_self->frame = __pyx_v_frame;
 
-  /* "cycurl/_curl.pyx":102
+  /* "cycurl/_curl.pyx":107
  *         cdef WSFrame self = WSFrame.__new__(WSFrame)
  *         self.frame = frame
  *         return self             # <<<<<<<<<<<<<<
@@ -24061,7 +24114,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_WSFrame *__pyx_f_6cycurl_5_
   __pyx_r = __pyx_v_self;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":99
+  /* "cycurl/_curl.pyx":104
  *     cdef curl.curl_ws_frame* frame
  *     @staticmethod
  *     cdef inline WSFrame from_ptr(curl.curl_ws_frame* frame):             # <<<<<<<<<<<<<<
@@ -24081,7 +24134,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_WSFrame *__pyx_f_6cycurl_5_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":104
+/* "cycurl/_curl.pyx":109
  *         return self
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24113,7 +24166,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_3age___get__(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "cycurl/_curl.pyx":106
+  /* "cycurl/_curl.pyx":111
  *     @property
  *     def age(self):
  *         return self.frame.age             # <<<<<<<<<<<<<<
@@ -24121,13 +24174,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_3age___get__(struct __pyx_obj_
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->frame->age); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->frame->age); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":104
+  /* "cycurl/_curl.pyx":109
  *         return self
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24146,7 +24199,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_3age___get__(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":108
+/* "cycurl/_curl.pyx":113
  *         return self.frame.age
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24178,7 +24231,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_5flags___get__(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "cycurl/_curl.pyx":110
+  /* "cycurl/_curl.pyx":115
  *     @property
  *     def flags(self):
  *         return self.frame.flags             # <<<<<<<<<<<<<<
@@ -24186,13 +24239,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_5flags___get__(struct __pyx_ob
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->frame->flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->frame->flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":108
+  /* "cycurl/_curl.pyx":113
  *         return self.frame.age
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24211,7 +24264,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_5flags___get__(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":112
+/* "cycurl/_curl.pyx":117
  *         return self.frame.flags
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24243,7 +24296,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_6offset___get__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "cycurl/_curl.pyx":114
+  /* "cycurl/_curl.pyx":119
  *     @property
  *     def offset(self):
  *         return self.frame.offset             # <<<<<<<<<<<<<<
@@ -24251,13 +24304,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_6offset___get__(struct __pyx_o
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_PY_LONG_LONG(__pyx_v_self->frame->offset); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_PY_LONG_LONG(__pyx_v_self->frame->offset); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":112
+  /* "cycurl/_curl.pyx":117
  *         return self.frame.flags
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24276,7 +24329,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_6offset___get__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":116
+/* "cycurl/_curl.pyx":121
  *         return self.frame.offset
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24308,7 +24361,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_9bytesleft___get__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "cycurl/_curl.pyx":118
+  /* "cycurl/_curl.pyx":123
  *     @property
  *     def bytesleft(self):
  *         return self.frame.bytesleft             # <<<<<<<<<<<<<<
@@ -24316,13 +24369,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_9bytesleft___get__(struct __py
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_PY_LONG_LONG(__pyx_v_self->frame->bytesleft); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_PY_LONG_LONG(__pyx_v_self->frame->bytesleft); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":116
+  /* "cycurl/_curl.pyx":121
  *         return self.frame.offset
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24341,7 +24394,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_9bytesleft___get__(struct __py
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":120
+/* "cycurl/_curl.pyx":125
  *         return self.frame.bytesleft
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24373,7 +24426,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_3len___get__(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "cycurl/_curl.pyx":122
+  /* "cycurl/_curl.pyx":127
  *     @property
  *     def len(self):
  *         return self.frame.len             # <<<<<<<<<<<<<<
@@ -24381,13 +24434,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_3len___get__(struct __pyx_obj_
  * @cython.final
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_FromSize_t(__pyx_v_self->frame->len); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_FromSize_t(__pyx_v_self->frame->len); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":120
+  /* "cycurl/_curl.pyx":125
  *         return self.frame.bytesleft
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -24622,12 +24675,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_2__setstate_cython__(CYTHON_UN
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":143
+/* "cycurl/_curl.pyx":148
  *         bint _debug
  * 
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, bint debug = False, object handle = None):             # <<<<<<<<<<<<<<
- *         # assert PyCapsule_CheckExact(handle)
- *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
+ *     def __cinit__(self, str cacert = "", bint debug = False, object handle = None):             # <<<<<<<<<<<<<<
+ *         """
+ *         Parameters:
  */
 
 /* Python wrapper */
@@ -24653,7 +24706,7 @@ static int __pyx_pw_6cycurl_5_curl_4Curl_1__cinit__(PyObject *__pyx_v_self, PyOb
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
   {
     PyObject **__pyx_pyargnames[] = {&__pyx_n_s_cacert,&__pyx_n_s_debug,&__pyx_n_s_handle,0};
-    values[0] = __Pyx_Arg_NewRef_VARARGS(__pyx_k__10);
+    values[0] = __Pyx_Arg_NewRef_VARARGS(((PyObject*)__pyx_kp_u__10));
     values[2] = __Pyx_Arg_NewRef_VARARGS(((PyObject *)Py_None));
     if (__pyx_kwds) {
       Py_ssize_t kw_args;
@@ -24673,26 +24726,26 @@ static int __pyx_pw_6cycurl_5_curl_4Curl_1__cinit__(PyObject *__pyx_v_self, PyOb
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_cacert);
           if (value) { values[0] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 143, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  1:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_debug);
           if (value) { values[1] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 143, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_handle);
           if (value) { values[2] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 143, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 143, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 148, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -24708,7 +24761,7 @@ static int __pyx_pw_6cycurl_5_curl_4Curl_1__cinit__(PyObject *__pyx_v_self, PyOb
     }
     __pyx_v_cacert = ((PyObject*)values[0]);
     if (values[1]) {
-      __pyx_v_debug = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_debug == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 143, __pyx_L3_error)
+      __pyx_v_debug = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_debug == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L3_error)
     } else {
       __pyx_v_debug = ((int)0);
     }
@@ -24716,7 +24769,7 @@ static int __pyx_pw_6cycurl_5_curl_4Curl_1__cinit__(PyObject *__pyx_v_self, PyOb
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 3, __pyx_nargs); __PYX_ERR(0, 143, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 3, __pyx_nargs); __PYX_ERR(0, 148, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -24730,7 +24783,7 @@ static int __pyx_pw_6cycurl_5_curl_4Curl_1__cinit__(PyObject *__pyx_v_self, PyOb
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cacert), (&PyUnicode_Type), 1, "cacert", 1))) __PYX_ERR(0, 143, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cacert), (&PyUnicode_Type), 1, "cacert", 1))) __PYX_ERR(0, 148, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl___cinit__(((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_self), __pyx_v_cacert, __pyx_v_debug, __pyx_v_handle);
 
   /* function exit code */
@@ -24754,13 +24807,15 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   int __pyx_t_1;
   int __pyx_t_2;
   void *__pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 1);
 
-  /* "cycurl/_curl.pyx":145
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, bint debug = False, object handle = None):
+  /* "cycurl/_curl.pyx":157
+ *         """
  *         # assert PyCapsule_CheckExact(handle)
  *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)             # <<<<<<<<<<<<<<
  *         if self._error_buffer == NULL:
@@ -24768,7 +24823,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
  */
   __pyx_v_self->_error_buffer = ((char *)PyMem_Malloc(CURL_ERROR_SIZE));
 
-  /* "cycurl/_curl.pyx":146
+  /* "cycurl/_curl.pyx":158
  *         # assert PyCapsule_CheckExact(handle)
  *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
  *         if self._error_buffer == NULL:             # <<<<<<<<<<<<<<
@@ -24778,16 +24833,16 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __pyx_t_1 = (__pyx_v_self->_error_buffer == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":147
+    /* "cycurl/_curl.pyx":159
  *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
  *         if self._error_buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         if not handle:
  *             self._curl = curl.curl_easy_init()
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 147, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 159, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":146
+    /* "cycurl/_curl.pyx":158
  *         # assert PyCapsule_CheckExact(handle)
  *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
  *         if self._error_buffer == NULL:             # <<<<<<<<<<<<<<
@@ -24796,18 +24851,18 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
  */
   }
 
-  /* "cycurl/_curl.pyx":148
+  /* "cycurl/_curl.pyx":160
  *         if self._error_buffer == NULL:
  *             raise MemoryError
  *         if not handle:             # <<<<<<<<<<<<<<
  *             self._curl = curl.curl_easy_init()
  *             if self._curl == NULL:
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_handle); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_handle); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 160, __pyx_L1_error)
   __pyx_t_2 = (!__pyx_t_1);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":149
+    /* "cycurl/_curl.pyx":161
  *             raise MemoryError
  *         if not handle:
  *             self._curl = curl.curl_easy_init()             # <<<<<<<<<<<<<<
@@ -24816,7 +24871,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
  */
     __pyx_v_self->_curl = curl_easy_init();
 
-    /* "cycurl/_curl.pyx":150
+    /* "cycurl/_curl.pyx":162
  *         if not handle:
  *             self._curl = curl.curl_easy_init()
  *             if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -24826,7 +24881,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
     __pyx_t_2 = (__pyx_v_self->_curl == NULL);
     if (unlikely(__pyx_t_2)) {
 
-      /* "cycurl/_curl.pyx":151
+      /* "cycurl/_curl.pyx":163
  *             self._curl = curl.curl_easy_init()
  *             if self._curl == NULL:
  *                 PyMem_Free(self._error_buffer)             # <<<<<<<<<<<<<<
@@ -24835,7 +24890,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
  */
       PyMem_Free(__pyx_v_self->_error_buffer);
 
-      /* "cycurl/_curl.pyx":152
+      /* "cycurl/_curl.pyx":164
  *             if self._curl == NULL:
  *                 PyMem_Free(self._error_buffer)
  *                 self._error_buffer = NULL             # <<<<<<<<<<<<<<
@@ -24844,16 +24899,16 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
  */
       __pyx_v_self->_error_buffer = NULL;
 
-      /* "cycurl/_curl.pyx":153
+      /* "cycurl/_curl.pyx":165
  *                 PyMem_Free(self._error_buffer)
  *                 self._error_buffer = NULL
  *                 raise MemoryError             # <<<<<<<<<<<<<<
  *         else:
  *             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)
  */
-      PyErr_NoMemory(); __PYX_ERR(0, 153, __pyx_L1_error)
+      PyErr_NoMemory(); __PYX_ERR(0, 165, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":150
+      /* "cycurl/_curl.pyx":162
  *         if not handle:
  *             self._curl = curl.curl_easy_init()
  *             if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -24862,7 +24917,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
  */
     }
 
-    /* "cycurl/_curl.pyx":148
+    /* "cycurl/_curl.pyx":160
  *         if self._error_buffer == NULL:
  *             raise MemoryError
  *         if not handle:             # <<<<<<<<<<<<<<
@@ -24872,7 +24927,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":155
+  /* "cycurl/_curl.pyx":167
  *                 raise MemoryError
  *         else:
  *             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)             # <<<<<<<<<<<<<<
@@ -24880,53 +24935,67 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
  *         self._resolve = NULL
  */
   /*else*/ {
-    __pyx_t_3 = PyCapsule_GetPointer(__pyx_v_handle, NULL); if (unlikely(__pyx_t_3 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 155, __pyx_L1_error)
+    __pyx_t_3 = PyCapsule_GetPointer(__pyx_v_handle, NULL); if (unlikely(__pyx_t_3 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 167, __pyx_L1_error)
     __pyx_v_self->_curl = ((CURL *)__pyx_t_3);
   }
   __pyx_L4:;
 
-  /* "cycurl/_curl.pyx":156
+  /* "cycurl/_curl.pyx":168
  *         else:
  *             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)
  *         self._headers = NULL             # <<<<<<<<<<<<<<
  *         self._resolve = NULL
- *         self._cacert = cacert
+ *         self._cacert = cacert or DEFAULT_CACERT
  */
   __pyx_v_self->_headers = NULL;
 
-  /* "cycurl/_curl.pyx":157
+  /* "cycurl/_curl.pyx":169
  *             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)
  *         self._headers = NULL
  *         self._resolve = NULL             # <<<<<<<<<<<<<<
- *         self._cacert = cacert
+ *         self._cacert = cacert or DEFAULT_CACERT
  *         self._is_cert_set = False
  */
   __pyx_v_self->_resolve = NULL;
 
-  /* "cycurl/_curl.pyx":158
+  /* "cycurl/_curl.pyx":170
  *         self._headers = NULL
  *         self._resolve = NULL
- *         self._cacert = cacert             # <<<<<<<<<<<<<<
+ *         self._cacert = cacert or DEFAULT_CACERT             # <<<<<<<<<<<<<<
  *         self._is_cert_set = False
  *         self._write_handle = None
  */
-  __Pyx_INCREF(__pyx_v_cacert);
-  __Pyx_GIVEREF(__pyx_v_cacert);
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_cacert); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 170, __pyx_L1_error)
+  if (!__pyx_t_2) {
+  } else {
+    __Pyx_INCREF(__pyx_v_cacert);
+    __pyx_t_4 = __pyx_v_cacert;
+    goto __pyx_L6_bool_binop_done;
+  }
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_DEFAULT_CACERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (!(likely(PyUnicode_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None) || __Pyx_RaiseUnexpectedTypeError("unicode", __pyx_t_5))) __PYX_ERR(0, 170, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_t_5);
+  __pyx_t_4 = __pyx_t_5;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_L6_bool_binop_done:;
+  __Pyx_GIVEREF(__pyx_t_4);
   __Pyx_GOTREF(__pyx_v_self->_cacert);
   __Pyx_DECREF(__pyx_v_self->_cacert);
-  __pyx_v_self->_cacert = __pyx_v_cacert;
+  __pyx_v_self->_cacert = ((PyObject*)__pyx_t_4);
+  __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":159
+  /* "cycurl/_curl.pyx":171
  *         self._resolve = NULL
- *         self._cacert = cacert
+ *         self._cacert = cacert or DEFAULT_CACERT
  *         self._is_cert_set = False             # <<<<<<<<<<<<<<
  *         self._write_handle = None
  *         self._header_handle = None
  */
   __pyx_v_self->_is_cert_set = 0;
 
-  /* "cycurl/_curl.pyx":160
- *         self._cacert = cacert
+  /* "cycurl/_curl.pyx":172
+ *         self._cacert = cacert or DEFAULT_CACERT
  *         self._is_cert_set = False
  *         self._write_handle = None             # <<<<<<<<<<<<<<
  *         self._header_handle = None
@@ -24938,7 +25007,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_write_handle);
   __pyx_v_self->_write_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":161
+  /* "cycurl/_curl.pyx":173
  *         self._is_cert_set = False
  *         self._write_handle = None
  *         self._header_handle = None             # <<<<<<<<<<<<<<
@@ -24951,7 +25020,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_header_handle);
   __pyx_v_self->_header_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":162
+  /* "cycurl/_curl.pyx":174
  *         self._write_handle = None
  *         self._header_handle = None
  *         self._body_handle = None             # <<<<<<<<<<<<<<
@@ -24964,7 +25033,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_body_handle);
   __pyx_v_self->_body_handle = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":163
+  /* "cycurl/_curl.pyx":175
  *         self._header_handle = None
  *         self._body_handle = None
  *         self._debug = debug             # <<<<<<<<<<<<<<
@@ -24973,27 +25042,29 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
  */
   __pyx_v_self->_debug = __pyx_v_debug;
 
-  /* "cycurl/_curl.pyx":164
+  /* "cycurl/_curl.pyx":176
  *         self._body_handle = None
  *         self._debug = debug
  *         self._set_error_buffer()             # <<<<<<<<<<<<<<
  * 
  *     cdef inline void _close(self) noexcept nogil:
  */
-  __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 176, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":143
+  /* "cycurl/_curl.pyx":148
  *         bint _debug
  * 
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, bint debug = False, object handle = None):             # <<<<<<<<<<<<<<
- *         # assert PyCapsule_CheckExact(handle)
- *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
+ *     def __cinit__(self, str cacert = "", bint debug = False, object handle = None):             # <<<<<<<<<<<<<<
+ *         """
+ *         Parameters:
  */
 
   /* function exit code */
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_AddTraceback("cycurl._curl.Curl.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
@@ -25001,7 +25072,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":166
+/* "cycurl/_curl.pyx":178
  *         self._set_error_buffer()
  * 
  *     cdef inline void _close(self) noexcept nogil:             # <<<<<<<<<<<<<<
@@ -25012,7 +25083,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self) {
   int __pyx_t_1;
 
-  /* "cycurl/_curl.pyx":167
+  /* "cycurl/_curl.pyx":179
  * 
  *     cdef inline void _close(self) noexcept nogil:
  *         if self._curl:             # <<<<<<<<<<<<<<
@@ -25022,7 +25093,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   __pyx_t_1 = (__pyx_v_self->_curl != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":168
+    /* "cycurl/_curl.pyx":180
  *     cdef inline void _close(self) noexcept nogil:
  *         if self._curl:
  *             curl.curl_easy_cleanup(self._curl)             # <<<<<<<<<<<<<<
@@ -25031,7 +25102,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
  */
     curl_easy_cleanup(__pyx_v_self->_curl);
 
-    /* "cycurl/_curl.pyx":169
+    /* "cycurl/_curl.pyx":181
  *         if self._curl:
  *             curl.curl_easy_cleanup(self._curl)
  *             self._curl = NULL             # <<<<<<<<<<<<<<
@@ -25040,7 +25111,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
  */
     __pyx_v_self->_curl = NULL;
 
-    /* "cycurl/_curl.pyx":167
+    /* "cycurl/_curl.pyx":179
  * 
  *     cdef inline void _close(self) noexcept nogil:
  *         if self._curl:             # <<<<<<<<<<<<<<
@@ -25049,7 +25120,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
  */
   }
 
-  /* "cycurl/_curl.pyx":170
+  /* "cycurl/_curl.pyx":182
  *             curl.curl_easy_cleanup(self._curl)
  *             self._curl = NULL
  *         if self._resolve:             # <<<<<<<<<<<<<<
@@ -25059,7 +25130,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   __pyx_t_1 = (__pyx_v_self->_resolve != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":171
+    /* "cycurl/_curl.pyx":183
  *             self._curl = NULL
  *         if self._resolve:
  *             curl.curl_slist_free_all(self._resolve)             # <<<<<<<<<<<<<<
@@ -25068,7 +25139,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
  */
     curl_slist_free_all(__pyx_v_self->_resolve);
 
-    /* "cycurl/_curl.pyx":172
+    /* "cycurl/_curl.pyx":184
  *         if self._resolve:
  *             curl.curl_slist_free_all(self._resolve)
  *             self._resolve = NULL             # <<<<<<<<<<<<<<
@@ -25077,7 +25148,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
  */
     __pyx_v_self->_resolve = NULL;
 
-    /* "cycurl/_curl.pyx":170
+    /* "cycurl/_curl.pyx":182
  *             curl.curl_easy_cleanup(self._curl)
  *             self._curl = NULL
  *         if self._resolve:             # <<<<<<<<<<<<<<
@@ -25086,7 +25157,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
  */
   }
 
-  /* "cycurl/_curl.pyx":173
+  /* "cycurl/_curl.pyx":185
  *             curl.curl_slist_free_all(self._resolve)
  *             self._resolve = NULL
  *         if self._headers:             # <<<<<<<<<<<<<<
@@ -25096,7 +25167,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   __pyx_t_1 = (__pyx_v_self->_headers != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":174
+    /* "cycurl/_curl.pyx":186
  *             self._resolve = NULL
  *         if self._headers:
  *             curl.curl_slist_free_all(self._headers)             # <<<<<<<<<<<<<<
@@ -25105,7 +25176,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
  */
     curl_slist_free_all(__pyx_v_self->_headers);
 
-    /* "cycurl/_curl.pyx":175
+    /* "cycurl/_curl.pyx":187
  *         if self._headers:
  *             curl.curl_slist_free_all(self._headers)
  *             self._headers = NULL             # <<<<<<<<<<<<<<
@@ -25114,7 +25185,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
  */
     __pyx_v_self->_headers = NULL;
 
-    /* "cycurl/_curl.pyx":173
+    /* "cycurl/_curl.pyx":185
  *             curl.curl_slist_free_all(self._resolve)
  *             self._resolve = NULL
  *         if self._headers:             # <<<<<<<<<<<<<<
@@ -25123,7 +25194,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
  */
   }
 
-  /* "cycurl/_curl.pyx":166
+  /* "cycurl/_curl.pyx":178
  *         self._set_error_buffer()
  * 
  *     cdef inline void _close(self) noexcept nogil:             # <<<<<<<<<<<<<<
@@ -25134,7 +25205,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   /* function exit code */
 }
 
-/* "cycurl/_curl.pyx":177
+/* "cycurl/_curl.pyx":189
  *             self._headers = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -25158,7 +25229,7 @@ static void __pyx_pw_6cycurl_5_curl_4Curl_3__dealloc__(PyObject *__pyx_v_self) {
 static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self) {
   int __pyx_t_1;
 
-  /* "cycurl/_curl.pyx":178
+  /* "cycurl/_curl.pyx":190
  * 
  *     def __dealloc__(self):
  *         if self._error_buffer:             # <<<<<<<<<<<<<<
@@ -25168,7 +25239,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
   __pyx_t_1 = (__pyx_v_self->_error_buffer != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":179
+    /* "cycurl/_curl.pyx":191
  *     def __dealloc__(self):
  *         if self._error_buffer:
  *             PyMem_Free(self._error_buffer)             # <<<<<<<<<<<<<<
@@ -25177,7 +25248,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
  */
     PyMem_Free(__pyx_v_self->_error_buffer);
 
-    /* "cycurl/_curl.pyx":180
+    /* "cycurl/_curl.pyx":192
  *         if self._error_buffer:
  *             PyMem_Free(self._error_buffer)
  *             self._error_buffer = NULL             # <<<<<<<<<<<<<<
@@ -25186,7 +25257,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
  */
     __pyx_v_self->_error_buffer = NULL;
 
-    /* "cycurl/_curl.pyx":178
+    /* "cycurl/_curl.pyx":190
  * 
  *     def __dealloc__(self):
  *         if self._error_buffer:             # <<<<<<<<<<<<<<
@@ -25195,7 +25266,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
  */
   }
 
-  /* "cycurl/_curl.pyx":181
+  /* "cycurl/_curl.pyx":193
  *             PyMem_Free(self._error_buffer)
  *             self._error_buffer = NULL
  *         self._close()             # <<<<<<<<<<<<<<
@@ -25204,7 +25275,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
  */
   __pyx_f_6cycurl_5_curl_4Curl__close(__pyx_v_self);
 
-  /* "cycurl/_curl.pyx":177
+  /* "cycurl/_curl.pyx":189
  *             self._headers = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -25215,11 +25286,11 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
   /* function exit code */
 }
 
-/* "cycurl/_curl.pyx":183
+/* "cycurl/_curl.pyx":195
  *         self._close()
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         """Close and cleanup curl handle, wrapper for curl_easy_cleanup"""
+ *         """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
  *         self._close()
  */
 
@@ -25231,7 +25302,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_4close, "Curl.close(self)\nClose and cleanup curl handle, wrapper for curl_easy_cleanup");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_4close, "Curl.close(self)\nClose and cleanup curl handle, wrapper for ``curl_easy_cleanup``.");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_5close = {"close", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_5close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_4close};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_5close(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -25270,20 +25341,20 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_4close(struct __pyx_obj_6cycurl_5
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("close", 1);
 
-  /* "cycurl/_curl.pyx":185
+  /* "cycurl/_curl.pyx":197
  *     def close(self):
- *         """Close and cleanup curl handle, wrapper for curl_easy_cleanup"""
+ *         """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
  *         self._close()             # <<<<<<<<<<<<<<
  * 
  *     cpdef inline tuple ws_recv(self, size_t n = 1024):
  */
   __pyx_f_6cycurl_5_curl_4Curl__close(__pyx_v_self);
 
-  /* "cycurl/_curl.pyx":183
+  /* "cycurl/_curl.pyx":195
  *         self._close()
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         """Close and cleanup curl handle, wrapper for curl_easy_cleanup"""
+ *         """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
  *         self._close()
  */
 
@@ -25294,12 +25365,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_4close(struct __pyx_obj_6cycurl_5
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":187
+/* "cycurl/_curl.pyx":199
  *         self._close()
  * 
  *     cpdef inline tuple ws_recv(self, size_t n = 1024):             # <<<<<<<<<<<<<<
- *         cdef char* buffer = <char*>PyMem_Malloc(n)
- *         if buffer==NULL:
+ *         """Receive a frame from a websocket connection.
+ *         Args:
  */
 
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_7ws_recv(PyObject *__pyx_v_self, 
@@ -25341,17 +25412,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
     }
   }
 
-  /* "cycurl/_curl.pyx":188
- * 
- *     cpdef inline tuple ws_recv(self, size_t n = 1024):
+  /* "cycurl/_curl.pyx":208
+ *             CurlError: if failed.
+ *         """
  *         cdef char* buffer = <char*>PyMem_Malloc(n)             # <<<<<<<<<<<<<<
  *         if buffer==NULL:
  *             raise MemoryError
  */
   __pyx_v_buffer = ((char *)PyMem_Malloc(__pyx_v_n));
 
-  /* "cycurl/_curl.pyx":189
- *     cpdef inline tuple ws_recv(self, size_t n = 1024):
+  /* "cycurl/_curl.pyx":209
+ *         """
  *         cdef char* buffer = <char*>PyMem_Malloc(n)
  *         if buffer==NULL:             # <<<<<<<<<<<<<<
  *             raise MemoryError
@@ -25360,17 +25431,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
   __pyx_t_1 = (__pyx_v_buffer == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":190
+    /* "cycurl/_curl.pyx":210
  *         cdef char* buffer = <char*>PyMem_Malloc(n)
  *         if buffer==NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         cdef size_t n_recv
  *         cdef int ret
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 190, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 210, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":189
- *     cpdef inline tuple ws_recv(self, size_t n = 1024):
+    /* "cycurl/_curl.pyx":209
+ *         """
  *         cdef char* buffer = <char*>PyMem_Malloc(n)
  *         if buffer==NULL:             # <<<<<<<<<<<<<<
  *             raise MemoryError
@@ -25378,7 +25449,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
  */
   }
 
-  /* "cycurl/_curl.pyx":193
+  /* "cycurl/_curl.pyx":213
  *         cdef size_t n_recv
  *         cdef int ret
  *         cdef curl.curl_ws_frame* frame = NULL             # <<<<<<<<<<<<<<
@@ -25387,7 +25458,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
  */
   __pyx_v_frame = NULL;
 
-  /* "cycurl/_curl.pyx":197
+  /* "cycurl/_curl.pyx":217
  *         # n_recv = ffi.new("int *")
  *         # p_frame = ffi.new("struct curl_ws_frame **")
  *         try:             # <<<<<<<<<<<<<<
@@ -25396,7 +25467,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
  */
   /*try:*/ {
 
-    /* "cycurl/_curl.pyx":198
+    /* "cycurl/_curl.pyx":218
  *         # p_frame = ffi.new("struct curl_ws_frame **")
  *         try:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -25412,7 +25483,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
         #endif
         /*try:*/ {
 
-          /* "cycurl/_curl.pyx":199
+          /* "cycurl/_curl.pyx":219
  *         try:
  *             with nogil:
  *                 ret = curl.curl_ws_recv(self._curl, <void *>buffer, n, &n_recv, &frame)             # <<<<<<<<<<<<<<
@@ -25422,7 +25493,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
           __pyx_v_ret = curl_ws_recv(__pyx_v_self->_curl, ((void *)__pyx_v_buffer), __pyx_v_n, (&__pyx_v_n_recv), (&__pyx_v_frame));
         }
 
-        /* "cycurl/_curl.pyx":198
+        /* "cycurl/_curl.pyx":218
  *         # p_frame = ffi.new("struct curl_ws_frame **")
  *         try:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -25441,16 +25512,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
         }
     }
 
-    /* "cycurl/_curl.pyx":200
+    /* "cycurl/_curl.pyx":220
  *             with nogil:
  *                 ret = curl.curl_ws_recv(self._curl, <void *>buffer, n, &n_recv, &frame)
  *             self._check_error(ret, "WS_RECV")             # <<<<<<<<<<<<<<
  * 
  *             # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html
  */
-    __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_n_u_WS_RECV); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 200, __pyx_L5_error)
+    __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_n_u_WS_RECV); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 220, __pyx_L5_error)
 
-    /* "cycurl/_curl.pyx":203
+    /* "cycurl/_curl.pyx":223
  * 
  *             # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html
  *             return <bytes>buffer[: n_recv], WSFrame.from_ptr(frame)             # <<<<<<<<<<<<<<
@@ -25458,17 +25529,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
  *             PyMem_Free(buffer)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_buffer + 0, __pyx_v_n_recv - 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L5_error)
+    __pyx_t_3 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_buffer + 0, __pyx_v_n_recv - 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = ((PyObject *)__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr(__pyx_v_frame)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L5_error)
+    __pyx_t_4 = ((PyObject *)__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr(__pyx_v_frame)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 223, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 203, __pyx_L5_error)
+    __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 223, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(((PyObject*)__pyx_t_3));
     __Pyx_GIVEREF(((PyObject*)__pyx_t_3));
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3)) __PYX_ERR(0, 203, __pyx_L5_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3)) __PYX_ERR(0, 223, __pyx_L5_error);
     __Pyx_GIVEREF(__pyx_t_4);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_4)) __PYX_ERR(0, 203, __pyx_L5_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_4)) __PYX_ERR(0, 223, __pyx_L5_error);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_4 = 0;
     __pyx_r = ((PyObject*)__pyx_t_5);
@@ -25476,7 +25547,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
     goto __pyx_L4_return;
   }
 
-  /* "cycurl/_curl.pyx":205
+  /* "cycurl/_curl.pyx":225
  *             return <bytes>buffer[: n_recv], WSFrame.from_ptr(frame)
  *         finally:
  *             PyMem_Free(buffer)             # <<<<<<<<<<<<<<
@@ -25528,12 +25599,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
     }
   }
 
-  /* "cycurl/_curl.pyx":187
+  /* "cycurl/_curl.pyx":199
  *         self._close()
  * 
  *     cpdef inline tuple ws_recv(self, size_t n = 1024):             # <<<<<<<<<<<<<<
- *         cdef char* buffer = <char*>PyMem_Malloc(n)
- *         if buffer==NULL:
+ *         """Receive a frame from a websocket connection.
+ *         Args:
  */
 
   /* function exit code */
@@ -25557,7 +25628,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_6ws_recv, "Curl.ws_recv(self, size_t n=1024) -> tuple");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_6ws_recv, "Curl.ws_recv(self, size_t n=1024) -> tuple\nReceive a frame from a websocket connection.\n        Args:\n            n: maximum data to receive.\n        Returns:\n            a tuple of frame content and curl frame meta struct.\n        Raises:\n            CurlError: if failed.\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_7ws_recv = {"ws_recv", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_7ws_recv, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_6ws_recv};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_7ws_recv(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -25602,12 +25673,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_n);
           if (value) { values[0] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 187, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 199, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "ws_recv") < 0)) __PYX_ERR(0, 187, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "ws_recv") < 0)) __PYX_ERR(0, 199, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -25618,14 +25689,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
     }
     if (values[0]) {
-      __pyx_v_n = __Pyx_PyInt_As_size_t(values[0]); if (unlikely((__pyx_v_n == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 187, __pyx_L3_error)
+      __pyx_v_n = __Pyx_PyInt_As_size_t(values[0]); if (unlikely((__pyx_v_n == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 199, __pyx_L3_error)
     } else {
       __pyx_v_n = ((size_t)0x400);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ws_recv", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 187, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ws_recv", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 199, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -25664,7 +25735,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_6ws_recv(struct __pyx_obj_6cycurl
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.n = __pyx_v_n;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->ws_recv(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->ws_recv(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -25681,12 +25752,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_6ws_recv(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":207
+/* "cycurl/_curl.pyx":227
  *             PyMem_Free(buffer)
  * 
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):             # <<<<<<<<<<<<<<
- *         cdef size_t n_sent
- *         cdef int ret
+ *         """Send data to a websocket connection.
+ *         Args:
  */
 
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_9ws_send(PyObject *__pyx_v_self, 
@@ -25712,7 +25783,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
     }
   }
 
-  /* "cycurl/_curl.pyx":212
+  /* "cycurl/_curl.pyx":241
  *         # n_sent = ffi.new("int *")
  *         # buffer = ffi.from_buffer(payload)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -25728,7 +25799,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
       #endif
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":213
+        /* "cycurl/_curl.pyx":242
  *         # buffer = ffi.from_buffer(payload)
  *         with nogil:
  *             ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &n_sent, 0, flags)             # <<<<<<<<<<<<<<
@@ -25739,7 +25810,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
         __pyx_v_ret = curl_ws_send(__pyx_v_self->_curl, ((void const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_payload.data) + __pyx_t_1)) ))))), ((size_t)(__pyx_v_payload.shape[0])), (&__pyx_v_n_sent), 0, __pyx_v_flags);
       }
 
-      /* "cycurl/_curl.pyx":212
+      /* "cycurl/_curl.pyx":241
  *         # n_sent = ffi.new("int *")
  *         # buffer = ffi.from_buffer(payload)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -25758,16 +25829,16 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
       }
   }
 
-  /* "cycurl/_curl.pyx":214
+  /* "cycurl/_curl.pyx":243
  *         with nogil:
  *             ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &n_sent, 0, flags)
  *         self._check_error(ret, "WS_SEND")             # <<<<<<<<<<<<<<
  *         return n_sent
  * 
  */
-  __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_n_u_WS_SEND); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_n_u_WS_SEND); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 243, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":215
+  /* "cycurl/_curl.pyx":244
  *             ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &n_sent, 0, flags)
  *         self._check_error(ret, "WS_SEND")
  *         return n_sent             # <<<<<<<<<<<<<<
@@ -25777,12 +25848,12 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
   __pyx_r = __pyx_v_n_sent;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":207
+  /* "cycurl/_curl.pyx":227
  *             PyMem_Free(buffer)
  * 
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):             # <<<<<<<<<<<<<<
- *         cdef size_t n_sent
- *         cdef int ret
+ *         """Send data to a websocket connection.
+ *         Args:
  */
 
   /* function exit code */
@@ -25801,7 +25872,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_8ws_send, "Curl.ws_send(self, const uint8_t[::1] payload, unsigned int flags=curl.CURLWS_BINARY) -> size_t");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_8ws_send, "Curl.ws_send(self, const uint8_t[::1] payload, unsigned int flags=curl.CURLWS_BINARY) -> size_t\nSend data to a websocket connection.\n        Args:\n            payload: content to send.\n            flags: websocket flag to set for the frame, default: binary.\n        Returns:\n            0 if no error.\n        Raises:\n            CurlError: if failed.\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_9ws_send = {"ws_send", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_9ws_send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_8ws_send};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_9ws_send(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -25850,19 +25921,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 207, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 227, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_flags);
           if (value) { values[1] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 207, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 227, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "ws_send") < 0)) __PYX_ERR(0, 207, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "ws_send") < 0)) __PYX_ERR(0, 227, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -25873,16 +25944,16 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_payload = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_payload.memview)) __PYX_ERR(0, 207, __pyx_L3_error)
+    __pyx_v_payload = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_payload.memview)) __PYX_ERR(0, 227, __pyx_L3_error)
     if (values[1]) {
-      __pyx_v_flags = __Pyx_PyInt_As_unsigned_int(values[1]); if (unlikely((__pyx_v_flags == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 207, __pyx_L3_error)
+      __pyx_v_flags = __Pyx_PyInt_As_unsigned_int(values[1]); if (unlikely((__pyx_v_flags == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 227, __pyx_L3_error)
     } else {
       __pyx_v_flags = __pyx_k__11;
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ws_send", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 207, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ws_send", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 227, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -25922,11 +25993,11 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_8ws_send(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_send", 1);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_payload.memview)) { __Pyx_RaiseUnboundLocalError("payload"); __PYX_ERR(0, 207, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_payload.memview)) { __Pyx_RaiseUnboundLocalError("payload"); __PYX_ERR(0, 227, __pyx_L1_error) }
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.flags = __pyx_v_flags;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->ws_send(__pyx_v_self, __pyx_v_payload, 1, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 207, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_FromSize_t(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->ws_send(__pyx_v_self, __pyx_v_payload, 1, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 227, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_FromSize_t(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -25943,7 +26014,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_8ws_send(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":217
+/* "cycurl/_curl.pyx":246
  *         return n_sent
  * 
  *     def ws_close(self):             # <<<<<<<<<<<<<<
@@ -26003,21 +26074,21 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_10ws_close(struct __pyx_obj_6cycu
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_close", 1);
 
-  /* "cycurl/_curl.pyx":218
+  /* "cycurl/_curl.pyx":247
  * 
  *     def ws_close(self):
  *         self.ws_send(b"", curl.CURLWS_CLOSE)             # <<<<<<<<<<<<<<
  * 
  *     def ws_meta(self):
  */
-  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_kp_b__12, 0); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_kp_b__10, 0); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 247, __pyx_L1_error)
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.flags = CURLWS_CLOSE;
-  __pyx_f_6cycurl_5_curl_4Curl_ws_send(__pyx_v_self, __pyx_t_1, 0, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_f_6cycurl_5_curl_4Curl_ws_send(__pyx_v_self, __pyx_t_1, 0, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 247, __pyx_L1_error)
   __PYX_XCLEAR_MEMVIEW(&__pyx_t_1, 1);
   __pyx_t_1.memview = NULL; __pyx_t_1.data = NULL;
 
-  /* "cycurl/_curl.pyx":217
+  /* "cycurl/_curl.pyx":246
  *         return n_sent
  * 
  *     def ws_close(self):             # <<<<<<<<<<<<<<
@@ -26038,7 +26109,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_10ws_close(struct __pyx_obj_6cycu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":220
+/* "cycurl/_curl.pyx":249
  *         self.ws_send(b"", curl.CURLWS_CLOSE)
  * 
  *     def ws_meta(self):             # <<<<<<<<<<<<<<
@@ -26098,7 +26169,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12ws_meta(struct __pyx_obj_6cycur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_meta", 1);
 
-  /* "cycurl/_curl.pyx":221
+  /* "cycurl/_curl.pyx":250
  * 
  *     def ws_meta(self):
  *         cdef curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)             # <<<<<<<<<<<<<<
@@ -26107,7 +26178,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12ws_meta(struct __pyx_obj_6cycur
  */
   __pyx_v_frame = curl_ws_meta(__pyx_v_self->_curl);
 
-  /* "cycurl/_curl.pyx":222
+  /* "cycurl/_curl.pyx":251
  *     def ws_meta(self):
  *         cdef curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
  *         return WSFrame.from_ptr(frame)             # <<<<<<<<<<<<<<
@@ -26115,13 +26186,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12ws_meta(struct __pyx_obj_6cycur
  *     cdef inline void _set_error_buffer(self) nogil:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr(__pyx_v_frame)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr(__pyx_v_frame)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":220
+  /* "cycurl/_curl.pyx":249
  *         self.ws_send(b"", curl.CURLWS_CLOSE)
  * 
  *     def ws_meta(self):             # <<<<<<<<<<<<<<
@@ -26140,7 +26211,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12ws_meta(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":224
+/* "cycurl/_curl.pyx":253
  *         return WSFrame.from_ptr(frame)
  * 
  *     cdef inline void _set_error_buffer(self) nogil:             # <<<<<<<<<<<<<<
@@ -26164,7 +26235,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
   #endif
   __Pyx_RefNannySetupContext("_set_error_buffer", 1);
 
-  /* "cycurl/_curl.pyx":225
+  /* "cycurl/_curl.pyx":254
  * 
  *     cdef inline void _set_error_buffer(self) nogil:
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)             # <<<<<<<<<<<<<<
@@ -26173,7 +26244,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
  */
   __pyx_v_ret = _curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_ERRORBUFFER, __pyx_v_self->_error_buffer);
 
-  /* "cycurl/_curl.pyx":226
+  /* "cycurl/_curl.pyx":255
  *     cdef inline void _set_error_buffer(self) nogil:
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -26183,7 +26254,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
   __pyx_t_1 = (__pyx_v_ret != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":227
+    /* "cycurl/_curl.pyx":256
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
  *         if ret != 0:
  *             with gil:             # <<<<<<<<<<<<<<
@@ -26196,16 +26267,16 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
         #endif
         /*try:*/ {
 
-          /* "cycurl/_curl.pyx":228
+          /* "cycurl/_curl.pyx":257
  *         if ret != 0:
  *             with gil:
  *                 warnings.warn("Failed to set error buffer")             # <<<<<<<<<<<<<<
  *         if self._debug:
  *             with gil:
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_warnings); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 228, __pyx_L5_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_warnings); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L5_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warn); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 228, __pyx_L5_error)
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warn); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 257, __pyx_L5_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __pyx_t_3 = NULL;
@@ -26226,14 +26297,14 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
             PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_kp_u_Failed_to_set_error_buffer};
             __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
             __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 228, __pyx_L5_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L5_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         }
 
-        /* "cycurl/_curl.pyx":227
+        /* "cycurl/_curl.pyx":256
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
  *         if ret != 0:
  *             with gil:             # <<<<<<<<<<<<<<
@@ -26257,7 +26328,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
         }
     }
 
-    /* "cycurl/_curl.pyx":226
+    /* "cycurl/_curl.pyx":255
  *     cdef inline void _set_error_buffer(self) nogil:
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -26266,7 +26337,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
  */
   }
 
-  /* "cycurl/_curl.pyx":229
+  /* "cycurl/_curl.pyx":258
  *             with gil:
  *                 warnings.warn("Failed to set error buffer")
  *         if self._debug:             # <<<<<<<<<<<<<<
@@ -26275,7 +26346,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
  */
   if (__pyx_v_self->_debug) {
 
-    /* "cycurl/_curl.pyx":230
+    /* "cycurl/_curl.pyx":259
  *                 warnings.warn("Failed to set error buffer")
  *         if self._debug:
  *             with gil:             # <<<<<<<<<<<<<<
@@ -26288,17 +26359,17 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
         #endif
         /*try:*/ {
 
-          /* "cycurl/_curl.pyx":231
+          /* "cycurl/_curl.pyx":260
  *         if self._debug:
  *             with gil:
  *                 self.setopt(curl.CURLOPT_VERBOSE, 1)             # <<<<<<<<<<<<<<
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  * 
  */
-          __pyx_t_5 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_VERBOSE, __pyx_int_1, 0); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 231, __pyx_L9_error)
+          __pyx_t_5 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_VERBOSE, __pyx_int_1, 0); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 260, __pyx_L9_error)
         }
 
-        /* "cycurl/_curl.pyx":230
+        /* "cycurl/_curl.pyx":259
  *                 warnings.warn("Failed to set error buffer")
  *         if self._debug:
  *             with gil:             # <<<<<<<<<<<<<<
@@ -26322,7 +26393,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
         }
     }
 
-    /* "cycurl/_curl.pyx":232
+    /* "cycurl/_curl.pyx":261
  *             with gil:
  *                 self.setopt(curl.CURLOPT_VERBOSE, 1)
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)             # <<<<<<<<<<<<<<
@@ -26331,7 +26402,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
  */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_DEBUGFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_debug_function)));
 
-    /* "cycurl/_curl.pyx":229
+    /* "cycurl/_curl.pyx":258
  *             with gil:
  *                 warnings.warn("Failed to set error buffer")
  *         if self._debug:             # <<<<<<<<<<<<<<
@@ -26340,7 +26411,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
  */
   }
 
-  /* "cycurl/_curl.pyx":224
+  /* "cycurl/_curl.pyx":253
  *         return WSFrame.from_ptr(frame)
  * 
  *     cdef inline void _set_error_buffer(self) nogil:             # <<<<<<<<<<<<<<
@@ -26365,12 +26436,12 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
   __Pyx_RefNannyFinishContextNogil()
 }
 
-/* "cycurl/_curl.pyx":234
+/* "cycurl/_curl.pyx":263
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  * 
  *     def debug(self):             # <<<<<<<<<<<<<<
+ *         """Set debug to True"""
  *         self.setopt(CURLOPT_VERBOSE, 1)
- *         curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  */
 
 /* Python wrapper */
@@ -26381,7 +26452,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_14debug, "Curl.debug(self)");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_14debug, "Curl.debug(self)\nSet debug to True");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_15debug = {"debug", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_15debug, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_14debug};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_15debug(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -26426,38 +26497,38 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_14debug(struct __pyx_obj_6cycurl_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("debug", 1);
 
-  /* "cycurl/_curl.pyx":235
- * 
+  /* "cycurl/_curl.pyx":265
  *     def debug(self):
+ *         """Set debug to True"""
  *         self.setopt(CURLOPT_VERBOSE, 1)             # <<<<<<<<<<<<<<
  *         curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CURLOPT_VERBOSE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CURLOPT_VERBOSE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, __pyx_t_2, __pyx_int_1, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, __pyx_t_2, __pyx_int_1, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 265, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":236
- *     def debug(self):
+  /* "cycurl/_curl.pyx":266
+ *         """Set debug to True"""
  *         self.setopt(CURLOPT_VERBOSE, 1)
  *         curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)             # <<<<<<<<<<<<<<
  * 
  *     cdef int _check_error(self, int errcode, str args) except -1:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CURLOPT_DEBUGFUNCTION); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CURLOPT_DEBUGFUNCTION); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   (void)(_curl_easy_setopt(__pyx_v_self->_curl, __pyx_t_3, ((void *)__pyx_f_6cycurl_5_curl_debug_function)));
 
-  /* "cycurl/_curl.pyx":234
+  /* "cycurl/_curl.pyx":263
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  * 
  *     def debug(self):             # <<<<<<<<<<<<<<
+ *         """Set debug to True"""
  *         self.setopt(CURLOPT_VERBOSE, 1)
- *         curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  */
 
   /* function exit code */
@@ -26473,7 +26544,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_14debug(struct __pyx_obj_6cycurl_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":238
+/* "cycurl/_curl.pyx":268
  *         curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  * 
  *     cdef int _check_error(self, int errcode, str args) except -1:             # <<<<<<<<<<<<<<
@@ -26492,19 +26563,19 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_check_error", 1);
 
-  /* "cycurl/_curl.pyx":239
+  /* "cycurl/_curl.pyx":269
  * 
  *     cdef int _check_error(self, int errcode, str args) except -1:
  *         error = self._get_error(errcode, args)             # <<<<<<<<<<<<<<
  *         if error is not None:
  *             raise error
  */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__get_error(__pyx_v_self, __pyx_v_errcode, __pyx_v_args); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__get_error(__pyx_v_self, __pyx_v_errcode, __pyx_v_args); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_error = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":240
+  /* "cycurl/_curl.pyx":270
  *     cdef int _check_error(self, int errcode, str args) except -1:
  *         error = self._get_error(errcode, args)
  *         if error is not None:             # <<<<<<<<<<<<<<
@@ -26514,7 +26585,7 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
   __pyx_t_2 = (__pyx_v_error != Py_None);
   if (unlikely(__pyx_t_2)) {
 
-    /* "cycurl/_curl.pyx":241
+    /* "cycurl/_curl.pyx":271
  *         error = self._get_error(errcode, args)
  *         if error is not None:
  *             raise error             # <<<<<<<<<<<<<<
@@ -26522,9 +26593,9 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
  *     cdef _get_error(self, int errcode, str args):
  */
     __Pyx_Raise(__pyx_v_error, 0, 0, 0);
-    __PYX_ERR(0, 241, __pyx_L1_error)
+    __PYX_ERR(0, 271, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":240
+    /* "cycurl/_curl.pyx":270
  *     cdef int _check_error(self, int errcode, str args) except -1:
  *         error = self._get_error(errcode, args)
  *         if error is not None:             # <<<<<<<<<<<<<<
@@ -26533,7 +26604,7 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
  */
   }
 
-  /* "cycurl/_curl.pyx":238
+  /* "cycurl/_curl.pyx":268
  *         curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  * 
  *     cdef int _check_error(self, int errcode, str args) except -1:             # <<<<<<<<<<<<<<
@@ -26554,7 +26625,7 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":243
+/* "cycurl/_curl.pyx":273
  *             raise error
  * 
  *     cdef _get_error(self, int errcode, str args):             # <<<<<<<<<<<<<<
@@ -26578,7 +26649,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_get_error", 1);
 
-  /* "cycurl/_curl.pyx":244
+  /* "cycurl/_curl.pyx":274
  * 
  *     cdef _get_error(self, int errcode, str args):
  *         if errcode != 0:             # <<<<<<<<<<<<<<
@@ -26588,44 +26659,44 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
   __pyx_t_1 = (__pyx_v_errcode != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":245
+    /* "cycurl/_curl.pyx":275
  *     cdef _get_error(self, int errcode, str args):
  *         if errcode != 0:
  *             errmsg = (<bytes>self._error_buffer).decode()             # <<<<<<<<<<<<<<
  *             return CurlError(
- *                 f"Failed to {args}, ErrCode: {errcode}, Reason: '{errmsg}'. "
+ *                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "
  */
-    __pyx_t_2 = __Pyx_PyBytes_FromString(__pyx_v_self->_error_buffer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 245, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyBytes_FromString(__pyx_v_self->_error_buffer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (unlikely(__pyx_t_2 == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "decode");
-      __PYX_ERR(0, 245, __pyx_L1_error)
+      __PYX_ERR(0, 275, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_decode_bytes(((PyObject*)__pyx_t_2), 0, PY_SSIZE_T_MAX, NULL, NULL, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 245, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_decode_bytes(((PyObject*)__pyx_t_2), 0, PY_SSIZE_T_MAX, NULL, NULL, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 275, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_errmsg = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":246
+    /* "cycurl/_curl.pyx":276
  *         if errcode != 0:
  *             errmsg = (<bytes>self._error_buffer).decode()
  *             return CurlError(             # <<<<<<<<<<<<<<
- *                 f"Failed to {args}, ErrCode: {errcode}, Reason: '{errmsg}'. "
- *                 "This may be a libcurl error, "
- */
-    __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 246, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-
-    /* "cycurl/_curl.pyx":247
- *             errmsg = (<bytes>self._error_buffer).decode()
- *             return CurlError(
- *                 f"Failed to {args}, ErrCode: {errcode}, Reason: '{errmsg}'. "             # <<<<<<<<<<<<<<
- *                 "This may be a libcurl error, "
+ *                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "
  *                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
  */
-    __pyx_t_2 = PyTuple_New(7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+
+    /* "cycurl/_curl.pyx":277
+ *             errmsg = (<bytes>self._error_buffer).decode()
+ *             return CurlError(
+ *                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "             # <<<<<<<<<<<<<<
+ *                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+ *                 code=errcode,
+ */
+    __pyx_t_2 = PyTuple_New(7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_4 = 0;
     __pyx_t_5 = 127;
@@ -26633,77 +26704,77 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
     __pyx_t_4 += 10;
     __Pyx_GIVEREF(__pyx_kp_u_Failed_to);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_u_Failed_to);
-    __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_args); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 247, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_args); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_5;
     __pyx_t_4 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_6);
     PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_6);
     __pyx_t_6 = 0;
-    __Pyx_INCREF(__pyx_kp_u_ErrCode);
-    __pyx_t_4 += 11;
-    __Pyx_GIVEREF(__pyx_kp_u_ErrCode);
-    PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u_ErrCode);
-    __pyx_t_6 = __Pyx_PyUnicode_From_int(__pyx_v_errcode, 0, ' ', 'd'); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 247, __pyx_L1_error)
+    __Pyx_INCREF(__pyx_kp_u_curl);
+    __pyx_t_4 += 9;
+    __Pyx_GIVEREF(__pyx_kp_u_curl);
+    PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u_curl);
+    __pyx_t_6 = __Pyx_PyUnicode_From_int(__pyx_v_errcode, 0, ' ', 'd'); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_4 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_6);
     PyTuple_SET_ITEM(__pyx_t_2, 3, __pyx_t_6);
     __pyx_t_6 = 0;
-    __Pyx_INCREF(__pyx_kp_u_Reason);
-    __pyx_t_4 += 11;
-    __Pyx_GIVEREF(__pyx_kp_u_Reason);
-    PyTuple_SET_ITEM(__pyx_t_2, 4, __pyx_kp_u_Reason);
-    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_v_errmsg, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 247, __pyx_L1_error)
+    __Pyx_INCREF(__pyx_kp_u__12);
+    __pyx_t_4 += 2;
+    __Pyx_GIVEREF(__pyx_kp_u__12);
+    PyTuple_SET_ITEM(__pyx_t_2, 4, __pyx_kp_u__12);
+    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_v_errmsg, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_5;
     __pyx_t_4 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_6);
     PyTuple_SET_ITEM(__pyx_t_2, 5, __pyx_t_6);
     __pyx_t_6 = 0;
-    __Pyx_INCREF(__pyx_kp_u_This_may_be_a_libcurl_error_See);
-    __pyx_t_4 += 105;
-    __Pyx_GIVEREF(__pyx_kp_u_This_may_be_a_libcurl_error_See);
-    PyTuple_SET_ITEM(__pyx_t_2, 6, __pyx_kp_u_This_may_be_a_libcurl_error_See);
-    __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_2, 7, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 247, __pyx_L1_error)
+    __Pyx_INCREF(__pyx_kp_u_See_https_curl_se_libcurl_c_lib);
+    __pyx_t_4 += 75;
+    __Pyx_GIVEREF(__pyx_kp_u_See_https_curl_se_libcurl_c_lib);
+    PyTuple_SET_ITEM(__pyx_t_2, 6, __pyx_kp_u_See_https_curl_se_libcurl_c_lib);
+    __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_2, 7, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":246
+    /* "cycurl/_curl.pyx":276
  *         if errcode != 0:
  *             errmsg = (<bytes>self._error_buffer).decode()
  *             return CurlError(             # <<<<<<<<<<<<<<
- *                 f"Failed to {args}, ErrCode: {errcode}, Reason: '{errmsg}'. "
- *                 "This may be a libcurl error, "
+ *                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "
+ *                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
  */
-    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 246, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_6);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6)) __PYX_ERR(0, 246, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6)) __PYX_ERR(0, 276, __pyx_L1_error);
     __pyx_t_6 = 0;
 
-    /* "cycurl/_curl.pyx":250
- *                 "This may be a libcurl error, "
+    /* "cycurl/_curl.pyx":279
+ *                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "
  *                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
  *                 code=errcode,             # <<<<<<<<<<<<<<
  *             )
  * 
  */
-    __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 250, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 279, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 250, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 279, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_code, __pyx_t_7) < 0) __PYX_ERR(0, 250, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_code, __pyx_t_7) < 0) __PYX_ERR(0, 279, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "cycurl/_curl.pyx":246
+    /* "cycurl/_curl.pyx":276
  *         if errcode != 0:
  *             errmsg = (<bytes>self._error_buffer).decode()
  *             return CurlError(             # <<<<<<<<<<<<<<
- *                 f"Failed to {args}, ErrCode: {errcode}, Reason: '{errmsg}'. "
- *                 "This may be a libcurl error, "
+ *                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "
+ *                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
  */
-    __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 246, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -26712,7 +26783,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
     __pyx_t_7 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":244
+    /* "cycurl/_curl.pyx":274
  * 
  *     cdef _get_error(self, int errcode, str args):
  *         if errcode != 0:             # <<<<<<<<<<<<<<
@@ -26721,7 +26792,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
  */
   }
 
-  /* "cycurl/_curl.pyx":243
+  /* "cycurl/_curl.pyx":273
  *             raise error
  * 
  *     cdef _get_error(self, int errcode, str args):             # <<<<<<<<<<<<<<
@@ -26746,11 +26817,11 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":253
+/* "cycurl/_curl.pyx":282
  *             )
  * 
  *     cpdef inline int setopt(self, int option, object value) except -1:             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_setopt.
+ *         """Wrapper for ``curl_easy_setopt``.
  * 
  */
 
@@ -26790,7 +26861,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("setopt", 1);
 
-  /* "cycurl/_curl.pyx":272
+  /* "cycurl/_curl.pyx":304
  *         # Convert value
  *         cdef:
  *             void* c_value = NULL             # <<<<<<<<<<<<<<
@@ -26799,7 +26870,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
   __pyx_v_c_value = NULL;
 
-  /* "cycurl/_curl.pyx":273
+  /* "cycurl/_curl.pyx":305
  *         cdef:
  *             void* c_value = NULL
  *             int value_type = option / 10000 * 10000             # <<<<<<<<<<<<<<
@@ -26808,7 +26879,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
   __pyx_v_value_type = ((((long)__pyx_v_option) / 0x2710) * 0x2710);
 
-  /* "cycurl/_curl.pyx":277
+  /* "cycurl/_curl.pyx":309
  *             bytes bytesval
  *             int ret
  *         if value_type == 30000 or value_type == 0:             # <<<<<<<<<<<<<<
@@ -26826,17 +26897,17 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   }
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":279
+    /* "cycurl/_curl.pyx":311
  *         if value_type == 30000 or value_type == 0:
  *             # c_value = ffi.new("int*", value)
  *             intval = <int>value             # <<<<<<<<<<<<<<
  *             c_value = <void*>&intval
  *         elif option == curl.CURLOPT_WRITEDATA:
  */
-    __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 279, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 311, __pyx_L1_error)
     __pyx_v_intval = ((int)__pyx_t_2);
 
-    /* "cycurl/_curl.pyx":280
+    /* "cycurl/_curl.pyx":312
  *             # c_value = ffi.new("int*", value)
  *             intval = <int>value
  *             c_value = <void*>&intval             # <<<<<<<<<<<<<<
@@ -26845,7 +26916,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_c_value = ((void *)(&__pyx_v_intval));
 
-    /* "cycurl/_curl.pyx":277
+    /* "cycurl/_curl.pyx":309
  *             bytes bytesval
  *             int ret
  *         if value_type == 30000 or value_type == 0:             # <<<<<<<<<<<<<<
@@ -26855,7 +26926,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":281
+  /* "cycurl/_curl.pyx":313
  *             intval = <int>value
  *             c_value = <void*>&intval
  *         elif option == curl.CURLOPT_WRITEDATA:             # <<<<<<<<<<<<<<
@@ -26865,7 +26936,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_WRITEDATA);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":282
+    /* "cycurl/_curl.pyx":314
  *             c_value = <void*>&intval
  *         elif option == curl.CURLOPT_WRITEDATA:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -26874,7 +26945,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":283
+    /* "cycurl/_curl.pyx":315
  *         elif option == curl.CURLOPT_WRITEDATA:
  *             c_value = <void*>value
  *             self._write_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -26887,7 +26958,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_write_handle);
     __pyx_v_self->_write_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":284
+    /* "cycurl/_curl.pyx":316
  *             c_value = <void*>value
  *             self._write_handle = value # store a ref
  *             curl._curl_easy_setopt(             # <<<<<<<<<<<<<<
@@ -26896,7 +26967,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_WRITEFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_buffer_callback)));
 
-    /* "cycurl/_curl.pyx":281
+    /* "cycurl/_curl.pyx":313
  *             intval = <int>value
  *             c_value = <void*>&intval
  *         elif option == curl.CURLOPT_WRITEDATA:             # <<<<<<<<<<<<<<
@@ -26906,7 +26977,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":287
+  /* "cycurl/_curl.pyx":319
  *                 self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>buffer_callback
  *             )
  *         elif option == curl.CURLOPT_HEADERDATA:             # <<<<<<<<<<<<<<
@@ -26916,7 +26987,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_HEADERDATA);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":288
+    /* "cycurl/_curl.pyx":320
  *             )
  *         elif option == curl.CURLOPT_HEADERDATA:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -26925,7 +26996,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":289
+    /* "cycurl/_curl.pyx":321
  *         elif option == curl.CURLOPT_HEADERDATA:
  *             c_value = <void*>value
  *             self._header_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -26938,7 +27009,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_header_handle);
     __pyx_v_self->_header_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":290
+    /* "cycurl/_curl.pyx":322
  *             c_value = <void*>value
  *             self._header_handle = value # store a ref
  *             curl._curl_easy_setopt(             # <<<<<<<<<<<<<<
@@ -26947,7 +27018,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_HEADERFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_buffer_callback)));
 
-    /* "cycurl/_curl.pyx":287
+    /* "cycurl/_curl.pyx":319
  *                 self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>buffer_callback
  *             )
  *         elif option == curl.CURLOPT_HEADERDATA:             # <<<<<<<<<<<<<<
@@ -26957,7 +27028,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":293
+  /* "cycurl/_curl.pyx":325
  *                 self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>buffer_callback
  *             )
  *         elif option == curl.CURLOPT_WRITEFUNCTION:             # <<<<<<<<<<<<<<
@@ -26967,7 +27038,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_WRITEFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":294
+    /* "cycurl/_curl.pyx":326
  *             )
  *         elif option == curl.CURLOPT_WRITEFUNCTION:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -26976,7 +27047,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":295
+    /* "cycurl/_curl.pyx":327
  *         elif option == curl.CURLOPT_WRITEFUNCTION:
  *             c_value = <void*>value
  *             self._write_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -26989,7 +27060,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_write_handle);
     __pyx_v_self->_write_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":296
+    /* "cycurl/_curl.pyx":328
  *             c_value = <void*>value
  *             self._write_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>write_callback)             # <<<<<<<<<<<<<<
@@ -26998,7 +27069,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_WRITEFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_write_callback)));
 
-    /* "cycurl/_curl.pyx":297
+    /* "cycurl/_curl.pyx":329
  *             self._write_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_WRITEDATA             # <<<<<<<<<<<<<<
@@ -27007,7 +27078,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_option = CURLOPT_WRITEDATA;
 
-    /* "cycurl/_curl.pyx":293
+    /* "cycurl/_curl.pyx":325
  *                 self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>buffer_callback
  *             )
  *         elif option == curl.CURLOPT_WRITEFUNCTION:             # <<<<<<<<<<<<<<
@@ -27017,7 +27088,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":298
+  /* "cycurl/_curl.pyx":330
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_WRITEDATA
  *         elif option == curl.CURLOPT_HEADERFUNCTION:             # <<<<<<<<<<<<<<
@@ -27027,7 +27098,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_HEADERFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":299
+    /* "cycurl/_curl.pyx":331
  *             option = curl.CURLOPT_WRITEDATA
  *         elif option == curl.CURLOPT_HEADERFUNCTION:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -27036,7 +27107,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":300
+    /* "cycurl/_curl.pyx":332
  *         elif option == curl.CURLOPT_HEADERFUNCTION:
  *             c_value = <void*>value
  *             self._header_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -27049,7 +27120,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_header_handle);
     __pyx_v_self->_header_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":301
+    /* "cycurl/_curl.pyx":333
  *             c_value = <void*>value
  *             self._header_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)             # <<<<<<<<<<<<<<
@@ -27058,7 +27129,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_HEADERFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_write_callback)));
 
-    /* "cycurl/_curl.pyx":302
+    /* "cycurl/_curl.pyx":334
  *             self._header_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_HEADERDATA             # <<<<<<<<<<<<<<
@@ -27067,7 +27138,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_option = CURLOPT_HEADERDATA;
 
-    /* "cycurl/_curl.pyx":298
+    /* "cycurl/_curl.pyx":330
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_WRITEDATA
  *         elif option == curl.CURLOPT_HEADERFUNCTION:             # <<<<<<<<<<<<<<
@@ -27077,7 +27148,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":303
+  /* "cycurl/_curl.pyx":335
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_HEADERDATA
  *         elif value_type == 10000:             # <<<<<<<<<<<<<<
@@ -27087,7 +27158,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_value_type == 0x2710);
   if (likely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":304
+    /* "cycurl/_curl.pyx":336
  *             option = curl.CURLOPT_HEADERDATA
  *         elif value_type == 10000:
  *             if isinstance(value, str):             # <<<<<<<<<<<<<<
@@ -27097,14 +27168,14 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_t_1 = PyUnicode_Check(__pyx_v_value); 
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":305
+      /* "cycurl/_curl.pyx":337
  *         elif value_type == 10000:
  *             if isinstance(value, str):
  *                 bytesval = value.encode()             # <<<<<<<<<<<<<<
  *                 c_value = <void *> <const char *> bytesval
  *                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_encode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 305, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_encode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 337, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       __pyx_t_2 = 0;
@@ -27124,15 +27195,15 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
         PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
         __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_2, 0+__pyx_t_2);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 305, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 337, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
-      if (!(likely(PyBytes_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_3))) __PYX_ERR(0, 305, __pyx_L1_error)
+      if (!(likely(PyBytes_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_3))) __PYX_ERR(0, 337, __pyx_L1_error)
       __pyx_v_bytesval = ((PyObject*)__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "cycurl/_curl.pyx":306
+      /* "cycurl/_curl.pyx":338
  *             if isinstance(value, str):
  *                 bytesval = value.encode()
  *                 c_value = <void *> <const char *> bytesval             # <<<<<<<<<<<<<<
@@ -27141,12 +27212,12 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
       if (unlikely(__pyx_v_bytesval == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-        __PYX_ERR(0, 306, __pyx_L1_error)
+        __PYX_ERR(0, 338, __pyx_L1_error)
       }
-      __pyx_t_6 = __Pyx_PyBytes_AsString(__pyx_v_bytesval); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) __PYX_ERR(0, 306, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyBytes_AsString(__pyx_v_bytesval); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) __PYX_ERR(0, 338, __pyx_L1_error)
       __pyx_v_c_value = ((void *)((char const *)__pyx_t_6));
 
-      /* "cycurl/_curl.pyx":304
+      /* "cycurl/_curl.pyx":336
  *             option = curl.CURLOPT_HEADERDATA
  *         elif value_type == 10000:
  *             if isinstance(value, str):             # <<<<<<<<<<<<<<
@@ -27156,7 +27227,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       goto __pyx_L4;
     }
 
-    /* "cycurl/_curl.pyx":308
+    /* "cycurl/_curl.pyx":340
  *                 c_value = <void *> <const char *> bytesval
  *                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
  *             elif isinstance(value, bytes):             # <<<<<<<<<<<<<<
@@ -27166,20 +27237,20 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_t_1 = PyBytes_Check(__pyx_v_value); 
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":309
+      /* "cycurl/_curl.pyx":341
  *                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
  *             elif isinstance(value, bytes):
  *                 bytesval = value             # <<<<<<<<<<<<<<
  *                 # c_value = <void*><const char*>value
  *                 c_value = <void*><const char *> bytesval
  */
-      if (!(likely(PyBytes_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_v_value))) __PYX_ERR(0, 309, __pyx_L1_error)
+      if (!(likely(PyBytes_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_v_value))) __PYX_ERR(0, 341, __pyx_L1_error)
       __pyx_t_3 = __pyx_v_value;
       __Pyx_INCREF(__pyx_t_3);
       __pyx_v_bytesval = ((PyObject*)__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "cycurl/_curl.pyx":311
+      /* "cycurl/_curl.pyx":343
  *                 bytesval = value
  *                 # c_value = <void*><const char*>value
  *                 c_value = <void*><const char *> bytesval             # <<<<<<<<<<<<<<
@@ -27188,12 +27259,12 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
       if (unlikely(__pyx_v_bytesval == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-        __PYX_ERR(0, 311, __pyx_L1_error)
+        __PYX_ERR(0, 343, __pyx_L1_error)
       }
-      __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_bytesval); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 311, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_bytesval); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 343, __pyx_L1_error)
       __pyx_v_c_value = ((void *)((char const *)__pyx_t_7));
 
-      /* "cycurl/_curl.pyx":308
+      /* "cycurl/_curl.pyx":340
  *                 c_value = <void *> <const char *> bytesval
  *                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
  *             elif isinstance(value, bytes):             # <<<<<<<<<<<<<<
@@ -27203,7 +27274,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       goto __pyx_L4;
     }
 
-    /* "cycurl/_curl.pyx":312
+    /* "cycurl/_curl.pyx":344
  *                 # c_value = <void*><const char*>value
  *                 c_value = <void*><const char *> bytesval
  *             elif PyCapsule_CheckExact(value):             # <<<<<<<<<<<<<<
@@ -27213,17 +27284,17 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_t_1 = PyCapsule_CheckExact(__pyx_v_value);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":313
+      /* "cycurl/_curl.pyx":345
  *                 c_value = <void*><const char *> bytesval
  *             elif PyCapsule_CheckExact(value):
  *                 c_value = PyCapsule_GetPointer(value, NULL)             # <<<<<<<<<<<<<<
  *             # Must keep a reference, otherwise may be GCed.
  *             if option == curl.CURLOPT_POSTFIELDS:
  */
-      __pyx_t_8 = PyCapsule_GetPointer(__pyx_v_value, NULL); if (unlikely(__pyx_t_8 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 313, __pyx_L1_error)
+      __pyx_t_8 = PyCapsule_GetPointer(__pyx_v_value, NULL); if (unlikely(__pyx_t_8 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 345, __pyx_L1_error)
       __pyx_v_c_value = __pyx_t_8;
 
-      /* "cycurl/_curl.pyx":312
+      /* "cycurl/_curl.pyx":344
  *                 # c_value = <void*><const char*>value
  *                 c_value = <void*><const char *> bytesval
  *             elif PyCapsule_CheckExact(value):             # <<<<<<<<<<<<<<
@@ -27233,7 +27304,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     }
     __pyx_L4:;
 
-    /* "cycurl/_curl.pyx":315
+    /* "cycurl/_curl.pyx":347
  *                 c_value = PyCapsule_GetPointer(value, NULL)
  *             # Must keep a reference, otherwise may be GCed.
  *             if option == curl.CURLOPT_POSTFIELDS:             # <<<<<<<<<<<<<<
@@ -27243,21 +27314,21 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_t_1 = (__pyx_v_option == CURLOPT_POSTFIELDS);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":316
+      /* "cycurl/_curl.pyx":348
  *             # Must keep a reference, otherwise may be GCed.
  *             if option == curl.CURLOPT_POSTFIELDS:
  *                 self._body_handle = bytesval             # <<<<<<<<<<<<<<
  *         else:
  *             raise NotImplementedError("Option unsupported: %s" % option)
  */
-      if (unlikely(!__pyx_v_bytesval)) { __Pyx_RaiseUnboundLocalError("bytesval"); __PYX_ERR(0, 316, __pyx_L1_error) }
+      if (unlikely(!__pyx_v_bytesval)) { __Pyx_RaiseUnboundLocalError("bytesval"); __PYX_ERR(0, 348, __pyx_L1_error) }
       __Pyx_INCREF(__pyx_v_bytesval);
       __Pyx_GIVEREF(__pyx_v_bytesval);
       __Pyx_GOTREF(__pyx_v_self->_body_handle);
       __Pyx_DECREF(__pyx_v_self->_body_handle);
       __pyx_v_self->_body_handle = __pyx_v_bytesval;
 
-      /* "cycurl/_curl.pyx":315
+      /* "cycurl/_curl.pyx":347
  *                 c_value = PyCapsule_GetPointer(value, NULL)
  *             # Must keep a reference, otherwise may be GCed.
  *             if option == curl.CURLOPT_POSTFIELDS:             # <<<<<<<<<<<<<<
@@ -27266,7 +27337,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     }
 
-    /* "cycurl/_curl.pyx":303
+    /* "cycurl/_curl.pyx":335
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_HEADERDATA
  *         elif value_type == 10000:             # <<<<<<<<<<<<<<
@@ -27276,7 +27347,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":318
+  /* "cycurl/_curl.pyx":350
  *                 self._body_handle = bytesval
  *         else:
  *             raise NotImplementedError("Option unsupported: %s" % option)             # <<<<<<<<<<<<<<
@@ -27284,21 +27355,21 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  *         if option == curl.CURLOPT_HTTPHEADER:
  */
   /*else*/ {
-    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_option); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 318, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_option); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PyUnicode_Format(__pyx_kp_u_Option_unsupported_s, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 318, __pyx_L1_error)
+    __pyx_t_4 = PyUnicode_Format(__pyx_kp_u_Option_unsupported_s, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_NotImplementedError, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 318, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_NotImplementedError, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 318, __pyx_L1_error)
+    __PYX_ERR(0, 350, __pyx_L1_error)
   }
   __pyx_L3:;
 
-  /* "cycurl/_curl.pyx":320
+  /* "cycurl/_curl.pyx":352
  *             raise NotImplementedError("Option unsupported: %s" % option)
  * 
  *         if option == curl.CURLOPT_HTTPHEADER:             # <<<<<<<<<<<<<<
@@ -27308,7 +27379,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_HTTPHEADER);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":321
+    /* "cycurl/_curl.pyx":353
  * 
  *         if option == curl.CURLOPT_HTTPHEADER:
  *             for header in value:             # <<<<<<<<<<<<<<
@@ -27320,9 +27391,9 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __pyx_t_9 = 0;
       __pyx_t_10 = NULL;
     } else {
-      __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 321, __pyx_L1_error)
+      __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 353, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_10 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 321, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 353, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_10)) {
@@ -27330,28 +27401,28 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
             #if !CYTHON_ASSUME_SAFE_MACROS
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 321, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 353, __pyx_L1_error)
             #endif
             if (__pyx_t_9 >= __pyx_temp) break;
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely((0 < 0))) __PYX_ERR(0, 321, __pyx_L1_error)
+          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely((0 < 0))) __PYX_ERR(0, 353, __pyx_L1_error)
           #else
-          __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 321, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 353, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         } else {
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
             #if !CYTHON_ASSUME_SAFE_MACROS
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 321, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 353, __pyx_L1_error)
             #endif
             if (__pyx_t_9 >= __pyx_temp) break;
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely((0 < 0))) __PYX_ERR(0, 321, __pyx_L1_error)
+          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely((0 < 0))) __PYX_ERR(0, 353, __pyx_L1_error)
           #else
-          __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 321, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 353, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         }
@@ -27361,7 +27432,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 321, __pyx_L1_error)
+            else __PYX_ERR(0, 353, __pyx_L1_error)
           }
           break;
         }
@@ -27370,17 +27441,17 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __Pyx_XDECREF_SET(__pyx_v_header, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "cycurl/_curl.pyx":322
+      /* "cycurl/_curl.pyx":354
  *         if option == curl.CURLOPT_HTTPHEADER:
  *             for header in value:
  *                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)             # <<<<<<<<<<<<<<
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_RESOLVE:
  */
-      __pyx_t_11 = __Pyx_PyObject_AsString(__pyx_v_header); if (unlikely((!__pyx_t_11) && PyErr_Occurred())) __PYX_ERR(0, 322, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_AsString(__pyx_v_header); if (unlikely((!__pyx_t_11) && PyErr_Occurred())) __PYX_ERR(0, 354, __pyx_L1_error)
       __pyx_v_self->_headers = curl_slist_append(__pyx_v_self->_headers, ((char const *)__pyx_t_11));
 
-      /* "cycurl/_curl.pyx":321
+      /* "cycurl/_curl.pyx":353
  * 
  *         if option == curl.CURLOPT_HTTPHEADER:
  *             for header in value:             # <<<<<<<<<<<<<<
@@ -27390,7 +27461,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":323
+    /* "cycurl/_curl.pyx":355
  *             for header in value:
  *                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)             # <<<<<<<<<<<<<<
@@ -27399,7 +27470,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_ret = _curl_easy_setopt(__pyx_v_self->_curl, __pyx_v_option, __pyx_v_self->_headers);
 
-    /* "cycurl/_curl.pyx":320
+    /* "cycurl/_curl.pyx":352
  *             raise NotImplementedError("Option unsupported: %s" % option)
  * 
  *         if option == curl.CURLOPT_HTTPHEADER:             # <<<<<<<<<<<<<<
@@ -27409,7 +27480,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L6;
   }
 
-  /* "cycurl/_curl.pyx":324
+  /* "cycurl/_curl.pyx":356
  *                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_RESOLVE:             # <<<<<<<<<<<<<<
@@ -27419,7 +27490,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_RESOLVE);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":325
+    /* "cycurl/_curl.pyx":357
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_RESOLVE:
  *             for resolve in value:             # <<<<<<<<<<<<<<
@@ -27431,9 +27502,9 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __pyx_t_9 = 0;
       __pyx_t_10 = NULL;
     } else {
-      __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 325, __pyx_L1_error)
+      __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_10 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 325, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 357, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_10)) {
@@ -27441,28 +27512,28 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
             #if !CYTHON_ASSUME_SAFE_MACROS
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 325, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 357, __pyx_L1_error)
             #endif
             if (__pyx_t_9 >= __pyx_temp) break;
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely((0 < 0))) __PYX_ERR(0, 325, __pyx_L1_error)
+          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely((0 < 0))) __PYX_ERR(0, 357, __pyx_L1_error)
           #else
-          __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 325, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 357, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         } else {
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
             #if !CYTHON_ASSUME_SAFE_MACROS
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 325, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 357, __pyx_L1_error)
             #endif
             if (__pyx_t_9 >= __pyx_temp) break;
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely((0 < 0))) __PYX_ERR(0, 325, __pyx_L1_error)
+          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely((0 < 0))) __PYX_ERR(0, 357, __pyx_L1_error)
           #else
-          __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 325, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 357, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         }
@@ -27472,7 +27543,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 325, __pyx_L1_error)
+            else __PYX_ERR(0, 357, __pyx_L1_error)
           }
           break;
         }
@@ -27481,7 +27552,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __Pyx_XDECREF_SET(__pyx_v_resolve, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "cycurl/_curl.pyx":326
+      /* "cycurl/_curl.pyx":358
  *         elif option == curl.CURLOPT_RESOLVE:
  *             for resolve in value:
  *                 if isinstance(resolve, str):             # <<<<<<<<<<<<<<
@@ -27491,14 +27562,14 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __pyx_t_1 = PyUnicode_Check(__pyx_v_resolve); 
       if (__pyx_t_1) {
 
-        /* "cycurl/_curl.pyx":327
+        /* "cycurl/_curl.pyx":359
  *             for resolve in value:
  *                 if isinstance(resolve, str):
  *                     resolve = resolve.encode()             # <<<<<<<<<<<<<<
  *                 self._resolve = curl.curl_slist_append(self._resolve, resolve)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._resolve)
  */
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_resolve, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 327, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_resolve, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 359, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __pyx_t_12 = NULL;
         __pyx_t_2 = 0;
@@ -27518,14 +27589,14 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           PyObject *__pyx_callargs[2] = {__pyx_t_12, NULL};
           __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_2, 0+__pyx_t_2);
           __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 327, __pyx_L1_error)
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 359, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         }
         __Pyx_DECREF_SET(__pyx_v_resolve, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "cycurl/_curl.pyx":326
+        /* "cycurl/_curl.pyx":358
  *         elif option == curl.CURLOPT_RESOLVE:
  *             for resolve in value:
  *                 if isinstance(resolve, str):             # <<<<<<<<<<<<<<
@@ -27534,17 +27605,17 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
       }
 
-      /* "cycurl/_curl.pyx":328
+      /* "cycurl/_curl.pyx":360
  *                 if isinstance(resolve, str):
  *                     resolve = resolve.encode()
  *                 self._resolve = curl.curl_slist_append(self._resolve, resolve)             # <<<<<<<<<<<<<<
  *             ret = curl._curl_easy_setopt(self._curl, option, self._resolve)
  *         else:
  */
-      __pyx_t_13 = __Pyx_PyObject_AsString(__pyx_v_resolve); if (unlikely((!__pyx_t_13) && PyErr_Occurred())) __PYX_ERR(0, 328, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_AsString(__pyx_v_resolve); if (unlikely((!__pyx_t_13) && PyErr_Occurred())) __PYX_ERR(0, 360, __pyx_L1_error)
       __pyx_v_self->_resolve = curl_slist_append(__pyx_v_self->_resolve, __pyx_t_13);
 
-      /* "cycurl/_curl.pyx":325
+      /* "cycurl/_curl.pyx":357
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_RESOLVE:
  *             for resolve in value:             # <<<<<<<<<<<<<<
@@ -27554,7 +27625,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":329
+    /* "cycurl/_curl.pyx":361
  *                     resolve = resolve.encode()
  *                 self._resolve = curl.curl_slist_append(self._resolve, resolve)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._resolve)             # <<<<<<<<<<<<<<
@@ -27563,7 +27634,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_ret = _curl_easy_setopt(__pyx_v_self->_curl, __pyx_v_option, __pyx_v_self->_resolve);
 
-    /* "cycurl/_curl.pyx":324
+    /* "cycurl/_curl.pyx":356
  *                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_RESOLVE:             # <<<<<<<<<<<<<<
@@ -27573,7 +27644,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L6;
   }
 
-  /* "cycurl/_curl.pyx":331
+  /* "cycurl/_curl.pyx":363
  *             ret = curl._curl_easy_setopt(self._curl, option, self._resolve)
  *         else:
  *             ret = curl._curl_easy_setopt(self._curl, option, c_value)             # <<<<<<<<<<<<<<
@@ -27585,14 +27656,14 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   }
   __pyx_L6:;
 
-  /* "cycurl/_curl.pyx":332
+  /* "cycurl/_curl.pyx":364
  *         else:
  *             ret = curl._curl_easy_setopt(self._curl, option, c_value)
  *         self._check_error(ret, f"setopt {option} {value}")             # <<<<<<<<<<<<<<
  * 
  *         if option == curl.CURLOPT_CAINFO:
  */
-  __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 364, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_9 = 0;
   __pyx_t_14 = 127;
@@ -27600,7 +27671,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_9 += 7;
   __Pyx_GIVEREF(__pyx_kp_u_setopt);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_kp_u_setopt);
-  __pyx_t_4 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 364, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_9 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_4);
@@ -27610,20 +27681,20 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_9 += 1;
   __Pyx_GIVEREF(__pyx_kp_u__13);
   PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_kp_u__13);
-  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_value, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_value, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 364, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_14 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_14) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_14;
   __pyx_t_9 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 3, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_3, 4, __pyx_t_9, __pyx_t_14); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_3, 4, __pyx_t_9, __pyx_t_14); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 364, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_4)); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_4)); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 364, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":334
+  /* "cycurl/_curl.pyx":366
  *         self._check_error(ret, f"setopt {option} {value}")
  * 
  *         if option == curl.CURLOPT_CAINFO:             # <<<<<<<<<<<<<<
@@ -27633,7 +27704,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_CAINFO);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":335
+    /* "cycurl/_curl.pyx":367
  * 
  *         if option == curl.CURLOPT_CAINFO:
  *             self._is_cert_set = True             # <<<<<<<<<<<<<<
@@ -27642,7 +27713,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
     __pyx_v_self->_is_cert_set = 1;
 
-    /* "cycurl/_curl.pyx":334
+    /* "cycurl/_curl.pyx":366
  *         self._check_error(ret, f"setopt {option} {value}")
  * 
  *         if option == curl.CURLOPT_CAINFO:             # <<<<<<<<<<<<<<
@@ -27651,7 +27722,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  */
   }
 
-  /* "cycurl/_curl.pyx":337
+  /* "cycurl/_curl.pyx":369
  *             self._is_cert_set = True
  * 
  *         return ret             # <<<<<<<<<<<<<<
@@ -27661,11 +27732,11 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_r = __pyx_v_ret;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":253
+  /* "cycurl/_curl.pyx":282
  *             )
  * 
  *     cpdef inline int setopt(self, int option, object value) except -1:             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_setopt.
+ *         """Wrapper for ``curl_easy_setopt``.
  * 
  */
 
@@ -27693,7 +27764,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_16setopt, "Curl.setopt(self, int option, value) -> int\nWrapper for curl_easy_setopt.\n    \n        Parameters:\n            option: option to set, use the constants from CURLOPT_X enum\n            value: value to set, strings will be handled automatically\n        ");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_16setopt, "Curl.setopt(self, int option, value) -> int\nWrapper for ``curl_easy_setopt``.\n    \n        Parameters:\n            option: option to set, using constants from CURLOPT_\n            value: value to set, strings will be handled automatically\n\n        Returns:\n            0 if no error, see ``CURLE_``.\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_17setopt = {"setopt", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_17setopt, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_16setopt};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_17setopt(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -27742,7 +27813,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 253, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 282, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -27750,14 +27821,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 253, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 282, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("setopt", 1, 2, 2, 1); __PYX_ERR(0, 253, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setopt", 1, 2, 2, 1); __PYX_ERR(0, 282, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "setopt") < 0)) __PYX_ERR(0, 253, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "setopt") < 0)) __PYX_ERR(0, 282, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -27765,12 +27836,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
     }
-    __pyx_v_option = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 253, __pyx_L3_error)
+    __pyx_v_option = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 282, __pyx_L3_error)
     __pyx_v_value = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("setopt", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 253, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("setopt", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 282, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -27807,8 +27878,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_16setopt(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("setopt", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, __pyx_v_option, __pyx_v_value, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 253, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, __pyx_v_option, __pyx_v_value, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -27825,12 +27896,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_16setopt(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":339
+/* "cycurl/_curl.pyx":371
  *         return ret
  * 
  *     cpdef inline object getinfo(self, int option):             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_getinfo. Gets information in response after curl perform.
- * 
+ *         """Wrapper for ``curl_easy_getinfo``. Gets information in response after curl perform.
+ *         Parameters:
  */
 
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_19getinfo(PyObject *__pyx_v_self, 
@@ -27858,7 +27929,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("getinfo", 1);
 
-  /* "cycurl/_curl.pyx":359
+  /* "cycurl/_curl.pyx":393
  *             int ret_type
  *             int ret
  *             char* charret = NULL             # <<<<<<<<<<<<<<
@@ -27867,7 +27938,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  */
   __pyx_v_charret = NULL;
 
-  /* "cycurl/_curl.pyx":362
+  /* "cycurl/_curl.pyx":396
  *             long longret
  *             double doubleret
  *             curl.curl_slist *slistret = NULL             # <<<<<<<<<<<<<<
@@ -27876,7 +27947,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  */
   __pyx_v_slistret = NULL;
 
-  /* "cycurl/_curl.pyx":363
+  /* "cycurl/_curl.pyx":397
  *             double doubleret
  *             curl.curl_slist *slistret = NULL
  *         ret_type = option & 0xF00000             # <<<<<<<<<<<<<<
@@ -27885,7 +27956,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  */
   __pyx_v_ret_type = (__pyx_v_option & 0xF00000);
 
-  /* "cycurl/_curl.pyx":365
+  /* "cycurl/_curl.pyx":399
  *         ret_type = option & 0xF00000
  *         # c_value = ffi.new(ret_option[option & 0xF00000])
  *         if ret_type == 0x100000:             # <<<<<<<<<<<<<<
@@ -27895,7 +27966,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
   switch (__pyx_v_ret_type) {
     case 0x100000:
 
-    /* "cycurl/_curl.pyx":366
+    /* "cycurl/_curl.pyx":400
  *         # c_value = ffi.new(ret_option[option & 0xF00000])
  *         if ret_type == 0x100000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &charret)             # <<<<<<<<<<<<<<
@@ -27904,22 +27975,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  */
     __pyx_v_ret = curl_easy_getinfo(__pyx_v_self->_curl, __pyx_v_option, (&__pyx_v_charret));
 
-    /* "cycurl/_curl.pyx":367
+    /* "cycurl/_curl.pyx":401
  *         if ret_type == 0x100000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &charret)
  *             self._check_error(ret, f"getinfo {option}")             # <<<<<<<<<<<<<<
  *             if charret == NULL:
  *                 return b""
  */
-    __pyx_t_1 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 367, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 401, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_getinfo, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 367, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_getinfo, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 401, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_2)); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 367, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_2)); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 401, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":368
+    /* "cycurl/_curl.pyx":402
  *             ret = curl.curl_easy_getinfo(self._curl, option, &charret)
  *             self._check_error(ret, f"getinfo {option}")
  *             if charret == NULL:             # <<<<<<<<<<<<<<
@@ -27929,7 +28000,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     __pyx_t_4 = (__pyx_v_charret == NULL);
     if (__pyx_t_4) {
 
-      /* "cycurl/_curl.pyx":369
+      /* "cycurl/_curl.pyx":403
  *             self._check_error(ret, f"getinfo {option}")
  *             if charret == NULL:
  *                 return b""             # <<<<<<<<<<<<<<
@@ -27937,11 +28008,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *         elif ret_type == 0x200000:
  */
       __Pyx_XDECREF(__pyx_r);
-      __Pyx_INCREF(__pyx_kp_b__12);
-      __pyx_r = __pyx_kp_b__12;
+      __Pyx_INCREF(__pyx_kp_b__10);
+      __pyx_r = __pyx_kp_b__10;
       goto __pyx_L0;
 
-      /* "cycurl/_curl.pyx":368
+      /* "cycurl/_curl.pyx":402
  *             ret = curl.curl_easy_getinfo(self._curl, option, &charret)
  *             self._check_error(ret, f"getinfo {option}")
  *             if charret == NULL:             # <<<<<<<<<<<<<<
@@ -27950,7 +28021,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  */
     }
 
-    /* "cycurl/_curl.pyx":370
+    /* "cycurl/_curl.pyx":404
  *             if charret == NULL:
  *                 return b""
  *             return <bytes>charret             # <<<<<<<<<<<<<<
@@ -27958,14 +28029,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *             ret = curl.curl_easy_getinfo(self._curl, option, &longret)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = __Pyx_PyBytes_FromString(__pyx_v_charret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyBytes_FromString(__pyx_v_charret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 404, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(((PyObject*)__pyx_t_2));
     __pyx_r = __pyx_t_2;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":365
+    /* "cycurl/_curl.pyx":399
  *         ret_type = option & 0xF00000
  *         # c_value = ffi.new(ret_option[option & 0xF00000])
  *         if ret_type == 0x100000:             # <<<<<<<<<<<<<<
@@ -27975,7 +28046,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     break;
     case 0x200000:
 
-    /* "cycurl/_curl.pyx":372
+    /* "cycurl/_curl.pyx":406
  *             return <bytes>charret
  *         elif ret_type == 0x200000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &longret)             # <<<<<<<<<<<<<<
@@ -27984,22 +28055,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  */
     __pyx_v_ret = curl_easy_getinfo(__pyx_v_self->_curl, __pyx_v_option, (&__pyx_v_longret));
 
-    /* "cycurl/_curl.pyx":373
+    /* "cycurl/_curl.pyx":407
  *         elif ret_type == 0x200000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &longret)
  *             self._check_error(ret, f"getinfo {option}")             # <<<<<<<<<<<<<<
  *             return PyLong_FromLong(longret)
  *         elif ret_type == 0x300000:
  */
-    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 373, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 373, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 407, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_1)); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 373, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_1)); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 407, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":374
+    /* "cycurl/_curl.pyx":408
  *             ret = curl.curl_easy_getinfo(self._curl, option, &longret)
  *             self._check_error(ret, f"getinfo {option}")
  *             return PyLong_FromLong(longret)             # <<<<<<<<<<<<<<
@@ -28007,13 +28078,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *             ret = curl.curl_easy_getinfo(self._curl, option, &doubleret)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = PyLong_FromLong(__pyx_v_longret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
+    __pyx_t_1 = PyLong_FromLong(__pyx_v_longret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 408, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":371
+    /* "cycurl/_curl.pyx":405
  *                 return b""
  *             return <bytes>charret
  *         elif ret_type == 0x200000:             # <<<<<<<<<<<<<<
@@ -28023,7 +28094,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     break;
     case 0x300000:
 
-    /* "cycurl/_curl.pyx":376
+    /* "cycurl/_curl.pyx":410
  *             return PyLong_FromLong(longret)
  *         elif ret_type == 0x300000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &doubleret)             # <<<<<<<<<<<<<<
@@ -28032,22 +28103,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  */
     __pyx_v_ret = curl_easy_getinfo(__pyx_v_self->_curl, __pyx_v_option, (&__pyx_v_doubleret));
 
-    /* "cycurl/_curl.pyx":377
+    /* "cycurl/_curl.pyx":411
  *         elif ret_type == 0x300000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &doubleret)
  *             self._check_error(ret, f"getinfo {option}")             # <<<<<<<<<<<<<<
  *             return PyFloat_FromDouble(doubleret)
  *         elif ret_type == 0x400000:
  */
-    __pyx_t_1 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 377, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 411, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_getinfo, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_getinfo, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 411, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_2)); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 377, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_2)); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 411, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":378
+    /* "cycurl/_curl.pyx":412
  *             ret = curl.curl_easy_getinfo(self._curl, option, &doubleret)
  *             self._check_error(ret, f"getinfo {option}")
  *             return PyFloat_FromDouble(doubleret)             # <<<<<<<<<<<<<<
@@ -28055,13 +28126,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = PyFloat_FromDouble(__pyx_v_doubleret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 378, __pyx_L1_error)
+    __pyx_t_2 = PyFloat_FromDouble(__pyx_v_doubleret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 412, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":375
+    /* "cycurl/_curl.pyx":409
  *             self._check_error(ret, f"getinfo {option}")
  *             return PyLong_FromLong(longret)
  *         elif ret_type == 0x300000:             # <<<<<<<<<<<<<<
@@ -28071,7 +28142,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     break;
     case 0x400000:
 
-    /* "cycurl/_curl.pyx":380
+    /* "cycurl/_curl.pyx":414
  *             return PyFloat_FromDouble(doubleret)
  *         elif ret_type == 0x400000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)             # <<<<<<<<<<<<<<
@@ -28080,22 +28151,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  */
     __pyx_v_ret = curl_easy_getinfo(__pyx_v_self->_curl, __pyx_v_option, (&__pyx_v_slistret));
 
-    /* "cycurl/_curl.pyx":381
+    /* "cycurl/_curl.pyx":415
  *         elif ret_type == 0x400000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)
  *             self._check_error(ret, f"getinfo {option}")             # <<<<<<<<<<<<<<
  *             if slistret == NULL:
  *                 return []
  */
-    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 381, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 415, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 381, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 415, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_1)); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 381, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_1)); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 415, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":382
+    /* "cycurl/_curl.pyx":416
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)
  *             self._check_error(ret, f"getinfo {option}")
  *             if slistret == NULL:             # <<<<<<<<<<<<<<
@@ -28105,7 +28176,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     __pyx_t_4 = (__pyx_v_slistret == NULL);
     if (__pyx_t_4) {
 
-      /* "cycurl/_curl.pyx":383
+      /* "cycurl/_curl.pyx":417
  *             self._check_error(ret, f"getinfo {option}")
  *             if slistret == NULL:
  *                 return []             # <<<<<<<<<<<<<<
@@ -28113,13 +28184,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  * 
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 383, __pyx_L1_error)
+      __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 417, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_r = __pyx_t_1;
       __pyx_t_1 = 0;
       goto __pyx_L0;
 
-      /* "cycurl/_curl.pyx":382
+      /* "cycurl/_curl.pyx":416
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)
  *             self._check_error(ret, f"getinfo {option}")
  *             if slistret == NULL:             # <<<<<<<<<<<<<<
@@ -28128,7 +28199,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  */
     }
 
-    /* "cycurl/_curl.pyx":384
+    /* "cycurl/_curl.pyx":418
  *             if slistret == NULL:
  *                 return []
  *             return slist_to_list(slistret)             # <<<<<<<<<<<<<<
@@ -28136,13 +28207,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *     cpdef inline bytes version(self):
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __pyx_f_6cycurl_5_curl_slist_to_list(__pyx_v_slistret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_6cycurl_5_curl_slist_to_list(__pyx_v_slistret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 418, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":379
+    /* "cycurl/_curl.pyx":413
  *             self._check_error(ret, f"getinfo {option}")
  *             return PyFloat_FromDouble(doubleret)
  *         elif ret_type == 0x400000:             # <<<<<<<<<<<<<<
@@ -28153,12 +28224,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     default: break;
   }
 
-  /* "cycurl/_curl.pyx":339
+  /* "cycurl/_curl.pyx":371
  *         return ret
  * 
  *     cpdef inline object getinfo(self, int option):             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_getinfo. Gets information in response after curl perform.
- * 
+ *         """Wrapper for ``curl_easy_getinfo``. Gets information in response after curl perform.
+ *         Parameters:
  */
 
   /* function exit code */
@@ -28183,7 +28254,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_18getinfo, "Curl.getinfo(self, int option)\nWrapper for curl_easy_getinfo. Gets information in response after curl perform.\n    \n        Parameters:\n            option: option to get info of, use the constants from CurlInfo enum\n        ");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_18getinfo, "Curl.getinfo(self, int option)\nWrapper for ``curl_easy_getinfo``. Gets information in response after curl perform.\n        Parameters:\n            option: option to get info of, use the constants from CURLINFO_\n            option: option to get info of, using constants from ``CURLINFO_`` constants\n        Returns:\n            value retrieved from last perform.\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_19getinfo = {"getinfo", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_19getinfo, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_18getinfo};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_19getinfo(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -28229,23 +28300,23 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 339, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 371, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "getinfo") < 0)) __PYX_ERR(0, 339, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "getinfo") < 0)) __PYX_ERR(0, 371, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
     }
-    __pyx_v_option = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 339, __pyx_L3_error)
+    __pyx_v_option = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 371, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("getinfo", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 339, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("getinfo", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 371, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -28281,7 +28352,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_18getinfo(struct __pyx_obj_6cycur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("getinfo", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_getinfo(__pyx_v_self, __pyx_v_option, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_getinfo(__pyx_v_self, __pyx_v_option, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -28298,7 +28369,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_18getinfo(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":386
+/* "cycurl/_curl.pyx":420
  *             return slist_to_list(slistret)
  * 
  *     cpdef inline bytes version(self):             # <<<<<<<<<<<<<<
@@ -28322,7 +28393,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_version(CYTHON_UNUSE
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("version", 1);
 
-  /* "cycurl/_curl.pyx":388
+  /* "cycurl/_curl.pyx":422
  *     cpdef inline bytes version(self):
  *         """Get the underlying libcurl version."""
  *         return <bytes>curl.curl_version()             # <<<<<<<<<<<<<<
@@ -28330,14 +28401,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_version(CYTHON_UNUSE
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBytes_FromString(curl_version()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 388, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBytes_FromString(curl_version()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 422, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject*)__pyx_t_1));
   __pyx_r = ((PyObject*)__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":386
+  /* "cycurl/_curl.pyx":420
  *             return slist_to_list(slistret)
  * 
  *     cpdef inline bytes version(self):             # <<<<<<<<<<<<<<
@@ -28407,7 +28478,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_20version(struct __pyx_obj_6cycur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("version", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_version(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 386, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_version(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -28424,7 +28495,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_20version(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":390
+/* "cycurl/_curl.pyx":424
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
@@ -28456,19 +28527,19 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_impersonate(struct __pyx_o
     }
   }
 
-  /* "cycurl/_curl.pyx":397
- *             default_headers: whether to add default headers, like User-Agent.
+  /* "cycurl/_curl.pyx":434
+ *             0 if no error.
  *         """
  *         cdef bytes data = target.encode()             # <<<<<<<<<<<<<<
  *         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)
  * 
  */
-  __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_target, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_target, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_data = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":398
+  /* "cycurl/_curl.pyx":435
  *         """
  *         cdef bytes data = target.encode()
  *         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)             # <<<<<<<<<<<<<<
@@ -28477,13 +28548,13 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_impersonate(struct __pyx_o
  */
   if (unlikely(__pyx_v_data == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-    __PYX_ERR(0, 398, __pyx_L1_error)
+    __PYX_ERR(0, 435, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_data); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 398, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_data); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 435, __pyx_L1_error)
   __pyx_r = curl_easy_impersonate(__pyx_v_self->_curl, ((char const *)__pyx_t_2), __pyx_v_default_headers);
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":390
+  /* "cycurl/_curl.pyx":424
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
@@ -28510,7 +28581,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_22impersonate, "Curl.impersonate(self, unicode target: str, bool default_headers=True) -> int\nSet the browser type to impersonate.\n    \n        Parameters:\n            target: browser to impersonate.\n            default_headers: whether to add default headers, like User-Agent.\n        ");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_22impersonate, "Curl.impersonate(self, unicode target: str, bool default_headers=True) -> int\nSet the browser type to impersonate.\n    \n        Parameters:\n            target: browser to impersonate.\n            default_headers: whether to add default headers, like User-Agent.\n        \n        Returns:\n            0 if no error.\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_23impersonate = {"impersonate", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_23impersonate, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_22impersonate};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_23impersonate(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -28559,19 +28630,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 390, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 424, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_default_headers);
           if (value) { values[1] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 390, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 424, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "impersonate") < 0)) __PYX_ERR(0, 390, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "impersonate") < 0)) __PYX_ERR(0, 424, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -28584,14 +28655,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     }
     __pyx_v_target = ((PyObject*)values[0]);
     if (values[1]) {
-      __pyx_v_default_headers = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_default_headers == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 390, __pyx_L3_error)
+      __pyx_v_default_headers = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_default_headers == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 424, __pyx_L3_error)
     } else {
       __pyx_v_default_headers = ((int)1);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("impersonate", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 390, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("impersonate", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 424, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -28605,7 +28676,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_target), (&PyUnicode_Type), 0, "target", 1))) __PYX_ERR(0, 390, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_target), (&PyUnicode_Type), 0, "target", 1))) __PYX_ERR(0, 424, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_22impersonate(((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_self), __pyx_v_target, __pyx_v_default_headers);
 
   /* function exit code */
@@ -28636,8 +28707,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_22impersonate(struct __pyx_obj_6c
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.default_headers = __pyx_v_default_headers;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->impersonate(__pyx_v_self, __pyx_v_target, 1, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 390, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->impersonate(__pyx_v_self, __pyx_v_target, 1, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -28654,7 +28725,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_22impersonate(struct __pyx_obj_6c
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":400
+/* "cycurl/_curl.pyx":437
  *         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)
  * 
  *     cdef inline int _ensure_cacert(self) except -1:             # <<<<<<<<<<<<<<
@@ -28674,7 +28745,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_ensure_cacert", 1);
 
-  /* "cycurl/_curl.pyx":401
+  /* "cycurl/_curl.pyx":438
  * 
  *     cdef inline int _ensure_cacert(self) except -1:
  *         if not self._is_cert_set:             # <<<<<<<<<<<<<<
@@ -28684,7 +28755,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
   __pyx_t_1 = (!__pyx_v_self->_is_cert_set);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":402
+    /* "cycurl/_curl.pyx":439
  *     cdef inline int _ensure_cacert(self) except -1:
  *         if not self._is_cert_set:
  *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)             # <<<<<<<<<<<<<<
@@ -28693,20 +28764,20 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
  */
     __pyx_t_2 = __pyx_v_self->_cacert;
     __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_CAINFO, __pyx_t_2, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 402, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_CAINFO, __pyx_t_2, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 439, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_ret = __pyx_t_3;
 
-    /* "cycurl/_curl.pyx":403
+    /* "cycurl/_curl.pyx":440
  *         if not self._is_cert_set:
  *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
  *             self._check_error(ret, "set cacert")             # <<<<<<<<<<<<<<
  * 
  *     cpdef inline int perform(self, clear_headers: bool = True) except -1:
  */
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_kp_u_set_cacert); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 403, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_kp_u_set_cacert); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 440, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":401
+    /* "cycurl/_curl.pyx":438
  * 
  *     cdef inline int _ensure_cacert(self) except -1:
  *         if not self._is_cert_set:             # <<<<<<<<<<<<<<
@@ -28715,7 +28786,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
  */
   }
 
-  /* "cycurl/_curl.pyx":400
+  /* "cycurl/_curl.pyx":437
  *         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)
  * 
  *     cdef inline int _ensure_cacert(self) except -1:             # <<<<<<<<<<<<<<
@@ -28735,11 +28806,11 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":405
+/* "cycurl/_curl.pyx":442
  *             self._check_error(ret, "set cacert")
  * 
  *     cpdef inline int perform(self, clear_headers: bool = True) except -1:             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_perform, performs a curl request.
+ *         """Wrapper for ``curl_easy_perform``, performs a curl request.
  * 
  */
 
@@ -28776,16 +28847,16 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
     }
   }
 
-  /* "cycurl/_curl.pyx":413
+  /* "cycurl/_curl.pyx":453
  *         # make sure we set a cacert store
  *         cdef int ret
  *         self._ensure_cacert()             # <<<<<<<<<<<<<<
  * 
  *         # here we go
  */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(__pyx_v_self); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 413, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(__pyx_v_self); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 453, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":416
+  /* "cycurl/_curl.pyx":456
  * 
  *         # here we go
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -28801,7 +28872,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
       #endif
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":417
+        /* "cycurl/_curl.pyx":457
  *         # here we go
  *         with nogil:
  *             ret = curl.curl_easy_perform(self._curl)             # <<<<<<<<<<<<<<
@@ -28811,7 +28882,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
         __pyx_v_ret = curl_easy_perform(__pyx_v_self->_curl);
       }
 
-      /* "cycurl/_curl.pyx":416
+      /* "cycurl/_curl.pyx":456
  * 
  *         # here we go
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -28830,7 +28901,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
       }
   }
 
-  /* "cycurl/_curl.pyx":418
+  /* "cycurl/_curl.pyx":458
  *         with nogil:
  *             ret = curl.curl_easy_perform(self._curl)
  *         try:             # <<<<<<<<<<<<<<
@@ -28839,16 +28910,16 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
  */
   /*try:*/ {
 
-    /* "cycurl/_curl.pyx":419
+    /* "cycurl/_curl.pyx":459
  *             ret = curl.curl_easy_perform(self._curl)
  *         try:
  *             self._check_error(ret, "perform")             # <<<<<<<<<<<<<<
  *             return ret
  *         finally:
  */
-    __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_n_u_perform); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 419, __pyx_L7_error)
+    __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_n_u_perform); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 459, __pyx_L7_error)
 
-    /* "cycurl/_curl.pyx":420
+    /* "cycurl/_curl.pyx":460
  *         try:
  *             self._check_error(ret, "perform")
  *             return ret             # <<<<<<<<<<<<<<
@@ -28859,7 +28930,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
     goto __pyx_L6_return;
   }
 
-  /* "cycurl/_curl.pyx":423
+  /* "cycurl/_curl.pyx":463
  *         finally:
  *             # cleaning
  *             self.clean_after_perform(clear_headers)             # <<<<<<<<<<<<<<
@@ -28884,7 +28955,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
       {
         __pyx_t_11.__pyx_n = 1;
         __pyx_t_11.clear_headers = __pyx_v_clear_headers;
-        __pyx_t_10 = __pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(__pyx_v_self, 0, &__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 423, __pyx_L10_error)
+        __pyx_t_10 = __pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(__pyx_v_self, 0, &__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 463, __pyx_L10_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       }
@@ -28918,7 +28989,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
       __pyx_t_2 = __pyx_r;
       __pyx_t_11.__pyx_n = 1;
       __pyx_t_11.clear_headers = __pyx_v_clear_headers;
-      __pyx_t_10 = __pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(__pyx_v_self, 0, &__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 423, __pyx_L1_error)
+      __pyx_t_10 = __pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(__pyx_v_self, 0, &__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 463, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_r = __pyx_t_2;
@@ -28926,11 +28997,11 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
     }
   }
 
-  /* "cycurl/_curl.pyx":405
+  /* "cycurl/_curl.pyx":442
  *             self._check_error(ret, "set cacert")
  * 
  *     cpdef inline int perform(self, clear_headers: bool = True) except -1:             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_perform, performs a curl request.
+ *         """Wrapper for ``curl_easy_perform``, performs a curl request.
  * 
  */
 
@@ -28952,7 +29023,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_24perform, "Curl.perform(self, clear_headers: bool = True) -> int\nWrapper for curl_easy_perform, performs a curl request.\n\n        Parameters:\n            clear_headers: clear header slist used in this perform\n        ");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_24perform, "Curl.perform(self, clear_headers: bool = True) -> int\nWrapper for ``curl_easy_perform``, performs a curl request.\n\n        Parameters:\n            clear_headers: clear header slist used in this perform\n        \n        Raises:\n            CurlError: if the perform was not successful.\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_25perform = {"perform", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_25perform, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_24perform};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_25perform(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -28998,12 +29069,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_clear_headers);
           if (value) { values[0] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 405, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 442, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "perform") < 0)) __PYX_ERR(0, 405, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "perform") < 0)) __PYX_ERR(0, 442, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -29017,7 +29088,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("perform", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 405, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("perform", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 442, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -29057,8 +29128,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_24perform(struct __pyx_obj_6cycur
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.clear_headers = __pyx_v_clear_headers;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->perform(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 405, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 405, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->perform(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 442, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -29075,7 +29146,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_24perform(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":425
+/* "cycurl/_curl.pyx":465
  *             self.clean_after_perform(clear_headers)
  * 
  *     cpdef inline clean_after_perform(self, clear_headers: bool = True):             # <<<<<<<<<<<<<<
@@ -29105,7 +29176,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
     }
   }
 
-  /* "cycurl/_curl.pyx":427
+  /* "cycurl/_curl.pyx":467
  *     cpdef inline clean_after_perform(self, clear_headers: bool = True):
  *         """Clean up handles and buffers after perform, called at the end of `perform`."""
  *         self._write_handle = None             # <<<<<<<<<<<<<<
@@ -29118,7 +29189,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
   __Pyx_DECREF(__pyx_v_self->_write_handle);
   __pyx_v_self->_write_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":428
+  /* "cycurl/_curl.pyx":468
  *         """Clean up handles and buffers after perform, called at the end of `perform`."""
  *         self._write_handle = None
  *         self._header_handle = None             # <<<<<<<<<<<<<<
@@ -29131,7 +29202,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
   __Pyx_DECREF(__pyx_v_self->_header_handle);
   __pyx_v_self->_header_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":429
+  /* "cycurl/_curl.pyx":469
  *         self._write_handle = None
  *         self._header_handle = None
  *         self._body_handle = None             # <<<<<<<<<<<<<<
@@ -29144,17 +29215,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
   __Pyx_DECREF(__pyx_v_self->_body_handle);
   __pyx_v_self->_body_handle = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":430
+  /* "cycurl/_curl.pyx":470
  *         self._header_handle = None
  *         self._body_handle = None
  *         if clear_headers:             # <<<<<<<<<<<<<<
  *             if self._headers != NULL:
  *                 curl.curl_slist_free_all(self._headers)
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_clear_headers); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 430, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_clear_headers); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 470, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":431
+    /* "cycurl/_curl.pyx":471
  *         self._body_handle = None
  *         if clear_headers:
  *             if self._headers != NULL:             # <<<<<<<<<<<<<<
@@ -29164,7 +29235,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
     __pyx_t_1 = (__pyx_v_self->_headers != NULL);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":432
+      /* "cycurl/_curl.pyx":472
  *         if clear_headers:
  *             if self._headers != NULL:
  *                 curl.curl_slist_free_all(self._headers)             # <<<<<<<<<<<<<<
@@ -29173,7 +29244,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
  */
       curl_slist_free_all(__pyx_v_self->_headers);
 
-      /* "cycurl/_curl.pyx":431
+      /* "cycurl/_curl.pyx":471
  *         self._body_handle = None
  *         if clear_headers:
  *             if self._headers != NULL:             # <<<<<<<<<<<<<<
@@ -29182,7 +29253,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
  */
     }
 
-    /* "cycurl/_curl.pyx":433
+    /* "cycurl/_curl.pyx":473
  *             if self._headers != NULL:
  *                 curl.curl_slist_free_all(self._headers)
  *             self._headers = NULL             # <<<<<<<<<<<<<<
@@ -29191,7 +29262,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
  */
     __pyx_v_self->_headers = NULL;
 
-    /* "cycurl/_curl.pyx":430
+    /* "cycurl/_curl.pyx":470
  *         self._header_handle = None
  *         self._body_handle = None
  *         if clear_headers:             # <<<<<<<<<<<<<<
@@ -29200,7 +29271,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
  */
   }
 
-  /* "cycurl/_curl.pyx":435
+  /* "cycurl/_curl.pyx":475
  *             self._headers = NULL
  *         # fixme: clean resolve
  *         if self._resolve != NULL:             # <<<<<<<<<<<<<<
@@ -29210,7 +29281,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
   __pyx_t_1 = (__pyx_v_self->_resolve != NULL);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":436
+    /* "cycurl/_curl.pyx":476
  *         # fixme: clean resolve
  *         if self._resolve != NULL:
  *             curl.curl_slist_free_all(self._resolve)             # <<<<<<<<<<<<<<
@@ -29219,7 +29290,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
  */
     curl_slist_free_all(__pyx_v_self->_resolve);
 
-    /* "cycurl/_curl.pyx":437
+    /* "cycurl/_curl.pyx":477
  *         if self._resolve != NULL:
  *             curl.curl_slist_free_all(self._resolve)
  *             self._resolve = NULL             # <<<<<<<<<<<<<<
@@ -29228,7 +29299,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
  */
     __pyx_v_self->_resolve = NULL;
 
-    /* "cycurl/_curl.pyx":435
+    /* "cycurl/_curl.pyx":475
  *             self._headers = NULL
  *         # fixme: clean resolve
  *         if self._resolve != NULL:             # <<<<<<<<<<<<<<
@@ -29237,7 +29308,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform(
  */
   }
 
-  /* "cycurl/_curl.pyx":425
+  /* "cycurl/_curl.pyx":465
  *             self.clean_after_perform(clear_headers)
  * 
  *     cpdef inline clean_after_perform(self, clear_headers: bool = True):             # <<<<<<<<<<<<<<
@@ -29311,12 +29382,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_clear_headers);
           if (value) { values[0] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 425, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 465, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "clean_after_perform") < 0)) __PYX_ERR(0, 425, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "clean_after_perform") < 0)) __PYX_ERR(0, 465, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -29330,7 +29401,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("clean_after_perform", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 425, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("clean_after_perform", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 465, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -29369,7 +29440,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_26clean_after_perform(struct __py
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.clear_headers = __pyx_v_clear_headers;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->clean_after_perform(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 425, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->clean_after_perform(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -29386,12 +29457,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_26clean_after_perform(struct __py
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":439
+/* "cycurl/_curl.pyx":479
  *             self._resolve = NULL
  * 
  *     cpdef inline Curl duphandle(self):             # <<<<<<<<<<<<<<
- *         """This is not a full copy of entire curl object in python. For example, headers
- *         handle is not copied, you have to set them again."""
+ *         """Wrapper for ``curl_easy_duphandle``.
+ *         This is not a full copy of entire curl object in python. For example, headers
  */
 
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_29duphandle(PyObject *__pyx_v_self, 
@@ -29415,7 +29486,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("duphandle", 1);
 
-  /* "cycurl/_curl.pyx":443
+  /* "cycurl/_curl.pyx":484
  *         handle is not copied, you have to set them again."""
  *         cdef curl.CURL *new_handle
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -29431,7 +29502,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
       #endif
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":444
+        /* "cycurl/_curl.pyx":485
  *         cdef curl.CURL *new_handle
  *         with nogil:
  *             new_handle = curl.curl_easy_duphandle(self._curl)             # <<<<<<<<<<<<<<
@@ -29441,7 +29512,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
         __pyx_v_new_handle = curl_easy_duphandle(__pyx_v_self->_curl);
       }
 
-      /* "cycurl/_curl.pyx":443
+      /* "cycurl/_curl.pyx":484
  *         handle is not copied, you have to set them again."""
  *         cdef curl.CURL *new_handle
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -29460,7 +29531,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
       }
   }
 
-  /* "cycurl/_curl.pyx":445
+  /* "cycurl/_curl.pyx":486
  *         with nogil:
  *             new_handle = curl.curl_easy_duphandle(self._curl)
  *         if new_handle == NULL:             # <<<<<<<<<<<<<<
@@ -29470,16 +29541,16 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
   __pyx_t_1 = (__pyx_v_new_handle == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":446
+    /* "cycurl/_curl.pyx":487
  *             new_handle = curl.curl_easy_duphandle(self._curl)
  *         if new_handle == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         c = Curl(self._cacert, self._debug, PyCapsule_New(<void*>new_handle, NULL, NULL))
  *         return c
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 446, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 487, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":445
+    /* "cycurl/_curl.pyx":486
  *         with nogil:
  *             new_handle = curl.curl_easy_duphandle(self._curl)
  *         if new_handle == NULL:             # <<<<<<<<<<<<<<
@@ -29488,35 +29559,35 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
  */
   }
 
-  /* "cycurl/_curl.pyx":447
+  /* "cycurl/_curl.pyx":488
  *         if new_handle == NULL:
  *             raise MemoryError
  *         c = Curl(self._cacert, self._debug, PyCapsule_New(<void*>new_handle, NULL, NULL))             # <<<<<<<<<<<<<<
  *         return c
  * 
  */
-  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_v_self->_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 447, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_v_self->_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 488, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyCapsule_New(((void *)__pyx_v_new_handle), NULL, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 447, __pyx_L1_error)
+  __pyx_t_3 = PyCapsule_New(((void *)__pyx_v_new_handle), NULL, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 488, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 447, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 488, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_v_self->_cacert);
   __Pyx_GIVEREF(__pyx_v_self->_cacert);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_self->_cacert)) __PYX_ERR(0, 447, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_self->_cacert)) __PYX_ERR(0, 488, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2)) __PYX_ERR(0, 447, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2)) __PYX_ERR(0, 488, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3)) __PYX_ERR(0, 447, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3)) __PYX_ERR(0, 488, __pyx_L1_error);
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 447, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 488, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_c = ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "cycurl/_curl.pyx":448
+  /* "cycurl/_curl.pyx":489
  *             raise MemoryError
  *         c = Curl(self._cacert, self._debug, PyCapsule_New(<void*>new_handle, NULL, NULL))
  *         return c             # <<<<<<<<<<<<<<
@@ -29528,12 +29599,12 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
   __pyx_r = __pyx_v_c;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":439
+  /* "cycurl/_curl.pyx":479
  *             self._resolve = NULL
  * 
  *     cpdef inline Curl duphandle(self):             # <<<<<<<<<<<<<<
- *         """This is not a full copy of entire curl object in python. For example, headers
- *         handle is not copied, you have to set them again."""
+ *         """Wrapper for ``curl_easy_duphandle``.
+ *         This is not a full copy of entire curl object in python. For example, headers
  */
 
   /* function exit code */
@@ -29558,7 +29629,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_28duphandle, "Curl.duphandle(self) -> Curl\nThis is not a full copy of entire curl object in python. For example, headers\n        handle is not copied, you have to set them again.");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_28duphandle, "Curl.duphandle(self) -> Curl\nWrapper for ``curl_easy_duphandle``.\n        This is not a full copy of entire curl object in python. For example, headers\n        handle is not copied, you have to set them again.");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_29duphandle = {"duphandle", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_29duphandle, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_28duphandle};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_29duphandle(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -29601,7 +29672,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_28duphandle(struct __pyx_obj_6cyc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("duphandle", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_6cycurl_5_curl_4Curl_duphandle(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 439, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_6cycurl_5_curl_4Curl_duphandle(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -29618,11 +29689,11 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_28duphandle(struct __pyx_obj_6cyc
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":450
+/* "cycurl/_curl.pyx":491
  *         return c
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
- *         """Reset all curl options, wrapper for curl_easy_reset."""
+ *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False
  */
 
@@ -29634,7 +29705,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_30reset, "Curl.reset(self)\nReset all curl options, wrapper for curl_easy_reset.");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_30reset, "Curl.reset(self)\nReset all curl options, wrapper for ``curl_easy_reset``.");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_31reset = {"reset", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_31reset, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_30reset};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_31reset(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -29677,17 +29748,17 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 1);
 
-  /* "cycurl/_curl.pyx":452
+  /* "cycurl/_curl.pyx":493
  *     def reset(self):
- *         """Reset all curl options, wrapper for curl_easy_reset."""
+ *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False             # <<<<<<<<<<<<<<
  *         if self._curl:
  *             with nogil:
  */
   __pyx_v_self->_is_cert_set = 0;
 
-  /* "cycurl/_curl.pyx":453
- *         """Reset all curl options, wrapper for curl_easy_reset."""
+  /* "cycurl/_curl.pyx":494
+ *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False
  *         if self._curl:             # <<<<<<<<<<<<<<
  *             with nogil:
@@ -29696,7 +29767,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
   __pyx_t_1 = (__pyx_v_self->_curl != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":454
+    /* "cycurl/_curl.pyx":495
  *         self._is_cert_set = False
  *         if self._curl:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -29712,7 +29783,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
         #endif
         /*try:*/ {
 
-          /* "cycurl/_curl.pyx":455
+          /* "cycurl/_curl.pyx":496
  *         if self._curl:
  *             with nogil:
  *                 curl.curl_easy_reset(self._curl)             # <<<<<<<<<<<<<<
@@ -29722,7 +29793,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
           curl_easy_reset(__pyx_v_self->_curl);
         }
 
-        /* "cycurl/_curl.pyx":454
+        /* "cycurl/_curl.pyx":495
  *         self._is_cert_set = False
  *         if self._curl:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -29741,17 +29812,17 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
         }
     }
 
-    /* "cycurl/_curl.pyx":456
+    /* "cycurl/_curl.pyx":497
  *             with nogil:
  *                 curl.curl_easy_reset(self._curl)
  *             self._set_error_buffer()             # <<<<<<<<<<<<<<
  *         if self._resolve != NULL:
  *             curl.curl_slist_free_all(self._resolve)
  */
-    __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 456, __pyx_L1_error)
+    __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 497, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":453
- *         """Reset all curl options, wrapper for curl_easy_reset."""
+    /* "cycurl/_curl.pyx":494
+ *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False
  *         if self._curl:             # <<<<<<<<<<<<<<
  *             with nogil:
@@ -29759,7 +29830,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
  */
   }
 
-  /* "cycurl/_curl.pyx":457
+  /* "cycurl/_curl.pyx":498
  *                 curl.curl_easy_reset(self._curl)
  *             self._set_error_buffer()
  *         if self._resolve != NULL:             # <<<<<<<<<<<<<<
@@ -29769,7 +29840,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
   __pyx_t_1 = (__pyx_v_self->_resolve != NULL);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":458
+    /* "cycurl/_curl.pyx":499
  *             self._set_error_buffer()
  *         if self._resolve != NULL:
  *             curl.curl_slist_free_all(self._resolve)             # <<<<<<<<<<<<<<
@@ -29778,7 +29849,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
  */
     curl_slist_free_all(__pyx_v_self->_resolve);
 
-    /* "cycurl/_curl.pyx":459
+    /* "cycurl/_curl.pyx":500
  *         if self._resolve != NULL:
  *             curl.curl_slist_free_all(self._resolve)
  *             self._resolve = NULL             # <<<<<<<<<<<<<<
@@ -29787,7 +29858,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
  */
     __pyx_v_self->_resolve = NULL;
 
-    /* "cycurl/_curl.pyx":457
+    /* "cycurl/_curl.pyx":498
  *                 curl.curl_easy_reset(self._curl)
  *             self._set_error_buffer()
  *         if self._resolve != NULL:             # <<<<<<<<<<<<<<
@@ -29796,11 +29867,11 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
  */
   }
 
-  /* "cycurl/_curl.pyx":450
+  /* "cycurl/_curl.pyx":491
  *         return c
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
- *         """Reset all curl options, wrapper for curl_easy_reset."""
+ *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False
  */
 
@@ -29816,11 +29887,11 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30reset(struct __pyx_obj_6cycurl_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":461
+/* "cycurl/_curl.pyx":502
  *             self._resolve = NULL
  * 
  *     def parse_cookie_headers(self, list headers) -> SimpleCookie:             # <<<<<<<<<<<<<<
- *         """Extract cookies.SimpleCookie from header lines.
+ *         """Extract ``cookies.SimpleCookie`` from header lines.
  * 
  */
 
@@ -29832,7 +29903,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_32parse_cookie_headers, "Curl.parse_cookie_headers(self, list headers) -> SimpleCookie\nExtract cookies.SimpleCookie from header lines.\n\n        Parameters:\n            headers: list of headers in bytes.\n\n        Returns:\n            A parsed cookies.SimpleCookie instance.\n        ");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_32parse_cookie_headers, "Curl.parse_cookie_headers(self, list headers) -> SimpleCookie\nExtract ``cookies.SimpleCookie`` from header lines.\n\n        Parameters:\n            headers: list of headers in bytes.\n\n        Returns:\n            A parsed cookies.SimpleCookie instance.\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_33parse_cookie_headers = {"parse_cookie_headers", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_33parse_cookie_headers, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_32parse_cookie_headers};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_33parse_cookie_headers(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -29878,12 +29949,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 461, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 502, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "parse_cookie_headers") < 0)) __PYX_ERR(0, 461, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "parse_cookie_headers") < 0)) __PYX_ERR(0, 502, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -29894,7 +29965,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("parse_cookie_headers", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 461, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("parse_cookie_headers", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 502, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -29908,7 +29979,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_headers), (&PyList_Type), 1, "headers", 1))) __PYX_ERR(0, 461, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_headers), (&PyList_Type), 1, "headers", 1))) __PYX_ERR(0, 502, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_self), __pyx_v_headers);
 
   /* function exit code */
@@ -29945,14 +30016,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("parse_cookie_headers", 1);
 
-  /* "cycurl/_curl.pyx":470
+  /* "cycurl/_curl.pyx":511
  *             A parsed cookies.SimpleCookie instance.
  *         """
  *         cookie = SimpleCookie()             # <<<<<<<<<<<<<<
  *         for header in headers:
  *             if header.lower().startswith(b"set-cookie: "):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_SimpleCookie); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 470, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_SimpleCookie); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 511, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -29972,14 +30043,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
     PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 470, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 511, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_v_cookie = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":471
+  /* "cycurl/_curl.pyx":512
  *         """
  *         cookie = SimpleCookie()
  *         for header in headers:             # <<<<<<<<<<<<<<
@@ -29988,7 +30059,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
  */
   if (unlikely(__pyx_v_headers == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 471, __pyx_L1_error)
+    __PYX_ERR(0, 512, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_headers; __Pyx_INCREF(__pyx_t_1);
   __pyx_t_5 = 0;
@@ -29996,27 +30067,27 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
     {
       Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
       #if !CYTHON_ASSUME_SAFE_MACROS
-      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 471, __pyx_L1_error)
+      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 512, __pyx_L1_error)
       #endif
       if (__pyx_t_5 >= __pyx_temp) break;
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 471, __pyx_L1_error)
+    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 512, __pyx_L1_error)
     #else
-    __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 471, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 512, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_header, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":472
+    /* "cycurl/_curl.pyx":513
  *         cookie = SimpleCookie()
  *         for header in headers:
  *             if header.lower().startswith(b"set-cookie: "):             # <<<<<<<<<<<<<<
  *                 cookie.load(header[12:].decode())  # len("set-cookie: ") == 12
  *         return cookie
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_header, __pyx_n_s_lower); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 472, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_header, __pyx_n_s_lower); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 513, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_7 = NULL;
     __pyx_t_4 = 0;
@@ -30036,11 +30107,11 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
       PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 472, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 513, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_startswith); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 472, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_startswith); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 513, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -30061,26 +30132,26 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
       PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_kp_b_set_cookie};
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 472, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 513, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 472, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 513, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_8) {
 
-      /* "cycurl/_curl.pyx":473
+      /* "cycurl/_curl.pyx":514
  *         for header in headers:
  *             if header.lower().startswith(b"set-cookie: "):
  *                 cookie.load(header[12:].decode())  # len("set-cookie: ") == 12             # <<<<<<<<<<<<<<
  *         return cookie
  * 
  */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cookie, __pyx_n_s_load); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 473, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cookie, __pyx_n_s_load); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 514, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = __Pyx_PyObject_GetSlice(__pyx_v_header, 12, 0, NULL, NULL, &__pyx_slice__14, 1, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 473, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetSlice(__pyx_v_header, 12, 0, NULL, NULL, &__pyx_slice__14, 1, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 514, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_decode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 473, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_decode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 514, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_7 = NULL;
@@ -30101,7 +30172,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
         PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
         __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 473, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 514, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
@@ -30124,13 +30195,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
         __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 473, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 514, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "cycurl/_curl.pyx":472
+      /* "cycurl/_curl.pyx":513
  *         cookie = SimpleCookie()
  *         for header in headers:
  *             if header.lower().startswith(b"set-cookie: "):             # <<<<<<<<<<<<<<
@@ -30139,7 +30210,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
  */
     }
 
-    /* "cycurl/_curl.pyx":471
+    /* "cycurl/_curl.pyx":512
  *         """
  *         cookie = SimpleCookie()
  *         for header in headers:             # <<<<<<<<<<<<<<
@@ -30149,7 +30220,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":474
+  /* "cycurl/_curl.pyx":515
  *             if header.lower().startswith(b"set-cookie: "):
  *                 cookie.load(header[12:].decode())  # len("set-cookie: ") == 12
  *         return cookie             # <<<<<<<<<<<<<<
@@ -30161,11 +30232,11 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
   __pyx_r = __pyx_v_cookie;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":461
+  /* "cycurl/_curl.pyx":502
  *             self._resolve = NULL
  * 
  *     def parse_cookie_headers(self, list headers) -> SimpleCookie:             # <<<<<<<<<<<<<<
- *         """Extract cookies.SimpleCookie from header lines.
+ *         """Extract ``cookies.SimpleCookie`` from header lines.
  * 
  */
 
@@ -30187,12 +30258,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32parse_cookie_headers(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":476
+/* "cycurl/_curl.pyx":517
  *         return cookie
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def get_reason_phrase(bytes status_line) -> bytes:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+ *         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
  */
 
 /* Python wrapper */
@@ -30203,7 +30274,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_34get_reason_phrase, "Curl.get_reason_phrase(bytes status_line) -> bytes\nExtract reason phrase, like `OK`, `Not Found` from response status line.");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_34get_reason_phrase, "Curl.get_reason_phrase(bytes status_line) -> bytes\nExtract reason phrase, like ``OK``, ``Not Found`` from response status line.");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_35get_reason_phrase = {"get_reason_phrase", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_35get_reason_phrase, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_34get_reason_phrase};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_35get_reason_phrase(CYTHON_UNUSED PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -30249,12 +30320,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 476, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 517, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_reason_phrase") < 0)) __PYX_ERR(0, 476, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_reason_phrase") < 0)) __PYX_ERR(0, 517, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -30265,7 +30336,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_reason_phrase", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 476, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_reason_phrase", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 517, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -30279,7 +30350,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 1, "status_line", 1))) __PYX_ERR(0, 477, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 1, "status_line", 1))) __PYX_ERR(0, 518, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_34get_reason_phrase(__pyx_v_status_line);
 
   /* function exit code */
@@ -30312,16 +30383,16 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_34get_reason_phrase(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_reason_phrase", 1);
 
-  /* "cycurl/_curl.pyx":479
+  /* "cycurl/_curl.pyx":520
  *     def get_reason_phrase(bytes status_line) -> bytes:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+ *         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
  *         m = re.match(rb"HTTP/\d\.\d [0-9]{3} (.*)", status_line)             # <<<<<<<<<<<<<<
  *         return m.group(1) if m else b""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_re); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 479, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_re); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 520, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_match); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 479, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_match); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 520, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -30342,24 +30413,24 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_34get_reason_phrase(PyObject *__p
     PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_kp_b_HTTP_d_d_0_9_3, __pyx_v_status_line};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 479, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 520, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __pyx_v_m = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":480
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+  /* "cycurl/_curl.pyx":521
+ *         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
  *         m = re.match(rb"HTTP/\d\.\d [0-9]{3} (.*)", status_line)
  *         return m.group(1) if m else b""             # <<<<<<<<<<<<<<
  * 
  *     @staticmethod
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_m); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 480, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_m); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 521, __pyx_L1_error)
   if (__pyx_t_5) {
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 480, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 521, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_6 = NULL;
     __pyx_t_4 = 0;
@@ -30379,27 +30450,27 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_34get_reason_phrase(PyObject *__p
       PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_int_1};
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 480, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
-    if (!(likely(PyBytes_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_3))) __PYX_ERR(0, 480, __pyx_L1_error)
+    if (!(likely(PyBytes_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_3))) __PYX_ERR(0, 521, __pyx_L1_error)
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
   } else {
-    __Pyx_INCREF(__pyx_kp_b__12);
-    __pyx_t_1 = __pyx_kp_b__12;
+    __Pyx_INCREF(__pyx_kp_b__10);
+    __pyx_t_1 = __pyx_kp_b__10;
   }
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":476
+  /* "cycurl/_curl.pyx":517
  *         return cookie
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def get_reason_phrase(bytes status_line) -> bytes:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+ *         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
  */
 
   /* function exit code */
@@ -30417,12 +30488,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_34get_reason_phrase(PyObject *__p
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":482
+/* "cycurl/_curl.pyx":523
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def parse_status_line(status_line: bytes) -> tuple:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+ *         """Parse status line.
  */
 
 /* Python wrapper */
@@ -30433,7 +30504,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_36parse_status_line, "Curl.parse_status_line(bytes status_line: bytes) -> tuple\nExtract reason phrase, like `OK`, `Not Found` from response status line.");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_36parse_status_line, "Curl.parse_status_line(bytes status_line: bytes) -> tuple\nParse status line.\n        Returns:\n            http_version, status_code, and reason phrase\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_37parse_status_line = {"parse_status_line", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_37parse_status_line, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_36parse_status_line};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_37parse_status_line(CYTHON_UNUSED PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -30479,12 +30550,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 482, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 523, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "parse_status_line") < 0)) __PYX_ERR(0, 482, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "parse_status_line") < 0)) __PYX_ERR(0, 523, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -30495,7 +30566,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("parse_status_line", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 482, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("parse_status_line", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 523, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -30509,7 +30580,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 0, "status_line", 1))) __PYX_ERR(0, 483, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 0, "status_line", 1))) __PYX_ERR(0, 524, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(__pyx_v_status_line);
 
   /* function exit code */
@@ -30545,16 +30616,16 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("parse_status_line", 1);
 
-  /* "cycurl/_curl.pyx":485
- *     def parse_status_line(status_line: bytes) -> tuple:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+  /* "cycurl/_curl.pyx":529
+ *             http_version, status_code, and reason phrase
+ *         """
  *         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)             # <<<<<<<<<<<<<<
  *         if not m:
  *             return CurlHttpVersion.V1_0, 0, b""
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_re); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 485, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_re); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 529, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_match); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 485, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_match); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 529, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -30575,25 +30646,25 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_kp_b_HTTP_d_d_0_9_3_2, __pyx_v_status_line};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 485, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 529, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __pyx_v_m = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":486
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+  /* "cycurl/_curl.pyx":530
+ *         """
  *         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
  *         if not m:             # <<<<<<<<<<<<<<
  *             return CurlHttpVersion.V1_0, 0, b""
  *         if m.group(1) == "2.0":
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_m); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 486, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_m); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 530, __pyx_L1_error)
   __pyx_t_6 = (!__pyx_t_5);
   if (__pyx_t_6) {
 
-    /* "cycurl/_curl.pyx":487
+    /* "cycurl/_curl.pyx":531
  *         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
  *         if not m:
  *             return CurlHttpVersion.V1_0, 0, b""             # <<<<<<<<<<<<<<
@@ -30601,28 +30672,28 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
  *             http_version = CurlHttpVersion.V2_0
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 487, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_V1_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 487, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_V1_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 531, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 487, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_GIVEREF(__pyx_t_3);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3)) __PYX_ERR(0, 487, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3)) __PYX_ERR(0, 531, __pyx_L1_error);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_0)) __PYX_ERR(0, 487, __pyx_L1_error);
-    __Pyx_INCREF(__pyx_kp_b__12);
-    __Pyx_GIVEREF(__pyx_kp_b__12);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_b__12)) __PYX_ERR(0, 487, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_0)) __PYX_ERR(0, 531, __pyx_L1_error);
+    __Pyx_INCREF(__pyx_kp_b__10);
+    __Pyx_GIVEREF(__pyx_kp_b__10);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_b__10)) __PYX_ERR(0, 531, __pyx_L1_error);
     __pyx_t_3 = 0;
     __pyx_r = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":486
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+    /* "cycurl/_curl.pyx":530
+ *         """
  *         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
  *         if not m:             # <<<<<<<<<<<<<<
  *             return CurlHttpVersion.V1_0, 0, b""
@@ -30630,14 +30701,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
  */
   }
 
-  /* "cycurl/_curl.pyx":488
+  /* "cycurl/_curl.pyx":532
  *         if not m:
  *             return CurlHttpVersion.V1_0, 0, b""
  *         if m.group(1) == "2.0":             # <<<<<<<<<<<<<<
  *             http_version = CurlHttpVersion.V2_0
  *         elif m.group(1) == "1.1":
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 488, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 532, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
@@ -30657,30 +30728,30 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_int_1};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 488, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 532, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_kp_u_2_0, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 488, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_kp_u_2_0, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 532, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "cycurl/_curl.pyx":489
+    /* "cycurl/_curl.pyx":533
  *             return CurlHttpVersion.V1_0, 0, b""
  *         if m.group(1) == "2.0":
  *             http_version = CurlHttpVersion.V2_0             # <<<<<<<<<<<<<<
  *         elif m.group(1) == "1.1":
  *             http_version = CurlHttpVersion.V1_1
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 489, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 533, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_V2_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 489, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_V2_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 533, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_http_version = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":488
+    /* "cycurl/_curl.pyx":532
  *         if not m:
  *             return CurlHttpVersion.V1_0, 0, b""
  *         if m.group(1) == "2.0":             # <<<<<<<<<<<<<<
@@ -30690,14 +30761,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":490
+  /* "cycurl/_curl.pyx":534
  *         if m.group(1) == "2.0":
  *             http_version = CurlHttpVersion.V2_0
  *         elif m.group(1) == "1.1":             # <<<<<<<<<<<<<<
  *             http_version = CurlHttpVersion.V1_1
  *         elif m.group(1) == "1.0":
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 490, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 534, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
@@ -30717,30 +30788,30 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_int_1};
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 490, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 534, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_3, __pyx_kp_u_1_1, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 490, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_3, __pyx_kp_u_1_1, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 534, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_6) {
 
-    /* "cycurl/_curl.pyx":491
+    /* "cycurl/_curl.pyx":535
  *             http_version = CurlHttpVersion.V2_0
  *         elif m.group(1) == "1.1":
  *             http_version = CurlHttpVersion.V1_1             # <<<<<<<<<<<<<<
  *         elif m.group(1) == "1.0":
  *             http_version = CurlHttpVersion.V1_0
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 491, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 535, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_V1_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 491, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_V1_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 535, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_http_version = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":490
+    /* "cycurl/_curl.pyx":534
  *         if m.group(1) == "2.0":
  *             http_version = CurlHttpVersion.V2_0
  *         elif m.group(1) == "1.1":             # <<<<<<<<<<<<<<
@@ -30750,14 +30821,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":492
+  /* "cycurl/_curl.pyx":536
  *         elif m.group(1) == "1.1":
  *             http_version = CurlHttpVersion.V1_1
  *         elif m.group(1) == "1.0":             # <<<<<<<<<<<<<<
  *             http_version = CurlHttpVersion.V1_0
  *         else:
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 492, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 536, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
@@ -30777,30 +30848,30 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_int_1};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 492, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 536, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_kp_u_1_0, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 492, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_kp_u_1_0, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 536, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "cycurl/_curl.pyx":493
+    /* "cycurl/_curl.pyx":537
  *             http_version = CurlHttpVersion.V1_1
  *         elif m.group(1) == "1.0":
  *             http_version = CurlHttpVersion.V1_0             # <<<<<<<<<<<<<<
  *         else:
  *             http_version = CurlHttpVersion.NONE
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 493, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_V1_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 493, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_V1_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_http_version = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":492
+    /* "cycurl/_curl.pyx":536
  *         elif m.group(1) == "1.1":
  *             http_version = CurlHttpVersion.V1_1
  *         elif m.group(1) == "1.0":             # <<<<<<<<<<<<<<
@@ -30810,7 +30881,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":495
+  /* "cycurl/_curl.pyx":539
  *             http_version = CurlHttpVersion.V1_0
  *         else:
  *             http_version = CurlHttpVersion.NONE             # <<<<<<<<<<<<<<
@@ -30818,9 +30889,9 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
  *         reason = m.group(3)
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 495, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CurlHttpVersion); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 539, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_NONE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 495, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_NONE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 539, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_http_version = __pyx_t_1;
@@ -30828,14 +30899,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
   }
   __pyx_L4:;
 
-  /* "cycurl/_curl.pyx":496
+  /* "cycurl/_curl.pyx":540
  *         else:
  *             http_version = CurlHttpVersion.NONE
  *         status_code = int(m.group(2))             # <<<<<<<<<<<<<<
  *         reason = m.group(3)
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 496, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 540, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
@@ -30855,24 +30926,24 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_int_2};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 496, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 540, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_3 = __Pyx_PyNumber_Int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 496, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyNumber_Int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 540, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_status_code = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "cycurl/_curl.pyx":497
+  /* "cycurl/_curl.pyx":541
  *             http_version = CurlHttpVersion.NONE
  *         status_code = int(m.group(2))
  *         reason = m.group(3)             # <<<<<<<<<<<<<<
  * 
  *         return http_version, status_code, reason
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 497, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_group); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 541, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
@@ -30892,14 +30963,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_int_3};
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 497, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 541, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_v_reason = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "cycurl/_curl.pyx":499
+  /* "cycurl/_curl.pyx":543
  *         reason = m.group(3)
  * 
  *         return http_version, status_code, reason             # <<<<<<<<<<<<<<
@@ -30907,27 +30978,27 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
  * ### The asyncio ###
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 499, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 543, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_http_version);
   __Pyx_GIVEREF(__pyx_v_http_version);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_http_version)) __PYX_ERR(0, 499, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_http_version)) __PYX_ERR(0, 543, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_status_code);
   __Pyx_GIVEREF(__pyx_v_status_code);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_status_code)) __PYX_ERR(0, 499, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_status_code)) __PYX_ERR(0, 543, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_reason);
   __Pyx_GIVEREF(__pyx_v_reason);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_reason)) __PYX_ERR(0, 499, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_reason)) __PYX_ERR(0, 543, __pyx_L1_error);
   __pyx_r = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":482
+  /* "cycurl/_curl.pyx":523
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def parse_status_line(status_line: bytes) -> tuple:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+ *         """Parse status line.
  */
 
   /* function exit code */
@@ -31906,7 +31977,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
 /* "cycurl/_asyncio_selector.pxi":88
  *         self._thread_manager_handle = self._thread_manager()
@@ -31952,7 +32023,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_14SelectorThread_8__init___thread_manag
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_outer_scope);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_outer_scope);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator2, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_thread_manager_anext, __pyx_n_s_SelectorThread___init___locals_t, __pyx_n_s_cycurl__curl); if (unlikely(!gen)) __PYX_ERR(2, 88, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator3, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_thread_manager_anext, __pyx_n_s_SelectorThread___init___locals_t, __pyx_n_s_cycurl__curl); if (unlikely(!gen)) __PYX_ERR(2, 88, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -31968,7 +32039,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_14SelectorThread_8__init___thread_manag
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
   struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext *__pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
@@ -32176,7 +32247,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self) {
 
 static PyObject *__pyx_pf_6cycurl_5_curl_14SelectorThread___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_real_loop) {
   struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct____init__ *__pyx_cur_scope;
-  PyObject *__pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator2 = 0;
+  PyObject *__pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator3 = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -32650,7 +32721,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_14SelectorThread___init__(CYTHON_UNUSED
   __Pyx_AddTraceback("cycurl._curl.SelectorThread.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator2);
+  __Pyx_XDECREF(__pyx_gb_6cycurl_5_curl_14SelectorThread_8__init___2generator3);
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -39032,7 +39103,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_12remove_w
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":514
+/* "cycurl/_curl.pyx":558
  *     """
  * 
  *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -39094,12 +39165,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 514, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "_get_selector") < 0)) __PYX_ERR(0, 514, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "_get_selector") < 0)) __PYX_ERR(0, 558, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -39110,7 +39181,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 514, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 558, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -39137,7 +39208,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":536
+/* "cycurl/_curl.pyx":580
  *         loop_close = asyncio_loop.close
  * 
  *         def _close_selector_and_loop():             # <<<<<<<<<<<<<<
@@ -39177,30 +39248,30 @@ static PyObject *__pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loo
   __pyx_outer_scope = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "cycurl/_curl.pyx":539
+  /* "cycurl/_curl.pyx":583
  *             # restore original before calling selector.close,
  *             # which in turn calls eventloop.close!
  *             asyncio_loop.close = loop_close             # <<<<<<<<<<<<<<
  *             _selectors.pop(asyncio_loop, None)
  *             selector_loop.close()
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_loop_close)) { __Pyx_RaiseClosureNameError("loop_close"); __PYX_ERR(0, 539, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_asyncio_loop)) { __Pyx_RaiseClosureNameError("asyncio_loop"); __PYX_ERR(0, 539, __pyx_L1_error) }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_n_s_close, __pyx_cur_scope->__pyx_v_loop_close) < 0) __PYX_ERR(0, 539, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_loop_close)) { __Pyx_RaiseClosureNameError("loop_close"); __PYX_ERR(0, 583, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_asyncio_loop)) { __Pyx_RaiseClosureNameError("asyncio_loop"); __PYX_ERR(0, 583, __pyx_L1_error) }
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_n_s_close, __pyx_cur_scope->__pyx_v_loop_close) < 0) __PYX_ERR(0, 583, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":540
+  /* "cycurl/_curl.pyx":584
  *             # which in turn calls eventloop.close!
  *             asyncio_loop.close = loop_close
  *             _selectors.pop(asyncio_loop, None)             # <<<<<<<<<<<<<<
  *             selector_loop.close()
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_selectors); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 540, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_selectors); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 584, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pop); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 540, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pop); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 584, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_v_asyncio_loop)) { __Pyx_RaiseClosureNameError("asyncio_loop"); __PYX_ERR(0, 540, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_asyncio_loop)) { __Pyx_RaiseClosureNameError("asyncio_loop"); __PYX_ERR(0, 584, __pyx_L1_error) }
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
   #if CYTHON_UNPACK_METHODS
@@ -39219,21 +39290,21 @@ static PyObject *__pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loo
     PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_asyncio_loop, Py_None};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 540, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 584, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":541
+  /* "cycurl/_curl.pyx":585
  *             asyncio_loop.close = loop_close
  *             _selectors.pop(asyncio_loop, None)
  *             selector_loop.close()             # <<<<<<<<<<<<<<
  * 
  *         asyncio_loop.close = _close_selector_and_loop  # type: ignore # mypy bug - assign a function to method
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_selector_loop)) { __Pyx_RaiseClosureNameError("selector_loop"); __PYX_ERR(0, 541, __pyx_L1_error) }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_selector_loop, __pyx_n_s_close); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 541, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_selector_loop)) { __Pyx_RaiseClosureNameError("selector_loop"); __PYX_ERR(0, 585, __pyx_L1_error) }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_selector_loop, __pyx_n_s_close); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 585, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
@@ -39253,13 +39324,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loo
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 541, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 585, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":536
+  /* "cycurl/_curl.pyx":580
  *         loop_close = asyncio_loop.close
  * 
  *         def _close_selector_and_loop():             # <<<<<<<<<<<<<<
@@ -39282,7 +39353,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loo
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":514
+/* "cycurl/_curl.pyx":558
  *     """
  * 
  *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -39310,7 +39381,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 514, __pyx_L1_error)
+    __PYX_ERR(0, 558, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -39318,20 +39389,20 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_asyncio_loop);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_asyncio_loop);
 
-  /* "cycurl/_curl.pyx":523
+  /* "cycurl/_curl.pyx":567
  *         """
  * 
  *         if asyncio_loop in _selectors:             # <<<<<<<<<<<<<<
  *             return _selectors[asyncio_loop]
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 567, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_t_1, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 523, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_t_1, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 567, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":524
+    /* "cycurl/_curl.pyx":568
  * 
  *         if asyncio_loop in _selectors:
  *             return _selectors[asyncio_loop]             # <<<<<<<<<<<<<<
@@ -39339,16 +39410,16 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
  *         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 524, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 568, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_cur_scope->__pyx_v_asyncio_loop); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 524, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_cur_scope->__pyx_v_asyncio_loop); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 568, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":523
+    /* "cycurl/_curl.pyx":567
  *         """
  * 
  *         if asyncio_loop in _selectors:             # <<<<<<<<<<<<<<
@@ -39357,7 +39428,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
  */
   }
 
-  /* "cycurl/_curl.pyx":526
+  /* "cycurl/_curl.pyx":570
  *             return _selectors[asyncio_loop]
  * 
  *         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):             # <<<<<<<<<<<<<<
@@ -39366,18 +39437,18 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
  */
   __pyx_t_3 = __pyx_cur_scope->__pyx_v_asyncio_loop;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 526, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 570, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_GetAttr3(__pyx_t_1, __pyx_n_u_ProactorEventLoop, ((PyObject *)Py_TYPE(Py_None))); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 526, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetAttr3(__pyx_t_1, __pyx_n_u_ProactorEventLoop, ((PyObject *)Py_TYPE(Py_None))); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 570, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_4); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 526, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_4); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 570, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = (!__pyx_t_2);
   if (__pyx_t_5) {
 
-    /* "cycurl/_curl.pyx":527
+    /* "cycurl/_curl.pyx":571
  * 
  *         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
  *             return asyncio_loop             # <<<<<<<<<<<<<<
@@ -39389,7 +39460,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
     __pyx_r = __pyx_cur_scope->__pyx_v_asyncio_loop;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":526
+    /* "cycurl/_curl.pyx":570
  *             return _selectors[asyncio_loop]
  * 
  *         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):             # <<<<<<<<<<<<<<
@@ -39398,19 +39469,19 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
  */
   }
 
-  /* "cycurl/_curl.pyx":529
+  /* "cycurl/_curl.pyx":573
  *             return asyncio_loop
  * 
  *         warnings.warn(PROACTOR_WARNING, RuntimeWarning)             # <<<<<<<<<<<<<<
  * 
  *         selector_loop = _selectors[asyncio_loop] = AddThreadSelectorEventLoop(asyncio_loop)  # type: ignore
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_warnings); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 529, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_warnings); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 573, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 529, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 573, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PROACTOR_WARNING); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 529, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PROACTOR_WARNING); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 573, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -39431,20 +39502,20 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_7, 2+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 529, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 573, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":531
+  /* "cycurl/_curl.pyx":575
  *         warnings.warn(PROACTOR_WARNING, RuntimeWarning)
  * 
  *         selector_loop = _selectors[asyncio_loop] = AddThreadSelectorEventLoop(asyncio_loop)  # type: ignore             # <<<<<<<<<<<<<<
  * 
  *         # patch loop.close to also close the selector thread
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_AddThreadSelectorEventLoop); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_AddThreadSelectorEventLoop); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 575, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
   __pyx_t_7 = 0;
@@ -39464,54 +39535,54 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
     PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_cur_scope->__pyx_v_asyncio_loop};
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 531, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 575, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_INCREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_4);
   __pyx_cur_scope->__pyx_v_selector_loop = __pyx_t_4;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 575, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely((PyObject_SetItem(__pyx_t_1, __pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_t_4) < 0))) __PYX_ERR(0, 531, __pyx_L1_error)
+  if (unlikely((PyObject_SetItem(__pyx_t_1, __pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_t_4) < 0))) __PYX_ERR(0, 575, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":534
+  /* "cycurl/_curl.pyx":578
  * 
  *         # patch loop.close to also close the selector thread
  *         loop_close = asyncio_loop.close             # <<<<<<<<<<<<<<
  * 
  *         def _close_selector_and_loop():
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_n_s_close); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 534, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_n_s_close); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 578, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_4);
   __pyx_cur_scope->__pyx_v_loop_close = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":536
+  /* "cycurl/_curl.pyx":580
  *         loop_close = asyncio_loop.close
  * 
  *         def _close_selector_and_loop():             # <<<<<<<<<<<<<<
  *             # restore original before calling selector.close,
  *             # which in turn calls eventloop.close!
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_13_get_selector_1_close_selector_and_loop, 0, __pyx_n_s_get_selector_locals__close_sele, ((PyObject*)__pyx_cur_scope), __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 536, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_13_get_selector_1_close_selector_and_loop, 0, __pyx_n_s_get_selector_locals__close_sele, ((PyObject*)__pyx_cur_scope), __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 580, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_v__close_selector_and_loop = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":543
+  /* "cycurl/_curl.pyx":587
  *             selector_loop.close()
  * 
  *         asyncio_loop.close = _close_selector_and_loop  # type: ignore # mypy bug - assign a function to method             # <<<<<<<<<<<<<<
  *         return selector_loop
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_n_s_close, __pyx_v__close_selector_and_loop) < 0) __PYX_ERR(0, 543, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_n_s_close, __pyx_v__close_selector_and_loop) < 0) __PYX_ERR(0, 587, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":544
+  /* "cycurl/_curl.pyx":588
  * 
  *         asyncio_loop.close = _close_selector_and_loop  # type: ignore # mypy bug - assign a function to method
  *         return selector_loop             # <<<<<<<<<<<<<<
@@ -39523,7 +39594,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
   __pyx_r = __pyx_cur_scope->__pyx_v_selector_loop;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":514
+  /* "cycurl/_curl.pyx":558
  *     """
  * 
  *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -39547,7 +39618,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_2_get_selector(CYTHON_UNUSED PyObject *
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":547
+/* "cycurl/_curl.pyx":591
  * 
  * else:
  *     def _get_selector(loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -39609,12 +39680,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 547, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 591, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "_get_selector") < 0)) __PYX_ERR(0, 547, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "_get_selector") < 0)) __PYX_ERR(0, 591, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -39625,7 +39696,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 547, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 591, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -39657,7 +39728,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_get_selector", 1);
 
-  /* "cycurl/_curl.pyx":548
+  /* "cycurl/_curl.pyx":592
  * else:
  *     def _get_selector(loop) -> asyncio.AbstractEventLoop:
  *         return loop             # <<<<<<<<<<<<<<
@@ -39669,7 +39740,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *
   __pyx_r = __pyx_v_loop;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":547
+  /* "cycurl/_curl.pyx":591
  * 
  * else:
  *     def _get_selector(loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -39684,7 +39755,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":551
+/* "cycurl/_curl.pyx":595
  * 
  * 
  * cdef int timer_function(curl.CURLM *curlm, long timeout_ms, void *clientp) with gil:             # <<<<<<<<<<<<<<
@@ -39716,7 +39787,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   #endif
   __Pyx_RefNannySetupContext("timer_function", 0);
 
-  /* "cycurl/_curl.pyx":555
+  /* "cycurl/_curl.pyx":599
  *     see: https://curl.se/libcurl/c/CURLMOPT_TIMERFUNCTION.html
  *     """
  *     cdef AsyncCurl async_curl = <AsyncCurl><object>clientp             # <<<<<<<<<<<<<<
@@ -39728,7 +39799,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   __pyx_v_async_curl = ((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":558
+  /* "cycurl/_curl.pyx":602
  *     # print("time out in %sms" % timeout_ms)
  *     # A timeout_ms value of -1 means you should delete the timer.
  *     if timeout_ms == -1:             # <<<<<<<<<<<<<<
@@ -39738,7 +39809,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   __pyx_t_2 = (__pyx_v_timeout_ms == -1L);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":559
+    /* "cycurl/_curl.pyx":603
  *     # A timeout_ms value of -1 means you should delete the timer.
  *     if timeout_ms == -1:
  *         for timer in async_curl._timers:             # <<<<<<<<<<<<<<
@@ -39750,9 +39821,9 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
       __pyx_t_3 = 0;
       __pyx_t_4 = NULL;
     } else {
-      __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_async_curl->_timers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 559, __pyx_L1_error)
+      __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_async_curl->_timers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 603, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 559, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 603, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_4)) {
@@ -39760,28 +39831,28 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
             #if !CYTHON_ASSUME_SAFE_MACROS
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 603, __pyx_L1_error)
             #endif
             if (__pyx_t_3 >= __pyx_temp) break;
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_5 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_5); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+          __pyx_t_5 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_5); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 603, __pyx_L1_error)
           #else
-          __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 559, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 603, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           #endif
         } else {
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
             #if !CYTHON_ASSUME_SAFE_MACROS
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 603, __pyx_L1_error)
             #endif
             if (__pyx_t_3 >= __pyx_temp) break;
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_5); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+          __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_5); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 603, __pyx_L1_error)
           #else
-          __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 559, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 603, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           #endif
         }
@@ -39791,7 +39862,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 559, __pyx_L1_error)
+            else __PYX_ERR(0, 603, __pyx_L1_error)
           }
           break;
         }
@@ -39800,14 +39871,14 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
       __Pyx_XDECREF_SET(__pyx_v_timer, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "cycurl/_curl.pyx":560
+      /* "cycurl/_curl.pyx":604
  *     if timeout_ms == -1:
  *         for timer in async_curl._timers:
  *             timer.cancel()             # <<<<<<<<<<<<<<
  *         async_curl._timers = WeakSet()
  *     else:
  */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_timer, __pyx_n_s_cancel); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 560, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_timer, __pyx_n_s_cancel); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 604, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_7 = NULL;
       __pyx_t_8 = 0;
@@ -39827,13 +39898,13 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
         PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
         __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_8, 0+__pyx_t_8);
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 560, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 604, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "cycurl/_curl.pyx":559
+      /* "cycurl/_curl.pyx":603
  *     # A timeout_ms value of -1 means you should delete the timer.
  *     if timeout_ms == -1:
  *         for timer in async_curl._timers:             # <<<<<<<<<<<<<<
@@ -39843,14 +39914,14 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":561
+    /* "cycurl/_curl.pyx":605
  *         for timer in async_curl._timers:
  *             timer.cancel()
  *         async_curl._timers = WeakSet()             # <<<<<<<<<<<<<<
  *     else:
  *         timer = async_curl.loop.call_later(
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_WeakSet); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 561, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_WeakSet); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 605, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     __pyx_t_8 = 0;
@@ -39870,7 +39941,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
       PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_8, 0+__pyx_t_8);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 561, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 605, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
@@ -39880,7 +39951,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
     __pyx_v_async_curl->_timers = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":558
+    /* "cycurl/_curl.pyx":602
  *     # print("time out in %sms" % timeout_ms)
  *     # A timeout_ms value of -1 means you should delete the timer.
  *     if timeout_ms == -1:             # <<<<<<<<<<<<<<
@@ -39890,7 +39961,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":563
+  /* "cycurl/_curl.pyx":607
  *         async_curl._timers = WeakSet()
  *     else:
  *         timer = async_curl.loop.call_later(             # <<<<<<<<<<<<<<
@@ -39898,47 +39969,47 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
  *             async_curl.process_data,
  */
   /*else*/ {
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_async_curl->loop, __pyx_n_s_call_later); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 563, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_async_curl->loop, __pyx_n_s_call_later); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 607, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
 
-    /* "cycurl/_curl.pyx":564
+    /* "cycurl/_curl.pyx":608
  *     else:
  *         timer = async_curl.loop.call_later(
  *             timeout_ms / 1000,             # <<<<<<<<<<<<<<
  *             async_curl.process_data,
  *             curl.CURL_SOCKET_TIMEOUT,  # -1
  */
-    __pyx_t_6 = __Pyx_PyInt_From_long((__pyx_v_timeout_ms / 0x3E8)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 564, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_From_long((__pyx_v_timeout_ms / 0x3E8)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 608, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
 
-    /* "cycurl/_curl.pyx":565
+    /* "cycurl/_curl.pyx":609
  *         timer = async_curl.loop.call_later(
  *             timeout_ms / 1000,
  *             async_curl.process_data,             # <<<<<<<<<<<<<<
  *             curl.CURL_SOCKET_TIMEOUT,  # -1
  *             curl.CURL_POLL_NONE,  # 0
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_n_s_process_data); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 565, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_n_s_process_data); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 609, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
 
-    /* "cycurl/_curl.pyx":566
+    /* "cycurl/_curl.pyx":610
  *             timeout_ms / 1000,
  *             async_curl.process_data,
  *             curl.CURL_SOCKET_TIMEOUT,  # -1             # <<<<<<<<<<<<<<
  *             curl.CURL_POLL_NONE,  # 0
  *         )
  */
-    __pyx_t_9 = __Pyx_PyInt_From_int(CURL_SOCKET_TIMEOUT); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 566, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyInt_From_int(CURL_SOCKET_TIMEOUT); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 610, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
 
-    /* "cycurl/_curl.pyx":567
+    /* "cycurl/_curl.pyx":611
  *             async_curl.process_data,
  *             curl.CURL_SOCKET_TIMEOUT,  # -1
  *             curl.CURL_POLL_NONE,  # 0             # <<<<<<<<<<<<<<
  *         )
  *         async_curl._timers.add(timer)
  */
-    __pyx_t_10 = __Pyx_PyInt_From_int(CURL_POLL_NONE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 567, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyInt_From_int(CURL_POLL_NONE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 611, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_t_11 = NULL;
     __pyx_t_8 = 0;
@@ -39962,21 +40033,21 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 563, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 607, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
     __pyx_v_timer = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":569
+    /* "cycurl/_curl.pyx":613
  *             curl.CURL_POLL_NONE,  # 0
  *         )
  *         async_curl._timers.add(timer)             # <<<<<<<<<<<<<<
  *     return 0
  * 
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_async_curl->_timers, __pyx_n_s_add); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 569, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_async_curl->_timers, __pyx_n_s_add); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 613, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_10 = NULL;
     __pyx_t_8 = 0;
@@ -39996,7 +40067,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
       PyObject *__pyx_callargs[2] = {__pyx_t_10, __pyx_v_timer};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_8, 1+__pyx_t_8);
       __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 569, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
@@ -40004,7 +40075,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   }
   __pyx_L3:;
 
-  /* "cycurl/_curl.pyx":570
+  /* "cycurl/_curl.pyx":614
  *         )
  *         async_curl._timers.add(timer)
  *     return 0             # <<<<<<<<<<<<<<
@@ -40014,7 +40085,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":551
+  /* "cycurl/_curl.pyx":595
  * 
  * 
  * cdef int timer_function(curl.CURLM *curlm, long timeout_ms, void *clientp) with gil:             # <<<<<<<<<<<<<<
@@ -40043,7 +40114,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":572
+/* "cycurl/_curl.pyx":616
  *     return 0
  * 
  * cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, void *socketp) with gil:             # <<<<<<<<<<<<<<
@@ -40074,7 +40145,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   #endif
   __Pyx_RefNannySetupContext("socket_function", 0);
 
-  /* "cycurl/_curl.pyx":573
+  /* "cycurl/_curl.pyx":617
  * 
  * cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, void *socketp) with gil:
  *     cdef AsyncCurl async_curl = <AsyncCurl><object>clientp             # <<<<<<<<<<<<<<
@@ -40086,7 +40157,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_v_async_curl = ((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":574
+  /* "cycurl/_curl.pyx":618
  * cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, void *socketp) with gil:
  *     cdef AsyncCurl async_curl = <AsyncCurl><object>clientp
  *     cdef object loop = async_curl.loop             # <<<<<<<<<<<<<<
@@ -40098,33 +40169,33 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_v_loop = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":577
+  /* "cycurl/_curl.pyx":621
  * 
  *     # Always remove and re-add fd
  *     if sockfd in async_curl._sockfds:             # <<<<<<<<<<<<<<
  *         loop.remove_reader(sockfd)
  *         loop.remove_writer(sockfd)
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 577, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 621, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (unlikely(__pyx_v_async_curl->_sockfds == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 577, __pyx_L1_error)
+    __PYX_ERR(0, 621, __pyx_L1_error)
   }
-  __pyx_t_2 = (__Pyx_PySet_ContainsTF(__pyx_t_1, __pyx_v_async_curl->_sockfds, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 577, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySet_ContainsTF(__pyx_t_1, __pyx_v_async_curl->_sockfds, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 621, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":578
+    /* "cycurl/_curl.pyx":622
  *     # Always remove and re-add fd
  *     if sockfd in async_curl._sockfds:
  *         loop.remove_reader(sockfd)             # <<<<<<<<<<<<<<
  *         loop.remove_writer(sockfd)
  *     if what & curl.CURL_POLL_IN:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_loop, __pyx_n_s_remove_reader); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 578, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_loop, __pyx_n_s_remove_reader); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 622, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 578, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 622, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -40145,22 +40216,22 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 578, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 622, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":579
+    /* "cycurl/_curl.pyx":623
  *     if sockfd in async_curl._sockfds:
  *         loop.remove_reader(sockfd)
  *         loop.remove_writer(sockfd)             # <<<<<<<<<<<<<<
  *     if what & curl.CURL_POLL_IN:
  *         loop.add_reader(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_IN)
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_loop, __pyx_n_s_remove_writer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 579, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_loop, __pyx_n_s_remove_writer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 623, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 579, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 623, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -40181,13 +40252,13 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 579, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 623, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":577
+    /* "cycurl/_curl.pyx":621
  * 
  *     # Always remove and re-add fd
  *     if sockfd in async_curl._sockfds:             # <<<<<<<<<<<<<<
@@ -40196,7 +40267,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
  */
   }
 
-  /* "cycurl/_curl.pyx":580
+  /* "cycurl/_curl.pyx":624
  *         loop.remove_reader(sockfd)
  *         loop.remove_writer(sockfd)
  *     if what & curl.CURL_POLL_IN:             # <<<<<<<<<<<<<<
@@ -40206,22 +40277,22 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_t_2 = ((__pyx_v_what & CURL_POLL_IN) != 0);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":581
+    /* "cycurl/_curl.pyx":625
  *         loop.remove_writer(sockfd)
  *     if what & curl.CURL_POLL_IN:
  *         loop.add_reader(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_IN)             # <<<<<<<<<<<<<<
  *         async_curl._sockfds.add(sockfd)
  *     if what & curl.CURL_POLL_OUT:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_loop, __pyx_n_s_add_reader); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 581, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_loop, __pyx_n_s_add_reader); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 625, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 581, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 625, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_n_s_process_data); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 581, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_n_s_process_data); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 625, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 581, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 625, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyInt_From_int(CURL_CSELECT_IN); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 581, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(CURL_CSELECT_IN); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 625, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_9 = NULL;
     __pyx_t_6 = 0;
@@ -40245,13 +40316,13 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 581, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 625, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":582
+    /* "cycurl/_curl.pyx":626
  *     if what & curl.CURL_POLL_IN:
  *         loop.add_reader(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_IN)
  *         async_curl._sockfds.add(sockfd)             # <<<<<<<<<<<<<<
@@ -40260,14 +40331,14 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
  */
     if (unlikely(__pyx_v_async_curl->_sockfds == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-      __PYX_ERR(0, 582, __pyx_L1_error)
+      __PYX_ERR(0, 626, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 582, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 626, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_10 = PySet_Add(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 582, __pyx_L1_error)
+    __pyx_t_10 = PySet_Add(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 626, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":580
+    /* "cycurl/_curl.pyx":624
  *         loop.remove_reader(sockfd)
  *         loop.remove_writer(sockfd)
  *     if what & curl.CURL_POLL_IN:             # <<<<<<<<<<<<<<
@@ -40276,7 +40347,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
  */
   }
 
-  /* "cycurl/_curl.pyx":583
+  /* "cycurl/_curl.pyx":627
  *         loop.add_reader(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_IN)
  *         async_curl._sockfds.add(sockfd)
  *     if what & curl.CURL_POLL_OUT:             # <<<<<<<<<<<<<<
@@ -40286,22 +40357,22 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_t_2 = ((__pyx_v_what & CURL_POLL_OUT) != 0);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":584
+    /* "cycurl/_curl.pyx":628
  *         async_curl._sockfds.add(sockfd)
  *     if what & curl.CURL_POLL_OUT:
  *         loop.add_writer(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_OUT)             # <<<<<<<<<<<<<<
  *         async_curl._sockfds.add(sockfd)
  *     if what & curl.CURL_POLL_REMOVE:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_loop, __pyx_n_s_add_writer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 584, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_loop, __pyx_n_s_add_writer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 628, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 584, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 628, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_n_s_process_data); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 584, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_n_s_process_data); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 628, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 584, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 628, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyInt_From_int(CURL_CSELECT_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 584, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int(CURL_CSELECT_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 628, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_9 = NULL;
     __pyx_t_6 = 0;
@@ -40325,13 +40396,13 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 584, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 628, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":585
+    /* "cycurl/_curl.pyx":629
  *     if what & curl.CURL_POLL_OUT:
  *         loop.add_writer(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_OUT)
  *         async_curl._sockfds.add(sockfd)             # <<<<<<<<<<<<<<
@@ -40340,14 +40411,14 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
  */
     if (unlikely(__pyx_v_async_curl->_sockfds == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-      __PYX_ERR(0, 585, __pyx_L1_error)
+      __PYX_ERR(0, 629, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 585, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 629, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_10 = PySet_Add(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 585, __pyx_L1_error)
+    __pyx_t_10 = PySet_Add(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 629, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":583
+    /* "cycurl/_curl.pyx":627
  *         loop.add_reader(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_IN)
  *         async_curl._sockfds.add(sockfd)
  *     if what & curl.CURL_POLL_OUT:             # <<<<<<<<<<<<<<
@@ -40356,7 +40427,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
  */
   }
 
-  /* "cycurl/_curl.pyx":586
+  /* "cycurl/_curl.pyx":630
  *         loop.add_writer(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_OUT)
  *         async_curl._sockfds.add(sockfd)
  *     if what & curl.CURL_POLL_REMOVE:             # <<<<<<<<<<<<<<
@@ -40366,7 +40437,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_t_2 = ((__pyx_v_what & CURL_POLL_REMOVE) != 0);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":587
+    /* "cycurl/_curl.pyx":631
  *         async_curl._sockfds.add(sockfd)
  *     if what & curl.CURL_POLL_REMOVE:
  *         async_curl._sockfds.remove(sockfd)             # <<<<<<<<<<<<<<
@@ -40375,14 +40446,14 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
  */
     if (unlikely(__pyx_v_async_curl->_sockfds == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "remove");
-      __PYX_ERR(0, 587, __pyx_L1_error)
+      __PYX_ERR(0, 631, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 587, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 631, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_10 = __Pyx_PySet_Remove(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 587, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PySet_Remove(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 631, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":586
+    /* "cycurl/_curl.pyx":630
  *         loop.add_writer(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_OUT)
  *         async_curl._sockfds.add(sockfd)
  *     if what & curl.CURL_POLL_REMOVE:             # <<<<<<<<<<<<<<
@@ -40391,7 +40462,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
  */
   }
 
-  /* "cycurl/_curl.pyx":588
+  /* "cycurl/_curl.pyx":632
  *     if what & curl.CURL_POLL_REMOVE:
  *         async_curl._sockfds.remove(sockfd)
  *     return 0             # <<<<<<<<<<<<<<
@@ -40401,7 +40472,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":572
+  /* "cycurl/_curl.pyx":616
  *     return 0
  * 
  * cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, void *socketp) with gil:             # <<<<<<<<<<<<<<
@@ -40430,10 +40501,10 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":603
+/* "cycurl/_curl.pyx":647
  *         object _timers   # WeakSet
  * 
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, object loop=None):             # <<<<<<<<<<<<<<
+ *     def __cinit__(self, str cacert = "", object loop=None):             # <<<<<<<<<<<<<<
  *         self._curlm = curl.curl_multi_init()
  *         if self._curlm == NULL:
  */
@@ -40460,7 +40531,7 @@ static int __pyx_pw_6cycurl_5_curl_9AsyncCurl_1__cinit__(PyObject *__pyx_v_self,
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
   {
     PyObject **__pyx_pyargnames[] = {&__pyx_n_s_cacert,&__pyx_n_s_loop,0};
-    values[0] = __Pyx_Arg_NewRef_VARARGS(__pyx_k__19);
+    values[0] = __Pyx_Arg_NewRef_VARARGS(((PyObject*)__pyx_kp_u__10));
     values[1] = __Pyx_Arg_NewRef_VARARGS(((PyObject *)Py_None));
     if (__pyx_kwds) {
       Py_ssize_t kw_args;
@@ -40478,19 +40549,19 @@ static int __pyx_pw_6cycurl_5_curl_9AsyncCurl_1__cinit__(PyObject *__pyx_v_self,
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_cacert);
           if (value) { values[0] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 603, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 647, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  1:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_loop);
           if (value) { values[1] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 603, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 647, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 603, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 647, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -40507,7 +40578,7 @@ static int __pyx_pw_6cycurl_5_curl_9AsyncCurl_1__cinit__(PyObject *__pyx_v_self,
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 603, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 647, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -40521,7 +40592,7 @@ static int __pyx_pw_6cycurl_5_curl_9AsyncCurl_1__cinit__(PyObject *__pyx_v_self,
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cacert), (&PyUnicode_Type), 1, "cacert", 1))) __PYX_ERR(0, 603, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cacert), (&PyUnicode_Type), 1, "cacert", 1))) __PYX_ERR(0, 647, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_cacert, __pyx_v_loop);
 
   /* function exit code */
@@ -40555,64 +40626,78 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 1);
 
-  /* "cycurl/_curl.pyx":604
+  /* "cycurl/_curl.pyx":648
  * 
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, object loop=None):
+ *     def __cinit__(self, str cacert = "", object loop=None):
  *         self._curlm = curl.curl_multi_init()             # <<<<<<<<<<<<<<
  *         if self._curlm == NULL:
  *             raise MemoryError
  */
   __pyx_v_self->_curlm = curl_multi_init();
 
-  /* "cycurl/_curl.pyx":605
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, object loop=None):
+  /* "cycurl/_curl.pyx":649
+ *     def __cinit__(self, str cacert = "", object loop=None):
  *         self._curlm = curl.curl_multi_init()
  *         if self._curlm == NULL:             # <<<<<<<<<<<<<<
  *             raise MemoryError
- *         self._cacert = cacert
+ *         self._cacert = cacert or DEFAULT_CACERT
  */
   __pyx_t_1 = (__pyx_v_self->_curlm == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":606
+    /* "cycurl/_curl.pyx":650
  *         self._curlm = curl.curl_multi_init()
  *         if self._curlm == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
- *         self._cacert = cacert
+ *         self._cacert = cacert or DEFAULT_CACERT
  *         self._curl2future = {}  # curl to future map
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 606, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 650, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":605
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, object loop=None):
+    /* "cycurl/_curl.pyx":649
+ *     def __cinit__(self, str cacert = "", object loop=None):
  *         self._curlm = curl.curl_multi_init()
  *         if self._curlm == NULL:             # <<<<<<<<<<<<<<
  *             raise MemoryError
- *         self._cacert = cacert
+ *         self._cacert = cacert or DEFAULT_CACERT
  */
   }
 
-  /* "cycurl/_curl.pyx":607
+  /* "cycurl/_curl.pyx":651
  *         if self._curlm == NULL:
  *             raise MemoryError
- *         self._cacert = cacert             # <<<<<<<<<<<<<<
+ *         self._cacert = cacert or DEFAULT_CACERT             # <<<<<<<<<<<<<<
  *         self._curl2future = {}  # curl to future map
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  */
-  __Pyx_INCREF(__pyx_v_cacert);
-  __Pyx_GIVEREF(__pyx_v_cacert);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_cacert); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 651, __pyx_L1_error)
+  if (!__pyx_t_1) {
+  } else {
+    __Pyx_INCREF(__pyx_v_cacert);
+    __pyx_t_2 = __pyx_v_cacert;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_DEFAULT_CACERT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 651, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (!(likely(PyUnicode_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("unicode", __pyx_t_3))) __PYX_ERR(0, 651, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_L4_bool_binop_done:;
+  __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_cacert);
   __Pyx_DECREF(__pyx_v_self->_cacert);
-  __pyx_v_self->_cacert = __pyx_v_cacert;
+  __pyx_v_self->_cacert = ((PyObject*)__pyx_t_2);
+  __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":608
+  /* "cycurl/_curl.pyx":652
  *             raise MemoryError
- *         self._cacert = cacert
+ *         self._cacert = cacert or DEFAULT_CACERT
  *         self._curl2future = {}  # curl to future map             # <<<<<<<<<<<<<<
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 608, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 652, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_curl2future);
@@ -40620,14 +40705,14 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_curl2future = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":609
- *         self._cacert = cacert
+  /* "cycurl/_curl.pyx":653
+ *         self._cacert = cacert or DEFAULT_CACERT
  *         self._curl2future = {}  # curl to future map
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]             # <<<<<<<<<<<<<<
  *         self._sockfds = set()  # sockfds
  *         self.loop = _get_selector(
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 653, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_curl2curl);
@@ -40635,14 +40720,14 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_curl2curl = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":610
+  /* "cycurl/_curl.pyx":654
  *         self._curl2future = {}  # curl to future map
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds             # <<<<<<<<<<<<<<
  *         self.loop = _get_selector(
  *             loop if loop is not None else asyncio.get_running_loop()
  */
-  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 654, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_sockfds);
@@ -40650,17 +40735,17 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_sockfds = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":611
+  /* "cycurl/_curl.pyx":655
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds
  *         self.loop = _get_selector(             # <<<<<<<<<<<<<<
  *             loop if loop is not None else asyncio.get_running_loop()
  *         )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_selector); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_selector); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 655, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "cycurl/_curl.pyx":612
+  /* "cycurl/_curl.pyx":656
  *         self._sockfds = set()  # sockfds
  *         self.loop = _get_selector(
  *             loop if loop is not None else asyncio.get_running_loop()             # <<<<<<<<<<<<<<
@@ -40672,9 +40757,9 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
     __Pyx_INCREF(__pyx_v_loop);
     __pyx_t_4 = __pyx_v_loop;
   } else {
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 612, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 656, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_get_running_loop); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 612, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_get_running_loop); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 656, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_6 = NULL;
@@ -40695,7 +40780,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
       PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
       __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+1-__pyx_t_8, 0+__pyx_t_8);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 612, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 656, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
@@ -40721,12 +40806,12 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_8, 1+__pyx_t_8);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 611, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 655, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
 
-  /* "cycurl/_curl.pyx":611
+  /* "cycurl/_curl.pyx":655
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds
  *         self.loop = _get_selector(             # <<<<<<<<<<<<<<
@@ -40739,16 +40824,16 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->loop = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":614
+  /* "cycurl/_curl.pyx":658
  *             loop if loop is not None else asyncio.get_running_loop()
  *         )
  *         self._checker = self.loop.create_task(self._force_timeout())             # <<<<<<<<<<<<<<
  *         self._timers = WeakSet()
  *         self._setup()
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->loop, __pyx_n_s_create_task); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 614, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->loop, __pyx_n_s_create_task); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 658, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_force_timeout); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 614, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_force_timeout); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 658, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_7 = NULL;
   __pyx_t_8 = 0;
@@ -40768,7 +40853,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
     PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_8, 0+__pyx_t_8);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 614, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 658, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -40791,7 +40876,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_8, 1+__pyx_t_8);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 614, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 658, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
@@ -40801,14 +40886,14 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_checker = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":615
+  /* "cycurl/_curl.pyx":659
  *         )
  *         self._checker = self.loop.create_task(self._force_timeout())
  *         self._timers = WeakSet()             # <<<<<<<<<<<<<<
  *         self._setup()
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_WeakSet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 615, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_WeakSet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 659, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_8 = 0;
@@ -40828,7 +40913,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_8, 0+__pyx_t_8);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 615, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 659, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
@@ -40838,21 +40923,21 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_timers = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":616
+  /* "cycurl/_curl.pyx":660
  *         self._checker = self.loop.create_task(self._force_timeout())
  *         self._timers = WeakSet()
  *         self._setup()             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
  */
-  __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl__setup(__pyx_v_self); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 616, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl__setup(__pyx_v_self); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 660, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":603
+  /* "cycurl/_curl.pyx":647
  *         object _timers   # WeakSet
  * 
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, object loop=None):             # <<<<<<<<<<<<<<
+ *     def __cinit__(self, str cacert = "", object loop=None):             # <<<<<<<<<<<<<<
  *         self._curlm = curl.curl_multi_init()
  *         if self._curlm == NULL:
  */
@@ -40874,7 +40959,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":618
+/* "cycurl/_curl.pyx":662
  *         self._setup()
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -40898,7 +40983,7 @@ static void __pyx_pw_6cycurl_5_curl_9AsyncCurl_3__dealloc__(PyObject *__pyx_v_se
 static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self) {
   int __pyx_t_1;
 
-  /* "cycurl/_curl.pyx":619
+  /* "cycurl/_curl.pyx":663
  * 
  *     def __dealloc__(self):
  *         if self._curlm:             # <<<<<<<<<<<<<<
@@ -40908,7 +40993,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
   __pyx_t_1 = (__pyx_v_self->_curlm != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":620
+    /* "cycurl/_curl.pyx":664
  *     def __dealloc__(self):
  *         if self._curlm:
  *             curl.curl_multi_cleanup(self._curlm)             # <<<<<<<<<<<<<<
@@ -40917,7 +41002,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
  */
     (void)(curl_multi_cleanup(__pyx_v_self->_curlm));
 
-    /* "cycurl/_curl.pyx":621
+    /* "cycurl/_curl.pyx":665
  *         if self._curlm:
  *             curl.curl_multi_cleanup(self._curlm)
  *             self._curlm = NULL             # <<<<<<<<<<<<<<
@@ -40926,7 +41011,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
  */
     __pyx_v_self->_curlm = NULL;
 
-    /* "cycurl/_curl.pyx":619
+    /* "cycurl/_curl.pyx":663
  * 
  *     def __dealloc__(self):
  *         if self._curlm:             # <<<<<<<<<<<<<<
@@ -40935,7 +41020,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
  */
   }
 
-  /* "cycurl/_curl.pyx":618
+  /* "cycurl/_curl.pyx":662
  *         self._setup()
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -40946,7 +41031,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
   /* function exit code */
 }
 
-/* "cycurl/_curl.pyx":623
+/* "cycurl/_curl.pyx":667
  *             self._curlm = NULL
  * 
  *     cdef _setup(self):             # <<<<<<<<<<<<<<
@@ -40959,7 +41044,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_setup", 1);
 
-  /* "cycurl/_curl.pyx":624
+  /* "cycurl/_curl.pyx":668
  * 
  *     cdef _setup(self):
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERFUNCTION, <void *>timer_function)             # <<<<<<<<<<<<<<
@@ -40968,7 +41053,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
  */
   (void)(curl_multi_setopt(__pyx_v_self->_curlm, CURLMOPT_TIMERFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_timer_function)));
 
-  /* "cycurl/_curl.pyx":625
+  /* "cycurl/_curl.pyx":669
  *     cdef _setup(self):
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERFUNCTION, <void *>timer_function)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETFUNCTION, <void *>socket_function)             # <<<<<<<<<<<<<<
@@ -40977,7 +41062,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
  */
   (void)(curl_multi_setopt(__pyx_v_self->_curlm, CURLMOPT_SOCKETFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_socket_function)));
 
-  /* "cycurl/_curl.pyx":626
+  /* "cycurl/_curl.pyx":670
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERFUNCTION, <void *>timer_function)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETFUNCTION, <void *>socket_function)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETDATA, <void*>self)             # <<<<<<<<<<<<<<
@@ -40986,16 +41071,16 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
  */
   (void)(curl_multi_setopt(__pyx_v_self->_curlm, CURLMOPT_SOCKETDATA, ((void *)__pyx_v_self)));
 
-  /* "cycurl/_curl.pyx":627
+  /* "cycurl/_curl.pyx":671
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETFUNCTION, <void *>socket_function)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETDATA, <void*>self)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)             # <<<<<<<<<<<<<<
  * 
- *     cpdef inline close(self):
+ *     async def close(self):
  */
   (void)(curl_multi_setopt(__pyx_v_self->_curlm, CURLMOPT_TIMERDATA, ((void *)__pyx_v_self)));
 
-  /* "cycurl/_curl.pyx":623
+  /* "cycurl/_curl.pyx":667
  *             self._curlm = NULL
  * 
  *     cdef _setup(self):             # <<<<<<<<<<<<<<
@@ -41009,469 +41094,15 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
+static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "cycurl/_curl.pyx":629
+/* "cycurl/_curl.pyx":673
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)
  * 
- *     cpdef inline close(self):             # <<<<<<<<<<<<<<
+ *     async def close(self):             # <<<<<<<<<<<<<<
  *         """Close and cleanup running timers, readers, writers and handles."""
- *         # Close force timeout checker
+ *         # Close and wait for the force timeout checker to complete
  */
-
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_5close(PyObject *__pyx_v_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_close(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, CYTHON_UNUSED int __pyx_skip_dispatch) {
-  PyObject *__pyx_v_curl_ = NULL;
-  PyObject *__pyx_v_future = NULL;
-  PyObject *__pyx_v_sockfd = NULL;
-  PyObject *__pyx_v_timer = NULL;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  int __pyx_t_4;
-  Py_ssize_t __pyx_t_5;
-  Py_ssize_t __pyx_t_6;
-  int __pyx_t_7;
-  int __pyx_t_8;
-  PyObject *__pyx_t_9 = NULL;
-  int __pyx_t_10;
-  int __pyx_t_11;
-  PyObject *(*__pyx_t_12)(PyObject *);
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("close", 1);
-
-  /* "cycurl/_curl.pyx":632
- *         """Close and cleanup running timers, readers, writers and handles."""
- *         # Close force timeout checker
- *         self._checker.cancel()             # <<<<<<<<<<<<<<
- *         # Close all pending futures
- *         for curl_, future in self._curl2future.items():
- */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_checker, __pyx_n_s_cancel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 632, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  __pyx_t_4 = 0;
-  #if CYTHON_UNPACK_METHODS
-  if (likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-      __pyx_t_4 = 1;
-    }
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 632, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "cycurl/_curl.pyx":634
- *         self._checker.cancel()
- *         # Close all pending futures
- *         for curl_, future in self._curl2future.items():             # <<<<<<<<<<<<<<
- *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
- *             if not future.done() and not future.cancelled():
- */
-  __pyx_t_5 = 0;
-  if (unlikely(__pyx_v_self->_curl2future == Py_None)) {
-    PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-    __PYX_ERR(0, 634, __pyx_L1_error)
-  }
-  __pyx_t_2 = __Pyx_dict_iterator(__pyx_v_self->_curl2future, 1, __pyx_n_s_items, (&__pyx_t_6), (&__pyx_t_4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 634, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_1);
-  __pyx_t_1 = __pyx_t_2;
-  __pyx_t_2 = 0;
-  while (1) {
-    __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_6, &__pyx_t_5, &__pyx_t_2, &__pyx_t_3, NULL, __pyx_t_4);
-    if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 634, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_XDECREF_SET(__pyx_v_curl_, __pyx_t_2);
-    __pyx_t_2 = 0;
-    __Pyx_XDECREF_SET(__pyx_v_future, __pyx_t_3);
-    __pyx_t_3 = 0;
-
-    /* "cycurl/_curl.pyx":635
- *         # Close all pending futures
- *         for curl_, future in self._curl2future.items():
- *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)             # <<<<<<<<<<<<<<
- *             if not future.done() and not future.cancelled():
- *                 future.set_result(None)
- */
-    (void)(curl_multi_remove_handle(__pyx_v_self->_curlm, ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_curl_)->_curl));
-
-    /* "cycurl/_curl.pyx":636
- *         for curl_, future in self._curl2future.items():
- *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
- *             if not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
- *                 future.set_result(None)
- *         # Cleanup curl_multi handle
- */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_done); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 636, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = NULL;
-    __pyx_t_7 = 0;
-    #if CYTHON_UNPACK_METHODS
-    if (likely(PyMethod_Check(__pyx_t_2))) {
-      __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_2);
-      if (likely(__pyx_t_9)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-        __Pyx_INCREF(__pyx_t_9);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_2, function);
-        __pyx_t_7 = 1;
-      }
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_9, NULL};
-      __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
-      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 636, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    }
-    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 636, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_11 = (!__pyx_t_10);
-    if (__pyx_t_11) {
-    } else {
-      __pyx_t_8 = __pyx_t_11;
-      goto __pyx_L6_bool_binop_done;
-    }
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_cancelled); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 636, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = NULL;
-    __pyx_t_7 = 0;
-    #if CYTHON_UNPACK_METHODS
-    if (likely(PyMethod_Check(__pyx_t_2))) {
-      __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_2);
-      if (likely(__pyx_t_9)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-        __Pyx_INCREF(__pyx_t_9);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_2, function);
-        __pyx_t_7 = 1;
-      }
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_9, NULL};
-      __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
-      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 636, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    }
-    __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 636, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_10 = (!__pyx_t_11);
-    __pyx_t_8 = __pyx_t_10;
-    __pyx_L6_bool_binop_done:;
-    if (__pyx_t_8) {
-
-      /* "cycurl/_curl.pyx":637
- *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
- *             if not future.done() and not future.cancelled():
- *                 future.set_result(None)             # <<<<<<<<<<<<<<
- *         # Cleanup curl_multi handle
- *         curl.curl_multi_cleanup(self._curlm)
- */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_set_result); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 637, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_9 = NULL;
-      __pyx_t_7 = 0;
-      #if CYTHON_UNPACK_METHODS
-      if (likely(PyMethod_Check(__pyx_t_2))) {
-        __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_2);
-        if (likely(__pyx_t_9)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-          __Pyx_INCREF(__pyx_t_9);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_2, function);
-          __pyx_t_7 = 1;
-        }
-      }
-      #endif
-      {
-        PyObject *__pyx_callargs[2] = {__pyx_t_9, Py_None};
-        __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
-        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 637, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      }
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-      /* "cycurl/_curl.pyx":636
- *         for curl_, future in self._curl2future.items():
- *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
- *             if not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
- *                 future.set_result(None)
- *         # Cleanup curl_multi handle
- */
-    }
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "cycurl/_curl.pyx":639
- *                 future.set_result(None)
- *         # Cleanup curl_multi handle
- *         curl.curl_multi_cleanup(self._curlm)             # <<<<<<<<<<<<<<
- *         self._curlm = NULL
- *         # Remove add readers and writers
- */
-  (void)(curl_multi_cleanup(__pyx_v_self->_curlm));
-
-  /* "cycurl/_curl.pyx":640
- *         # Cleanup curl_multi handle
- *         curl.curl_multi_cleanup(self._curlm)
- *         self._curlm = NULL             # <<<<<<<<<<<<<<
- *         # Remove add readers and writers
- *         for sockfd in self._sockfds:
- */
-  __pyx_v_self->_curlm = NULL;
-
-  /* "cycurl/_curl.pyx":642
- *         self._curlm = NULL
- *         # Remove add readers and writers
- *         for sockfd in self._sockfds:             # <<<<<<<<<<<<<<
- *             self.loop.remove_reader(sockfd)
- *             self.loop.remove_writer(sockfd)
- */
-  __pyx_t_6 = 0;
-  __pyx_t_3 = __Pyx_set_iterator(__pyx_v_self->_sockfds, 1, (&__pyx_t_5), (&__pyx_t_4)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 642, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_1);
-  __pyx_t_1 = __pyx_t_3;
-  __pyx_t_3 = 0;
-  while (1) {
-    __pyx_t_7 = __Pyx_set_iter_next(__pyx_t_1, __pyx_t_5, &__pyx_t_6, &__pyx_t_3, __pyx_t_4);
-    if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 642, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_XDECREF_SET(__pyx_v_sockfd, __pyx_t_3);
-    __pyx_t_3 = 0;
-
-    /* "cycurl/_curl.pyx":643
- *         # Remove add readers and writers
- *         for sockfd in self._sockfds:
- *             self.loop.remove_reader(sockfd)             # <<<<<<<<<<<<<<
- *             self.loop.remove_writer(sockfd)
- *         # Cancel all time functions
- */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->loop, __pyx_n_s_remove_reader); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 643, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = NULL;
-    __pyx_t_7 = 0;
-    #if CYTHON_UNPACK_METHODS
-    if (likely(PyMethod_Check(__pyx_t_2))) {
-      __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_2);
-      if (likely(__pyx_t_9)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-        __Pyx_INCREF(__pyx_t_9);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_2, function);
-        __pyx_t_7 = 1;
-      }
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_9, __pyx_v_sockfd};
-      __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
-      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 643, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    }
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-    /* "cycurl/_curl.pyx":644
- *         for sockfd in self._sockfds:
- *             self.loop.remove_reader(sockfd)
- *             self.loop.remove_writer(sockfd)             # <<<<<<<<<<<<<<
- *         # Cancel all time functions
- *         for timer in self._timers:
- */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->loop, __pyx_n_s_remove_writer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 644, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = NULL;
-    __pyx_t_7 = 0;
-    #if CYTHON_UNPACK_METHODS
-    if (likely(PyMethod_Check(__pyx_t_2))) {
-      __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_2);
-      if (likely(__pyx_t_9)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-        __Pyx_INCREF(__pyx_t_9);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_2, function);
-        __pyx_t_7 = 1;
-      }
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_9, __pyx_v_sockfd};
-      __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
-      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 644, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    }
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "cycurl/_curl.pyx":646
- *             self.loop.remove_writer(sockfd)
- *         # Cancel all time functions
- *         for timer in self._timers:             # <<<<<<<<<<<<<<
- *             timer.cancel()
- * 
- */
-  if (likely(PyList_CheckExact(__pyx_v_self->_timers)) || PyTuple_CheckExact(__pyx_v_self->_timers)) {
-    __pyx_t_1 = __pyx_v_self->_timers; __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_5 = 0;
-    __pyx_t_12 = NULL;
-  } else {
-    __pyx_t_5 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_self->_timers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 646, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_12 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 646, __pyx_L1_error)
-  }
-  for (;;) {
-    if (likely(!__pyx_t_12)) {
-      if (likely(PyList_CheckExact(__pyx_t_1))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
-          #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 646, __pyx_L1_error)
-          #endif
-          if (__pyx_t_5 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 646, __pyx_L1_error)
-        #else
-        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 646, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        #endif
-      } else {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
-          #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 646, __pyx_L1_error)
-          #endif
-          if (__pyx_t_5 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 646, __pyx_L1_error)
-        #else
-        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 646, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        #endif
-      }
-    } else {
-      __pyx_t_3 = __pyx_t_12(__pyx_t_1);
-      if (unlikely(!__pyx_t_3)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 646, __pyx_L1_error)
-        }
-        break;
-      }
-      __Pyx_GOTREF(__pyx_t_3);
-    }
-    __Pyx_XDECREF_SET(__pyx_v_timer, __pyx_t_3);
-    __pyx_t_3 = 0;
-
-    /* "cycurl/_curl.pyx":647
- *         # Cancel all time functions
- *         for timer in self._timers:
- *             timer.cancel()             # <<<<<<<<<<<<<<
- * 
- *     async def _force_timeout(self):
- */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_timer, __pyx_n_s_cancel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 647, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = NULL;
-    __pyx_t_4 = 0;
-    #if CYTHON_UNPACK_METHODS
-    if (likely(PyMethod_Check(__pyx_t_2))) {
-      __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_2);
-      if (likely(__pyx_t_9)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-        __Pyx_INCREF(__pyx_t_9);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_2, function);
-        __pyx_t_4 = 1;
-      }
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_9, NULL};
-      __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
-      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 647, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    }
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-    /* "cycurl/_curl.pyx":646
- *             self.loop.remove_writer(sockfd)
- *         # Cancel all time functions
- *         for timer in self._timers:             # <<<<<<<<<<<<<<
- *             timer.cancel()
- * 
- */
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "cycurl/_curl.pyx":629
- *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)
- * 
- *     cpdef inline close(self):             # <<<<<<<<<<<<<<
- *         """Close and cleanup running timers, readers, writers and handles."""
- *         # Close force timeout checker
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("cycurl._curl.AsyncCurl.close", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_curl_);
-  __Pyx_XDECREF(__pyx_v_future);
-  __Pyx_XDECREF(__pyx_v_sockfd);
-  __Pyx_XDECREF(__pyx_v_timer);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_5close(PyObject *__pyx_v_self, 
@@ -41516,33 +41147,714 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 
 static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_4close(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self) {
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("close", 1);
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_close(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 629, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
+  __Pyx_RefNannySetupContext("close", 0);
+  __pyx_cur_scope = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4_close(__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close, __pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 673, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1, __pyx_codeobj__19, (PyObject *) __pyx_cur_scope, __pyx_n_s_close, __pyx_n_s_AsyncCurl_close, __pyx_n_s_cycurl__curl); if (unlikely(!gen)) __PYX_ERR(0, 673, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_AddTraceback("cycurl._curl.AsyncCurl.close", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
-  __pyx_L0:;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "cycurl/_curl.pyx":649
+static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *__pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
+  PyObject *__pyx_t_9 = NULL;
+  PyObject *__pyx_t_10 = NULL;
+  int __pyx_t_11;
+  int __pyx_t_12;
+  Py_ssize_t __pyx_t_13;
+  Py_ssize_t __pyx_t_14;
+  int __pyx_t_15;
+  int __pyx_t_16;
+  PyObject *(*__pyx_t_17)(PyObject *);
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("close", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L14_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 673, __pyx_L1_error)
+
+  /* "cycurl/_curl.pyx":676
+ *         """Close and cleanup running timers, readers, writers and handles."""
+ *         # Close and wait for the force timeout checker to complete
+ *         self._checker.cancel()             # <<<<<<<<<<<<<<
+ *         with suppress(asyncio.CancelledError):
+ *             await self._checker
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self->_checker, __pyx_n_s_cancel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 676, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  __pyx_t_4 = 0;
+  #if CYTHON_UNPACK_METHODS
+  if (likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 676, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "cycurl/_curl.pyx":677
+ *         # Close and wait for the force timeout checker to complete
+ *         self._checker.cancel()
+ *         with suppress(asyncio.CancelledError):             # <<<<<<<<<<<<<<
+ *             await self._checker
+ *         # Close all pending futures
+ */
+  /*with:*/ {
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_suppress); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CancelledError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_3 = NULL;
+    __pyx_t_4 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+        __pyx_t_4 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_t_5};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 677, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    }
+    __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_5 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 677, __pyx_L4_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_3 = NULL;
+    __pyx_t_4 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (likely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_5, function);
+        __pyx_t_4 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+      __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 677, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    /*try:*/ {
+      {
+        __Pyx_ExceptionSave(&__pyx_t_7, &__pyx_t_8, &__pyx_t_9);
+        __Pyx_XGOTREF(__pyx_t_7);
+        __Pyx_XGOTREF(__pyx_t_8);
+        __Pyx_XGOTREF(__pyx_t_9);
+        /*try:*/ {
+
+          /* "cycurl/_curl.pyx":678
+ *         self._checker.cancel()
+ *         with suppress(asyncio.CancelledError):
+ *             await self._checker             # <<<<<<<<<<<<<<
+ *         # Close all pending futures
+ *         for curl_, future in self._curl2future.items():
+ */
+          __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_cur_scope->__pyx_v_self->_checker);
+          __Pyx_XGOTREF(__pyx_r);
+          if (likely(__pyx_r)) {
+            __Pyx_XGIVEREF(__pyx_t_6);
+            __pyx_cur_scope->__pyx_t_0 = __pyx_t_6;
+            __Pyx_XGIVEREF(__pyx_t_7);
+            __pyx_cur_scope->__pyx_t_1 = __pyx_t_7;
+            __Pyx_XGIVEREF(__pyx_t_8);
+            __pyx_cur_scope->__pyx_t_2 = __pyx_t_8;
+            __Pyx_XGIVEREF(__pyx_t_9);
+            __pyx_cur_scope->__pyx_t_3 = __pyx_t_9;
+            __Pyx_XGIVEREF(__pyx_r);
+            __Pyx_RefNannyFinishContext();
+            __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+            /* return from generator, awaiting value */
+            __pyx_generator->resume_label = 1;
+            return __pyx_r;
+            __pyx_L14_resume_from_await:;
+            __pyx_t_6 = __pyx_cur_scope->__pyx_t_0;
+            __pyx_cur_scope->__pyx_t_0 = 0;
+            __Pyx_XGOTREF(__pyx_t_6);
+            __pyx_t_7 = __pyx_cur_scope->__pyx_t_1;
+            __pyx_cur_scope->__pyx_t_1 = 0;
+            __Pyx_XGOTREF(__pyx_t_7);
+            __pyx_t_8 = __pyx_cur_scope->__pyx_t_2;
+            __pyx_cur_scope->__pyx_t_2 = 0;
+            __Pyx_XGOTREF(__pyx_t_8);
+            __pyx_t_9 = __pyx_cur_scope->__pyx_t_3;
+            __pyx_cur_scope->__pyx_t_3 = 0;
+            __Pyx_XGOTREF(__pyx_t_9);
+            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 678, __pyx_L8_error)
+          } else {
+            PyObject* exc_type = __Pyx_PyErr_CurrentExceptionType();
+            if (exc_type) {
+              if (likely(exc_type == PyExc_StopIteration || (exc_type != PyExc_GeneratorExit && __Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))) PyErr_Clear();
+              else __PYX_ERR(0, 678, __pyx_L8_error)
+            }
+          }
+
+          /* "cycurl/_curl.pyx":677
+ *         # Close and wait for the force timeout checker to complete
+ *         self._checker.cancel()
+ *         with suppress(asyncio.CancelledError):             # <<<<<<<<<<<<<<
+ *             await self._checker
+ *         # Close all pending futures
+ */
+        }
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+        goto __pyx_L13_try_end;
+        __pyx_L8_error:;
+        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        /*except:*/ {
+          __Pyx_AddTraceback("cycurl._curl.AsyncCurl.close", __pyx_clineno, __pyx_lineno, __pyx_filename);
+          if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_2, &__pyx_t_5) < 0) __PYX_ERR(0, 677, __pyx_L10_except_error)
+          __Pyx_XGOTREF(__pyx_t_1);
+          __Pyx_XGOTREF(__pyx_t_2);
+          __Pyx_XGOTREF(__pyx_t_5);
+          __pyx_t_3 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 677, __pyx_L10_except_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_3, NULL);
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 677, __pyx_L10_except_error)
+          __Pyx_GOTREF(__pyx_t_10);
+          __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_10);
+          __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+          if (__pyx_t_11 < 0) __PYX_ERR(0, 677, __pyx_L10_except_error)
+          __pyx_t_12 = (!__pyx_t_11);
+          if (unlikely(__pyx_t_12)) {
+            __Pyx_GIVEREF(__pyx_t_1);
+            __Pyx_GIVEREF(__pyx_t_2);
+            __Pyx_XGIVEREF(__pyx_t_5);
+            __Pyx_ErrRestoreWithState(__pyx_t_1, __pyx_t_2, __pyx_t_5);
+            __pyx_t_1 = 0; __pyx_t_2 = 0; __pyx_t_5 = 0; 
+            __PYX_ERR(0, 677, __pyx_L10_except_error)
+          }
+          __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+          goto __pyx_L9_exception_handled;
+        }
+        __pyx_L10_except_error:;
+        __Pyx_XGIVEREF(__pyx_t_7);
+        __Pyx_XGIVEREF(__pyx_t_8);
+        __Pyx_XGIVEREF(__pyx_t_9);
+        __Pyx_ExceptionReset(__pyx_t_7, __pyx_t_8, __pyx_t_9);
+        goto __pyx_L1_error;
+        __pyx_L9_exception_handled:;
+        __Pyx_XGIVEREF(__pyx_t_7);
+        __Pyx_XGIVEREF(__pyx_t_8);
+        __Pyx_XGIVEREF(__pyx_t_9);
+        __Pyx_ExceptionReset(__pyx_t_7, __pyx_t_8, __pyx_t_9);
+        __pyx_L13_try_end:;
+      }
+    }
+    /*finally:*/ {
+      /*normal exit:*/{
+        if (__pyx_t_6) {
+          __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__15, NULL);
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 677, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_9);
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        }
+        goto __pyx_L7;
+      }
+      __pyx_L7:;
+    }
+    goto __pyx_L18;
+    __pyx_L4_error:;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    goto __pyx_L1_error;
+    __pyx_L18:;
+  }
+
+  /* "cycurl/_curl.pyx":680
+ *             await self._checker
+ *         # Close all pending futures
+ *         for curl_, future in self._curl2future.items():             # <<<<<<<<<<<<<<
+ *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
+ *             if not future.done() and not future.cancelled():
+ */
+  __pyx_t_13 = 0;
+  if (unlikely(__pyx_cur_scope->__pyx_v_self->_curl2future == Py_None)) {
+    PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
+    __PYX_ERR(0, 680, __pyx_L1_error)
+  }
+  __pyx_t_2 = __Pyx_dict_iterator(__pyx_cur_scope->__pyx_v_self->_curl2future, 1, __pyx_n_s_items, (&__pyx_t_14), (&__pyx_t_4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 680, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_5);
+  __pyx_t_5 = __pyx_t_2;
+  __pyx_t_2 = 0;
+  while (1) {
+    __pyx_t_15 = __Pyx_dict_iter_next(__pyx_t_5, __pyx_t_14, &__pyx_t_13, &__pyx_t_2, &__pyx_t_1, NULL, __pyx_t_4);
+    if (unlikely(__pyx_t_15 == 0)) break;
+    if (unlikely(__pyx_t_15 == -1)) __PYX_ERR(0, 680, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_curl_);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_curl_, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_2);
+    __pyx_t_2 = 0;
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_future);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_future, __pyx_t_1);
+    __Pyx_GIVEREF(__pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "cycurl/_curl.pyx":681
+ *         # Close all pending futures
+ *         for curl_, future in self._curl2future.items():
+ *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)             # <<<<<<<<<<<<<<
+ *             if not future.done() and not future.cancelled():
+ *                 future.set_result(None)
+ */
+    (void)(curl_multi_remove_handle(__pyx_cur_scope->__pyx_v_self->_curlm, ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_cur_scope->__pyx_v_curl_)->_curl));
+
+    /* "cycurl/_curl.pyx":682
+ *         for curl_, future in self._curl2future.items():
+ *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
+ *             if not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
+ *                 future.set_result(None)
+ *         # Cleanup curl_multi handle
+ */
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_future, __pyx_n_s_done); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 682, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_3 = NULL;
+    __pyx_t_15 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (likely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+        __pyx_t_15 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_15, 0+__pyx_t_15);
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 682, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    }
+    __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 682, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_16 = (!__pyx_t_11);
+    if (__pyx_t_16) {
+    } else {
+      __pyx_t_12 = __pyx_t_16;
+      goto __pyx_L22_bool_binop_done;
+    }
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_future, __pyx_n_s_cancelled); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 682, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_3 = NULL;
+    __pyx_t_15 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (likely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+        __pyx_t_15 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_15, 0+__pyx_t_15);
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 682, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    }
+    __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 682, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_11 = (!__pyx_t_16);
+    __pyx_t_12 = __pyx_t_11;
+    __pyx_L22_bool_binop_done:;
+    if (__pyx_t_12) {
+
+      /* "cycurl/_curl.pyx":683
+ *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
+ *             if not future.done() and not future.cancelled():
+ *                 future.set_result(None)             # <<<<<<<<<<<<<<
+ *         # Cleanup curl_multi handle
+ *         curl.curl_multi_cleanup(self._curlm)
+ */
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_future, __pyx_n_s_set_result); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 683, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_3 = NULL;
+      __pyx_t_15 = 0;
+      #if CYTHON_UNPACK_METHODS
+      if (likely(PyMethod_Check(__pyx_t_2))) {
+        __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+        if (likely(__pyx_t_3)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+          __Pyx_INCREF(__pyx_t_3);
+          __Pyx_INCREF(function);
+          __Pyx_DECREF_SET(__pyx_t_2, function);
+          __pyx_t_15 = 1;
+        }
+      }
+      #endif
+      {
+        PyObject *__pyx_callargs[2] = {__pyx_t_3, Py_None};
+        __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_15, 1+__pyx_t_15);
+        __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 683, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      }
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+      /* "cycurl/_curl.pyx":682
+ *         for curl_, future in self._curl2future.items():
+ *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
+ *             if not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
+ *                 future.set_result(None)
+ *         # Cleanup curl_multi handle
+ */
+    }
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/_curl.pyx":685
+ *                 future.set_result(None)
+ *         # Cleanup curl_multi handle
+ *         curl.curl_multi_cleanup(self._curlm)             # <<<<<<<<<<<<<<
+ *         self._curlm = NULL
+ *         # Remove add readers and writers
+ */
+  (void)(curl_multi_cleanup(__pyx_cur_scope->__pyx_v_self->_curlm));
+
+  /* "cycurl/_curl.pyx":686
+ *         # Cleanup curl_multi handle
+ *         curl.curl_multi_cleanup(self._curlm)
+ *         self._curlm = NULL             # <<<<<<<<<<<<<<
+ *         # Remove add readers and writers
+ *         for sockfd in self._sockfds:
+ */
+  __pyx_cur_scope->__pyx_v_self->_curlm = NULL;
+
+  /* "cycurl/_curl.pyx":688
+ *         self._curlm = NULL
+ *         # Remove add readers and writers
+ *         for sockfd in self._sockfds:             # <<<<<<<<<<<<<<
+ *             self.loop.remove_reader(sockfd)
+ *             self.loop.remove_writer(sockfd)
+ */
+  __pyx_t_14 = 0;
+  __pyx_t_1 = __Pyx_set_iterator(__pyx_cur_scope->__pyx_v_self->_sockfds, 1, (&__pyx_t_13), (&__pyx_t_4)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 688, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_5);
+  __pyx_t_5 = __pyx_t_1;
+  __pyx_t_1 = 0;
+  while (1) {
+    __pyx_t_15 = __Pyx_set_iter_next(__pyx_t_5, __pyx_t_13, &__pyx_t_14, &__pyx_t_1, __pyx_t_4);
+    if (unlikely(__pyx_t_15 == 0)) break;
+    if (unlikely(__pyx_t_15 == -1)) __PYX_ERR(0, 688, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_sockfd);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_sockfd, __pyx_t_1);
+    __Pyx_GIVEREF(__pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "cycurl/_curl.pyx":689
+ *         # Remove add readers and writers
+ *         for sockfd in self._sockfds:
+ *             self.loop.remove_reader(sockfd)             # <<<<<<<<<<<<<<
+ *             self.loop.remove_writer(sockfd)
+ *         # Cancel all time functions
+ */
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self->loop, __pyx_n_s_remove_reader); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 689, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_3 = NULL;
+    __pyx_t_15 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (likely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+        __pyx_t_15 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_cur_scope->__pyx_v_sockfd};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_15, 1+__pyx_t_15);
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 689, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "cycurl/_curl.pyx":690
+ *         for sockfd in self._sockfds:
+ *             self.loop.remove_reader(sockfd)
+ *             self.loop.remove_writer(sockfd)             # <<<<<<<<<<<<<<
+ *         # Cancel all time functions
+ *         for timer in self._timers:
+ */
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self->loop, __pyx_n_s_remove_writer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 690, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_3 = NULL;
+    __pyx_t_15 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (likely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+        __pyx_t_15 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_cur_scope->__pyx_v_sockfd};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_15, 1+__pyx_t_15);
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 690, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/_curl.pyx":692
+ *             self.loop.remove_writer(sockfd)
+ *         # Cancel all time functions
+ *         for timer in self._timers:             # <<<<<<<<<<<<<<
+ *             timer.cancel()
+ * 
+ */
+  if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_self->_timers)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_self->_timers)) {
+    __pyx_t_5 = __pyx_cur_scope->__pyx_v_self->_timers; __Pyx_INCREF(__pyx_t_5);
+    __pyx_t_13 = 0;
+    __pyx_t_17 = NULL;
+  } else {
+    __pyx_t_13 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_self->_timers); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 692, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_17 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 692, __pyx_L1_error)
+  }
+  for (;;) {
+    if (likely(!__pyx_t_17)) {
+      if (likely(PyList_CheckExact(__pyx_t_5))) {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_5);
+          #if !CYTHON_ASSUME_SAFE_MACROS
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 692, __pyx_L1_error)
+          #endif
+          if (__pyx_t_13 >= __pyx_temp) break;
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_1); __pyx_t_13++; if (unlikely((0 < 0))) __PYX_ERR(0, 692, __pyx_L1_error)
+        #else
+        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 692, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      } else {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_5);
+          #if !CYTHON_ASSUME_SAFE_MACROS
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 692, __pyx_L1_error)
+          #endif
+          if (__pyx_t_13 >= __pyx_temp) break;
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_1); __pyx_t_13++; if (unlikely((0 < 0))) __PYX_ERR(0, 692, __pyx_L1_error)
+        #else
+        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 692, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      }
+    } else {
+      __pyx_t_1 = __pyx_t_17(__pyx_t_5);
+      if (unlikely(!__pyx_t_1)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 692, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_1);
+    }
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_timer);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_timer, __pyx_t_1);
+    __Pyx_GIVEREF(__pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "cycurl/_curl.pyx":693
+ *         # Cancel all time functions
+ *         for timer in self._timers:
+ *             timer.cancel()             # <<<<<<<<<<<<<<
+ * 
+ *     async def _force_timeout(self):
+ */
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_timer, __pyx_n_s_cancel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 693, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_3 = NULL;
+    __pyx_t_4 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (likely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+        __pyx_t_4 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 693, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "cycurl/_curl.pyx":692
+ *             self.loop.remove_writer(sockfd)
+ *         # Cancel all time functions
+ *         for timer in self._timers:             # <<<<<<<<<<<<<<
+ *             timer.cancel()
+ * 
+ */
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "cycurl/_curl.pyx":673
+ *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)
+ * 
+ *     async def close(self):             # <<<<<<<<<<<<<<
+ *         """Close and cleanup running timers, readers, writers and handles."""
+ *         # Close and wait for the force timeout checker to complete
+ */
+
+  /* function exit code */
+  PyErr_SetNone(PyExc_StopIteration);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_Generator_Replace_StopIteration(0);
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("close", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_r); __pyx_r = 0;
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "cycurl/_curl.pyx":695
  *             timer.cancel()
  * 
  *     async def _force_timeout(self):             # <<<<<<<<<<<<<<
@@ -41551,16 +41863,16 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_7_force_timeout(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_8_force_timeout(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_6_force_timeout, "AsyncCurl._force_timeout(self)");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_7_force_timeout = {"_force_timeout", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_7_force_timeout, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_6_force_timeout};
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_7_force_timeout(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_7_force_timeout, "AsyncCurl._force_timeout(self)");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_8_force_timeout = {"_force_timeout", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_8_force_timeout, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_7_force_timeout};
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_8_force_timeout(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -41585,26 +41897,26 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("_force_timeout", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "_force_timeout", 0))) return NULL;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_6_force_timeout(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_7_force_timeout(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_6_force_timeout(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self) {
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *__pyx_cur_scope;
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_7_force_timeout(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self) {
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_force_timeout", 0);
-  __pyx_cur_scope = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4__force_timeout(__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_5__force_timeout(__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 649, __pyx_L1_error)
+    __PYX_ERR(0, 695, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -41612,7 +41924,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_6_force_timeout(struct __pyx
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1, __pyx_codeobj__20, (PyObject *) __pyx_cur_scope, __pyx_n_s_force_timeout, __pyx_n_s_AsyncCurl__force_timeout, __pyx_n_s_cycurl__curl); if (unlikely(!gen)) __PYX_ERR(0, 649, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2, __pyx_codeobj__20, (PyObject *) __pyx_cur_scope, __pyx_n_s_force_timeout, __pyx_n_s_AsyncCurl__force_timeout, __pyx_n_s_cycurl__curl); if (unlikely(!gen)) __PYX_ERR(0, 695, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -41628,9 +41940,9 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_6_force_timeout(struct __pyx
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *__pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *)__pyx_generator->closure);
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *__pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
@@ -41650,9 +41962,9 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 649, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 695, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":650
+  /* "cycurl/_curl.pyx":696
  * 
  *     async def _force_timeout(self):
  *         while True:             # <<<<<<<<<<<<<<
@@ -41661,7 +41973,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
  */
   while (1) {
 
-    /* "cycurl/_curl.pyx":651
+    /* "cycurl/_curl.pyx":697
  *     async def _force_timeout(self):
  *         while True:
  *             if not self._curlm:             # <<<<<<<<<<<<<<
@@ -41671,7 +41983,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
     __pyx_t_1 = (!(__pyx_cur_scope->__pyx_v_self->_curlm != 0));
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":652
+      /* "cycurl/_curl.pyx":698
  *         while True:
  *             if not self._curlm:
  *                 break             # <<<<<<<<<<<<<<
@@ -41680,7 +41992,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
  */
       goto __pyx_L5_break;
 
-      /* "cycurl/_curl.pyx":651
+      /* "cycurl/_curl.pyx":697
  *     async def _force_timeout(self):
  *         while True:
  *             if not self._curlm:             # <<<<<<<<<<<<<<
@@ -41689,16 +42001,16 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
  */
     }
 
-    /* "cycurl/_curl.pyx":653
+    /* "cycurl/_curl.pyx":699
  *             if not self._curlm:
  *                 break
  *             await asyncio.sleep(1)             # <<<<<<<<<<<<<<
  *             # print("force timeout")
  *             self.socket_action(curl.CURL_SOCKET_TIMEOUT, curl.CURL_POLL_NONE)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 653, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 699, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_sleep); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 653, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_sleep); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 699, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -41719,7 +42031,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
       PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_int_1};
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 653, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 699, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
@@ -41734,28 +42046,28 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
       __pyx_generator->resume_label = 1;
       return __pyx_r;
       __pyx_L7_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 653, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 699, __pyx_L1_error)
     } else {
       PyObject* exc_type = __Pyx_PyErr_CurrentExceptionType();
       if (exc_type) {
         if (likely(exc_type == PyExc_StopIteration || (exc_type != PyExc_GeneratorExit && __Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))) PyErr_Clear();
-        else __PYX_ERR(0, 653, __pyx_L1_error)
+        else __PYX_ERR(0, 699, __pyx_L1_error)
       }
     }
 
-    /* "cycurl/_curl.pyx":655
+    /* "cycurl/_curl.pyx":701
  *             await asyncio.sleep(1)
  *             # print("force timeout")
  *             self.socket_action(curl.CURL_SOCKET_TIMEOUT, curl.CURL_POLL_NONE)             # <<<<<<<<<<<<<<
  * 
  *     cpdef inline add_handle(self, Curl curl_):
  */
-    __pyx_t_5 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_cur_scope->__pyx_v_self, CURL_SOCKET_TIMEOUT, CURL_POLL_NONE, 0); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 655, __pyx_L1_error)
+    __pyx_t_5 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_cur_scope->__pyx_v_self, CURL_SOCKET_TIMEOUT, CURL_POLL_NONE, 0); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 701, __pyx_L1_error)
   }
   __pyx_L5_break:;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "cycurl/_curl.pyx":649
+  /* "cycurl/_curl.pyx":695
  *             timer.cancel()
  * 
  *     async def _force_timeout(self):             # <<<<<<<<<<<<<<
@@ -41783,7 +42095,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":657
+/* "cycurl/_curl.pyx":703
  *             self.socket_action(curl.CURL_SOCKET_TIMEOUT, curl.CURL_POLL_NONE)
  * 
  *     cpdef inline add_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -41791,7 +42103,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_8generator1(__pyx_CoroutineO
  *         `perform` in the async world."""
  */
 
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_10add_handle(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_11add_handle(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -41811,16 +42123,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_handle", 1);
 
-  /* "cycurl/_curl.pyx":661
+  /* "cycurl/_curl.pyx":707
  *         `perform` in the async world."""
  *         # import pdb; pdb.set_trace()
  *         curl_._ensure_cacert()             # <<<<<<<<<<<<<<
  *         curl.curl_multi_add_handle(self._curlm, curl_._curl)
  *         future = self.loop.create_future()
  */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(__pyx_v_curl_); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 661, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(__pyx_v_curl_); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 707, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":662
+  /* "cycurl/_curl.pyx":708
  *         # import pdb; pdb.set_trace()
  *         curl_._ensure_cacert()
  *         curl.curl_multi_add_handle(self._curlm, curl_._curl)             # <<<<<<<<<<<<<<
@@ -41829,14 +42141,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
  */
   (void)(curl_multi_add_handle(__pyx_v_self->_curlm, __pyx_v_curl_->_curl));
 
-  /* "cycurl/_curl.pyx":663
+  /* "cycurl/_curl.pyx":709
  *         curl_._ensure_cacert()
  *         curl.curl_multi_add_handle(self._curlm, curl_._curl)
  *         future = self.loop.create_future()             # <<<<<<<<<<<<<<
  *         self._curl2future[curl_] = future
  *         self._curl2curl[<long long><void*>curl_._curl] = curl_
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->loop, __pyx_n_s_create_future); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 663, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->loop, __pyx_n_s_create_future); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 709, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_1 = 0;
@@ -41856,14 +42168,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_1, 0+__pyx_t_1);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 663, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 709, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __pyx_v_future = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":664
+  /* "cycurl/_curl.pyx":710
  *         curl.curl_multi_add_handle(self._curlm, curl_._curl)
  *         future = self.loop.create_future()
  *         self._curl2future[curl_] = future             # <<<<<<<<<<<<<<
@@ -41872,11 +42184,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
  */
   if (unlikely(__pyx_v_self->_curl2future == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 664, __pyx_L1_error)
+    __PYX_ERR(0, 710, __pyx_L1_error)
   }
-  if (unlikely((PyDict_SetItem(__pyx_v_self->_curl2future, ((PyObject *)__pyx_v_curl_), __pyx_v_future) < 0))) __PYX_ERR(0, 664, __pyx_L1_error)
+  if (unlikely((PyDict_SetItem(__pyx_v_self->_curl2future, ((PyObject *)__pyx_v_curl_), __pyx_v_future) < 0))) __PYX_ERR(0, 710, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":665
+  /* "cycurl/_curl.pyx":711
  *         future = self.loop.create_future()
  *         self._curl2future[curl_] = future
  *         self._curl2curl[<long long><void*>curl_._curl] = curl_             # <<<<<<<<<<<<<<
@@ -41885,14 +42197,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
  */
   if (unlikely(__pyx_v_self->_curl2curl == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 665, __pyx_L1_error)
+    __PYX_ERR(0, 711, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyInt_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_->_curl))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 665, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_->_curl))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 711, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely((PyDict_SetItem(__pyx_v_self->_curl2curl, __pyx_t_2, ((PyObject *)__pyx_v_curl_)) < 0))) __PYX_ERR(0, 665, __pyx_L1_error)
+  if (unlikely((PyDict_SetItem(__pyx_v_self->_curl2curl, __pyx_t_2, ((PyObject *)__pyx_v_curl_)) < 0))) __PYX_ERR(0, 711, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":666
+  /* "cycurl/_curl.pyx":712
  *         self._curl2future[curl_] = future
  *         self._curl2curl[<long long><void*>curl_._curl] = curl_
  *         return future             # <<<<<<<<<<<<<<
@@ -41904,7 +42216,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
   __pyx_r = __pyx_v_future;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":657
+  /* "cycurl/_curl.pyx":703
  *             self.socket_action(curl.CURL_SOCKET_TIMEOUT, curl.CURL_POLL_NONE)
  * 
  *     cpdef inline add_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -41927,16 +42239,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_10add_handle(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_11add_handle(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_9add_handle, "AsyncCurl.add_handle(self, Curl curl_)\nAdd a curl handle to be managed by curl_multi. This is the equivalent of\n        `perform` in the async world.");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_10add_handle = {"add_handle", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_10add_handle, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_9add_handle};
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_10add_handle(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_10add_handle, "AsyncCurl.add_handle(self, Curl curl_)\nAdd a curl handle to be managed by curl_multi. This is the equivalent of\n        `perform` in the async world.");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_11add_handle = {"add_handle", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_11add_handle, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_10add_handle};
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_11add_handle(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -41964,7 +42276,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_curl,0};
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_curl_2,0};
     if (__pyx_kwds) {
       Py_ssize_t kw_args;
       switch (__pyx_nargs) {
@@ -41976,16 +42288,16 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
       switch (__pyx_nargs) {
         case  0:
-        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_curl)) != 0)) {
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_curl_2)) != 0)) {
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 657, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 703, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "add_handle") < 0)) __PYX_ERR(0, 657, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "add_handle") < 0)) __PYX_ERR(0, 703, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -41996,7 +42308,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_handle", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 657, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_handle", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 703, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -42010,8 +42322,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 657, __pyx_L1_error)
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_9add_handle(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_curl_);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 703, __pyx_L1_error)
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_10add_handle(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_curl_);
 
   /* function exit code */
   goto __pyx_L0;
@@ -42028,7 +42340,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_9add_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl_) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_10add_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl_) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -42037,7 +42349,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_9add_handle(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_handle", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(__pyx_v_self, __pyx_v_curl_, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 657, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(__pyx_v_self, __pyx_v_curl_, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 703, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -42054,7 +42366,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_9add_handle(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":668
+/* "cycurl/_curl.pyx":714
  *         return future
  * 
  *     cpdef inline int socket_action(self, int sockfd, int ev_bitmask) except -1:             # <<<<<<<<<<<<<<
@@ -42062,7 +42374,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_9add_handle(struct __pyx_obj
  *         cdef int running_handle
  */
 
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_12socket_action(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_13socket_action(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -42085,7 +42397,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("socket_action", 1);
 
-  /* "cycurl/_curl.pyx":672
+  /* "cycurl/_curl.pyx":718
  *         cdef int running_handle
  *         cdef int code
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -42101,7 +42413,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
       #endif
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":673
+        /* "cycurl/_curl.pyx":719
  *         cdef int code
  *         with nogil:
  *             code = curl.curl_multi_socket_action(self._curlm, sockfd, ev_bitmask, &running_handle)             # <<<<<<<<<<<<<<
@@ -42111,7 +42423,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
         __pyx_v_code = curl_multi_socket_action(__pyx_v_self->_curlm, __pyx_v_sockfd, __pyx_v_ev_bitmask, (&__pyx_v_running_handle));
       }
 
-      /* "cycurl/_curl.pyx":672
+      /* "cycurl/_curl.pyx":718
  *         cdef int running_handle
  *         cdef int code
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -42130,7 +42442,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
       }
   }
 
-  /* "cycurl/_curl.pyx":674
+  /* "cycurl/_curl.pyx":720
  *         with nogil:
  *             code = curl.curl_multi_socket_action(self._curlm, sockfd, ev_bitmask, &running_handle)
  *         if code != curl.CURLE_OK:             # <<<<<<<<<<<<<<
@@ -42140,16 +42452,16 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
   __pyx_t_1 = (__pyx_v_code != CURLE_OK);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":675
+    /* "cycurl/_curl.pyx":721
  *             code = curl.curl_multi_socket_action(self._curlm, sockfd, ev_bitmask, &running_handle)
  *         if code != curl.CURLE_OK:
  *             raise CurlError("failed to call curl_multi_socket_action", code)             # <<<<<<<<<<<<<<
  *         return running_handle
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 675, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 721, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_code); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 675, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_code); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 721, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -42170,15 +42482,15 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_6, 2+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 675, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 721, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 675, __pyx_L1_error)
+    __PYX_ERR(0, 721, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":674
+    /* "cycurl/_curl.pyx":720
  *         with nogil:
  *             code = curl.curl_multi_socket_action(self._curlm, sockfd, ev_bitmask, &running_handle)
  *         if code != curl.CURLE_OK:             # <<<<<<<<<<<<<<
@@ -42187,7 +42499,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
  */
   }
 
-  /* "cycurl/_curl.pyx":676
+  /* "cycurl/_curl.pyx":722
  *         if code != curl.CURLE_OK:
  *             raise CurlError("failed to call curl_multi_socket_action", code)
  *         return running_handle             # <<<<<<<<<<<<<<
@@ -42197,7 +42509,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
   __pyx_r = __pyx_v_running_handle;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":668
+  /* "cycurl/_curl.pyx":714
  *         return future
  * 
  *     cpdef inline int socket_action(self, int sockfd, int ev_bitmask) except -1:             # <<<<<<<<<<<<<<
@@ -42219,16 +42531,16 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_12socket_action(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_13socket_action(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_11socket_action, "AsyncCurl.socket_action(self, int sockfd, int ev_bitmask) -> int\nCall libcurl socket_action function");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_12socket_action = {"socket_action", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_12socket_action, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_11socket_action};
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_12socket_action(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_12socket_action, "AsyncCurl.socket_action(self, int sockfd, int ev_bitmask) -> int\nCall libcurl socket_action function");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_13socket_action = {"socket_action", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_13socket_action, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_12socket_action};
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_13socket_action(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -42275,7 +42587,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 668, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 714, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -42283,14 +42595,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 668, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 714, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("socket_action", 1, 2, 2, 1); __PYX_ERR(0, 668, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("socket_action", 1, 2, 2, 1); __PYX_ERR(0, 714, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "socket_action") < 0)) __PYX_ERR(0, 668, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "socket_action") < 0)) __PYX_ERR(0, 714, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -42298,12 +42610,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
     }
-    __pyx_v_sockfd = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_sockfd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 668, __pyx_L3_error)
-    __pyx_v_ev_bitmask = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_ev_bitmask == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 668, __pyx_L3_error)
+    __pyx_v_sockfd = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_sockfd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 714, __pyx_L3_error)
+    __pyx_v_ev_bitmask = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_ev_bitmask == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 714, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("socket_action", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 668, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("socket_action", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 714, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -42317,7 +42629,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_11socket_action(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_sockfd, __pyx_v_ev_bitmask);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_12socket_action(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_sockfd, __pyx_v_ev_bitmask);
 
   /* function exit code */
   {
@@ -42330,7 +42642,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_11socket_action(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_12socket_action(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -42340,8 +42652,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_11socket_action(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("socket_action", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 668, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 668, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 714, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 714, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -42358,7 +42670,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_11socket_action(struct __pyx
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":678
+/* "cycurl/_curl.pyx":724
  *         return running_handle
  * 
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):             # <<<<<<<<<<<<<<
@@ -42366,7 +42678,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_11socket_action(struct __pyx
  *         if not self._curlm:
  */
 
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_14process_data(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_15process_data(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -42390,7 +42702,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("process_data", 1);
 
-  /* "cycurl/_curl.pyx":680
+  /* "cycurl/_curl.pyx":726
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:             # <<<<<<<<<<<<<<
@@ -42400,16 +42712,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
   __pyx_t_1 = (!(__pyx_v_self->_curlm != 0));
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":681
+    /* "cycurl/_curl.pyx":727
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:
  *             warnings.warn("Curlm alread closed! quitting from process_data")             # <<<<<<<<<<<<<<
  *             return
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_warnings); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 681, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_warnings); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 727, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warn); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 681, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warn); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 727, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -42430,13 +42742,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
       PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_kp_u_Curlm_alread_closed_quitting_fro};
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 681, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 727, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":682
+    /* "cycurl/_curl.pyx":728
  *         if not self._curlm:
  *             warnings.warn("Curlm alread closed! quitting from process_data")
  *             return             # <<<<<<<<<<<<<<
@@ -42447,7 +42759,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":680
+    /* "cycurl/_curl.pyx":726
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:             # <<<<<<<<<<<<<<
@@ -42456,16 +42768,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  */
   }
 
-  /* "cycurl/_curl.pyx":684
+  /* "cycurl/_curl.pyx":730
  *             return
  * 
  *         self.socket_action(sockfd, ev_bitmask)             # <<<<<<<<<<<<<<
  * 
  *         cdef:
  */
-  __pyx_t_5 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 0); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 684, __pyx_L1_error)
+  __pyx_t_5 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 0); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 730, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":691
+  /* "cycurl/_curl.pyx":737
  *             curl.CURLMsg *curl_msg
  *             Curl curl_
  *         while True:             # <<<<<<<<<<<<<<
@@ -42474,7 +42786,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  */
   while (1) {
 
-    /* "cycurl/_curl.pyx":692
+    /* "cycurl/_curl.pyx":738
  *             Curl curl_
  *         while True:
  *             curl_msg = curl.curl_multi_info_read(self._curlm, &msg_in_queue)             # <<<<<<<<<<<<<<
@@ -42483,7 +42795,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  */
     __pyx_v_curl_msg = curl_multi_info_read(__pyx_v_self->_curlm, (&__pyx_v_msg_in_queue));
 
-    /* "cycurl/_curl.pyx":694
+    /* "cycurl/_curl.pyx":740
  *             curl_msg = curl.curl_multi_info_read(self._curlm, &msg_in_queue)
  *             # print("message in queue", msg_in_queue[0], curl_msg)
  *             if curl_msg == NULL:             # <<<<<<<<<<<<<<
@@ -42493,7 +42805,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
     __pyx_t_1 = (__pyx_v_curl_msg == NULL);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":695
+      /* "cycurl/_curl.pyx":741
  *             # print("message in queue", msg_in_queue[0], curl_msg)
  *             if curl_msg == NULL:
  *                 break             # <<<<<<<<<<<<<<
@@ -42502,7 +42814,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  */
       goto __pyx_L5_break;
 
-      /* "cycurl/_curl.pyx":694
+      /* "cycurl/_curl.pyx":740
  *             curl_msg = curl.curl_multi_info_read(self._curlm, &msg_in_queue)
  *             # print("message in queue", msg_in_queue[0], curl_msg)
  *             if curl_msg == NULL:             # <<<<<<<<<<<<<<
@@ -42511,7 +42823,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  */
     }
 
-    /* "cycurl/_curl.pyx":696
+    /* "cycurl/_curl.pyx":742
  *             if curl_msg == NULL:
  *                 break
  *             if curl_msg.msg == curl.CURLMSG_DONE:             # <<<<<<<<<<<<<<
@@ -42521,7 +42833,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
     __pyx_t_1 = (__pyx_v_curl_msg->msg == CURLMSG_DONE);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":698
+      /* "cycurl/_curl.pyx":744
  *             if curl_msg.msg == curl.CURLMSG_DONE:
  *                 # print("curl_message", curl_msg.msg, curl_msg.data.result)
  *                 curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]             # <<<<<<<<<<<<<<
@@ -42530,11 +42842,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  */
       if (unlikely(__pyx_v_self->_curl2curl == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 698, __pyx_L1_error)
+        __PYX_ERR(0, 744, __pyx_L1_error)
       }
-      __pyx_t_2 = __Pyx_PyInt_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_msg->easy_handle))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 698, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_msg->easy_handle))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 744, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = __Pyx_PyDict_GetItem(__pyx_v_self->_curl2curl, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 698, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyDict_GetItem(__pyx_v_self->_curl2curl, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 744, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = __pyx_t_4;
@@ -42543,7 +42855,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
       __Pyx_XDECREF_SET(__pyx_v_curl_, ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_2));
       __pyx_t_2 = 0;
 
-      /* "cycurl/_curl.pyx":699
+      /* "cycurl/_curl.pyx":745
  *                 # print("curl_message", curl_msg.msg, curl_msg.data.result)
  *                 curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]
  *                 retcode = curl_msg.data.result             # <<<<<<<<<<<<<<
@@ -42553,7 +42865,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
       __pyx_t_5 = __pyx_v_curl_msg->data.result;
       __pyx_v_retcode = __pyx_t_5;
 
-      /* "cycurl/_curl.pyx":700
+      /* "cycurl/_curl.pyx":746
  *                 curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]
  *                 retcode = curl_msg.data.result
  *                 if retcode == 0:             # <<<<<<<<<<<<<<
@@ -42563,18 +42875,18 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
       __pyx_t_1 = (__pyx_v_retcode == 0);
       if (__pyx_t_1) {
 
-        /* "cycurl/_curl.pyx":701
+        /* "cycurl/_curl.pyx":747
  *                 retcode = curl_msg.data.result
  *                 if retcode == 0:
  *                     self.set_result(curl_)             # <<<<<<<<<<<<<<
  *                 else:
  *                     # import pdb; pdb.set_trace()
  */
-        __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 701, __pyx_L1_error)
+        __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 747, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "cycurl/_curl.pyx":700
+        /* "cycurl/_curl.pyx":746
  *                 curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]
  *                 retcode = curl_msg.data.result
  *                 if retcode == 0:             # <<<<<<<<<<<<<<
@@ -42584,7 +42896,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
         goto __pyx_L8;
       }
 
-      /* "cycurl/_curl.pyx":704
+      /* "cycurl/_curl.pyx":750
  *                 else:
  *                     # import pdb; pdb.set_trace()
  *                     self.set_exception(curl_, curl_._get_error(retcode, "perform"))             # <<<<<<<<<<<<<<
@@ -42592,16 +42904,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  *                 print("NOT DONE")  # Will not reach, for no other code being defined.
  */
       /*else*/ {
-        __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__get_error(__pyx_v_curl_, __pyx_v_retcode, __pyx_n_u_perform); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 704, __pyx_L1_error)
+        __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__get_error(__pyx_v_curl_, __pyx_v_retcode, __pyx_n_u_perform); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 750, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_4 = __pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(__pyx_v_self, __pyx_v_curl_, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 704, __pyx_L1_error)
+        __pyx_t_4 = __pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(__pyx_v_self, __pyx_v_curl_, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 750, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
       __pyx_L8:;
 
-      /* "cycurl/_curl.pyx":696
+      /* "cycurl/_curl.pyx":742
  *             if curl_msg == NULL:
  *                 break
  *             if curl_msg.msg == curl.CURLMSG_DONE:             # <<<<<<<<<<<<<<
@@ -42611,7 +42923,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
       goto __pyx_L7;
     }
 
-    /* "cycurl/_curl.pyx":706
+    /* "cycurl/_curl.pyx":752
  *                     self.set_exception(curl_, curl_._get_error(retcode, "perform"))
  *             else:
  *                 print("NOT DONE")  # Will not reach, for no other code being defined.             # <<<<<<<<<<<<<<
@@ -42619,7 +42931,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  *     cdef inline object _pop_future(self, Curl curl_):
  */
     /*else*/ {
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__21, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 706, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__21, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 752, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
@@ -42627,7 +42939,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
   }
   __pyx_L5_break:;
 
-  /* "cycurl/_curl.pyx":678
+  /* "cycurl/_curl.pyx":724
  *         return running_handle
  * 
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):             # <<<<<<<<<<<<<<
@@ -42652,16 +42964,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_14process_data(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_15process_data(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_13process_data, "AsyncCurl.process_data(self, int sockfd, int ev_bitmask)\nCall curl_multi_info_read to read data for given socket.");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_14process_data = {"process_data", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_14process_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_13process_data};
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_14process_data(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_14process_data, "AsyncCurl.process_data(self, int sockfd, int ev_bitmask)\nCall curl_multi_info_read to read data for given socket.");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_15process_data = {"process_data", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_15process_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_14process_data};
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_15process_data(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -42708,7 +43020,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 678, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 724, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -42716,14 +43028,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 678, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 724, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("process_data", 1, 2, 2, 1); __PYX_ERR(0, 678, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("process_data", 1, 2, 2, 1); __PYX_ERR(0, 724, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "process_data") < 0)) __PYX_ERR(0, 678, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "process_data") < 0)) __PYX_ERR(0, 724, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -42731,12 +43043,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
     }
-    __pyx_v_sockfd = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_sockfd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 678, __pyx_L3_error)
-    __pyx_v_ev_bitmask = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_ev_bitmask == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 678, __pyx_L3_error)
+    __pyx_v_sockfd = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_sockfd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 724, __pyx_L3_error)
+    __pyx_v_ev_bitmask = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_ev_bitmask == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 724, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("process_data", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 678, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("process_data", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 724, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -42750,7 +43062,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_13process_data(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_sockfd, __pyx_v_ev_bitmask);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_14process_data(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_sockfd, __pyx_v_ev_bitmask);
 
   /* function exit code */
   {
@@ -42763,7 +43075,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_13process_data(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_14process_data(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, int __pyx_v_sockfd, int __pyx_v_ev_bitmask) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -42772,7 +43084,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_13process_data(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("process_data", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 678, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -42789,7 +43101,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_13process_data(struct __pyx_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":708
+/* "cycurl/_curl.pyx":754
  *                 print("NOT DONE")  # Will not reach, for no other code being defined.
  * 
  *     cdef inline object _pop_future(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -42807,7 +43119,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_pop_future", 1);
 
-  /* "cycurl/_curl.pyx":709
+  /* "cycurl/_curl.pyx":755
  * 
  *     cdef inline object _pop_future(self, Curl curl_):
  *         curl.curl_multi_remove_handle(self._curlm, curl_._curl)             # <<<<<<<<<<<<<<
@@ -42816,7 +43128,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
  */
   (void)(curl_multi_remove_handle(__pyx_v_self->_curlm, __pyx_v_curl_->_curl));
 
-  /* "cycurl/_curl.pyx":710
+  /* "cycurl/_curl.pyx":756
  *     cdef inline object _pop_future(self, Curl curl_):
  *         curl.curl_multi_remove_handle(self._curlm, curl_._curl)
  *         self._curl2curl.pop(<long long><void*>curl_._curl, None)             # <<<<<<<<<<<<<<
@@ -42825,16 +43137,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
  */
   if (unlikely(__pyx_v_self->_curl2curl == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "pop");
-    __PYX_ERR(0, 710, __pyx_L1_error)
+    __PYX_ERR(0, 756, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyInt_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_->_curl))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 710, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_->_curl))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 756, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyDict_Pop(__pyx_v_self->_curl2curl, __pyx_t_1, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 710, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_Pop(__pyx_v_self->_curl2curl, __pyx_t_1, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 756, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":711
+  /* "cycurl/_curl.pyx":757
  *         curl.curl_multi_remove_handle(self._curlm, curl_._curl)
  *         self._curl2curl.pop(<long long><void*>curl_._curl, None)
  *         return self._curl2future.pop(curl_, None)             # <<<<<<<<<<<<<<
@@ -42844,15 +43156,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_self->_curl2future == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "pop");
-    __PYX_ERR(0, 711, __pyx_L1_error)
+    __PYX_ERR(0, 757, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyDict_Pop(__pyx_v_self->_curl2future, ((PyObject *)__pyx_v_curl_), Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 711, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_Pop(__pyx_v_self->_curl2future, ((PyObject *)__pyx_v_curl_), Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 757, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":708
+  /* "cycurl/_curl.pyx":754
  *                 print("NOT DONE")  # Will not reach, for no other code being defined.
  * 
  *     cdef inline object _pop_future(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -42872,7 +43184,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":713
+/* "cycurl/_curl.pyx":759
  *         return self._curl2future.pop(curl_, None)
  * 
  *     cpdef inline remove_handle(self, Curl curl):             # <<<<<<<<<<<<<<
@@ -42880,7 +43192,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
  *         cdef object future = self._pop_future(curl)
  */
 
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_16remove_handle(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_17remove_handle(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -42903,32 +43215,32 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("remove_handle", 1);
 
-  /* "cycurl/_curl.pyx":715
+  /* "cycurl/_curl.pyx":761
  *     cpdef inline remove_handle(self, Curl curl):
  *         """Cancel a future for given curl handle."""
  *         cdef object future = self._pop_future(curl)             # <<<<<<<<<<<<<<
  *         if future and not future.done() and not future.cancelled():
  *             future.cancel()
  */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 715, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 761, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_future = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":716
+  /* "cycurl/_curl.pyx":762
  *         """Cancel a future for given curl handle."""
  *         cdef object future = self._pop_future(curl)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
  *             future.cancel()
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 716, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 762, __pyx_L1_error)
   if (__pyx_t_3) {
   } else {
     __pyx_t_2 = __pyx_t_3;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_done); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 716, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_done); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 762, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   __pyx_t_6 = 0;
@@ -42948,11 +43260,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
     PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 716, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 762, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 716, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 762, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_7 = (!__pyx_t_3);
   if (__pyx_t_7) {
@@ -42960,7 +43272,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
     __pyx_t_2 = __pyx_t_7;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_cancelled); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 716, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_cancelled); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 762, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   __pyx_t_6 = 0;
@@ -42980,25 +43292,25 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
     PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 716, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 762, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 716, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 762, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (!__pyx_t_7);
   __pyx_t_2 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":717
+    /* "cycurl/_curl.pyx":763
  *         cdef object future = self._pop_future(curl)
  *         if future and not future.done() and not future.cancelled():
  *             future.cancel()             # <<<<<<<<<<<<<<
  * 
  *     cdef inline set_result(self, Curl curl):
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_cancel); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 717, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_cancel); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 763, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -43018,13 +43330,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
       PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 717, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 763, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":716
+    /* "cycurl/_curl.pyx":762
  *         """Cancel a future for given curl handle."""
  *         cdef object future = self._pop_future(curl)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
@@ -43033,7 +43345,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
  */
   }
 
-  /* "cycurl/_curl.pyx":713
+  /* "cycurl/_curl.pyx":759
  *         return self._curl2future.pop(curl_, None)
  * 
  *     cpdef inline remove_handle(self, Curl curl):             # <<<<<<<<<<<<<<
@@ -43058,16 +43370,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_16remove_handle(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_17remove_handle(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_15remove_handle, "AsyncCurl.remove_handle(self, Curl curl)\nCancel a future for given curl handle.");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_16remove_handle = {"remove_handle", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_16remove_handle, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_15remove_handle};
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_16remove_handle(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_16remove_handle, "AsyncCurl.remove_handle(self, Curl curl)\nCancel a future for given curl handle.");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_17remove_handle = {"remove_handle", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_17remove_handle, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_16remove_handle};
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_17remove_handle(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -43095,7 +43407,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_curl_2,0};
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_curl_3,0};
     if (__pyx_kwds) {
       Py_ssize_t kw_args;
       switch (__pyx_nargs) {
@@ -43107,16 +43419,16 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
       switch (__pyx_nargs) {
         case  0:
-        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_curl_2)) != 0)) {
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_curl_3)) != 0)) {
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 713, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 759, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "remove_handle") < 0)) __PYX_ERR(0, 713, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "remove_handle") < 0)) __PYX_ERR(0, 759, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -43127,7 +43439,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("remove_handle", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 713, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("remove_handle", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 759, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -43141,8 +43453,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl), __pyx_ptype_6cycurl_5_curl_Curl, 1, "curl", 0))) __PYX_ERR(0, 713, __pyx_L1_error)
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_15remove_handle(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_curl);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl), __pyx_ptype_6cycurl_5_curl_Curl, 1, "curl", 0))) __PYX_ERR(0, 759, __pyx_L1_error)
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_16remove_handle(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_curl);
 
   /* function exit code */
   goto __pyx_L0;
@@ -43159,7 +43471,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_15remove_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_16remove_handle(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -43168,7 +43480,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_15remove_handle(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("remove_handle", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(__pyx_v_self, __pyx_v_curl, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 713, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(__pyx_v_self, __pyx_v_curl, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 759, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -43185,7 +43497,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_15remove_handle(struct __pyx
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":719
+/* "cycurl/_curl.pyx":765
  *             future.cancel()
  * 
  *     cdef inline set_result(self, Curl curl):             # <<<<<<<<<<<<<<
@@ -43209,32 +43521,32 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_result", 1);
 
-  /* "cycurl/_curl.pyx":721
+  /* "cycurl/_curl.pyx":767
  *     cdef inline set_result(self, Curl curl):
  *         """Mark a future as done for given curl handle."""
  *         cdef object future = self._pop_future(curl)             # <<<<<<<<<<<<<<
  *         if future and not future.done() and not future.cancelled():
  *             future.set_result(None)
  */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 721, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 767, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_future = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":722
+  /* "cycurl/_curl.pyx":768
  *         """Mark a future as done for given curl handle."""
  *         cdef object future = self._pop_future(curl)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
  *             future.set_result(None)
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 722, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 768, __pyx_L1_error)
   if (__pyx_t_3) {
   } else {
     __pyx_t_2 = __pyx_t_3;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_done); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 722, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_done); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 768, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   __pyx_t_6 = 0;
@@ -43254,11 +43566,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
     PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 768, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 722, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 768, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_7 = (!__pyx_t_3);
   if (__pyx_t_7) {
@@ -43266,7 +43578,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
     __pyx_t_2 = __pyx_t_7;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_cancelled); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 722, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_cancelled); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 768, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   __pyx_t_6 = 0;
@@ -43286,25 +43598,25 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
     PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 768, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 722, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 768, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (!__pyx_t_7);
   __pyx_t_2 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":723
+    /* "cycurl/_curl.pyx":769
  *         cdef object future = self._pop_future(curl)
  *         if future and not future.done() and not future.cancelled():
  *             future.set_result(None)             # <<<<<<<<<<<<<<
  * 
  *     cdef inline set_exception(self, Curl curl, object exception):
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_set_result); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 723, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_set_result); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 769, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -43324,13 +43636,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
       PyObject *__pyx_callargs[2] = {__pyx_t_5, Py_None};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 723, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 769, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":722
+    /* "cycurl/_curl.pyx":768
  *         """Mark a future as done for given curl handle."""
  *         cdef object future = self._pop_future(curl)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
@@ -43339,7 +43651,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
  */
   }
 
-  /* "cycurl/_curl.pyx":719
+  /* "cycurl/_curl.pyx":765
  *             future.cancel()
  * 
  *     cdef inline set_result(self, Curl curl):             # <<<<<<<<<<<<<<
@@ -43363,7 +43675,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":725
+/* "cycurl/_curl.pyx":771
  *             future.set_result(None)
  * 
  *     cdef inline set_exception(self, Curl curl, object exception):             # <<<<<<<<<<<<<<
@@ -43387,32 +43699,32 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_exception", 1);
 
-  /* "cycurl/_curl.pyx":727
+  /* "cycurl/_curl.pyx":773
  *     cdef inline set_exception(self, Curl curl, object exception):
  *         """Raise exception of a future for given curl handle."""
  *         cdef object future = self._pop_future(curl)             # <<<<<<<<<<<<<<
  *         if future and not future.done() and not future.cancelled():
  *             future.set_exception(exception)
  */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 727, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 773, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_future = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":728
+  /* "cycurl/_curl.pyx":774
  *         """Raise exception of a future for given curl handle."""
  *         cdef object future = self._pop_future(curl)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
  *             future.set_exception(exception)
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 728, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 774, __pyx_L1_error)
   if (__pyx_t_3) {
   } else {
     __pyx_t_2 = __pyx_t_3;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_done); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 728, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_done); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 774, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   __pyx_t_6 = 0;
@@ -43432,11 +43744,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
     PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 728, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 774, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 728, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 774, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_7 = (!__pyx_t_3);
   if (__pyx_t_7) {
@@ -43444,7 +43756,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
     __pyx_t_2 = __pyx_t_7;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_cancelled); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 728, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_cancelled); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 774, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   __pyx_t_6 = 0;
@@ -43464,25 +43776,25 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
     PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 728, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 774, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 728, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 774, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (!__pyx_t_7);
   __pyx_t_2 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":729
+    /* "cycurl/_curl.pyx":775
  *         cdef object future = self._pop_future(curl)
  *         if future and not future.done() and not future.cancelled():
  *             future.set_exception(exception)             # <<<<<<<<<<<<<<
  * 
  * @cython.freelist(8)
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_set_exception); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 729, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_future, __pyx_n_s_set_exception); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 775, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -43502,13 +43814,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
       PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_v_exception};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 729, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 775, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":728
+    /* "cycurl/_curl.pyx":774
  *         """Raise exception of a future for given curl handle."""
  *         cdef object future = self._pop_future(curl)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
@@ -43517,7 +43829,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
  */
   }
 
-  /* "cycurl/_curl.pyx":725
+  /* "cycurl/_curl.pyx":771
  *             future.set_result(None)
  * 
  *     cdef inline set_exception(self, Curl curl, object exception):             # <<<<<<<<<<<<<<
@@ -43548,16 +43860,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_19__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_17__reduce_cython__, "AsyncCurl.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_17__reduce_cython__};
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__, "AsyncCurl.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_19__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_19__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__};
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_19__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -43582,14 +43894,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("__reduce_cython__", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__reduce_cython__", 0))) return NULL;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_17__reduce_cython__(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_17__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -43629,16 +43941,16 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_17__reduce_cython__(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_21__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_19__setstate_cython__, "AsyncCurl.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_19__setstate_cython__};
-static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__, "AsyncCurl.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9AsyncCurl_21__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_21__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__};
+static PyObject *__pyx_pw_6cycurl_5_curl_9AsyncCurl_21__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -43712,7 +44024,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_19__setstate_cython__(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   {
@@ -43725,7 +44037,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_19__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -43757,16 +44069,20 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_19__setstate_cython__(CYTHON
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":739
+/* "cycurl/_curl.pyx":787
  *         curl.curl_mime *form
  * 
  *     def __init__(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
- *         self._curl = curl_ if curl_ else Curl()
- *         self.form = curl.curl_mime_init(self._curl._curl)
+ *         """
+ *         Args:
  */
 
 /* Python wrapper */
 static int __pyx_pw_6cycurl_5_curl_8CurlMime_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_8CurlMime___init__, "\n        Args:\n            curl: Curl instance to use.\n        ");
+#if CYTHON_UPDATE_DESCRIPTOR_DOC
+struct wrapperbase __pyx_wrapperbase_6cycurl_5_curl_8CurlMime___init__;
+#endif
 static int __pyx_pw_6cycurl_5_curl_8CurlMime_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl_ = 0;
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
@@ -43785,7 +44101,7 @@ static int __pyx_pw_6cycurl_5_curl_8CurlMime_1__init__(PyObject *__pyx_v_self, P
   #endif
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
   {
-    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_curl,0};
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_curl_2,0};
     values[0] = __Pyx_Arg_NewRef_VARARGS((PyObject *)((struct __pyx_obj_6cycurl_5_curl_Curl *)Py_None));
     if (__pyx_kwds) {
       Py_ssize_t kw_args;
@@ -43799,14 +44115,14 @@ static int __pyx_pw_6cycurl_5_curl_8CurlMime_1__init__(PyObject *__pyx_v_self, P
       switch (__pyx_nargs) {
         case  0:
         if (kw_args > 0) {
-          PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_curl);
+          PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_curl_2);
           if (value) { values[0] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 739, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 787, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__init__") < 0)) __PYX_ERR(0, 739, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__init__") < 0)) __PYX_ERR(0, 787, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -43820,7 +44136,7 @@ static int __pyx_pw_6cycurl_5_curl_8CurlMime_1__init__(PyObject *__pyx_v_self, P
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 739, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 787, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -43834,7 +44150,7 @@ static int __pyx_pw_6cycurl_5_curl_8CurlMime_1__init__(PyObject *__pyx_v_self, P
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 739, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 787, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime___init__(((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_v_self), __pyx_v_curl_);
 
   /* function exit code */
@@ -43863,19 +44179,19 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 1);
 
-  /* "cycurl/_curl.pyx":740
- * 
- *     def __init__(self, Curl curl_ = None):
+  /* "cycurl/_curl.pyx":792
+ *             curl: Curl instance to use.
+ *         """
  *         self._curl = curl_ if curl_ else Curl()             # <<<<<<<<<<<<<<
  *         self.form = curl.curl_mime_init(self._curl._curl)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_curl_)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 740, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_curl_)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 792, __pyx_L1_error)
   if (__pyx_t_2) {
     __Pyx_INCREF((PyObject *)__pyx_v_curl_);
     __pyx_t_1 = ((PyObject *)__pyx_v_curl_);
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 740, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -43886,8 +44202,8 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
   __pyx_v_self->_curl = ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":741
- *     def __init__(self, Curl curl_ = None):
+  /* "cycurl/_curl.pyx":793
+ *         """
  *         self._curl = curl_ if curl_ else Curl()
  *         self.form = curl.curl_mime_init(self._curl._curl)             # <<<<<<<<<<<<<<
  * 
@@ -43895,12 +44211,12 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
  */
   __pyx_v_self->form = curl_mime_init(__pyx_v_self->_curl->_curl);
 
-  /* "cycurl/_curl.pyx":739
+  /* "cycurl/_curl.pyx":787
  *         curl.curl_mime *form
  * 
  *     def __init__(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
- *         self._curl = curl_ if curl_ else Curl()
- *         self.form = curl.curl_mime_init(self._curl._curl)
+ *         """
+ *         Args:
  */
 
   /* function exit code */
@@ -43916,7 +44232,7 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":743
+/* "cycurl/_curl.pyx":795
  *         self.form = curl.curl_mime_init(self._curl._curl)
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -43948,7 +44264,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "cycurl/_curl.pyx":745
+  /* "cycurl/_curl.pyx":797
  *     @property
  *     def _form(self):
  *         return PyCapsule_New(self.form, NULL, NULL)             # <<<<<<<<<<<<<<
@@ -43956,13 +44272,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_o
  *     cpdef inline addpart(
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 745, __pyx_L1_error)
+  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 797, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":743
+  /* "cycurl/_curl.pyx":795
  *         self.form = curl.curl_mime_init(self._curl._curl)
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -43981,7 +44297,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":747
+/* "cycurl/_curl.pyx":799
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -43998,7 +44314,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct __pyx_obj_6cycurl_5_curl_CurlMime *__pyx_v_self, PyObject *__pyx_v_name, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_addpart *__pyx_optional_args) {
 
-  /* "cycurl/_curl.pyx":750
+  /* "cycurl/_curl.pyx":802
  *         self,
  *         str name,
  *         str content_type = None,             # <<<<<<<<<<<<<<
@@ -44007,7 +44323,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   PyObject *__pyx_v_content_type = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":751
+  /* "cycurl/_curl.pyx":803
  *         str name,
  *         str content_type = None,
  *         str filename = None,             # <<<<<<<<<<<<<<
@@ -44016,7 +44332,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   PyObject *__pyx_v_filename = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":752
+  /* "cycurl/_curl.pyx":804
  *         str content_type = None,
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]             # <<<<<<<<<<<<<<
@@ -44025,12 +44341,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   PyObject *__pyx_v_local_path = ((PyObject *)Py_None);
 
-  /* "cycurl/_curl.pyx":753
+  /* "cycurl/_curl.pyx":805
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]
  *         object data = None,             # <<<<<<<<<<<<<<
  *     ):
- *         cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)
+ *         """Add a mime part for a mutlipart html form.
  */
   PyObject *__pyx_v_data = ((PyObject *)Py_None);
   curl_mimepart *__pyx_v_part;
@@ -44075,16 +44391,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __Pyx_INCREF(__pyx_v_local_path);
   __Pyx_INCREF(__pyx_v_data);
 
-  /* "cycurl/_curl.pyx":755
- *         object data = None,
- *     ):
+  /* "cycurl/_curl.pyx":816
+ *             data: file content to upload.
+ *         """
  *         cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)             # <<<<<<<<<<<<<<
  *         cdef int ret
  *         cdef bytes bytesname = name.encode()
  */
   __pyx_v_part = curl_mime_addpart(__pyx_v_self->form);
 
-  /* "cycurl/_curl.pyx":757
+  /* "cycurl/_curl.pyx":818
  *         cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)
  *         cdef int ret
  *         cdef bytes bytesname = name.encode()             # <<<<<<<<<<<<<<
@@ -44093,14 +44409,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   if (unlikely(__pyx_v_name == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
-    __PYX_ERR(0, 757, __pyx_L1_error)
+    __PYX_ERR(0, 818, __pyx_L1_error)
   }
-  __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_name, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 757, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_name, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 818, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_bytesname = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":758
+  /* "cycurl/_curl.pyx":819
  *         cdef int ret
  *         cdef bytes bytesname = name.encode()
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)             # <<<<<<<<<<<<<<
@@ -44109,12 +44425,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   if (unlikely(__pyx_v_bytesname == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-    __PYX_ERR(0, 758, __pyx_L1_error)
+    __PYX_ERR(0, 819, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_bytesname); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 758, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_bytesname); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 819, __pyx_L1_error)
   __pyx_v_ret = curl_mime_name(__pyx_v_part, ((char const *)__pyx_t_2));
 
-  /* "cycurl/_curl.pyx":759
+  /* "cycurl/_curl.pyx":820
  *         cdef bytes bytesname = name.encode()
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -44124,14 +44440,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_ret != 0);
   if (unlikely(__pyx_t_3)) {
 
-    /* "cycurl/_curl.pyx":760
+    /* "cycurl/_curl.pyx":821
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)
  *         if ret != 0:
  *             raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
  * 
  *         # mime type
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 760, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 821, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -44151,15 +44467,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_kp_u_Add_field_failed};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 760, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 821, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 760, __pyx_L1_error)
+    __PYX_ERR(0, 821, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":759
+    /* "cycurl/_curl.pyx":820
  *         cdef bytes bytesname = name.encode()
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -44168,7 +44484,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   }
 
-  /* "cycurl/_curl.pyx":764
+  /* "cycurl/_curl.pyx":825
  *         # mime type
  *         cdef bytes bytescontent_type
  *         if content_type is not None:             # <<<<<<<<<<<<<<
@@ -44178,7 +44494,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_content_type != ((PyObject*)Py_None));
   if (__pyx_t_3) {
 
-    /* "cycurl/_curl.pyx":765
+    /* "cycurl/_curl.pyx":826
  *         cdef bytes bytescontent_type
  *         if content_type is not None:
  *             bytescontent_type = content_type.encode()             # <<<<<<<<<<<<<<
@@ -44187,14 +44503,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     if (unlikely(__pyx_v_content_type == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
-      __PYX_ERR(0, 765, __pyx_L1_error)
+      __PYX_ERR(0, 826, __pyx_L1_error)
     }
-    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_content_type, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 765, __pyx_L1_error)
+    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_content_type, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 826, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_bytescontent_type = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":766
+    /* "cycurl/_curl.pyx":827
  *         if content_type is not None:
  *             bytescontent_type = content_type.encode()
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)             # <<<<<<<<<<<<<<
@@ -44203,12 +44519,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     if (unlikely(__pyx_v_bytescontent_type == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-      __PYX_ERR(0, 766, __pyx_L1_error)
+      __PYX_ERR(0, 827, __pyx_L1_error)
     }
-    __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_bytescontent_type); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 766, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_bytescontent_type); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 827, __pyx_L1_error)
     __pyx_v_ret = curl_mime_type(__pyx_v_part, ((char const *)__pyx_t_7));
 
-    /* "cycurl/_curl.pyx":767
+    /* "cycurl/_curl.pyx":828
  *             bytescontent_type = content_type.encode()
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -44218,14 +44534,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_3 = (__pyx_v_ret != 0);
     if (unlikely(__pyx_t_3)) {
 
-      /* "cycurl/_curl.pyx":768
+      /* "cycurl/_curl.pyx":829
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
  * 
  *         # remote file name
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 768, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 829, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       __pyx_t_6 = 0;
@@ -44245,15 +44561,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_kp_u_Add_field_failed};
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 768, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 829, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 768, __pyx_L1_error)
+      __PYX_ERR(0, 829, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":767
+      /* "cycurl/_curl.pyx":828
  *             bytescontent_type = content_type.encode()
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -44262,7 +44578,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     }
 
-    /* "cycurl/_curl.pyx":764
+    /* "cycurl/_curl.pyx":825
  *         # mime type
  *         cdef bytes bytescontent_type
  *         if content_type is not None:             # <<<<<<<<<<<<<<
@@ -44271,7 +44587,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   }
 
-  /* "cycurl/_curl.pyx":772
+  /* "cycurl/_curl.pyx":833
  *         # remote file name
  *         cdef bytes bytesfilename
  *         if filename is not None:             # <<<<<<<<<<<<<<
@@ -44281,7 +44597,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_filename != ((PyObject*)Py_None));
   if (__pyx_t_3) {
 
-    /* "cycurl/_curl.pyx":773
+    /* "cycurl/_curl.pyx":834
  *         cdef bytes bytesfilename
  *         if filename is not None:
  *             bytesfilename = filename.encode()             # <<<<<<<<<<<<<<
@@ -44290,14 +44606,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     if (unlikely(__pyx_v_filename == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
-      __PYX_ERR(0, 773, __pyx_L1_error)
+      __PYX_ERR(0, 834, __pyx_L1_error)
     }
-    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_filename, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 773, __pyx_L1_error)
+    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_filename, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 834, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_bytesfilename = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":774
+    /* "cycurl/_curl.pyx":835
  *         if filename is not None:
  *             bytesfilename = filename.encode()
  *             ret = curl.curl_mime_filename(part, <const char *>bytesfilename)             # <<<<<<<<<<<<<<
@@ -44306,12 +44622,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     if (unlikely(__pyx_v_bytesfilename == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-      __PYX_ERR(0, 774, __pyx_L1_error)
+      __PYX_ERR(0, 835, __pyx_L1_error)
     }
-    __pyx_t_8 = __Pyx_PyBytes_AsString(__pyx_v_bytesfilename); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) __PYX_ERR(0, 774, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyBytes_AsString(__pyx_v_bytesfilename); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) __PYX_ERR(0, 835, __pyx_L1_error)
     __pyx_v_ret = curl_mime_filename(__pyx_v_part, ((char const *)__pyx_t_8));
 
-    /* "cycurl/_curl.pyx":775
+    /* "cycurl/_curl.pyx":836
  *             bytesfilename = filename.encode()
  *             ret = curl.curl_mime_filename(part, <const char *>bytesfilename)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -44321,14 +44637,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_3 = (__pyx_v_ret != 0);
     if (unlikely(__pyx_t_3)) {
 
-      /* "cycurl/_curl.pyx":776
+      /* "cycurl/_curl.pyx":837
  *             ret = curl.curl_mime_filename(part, <const char *>bytesfilename)
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
  * 
  *         if local_path is not None and data is not None:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 776, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 837, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       __pyx_t_6 = 0;
@@ -44348,15 +44664,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_kp_u_Add_field_failed};
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 776, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 837, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 776, __pyx_L1_error)
+      __PYX_ERR(0, 837, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":775
+      /* "cycurl/_curl.pyx":836
  *             bytesfilename = filename.encode()
  *             ret = curl.curl_mime_filename(part, <const char *>bytesfilename)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -44365,7 +44681,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     }
 
-    /* "cycurl/_curl.pyx":772
+    /* "cycurl/_curl.pyx":833
  *         # remote file name
  *         cdef bytes bytesfilename
  *         if filename is not None:             # <<<<<<<<<<<<<<
@@ -44374,7 +44690,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   }
 
-  /* "cycurl/_curl.pyx":778
+  /* "cycurl/_curl.pyx":839
  *                 raise CurlError("Add field failed.")
  * 
  *         if local_path is not None and data is not None:             # <<<<<<<<<<<<<<
@@ -44392,14 +44708,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_L9_bool_binop_done:;
   if (unlikely(__pyx_t_3)) {
 
-    /* "cycurl/_curl.pyx":779
+    /* "cycurl/_curl.pyx":840
  * 
  *         if local_path is not None and data is not None:
  *             raise CurlError("Can not use local_path and data at the same time.")             # <<<<<<<<<<<<<<
  * 
  *         # this is a filename
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 779, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 840, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -44419,15 +44735,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_kp_u_Can_not_use_local_path_and_data};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 779, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 840, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 779, __pyx_L1_error)
+    __PYX_ERR(0, 840, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":778
+    /* "cycurl/_curl.pyx":839
  *                 raise CurlError("Add field failed.")
  * 
  *         if local_path is not None and data is not None:             # <<<<<<<<<<<<<<
@@ -44436,7 +44752,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   }
 
-  /* "cycurl/_curl.pyx":782
+  /* "cycurl/_curl.pyx":843
  * 
  *         # this is a filename
  *         if local_path is not None:             # <<<<<<<<<<<<<<
@@ -44446,7 +44762,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_local_path != Py_None);
   if (__pyx_t_3) {
 
-    /* "cycurl/_curl.pyx":783
+    /* "cycurl/_curl.pyx":844
  *         # this is a filename
  *         if local_path is not None:
  *             if not isinstance(local_path, bytes):             # <<<<<<<<<<<<<<
@@ -44457,16 +44773,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_9 = (!__pyx_t_3);
     if (__pyx_t_9) {
 
-      /* "cycurl/_curl.pyx":784
+      /* "cycurl/_curl.pyx":845
  *         if local_path is not None:
  *             if not isinstance(local_path, bytes):
  *                 local_path = str(local_path).encode()             # <<<<<<<<<<<<<<
  *             if not Path(local_path.decode()).exists():
  *                 raise FileNotFoundError(f"File not found at {local_path}")
  */
-      __pyx_t_4 = __Pyx_PyObject_Str(__pyx_v_local_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 784, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Str(__pyx_v_local_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 845, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 784, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 845, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_4 = NULL;
@@ -44487,14 +44803,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 784, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 845, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
       __Pyx_DECREF_SET(__pyx_v_local_path, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cycurl/_curl.pyx":783
+      /* "cycurl/_curl.pyx":844
  *         # this is a filename
  *         if local_path is not None:
  *             if not isinstance(local_path, bytes):             # <<<<<<<<<<<<<<
@@ -44503,16 +44819,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     }
 
-    /* "cycurl/_curl.pyx":785
+    /* "cycurl/_curl.pyx":846
  *             if not isinstance(local_path, bytes):
  *                 local_path = str(local_path).encode()
  *             if not Path(local_path.decode()).exists():             # <<<<<<<<<<<<<<
  *                 raise FileNotFoundError(f"File not found at {local_path}")
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_Path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 785, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_Path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 846, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_local_path, __pyx_n_s_decode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 785, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_local_path, __pyx_n_s_decode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 846, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __pyx_t_12 = NULL;
     __pyx_t_6 = 0;
@@ -44532,7 +44848,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       PyObject *__pyx_callargs[2] = {__pyx_t_12, NULL};
       __pyx_t_10 = __Pyx_PyObject_FastCall(__pyx_t_11, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 785, __pyx_L1_error)
+      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 846, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     }
@@ -44555,11 +44871,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 785, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 846, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_exists); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 785, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_exists); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 846, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -44580,38 +44896,38 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 785, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 846, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 785, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 846, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_3 = (!__pyx_t_9);
     if (unlikely(__pyx_t_3)) {
 
-      /* "cycurl/_curl.pyx":786
+      /* "cycurl/_curl.pyx":847
  *                 local_path = str(local_path).encode()
  *             if not Path(local_path.decode()).exists():
  *                 raise FileNotFoundError(f"File not found at {local_path}")             # <<<<<<<<<<<<<<
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)
  *             if ret != 0:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_FileNotFoundError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 786, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_FileNotFoundError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 847, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_local_path, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 786, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_local_path, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 847, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_kp_u_File_not_found_at, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 786, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_kp_u_File_not_found_at, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 847, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 786, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 847, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_Raise(__pyx_t_4, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __PYX_ERR(0, 786, __pyx_L1_error)
+      __PYX_ERR(0, 847, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":785
+      /* "cycurl/_curl.pyx":846
  *             if not isinstance(local_path, bytes):
  *                 local_path = str(local_path).encode()
  *             if not Path(local_path.decode()).exists():             # <<<<<<<<<<<<<<
@@ -44620,17 +44936,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     }
 
-    /* "cycurl/_curl.pyx":787
+    /* "cycurl/_curl.pyx":848
  *             if not Path(local_path.decode()).exists():
  *                 raise FileNotFoundError(f"File not found at {local_path}")
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")
  */
-    __pyx_t_13 = __Pyx_PyObject_AsString(__pyx_v_local_path); if (unlikely((!__pyx_t_13) && PyErr_Occurred())) __PYX_ERR(0, 787, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyObject_AsString(__pyx_v_local_path); if (unlikely((!__pyx_t_13) && PyErr_Occurred())) __PYX_ERR(0, 848, __pyx_L1_error)
     __pyx_v_ret = curl_mime_filedata(__pyx_v_part, ((char const *)__pyx_t_13));
 
-    /* "cycurl/_curl.pyx":788
+    /* "cycurl/_curl.pyx":849
  *                 raise FileNotFoundError(f"File not found at {local_path}")
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -44640,14 +44956,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_3 = (__pyx_v_ret != 0);
     if (unlikely(__pyx_t_3)) {
 
-      /* "cycurl/_curl.pyx":789
+      /* "cycurl/_curl.pyx":850
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
  * 
  *         if data is not None:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 789, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 850, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_1 = NULL;
       __pyx_t_6 = 0;
@@ -44667,15 +44983,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_kp_u_Add_field_failed};
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 789, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 850, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
       __Pyx_Raise(__pyx_t_4, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __PYX_ERR(0, 789, __pyx_L1_error)
+      __PYX_ERR(0, 850, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":788
+      /* "cycurl/_curl.pyx":849
  *                 raise FileNotFoundError(f"File not found at {local_path}")
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -44684,7 +45000,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     }
 
-    /* "cycurl/_curl.pyx":782
+    /* "cycurl/_curl.pyx":843
  * 
  *         # this is a filename
  *         if local_path is not None:             # <<<<<<<<<<<<<<
@@ -44693,7 +45009,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   }
 
-  /* "cycurl/_curl.pyx":791
+  /* "cycurl/_curl.pyx":852
  *                 raise CurlError("Add field failed.")
  * 
  *         if data is not None:             # <<<<<<<<<<<<<<
@@ -44703,7 +45019,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_data != Py_None);
   if (__pyx_t_3) {
 
-    /* "cycurl/_curl.pyx":792
+    /* "cycurl/_curl.pyx":853
  * 
  *         if data is not None:
  *             if not isinstance(data, bytes):             # <<<<<<<<<<<<<<
@@ -44714,16 +45030,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_9 = (!__pyx_t_3);
     if (__pyx_t_9) {
 
-      /* "cycurl/_curl.pyx":793
+      /* "cycurl/_curl.pyx":854
  *         if data is not None:
  *             if not isinstance(data, bytes):
  *                 data = str(data).encode()             # <<<<<<<<<<<<<<
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:
  */
-      __pyx_t_5 = __Pyx_PyObject_Str(__pyx_v_data); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 793, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_Str(__pyx_v_data); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 854, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 793, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 854, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_5 = NULL;
@@ -44744,14 +45060,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 793, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 854, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       }
       __Pyx_DECREF_SET(__pyx_v_data, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "cycurl/_curl.pyx":792
+      /* "cycurl/_curl.pyx":853
  * 
  *         if data is not None:
  *             if not isinstance(data, bytes):             # <<<<<<<<<<<<<<
@@ -44760,17 +45076,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     }
 
-    /* "cycurl/_curl.pyx":794
+    /* "cycurl/_curl.pyx":855
  *             if not isinstance(data, bytes):
  *                 data = str(data).encode()
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add data failed.")
  */
-    __pyx_t_14 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_14) && PyErr_Occurred())) __PYX_ERR(0, 794, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_14) && PyErr_Occurred())) __PYX_ERR(0, 855, __pyx_L1_error)
     __pyx_v_ret = curl_mime_data(__pyx_v_part, ((char const *)__pyx_t_14), PyBytes_GET_SIZE(__pyx_v_data));
 
-    /* "cycurl/_curl.pyx":795
+    /* "cycurl/_curl.pyx":856
  *                 data = str(data).encode()
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -44780,14 +45096,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_9 = (__pyx_v_ret != 0);
     if (unlikely(__pyx_t_9)) {
 
-      /* "cycurl/_curl.pyx":796
+      /* "cycurl/_curl.pyx":857
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:
  *                 raise CurlError("Add data failed.")             # <<<<<<<<<<<<<<
  * 
  *     @classmethod
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 796, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CurlError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 857, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_5 = NULL;
       __pyx_t_6 = 0;
@@ -44807,15 +45123,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_kp_u_Add_data_failed};
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 796, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 857, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       }
       __Pyx_Raise(__pyx_t_4, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __PYX_ERR(0, 796, __pyx_L1_error)
+      __PYX_ERR(0, 857, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":795
+      /* "cycurl/_curl.pyx":856
  *                 data = str(data).encode()
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -44824,7 +45140,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
     }
 
-    /* "cycurl/_curl.pyx":791
+    /* "cycurl/_curl.pyx":852
  *                 raise CurlError("Add field failed.")
  * 
  *         if data is not None:             # <<<<<<<<<<<<<<
@@ -44833,7 +45149,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  */
   }
 
-  /* "cycurl/_curl.pyx":747
+  /* "cycurl/_curl.pyx":799
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -44872,7 +45188,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_8CurlMime_2addpart, "CurlMime.addpart(self, unicode name, unicode content_type=None, unicode filename=None, local_path=None, data=None)");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_8CurlMime_2addpart, "CurlMime.addpart(self, unicode name, unicode content_type=None, unicode filename=None, local_path=None, data=None)\nAdd a mime part for a mutlipart html form.\n        Note: You can only use either local_path or data, not both.\n        Args:\n            name: name of the field.\n            content_type: content_type for the field. for example: ``image/png``.\n            filename: filename for the server.\n            local_path: file to upload on local disk.\n            data: file content to upload.\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_8CurlMime_3addpart = {"addpart", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_8CurlMime_3addpart, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_8CurlMime_2addpart};
 static PyObject *__pyx_pw_6cycurl_5_curl_8CurlMime_3addpart(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -44908,7 +45224,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject **__pyx_pyargnames[] = {&__pyx_n_s_name,&__pyx_n_s_content_type,&__pyx_n_s_filename,&__pyx_n_s_local_path,&__pyx_n_s_data,0};
 
-    /* "cycurl/_curl.pyx":750
+    /* "cycurl/_curl.pyx":802
  *         self,
  *         str name,
  *         str content_type = None,             # <<<<<<<<<<<<<<
@@ -44917,7 +45233,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  */
     values[1] = __Pyx_Arg_NewRef_FASTCALL(((PyObject*)Py_None));
 
-    /* "cycurl/_curl.pyx":751
+    /* "cycurl/_curl.pyx":803
  *         str name,
  *         str content_type = None,
  *         str filename = None,             # <<<<<<<<<<<<<<
@@ -44926,7 +45242,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  */
     values[2] = __Pyx_Arg_NewRef_FASTCALL(((PyObject*)Py_None));
 
-    /* "cycurl/_curl.pyx":752
+    /* "cycurl/_curl.pyx":804
  *         str content_type = None,
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]             # <<<<<<<<<<<<<<
@@ -44935,12 +45251,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  */
     values[3] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)Py_None));
 
-    /* "cycurl/_curl.pyx":753
+    /* "cycurl/_curl.pyx":805
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]
  *         object data = None,             # <<<<<<<<<<<<<<
  *     ):
- *         cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)
+ *         """Add a mime part for a mutlipart html form.
  */
     values[4] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)Py_None));
     if (__pyx_kwds) {
@@ -44966,40 +45282,40 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 799, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_content_type);
           if (value) { values[1] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 799, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_filename);
           if (value) { values[2] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 799, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_local_path);
           if (value) { values[3] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 799, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_data);
           if (value) { values[4] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 799, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "addpart") < 0)) __PYX_ERR(0, 747, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "addpart") < 0)) __PYX_ERR(0, 799, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -45024,7 +45340,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, __pyx_nargs); __PYX_ERR(0, 747, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, __pyx_nargs); __PYX_ERR(0, 799, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -45038,12 +45354,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 749, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_content_type), (&PyUnicode_Type), 1, "content_type", 1))) __PYX_ERR(0, 750, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_filename), (&PyUnicode_Type), 1, "filename", 1))) __PYX_ERR(0, 751, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 801, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_content_type), (&PyUnicode_Type), 1, "content_type", 1))) __PYX_ERR(0, 802, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_filename), (&PyUnicode_Type), 1, "filename", 1))) __PYX_ERR(0, 803, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_v_self), __pyx_v_name, __pyx_v_content_type, __pyx_v_filename, __pyx_v_local_path, __pyx_v_data);
 
-  /* "cycurl/_curl.pyx":747
+  /* "cycurl/_curl.pyx":799
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -45081,7 +45397,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(struct __pyx_obj_6cy
   __pyx_t_2.filename = __pyx_v_filename;
   __pyx_t_2.local_path = __pyx_v_local_path;
   __pyx_t_2.data = __pyx_v_data;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->addpart(__pyx_v_self, __pyx_v_name, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 747, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->addpart(__pyx_v_self, __pyx_v_name, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 799, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -45098,12 +45414,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(struct __pyx_obj_6cy
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":798
+/* "cycurl/_curl.pyx":859
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def from_list(cls, list files):  # files: List[dict]
- *         cdef CurlMime form = cls()
+ *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  */
 
 /* Python wrapper */
@@ -45114,7 +45430,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_8CurlMime_4from_list, "CurlMime.from_list(cls, list files)");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_8CurlMime_4from_list, "CurlMime.from_list(cls, list files)\nCreate a multipart instance from a list of dict, for keys, see ``addpart``");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_8CurlMime_5from_list = {"from_list", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_8CurlMime_5from_list, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_8CurlMime_4from_list};
 static PyObject *__pyx_pw_6cycurl_5_curl_8CurlMime_5from_list(PyObject *__pyx_v_cls, 
 #if CYTHON_METH_FASTCALL
@@ -45160,12 +45476,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 798, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 859, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "from_list") < 0)) __PYX_ERR(0, 798, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "from_list") < 0)) __PYX_ERR(0, 859, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -45176,7 +45492,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 798, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 859, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -45190,7 +45506,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_files), (&PyList_Type), 1, "files", 1))) __PYX_ERR(0, 799, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_files), (&PyList_Type), 1, "files", 1))) __PYX_ERR(0, 860, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(((PyTypeObject*)__pyx_v_cls), __pyx_v_files);
 
   /* function exit code */
@@ -45223,21 +45539,21 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("from_list", 1);
 
-  /* "cycurl/_curl.pyx":800
- *     @classmethod
+  /* "cycurl/_curl.pyx":862
  *     def from_list(cls, list files):  # files: List[dict]
+ *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  *         cdef CurlMime form = cls()             # <<<<<<<<<<<<<<
  *         for file in files:
  *             form.addpart(**file)
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_v_cls)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 800, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_v_cls)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 862, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6cycurl_5_curl_CurlMime))))) __PYX_ERR(0, 800, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6cycurl_5_curl_CurlMime))))) __PYX_ERR(0, 862, __pyx_L1_error)
   __pyx_v_form = ((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":801
- *     def from_list(cls, list files):  # files: List[dict]
+  /* "cycurl/_curl.pyx":863
+ *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  *         cdef CurlMime form = cls()
  *         for file in files:             # <<<<<<<<<<<<<<
  *             form.addpart(**file)
@@ -45245,7 +45561,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
  */
   if (unlikely(__pyx_v_files == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 801, __pyx_L1_error)
+    __PYX_ERR(0, 863, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_files; __Pyx_INCREF(__pyx_t_1);
   __pyx_t_2 = 0;
@@ -45253,47 +45569,47 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
     {
       Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
       #if !CYTHON_ASSUME_SAFE_MACROS
-      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 801, __pyx_L1_error)
+      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 863, __pyx_L1_error)
       #endif
       if (__pyx_t_2 >= __pyx_temp) break;
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely((0 < 0))) __PYX_ERR(0, 801, __pyx_L1_error)
+    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely((0 < 0))) __PYX_ERR(0, 863, __pyx_L1_error)
     #else
-    __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 801, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 863, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_file, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":802
+    /* "cycurl/_curl.pyx":864
  *         cdef CurlMime form = cls()
  *         for file in files:
  *             form.addpart(**file)             # <<<<<<<<<<<<<<
  *         return form
  * 
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_form), __pyx_n_s_addpart); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 802, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_form), __pyx_n_s_addpart); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 864, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (unlikely(__pyx_v_file == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-      __PYX_ERR(0, 802, __pyx_L1_error)
+      __PYX_ERR(0, 864, __pyx_L1_error)
     }
     if (likely(PyDict_CheckExact(__pyx_v_file))) {
-      __pyx_t_4 = PyDict_Copy(__pyx_v_file); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 802, __pyx_L1_error)
+      __pyx_t_4 = PyDict_Copy(__pyx_v_file); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 864, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     } else {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_v_file); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 802, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_v_file); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 864, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 802, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 864, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "cycurl/_curl.pyx":801
- *     def from_list(cls, list files):  # files: List[dict]
+    /* "cycurl/_curl.pyx":863
+ *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  *         cdef CurlMime form = cls()
  *         for file in files:             # <<<<<<<<<<<<<<
  *             form.addpart(**file)
@@ -45302,7 +45618,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":803
+  /* "cycurl/_curl.pyx":865
  *         for file in files:
  *             form.addpart(**file)
  *         return form             # <<<<<<<<<<<<<<
@@ -45314,12 +45630,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   __pyx_r = ((PyObject *)__pyx_v_form);
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":798
+  /* "cycurl/_curl.pyx":859
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def from_list(cls, list files):  # files: List[dict]
- *         cdef CurlMime form = cls()
+ *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  */
 
   /* function exit code */
@@ -45338,12 +45654,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":805
+/* "cycurl/_curl.pyx":867
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
+ *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
- *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  */
 
 static PyObject *__pyx_pw_6cycurl_5_curl_8CurlMime_7attach(PyObject *__pyx_v_self, 
@@ -45371,9 +45687,9 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_attach(struct __
     }
   }
 
-  /* "cycurl/_curl.pyx":806
- * 
+  /* "cycurl/_curl.pyx":869
  *     cpdef inline attach(self, Curl curl_ = None):
+ *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl             # <<<<<<<<<<<<<<
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
@@ -45389,24 +45705,24 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_attach(struct __
   __pyx_v_c = ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":807
- *     cpdef inline attach(self, Curl curl_ = None):
+  /* "cycurl/_curl.pyx":870
+ *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))             # <<<<<<<<<<<<<<
  * 
  *     def close(self):
  */
-  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 807, __pyx_L1_error)
+  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 870, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_c, CURLOPT_MIMEPOST, __pyx_t_1, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 807, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_c, CURLOPT_MIMEPOST, __pyx_t_1, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 870, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":805
+  /* "cycurl/_curl.pyx":867
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
+ *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
- *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  */
 
   /* function exit code */
@@ -45431,7 +45747,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_8CurlMime_6attach, "CurlMime.attach(self, Curl curl_=None)");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_8CurlMime_6attach, "CurlMime.attach(self, Curl curl_=None)\nAttach the mime instance to a curl instance.");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_8CurlMime_7attach = {"attach", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_8CurlMime_7attach, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_8CurlMime_6attach};
 static PyObject *__pyx_pw_6cycurl_5_curl_8CurlMime_7attach(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -45461,7 +45777,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_curl,0};
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_curl_2,0};
     values[0] = __Pyx_Arg_NewRef_FASTCALL((PyObject *)((struct __pyx_obj_6cycurl_5_curl_Curl *)Py_None));
     if (__pyx_kwds) {
       Py_ssize_t kw_args;
@@ -45475,14 +45791,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       switch (__pyx_nargs) {
         case  0:
         if (kw_args > 0) {
-          PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_curl);
+          PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_curl_2);
           if (value) { values[0] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 805, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 867, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "attach") < 0)) __PYX_ERR(0, 805, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "attach") < 0)) __PYX_ERR(0, 867, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -45496,7 +45812,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("attach", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 805, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("attach", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 867, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -45510,7 +45826,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 805, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 867, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime_6attach(((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_v_self), __pyx_v_curl_);
 
   /* function exit code */
@@ -45540,7 +45856,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_6attach(struct __pyx_obj_6cyc
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.curl_ = __pyx_v_curl_;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->attach(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 805, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->attach(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -45557,12 +45873,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_6attach(struct __pyx_obj_6cyc
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":809
+/* "cycurl/_curl.pyx":872
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         curl.curl_mime_free(self.form)
- *         self.form = NULL
+ *         """Close the mime instance and underlying files. This method must be called after
+ *         ``perform`` or ``request``."""
  */
 
 /* Python wrapper */
@@ -45573,7 +45889,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_8CurlMime_8close, "CurlMime.close(self)");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_8CurlMime_8close, "CurlMime.close(self)\nClose the mime instance and underlying files. This method must be called after\n        ``perform`` or ``request``.");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_8CurlMime_9close = {"close", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_8CurlMime_9close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_8CurlMime_8close};
 static PyObject *__pyx_pw_6cycurl_5_curl_8CurlMime_9close(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -45612,17 +45928,17 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_8close(struct __pyx_obj_6cycu
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("close", 1);
 
-  /* "cycurl/_curl.pyx":810
- * 
- *     def close(self):
+  /* "cycurl/_curl.pyx":875
+ *         """Close the mime instance and underlying files. This method must be called after
+ *         ``perform`` or ``request``."""
  *         curl.curl_mime_free(self.form)             # <<<<<<<<<<<<<<
  *         self.form = NULL
  * 
  */
   curl_mime_free(__pyx_v_self->form);
 
-  /* "cycurl/_curl.pyx":811
- *     def close(self):
+  /* "cycurl/_curl.pyx":876
+ *         ``perform`` or ``request``."""
  *         curl.curl_mime_free(self.form)
  *         self.form = NULL             # <<<<<<<<<<<<<<
  * 
@@ -45630,12 +45946,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_8close(struct __pyx_obj_6cycu
  */
   __pyx_v_self->form = NULL;
 
-  /* "cycurl/_curl.pyx":809
+  /* "cycurl/_curl.pyx":872
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         curl.curl_mime_free(self.form)
- *         self.form = NULL
+ *         """Close the mime instance and underlying files. This method must be called after
+ *         ``perform`` or ``request``."""
  */
 
   /* function exit code */
@@ -45645,7 +45961,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_8close(struct __pyx_obj_6cycu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":813
+/* "cycurl/_curl.pyx":878
  *         self.form = NULL
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -45676,12 +45992,12 @@ static void __pyx_pf_6cycurl_5_curl_8CurlMime_10__del__(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__del__", 1);
 
-  /* "cycurl/_curl.pyx":814
+  /* "cycurl/_curl.pyx":879
  * 
  *     def __del__(self):
  *         self.close()             # <<<<<<<<<<<<<<
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_close); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 814, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_close); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 879, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -45701,13 +46017,13 @@ static void __pyx_pf_6cycurl_5_curl_8CurlMime_10__del__(struct __pyx_obj_6cycurl
     PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 814, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 879, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":813
+  /* "cycurl/_curl.pyx":878
  *         self.form = NULL
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -46354,9 +46670,10 @@ static void __pyx_tp_dealloc_6cycurl_5_curl_AsyncCurl(PyObject *o) {
 }
 
 static PyMethodDef __pyx_methods_6cycurl_5_curl_AsyncCurl[] = {
-  {"_force_timeout", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_7_force_timeout, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_6_force_timeout},
-  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_17__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_19__setstate_cython__},
+  {"close", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_5close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_4close},
+  {"_force_timeout", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_8_force_timeout, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_7_force_timeout},
+  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_19__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9AsyncCurl_21__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__},
   {0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
@@ -46541,7 +46858,7 @@ static struct PyGetSetDef __pyx_getsets_6cycurl_5_curl_CurlMime[] = {
 #if CYTHON_USE_TYPE_SPECS
 static PyType_Slot __pyx_type_6cycurl_5_curl_CurlMime_slots[] = {
   {Py_tp_dealloc, (void *)__pyx_tp_dealloc_6cycurl_5_curl_CurlMime},
-  {Py_tp_doc, (void *)PyDoc_STR("CurlMime(Curl curl_=None)")},
+  {Py_tp_doc, (void *)PyDoc_STR("CurlMime(Curl curl_=None)\nWrapper for the ``curl_mime_`` API.")},
   {Py_tp_methods, (void *)__pyx_methods_6cycurl_5_curl_CurlMime},
   {Py_tp_getset, (void *)__pyx_getsets_6cycurl_5_curl_CurlMime},
   {Py_tp_init, (void *)__pyx_pw_6cycurl_5_curl_8CurlMime_1__init__},
@@ -46591,7 +46908,7 @@ static PyTypeObject __pyx_type_6cycurl_5_curl_CurlMime = {
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  PyDoc_STR("CurlMime(Curl curl_=None)"), /*tp_doc*/
+  PyDoc_STR("CurlMime(Curl curl_=None)\nWrapper for the ``curl_mime_`` API."), /*tp_doc*/
   0, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -47331,19 +47648,19 @@ static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector
 };
 #endif
 
-static struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_4__force_timeout[8];
-static int __pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4__force_timeout = 0;
+static struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_4_close[8];
+static int __pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4_close = 0;
 
-static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4__force_timeout(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4_close(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_COMPILING_IN_CPYTHON
-  if (likely((int)(__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4__force_timeout > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout)))) {
-    o = (PyObject*)__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_4__force_timeout[--__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4__force_timeout];
-    memset(o, 0, sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout));
+  if (likely((int)(__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4_close > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close)))) {
+    o = (PyObject*)__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_4_close[--__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4_close];
+    memset(o, 0, sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -47356,20 +47673,28 @@ static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4__force_timeout
   return o;
 }
 
-static void __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_4__force_timeout(PyObject *o) {
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *)o;
+static void __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_4_close(PyObject *o) {
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_4__force_timeout) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_4_close) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
   #endif
   PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_curl_);
+  Py_CLEAR(p->__pyx_v_future);
   Py_CLEAR(p->__pyx_v_self);
+  Py_CLEAR(p->__pyx_v_sockfd);
+  Py_CLEAR(p->__pyx_v_timer);
+  Py_CLEAR(p->__pyx_t_0);
+  Py_CLEAR(p->__pyx_t_1);
+  Py_CLEAR(p->__pyx_t_2);
+  Py_CLEAR(p->__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON
-  if (((int)(__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4__force_timeout < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout)))) {
-    __pyx_freelist_6cycurl_5_curl___pyx_scope_struct_4__force_timeout[__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4__force_timeout++] = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *)o);
+  if (((int)(__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4_close < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close)))) {
+    __pyx_freelist_6cycurl_5_curl___pyx_scope_struct_4_close[__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_4_close++] = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *)o);
   } else
   #endif
   {
@@ -47384,36 +47709,60 @@ static void __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_4__force_timeout(
   }
 }
 
-static int __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_4__force_timeout(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_4_close(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout *)o;
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close *)o;
+  if (p->__pyx_v_curl_) {
+    e = (*v)(p->__pyx_v_curl_, a); if (e) return e;
+  }
+  if (p->__pyx_v_future) {
+    e = (*v)(p->__pyx_v_future, a); if (e) return e;
+  }
   if (p->__pyx_v_self) {
     e = (*v)(((PyObject *)p->__pyx_v_self), a); if (e) return e;
+  }
+  if (p->__pyx_v_sockfd) {
+    e = (*v)(p->__pyx_v_sockfd, a); if (e) return e;
+  }
+  if (p->__pyx_v_timer) {
+    e = (*v)(p->__pyx_v_timer, a); if (e) return e;
+  }
+  if (p->__pyx_t_0) {
+    e = (*v)(p->__pyx_t_0, a); if (e) return e;
+  }
+  if (p->__pyx_t_1) {
+    e = (*v)(p->__pyx_t_1, a); if (e) return e;
+  }
+  if (p->__pyx_t_2) {
+    e = (*v)(p->__pyx_t_2, a); if (e) return e;
+  }
+  if (p->__pyx_t_3) {
+    e = (*v)(p->__pyx_t_3, a); if (e) return e;
   }
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_4__force_timeout},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_4__force_timeout},
-  {Py_tp_new, (void *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4__force_timeout},
+static PyType_Slot __pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_4_close},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_4_close},
+  {Py_tp_new, (void *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4_close},
   {0, 0},
 };
-static PyType_Spec __pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout_spec = {
-  "cycurl._curl.__pyx_scope_struct_4__force_timeout",
-  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout),
+static PyType_Spec __pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close_spec = {
+  "cycurl._curl.__pyx_scope_struct_4_close",
+  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout_slots,
+  __pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout = {
+static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close = {
   PyVarObject_HEAD_INIT(0, 0)
-  "cycurl._curl.""__pyx_scope_struct_4__force_timeout", /*tp_name*/
-  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__force_timeout), /*tp_basicsize*/
+  "cycurl._curl.""__pyx_scope_struct_4_close", /*tp_name*/
+  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_4__force_timeout, /*tp_dealloc*/
+  __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_4_close, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -47440,7 +47789,7 @@ static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeou
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_4__force_timeout, /*tp_traverse*/
+  __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_4_close, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -47458,7 +47807,166 @@ static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeou
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4__force_timeout, /*tp_new*/
+  __pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4_close, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if PY_VERSION_HEX >= 0x030400a1
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_5__force_timeout[8];
+static int __pyx_freecount_6cycurl_5_curl___pyx_scope_struct_5__force_timeout = 0;
+
+static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_5__force_timeout(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_COMPILING_IN_CPYTHON
+  if (likely((int)(__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_5__force_timeout > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout)))) {
+    o = (PyObject*)__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_5__force_timeout[--__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_5__force_timeout];
+    memset(o, 0, sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_5__force_timeout(PyObject *o) {
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_5__force_timeout) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_self);
+  #if CYTHON_COMPILING_IN_CPYTHON
+  if (((int)(__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_5__force_timeout < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout)))) {
+    __pyx_freelist_6cycurl_5_curl___pyx_scope_struct_5__force_timeout[__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_5__force_timeout++] = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS || CYTHON_COMPILING_IN_PYPY
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_5__force_timeout(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout *)o;
+  if (p->__pyx_v_self) {
+    e = (*v)(((PyObject *)p->__pyx_v_self), a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_5__force_timeout},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_5__force_timeout},
+  {Py_tp_new, (void *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_5__force_timeout},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout_spec = {
+  "cycurl._curl.__pyx_scope_struct_5__force_timeout",
+  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "cycurl._curl.""__pyx_scope_struct_5__force_timeout", /*tp_name*/
+  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_5__force_timeout, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  #if PY_MAJOR_VERSION < 3
+  0, /*tp_compare*/
+  #endif
+  #if PY_MAJOR_VERSION >= 3
+  0, /*tp_as_async*/
+  #endif
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_5__force_timeout, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_5__force_timeout, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -49011,6 +49519,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_s_Callable_None, __pyx_k_Callable_None, sizeof(__pyx_k_Callable_None), 0, 0, 1, 0},
     {&__pyx_kp_u_Can_not_use_local_path_and_data, __pyx_k_Can_not_use_local_path_and_data, sizeof(__pyx_k_Can_not_use_local_path_and_data), 0, 1, 0, 0},
     {&__pyx_kp_s_Can_only_create_a_buffer_that_is, __pyx_k_Can_only_create_a_buffer_that_is, sizeof(__pyx_k_Can_only_create_a_buffer_that_is), 0, 0, 1, 0},
+    {&__pyx_n_s_CancelledError, __pyx_k_CancelledError, sizeof(__pyx_k_CancelledError), 0, 0, 1, 1},
     {&__pyx_kp_s_Cannot_assign_to_read_only_memor, __pyx_k_Cannot_assign_to_read_only_memor, sizeof(__pyx_k_Cannot_assign_to_read_only_memor), 0, 0, 1, 0},
     {&__pyx_kp_s_Cannot_create_writable_memory_vi, __pyx_k_Cannot_create_writable_memory_vi, sizeof(__pyx_k_Cannot_create_writable_memory_vi), 0, 0, 1, 0},
     {&__pyx_kp_u_Cannot_index_with_type, __pyx_k_Cannot_index_with_type, sizeof(__pyx_k_Cannot_index_with_type), 0, 1, 0, 0},
@@ -49055,7 +49564,6 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_EBADF, __pyx_k_EBADF, sizeof(__pyx_k_EBADF), 0, 0, 1, 1},
     {&__pyx_n_s_Ellipsis, __pyx_k_Ellipsis, sizeof(__pyx_k_Ellipsis), 0, 0, 1, 1},
     {&__pyx_kp_s_Empty_shape_tuple_for_cython_arr, __pyx_k_Empty_shape_tuple_for_cython_arr, sizeof(__pyx_k_Empty_shape_tuple_for_cython_arr), 0, 0, 1, 0},
-    {&__pyx_kp_u_ErrCode, __pyx_k_ErrCode, sizeof(__pyx_k_ErrCode), 0, 1, 0, 0},
     {&__pyx_kp_u_Failed_to, __pyx_k_Failed_to, sizeof(__pyx_k_Failed_to), 0, 1, 0, 0},
     {&__pyx_kp_u_Failed_to_set_error_buffer, __pyx_k_Failed_to_set_error_buffer, sizeof(__pyx_k_Failed_to_set_error_buffer), 0, 1, 0, 0},
     {&__pyx_n_s_FileDescriptorLike, __pyx_k_FileDescriptorLike, sizeof(__pyx_k_FileDescriptorLike), 0, 0, 1, 1},
@@ -49096,9 +49604,9 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_u_ProactorEventLoop, __pyx_k_ProactorEventLoop, sizeof(__pyx_k_ProactorEventLoop), 0, 1, 0, 1},
     {&__pyx_kp_u_Proactor_event_loop_does_not_im, __pyx_k_Proactor_event_loop_does_not_im, sizeof(__pyx_k_Proactor_event_loop_does_not_im), 0, 1, 0, 0},
     {&__pyx_n_s_Protocol, __pyx_k_Protocol, sizeof(__pyx_k_Protocol), 0, 0, 1, 1},
-    {&__pyx_kp_u_Reason, __pyx_k_Reason, sizeof(__pyx_k_Reason), 0, 1, 0, 0},
     {&__pyx_n_s_RuntimeError, __pyx_k_RuntimeError, sizeof(__pyx_k_RuntimeError), 0, 0, 1, 1},
     {&__pyx_n_s_RuntimeWarning, __pyx_k_RuntimeWarning, sizeof(__pyx_k_RuntimeWarning), 0, 0, 1, 1},
+    {&__pyx_kp_u_See_https_curl_se_libcurl_c_lib, __pyx_k_See_https_curl_se_libcurl_c_lib, sizeof(__pyx_k_See_https_curl_se_libcurl_c_lib), 0, 1, 0, 0},
     {&__pyx_n_s_SelectorThread, __pyx_k_SelectorThread, sizeof(__pyx_k_SelectorThread), 0, 0, 1, 1},
     {&__pyx_n_s_SelectorThread___init, __pyx_k_SelectorThread___init, sizeof(__pyx_k_SelectorThread___init), 0, 0, 1, 1},
     {&__pyx_n_s_SelectorThread___init___locals_l, __pyx_k_SelectorThread___init___locals_l, sizeof(__pyx_k_SelectorThread___init___locals_l), 0, 0, 1, 1},
@@ -49119,7 +49627,6 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_Set, __pyx_k_Set, sizeof(__pyx_k_Set), 0, 0, 1, 1},
     {&__pyx_n_s_SimpleCookie, __pyx_k_SimpleCookie, sizeof(__pyx_k_SimpleCookie), 0, 0, 1, 1},
     {&__pyx_kp_s_Step_may_not_be_zero_axis_d, __pyx_k_Step_may_not_be_zero_axis_d, sizeof(__pyx_k_Step_may_not_be_zero_axis_d), 0, 0, 1, 0},
-    {&__pyx_kp_u_This_may_be_a_libcurl_error_See, __pyx_k_This_may_be_a_libcurl_error_See, sizeof(__pyx_k_This_may_be_a_libcurl_error_See), 0, 1, 0, 0},
     {&__pyx_n_s_Thread, __pyx_k_Thread, sizeof(__pyx_k_Thread), 0, 0, 1, 1},
     {&__pyx_kp_u_Tornado_selector, __pyx_k_Tornado_selector, sizeof(__pyx_k_Tornado_selector), 0, 1, 0, 0},
     {&__pyx_n_s_Tuple, __pyx_k_Tuple, sizeof(__pyx_k_Tuple), 0, 0, 1, 1},
@@ -49144,7 +49651,9 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_WeakSet, __pyx_k_WeakSet, sizeof(__pyx_k_WeakSet), 0, 0, 1, 1},
     {&__pyx_kp_s_Wrap_an_event_loop_to_add_implem, __pyx_k_Wrap_an_event_loop_to_add_implem, sizeof(__pyx_k_Wrap_an_event_loop_to_add_implem), 0, 0, 1, 0},
     {&__pyx_kp_u_Wrote_bytes_received_bytes, __pyx_k_Wrote_bytes_received_bytes, sizeof(__pyx_k_Wrote_bytes_received_bytes), 0, 1, 0, 0},
-    {&__pyx_kp_b__12, __pyx_k__12, sizeof(__pyx_k__12), 0, 0, 0, 0},
+    {&__pyx_kp_b__10, __pyx_k__10, sizeof(__pyx_k__10), 0, 0, 0, 0},
+    {&__pyx_kp_u__10, __pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0, 0},
+    {&__pyx_kp_u__12, __pyx_k__12, sizeof(__pyx_k__12), 0, 1, 0, 0},
     {&__pyx_n_s__126, __pyx_k__126, sizeof(__pyx_k__126), 0, 0, 1, 1},
     {&__pyx_kp_u__13, __pyx_k__13, sizeof(__pyx_k__13), 0, 1, 0, 0},
     {&__pyx_kp_u__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0, 0},
@@ -49205,14 +49714,16 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_s_collections_abc, __pyx_k_collections_abc, sizeof(__pyx_k_collections_abc), 0, 0, 1, 0},
     {&__pyx_n_s_consume_waker, __pyx_k_consume_waker, sizeof(__pyx_k_consume_waker), 0, 0, 1, 1},
     {&__pyx_n_s_content_type, __pyx_k_content_type, sizeof(__pyx_k_content_type), 0, 0, 1, 1},
+    {&__pyx_n_s_contextlib, __pyx_k_contextlib, sizeof(__pyx_k_contextlib), 0, 0, 1, 1},
     {&__pyx_kp_s_contiguous_and_direct, __pyx_k_contiguous_and_direct, sizeof(__pyx_k_contiguous_and_direct), 0, 0, 1, 0},
     {&__pyx_kp_s_contiguous_and_indirect, __pyx_k_contiguous_and_indirect, sizeof(__pyx_k_contiguous_and_indirect), 0, 0, 1, 0},
     {&__pyx_n_s_cookie, __pyx_k_cookie, sizeof(__pyx_k_cookie), 0, 0, 1, 1},
     {&__pyx_n_s_count, __pyx_k_count, sizeof(__pyx_k_count), 0, 0, 1, 1},
     {&__pyx_n_s_create_future, __pyx_k_create_future, sizeof(__pyx_k_create_future), 0, 0, 1, 1},
     {&__pyx_n_s_create_task, __pyx_k_create_task, sizeof(__pyx_k_create_task), 0, 0, 1, 1},
-    {&__pyx_n_s_curl, __pyx_k_curl, sizeof(__pyx_k_curl), 0, 0, 1, 1},
+    {&__pyx_kp_u_curl, __pyx_k_curl, sizeof(__pyx_k_curl), 0, 1, 0, 0},
     {&__pyx_n_s_curl_2, __pyx_k_curl_2, sizeof(__pyx_k_curl_2), 0, 0, 1, 1},
+    {&__pyx_n_s_curl_3, __pyx_k_curl_3, sizeof(__pyx_k_curl_3), 0, 0, 1, 1},
     {&__pyx_kp_s_cycurl__asyncio_selector_pxi, __pyx_k_cycurl__asyncio_selector_pxi, sizeof(__pyx_k_cycurl__asyncio_selector_pxi), 0, 0, 1, 0},
     {&__pyx_n_s_cycurl__curl, __pyx_k_cycurl__curl, sizeof(__pyx_k_cycurl__curl), 0, 0, 1, 1},
     {&__pyx_kp_s_cycurl__curl_pyx, __pyx_k_cycurl__curl_pyx, sizeof(__pyx_k_cycurl__curl_pyx), 0, 0, 1, 0},
@@ -49254,6 +49765,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_frame, __pyx_k_frame, sizeof(__pyx_k_frame), 0, 0, 1, 1},
     {&__pyx_n_s_from_list, __pyx_k_from_list, sizeof(__pyx_k_from_list), 0, 0, 1, 1},
     {&__pyx_n_s_functools, __pyx_k_functools, sizeof(__pyx_k_functools), 0, 0, 1, 1},
+    {&__pyx_n_s_future, __pyx_k_future, sizeof(__pyx_k_future), 0, 0, 1, 1},
     {&__pyx_kp_u_gc, __pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0, 0},
     {&__pyx_n_s_get_reason_phrase, __pyx_k_get_reason_phrase, sizeof(__pyx_k_get_reason_phrase), 0, 0, 1, 1},
     {&__pyx_n_s_get_running_loop, __pyx_k_get_running_loop, sizeof(__pyx_k_get_running_loop), 0, 0, 1, 1},
@@ -49402,6 +49914,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
     {&__pyx_n_s_struct, __pyx_k_struct, sizeof(__pyx_k_struct), 0, 0, 1, 1},
     {&__pyx_n_s_super, __pyx_k_super, sizeof(__pyx_k_super), 0, 0, 1, 1},
+    {&__pyx_n_s_suppress, __pyx_k_suppress, sizeof(__pyx_k_suppress), 0, 0, 1, 1},
     {&__pyx_n_s_sys, __pyx_k_sys, sizeof(__pyx_k_sys), 0, 0, 1, 1},
     {&__pyx_n_s_target, __pyx_k_target, sizeof(__pyx_k_target), 0, 0, 1, 1},
     {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -49411,6 +49924,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_thread_manager_handle, __pyx_k_thread_manager_handle, sizeof(__pyx_k_thread_manager_handle), 0, 0, 1, 1},
     {&__pyx_n_s_threading, __pyx_k_threading, sizeof(__pyx_k_threading), 0, 0, 1, 1},
     {&__pyx_n_s_throw, __pyx_k_throw, sizeof(__pyx_k_throw), 0, 0, 1, 1},
+    {&__pyx_n_s_timer, __pyx_k_timer, sizeof(__pyx_k_timer), 0, 0, 1, 1},
     {&__pyx_n_s_to_read, __pyx_k_to_read, sizeof(__pyx_k_to_read), 0, 0, 1, 1},
     {&__pyx_n_s_to_write, __pyx_k_to_write, sizeof(__pyx_k_to_write), 0, 0, 1, 1},
     {&__pyx_n_s_tuple, __pyx_k_tuple, sizeof(__pyx_k_tuple), 0, 0, 1, 1},
@@ -49447,19 +49961,19 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 476, __pyx_L1_error)
-  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 44, __pyx_L1_error)
-  __pyx_builtin_RuntimeWarning = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeWarning); if (!__pyx_builtin_RuntimeWarning) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 517, __pyx_L1_error)
+  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_builtin_RuntimeWarning = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeWarning); if (!__pyx_builtin_RuntimeWarning) __PYX_ERR(0, 85, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
-  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 147, __pyx_L1_error)
-  __pyx_builtin_NotImplementedError = __Pyx_GetBuiltinName(__pyx_n_s_NotImplementedError); if (!__pyx_builtin_NotImplementedError) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 159, __pyx_L1_error)
+  __pyx_builtin_NotImplementedError = __Pyx_GetBuiltinName(__pyx_n_s_NotImplementedError); if (!__pyx_builtin_NotImplementedError) __PYX_ERR(0, 350, __pyx_L1_error)
   __pyx_builtin_GeneratorExit = __Pyx_GetBuiltinName(__pyx_n_s_GeneratorExit); if (!__pyx_builtin_GeneratorExit) __PYX_ERR(2, 147, __pyx_L1_error)
   __pyx_builtin_AssertionError = __Pyx_GetBuiltinName(__pyx_n_s_AssertionError); if (!__pyx_builtin_AssertionError) __PYX_ERR(2, 170, __pyx_L1_error)
   __pyx_builtin_OSError = __Pyx_GetBuiltinName(__pyx_n_s_OSError); if (!__pyx_builtin_OSError) __PYX_ERR(2, 202, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 225, __pyx_L1_error)
   __pyx_builtin_AttributeError = __Pyx_GetBuiltinName(__pyx_n_s_AttributeError); if (!__pyx_builtin_AttributeError) __PYX_ERR(2, 232, __pyx_L1_error)
   __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(2, 254, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 706, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 752, __pyx_L1_error)
   __pyx_builtin___import__ = __Pyx_GetBuiltinName(__pyx_n_s_import); if (!__pyx_builtin___import__) __PYX_ERR(1, 100, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 141, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 159, __pyx_L1_error)
@@ -49513,25 +50027,25 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "cycurl/_curl.pyx":81
+  /* "cycurl/_curl.pyx":85
  *     # should make this an exception in future versions
  *     if wrote != total:
  *         warnings.warn("Wrote bytes != received bytes.", RuntimeWarning)             # <<<<<<<<<<<<<<
  *     return total
  * 
  */
-  __pyx_tuple__9 = PyTuple_Pack(2, __pyx_kp_u_Wrote_bytes_received_bytes, __pyx_builtin_RuntimeWarning); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(2, __pyx_kp_u_Wrote_bytes_received_bytes, __pyx_builtin_RuntimeWarning); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "cycurl/_curl.pyx":473
+  /* "cycurl/_curl.pyx":514
  *         for header in headers:
  *             if header.lower().startswith(b"set-cookie: "):
  *                 cookie.load(header[12:].decode())  # len("set-cookie: ") == 12             # <<<<<<<<<<<<<<
  *         return cookie
  * 
  */
-  __pyx_slice__14 = PySlice_New(__pyx_int_12, Py_None, Py_None); if (unlikely(!__pyx_slice__14)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __pyx_slice__14 = PySlice_New(__pyx_int_12, Py_None, Py_None); if (unlikely(!__pyx_slice__14)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__14);
   __Pyx_GIVEREF(__pyx_slice__14);
 
@@ -49555,23 +50069,23 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  */
   __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__asyncio_selector_pxi, __pyx_n_s_thread_manager_anext, 88, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(2, 88, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":536
+  /* "cycurl/_curl.pyx":580
  *         loop_close = asyncio_loop.close
  * 
  *         def _close_selector_and_loop():             # <<<<<<<<<<<<<<
  *             # restore original before calling selector.close,
  *             # which in turn calls eventloop.close!
  */
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_close_selector_and_loop, 536, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 536, __pyx_L1_error)
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_close_selector_and_loop, 580, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 580, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":706
+  /* "cycurl/_curl.pyx":752
  *                     self.set_exception(curl_, curl_._get_error(retcode, "perform"))
  *             else:
  *                 print("NOT DONE")  # Will not reach, for no other code being defined.             # <<<<<<<<<<<<<<
  * 
  *     cdef inline object _pop_future(self, Curl curl_):
  */
-  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_kp_u_NOT_DONE); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 706, __pyx_L1_error)
+  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_kp_u_NOT_DONE); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 752, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
 
@@ -49676,17 +50190,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__31);
   __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(1, 1, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":43
+  /* "cycurl/_curl.pyx":44
  *     """Base exception for cycurl package"""
  * 
  *     def __init__(self, msg, code: int = 0, *args, **kwargs):             # <<<<<<<<<<<<<<
  *         super().__init__(msg, *args, **kwargs)
  *         self.code = code
  */
-  __pyx_tuple__33 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_msg, __pyx_n_s_code, __pyx_n_s_args, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_tuple__33 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_msg, __pyx_n_s_code, __pyx_n_s_args, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__33);
   __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_init, 43, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_init, 44, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 44, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -49709,200 +50223,200 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__37);
   __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(1, 3, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":183
+  /* "cycurl/_curl.pyx":195
  *         self._close()
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         """Close and cleanup curl handle, wrapper for curl_easy_cleanup"""
+ *         """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
  *         self._close()
  */
-  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_close, 183, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_close, 195, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 195, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":187
+  /* "cycurl/_curl.pyx":199
  *         self._close()
  * 
  *     cpdef inline tuple ws_recv(self, size_t n = 1024):             # <<<<<<<<<<<<<<
- *         cdef char* buffer = <char*>PyMem_Malloc(n)
- *         if buffer==NULL:
+ *         """Receive a frame from a websocket connection.
+ *         Args:
  */
-  __pyx_tuple__40 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_n); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_tuple__40 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_n); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__40);
   __Pyx_GIVEREF(__pyx_tuple__40);
-  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_ws_recv, 187, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 187, __pyx_L1_error)
-  __pyx_tuple__42 = PyTuple_Pack(1, __pyx_int_1024); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_ws_recv, 199, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 199, __pyx_L1_error)
+  __pyx_tuple__42 = PyTuple_Pack(1, __pyx_int_1024); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__42);
   __Pyx_GIVEREF(__pyx_tuple__42);
 
-  /* "cycurl/_curl.pyx":207
+  /* "cycurl/_curl.pyx":227
  *             PyMem_Free(buffer)
  * 
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):             # <<<<<<<<<<<<<<
- *         cdef size_t n_sent
- *         cdef int ret
+ *         """Send data to a websocket connection.
+ *         Args:
  */
-  __pyx_tuple__43 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_payload, __pyx_n_s_flags); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_tuple__43 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_payload, __pyx_n_s_flags); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__43);
   __Pyx_GIVEREF(__pyx_tuple__43);
-  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_ws_send, 207, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_ws_send, 227, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 227, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":217
+  /* "cycurl/_curl.pyx":246
  *         return n_sent
  * 
  *     def ws_close(self):             # <<<<<<<<<<<<<<
  *         self.ws_send(b"", curl.CURLWS_CLOSE)
  * 
  */
-  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_ws_close, 217, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 217, __pyx_L1_error)
+  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_ws_close, 246, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 246, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":220
+  /* "cycurl/_curl.pyx":249
  *         self.ws_send(b"", curl.CURLWS_CLOSE)
  * 
  *     def ws_meta(self):             # <<<<<<<<<<<<<<
  *         cdef curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
  *         return WSFrame.from_ptr(frame)
  */
-  __pyx_tuple__46 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_frame); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_tuple__46 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_frame); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__46);
   __Pyx_GIVEREF(__pyx_tuple__46);
-  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_ws_meta, 220, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_ws_meta, 249, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 249, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":234
+  /* "cycurl/_curl.pyx":263
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  * 
  *     def debug(self):             # <<<<<<<<<<<<<<
+ *         """Set debug to True"""
  *         self.setopt(CURLOPT_VERBOSE, 1)
- *         curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  */
-  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_debug, 234, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_debug, 263, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 263, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":253
+  /* "cycurl/_curl.pyx":282
  *             )
  * 
  *     cpdef inline int setopt(self, int option, object value) except -1:             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_setopt.
+ *         """Wrapper for ``curl_easy_setopt``.
  * 
  */
-  __pyx_tuple__49 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_option, __pyx_n_s_value); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_tuple__49 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_option, __pyx_n_s_value); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__49);
   __Pyx_GIVEREF(__pyx_tuple__49);
-  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_setopt_2, 253, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_setopt_2, 282, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 282, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":339
+  /* "cycurl/_curl.pyx":371
  *         return ret
  * 
  *     cpdef inline object getinfo(self, int option):             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_getinfo. Gets information in response after curl perform.
- * 
+ *         """Wrapper for ``curl_easy_getinfo``. Gets information in response after curl perform.
+ *         Parameters:
  */
-  __pyx_tuple__51 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_option); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_tuple__51 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_option); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__51);
   __Pyx_GIVEREF(__pyx_tuple__51);
-  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_getinfo_2, 339, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_getinfo_2, 371, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 371, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":386
+  /* "cycurl/_curl.pyx":420
  *             return slist_to_list(slistret)
  * 
  *     cpdef inline bytes version(self):             # <<<<<<<<<<<<<<
  *         """Get the underlying libcurl version."""
  *         return <bytes>curl.curl_version()
  */
-  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_version, 386, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(0, 386, __pyx_L1_error)
+  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_version, 420, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(0, 420, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":390
+  /* "cycurl/_curl.pyx":424
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
  *         """Set the browser type to impersonate.
  * 
  */
-  __pyx_tuple__54 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_target, __pyx_n_s_default_headers); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_tuple__54 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_target, __pyx_n_s_default_headers); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__54);
   __Pyx_GIVEREF(__pyx_tuple__54);
-  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_impersonate, 390, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 390, __pyx_L1_error)
-  __pyx_tuple__56 = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_impersonate, 424, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_tuple__56 = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__56);
   __Pyx_GIVEREF(__pyx_tuple__56);
 
-  /* "cycurl/_curl.pyx":405
+  /* "cycurl/_curl.pyx":442
  *             self._check_error(ret, "set cacert")
  * 
  *     cpdef inline int perform(self, clear_headers: bool = True) except -1:             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_perform, performs a curl request.
+ *         """Wrapper for ``curl_easy_perform``, performs a curl request.
  * 
  */
-  __pyx_tuple__57 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_clear_headers); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 405, __pyx_L1_error)
+  __pyx_tuple__57 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_clear_headers); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__57);
   __Pyx_GIVEREF(__pyx_tuple__57);
-  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_perform, 405, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 405, __pyx_L1_error)
-  __pyx_tuple__59 = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 405, __pyx_L1_error)
+  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_perform, 442, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 442, __pyx_L1_error)
+  __pyx_tuple__59 = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__59);
   __Pyx_GIVEREF(__pyx_tuple__59);
 
-  /* "cycurl/_curl.pyx":425
+  /* "cycurl/_curl.pyx":465
  *             self.clean_after_perform(clear_headers)
  * 
  *     cpdef inline clean_after_perform(self, clear_headers: bool = True):             # <<<<<<<<<<<<<<
  *         """Clean up handles and buffers after perform, called at the end of `perform`."""
  *         self._write_handle = None
  */
-  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_clean_after_perform, 425, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 425, __pyx_L1_error)
-  __pyx_tuple__61 = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 425, __pyx_L1_error)
+  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_clean_after_perform, 465, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 465, __pyx_L1_error)
+  __pyx_tuple__61 = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__61);
   __Pyx_GIVEREF(__pyx_tuple__61);
 
-  /* "cycurl/_curl.pyx":439
+  /* "cycurl/_curl.pyx":479
  *             self._resolve = NULL
  * 
  *     cpdef inline Curl duphandle(self):             # <<<<<<<<<<<<<<
- *         """This is not a full copy of entire curl object in python. For example, headers
- *         handle is not copied, you have to set them again."""
+ *         """Wrapper for ``curl_easy_duphandle``.
+ *         This is not a full copy of entire curl object in python. For example, headers
  */
-  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_duphandle, 439, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 439, __pyx_L1_error)
+  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_duphandle, 479, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 479, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":450
+  /* "cycurl/_curl.pyx":491
  *         return c
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
- *         """Reset all curl options, wrapper for curl_easy_reset."""
+ *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False
  */
-  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_reset, 450, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) __PYX_ERR(0, 450, __pyx_L1_error)
+  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_reset, 491, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) __PYX_ERR(0, 491, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":461
+  /* "cycurl/_curl.pyx":502
  *             self._resolve = NULL
  * 
  *     def parse_cookie_headers(self, list headers) -> SimpleCookie:             # <<<<<<<<<<<<<<
- *         """Extract cookies.SimpleCookie from header lines.
+ *         """Extract ``cookies.SimpleCookie`` from header lines.
  * 
  */
-  __pyx_tuple__64 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_headers, __pyx_n_s_cookie, __pyx_n_s_header); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(0, 461, __pyx_L1_error)
+  __pyx_tuple__64 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_headers, __pyx_n_s_cookie, __pyx_n_s_header); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__64);
   __Pyx_GIVEREF(__pyx_tuple__64);
-  __pyx_codeobj__65 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__64, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_parse_cookie_headers, 461, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__65)) __PYX_ERR(0, 461, __pyx_L1_error)
+  __pyx_codeobj__65 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__64, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_parse_cookie_headers, 502, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__65)) __PYX_ERR(0, 502, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":476
+  /* "cycurl/_curl.pyx":517
  *         return cookie
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def get_reason_phrase(bytes status_line) -> bytes:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+ *         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
  */
-  __pyx_tuple__66 = PyTuple_Pack(2, __pyx_n_s_status_line, __pyx_n_s_m); if (unlikely(!__pyx_tuple__66)) __PYX_ERR(0, 476, __pyx_L1_error)
+  __pyx_tuple__66 = PyTuple_Pack(2, __pyx_n_s_status_line, __pyx_n_s_m); if (unlikely(!__pyx_tuple__66)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__66);
   __Pyx_GIVEREF(__pyx_tuple__66);
-  __pyx_codeobj__67 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__66, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_get_reason_phrase, 476, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__67)) __PYX_ERR(0, 476, __pyx_L1_error)
+  __pyx_codeobj__67 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__66, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_get_reason_phrase, 517, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__67)) __PYX_ERR(0, 517, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":482
+  /* "cycurl/_curl.pyx":523
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def parse_status_line(status_line: bytes) -> tuple:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+ *         """Parse status line.
  */
-  __pyx_tuple__68 = PyTuple_Pack(5, __pyx_n_s_status_line, __pyx_n_s_m, __pyx_n_s_http_version, __pyx_n_s_status_code, __pyx_n_s_reason); if (unlikely(!__pyx_tuple__68)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_tuple__68 = PyTuple_Pack(5, __pyx_n_s_status_line, __pyx_n_s_m, __pyx_n_s_http_version, __pyx_n_s_status_code, __pyx_n_s_reason); if (unlikely(!__pyx_tuple__68)) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__68);
   __Pyx_GIVEREF(__pyx_tuple__68);
-  __pyx_codeobj__69 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__68, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_parse_status_line, 482, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__69)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_codeobj__69 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__68, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_parse_status_line, 523, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__69)) __PYX_ERR(0, 523, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -50143,89 +50657,92 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  */
   __pyx_codeobj__102 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__91, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__asyncio_selector_pxi, __pyx_n_s_remove_writer, 343, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__102)) __PYX_ERR(2, 343, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":514
+  /* "cycurl/_curl.pyx":558
  *     """
  * 
  *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         """Get selector-compatible loop
  * 
  */
-  __pyx_tuple__103 = PyTuple_Pack(5, __pyx_n_s_asyncio_loop, __pyx_n_s_selector_loop, __pyx_n_s_loop_close, __pyx_n_s_close_selector_and_loop, __pyx_n_s_close_selector_and_loop); if (unlikely(!__pyx_tuple__103)) __PYX_ERR(0, 514, __pyx_L1_error)
+  __pyx_tuple__103 = PyTuple_Pack(5, __pyx_n_s_asyncio_loop, __pyx_n_s_selector_loop, __pyx_n_s_loop_close, __pyx_n_s_close_selector_and_loop, __pyx_n_s_close_selector_and_loop); if (unlikely(!__pyx_tuple__103)) __PYX_ERR(0, 558, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__103);
   __Pyx_GIVEREF(__pyx_tuple__103);
-  __pyx_codeobj__104 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__103, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_get_selector, 514, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__104)) __PYX_ERR(0, 514, __pyx_L1_error)
+  __pyx_codeobj__104 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__103, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_get_selector, 558, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__104)) __PYX_ERR(0, 558, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":547
+  /* "cycurl/_curl.pyx":591
  * 
  * else:
  *     def _get_selector(loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         return loop
  * 
  */
-  __pyx_codeobj__105 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_get_selector, 547, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__105)) __PYX_ERR(0, 547, __pyx_L1_error)
+  __pyx_codeobj__105 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_get_selector, 591, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__105)) __PYX_ERR(0, 591, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":629
+  /* "cycurl/_curl.pyx":673
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)
  * 
- *     cpdef inline close(self):             # <<<<<<<<<<<<<<
+ *     async def close(self):             # <<<<<<<<<<<<<<
  *         """Close and cleanup running timers, readers, writers and handles."""
- *         # Close force timeout checker
+ *         # Close and wait for the force timeout checker to complete
  */
-  __pyx_codeobj__106 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_close, 629, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__106)) __PYX_ERR(0, 629, __pyx_L1_error)
+  __pyx_tuple__106 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_curl_2, __pyx_n_s_future, __pyx_n_s_sockfd, __pyx_n_s_timer); if (unlikely(!__pyx_tuple__106)) __PYX_ERR(0, 673, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__106);
+  __Pyx_GIVEREF(__pyx_tuple__106);
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__106, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_close, 673, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 673, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":649
+  /* "cycurl/_curl.pyx":695
  *             timer.cancel()
  * 
  *     async def _force_timeout(self):             # <<<<<<<<<<<<<<
  *         while True:
  *             if not self._curlm:
  */
-  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_force_timeout, 649, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 649, __pyx_L1_error)
+  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_force_timeout, 695, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 695, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":657
+  /* "cycurl/_curl.pyx":703
  *             self.socket_action(curl.CURL_SOCKET_TIMEOUT, curl.CURL_POLL_NONE)
  * 
  *     cpdef inline add_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
  *         """Add a curl handle to be managed by curl_multi. This is the equivalent of
  *         `perform` in the async world."""
  */
-  __pyx_tuple__107 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_curl); if (unlikely(!__pyx_tuple__107)) __PYX_ERR(0, 657, __pyx_L1_error)
+  __pyx_tuple__107 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_curl_2); if (unlikely(!__pyx_tuple__107)) __PYX_ERR(0, 703, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__107);
   __Pyx_GIVEREF(__pyx_tuple__107);
-  __pyx_codeobj__108 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__107, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_add_handle, 657, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__108)) __PYX_ERR(0, 657, __pyx_L1_error)
+  __pyx_codeobj__108 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__107, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_add_handle, 703, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__108)) __PYX_ERR(0, 703, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":668
+  /* "cycurl/_curl.pyx":714
  *         return future
  * 
  *     cpdef inline int socket_action(self, int sockfd, int ev_bitmask) except -1:             # <<<<<<<<<<<<<<
  *         """Call libcurl socket_action function"""
  *         cdef int running_handle
  */
-  __pyx_tuple__109 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_sockfd, __pyx_n_s_ev_bitmask); if (unlikely(!__pyx_tuple__109)) __PYX_ERR(0, 668, __pyx_L1_error)
+  __pyx_tuple__109 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_sockfd, __pyx_n_s_ev_bitmask); if (unlikely(!__pyx_tuple__109)) __PYX_ERR(0, 714, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__109);
   __Pyx_GIVEREF(__pyx_tuple__109);
-  __pyx_codeobj__110 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__109, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_socket_action, 668, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__110)) __PYX_ERR(0, 668, __pyx_L1_error)
+  __pyx_codeobj__110 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__109, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_socket_action, 714, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__110)) __PYX_ERR(0, 714, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":678
+  /* "cycurl/_curl.pyx":724
  *         return running_handle
  * 
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):             # <<<<<<<<<<<<<<
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:
  */
-  __pyx_codeobj__111 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__109, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_process_data, 678, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__111)) __PYX_ERR(0, 678, __pyx_L1_error)
+  __pyx_codeobj__111 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__109, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_process_data, 724, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__111)) __PYX_ERR(0, 724, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":713
+  /* "cycurl/_curl.pyx":759
  *         return self._curl2future.pop(curl_, None)
  * 
  *     cpdef inline remove_handle(self, Curl curl):             # <<<<<<<<<<<<<<
  *         """Cancel a future for given curl handle."""
  *         cdef object future = self._pop_future(curl)
  */
-  __pyx_tuple__112 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_curl_2); if (unlikely(!__pyx_tuple__112)) __PYX_ERR(0, 713, __pyx_L1_error)
+  __pyx_tuple__112 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_curl_3); if (unlikely(!__pyx_tuple__112)) __PYX_ERR(0, 759, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__112);
   __Pyx_GIVEREF(__pyx_tuple__112);
-  __pyx_codeobj__113 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__112, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_remove_handle, 713, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__113)) __PYX_ERR(0, 713, __pyx_L1_error)
+  __pyx_codeobj__113 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__112, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_remove_handle, 759, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__113)) __PYX_ERR(0, 759, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -50242,53 +50759,53 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  */
   __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(1, 3, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":747
+  /* "cycurl/_curl.pyx":799
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
  *         self,
  *         str name,
  */
-  __pyx_tuple__116 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_content_type, __pyx_n_s_filename, __pyx_n_s_local_path, __pyx_n_s_data); if (unlikely(!__pyx_tuple__116)) __PYX_ERR(0, 747, __pyx_L1_error)
+  __pyx_tuple__116 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_content_type, __pyx_n_s_filename, __pyx_n_s_local_path, __pyx_n_s_data); if (unlikely(!__pyx_tuple__116)) __PYX_ERR(0, 799, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__116);
   __Pyx_GIVEREF(__pyx_tuple__116);
-  __pyx_codeobj__117 = (PyObject*)__Pyx_PyCode_New(6, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__116, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_addpart, 747, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__117)) __PYX_ERR(0, 747, __pyx_L1_error)
-  __pyx_tuple__118 = PyTuple_Pack(4, Py_None, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__118)) __PYX_ERR(0, 747, __pyx_L1_error)
+  __pyx_codeobj__117 = (PyObject*)__Pyx_PyCode_New(6, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__116, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_addpart, 799, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__117)) __PYX_ERR(0, 799, __pyx_L1_error)
+  __pyx_tuple__118 = PyTuple_Pack(4, Py_None, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__118)) __PYX_ERR(0, 799, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__118);
   __Pyx_GIVEREF(__pyx_tuple__118);
 
-  /* "cycurl/_curl.pyx":798
+  /* "cycurl/_curl.pyx":859
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def from_list(cls, list files):  # files: List[dict]
- *         cdef CurlMime form = cls()
+ *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  */
-  __pyx_tuple__119 = PyTuple_Pack(4, __pyx_n_s_cls, __pyx_n_s_files, __pyx_n_s_form, __pyx_n_s_file); if (unlikely(!__pyx_tuple__119)) __PYX_ERR(0, 798, __pyx_L1_error)
+  __pyx_tuple__119 = PyTuple_Pack(4, __pyx_n_s_cls, __pyx_n_s_files, __pyx_n_s_form, __pyx_n_s_file); if (unlikely(!__pyx_tuple__119)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__119);
   __Pyx_GIVEREF(__pyx_tuple__119);
-  __pyx_codeobj__120 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__119, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_from_list, 798, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__120)) __PYX_ERR(0, 798, __pyx_L1_error)
+  __pyx_codeobj__120 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__119, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_from_list, 859, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__120)) __PYX_ERR(0, 859, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":805
+  /* "cycurl/_curl.pyx":867
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
+ *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
- *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  */
-  __pyx_codeobj__121 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__107, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_attach, 805, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__121)) __PYX_ERR(0, 805, __pyx_L1_error)
-  __pyx_tuple__122 = PyTuple_Pack(1, Py_None); if (unlikely(!__pyx_tuple__122)) __PYX_ERR(0, 805, __pyx_L1_error)
+  __pyx_codeobj__121 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__107, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_attach, 867, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__121)) __PYX_ERR(0, 867, __pyx_L1_error)
+  __pyx_tuple__122 = PyTuple_Pack(1, Py_None); if (unlikely(!__pyx_tuple__122)) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__122);
   __Pyx_GIVEREF(__pyx_tuple__122);
 
-  /* "cycurl/_curl.pyx":809
+  /* "cycurl/_curl.pyx":872
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         curl.curl_mime_free(self.form)
- *         self.form = NULL
+ *         """Close the mime instance and underlying files. This method must be called after
+ *         ``perform`` or ``request``."""
  */
-  __pyx_codeobj__123 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_close, 809, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__123)) __PYX_ERR(0, 809, __pyx_L1_error)
+  __pyx_codeobj__123 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cycurl__curl_pyx, __pyx_n_s_close, 872, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__123)) __PYX_ERR(0, 872, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -50396,15 +50913,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtabptr_6cycurl_5_curl_WSFrame = &__pyx_vtable_6cycurl_5_curl_WSFrame;
   __pyx_vtable_6cycurl_5_curl_WSFrame.from_ptr = (struct __pyx_obj_6cycurl_5_curl_WSFrame *(*)(struct curl_ws_frame *))__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_6cycurl_5_curl_WSFrame = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_WSFrame_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl_WSFrame)) __PYX_ERR(0, 96, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_WSFrame_spec, __pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_ptype_6cycurl_5_curl_WSFrame = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_WSFrame_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl_WSFrame)) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_WSFrame_spec, __pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   #else
   __pyx_ptype_6cycurl_5_curl_WSFrame = &__pyx_type_6cycurl_5_curl_WSFrame;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_6cycurl_5_curl_WSFrame->tp_print = 0;
@@ -50414,13 +50931,13 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_ptype_6cycurl_5_curl_WSFrame->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_ptype_6cycurl_5_curl_WSFrame, __pyx_vtabptr_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_ptype_6cycurl_5_curl_WSFrame, __pyx_vtabptr_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_MergeVtables(__pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_WSFrame, (PyObject *) __pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_WSFrame, (PyObject *) __pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_6cycurl_5_curl_WSFrame) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   #endif
   __pyx_vtabptr_6cycurl_5_curl_Curl = &__pyx_vtable_6cycurl_5_curl_Curl;
   __pyx_vtable_6cycurl_5_curl_Curl._close = (void (*)(struct __pyx_obj_6cycurl_5_curl_Curl *))__pyx_f_6cycurl_5_curl_4Curl__close;
@@ -50438,15 +50955,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6cycurl_5_curl_Curl.clean_after_perform = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_Curl *, int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_4Curl_clean_after_perform *__pyx_optional_args))__pyx_f_6cycurl_5_curl_4Curl_clean_after_perform;
   __pyx_vtable_6cycurl_5_curl_Curl.duphandle = (struct __pyx_obj_6cycurl_5_curl_Curl *(*)(struct __pyx_obj_6cycurl_5_curl_Curl *, int __pyx_skip_dispatch))__pyx_f_6cycurl_5_curl_4Curl_duphandle;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_6cycurl_5_curl_Curl = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_Curl_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl_Curl)) __PYX_ERR(0, 127, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_Curl_spec, __pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_ptype_6cycurl_5_curl_Curl = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_Curl_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl_Curl)) __PYX_ERR(0, 132, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_Curl_spec, __pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
   #else
   __pyx_ptype_6cycurl_5_curl_Curl = &__pyx_type_6cycurl_5_curl_Curl;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_6cycurl_5_curl_Curl->tp_print = 0;
@@ -50456,17 +50973,16 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_ptype_6cycurl_5_curl_Curl->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_ptype_6cycurl_5_curl_Curl, __pyx_vtabptr_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_ptype_6cycurl_5_curl_Curl, __pyx_vtabptr_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_MergeVtables(__pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Curl, (PyObject *) __pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Curl, (PyObject *) __pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_6cycurl_5_curl_Curl) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
   #endif
   __pyx_vtabptr_6cycurl_5_curl_AsyncCurl = &__pyx_vtable_6cycurl_5_curl_AsyncCurl;
   __pyx_vtable_6cycurl_5_curl_AsyncCurl._setup = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *))__pyx_f_6cycurl_5_curl_9AsyncCurl__setup;
-  __pyx_vtable_6cycurl_5_curl_AsyncCurl.close = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, int __pyx_skip_dispatch))__pyx_f_6cycurl_5_curl_9AsyncCurl_close;
   __pyx_vtable_6cycurl_5_curl_AsyncCurl.add_handle = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, struct __pyx_obj_6cycurl_5_curl_Curl *, int __pyx_skip_dispatch))__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle;
   __pyx_vtable_6cycurl_5_curl_AsyncCurl.socket_action = (int (*)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, int, int, int __pyx_skip_dispatch))__pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action;
   __pyx_vtable_6cycurl_5_curl_AsyncCurl.process_data = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, int, int, int __pyx_skip_dispatch))__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data;
@@ -50475,15 +50991,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6cycurl_5_curl_AsyncCurl.set_result = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, struct __pyx_obj_6cycurl_5_curl_Curl *))__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result;
   __pyx_vtable_6cycurl_5_curl_AsyncCurl.set_exception = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, struct __pyx_obj_6cycurl_5_curl_Curl *, PyObject *))__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_6cycurl_5_curl_AsyncCurl = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_AsyncCurl_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl_AsyncCurl)) __PYX_ERR(0, 592, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_AsyncCurl_spec, __pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 592, __pyx_L1_error)
+  __pyx_ptype_6cycurl_5_curl_AsyncCurl = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_AsyncCurl_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl_AsyncCurl)) __PYX_ERR(0, 636, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_AsyncCurl_spec, __pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 636, __pyx_L1_error)
   #else
   __pyx_ptype_6cycurl_5_curl_AsyncCurl = &__pyx_type_6cycurl_5_curl_AsyncCurl;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 592, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 636, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_6cycurl_5_curl_AsyncCurl->tp_print = 0;
@@ -50493,27 +51009,27 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_ptype_6cycurl_5_curl_AsyncCurl->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_vtabptr_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 592, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_vtabptr_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 636, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_MergeVtables(__pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 592, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 636, __pyx_L1_error)
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AsyncCurl, (PyObject *) __pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 592, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AsyncCurl, (PyObject *) __pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 636, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 592, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_6cycurl_5_curl_AsyncCurl) < 0) __PYX_ERR(0, 636, __pyx_L1_error)
   #endif
   __pyx_vtabptr_6cycurl_5_curl_CurlMime = &__pyx_vtable_6cycurl_5_curl_CurlMime;
   __pyx_vtable_6cycurl_5_curl_CurlMime.addpart = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_CurlMime *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_addpart *__pyx_optional_args))__pyx_f_6cycurl_5_curl_8CurlMime_addpart;
   __pyx_vtable_6cycurl_5_curl_CurlMime.attach = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_CurlMime *, int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_attach *__pyx_optional_args))__pyx_f_6cycurl_5_curl_8CurlMime_attach;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_6cycurl_5_curl_CurlMime = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_CurlMime_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl_CurlMime)) __PYX_ERR(0, 734, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_CurlMime_spec, __pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 734, __pyx_L1_error)
+  __pyx_ptype_6cycurl_5_curl_CurlMime = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_CurlMime_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl_CurlMime)) __PYX_ERR(0, 780, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_CurlMime_spec, __pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 780, __pyx_L1_error)
   #else
   __pyx_ptype_6cycurl_5_curl_CurlMime = &__pyx_type_6cycurl_5_curl_CurlMime;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 734, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 780, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_6cycurl_5_curl_CurlMime->tp_print = 0;
@@ -50523,13 +51039,23 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_ptype_6cycurl_5_curl_CurlMime->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_vtabptr_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 734, __pyx_L1_error)
-  #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_MergeVtables(__pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 734, __pyx_L1_error)
+  #if CYTHON_UPDATE_DESCRIPTOR_DOC
+  {
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 780, __pyx_L1_error)
+    if (__Pyx_IS_TYPE(wrapper, &PyWrapperDescr_Type)) {
+      __pyx_wrapperbase_6cycurl_5_curl_8CurlMime___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_6cycurl_5_curl_8CurlMime___init__.doc = __pyx_doc_6cycurl_5_curl_8CurlMime___init__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6cycurl_5_curl_8CurlMime___init__;
+    }
+  }
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_CurlMime, (PyObject *) __pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 734, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_vtabptr_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 780, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 734, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 780, __pyx_L1_error)
+  #endif
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_CurlMime, (PyObject *) __pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 780, __pyx_L1_error)
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_6cycurl_5_curl_CurlMime) < 0) __PYX_ERR(0, 780, __pyx_L1_error)
   #endif
   #if CYTHON_USE_TYPE_SPECS
   __pyx_ptype_6cycurl_5_curl___pyx_scope_struct____init__ = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct____init___spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl___pyx_scope_struct____init__)) __PYX_ERR(2, 77, __pyx_L1_error)
@@ -50589,15 +51115,15 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector)) __PYX_ERR(0, 514, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector_spec, __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector) < 0) __PYX_ERR(0, 514, __pyx_L1_error)
+  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector)) __PYX_ERR(0, 558, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector_spec, __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector) < 0) __PYX_ERR(0, 558, __pyx_L1_error)
   #else
   __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector = &__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector) < 0) __PYX_ERR(0, 514, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector) < 0) __PYX_ERR(0, 558, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector->tp_print = 0;
@@ -50608,22 +51134,41 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout)) __PYX_ERR(0, 649, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout_spec, __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
+  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close)) __PYX_ERR(0, 673, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close_spec, __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close) < 0) __PYX_ERR(0, 673, __pyx_L1_error)
   #else
-  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout = &__pyx_type_6cycurl_5_curl___pyx_scope_struct_4__force_timeout;
+  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close = &__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close) < 0) __PYX_ERR(0, 673, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
-  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout->tp_print = 0;
+  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close->tp_print = 0;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout->tp_dictoffset && __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4__force_timeout->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close->tp_dictoffset && __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout_spec, NULL); if (unlikely(!__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout)) __PYX_ERR(0, 695, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout_spec, __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout) < 0) __PYX_ERR(0, 695, __pyx_L1_error)
+  #else
+  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout = &__pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout) < 0) __PYX_ERR(0, 695, __pyx_L1_error)
+  #endif
+  #if PY_MAJOR_VERSION < 3
+  __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout->tp_print = 0;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout->tp_dictoffset && __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   #endif
   __pyx_vtabptr_array = &__pyx_vtable_array;
@@ -57929,7 +58474,7 @@ if (!__Pyx_RefNanny) {
  * import asyncio
  * import re             # <<<<<<<<<<<<<<
  * import sys
- * import warnings
+ * from contextlib import suppress
  */
   __pyx_t_4 = __Pyx_ImportDottedModule(__pyx_n_s_re, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -57940,8 +58485,8 @@ if (!__Pyx_RefNanny) {
  * import asyncio
  * import re
  * import sys             # <<<<<<<<<<<<<<
+ * from contextlib import suppress
  * import warnings
- * from enum import IntEnum
  */
   __pyx_t_4 = __Pyx_ImportDottedModule(__pyx_n_s_sys, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -57951,283 +58496,304 @@ if (!__Pyx_RefNanny) {
   /* "cycurl/_curl.pyx":20
  * import re
  * import sys
+ * from contextlib import suppress             # <<<<<<<<<<<<<<
+ * import warnings
+ * from enum import IntEnum
+ */
+  __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_INCREF(__pyx_n_s_suppress);
+  __Pyx_GIVEREF(__pyx_n_s_suppress);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_n_s_suppress)) __PYX_ERR(0, 20, __pyx_L1_error);
+  __pyx_t_7 = __Pyx_Import(__pyx_n_s_contextlib, __pyx_t_4, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_7, __pyx_n_s_suppress); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_suppress, __pyx_t_4) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+  /* "cycurl/_curl.pyx":21
+ * import sys
+ * from contextlib import suppress
  * import warnings             # <<<<<<<<<<<<<<
  * from enum import IntEnum
  * from http.cookies import SimpleCookie
  */
-  __pyx_t_4 = __Pyx_ImportDottedModule(__pyx_n_s_warnings, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_warnings, __pyx_t_4) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_ImportDottedModule(__pyx_n_s_warnings, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_warnings, __pyx_t_7) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "cycurl/_curl.pyx":21
- * import sys
+  /* "cycurl/_curl.pyx":22
+ * from contextlib import suppress
  * import warnings
  * from enum import IntEnum             # <<<<<<<<<<<<<<
  * from http.cookies import SimpleCookie
  * from weakref import WeakKeyDictionary, WeakSet
  */
-  __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 21, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = PyList_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_n_s_IntEnum);
   __Pyx_GIVEREF(__pyx_n_s_IntEnum);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_n_s_IntEnum)) __PYX_ERR(0, 21, __pyx_L1_error);
-  __pyx_t_7 = __Pyx_Import(__pyx_n_s_enum, __pyx_t_4, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 21, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_7, __pyx_n_s_IntEnum); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 0, __pyx_n_s_IntEnum)) __PYX_ERR(0, 22, __pyx_L1_error);
+  __pyx_t_4 = __Pyx_Import(__pyx_n_s_enum, __pyx_t_7, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_IntEnum, __pyx_t_4) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_ImportFrom(__pyx_t_4, __pyx_n_s_IntEnum); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_IntEnum, __pyx_t_7) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":22
+  /* "cycurl/_curl.pyx":23
  * import warnings
  * from enum import IntEnum
  * from http.cookies import SimpleCookie             # <<<<<<<<<<<<<<
  * from weakref import WeakKeyDictionary, WeakSet
  * 
  */
-  __pyx_t_7 = PyList_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 22, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_n_s_SimpleCookie);
   __Pyx_GIVEREF(__pyx_n_s_SimpleCookie);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 0, __pyx_n_s_SimpleCookie)) __PYX_ERR(0, 22, __pyx_L1_error);
-  __pyx_t_4 = __Pyx_Import(__pyx_n_s_http_cookies, __pyx_t_7, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_ImportFrom(__pyx_t_4, __pyx_n_s_SimpleCookie); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_n_s_SimpleCookie)) __PYX_ERR(0, 23, __pyx_L1_error);
+  __pyx_t_7 = __Pyx_Import(__pyx_n_s_http_cookies, __pyx_t_4, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_SimpleCookie, __pyx_t_7) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_7, __pyx_n_s_SimpleCookie); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_SimpleCookie, __pyx_t_4) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "cycurl/_curl.pyx":23
+  /* "cycurl/_curl.pyx":24
  * from enum import IntEnum
  * from http.cookies import SimpleCookie
  * from weakref import WeakKeyDictionary, WeakSet             # <<<<<<<<<<<<<<
  * 
  * import certifi
  */
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = PyList_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_n_s_WeakKeyDictionary);
   __Pyx_GIVEREF(__pyx_n_s_WeakKeyDictionary);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_n_s_WeakKeyDictionary)) __PYX_ERR(0, 23, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 0, __pyx_n_s_WeakKeyDictionary)) __PYX_ERR(0, 24, __pyx_L1_error);
   __Pyx_INCREF(__pyx_n_s_WeakSet);
   __Pyx_GIVEREF(__pyx_n_s_WeakSet);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 1, __pyx_n_s_WeakSet)) __PYX_ERR(0, 23, __pyx_L1_error);
-  __pyx_t_7 = __Pyx_Import(__pyx_n_s_weakref, __pyx_t_4, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_7, __pyx_n_s_WeakKeyDictionary); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 1, __pyx_n_s_WeakSet)) __PYX_ERR(0, 24, __pyx_L1_error);
+  __pyx_t_4 = __Pyx_Import(__pyx_n_s_weakref, __pyx_t_7, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WeakKeyDictionary, __pyx_t_4) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_7, __pyx_n_s_WeakSet); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WeakSet, __pyx_t_4) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_ImportFrom(__pyx_t_4, __pyx_n_s_WeakKeyDictionary); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WeakKeyDictionary, __pyx_t_7) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_ImportFrom(__pyx_t_4, __pyx_n_s_WeakSet); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WeakSet, __pyx_t_7) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":25
+  /* "cycurl/_curl.pyx":26
  * from weakref import WeakKeyDictionary, WeakSet
  * 
  * import certifi             # <<<<<<<<<<<<<<
  * 
  * DEFAULT_CACERT = certifi.where()
  */
-  __pyx_t_7 = __Pyx_ImportDottedModule(__pyx_n_s_certifi, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_certifi, __pyx_t_7) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_4 = __Pyx_ImportDottedModule(__pyx_n_s_certifi, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_certifi, __pyx_t_4) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":27
+  /* "cycurl/_curl.pyx":28
  * import certifi
  * 
  * DEFAULT_CACERT = certifi.where()             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_certifi); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 27, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_where); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_certifi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_where); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_DEFAULT_CACERT, __pyx_t_7) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_DEFAULT_CACERT, __pyx_t_4) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":30
+  /* "cycurl/_curl.pyx":31
  * 
  * 
  * class CurlHttpVersion(IntEnum):             # <<<<<<<<<<<<<<
  *     NONE = 0
  *     V1_0 = 1  # please use HTTP 1.0 in the request *[inserted by cython to avoid comment closer]/
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_IntEnum); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_IntEnum); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_7);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_7)) __PYX_ERR(0, 30, __pyx_L1_error);
-  __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PEP560_update_bases(__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_5 = __Pyx_CalculateMetaclass(NULL, __pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_GIVEREF(__pyx_t_4);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4)) __PYX_ERR(0, 31, __pyx_L1_error);
+  __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PEP560_update_bases(__pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_CalculateMetaclass(NULL, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_9 = __Pyx_Py3MetaclassPrepare(__pyx_t_5, __pyx_t_7, __pyx_n_s_CurlHttpVersion, __pyx_n_s_CurlHttpVersion, (PyObject *) NULL, __pyx_n_s_cycurl__curl, (PyObject *) NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_Py3MetaclassPrepare(__pyx_t_5, __pyx_t_4, __pyx_n_s_CurlHttpVersion, __pyx_n_s_CurlHttpVersion, (PyObject *) NULL, __pyx_n_s_cycurl__curl, (PyObject *) NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (__pyx_t_7 != __pyx_t_4) {
-    if (unlikely((PyDict_SetItemString(__pyx_t_9, "__orig_bases__", __pyx_t_4) < 0))) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (__pyx_t_4 != __pyx_t_7) {
+    if (unlikely((PyDict_SetItemString(__pyx_t_9, "__orig_bases__", __pyx_t_7) < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
   }
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "cycurl/_curl.pyx":31
+  /* "cycurl/_curl.pyx":32
  * 
  * class CurlHttpVersion(IntEnum):
  *     NONE = 0             # <<<<<<<<<<<<<<
  *     V1_0 = 1  # please use HTTP 1.0 in the request *[inserted by cython to avoid comment closer]/
  *     V1_1 = 2  # please use HTTP 1.1 in the request *[inserted by cython to avoid comment closer]/
  */
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_NONE, __pyx_int_0) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_NONE, __pyx_int_0) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":32
+  /* "cycurl/_curl.pyx":33
  * class CurlHttpVersion(IntEnum):
  *     NONE = 0
  *     V1_0 = 1  # please use HTTP 1.0 in the request *[inserted by cython to avoid comment closer]/             # <<<<<<<<<<<<<<
  *     V1_1 = 2  # please use HTTP 1.1 in the request *[inserted by cython to avoid comment closer]/
  *     V2_0 = 3  # please use HTTP 2 in the request *[inserted by cython to avoid comment closer]/
  */
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V1_0, __pyx_int_1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V1_0, __pyx_int_1) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":33
+  /* "cycurl/_curl.pyx":34
  *     NONE = 0
  *     V1_0 = 1  # please use HTTP 1.0 in the request *[inserted by cython to avoid comment closer]/
  *     V1_1 = 2  # please use HTTP 1.1 in the request *[inserted by cython to avoid comment closer]/             # <<<<<<<<<<<<<<
  *     V2_0 = 3  # please use HTTP 2 in the request *[inserted by cython to avoid comment closer]/
  *     V2TLS = 4  # use version 2 for HTTPS, version 1.1 for HTTP *[inserted by cython to avoid comment closer]/
  */
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V1_1, __pyx_int_2) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V1_1, __pyx_int_2) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":34
+  /* "cycurl/_curl.pyx":35
  *     V1_0 = 1  # please use HTTP 1.0 in the request *[inserted by cython to avoid comment closer]/
  *     V1_1 = 2  # please use HTTP 1.1 in the request *[inserted by cython to avoid comment closer]/
  *     V2_0 = 3  # please use HTTP 2 in the request *[inserted by cython to avoid comment closer]/             # <<<<<<<<<<<<<<
  *     V2TLS = 4  # use version 2 for HTTPS, version 1.1 for HTTP *[inserted by cython to avoid comment closer]/
  *     V2_PRIOR_KNOWLEDGE = 5  # please use HTTP 2 without HTTP/1.1 Upgrade *[inserted by cython to avoid comment closer]/
  */
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V2_0, __pyx_int_3) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V2_0, __pyx_int_3) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":35
+  /* "cycurl/_curl.pyx":36
  *     V1_1 = 2  # please use HTTP 1.1 in the request *[inserted by cython to avoid comment closer]/
  *     V2_0 = 3  # please use HTTP 2 in the request *[inserted by cython to avoid comment closer]/
  *     V2TLS = 4  # use version 2 for HTTPS, version 1.1 for HTTP *[inserted by cython to avoid comment closer]/             # <<<<<<<<<<<<<<
  *     V2_PRIOR_KNOWLEDGE = 5  # please use HTTP 2 without HTTP/1.1 Upgrade *[inserted by cython to avoid comment closer]/
  *     V3 = 30  # Makes use of explicit HTTP/3 without fallback.
  */
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V2TLS, __pyx_int_4) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V2TLS, __pyx_int_4) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":36
+  /* "cycurl/_curl.pyx":37
  *     V2_0 = 3  # please use HTTP 2 in the request *[inserted by cython to avoid comment closer]/
  *     V2TLS = 4  # use version 2 for HTTPS, version 1.1 for HTTP *[inserted by cython to avoid comment closer]/
  *     V2_PRIOR_KNOWLEDGE = 5  # please use HTTP 2 without HTTP/1.1 Upgrade *[inserted by cython to avoid comment closer]/             # <<<<<<<<<<<<<<
  *     V3 = 30  # Makes use of explicit HTTP/3 without fallback.
  * 
  */
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V2_PRIOR_KNOWLEDGE, __pyx_int_5) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V2_PRIOR_KNOWLEDGE, __pyx_int_5) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":37
+  /* "cycurl/_curl.pyx":38
  *     V2TLS = 4  # use version 2 for HTTPS, version 1.1 for HTTP *[inserted by cython to avoid comment closer]/
  *     V2_PRIOR_KNOWLEDGE = 5  # please use HTTP 2 without HTTP/1.1 Upgrade *[inserted by cython to avoid comment closer]/
  *     V3 = 30  # Makes use of explicit HTTP/3 without fallback.             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V3, __pyx_int_30) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_V3, __pyx_int_30) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":30
+  /* "cycurl/_curl.pyx":31
  * 
  * 
  * class CurlHttpVersion(IntEnum):             # <<<<<<<<<<<<<<
  *     NONE = 0
  *     V1_0 = 1  # please use HTTP 1.0 in the request *[inserted by cython to avoid comment closer]/
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_5, __pyx_n_s_CurlHttpVersion, __pyx_t_7, __pyx_t_9, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_CurlHttpVersion, __pyx_t_4) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_Py3ClassCreate(__pyx_t_5, __pyx_n_s_CurlHttpVersion, __pyx_t_4, __pyx_t_9, NULL, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_CurlHttpVersion, __pyx_t_7) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":40
+  /* "cycurl/_curl.pyx":41
  * 
  * 
  * class CurlError(Exception):             # <<<<<<<<<<<<<<
  *     """Base exception for cycurl package"""
  * 
  */
-  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0]));
   __Pyx_GIVEREF((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0]));
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 0, ((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])))) __PYX_ERR(0, 40, __pyx_L1_error);
-  __pyx_t_5 = __Pyx_PEP560_update_bases(__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])))) __PYX_ERR(0, 41, __pyx_L1_error);
+  __pyx_t_5 = __Pyx_PEP560_update_bases(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_9 = __Pyx_CalculateMetaclass(NULL, __pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CalculateMetaclass(NULL, __pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_Py3MetaclassPrepare(__pyx_t_9, __pyx_t_5, __pyx_n_s_CurlError, __pyx_n_s_CurlError, (PyObject *) NULL, __pyx_n_s_cycurl__curl, __pyx_kp_s_Base_exception_for_cycurl_packag); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__pyx_t_5 != __pyx_t_7) {
-    if (unlikely((PyDict_SetItemString(__pyx_t_4, "__orig_bases__", __pyx_t_7) < 0))) __PYX_ERR(0, 40, __pyx_L1_error)
-  }
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_Py3MetaclassPrepare(__pyx_t_9, __pyx_t_5, __pyx_n_s_CurlError, __pyx_n_s_CurlError, (PyObject *) NULL, __pyx_n_s_cycurl__curl, __pyx_kp_s_Base_exception_for_cycurl_packag); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
+  if (__pyx_t_5 != __pyx_t_4) {
+    if (unlikely((PyDict_SetItemString(__pyx_t_7, "__orig_bases__", __pyx_t_4) < 0))) __PYX_ERR(0, 41, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
 
-  /* "cycurl/_curl.pyx":43
+  /* "cycurl/_curl.pyx":44
  *     """Base exception for cycurl package"""
  * 
  *     def __init__(self, msg, code: int = 0, *args, **kwargs):             # <<<<<<<<<<<<<<
  *         super().__init__(msg, *args, **kwargs)
  *         self.code = code
  */
-  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_code, __pyx_n_s_int) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlError_1__init__, 0, __pyx_n_s_CurlError___init, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_code, __pyx_n_s_int) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlError_1__init__, 0, __pyx_n_s_CurlError___init, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_t_11);
-  PyList_Append(__pyx_t_7, __pyx_t_11);
+  PyList_Append(__pyx_t_4, __pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_11);
-  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_11, sizeof(__pyx_defaults), 1)) __PYX_ERR(0, 43, __pyx_L1_error)
-  if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_int_0)) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_int_0))) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_11, sizeof(__pyx_defaults), 1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_int_0)) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_int_0))) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_t_11)->__pyx_arg_code = ((PyObject*)__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
   __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_11, __pyx_pf_6cycurl_5_curl_6__defaults__);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_10);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_init, __pyx_t_11) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_init, __pyx_t_11) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":40
+  /* "cycurl/_curl.pyx":41
  * 
  * 
  * class CurlError(Exception):             # <<<<<<<<<<<<<<
  *     """Base exception for cycurl package"""
  * 
  */
-  __pyx_t_11 = __Pyx_Py3ClassCreate(__pyx_t_9, __pyx_n_s_CurlError, __pyx_t_5, __pyx_t_4, NULL, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_Py3ClassCreate(__pyx_t_9, __pyx_n_s_CurlError, __pyx_t_5, __pyx_t_7, NULL, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  if (__Pyx_CyFunction_InitClassCell(__pyx_t_7, __pyx_t_11) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_CurlError, __pyx_t_11) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+  if (__Pyx_CyFunction_InitClassCell(__pyx_t_4, __pyx_t_11) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_CurlError, __pyx_t_11) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
@@ -58252,299 +58818,285 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_5) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":143
- *         bint _debug
- * 
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, bint debug = False, object handle = None):             # <<<<<<<<<<<<<<
- *         # assert PyCapsule_CheckExact(handle)
- *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_DEFAULT_CACERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None) || __Pyx_RaiseUnexpectedTypeError("unicode", __pyx_t_5))) __PYX_ERR(0, 143, __pyx_L1_error)
-  __pyx_k__10 = ((PyObject*)__pyx_t_5);
-  __Pyx_GIVEREF(__pyx_t_5);
-  __pyx_t_5 = 0;
-
-  /* "cycurl/_curl.pyx":183
+  /* "cycurl/_curl.pyx":195
  *         self._close()
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         """Close and cleanup curl handle, wrapper for curl_easy_cleanup"""
+ *         """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
  *         self._close()
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_5close, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_close, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__39)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_5close, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_close, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__39)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_close, __pyx_t_5) < 0) __PYX_ERR(0, 183, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_close, __pyx_t_5) < 0) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":187
+  /* "cycurl/_curl.pyx":199
  *         self._close()
  * 
  *     cpdef inline tuple ws_recv(self, size_t n = 1024):             # <<<<<<<<<<<<<<
- *         cdef char* buffer = <char*>PyMem_Malloc(n)
- *         if buffer==NULL:
+ *         """Receive a frame from a websocket connection.
+ *         Args:
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_7ws_recv, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_ws_recv, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__41)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_7ws_recv, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_ws_recv, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__41)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_tuple__42);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_ws_recv, __pyx_t_5) < 0) __PYX_ERR(0, 187, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_ws_recv, __pyx_t_5) < 0) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":207
+  /* "cycurl/_curl.pyx":227
  *             PyMem_Free(buffer)
  * 
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):             # <<<<<<<<<<<<<<
- *         cdef size_t n_sent
- *         cdef int ret
+ *         """Send data to a websocket connection.
+ *         Args:
  */
   __pyx_k__11 = CURLWS_BINARY;
-  __pyx_t_5 = __Pyx_PyInt_From_int(CURLWS_BINARY); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(CURLWS_BINARY); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_9 = PyTuple_New(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_9 = PyTuple_New(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_5)) __PYX_ERR(0, 207, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_5)) __PYX_ERR(0, 227, __pyx_L1_error);
   __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_9ws_send, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_ws_send, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_9ws_send, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_ws_send, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_t_9);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_ws_send, __pyx_t_5) < 0) __PYX_ERR(0, 207, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_ws_send, __pyx_t_5) < 0) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":217
+  /* "cycurl/_curl.pyx":246
  *         return n_sent
  * 
  *     def ws_close(self):             # <<<<<<<<<<<<<<
  *         self.ws_send(b"", curl.CURLWS_CLOSE)
  * 
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_11ws_close, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_ws_close, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__45)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 217, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_11ws_close, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_ws_close, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__45)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_ws_close, __pyx_t_5) < 0) __PYX_ERR(0, 217, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_ws_close, __pyx_t_5) < 0) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":220
+  /* "cycurl/_curl.pyx":249
  *         self.ws_send(b"", curl.CURLWS_CLOSE)
  * 
  *     def ws_meta(self):             # <<<<<<<<<<<<<<
  *         cdef curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
  *         return WSFrame.from_ptr(frame)
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_13ws_meta, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_ws_meta, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__47)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_13ws_meta, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_ws_meta, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__47)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_ws_meta, __pyx_t_5) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_ws_meta, __pyx_t_5) < 0) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":234
+  /* "cycurl/_curl.pyx":263
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  * 
  *     def debug(self):             # <<<<<<<<<<<<<<
+ *         """Set debug to True"""
  *         self.setopt(CURLOPT_VERBOSE, 1)
- *         curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_15debug, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_debug, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_15debug, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_debug, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_debug, __pyx_t_5) < 0) __PYX_ERR(0, 234, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_debug, __pyx_t_5) < 0) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":253
+  /* "cycurl/_curl.pyx":282
  *             )
  * 
  *     cpdef inline int setopt(self, int option, object value) except -1:             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_setopt.
+ *         """Wrapper for ``curl_easy_setopt``.
  * 
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_17setopt, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_setopt, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_17setopt, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_setopt, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_setopt_2, __pyx_t_5) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_setopt_2, __pyx_t_5) < 0) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":339
+  /* "cycurl/_curl.pyx":371
  *         return ret
  * 
  *     cpdef inline object getinfo(self, int option):             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_getinfo. Gets information in response after curl perform.
- * 
+ *         """Wrapper for ``curl_easy_getinfo``. Gets information in response after curl perform.
+ *         Parameters:
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_19getinfo, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_getinfo, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_19getinfo, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_getinfo, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_getinfo_2, __pyx_t_5) < 0) __PYX_ERR(0, 339, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_getinfo_2, __pyx_t_5) < 0) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":386
+  /* "cycurl/_curl.pyx":420
  *             return slist_to_list(slistret)
  * 
  *     cpdef inline bytes version(self):             # <<<<<<<<<<<<<<
  *         """Get the underlying libcurl version."""
  *         return <bytes>curl.curl_version()
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_21version, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_version, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__53)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 386, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_21version, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_version, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__53)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_version, __pyx_t_5) < 0) __PYX_ERR(0, 386, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_version, __pyx_t_5) < 0) __PYX_ERR(0, 420, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":390
+  /* "cycurl/_curl.pyx":424
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
  *         """Set the browser type to impersonate.
  * 
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_target, __pyx_n_s_str) < 0) __PYX_ERR(0, 390, __pyx_L1_error)
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_23impersonate, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_impersonate, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__55)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 390, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_target, __pyx_n_s_str) < 0) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_23impersonate, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_impersonate, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__55)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_9, __pyx_tuple__56);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_9, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_impersonate, __pyx_t_9) < 0) __PYX_ERR(0, 390, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_impersonate, __pyx_t_9) < 0) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":405
+  /* "cycurl/_curl.pyx":442
  *             self._check_error(ret, "set cacert")
  * 
  *     cpdef inline int perform(self, clear_headers: bool = True) except -1:             # <<<<<<<<<<<<<<
- *         """Wrapper for curl_easy_perform, performs a curl request.
+ *         """Wrapper for ``curl_easy_perform``, performs a curl request.
  * 
  */
-  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 405, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_clear_headers, __pyx_n_s_bool) < 0) __PYX_ERR(0, 405, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_25perform, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_perform, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 405, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_clear_headers, __pyx_n_s_bool) < 0) __PYX_ERR(0, 442, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_25perform, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_perform, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_tuple__59);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_9);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_perform, __pyx_t_5) < 0) __PYX_ERR(0, 405, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_perform, __pyx_t_5) < 0) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":425
+  /* "cycurl/_curl.pyx":465
  *             self.clean_after_perform(clear_headers)
  * 
  *     cpdef inline clean_after_perform(self, clear_headers: bool = True):             # <<<<<<<<<<<<<<
  *         """Clean up handles and buffers after perform, called at the end of `perform`."""
  *         self._write_handle = None
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 425, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_clear_headers, __pyx_n_s_bool) < 0) __PYX_ERR(0, 425, __pyx_L1_error)
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_27clean_after_perform, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_clean_after_perform, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 425, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_clear_headers, __pyx_n_s_bool) < 0) __PYX_ERR(0, 465, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_27clean_after_perform, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_clean_after_perform, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_9, __pyx_tuple__61);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_9, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_clean_after_perform, __pyx_t_9) < 0) __PYX_ERR(0, 425, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_clean_after_perform, __pyx_t_9) < 0) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":439
+  /* "cycurl/_curl.pyx":479
  *             self._resolve = NULL
  * 
  *     cpdef inline Curl duphandle(self):             # <<<<<<<<<<<<<<
- *         """This is not a full copy of entire curl object in python. For example, headers
- *         handle is not copied, you have to set them again."""
+ *         """Wrapper for ``curl_easy_duphandle``.
+ *         This is not a full copy of entire curl object in python. For example, headers
  */
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_29duphandle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_duphandle, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 439, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_29duphandle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_duphandle, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_duphandle, __pyx_t_9) < 0) __PYX_ERR(0, 439, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_duphandle, __pyx_t_9) < 0) __PYX_ERR(0, 479, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":450
+  /* "cycurl/_curl.pyx":491
  *         return c
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
- *         """Reset all curl options, wrapper for curl_easy_reset."""
+ *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False
  */
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_31reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_reset, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__63)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 450, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_31reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_reset, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__63)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 491, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_reset, __pyx_t_9) < 0) __PYX_ERR(0, 450, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_reset, __pyx_t_9) < 0) __PYX_ERR(0, 491, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":461
+  /* "cycurl/_curl.pyx":502
  *             self._resolve = NULL
  * 
  *     def parse_cookie_headers(self, list headers) -> SimpleCookie:             # <<<<<<<<<<<<<<
- *         """Extract cookies.SimpleCookie from header lines.
+ *         """Extract ``cookies.SimpleCookie`` from header lines.
  * 
  */
-  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 461, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_return, __pyx_n_s_SimpleCookie) < 0) __PYX_ERR(0, 461, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_33parse_cookie_headers, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_parse_cookie_headers, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__65)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 461, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_return, __pyx_n_s_SimpleCookie) < 0) __PYX_ERR(0, 502, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_33parse_cookie_headers, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_parse_cookie_headers, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__65)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_9);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_parse_cookie_headers, __pyx_t_5) < 0) __PYX_ERR(0, 461, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_parse_cookie_headers, __pyx_t_5) < 0) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":476
+  /* "cycurl/_curl.pyx":517
  *         return cookie
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def get_reason_phrase(bytes status_line) -> bytes:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+ *         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 476, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_s_bytes) < 0) __PYX_ERR(0, 476, __pyx_L1_error)
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_35get_reason_phrase, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_get_reason_phrase, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__67)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 476, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_s_bytes) < 0) __PYX_ERR(0, 517, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_35get_reason_phrase, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_get_reason_phrase, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__67)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_9, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_get_reason_phrase, __pyx_t_9) < 0) __PYX_ERR(0, 476, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_get_reason_phrase, __pyx_t_9) < 0) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
-  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_get_reason_phrase); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 476, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_get_reason_phrase); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 476, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_get_reason_phrase, __pyx_t_5) < 0) __PYX_ERR(0, 476, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_get_reason_phrase, __pyx_t_5) < 0) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
-  /* "cycurl/_curl.pyx":482
+  /* "cycurl/_curl.pyx":523
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def parse_status_line(status_line: bytes) -> tuple:
- *         """Extract reason phrase, like `OK`, `Not Found` from response status line."""
+ *         """Parse status line.
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_status_line, __pyx_n_s_bytes) < 0) __PYX_ERR(0, 482, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_s_tuple) < 0) __PYX_ERR(0, 482, __pyx_L1_error)
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_37parse_status_line, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_parse_status_line, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__69)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 482, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_status_line, __pyx_n_s_bytes) < 0) __PYX_ERR(0, 523, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_s_tuple) < 0) __PYX_ERR(0, 523, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_37parse_status_line, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_parse_status_line, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__69)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_9, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_parse_status_line, __pyx_t_9) < 0) __PYX_ERR(0, 482, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_parse_status_line, __pyx_t_9) < 0) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
-  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_parse_status_line); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_parse_status_line); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_parse_status_line, __pyx_t_5) < 0) __PYX_ERR(0, 482, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_Curl, __pyx_n_s_parse_status_line, __pyx_t_5) < 0) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_Curl);
 
@@ -58794,9 +59346,9 @@ if (!__Pyx_RefNanny) {
   __pyx_t_9 = 0;
   __pyx_t_9 = __Pyx_PEP560_update_bases(__pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_CalculateMetaclass(NULL, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 32, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_11 = __Pyx_Py3MetaclassPrepare(__pyx_t_4, __pyx_t_9, __pyx_n_s_HasFileno, __pyx_n_s_HasFileno, (PyObject *) NULL, __pyx_n_s_cycurl__curl, (PyObject *) NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 32, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CalculateMetaclass(NULL, __pyx_t_9); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 32, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_11 = __Pyx_Py3MetaclassPrepare(__pyx_t_7, __pyx_t_9, __pyx_n_s_HasFileno, __pyx_n_s_HasFileno, (PyObject *) NULL, __pyx_n_s_cycurl__curl, (PyObject *) NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   if (__pyx_t_9 != __pyx_t_5) {
     if (unlikely((PyDict_SetItemString(__pyx_t_11, "__orig_bases__", __pyx_t_5) < 0))) __PYX_ERR(2, 32, __pyx_L1_error)
@@ -58813,12 +59365,12 @@ if (!__Pyx_RefNanny) {
   __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_s_int) < 0) __PYX_ERR(2, 33, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_10_HasFileno_1fileno, 0, __pyx_n_s_HasFileno_fileno, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__72)); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 33, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_5);
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_10_HasFileno_1fileno, 0, __pyx_n_s_HasFileno_fileno, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__72)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_11, __pyx_n_s_fileno, __pyx_t_7) < 0) __PYX_ERR(2, 33, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_11, __pyx_n_s_fileno, __pyx_t_4) < 0) __PYX_ERR(2, 33, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":32
  * 
@@ -58827,12 +59379,12 @@ if (!__Pyx_RefNanny) {
  *     def fileno(self) -> int:
  *         pass
  */
-  __pyx_t_7 = __Pyx_Py3ClassCreate(__pyx_t_4, __pyx_n_s_HasFileno, __pyx_t_9, __pyx_t_11, NULL, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 32, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_HasFileno, __pyx_t_7) < 0) __PYX_ERR(2, 32, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_7, __pyx_n_s_HasFileno, __pyx_t_9, __pyx_t_11, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 32, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_HasFileno, __pyx_t_4) < 0) __PYX_ERR(2, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":37
@@ -58844,22 +59396,22 @@ if (!__Pyx_RefNanny) {
  */
   __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_Union); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_HasFileno); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 37, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_HasFileno); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 37, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF((PyObject *)(&PyInt_Type));
   __Pyx_GIVEREF((PyObject *)(&PyInt_Type));
   if (__Pyx_PyTuple_SET_ITEM(__pyx_t_11, 0, ((PyObject *)(&PyInt_Type)))) __PYX_ERR(2, 37, __pyx_L1_error);
-  __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_t_4)) __PYX_ERR(2, 37, __pyx_L1_error);
-  __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_t_9, __pyx_t_11); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 37, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_7);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_t_7)) __PYX_ERR(2, 37, __pyx_L1_error);
+  __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_t_9, __pyx_t_11); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 37, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_FileDescriptorLike, __pyx_t_4) < 0) __PYX_ERR(2, 37, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_FileDescriptorLike, __pyx_t_7) < 0) __PYX_ERR(2, 37, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":41
  * 
@@ -58868,10 +59420,10 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_4 = PySet_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 41, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_selector_loops, __pyx_t_4) < 0) __PYX_ERR(2, 41, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = PySet_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 41, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_selector_loops, __pyx_t_7) < 0) __PYX_ERR(2, 41, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":44
  * 
@@ -58880,13 +59432,13 @@ if (!__Pyx_RefNanny) {
  *     for loop in _selector_loops:
  *         with loop._select_cond:
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 44, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 44, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 44, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 44, __pyx_L1_error)
   __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_1_atexit_callback, 0, __pyx_n_s_atexit_callback, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__74)); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_7);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_atexit_callback, __pyx_t_11) < 0) __PYX_ERR(2, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
@@ -58899,14 +59451,14 @@ if (!__Pyx_RefNanny) {
  */
   __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_atexit); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_register); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 61, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_register); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_atexit_callback); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_9 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 61, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
@@ -58940,12 +59492,12 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_11);
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_real_loop, __pyx_kp_s_asyncio_AbstractEventLoop) < 0) __PYX_ERR(2, 77, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 77, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_1__init__, 0, __pyx_n_s_SelectorThread___init, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__76)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 77, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_11);
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_1__init__, 0, __pyx_n_s_SelectorThread___init, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__76)); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 77, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_11);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(2, 77, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_init, __pyx_t_7) < 0) __PYX_ERR(2, 77, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":111
  *         self.add_reader(self._waker_r, self._consume_waker)
@@ -58954,13 +59506,13 @@ if (!__Pyx_RefNanny) {
  *         if self._closed:
  *             return
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 111, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 111, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 111, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 111, __pyx_L1_error)
   __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_3close, 0, __pyx_n_s_SelectorThread_close, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__77)); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_7);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_close, __pyx_t_11) < 0) __PYX_ERR(2, 111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
@@ -58974,12 +59526,12 @@ if (!__Pyx_RefNanny) {
   __pyx_t_11 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 126, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_return, __pyx_kp_s_typing_AsyncGenerator_None_None) < 0) __PYX_ERR(2, 126, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_5_thread_manager, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_SelectorThread__thread_manager, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 126, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_11);
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_5_thread_manager, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_SelectorThread__thread_manager, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_11);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_thread_manager, __pyx_t_4) < 0) __PYX_ERR(2, 126, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_thread_manager, __pyx_t_7) < 0) __PYX_ERR(2, 126, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":151
  *             raise
@@ -58988,13 +59540,13 @@ if (!__Pyx_RefNanny) {
  *         if self._closed:
  *             return
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 151, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 151, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 151, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 151, __pyx_L1_error)
   __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_8_wake_selector, 0, __pyx_n_s_SelectorThread__wake_selector, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__78)); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_7);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_wake_selector, __pyx_t_11) < 0) __PYX_ERR(2, 151, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
@@ -59008,12 +59560,12 @@ if (!__Pyx_RefNanny) {
   __pyx_t_11 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 159, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_10_consume_waker, 0, __pyx_n_s_SelectorThread__consume_waker, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__79)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 159, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_11);
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_10_consume_waker, 0, __pyx_n_s_SelectorThread__consume_waker, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__79)); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 159, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_11);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_consume_waker, __pyx_t_4) < 0) __PYX_ERR(2, 159, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_consume_waker, __pyx_t_7) < 0) __PYX_ERR(2, 159, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":165
  *             pass
@@ -59022,13 +59574,13 @@ if (!__Pyx_RefNanny) {
  *         # Capture reader and writer sets here in the event loop
  *         # thread to avoid any problems with concurrent
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 165, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 165, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 165, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 165, __pyx_L1_error)
   __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_12_start_select, 0, __pyx_n_s_SelectorThread__start_select, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__80)); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_7);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_start_select, __pyx_t_11) < 0) __PYX_ERR(2, 165, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
@@ -59042,12 +59594,12 @@ if (!__Pyx_RefNanny) {
   __pyx_t_11 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 174, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_14_run_select, 0, __pyx_n_s_SelectorThread__run_select, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__83)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 174, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_11);
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_14_run_select, 0, __pyx_n_s_SelectorThread__run_select, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__83)); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 174, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_11);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_run_select, __pyx_t_4) < 0) __PYX_ERR(2, 174, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_run_select, __pyx_t_7) < 0) __PYX_ERR(2, 174, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":238
  *                 pass
@@ -59056,15 +59608,15 @@ if (!__Pyx_RefNanny) {
  *         self, rs: List[_FileDescriptorLike], ws: List[_FileDescriptorLike]
  *     ) -> None:
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 238, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_rs, __pyx_kp_s_List__FileDescriptorLike) < 0) __PYX_ERR(2, 238, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ws, __pyx_kp_s_List__FileDescriptorLike) < 0) __PYX_ERR(2, 238, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 238, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 238, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_rs, __pyx_kp_s_List__FileDescriptorLike) < 0) __PYX_ERR(2, 238, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_ws, __pyx_kp_s_List__FileDescriptorLike) < 0) __PYX_ERR(2, 238, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 238, __pyx_L1_error)
   __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_16_handle_select, 0, __pyx_n_s_SelectorThread__handle_select, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__85)); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_7);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_handle_select, __pyx_t_11) < 0) __PYX_ERR(2, 238, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
@@ -59080,12 +59632,12 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_fd, __pyx_n_s_FileDescriptorLike) < 0) __PYX_ERR(2, 247, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_cb_map, __pyx_kp_s_Dict__FileDescriptorLike_Callabl) < 0) __PYX_ERR(2, 247, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 247, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_18_handle_event, 0, __pyx_n_s_SelectorThread__handle_event, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__87)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 247, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_11);
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_18_handle_event, 0, __pyx_n_s_SelectorThread__handle_event, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__87)); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 247, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_11);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_handle_event, __pyx_t_4) < 0) __PYX_ERR(2, 247, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_handle_event, __pyx_t_7) < 0) __PYX_ERR(2, 247, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":258
  *         callback()
@@ -59094,16 +59646,16 @@ if (!__Pyx_RefNanny) {
  *         self, fd: _FileDescriptorLike, callback: Callable[..., None], *args: Any
  *     ) -> None:
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 258, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_fd, __pyx_n_s_FileDescriptorLike) < 0) __PYX_ERR(2, 258, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_callback, __pyx_kp_s_Callable_None) < 0) __PYX_ERR(2, 258, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_args, __pyx_n_s_Any) < 0) __PYX_ERR(2, 258, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 258, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 258, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_fd, __pyx_n_s_FileDescriptorLike) < 0) __PYX_ERR(2, 258, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_callback, __pyx_kp_s_Callable_None) < 0) __PYX_ERR(2, 258, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_args, __pyx_n_s_Any) < 0) __PYX_ERR(2, 258, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 258, __pyx_L1_error)
   __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_20add_reader, 0, __pyx_n_s_SelectorThread_add_reader, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__89)); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 258, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_7);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_add_reader, __pyx_t_11) < 0) __PYX_ERR(2, 258, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
@@ -59120,12 +59672,12 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_callback, __pyx_kp_s_Callable_None) < 0) __PYX_ERR(2, 264, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_args, __pyx_n_s_Any) < 0) __PYX_ERR(2, 264, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_return, __pyx_n_s_None) < 0) __PYX_ERR(2, 264, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_22add_writer, 0, __pyx_n_s_SelectorThread_add_writer, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__90)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_11);
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_22add_writer, 0, __pyx_n_s_SelectorThread_add_writer, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__90)); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 264, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_11);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_add_writer, __pyx_t_4) < 0) __PYX_ERR(2, 264, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_add_writer, __pyx_t_7) < 0) __PYX_ERR(2, 264, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":270
  *         self._wake_selector()
@@ -59134,14 +59686,14 @@ if (!__Pyx_RefNanny) {
  *         try:
  *             del self._readers[fd]
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 270, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_fd, __pyx_n_s_FileDescriptorLike) < 0) __PYX_ERR(2, 270, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_s_bool) < 0) __PYX_ERR(2, 270, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 270, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_fd, __pyx_n_s_FileDescriptorLike) < 0) __PYX_ERR(2, 270, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, __pyx_n_s_bool) < 0) __PYX_ERR(2, 270, __pyx_L1_error)
   __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_24remove_reader, 0, __pyx_n_s_SelectorThread_remove_reader, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__92)); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_7);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_remove_reader, __pyx_t_11) < 0) __PYX_ERR(2, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
@@ -59156,12 +59708,12 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_11);
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_fd, __pyx_n_s_FileDescriptorLike) < 0) __PYX_ERR(2, 278, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_return, __pyx_n_s_bool) < 0) __PYX_ERR(2, 278, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_26remove_writer, 0, __pyx_n_s_SelectorThread_remove_writer, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__93)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 278, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_11);
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_14SelectorThread_26remove_writer, 0, __pyx_n_s_SelectorThread_remove_writer, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__93)); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 278, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_11);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_remove_writer, __pyx_t_4) < 0) __PYX_ERR(2, 278, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_9, __pyx_n_s_remove_writer, __pyx_t_7) < 0) __PYX_ERR(2, 278, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":64
  * 
@@ -59170,10 +59722,10 @@ if (!__Pyx_RefNanny) {
  *     """Define ``add_reader`` methods to be called in a background select thread.
  * 
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_n_s_SelectorThread, __pyx_empty_tuple, __pyx_t_9, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 64, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_SelectorThread, __pyx_t_4) < 0) __PYX_ERR(2, 64, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_n_s_SelectorThread, __pyx_empty_tuple, __pyx_t_9, NULL, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 64, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_SelectorThread, __pyx_t_7) < 0) __PYX_ERR(2, 64, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":287
@@ -59185,22 +59737,22 @@ if (!__Pyx_RefNanny) {
  */
   __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_AbstractEventLoop); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 287, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_AbstractEventLoop); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_t_9 = PyTuple_New(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_4)) __PYX_ERR(2, 287, __pyx_L1_error);
-  __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PEP560_update_bases(__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 287, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_11 = __Pyx_CalculateMetaclass(NULL, __pyx_t_4); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 287, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_7 = __Pyx_Py3MetaclassPrepare(__pyx_t_11, __pyx_t_4, __pyx_n_s_AddThreadSelectorEventLoop, __pyx_n_s_AddThreadSelectorEventLoop, (PyObject *) NULL, __pyx_n_s_cycurl__curl, __pyx_kp_s_Wrap_an_event_loop_to_add_implem); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 287, __pyx_L1_error)
+  __Pyx_GIVEREF(__pyx_t_7);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7)) __PYX_ERR(2, 287, __pyx_L1_error);
+  __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PEP560_update_bases(__pyx_t_9); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (__pyx_t_4 != __pyx_t_9) {
-    if (unlikely((PyDict_SetItemString(__pyx_t_7, "__orig_bases__", __pyx_t_9) < 0))) __PYX_ERR(2, 287, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CalculateMetaclass(NULL, __pyx_t_7); if (unlikely(!__pyx_t_11)) __PYX_ERR(2, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_11);
+  __pyx_t_4 = __Pyx_Py3MetaclassPrepare(__pyx_t_11, __pyx_t_7, __pyx_n_s_AddThreadSelectorEventLoop, __pyx_n_s_AddThreadSelectorEventLoop, (PyObject *) NULL, __pyx_n_s_cycurl__curl, __pyx_kp_s_Wrap_an_event_loop_to_add_implem); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (__pyx_t_7 != __pyx_t_9) {
+    if (unlikely((PyDict_SetItemString(__pyx_t_4, "__orig_bases__", __pyx_t_9) < 0))) __PYX_ERR(2, 287, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_t_9 = PyList_New(0); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 287, __pyx_L1_error)
@@ -59222,7 +59774,7 @@ if (!__Pyx_RefNanny) {
   if (PySet_Add(__pyx_t_5, __pyx_n_u_close) < 0) __PYX_ERR(2, 308, __pyx_L1_error)
   if (PySet_Add(__pyx_t_5, __pyx_n_u_remove_reader) < 0) __PYX_ERR(2, 308, __pyx_L1_error)
   if (PySet_Add(__pyx_t_5, __pyx_n_u_remove_writer) < 0) __PYX_ERR(2, 308, __pyx_L1_error)
-  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_MY_ATTRIBUTES, __pyx_t_5) < 0) __PYX_ERR(2, 307, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_MY_ATTRIBUTES, __pyx_t_5) < 0) __PYX_ERR(2, 307, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":317
@@ -59243,7 +59795,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_t_10);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_10, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_getattribute, __pyx_t_10) < 0) __PYX_ERR(2, 317, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_getattribute, __pyx_t_10) < 0) __PYX_ERR(2, 317, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":322
@@ -59261,7 +59813,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_10);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_init, __pyx_t_5) < 0) __PYX_ERR(2, 322, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_init, __pyx_t_5) < 0) __PYX_ERR(2, 322, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":326
@@ -59278,7 +59830,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_10, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_close, __pyx_t_10) < 0) __PYX_ERR(2, 326, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_close, __pyx_t_10) < 0) __PYX_ERR(2, 326, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":330
@@ -59298,7 +59850,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_10);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_add_reader, __pyx_t_5) < 0) __PYX_ERR(2, 330, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_reader, __pyx_t_5) < 0) __PYX_ERR(2, 330, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":335
@@ -59318,7 +59870,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_10, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_add_writer, __pyx_t_10) < 0) __PYX_ERR(2, 335, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_writer, __pyx_t_10) < 0) __PYX_ERR(2, 335, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":340
@@ -59336,7 +59888,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_10);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_remove_reader, __pyx_t_5) < 0) __PYX_ERR(2, 340, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_remove_reader, __pyx_t_5) < 0) __PYX_ERR(2, 340, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":343
@@ -59353,7 +59905,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_10, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_remove_writer, __pyx_t_10) < 0) __PYX_ERR(2, 343, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_remove_writer, __pyx_t_10) < 0) __PYX_ERR(2, 343, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
   /* "cycurl/_asyncio_selector.pxi":287
@@ -59363,74 +59915,74 @@ if (!__Pyx_RefNanny) {
  *     """Wrap an event loop to add implementations of the ``add_reader`` method family.
  * 
  */
-  __pyx_t_10 = __Pyx_Py3ClassCreate(__pyx_t_11, __pyx_n_s_AddThreadSelectorEventLoop, __pyx_t_4, __pyx_t_7, NULL, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 287, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_Py3ClassCreate(__pyx_t_11, __pyx_n_s_AddThreadSelectorEventLoop, __pyx_t_7, __pyx_t_4, NULL, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   if (__Pyx_CyFunction_InitClassCell(__pyx_t_9, __pyx_t_10) < 0) __PYX_ERR(2, 287, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_AddThreadSelectorEventLoop, __pyx_t_10) < 0) __PYX_ERR(2, 287, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "cycurl/_curl.pyx":504
+  /* "cycurl/_curl.pyx":548
  * 
  * include "_asyncio_selector.pxi"
  * if sys.platform == "win32":             # <<<<<<<<<<<<<<
  *     # registry of asyncio loop : selector thread
  *     _selectors: WeakKeyDictionary = WeakKeyDictionary()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_sys); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 504, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_platform); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 504, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_sys); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 548, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_platform); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_11, __pyx_n_u_win32, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 504, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_11, __pyx_n_u_win32, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   if (__pyx_t_6) {
 
-    /* "cycurl/_curl.pyx":506
+    /* "cycurl/_curl.pyx":550
  * if sys.platform == "win32":
  *     # registry of asyncio loop : selector thread
  *     _selectors: WeakKeyDictionary = WeakKeyDictionary()             # <<<<<<<<<<<<<<
  *     PROACTOR_WARNING = """
  *     Proactor event loop does not implement add_reader family of methods required.
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_WeakKeyDictionary); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 506, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_WeakKeyDictionary); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 550, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 506, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_7 = __Pyx_PyObject_CallNoArg(__pyx_t_11); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 550, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_selectors, __pyx_t_4) < 0) __PYX_ERR(0, 506, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_selectors, __pyx_t_7) < 0) __PYX_ERR(0, 550, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "cycurl/_curl.pyx":507
+    /* "cycurl/_curl.pyx":551
  *     # registry of asyncio loop : selector thread
  *     _selectors: WeakKeyDictionary = WeakKeyDictionary()
  *     PROACTOR_WARNING = """             # <<<<<<<<<<<<<<
  *     Proactor event loop does not implement add_reader family of methods required.
  *     Registering an additional selector thread for add_reader support.
  */
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_PROACTOR_WARNING, __pyx_kp_u_Proactor_event_loop_does_not_im) < 0) __PYX_ERR(0, 507, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_PROACTOR_WARNING, __pyx_kp_u_Proactor_event_loop_does_not_im) < 0) __PYX_ERR(0, 551, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":514
+    /* "cycurl/_curl.pyx":558
  *     """
  * 
  *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         """Get selector-compatible loop
  * 
  */
-    __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 514, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_kp_s_asyncio_AbstractEventLoop) < 0) __PYX_ERR(0, 514, __pyx_L1_error)
-    __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_3_get_selector, 0, __pyx_n_s_get_selector, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__104)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 514, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 558, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, __pyx_kp_s_asyncio_AbstractEventLoop) < 0) __PYX_ERR(0, 558, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_3_get_selector, 0, __pyx_n_s_get_selector, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__104)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 558, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_4);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_selector, __pyx_t_11) < 0) __PYX_ERR(0, 514, __pyx_L1_error)
+    __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_7);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_selector, __pyx_t_11) < 0) __PYX_ERR(0, 558, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-    /* "cycurl/_curl.pyx":504
+    /* "cycurl/_curl.pyx":548
  * 
  * include "_asyncio_selector.pxi"
  * if sys.platform == "win32":             # <<<<<<<<<<<<<<
@@ -59440,7 +59992,7 @@ if (!__Pyx_RefNanny) {
     goto __pyx_L30;
   }
 
-  /* "cycurl/_curl.pyx":547
+  /* "cycurl/_curl.pyx":591
  * 
  * else:
  *     def _get_selector(loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -59448,108 +60000,94 @@ if (!__Pyx_RefNanny) {
  * 
  */
   /*else*/ {
-    __pyx_t_11 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 547, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 591, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_return, __pyx_kp_s_asyncio_AbstractEventLoop) < 0) __PYX_ERR(0, 547, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_5_get_selector, 0, __pyx_n_s_get_selector, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__105)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 547, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_11);
+    if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_return, __pyx_kp_s_asyncio_AbstractEventLoop) < 0) __PYX_ERR(0, 591, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_5_get_selector, 0, __pyx_n_s_get_selector, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__105)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 591, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_11);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_selector, __pyx_t_4) < 0) __PYX_ERR(0, 547, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_selector, __pyx_t_7) < 0) __PYX_ERR(0, 591, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
   __pyx_L30:;
 
-  /* "cycurl/_curl.pyx":603
- *         object _timers   # WeakSet
- * 
- *     def __cinit__(self, str cacert = DEFAULT_CACERT, object loop=None):             # <<<<<<<<<<<<<<
- *         self._curlm = curl.curl_multi_init()
- *         if self._curlm == NULL:
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DEFAULT_CACERT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 603, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None) || __Pyx_RaiseUnexpectedTypeError("unicode", __pyx_t_4))) __PYX_ERR(0, 603, __pyx_L1_error)
-  __pyx_k__19 = ((PyObject*)__pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_4);
-  __pyx_t_4 = 0;
-
-  /* "cycurl/_curl.pyx":629
+  /* "cycurl/_curl.pyx":673
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)
  * 
- *     cpdef inline close(self):             # <<<<<<<<<<<<<<
+ *     async def close(self):             # <<<<<<<<<<<<<<
  *         """Close and cleanup running timers, readers, writers and handles."""
- *         # Close force timeout checker
+ *         # Close and wait for the force timeout checker to complete
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_5close, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl_close, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__106)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 629, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_close, __pyx_t_4) < 0) __PYX_ERR(0, 629, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_5close, __Pyx_CYFUNCTION_CCLASS | __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_AsyncCurl_close, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 673, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_close, __pyx_t_7) < 0) __PYX_ERR(0, 673, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_AsyncCurl);
 
-  /* "cycurl/_curl.pyx":649
+  /* "cycurl/_curl.pyx":695
  *             timer.cancel()
  * 
  *     async def _force_timeout(self):             # <<<<<<<<<<<<<<
  *         while True:
  *             if not self._curlm:
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_7_force_timeout, __Pyx_CYFUNCTION_CCLASS | __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_AsyncCurl__force_timeout, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 649, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_force_timeout, __pyx_t_4) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_8_force_timeout, __Pyx_CYFUNCTION_CCLASS | __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_AsyncCurl__force_timeout, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 695, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_force_timeout, __pyx_t_7) < 0) __PYX_ERR(0, 695, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_AsyncCurl);
 
-  /* "cycurl/_curl.pyx":657
+  /* "cycurl/_curl.pyx":703
  *             self.socket_action(curl.CURL_SOCKET_TIMEOUT, curl.CURL_POLL_NONE)
  * 
  *     cpdef inline add_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
  *         """Add a curl handle to be managed by curl_multi. This is the equivalent of
  *         `perform` in the async world."""
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_10add_handle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl_add_handle, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__108)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 657, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_add_handle, __pyx_t_4) < 0) __PYX_ERR(0, 657, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_11add_handle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl_add_handle, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__108)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 703, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_add_handle, __pyx_t_7) < 0) __PYX_ERR(0, 703, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_AsyncCurl);
 
-  /* "cycurl/_curl.pyx":668
+  /* "cycurl/_curl.pyx":714
  *         return future
  * 
  *     cpdef inline int socket_action(self, int sockfd, int ev_bitmask) except -1:             # <<<<<<<<<<<<<<
  *         """Call libcurl socket_action function"""
  *         cdef int running_handle
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_12socket_action, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl_socket_action, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__110)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 668, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_socket_action, __pyx_t_4) < 0) __PYX_ERR(0, 668, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_13socket_action, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl_socket_action, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__110)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 714, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_socket_action, __pyx_t_7) < 0) __PYX_ERR(0, 714, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_AsyncCurl);
 
-  /* "cycurl/_curl.pyx":678
+  /* "cycurl/_curl.pyx":724
  *         return running_handle
  * 
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):             # <<<<<<<<<<<<<<
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_14process_data, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl_process_data, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__111)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 678, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_process_data, __pyx_t_4) < 0) __PYX_ERR(0, 678, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_15process_data, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl_process_data, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__111)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 724, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_process_data, __pyx_t_7) < 0) __PYX_ERR(0, 724, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_AsyncCurl);
 
-  /* "cycurl/_curl.pyx":713
+  /* "cycurl/_curl.pyx":759
  *         return self._curl2future.pop(curl_, None)
  * 
  *     cpdef inline remove_handle(self, Curl curl):             # <<<<<<<<<<<<<<
  *         """Cancel a future for given curl handle."""
  *         cdef object future = self._pop_future(curl)
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_16remove_handle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl_remove_handle, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__113)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 713, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_remove_handle, __pyx_t_4) < 0) __PYX_ERR(0, 713, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_17remove_handle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl_remove_handle, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__113)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 759, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_n_s_remove_handle, __pyx_t_7) < 0) __PYX_ERR(0, 759, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_AsyncCurl);
 
   /* "(tree fragment)":1
@@ -59557,10 +60095,10 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_18__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl___reduce_cython, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__114)); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_19__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl___reduce_cython, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__114)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -59568,70 +60106,70 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_20__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl___setstate_cython, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__115)); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 3, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_21__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AsyncCurl___setstate_cython, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__115)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "cycurl/_curl.pyx":747
+  /* "cycurl/_curl.pyx":799
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
  *         self,
  *         str name,
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_3addpart, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_CurlMime_addpart, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__117)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 747, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_tuple__118);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_addpart, __pyx_t_4) < 0) __PYX_ERR(0, 747, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_3addpart, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_CurlMime_addpart, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__117)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 799, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__118);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_addpart, __pyx_t_7) < 0) __PYX_ERR(0, 799, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_CurlMime);
 
-  /* "cycurl/_curl.pyx":798
+  /* "cycurl/_curl.pyx":859
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def from_list(cls, list files):  # files: List[dict]
- *         cdef CurlMime form = cls()
+ *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_5from_list, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_CurlMime_from_list, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__120)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 798, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_from_list, __pyx_t_4) < 0) __PYX_ERR(0, 798, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_5from_list, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_CurlMime_from_list, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__120)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_from_list, __pyx_t_7) < 0) __PYX_ERR(0, 859, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_CurlMime);
-  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_from_list); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 798, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_11 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 798, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_7, (PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_from_list); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_11 = __Pyx_Method_ClassMethod(__pyx_t_7); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_from_list, __pyx_t_11) < 0) __PYX_ERR(0, 798, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_from_list, __pyx_t_11) < 0) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_CurlMime);
 
-  /* "cycurl/_curl.pyx":805
+  /* "cycurl/_curl.pyx":867
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
+ *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
- *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_7attach, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_CurlMime_attach, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__121)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 805, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_7attach, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_CurlMime_attach, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__121)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_11, __pyx_tuple__122);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_attach, __pyx_t_11) < 0) __PYX_ERR(0, 805, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_attach, __pyx_t_11) < 0) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_CurlMime);
 
-  /* "cycurl/_curl.pyx":809
+  /* "cycurl/_curl.pyx":872
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         curl.curl_mime_free(self.form)
- *         self.form = NULL
+ *         """Close the mime instance and underlying files. This method must be called after
+ *         ``perform`` or ``request``."""
  */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_9close, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_CurlMime_close, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__123)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 809, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_9close, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_CurlMime_close, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__123)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 872, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_close, __pyx_t_11) < 0) __PYX_ERR(0, 809, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_n_s_close, __pyx_t_11) < 0) __PYX_ERR(0, 872, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   PyType_Modified(__pyx_ptype_6cycurl_5_curl_CurlMime);
 

@@ -63,6 +63,7 @@ if TYPE_CHECKING:
 else:
     ProxySpec = Dict[str, str]
 
+CHARSET_RE = re.compile(r"charset=([\w-]+)")
 ThreadType = Literal["eventlet", "gevent"]
 
 class BrowserType(str, Enum):
@@ -90,6 +91,17 @@ class BrowserType(str, Enum):
     @classmethod
     def has(cls, item):
         return item in cls.__members__
+
+    @classmethod
+    def normalize(cls, item):
+        if item == "chrome":
+            return cls.chrome
+        elif item == "safari":
+            return cls.safari
+        elif item == "safari_ios":
+            return cls.safari_ios
+        else:
+            return item
 
 
 class BrowserSpec:
@@ -478,9 +490,10 @@ class BaseSession:
             self.default_headers if default_headers is None else default_headers
         )
         if impersonate:
-            if not BrowserType.has(impersonate):
-                raise RequestsError(f"impersonate {impersonate} is not supported")
-            c.impersonate(impersonate, default_headers=default_headers)
+            impersonate = BrowserType.normalize(impersonate)
+            ret = c.impersonate(impersonate, default_headers=default_headers)
+            if ret != 0:
+                raise RequestsError(f"Impersonating {impersonate} is not supported")
 
         # http_version, after impersonate, which will change this to http2
         http_version = http_version or self.http_version
@@ -570,8 +583,8 @@ class BaseSession:
         # print("Cookies after extraction", self.cookies)
 
         content_type = rsp.headers.get("Content-Type", default="")
-        match = re.search(r"charset=([\w-]+)", content_type)
-        charset = match.group(1) if match else "utf-8"
+        charset_match = CHARSET_RE.search(content_type)
+        charset = charset_match.group(1) if charset_match else "utf-8"
 
         rsp.charset = charset
         rsp.encoding = charset  # TODO use chardet
@@ -604,7 +617,7 @@ class Session(BaseSession):
         """
         Parameters set in the init method will be override by the same parameter in request method.
 
-        Parameters:
+        Args:
             curl: curl object to use in the session. If not provided, a new one will be
                 created. Also, a fresh curl object will always be created when accessed
                 from another thread.
@@ -627,12 +640,13 @@ class Session(BaseSession):
 
         Notes:
             This class can be used as a context manager.
-            ```
+
+        .. code-block:: python
+
             from curl_cffi.requests import Session
 
             with Session() as s:
                 r = s.get("https://example.com")
-            ```
         """
         super().__init__(**kwargs)
         self._thread = thread
@@ -680,6 +694,7 @@ class Session(BaseSession):
 
     @contextmanager
     def stream(self, *args, **kwargs):
+        """Equivalent to ``with request(..., stream=True) as r:``"""
         rsp = self.request(*args, **kwargs, stream=True)
         try:
             yield rsp
@@ -695,7 +710,21 @@ class Session(BaseSession):
         on_open: Optional[Callable] = None,
         on_close: Optional[Callable] = None,
         **kwargs,
-    ):
+    ) -> WebSocket:
+        """Connects to a websocket url.
+
+        Args:
+            url: the ws url to connect.
+            on_message: message callback, ``def on_message(ws, str)``
+            on_error: error callback, ``def on_error(ws, error)``
+            on_open: open callback, ``def on_open(ws)``
+            on_cloes: close callback, ``def on_close(ws)``
+
+        Other parameters are the same as ``.request``
+
+        Returns:
+            a ws instance to communicate with the server.
+        """
         self._check_session_closed()
 
         self._set_curl_options(self.curl, "GET", url, *args, **kwargs)
@@ -724,7 +753,7 @@ class Session(BaseSession):
         cookies: Optional[CookieTypes] = None,
         files: Optional[Dict] = None,
         auth: Optional[Tuple[str, str]] = None,
-        timeout: Optional[Union[float, Tuple[float, float]]] = None,
+        timeout: Optional[Union[float, Tuple[float, float], object]] = not_set,
         allow_redirects: Optional[bool] = None,
         max_redirects: Optional[int] = None,
         proxies: Optional[ProxySpec] = None,
@@ -743,7 +772,7 @@ class Session(BaseSession):
         max_recv_speed: int = 0,
         multipart: Optional[CurlMime] = None,
     ) -> Response:
-        """Send the request, see [curl_cffi.requests.request](/api/curl_cffi.requests/#curl_cffi.requests.request) for details on parameters."""
+        """Send the request, see ``requests.request`` for details on parameters."""
 
         self._check_session_closed()
 
@@ -872,7 +901,7 @@ class AsyncSession(BaseSession):
 
         Parameters:
             loop: loop to use, if not provided, the running loop will be used.
-            async_curl: [AsyncCurl](/api/curl_cffi#curl_cffi.AsyncCurl) object to use.
+            async_curl: [AsyncCurl](/api/cycurl#cycurl.AsyncCurl) object to use.
             max_clients: maxmium curl handle to use in the session, this will affect the concurrency ratio.
             headers: headers to use in the session.
             cookies: cookies to add in the session.
@@ -889,13 +918,19 @@ class AsyncSession(BaseSession):
             impersonate: which browser version to impersonate in the session.
 
         Notes:
-            This class can be used as a context manager, and it's recommended to use via `async with`.
-            ```
-            from curl_cffi.requests import AsyncSession
+            This class can be used as a context manager, and it's recommended to use via
+            ``async with``.
+            However, unlike aiohttp, it is not required to use ``with``.
 
+        .. code-block:: python
+
+            from cycurl.requests import AsyncSession
+
+            # recommended.
             async with AsyncSession() as s:
                 r = await s.get("https://example.com")
-            ```
+
+            s = AsyncSession()  # it also works.
         """
         super().__init__(**kwargs)
         self._loop = loop
@@ -939,12 +974,12 @@ class AsyncSession(BaseSession):
         return self
 
     async def __aexit__(self, *args):
-        self.close()
+        await self.close()
         return None
 
-    def close(self):
+    async def close(self):
         """Close the session."""
-        self.acurl.close()
+        await self.acurl.close()
         self._closed = True
         while True:
             try:
@@ -965,6 +1000,7 @@ class AsyncSession(BaseSession):
 
     @asynccontextmanager
     async def stream(self, *args, **kwargs):
+        """Equivalent to ``async with request(..., stream=True) as r:``"""
         rsp = await self.request(*args, **kwargs, stream=True)
         try:
             yield rsp
@@ -992,7 +1028,7 @@ class AsyncSession(BaseSession):
         cookies: Optional[CookieTypes] = None,
         files: Optional[Dict] = None,
         auth: Optional[Tuple[str, str]] = None,
-        timeout: Optional[Union[float, Tuple[float, float]]] = None,
+        timeout: Optional[Union[float, Tuple[float, float], object]] = not_set,
         allow_redirects: Optional[bool] = None,
         max_redirects: Optional[int] = None,
         proxies: Optional[ProxySpec] = None,
@@ -1011,7 +1047,7 @@ class AsyncSession(BaseSession):
         max_recv_speed: int = 0,
         multipart: Optional[CurlMime] = None,
     ):
-        """Send the request, see [curl_cffi.requests.request](/api/curl_cffi.requests/#curl_cffi.requests.request) for details on parameters."""
+        """Send the request, see ``cycurl.requests.request`` for details on parameters."""
         self._check_session_closed()
 
         curl = await self.pop_curl()
