@@ -41,9 +41,7 @@ elif uname.system == "Darwin":
         ]
     else:
         library_dirs = ["./dep/macos_arm"]
-        extra_objects = [
-            "./dep/macos_arm/libcurl-impersonate-chrome.4.dylib"
-        ]
+        extra_objects = ["./dep/macos_arm/libcurl-impersonate-chrome.4.dylib"]
 else:
     library_dirs = ["./dep/linux_latest/chromelibs"]
     extra_objects = [

@@ -1,6 +1,7 @@
 import asyncio
 import base64
 import json
+
 import pytest
 
 from cycurl.requests import AsyncSession, RequestsError
@@ -320,7 +321,9 @@ async def test_timers_leak(server):
     async with AsyncSession() as sess:
         for _ in range(3):
             try:
-                await sess.get(str(server.url.copy_with(path="/slow_response")), timeout=0.1)
+                await sess.get(
+                    str(server.url.copy_with(path="/slow_response")), timeout=0.1
+                )
             except Exception:
                 pass
         await asyncio.sleep(0.2)

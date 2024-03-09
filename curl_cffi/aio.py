@@ -3,11 +3,11 @@ import sys
 import warnings
 from contextlib import suppress
 from typing import Any
-from weakref import WeakSet, WeakKeyDictionary
+from weakref import WeakKeyDictionary, WeakSet
 
 from ._wrapper import ffi, lib  # type: ignore
 from .const import CurlMOpt
-from .curl import Curl, DEFAULT_CACERT
+from .curl import DEFAULT_CACERT, Curl
 
 __all__ = ["AsyncCurl"]
 
@@ -33,7 +33,9 @@ if sys.platform == "win32":
         if asyncio_loop in _selectors:
             return _selectors[asyncio_loop]
 
-        if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
+        if not isinstance(
+            asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))
+        ):
             return asyncio_loop
 
         warnings.warn(PROACTOR_WARNING, RuntimeWarning)
@@ -56,6 +58,7 @@ if sys.platform == "win32":
         return selector_loop
 
 else:
+
     def _get_selector(loop) -> asyncio.AbstractEventLoop:
         return loop
 
@@ -98,7 +101,6 @@ def timer_function(curlm, timeout_ms: int, clientp: Any):
         async_curl._timers.add(timer)
 
 
-
 @ffi.def_extern()
 def socket_function(curl, sockfd: int, what: int, clientp: Any, data: Any):
     async_curl = ffi.from_handle(clientp)
@@ -117,6 +119,7 @@ def socket_function(curl, sockfd: int, what: int, clientp: Any, data: Any):
         async_curl._sockfds.add(sockfd)
     if what & CURL_POLL_REMOVE:
         async_curl._sockfds.remove(sockfd)
+
 
 class AsyncCurl:
     """Wrapper around curl_multi handle to provide asyncio support. It uses the libcurl

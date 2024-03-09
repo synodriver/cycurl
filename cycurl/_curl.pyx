@@ -3,8 +3,8 @@
 from pathlib import Path
 
 cimport cython
-from cpython.float cimport PyFloat_FromDouble
 from cpython.bytes cimport PyBytes_GET_SIZE
+from cpython.float cimport PyFloat_FromDouble
 from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport (PyCapsule_CheckExact, PyCapsule_GetPointer,
@@ -17,8 +17,8 @@ include "consts.pxi"
 import asyncio
 import re
 import sys
-from contextlib import suppress
 import warnings
+from contextlib import suppress
 from enum import IntEnum
 from http.cookies import SimpleCookie
 from weakref import WeakKeyDictionary, WeakSet
@@ -136,6 +136,7 @@ cdef class Curl:
     cdef:
         curl.CURL* _curl
         curl.curl_slist * _headers
+        curl.curl_slist * _proxy_headers
         curl.curl_slist * _resolve
         str _cacert
         bint _is_cert_set
@@ -166,6 +167,7 @@ cdef class Curl:
         else:
             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)
         self._headers = NULL
+        self._proxy_headers = NULL
         self._resolve = NULL
         self._cacert = cacert or DEFAULT_CACERT
         self._is_cert_set = False
@@ -185,6 +187,9 @@ cdef class Curl:
         if self._headers:
             curl.curl_slist_free_all(self._headers)
             self._headers = NULL
+        if self._proxy_headers:
+            curl.curl_slist_free_all(self._proxy_headers)
+            self._proxy_headers = NULL
 
     def __dealloc__(self):
         if self._error_buffer:
@@ -353,6 +358,10 @@ cdef class Curl:
             for header in value:
                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)
             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
+        elif option == curl.CURLOPT_PROXYHEADER:
+            for proxy_header in value:
+                self._proxy_headers = curl.curl_slist_append(self._proxy_headers, <const char*>proxy_header)
+            ret = curl._curl_easy_setopt(self._curl, option, self._proxy_headers)
         elif option == curl.CURLOPT_RESOLVE:
             for resolve in value:
                 if isinstance(resolve, str):
@@ -470,7 +479,11 @@ cdef class Curl:
         if clear_headers:
             if self._headers != NULL:
                 curl.curl_slist_free_all(self._headers)
-            self._headers = NULL
+                self._headers = NULL
+
+            if self._proxy_headers != NULL:
+                curl.curl_slist_free_all(self._proxy_headers)
+                self._proxy_headers = NULL
         # fixme: clean resolve
         if self._resolve != NULL:
             curl.curl_slist_free_all(self._resolve)

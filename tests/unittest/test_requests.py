@@ -115,7 +115,7 @@ def test_headers(server):
 
 
 def test_charset_parse(server):
-    r = requests.get( str(server.url.copy_with(path="/gbk")))
+    r = requests.get(str(server.url.copy_with(path="/gbk")))
     assert r.charset == "gbk"
 
 
@@ -177,7 +177,9 @@ def test_timeout(server):
 
 def test_session_timeout(server):
     with pytest.raises(requests.RequestsError):
-        requests.Session(timeout=0.1).get(str(server.url.copy_with(path="/slow_response")))
+        requests.Session(timeout=0.1).get(
+            str(server.url.copy_with(path="/slow_response"))
+        )
 
 
 def test_post_timeout(server):

@@ -3,32 +3,48 @@ import os
 import platform
 import shutil
 import struct
+import tempfile
 from pathlib import Path
 from urllib.request import urlretrieve
 
 from cffi import FFI
 
 # this is the upstream libcurl-impersonate version
-__version__ = "0.6.2b1"
+__version__ = "0.6.2b2"
+
+tmpdir = None
 
 
 def detect_arch():
     with open(Path(__file__).parent.parent / "libs.json") as f:
         archs = json.loads(f.read())
+
+    libc, _ = platform.libc_ver()
+    # https://github.com/python/cpython/issues/87414
+    libc = "gnu" if libc == "glibc" else "musl"
     uname = platform.uname()
     pointer_size = struct.calcsize("P") * 8
+
     for arch in archs:
         if (
             arch["system"] == uname.system
             and arch["machine"] == uname.machine
             and arch["pointer_size"] == pointer_size
+            and ("libc" not in arch or arch.get("libc") == libc)
         ):
-            arch["libdir"] = os.path.expanduser(arch["libdir"])
+            if arch["libdir"]:
+                arch["libdir"] = os.path.expanduser(arch["libdir"])
+            else:
+                global tmpdir
+                tmpdir = tempfile.TemporaryDirectory()
+                arch["libdir"] = tmpdir.name
             return arch
     raise Exception(f"Unsupported arch: {uname}")
 
 
 arch = detect_arch()
+print(f"Using {arch['libdir']} to store libcurl-impersonate")
+
 
 def download_libcurl():
     if (Path(arch["libdir"]) / arch["so_name"]).exists():
@@ -36,10 +52,14 @@ def download_libcurl():
         return
 
     file = "libcurl-impersonate.tar.gz"
+    if arch["system"] == "Linux":
+        sysname = "linux-" + arch["libc"]
+    else:
+        sysname = arch["sysname"]
     url = (
         f"https://github.com/yifeikong/curl-impersonate/releases/download/"
         f"v{__version__}/libcurl-impersonate-v{__version__}"
-        f".{arch['so_arch']}-{arch['sysname']}.tar.gz"
+        f".{arch['so_arch']}-{sysname}.tar.gz"
     )
 
     print(f"Downloading libcurl-impersonate-chrome from {url}...")
@@ -52,8 +72,9 @@ def download_libcurl():
     if arch["system"] == "Windows":
         shutil.copy2(f"{arch['libdir']}/libcurl.dll", "curl_cffi")
 
+
 def get_curl_archives():
-    if arch["system"] == "Linux":
+    if arch["system"] == "Linux" and arch.get("link_type") == "static":
         # note that the order of libraries matters
         # https://stackoverflow.com/a/36581865
         return [
@@ -69,10 +90,13 @@ def get_curl_archives():
     else:
         return []
 
+
 def get_curl_libraries():
     if arch["system"] == "Windows":
         return ["libcurl"]
     elif arch["system"] == "Darwin":
+        return ["curl-impersonate-chrome"]
+    elif arch["system"] == "Linux" and arch.get("link_type") == "dynamic":
         return ["curl-impersonate-chrome"]
     else:
         return []

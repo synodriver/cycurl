@@ -16,12 +16,12 @@ from typing import (
     Callable,
     Dict,
     List,
+    Literal,
     Optional,
     Sequence,
     Tuple,
-    Union,
     TypedDict,
-    Literal,
+    Union,
     cast,
 )
 from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urlparse
@@ -65,6 +65,7 @@ else:
 
 CHARSET_RE = re.compile(r"charset=([\w-]+)")
 ThreadType = Literal["eventlet", "gevent"]
+
 
 class BrowserType(str, Enum):
     edge99 = "edge99"
