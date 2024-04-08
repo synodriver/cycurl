@@ -18,13 +18,12 @@ from typing import (
     List,
     Literal,
     Optional,
-    Sequence,
     Tuple,
     TypedDict,
     Union,
     cast,
 )
-from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urlparse
+from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urljoin, urlparse
 
 import cycurl._curl as m
 from cycurl._curl import (
@@ -109,6 +108,12 @@ class BrowserSpec:
     """A more structured way of selecting browsers"""
 
     # TODO
+
+
+def _is_absolute_url(url: str) -> bool:
+    """Check if the provided url is an absolute url"""
+    parsed_url = urlparse(url)
+    return bool(parsed_url.scheme and parsed_url.hostname)
 
 
 def _update_url_params(url: str, params: Dict) -> str:
@@ -198,6 +203,7 @@ class BaseSession:
         proxies: Optional[ProxySpec] = None,
         proxy: Optional[str] = None,
         proxy_auth: Optional[Tuple[str, str]] = None,
+        base_url: Optional[str] = None,
         params: Optional[dict] = None,
         verify: bool = True,
         timeout: Union[float, Tuple[float, float]] = 30,
@@ -216,6 +222,7 @@ class BaseSession:
         self.headers = Headers(headers)
         self.cookies = Cookies(cookies)
         self.auth = auth
+        self.base_url = base_url
         self.params = params
         self.verify = verify
         self.timeout = timeout
@@ -237,6 +244,9 @@ class BaseSession:
             proxies = {"all": proxy}
         self.proxies: ProxySpec = proxies or {}
         self.proxy_auth = proxy_auth
+
+        if self.base_url and not _is_absolute_url(self.base_url):
+            raise ValueError("You need to provide an absolute url for 'base_url'")
 
         self._closed = False
 
@@ -286,6 +296,8 @@ class BaseSession:
             url = _update_url_params(url, self.params)
         if params:
             url = _update_url_params(url, params)
+        if self.base_url:
+            url = urljoin(self.base_url, url)
         c.setopt(m.CURLOPT_URL, url.encode())
 
         # data/body/json
@@ -334,9 +346,7 @@ class BaseSession:
         if json is not None:
             _update_header_line(header_lines, "Content-Type", "application/json")
         if isinstance(data, dict) and method != "POST":
-            _update_header_line(
-                header_lines, "Content-Type", "application/x-www-form-urlencoded"
-            )
+            _update_header_line(header_lines, "Content-Type", "application/x-www-form-urlencoded")
         # print("header lines", header_lines)
         c.setopt(m.CURLOPT_HTTPHEADER, [h.encode() for h in header_lines])
 
@@ -364,7 +374,7 @@ class BaseSession:
         if multipart:
             # multipart will overrides postfields
             for k, v in cast(dict, data or {}).items():
-                multipart.addpart(name=k, data=v)
+                multipart.addpart(name=k, data=v.encode() if isinstance(v, str) else v)
             c.setopt(m.CURLOPT_MIMEPOST, multipart._form)
 
         # auth
@@ -373,8 +383,8 @@ class BaseSession:
                 username, password = self.auth
             if auth:
                 username, password = auth
-            c.setopt(m.CURLOPT_USERNAME, username.encode())  # type: ignore
-            c.setopt(m.CURLOPT_PASSWORD, password.encode())  # type: ignore
+            c.setopt(m.CURLOPT_USERNAME, username.encode())  # pyright: ignore [reportPossiblyUnboundVariable=none]
+            c.setopt(m.CURLOPT_PASSWORD, password.encode())  # pyright: ignore [reportPossiblyUnboundVariable=none]
 
         # timeout
         if timeout is not_set:
@@ -391,15 +401,15 @@ class BaseSession:
             else:
                 # trick from: https://github.com/yifeikong/curl_cffi/issues/156
                 c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
-                c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(all_timeout))  # type: ignore
+                c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(all_timeout))
 
-        else:
+        elif isinstance(timeout, (int, float)):
             if not stream:
-                c.setopt(m.CURLOPT_TIMEOUT_MS, int(timeout * 1000))  # type: ignore
+                c.setopt(m.CURLOPT_TIMEOUT_MS, int(timeout * 1000))
             else:
-                c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(timeout * 1000))  # type: ignore
+                c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(timeout * 1000))
                 c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
-                c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(timeout))  # type: ignore
+                c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(timeout))
 
         # allow_redirects
         c.setopt(
@@ -423,12 +433,15 @@ class BaseSession:
 
         if proxies:
             parts = urlparse(url)
-            proxy = proxies.get(parts.scheme, proxies.get("all"))
+            proxy = cast(Optional[str], proxies.get(parts.scheme, proxies.get("all")))
             if parts.hostname:
                 proxy = (
-                    proxies.get(
-                        f"{parts.scheme}://{parts.hostname}",
-                        proxies.get(f"all://{parts.hostname}"),
+                    cast(
+                        Optional[str],
+                        proxies.get(
+                            f"{parts.scheme}://{parts.hostname}",
+                            proxies.get(f"all://{parts.hostname}"),
+                        ),
                     )
                     or proxy
                 )
@@ -487,9 +500,7 @@ class BaseSession:
 
         # impersonate
         impersonate = impersonate or self.impersonate
-        default_headers = (
-            self.default_headers if default_headers is None else default_headers
-        )
+        default_headers = self.default_headers if default_headers is None else default_headers
         if impersonate:
             impersonate = BrowserType.normalize(impersonate)
             ret = c.impersonate(impersonate, default_headers=default_headers)
@@ -510,7 +521,7 @@ class BaseSession:
         header_recved = None
         quit_now = None
         if stream:
-            q = queue_class()  # type: ignore
+            q = queue_class()
             header_recved = event_class()
             quit_now = event_class()
 
@@ -522,7 +533,7 @@ class BaseSession:
                 q.put_nowait(chunk)
                 return len(chunk)
 
-            c.setopt(m.CURLOPT_WRITEFUNCTION, qput)  # type: ignore
+            c.setopt(m.CURLOPT_WRITEFUNCTION, qput)
         elif content_callback is not None:
             c.setopt(m.CURLOPT_WRITEFUNCTION, content_callback)
         else:
@@ -550,7 +561,7 @@ class BaseSession:
         rsp = Response(c)
         rsp.url = cast(bytes, c.getinfo(m.CURLINFO_EFFECTIVE_URL)).decode()
         if buffer:
-            rsp.content = buffer.getvalue()  # type: ignore
+            rsp.content = buffer.getvalue()
         rsp.http_version = cast(int, c.getinfo(m.CURLINFO_HTTP_VERSION))
         rsp.status_code = cast(int, c.getinfo(m.CURLINFO_RESPONSE_CODE))
         rsp.ok = 200 <= rsp.status_code < 400
@@ -573,10 +584,8 @@ class BaseSession:
             header_list.append(header_line)
         rsp.headers = Headers(header_list)
         # print("Set-cookie", rsp.headers["set-cookie"])
-        morsels = [
-            CurlMorsel.from_curl_format(l) for l in c.getinfo(m.CURLINFO_COOKIELIST)
-        ]
-        # for l in c.getinfo(m.CURLINFO_COOKIELIST):
+        morsels = [CurlMorsel.from_curl_format(c) for c in c.getinfo(m.CURLINFO_COOKIELIST)]
+        # for l in c.getinfo(CurlInfo.COOKIELIST):
         #     print("Curl Cookies", l.decode())
 
         self.cookies.update_cookies_from_curl(morsels)
@@ -630,6 +639,7 @@ class Session(BaseSession):
             proxies: dict of proxies to use, format: {"http": proxy_url, "https": proxy_url}.
             proxy: proxy to use, format: "http://proxy_url". Cannot be used with the above parameter.
             proxy_auth: HTTP basic auth for proxy, a tuple of (username, password).
+            base_url: absolute url to use for relative urls.
             params: query string for the session.
             verify: whether to verify https certs.
             timeout: how many seconds to wait before giving up.
@@ -706,8 +716,8 @@ class Session(BaseSession):
         self,
         url,
         *args,
-        on_message: Optional[Callable[[WebSocket, str], None]] = None,
-        on_error: Optional[Callable[[WebSocket, str], None]] = None,
+        on_message: Optional[Callable[[WebSocket, bytes], None]] = None,
+        on_error: Optional[Callable[[WebSocket, CurlError], None]] = None,
         on_open: Optional[Callable] = None,
         on_close: Optional[Callable] = None,
         **kwargs,
@@ -826,12 +836,12 @@ class Session(BaseSession):
                 except CurlError as e:
                     rsp = self._parse_response(c, buffer, header_buffer)
                     rsp.request = req
-                    q.put_nowait(RequestsError(str(e), e.code, rsp))  # type: ignore
+                    cast(queue.Queue, q).put_nowait(RequestsError(str(e), e.code, rsp))
                 finally:
-                    if not header_recved.is_set():  # type: ignore
-                        header_recved.set()  # type: ignore
+                    if not cast(threading.Event, header_recved).is_set():
+                        cast(threading.Event, header_recved).set()
                     # None acts as a sentinel
-                    q.put(None)  # type: ignore
+                    cast(queue.Queue, q).put(None)
 
             def cleanup(fut):
                 header_parsed.wait()
@@ -841,19 +851,19 @@ class Session(BaseSession):
             stream_task.add_done_callback(cleanup)
 
             # Wait for the first chunk
-            header_recved.wait()  # type: ignore
+            cast(threading.Event, header_recved).wait()
             rsp = self._parse_response(c, buffer, header_buffer)
             header_parsed.set()
 
             # Raise the exception if something wrong happens when receiving the header.
-            first_element = _peek_queue(q)  # type: ignore
+            first_element = _peek_queue(cast(queue.Queue, q))
             if isinstance(first_element, RequestsError):
                 c.reset()
                 raise first_element
 
             rsp.request = req
-            rsp.stream_task = stream_task  # type: ignore
-            rsp.quit_now = quit_now  # type: ignore
+            rsp.stream_task = stream_task
+            rsp.quit_now = quit_now
             rsp.queue = q
             return rsp
         else:
@@ -910,6 +920,7 @@ class AsyncSession(BaseSession):
             proxies: dict of proxies to use, format: {"http": proxy_url, "https": proxy_url}.
             proxy: proxy to use, format: "http://proxy_url". Cannot be used with the above parameter.
             proxy_auth: HTTP basic auth for proxy, a tuple of (username, password).
+            base_url: absolute url to use for relative urls.
             params: query string for the session.
             verify: whether to verify https certs.
             timeout: how many seconds to wait before giving up.
@@ -1093,12 +1104,12 @@ class AsyncSession(BaseSession):
                 except CurlError as e:
                     rsp = self._parse_response(curl, buffer, header_buffer)
                     rsp.request = req
-                    q.put_nowait(RequestsError(str(e), e.code, rsp))  # type: ignore
+                    cast(asyncio.Queue, q).put_nowait(RequestsError(str(e), e.code, rsp))
                 finally:
-                    if not header_recved.is_set():  # type: ignore
-                        header_recved.set()  # type: ignore
+                    if not cast(asyncio.Event, header_recved).is_set():
+                        cast(asyncio.Event, header_recved).set()
                     # None acts as a sentinel
-                    await q.put(None)  # type: ignore
+                    await cast(asyncio.Queue, q).put(None)
 
             def cleanup(fut):
                 self.release_curl(curl)
@@ -1106,20 +1117,20 @@ class AsyncSession(BaseSession):
             stream_task = asyncio.create_task(perform())
             stream_task.add_done_callback(cleanup)
 
-            await header_recved.wait()  # type: ignore
+            await cast(asyncio.Event, header_recved).wait()
 
             # Unlike threads, coroutines does not use preemptive scheduling.
             # For asyncio, there is no need for a header_parsed event, the
             # _parse_response will execute in the foreground, no background tasks running.
             rsp = self._parse_response(curl, buffer, header_buffer)
 
-            first_element = _peek_aio_queue(q)  # type: ignore
+            first_element = _peek_aio_queue(cast(asyncio.Queue, q))
             if isinstance(first_element, RequestsError):
                 self.release_curl(curl)
                 raise first_element
 
             rsp.request = req
-            rsp.stream_task = stream_task  # type: ignore
+            rsp.astream_task = stream_task
             rsp.quit_now = quit_now
             rsp.queue = q
             return rsp

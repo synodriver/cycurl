@@ -749,7 +749,7 @@ cdef class AsyncCurl:
             Curl curl_
         while True:
             curl_msg = curl.curl_multi_info_read(self._curlm, &msg_in_queue)
-            # print("message in queue", msg_in_queue[0], curl_msg)
+            # print("message in queue", msg_in_queue, curl_msg)
             if curl_msg == NULL:
                 break
             if curl_msg.msg == curl.CURLMSG_DONE:

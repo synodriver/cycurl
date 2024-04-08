@@ -82,7 +82,7 @@ def worker(q, done, SessionClass):
     while not done.is_set():
         try:
             url = q.get_nowait()
-        except:
+        except Exception:
             continue
         s.get(url)
         q.task_done()

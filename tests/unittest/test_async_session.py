@@ -26,36 +26,28 @@ def test_create_session_out_of_async(server):
 
 async def test_post_dict(server):
     async with AsyncSession() as s:
-        r = await s.post(
-            str(server.url.copy_with(path="/echo_body")), data={"foo": "bar"}
-        )
+        r = await s.post(str(server.url.copy_with(path="/echo_body")), data={"foo": "bar"})
         assert r.status_code == 200
         assert r.content == b"foo=bar"
 
 
 async def test_post_str(server):
     async with AsyncSession() as s:
-        r = await s.post(
-            str(server.url.copy_with(path="/echo_body")), data='{"foo": "bar"}'
-        )
+        r = await s.post(str(server.url.copy_with(path="/echo_body")), data='{"foo": "bar"}')
         assert r.status_code == 200
         assert r.content == b'{"foo": "bar"}'
 
 
 async def test_post_json(server):
     async with AsyncSession() as s:
-        r = await s.post(
-            str(server.url.copy_with(path="/echo_body")), json={"foo": "bar"}
-        )
+        r = await s.post(str(server.url.copy_with(path="/echo_body")), json={"foo": "bar"})
         assert r.status_code == 200
         assert r.content == b'{"foo":"bar"}'
 
 
 async def test_put_json(server):
     async with AsyncSession() as s:
-        r = await s.put(
-            str(server.url.copy_with(path="/echo_body")), json={"foo": "bar"}
-        )
+        r = await s.put(str(server.url.copy_with(path="/echo_body")), json={"foo": "bar"})
         assert r.status_code == 200
         assert r.content == b'{"foo":"bar"}'
 
@@ -72,29 +64,52 @@ async def test_options(server):
         assert r.status_code == 200
 
 
+async def test_base_url(server):
+    async with AsyncSession(
+        base_url=str(server.url.copy_with(path="/a/b", params={"foo": "bar"}))
+    ) as s:
+        # target path is empty
+        r = await s.get("")
+        assert r.url == s.base_url
+
+        # target path only has params
+        r = await s.get("", params={"hello": "world"})
+        assert r.url == str(server.url.copy_with(path="/a/b", params={"hello": "world"}))
+
+        # target path is a relative path without starting /
+        r = await s.get("x")
+        assert r.url == str(server.url.copy_with(path="/a/x"))
+        r = await s.get("x", params={"hello": "world"})
+        assert r.url == str(server.url.copy_with(path="/a/x", params={"hello": "world"}))
+
+        # target path is a relative path with starting /
+        r = await s.get("/x")
+        assert r.url == str(server.url.copy_with(path="/x"))
+        r = await s.get("/x", params={"hello": "world"})
+        assert r.url == str(server.url.copy_with(path="/x", params={"hello": "world"}))
+
+        # target path is an absolute url
+        r = await s.get(str(server.url.copy_with(path="/x/y")))
+        assert r.url == str(server.url.copy_with(path="/x/y"))
+
+
 async def test_params(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/echo_params")), params={"foo": "bar"}
-        )
+        r = await s.get(str(server.url.copy_with(path="/echo_params")), params={"foo": "bar"})
         assert r.status_code == 200
         assert r.content == b'{"params": {"foo": ["bar"]}}'
 
 
 async def test_update_params(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/echo_params?foo=z")), params={"foo": "bar"}
-        )
+        r = await s.get(str(server.url.copy_with(path="/echo_params?foo=z")), params={"foo": "bar"})
         assert r.status_code == 200
         assert r.content == b'{"params": {"foo": ["bar"]}}'
 
 
 async def test_headers(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/echo_headers")), headers={"foo": "bar"}
-        )
+        r = await s.get(str(server.url.copy_with(path="/echo_headers")), headers={"foo": "bar"})
         headers = r.json()
         assert headers["Foo"][0] == "bar"
 
@@ -111,14 +126,9 @@ async def test_cookies(server):
 
 async def test_auth(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/echo_headers")), auth=("foo", "bar")
-        )
+        r = await s.get(str(server.url.copy_with(path="/echo_headers")), auth=("foo", "bar"))
         assert r.status_code == 200
-        assert (
-            r.json()["Authorization"][0]
-            == f"Basic {base64.b64encode(b'foo:bar').decode()}"
-        )
+        assert r.json()["Authorization"][0] == f"Basic {base64.b64encode(b'foo:bar').decode()}"
 
 
 async def test_timeout(server):
@@ -129,9 +139,7 @@ async def test_timeout(server):
 
 async def test_not_follow_redirects(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/redirect_301")), allow_redirects=False
-        )
+        r = await s.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=False)
         assert r.status_code == 301
         assert r.redirect_count == 0
         assert r.content == b"Redirecting..."
@@ -139,9 +147,7 @@ async def test_not_follow_redirects(server):
 
 async def test_follow_redirects(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/redirect_301")), allow_redirects=True
-        )
+        r = await s.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=True)
         assert r.status_code == 200
         assert r.redirect_count == 1
 
@@ -175,9 +181,7 @@ async def test_referer(server):
 
 async def test_redirect_url(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/redirect_301")), allow_redirects=True
-        )
+        r = await s.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=True)
         assert r.url == str(server.url.copy_with(path="/"))
 
 
@@ -202,13 +206,9 @@ async def test_elapsed(server):
 
 async def test_reason(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/redirect_301")), allow_redirects=False
-        )
+        r = await s.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=False)
         assert r.reason == "Moved Permanently"
-        r = await s.get(
-            str(server.url.copy_with(path="/redirect_301")), allow_redirects=True
-        )
+        r = await s.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=True)
         assert r.status_code == 200
         assert r.reason == "OK"
 
@@ -220,18 +220,14 @@ async def test_reason(server):
 
 async def test_session_update_parms(server):
     async with AsyncSession(params={"old": "day"}) as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/echo_params")), params={"foo": "bar"}
-        )
+        r = await s.get(str(server.url.copy_with(path="/echo_params")), params={"foo": "bar"})
         assert r.content == b'{"params": {"old": ["day"], "foo": ["bar"]}}'
 
 
 async def test_session_preset_cookies(server):
     async with AsyncSession(cookies={"foo": "bar"}) as s:
         # send requests with other cookies
-        r = await s.get(
-            str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"}
-        )
+        r = await s.get(str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"})
         cookies = r.json()
         # old cookies should be persisted
         assert cookies["foo"] == "bar"
@@ -245,9 +241,7 @@ async def test_session_cookies(server):
         r = await s.get(str(server.url.copy_with(path="/set_cookies")))
         assert s.cookies["foo"] == "bar"
         # send requests with other cookies
-        r = await s.get(
-            str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"}
-        )
+        r = await s.get(str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"})
         cookies = r.json()
         # old cookies should be persisted
         assert cookies["foo"] == "bar"
@@ -265,12 +259,8 @@ async def test_session_with_headers(server):
 
 async def test_session_too_many_headers(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/echo_headers")), headers={"Foo": "1"}
-        )
-        r = await s.get(
-            str(server.url.copy_with(path="/echo_headers")), headers={"Foo": "2"}
-        )
+        r = await s.get(str(server.url.copy_with(path="/echo_headers")), headers={"Foo": "1"})
+        r = await s.get(str(server.url.copy_with(path="/echo_headers")), headers={"Foo": "2"})
         headers = r.json()
         assert len(headers["Foo"]) == 1
         assert headers["Foo"][0] == "2"
@@ -338,9 +328,7 @@ async def test_timers_leak(server):
 async def test_parallel(server):
     async with AsyncSession() as s:
         rs = [
-            s.get(
-                str(server.url.copy_with(path="/echo_headers")), headers={"Foo": f"{i}"}
-            )
+            s.get(str(server.url.copy_with(path="/echo_headers")), headers={"Foo": f"{i}"})
             for i in range(6)
         ]
         tasks = [asyncio.create_task(r) for r in rs]

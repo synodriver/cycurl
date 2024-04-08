@@ -2,10 +2,10 @@ import asyncio
 import sys
 import warnings
 from contextlib import suppress
-from typing import Any
+from typing import Any, Dict, Set
 from weakref import WeakKeyDictionary, WeakSet
 
-from ._wrapper import ffi, lib  # type: ignore
+from ._wrapper import ffi, lib
 from .const import CurlMOpt
 from .curl import DEFAULT_CACERT, Curl
 
@@ -54,7 +54,7 @@ if sys.platform == "win32":
             _selectors.pop(asyncio_loop, None)
             selector_loop.close()
 
-        asyncio_loop.close = _close_selector_and_loop  # type: ignore # mypy bug - assign a function to method
+        asyncio_loop.close = _close_selector_and_loop
         return selector_loop
 
 else:
@@ -80,7 +80,7 @@ CURLMSG_DONE = 1
 
 
 @ffi.def_extern()
-def timer_function(curlm, timeout_ms: int, clientp: Any):
+def timer_function(curlm, timeout_ms: int, clientp: "AsyncCurl"):
     """
     see: https://curl.se/libcurl/c/CURLMOPT_TIMERFUNCTION.html
     """
@@ -102,7 +102,7 @@ def timer_function(curlm, timeout_ms: int, clientp: Any):
 
 
 @ffi.def_extern()
-def socket_function(curl, sockfd: int, what: int, clientp: Any, data: Any):
+def socket_function(curl, sockfd: int, what: int, clientp: "AsyncCurl", data: Any):
     async_curl = ffi.from_handle(clientp)
     loop = async_curl.loop
 
@@ -133,14 +133,12 @@ class AsyncCurl:
         """
         self._curlm = lib.curl_multi_init()
         self._cacert = cacert or DEFAULT_CACERT
-        self._curl2future = {}  # curl to future map
-        self._curl2curl = {}  # c curl to Curl
-        self._sockfds = set()  # sockfds
-        self.loop = _get_selector(
-            loop if loop is not None else asyncio.get_running_loop()
-        )
+        self._curl2future: Dict[Curl, asyncio.Future] = {}  # curl to future map
+        self._curl2curl: Dict[ffi.CData, Curl] = {}  # c curl to Curl
+        self._sockfds: Set[int] = set()  # sockfds
+        self.loop = _get_selector(loop if loop is not None else asyncio.get_running_loop())
         self._checker = self.loop.create_task(self._force_timeout())
-        self._timers = WeakSet()
+        self._timers: WeakSet[asyncio.TimerHandle] = WeakSet()
         self._setup()
 
     def _setup(self):

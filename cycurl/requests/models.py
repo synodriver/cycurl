@@ -1,7 +1,8 @@
 import queue
 import warnings
+from concurrent.futures import Future
 from json import loads
-from typing import Optional
+from typing import Any, Awaitable, Dict, List, Optional
 
 from .. import Curl
 from .cookies import Cookies
@@ -62,10 +63,11 @@ class Response:
         self.redirect_count = 0
         self.redirect_url = ""
         self.http_version = 0
-        self.history = []
-        self.infos = {}
+        self.history: List[Dict[str, Any]] = []
+        self.infos: Dict[str, Any] = {}
         self.queue: Optional[queue.Queue] = None
-        self.stream_task = None
+        self.stream_task: Optional[Future] = None
+        self.astream_task: Optional[Awaitable] = None
         self.quit_now = None
 
     def _decode(self, content: bytes) -> str:
@@ -92,9 +94,7 @@ class Response:
         """
         pending = None
 
-        for chunk in self.iter_content(
-            chunk_size=chunk_size, decode_unicode=decode_unicode
-        ):
+        for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
             if pending is not None:
                 chunk = pending + chunk
             if delimiter:
@@ -119,27 +119,31 @@ class Response:
             warnings.warn("chunk_size is ignored, there is no way to tell curl that.")
         if decode_unicode:
             raise NotImplementedError()
+
+        assert self.queue and self.curl, "stream mode is not enabled."
+
         while True:
-            chunk = self.queue.get()  # type: ignore
+            chunk = self.queue.get()
 
             # re-raise the exception if something wrong happened.
             if isinstance(chunk, RequestsError):
-                self.curl.reset()  # type: ignore
+                self.curl.reset()
                 raise chunk
 
             # end of stream.
             if chunk is None:
-                self.curl.reset()  # type: ignore
+                self.curl.reset()
                 return
 
             yield chunk
 
     def json(self, **kw):
-        """return a prased json object of the content."""
+        """return a parsed json object of the content."""
         return loads(self.content, **kw)
 
     def close(self):
         """Close the streaming connection, only valid in stream mode."""
+
         if self.quit_now:
             self.quit_now.set()
         if self.stream_task:
@@ -154,9 +158,7 @@ class Response:
         """
         pending = None
 
-        async for chunk in self.aiter_content(
-            chunk_size=chunk_size, decode_unicode=decode_unicode
-        ):
+        async for chunk in self.aiter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
             if pending is not None:
                 chunk = pending + chunk
             if delimiter:
@@ -183,8 +185,10 @@ class Response:
         if decode_unicode:
             raise NotImplementedError()
 
+        assert self.queue and self.curl, "stream mode is not enabled."
+
         while True:
-            chunk = await self.queue.get()  # type: ignore
+            chunk = await self.queue.get()
 
             # re-raise the exception if something wrong happened.
             if isinstance(chunk, RequestsError):
@@ -213,8 +217,8 @@ class Response:
 
     async def aclose(self):
         """Close the streaming connection, only valid in stream mode."""
-        if self.stream_task:
-            await self.stream_task  # type: ignore
+        if self.astream_task:
+            await self.astream_task
 
     # It prints the status code of the response instead of
     # the object's memory location.

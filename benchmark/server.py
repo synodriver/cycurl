@@ -1,7 +1,7 @@
 import os
 
 from starlette.applications import Starlette
-from starlette.responses import PlainTextResponse, Response
+from starlette.responses import PlainTextResponse
 from starlette.routing import Route
 
 random_1k = os.urandom(1 * 1024)

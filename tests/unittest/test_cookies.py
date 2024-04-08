@@ -2,8 +2,6 @@ import pytest
 
 from cycurl.requests.cookies import Cookies, CurlMorsel
 from cycurl.requests.errors import CookieConflict, RequestsError
-from cycurl.requests.headers import Headers
-from cycurl.requests.models import Request
 
 
 def test_cookies_conflict():

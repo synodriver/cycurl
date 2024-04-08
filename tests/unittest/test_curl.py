@@ -1,6 +1,7 @@
 import base64
 import json
 from io import BytesIO
+from typing import cast
 
 import pytest
 
@@ -151,9 +152,7 @@ def test_auth(server):
     c.setopt(CURLOPT_WRITEDATA, buffer)
     c.perform()
     headers = json.loads(buffer.getvalue().decode())
-    assert (
-        headers["Authorization"][0] == f"Basic {base64.b64encode(b'foo:bar').decode()}"
-    )
+    assert headers["Authorization"][0] == f"Basic {base64.b64encode(b'foo:bar').decode()}"
 
 
 def test_timeout(server):
@@ -311,7 +310,7 @@ def test_elapsed(server):
     url = str(server.url)
     c.setopt(CURLOPT_URL, url.encode())
     c.perform()
-    assert c.getinfo(CURLINFO_TOTAL_TIME) > 0
+    assert cast(int, c.getinfo(CURLINFO_TOTAL_TIME)) > 0
 
 
 def test_reason(server):

@@ -8,6 +8,7 @@ import pytest
 from cycurl import *
 from cycurl import requests
 from cycurl.requests.errors import SessionClosed
+from cycurl.requests.models import Response
 
 
 def test_head(server):
@@ -45,9 +46,7 @@ def test_post_large_body(server):
 
 
 def test_post_str(server):
-    r = requests.post(
-        str(server.url.copy_with(path="/echo_body")), data='{"foo": "bar"}'
-    )
+    r = requests.post(str(server.url.copy_with(path="/echo_body")), data='{"foo": "bar"}')
     assert r.status_code == 200
     assert r.content == b'{"foo": "bar"}'
 
@@ -93,23 +92,17 @@ def test_options(server):
 
 
 def test_params(server):
-    r = requests.get(
-        str(server.url.copy_with(path="/echo_params")), params={"foo": "bar"}
-    )
+    r = requests.get(str(server.url.copy_with(path="/echo_params")), params={"foo": "bar"})
     assert r.content == b'{"params": {"foo": ["bar"]}}'
 
 
 def test_update_params(server):
-    r = requests.get(
-        str(server.url.copy_with(path="/echo_params?foo=z")), params={"foo": "bar"}
-    )
+    r = requests.get(str(server.url.copy_with(path="/echo_params?foo=z")), params={"foo": "bar"})
     assert r.content == b'{"params": {"foo": ["bar"]}}'
 
 
 def test_headers(server):
-    r = requests.get(
-        str(server.url.copy_with(path="/echo_headers")), headers={"foo": "bar"}
-    )
+    r = requests.get(str(server.url.copy_with(path="/echo_headers")), headers={"foo": "bar"})
     headers = r.json()
     assert headers["Foo"][0] == "bar"
 
@@ -161,13 +154,9 @@ def test_secure_cookies(server):
 
 
 def test_auth(server):
-    r = requests.get(
-        str(server.url.copy_with(path="/echo_headers")), auth=("foo", "bar")
-    )
+    r = requests.get(str(server.url.copy_with(path="/echo_headers")), auth=("foo", "bar"))
     assert r.status_code == 200
-    assert (
-        r.json()["Authorization"][0] == f"Basic {base64.b64encode(b'foo:bar').decode()}"
-    )
+    assert r.json()["Authorization"][0] == f"Basic {base64.b64encode(b'foo:bar').decode()}"
 
 
 def test_timeout(server):
@@ -188,18 +177,14 @@ def test_post_timeout(server):
 
 
 def test_not_follow_redirects(server):
-    r = requests.get(
-        str(server.url.copy_with(path="/redirect_301")), allow_redirects=False
-    )
+    r = requests.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=False)
     assert r.status_code == 301
     assert r.redirect_count == 0
     assert r.content == b"Redirecting..."
 
 
 def test_follow_redirects(server):
-    r = requests.get(
-        str(server.url.copy_with(path="/redirect_301")), allow_redirects=True
-    )
+    r = requests.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=True)
     assert r.status_code == 200
     assert r.redirect_count == 1
 
@@ -208,7 +193,8 @@ def test_too_many_redirects(server):
     with pytest.raises(requests.RequestsError) as e:
         requests.get(str(server.url.copy_with(path="/redirect_loop")), max_redirects=2)
     assert e.value.code == CURLE_TOO_MANY_REDIRECTS
-    assert e.value.response.status_code == 301  # type: ignore
+    assert isinstance(e.value.response, Response)
+    assert e.value.response.status_code == 301
 
 
 def test_verify(https_server):
@@ -222,9 +208,7 @@ def test_verify_false(https_server):
 
 
 def test_referer(server):
-    r = requests.get(
-        str(server.url.copy_with(path="/echo_headers")), referer="http://example.com"
-    )
+    r = requests.get(str(server.url.copy_with(path="/echo_headers")), referer="http://example.com")
     headers = r.json()
     assert headers["Referer"][0] == "http://example.com"
 
@@ -235,9 +219,7 @@ def test_referer(server):
 
 
 def test_redirect_url(server):
-    r = requests.get(
-        str(server.url.copy_with(path="/redirect_301")), allow_redirects=True
-    )
+    r = requests.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=True)
     assert r.url == str(server.url.copy_with(path="/"))
 
 
@@ -258,13 +240,9 @@ def test_elapsed(server):
 
 
 def test_reason(server):
-    r = requests.get(
-        str(server.url.copy_with(path="/redirect_301")), allow_redirects=False
-    )
+    r = requests.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=False)
     assert r.reason == "Moved Permanently"
-    r = requests.get(
-        str(server.url.copy_with(path="/redirect_301")), allow_redirects=True
-    )
+    r = requests.get(str(server.url.copy_with(path="/redirect_301")), allow_redirects=True)
     assert r.status_code == 200
     assert r.reason == "OK"
 
@@ -286,6 +264,34 @@ def test_session_options(server):
     assert r.status_code == 200
 
 
+def test_session_base_url(server):
+    s = requests.Session(base_url=str(server.url.copy_with(path="/a/b", params={"foo": "bar"})))
+
+    # target path is empty
+    r = s.get("")
+    assert r.url == s.base_url
+
+    # target path only has params
+    r = s.get("", params={"hello": "world"})
+    assert r.url == str(server.url.copy_with(path="/a/b", params={"hello": "world"}))
+
+    # target path is a relative path without starting /
+    r = s.get("x")
+    assert r.url == str(server.url.copy_with(path="/a/x"))
+    r = s.get("x", params={"hello": "world"})
+    assert r.url == str(server.url.copy_with(path="/a/x", params={"hello": "world"}))
+
+    # target path is a relative path with starting /
+    r = s.get("/x")
+    assert r.url == str(server.url.copy_with(path="/x"))
+    r = s.get("/x", params={"hello": "world"})
+    assert r.url == str(server.url.copy_with(path="/x", params={"hello": "world"}))
+
+    # target path is an absolute url
+    r = s.get(str(server.url.copy_with(path="/x/y")))
+    assert r.url == str(server.url.copy_with(path="/x/y"))
+
+
 def test_session_update_parms(server):
     s = requests.Session(params={"old": "day"})
     r = s.get(str(server.url.copy_with(path="/echo_params")), params={"foo": "bar"})
@@ -295,9 +301,7 @@ def test_session_update_parms(server):
 def test_session_preset_cookies(server):
     s = requests.Session(cookies={"foo": "bar"})
     # send requests with other cookies
-    r = s.get(
-        str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"}
-    )
+    r = s.get(str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"})
     cookies = r.json()
     # old cookies should be persisted
     assert cookies["foo"] == "bar"
@@ -308,9 +312,7 @@ def test_session_preset_cookies(server):
     # assert s.cookies.get("hello") is None
 
     # but you can override
-    r = s.get(
-        str(server.url.copy_with(path="/echo_cookies")), cookies={"foo": "notbar"}
-    )
+    r = s.get(str(server.url.copy_with(path="/echo_cookies")), cookies={"foo": "notbar"})
     cookies = r.json()
     assert cookies["foo"] == "notbar"
 
@@ -328,9 +330,7 @@ def test_cookie_domains(server):
     s.cookies.set("foo", "bar", domain="example.com")
     s.cookies.set("foo2", "bar", domain="127.0.0.1")
     # send requests with other cookies
-    r = s.get(
-        str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"}
-    )
+    r = s.get(str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"})
     cookies = r.json()
     # only specific domains should be there
     assert "foo" not in cookies
@@ -345,9 +345,7 @@ def test_session_cookies(server):
     r = s.get(str(server.url.copy_with(path="/set_cookies")))
     assert s.cookies["foo"] == "bar"
     # send requests with other cookies
-    r = s.get(
-        str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"}
-    )
+    r = s.get(str(server.url.copy_with(path="/echo_cookies")), cookies={"hello": "world"})
     cookies = r.json()
     # old cookies should be persisted
     assert cookies["foo"] == "bar"
@@ -453,9 +451,7 @@ def test_session_with_hostname_proxies(server, proxy_server):
 
 # https://github.com/yifeikong/curl_cffi/pull/171
 def test_session_with_http_proxies(server, proxy_server):
-    proxies = {
-        "http": f"http://{proxy_server.flags.hostname}:{proxy_server.flags.port}"
-    }
+    proxies = {"http": f"http://{proxy_server.flags.hostname}:{proxy_server.flags.port}"}
     s = requests.Session(proxies=proxies)
     url = str(server.url.copy_with(path="/echo_headers"))
     r = s.get(url)
@@ -584,7 +580,8 @@ def test_stream_redirect_loop(server):
             with s.stream("GET", url, max_redirects=2):
                 pass
         assert e.value.code == CURLE_TOO_MANY_REDIRECTS
-        assert e.value.response.status_code == 301  # type: ignore
+        assert isinstance(e.value.response, Response)
+        assert e.value.response.status_code == 301
 
 
 def test_stream_redirect_loop_without_close(server):
@@ -595,7 +592,8 @@ def test_stream_redirect_loop_without_close(server):
             s.get(url, max_redirects=2, stream=True)
 
         assert e.value.code == CURLE_TOO_MANY_REDIRECTS
-        assert e.value.response.status_code == 301  # type: ignore
+        assert isinstance(e.value.response, Response)
+        assert e.value.response.status_code == 301
 
 
 def test_stream_auto_close_plain(server):
@@ -624,7 +622,8 @@ def test_stream_auto_close_with_header_errors(server):
     with pytest.raises(requests.RequestsError) as e:
         s.get(url, max_redirects=2, stream=True)
     assert e.value.code == CURLE_TOO_MANY_REDIRECTS
-    assert e.value.response.status_code == 301  # type: ignore
+    assert isinstance(e.value.response, Response)
+    assert e.value.response.status_code == 301
 
     url = str(server.url.copy_with(path="/"))
     s.get(url, stream=True)
@@ -671,7 +670,7 @@ def test_max_recv_speed(server):
     # from http://xcal1.vodafone.co.uk/
     url = "http://212.183.159.230/200MB.zip"
     start = time.time()
-    r = s.get(url, max_recv_speed=10 * 1024 * 1024)
+    r = s.get(url, max_recv_speed=10 * 1024 * 1024)  # noqa F841
     end = time.time()
     # assert len(r.content) == 20 * 1024 * 1024
     assert end - start > 10
@@ -682,4 +681,4 @@ def test_curl_infos(server):
 
     r = s.get(str(server.url))
 
-    assert r.infos[CURLINFO_PRIMARY_IP] == b"127.0.0.1"
+    assert r.infos[CURLINFO_PRIMARY_IP] == b"127.0.0.1"  # pyright: ignore
