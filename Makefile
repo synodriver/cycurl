@@ -2,8 +2,8 @@
 SHELL := bash
 
 # this is the upstream libcurl-impersonate version
-VERSION := 0.6.2b2
-CURL_VERSION := curl-8.1.1
+VERSION := 0.7.0b4
+CURL_VERSION := curl-8.5.0
 
 $(CURL_VERSION):
 	curl -L "https://curl.se/download/$(CURL_VERSION).tar.xz" \
@@ -42,7 +42,7 @@ build: .preprocessed
 lint:
 	ruff check
 	ruff format --diff
-	mypy .
+	mypy --install-types --non-interactive .
 
 format:
 	ruff check --fix

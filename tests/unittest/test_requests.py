@@ -4,6 +4,7 @@ import time
 from io import BytesIO
 
 import pytest
+from charset_normalizer import detect
 
 from cycurl import *
 from cycurl import requests
@@ -67,6 +68,22 @@ def test_post_json(server):
     assert r.content == b"{}"
 
 
+def test_post_form(server):
+    r = requests.post(str(server.url.copy_with(path="/echo_body")), data={"foo": "bar"})
+    assert r.status_code == 200
+    assert r.content == b"foo=bar"
+
+    data = [("foo", 7), ("foo", 8), ("bar", 9)]
+    r = requests.post(str(server.url.copy_with(path="/echo_body")), data=data)
+    assert r.status_code == 200
+    assert r.content == b"foo=7&foo=8&bar=9"
+
+    data = [("foo[]", 7), ("foo[]", 8), ("bar", 9)]
+    r = requests.post(str(server.url.copy_with(path="/echo_body")), data=data)
+    assert r.status_code == 200
+    assert r.content == b"foo%5B%5D=7&foo%5B%5D=8&bar=9"
+
+
 def test_post_redirect_to_get(server):
     url = str(server.url.copy_with(path="/redirect_then_echo_headers"))
     r = requests.post(url, data={"foo": "bar"}, allow_redirects=True, debug=True)
@@ -97,8 +114,30 @@ def test_params(server):
 
 
 def test_update_params(server):
+    # The param is new, just append it
+    r = requests.get(str(server.url.copy_with(path="/echo_params")), params={"foo": "bar"})
+    assert r.content == b'{"params": {"foo": ["bar"]}}'
+
+    # The old param is already multiple, append it, too
+    r = requests.get(str(server.url.copy_with(path="/echo_params?foo=1&foo=2")), params={"foo": 3})
+    assert r.content == b'{"params": {"foo": ["1", "2", "3"]}}'
+
+    # 1 to 1 mapping, we have to update it.
     r = requests.get(str(server.url.copy_with(path="/echo_params?foo=z")), params={"foo": "bar"})
     assert r.content == b'{"params": {"foo": ["bar"]}}'
+
+    # does not break old ones
+    r = requests.get(
+        str(server.url.copy_with(path="/echo_params?a=1&a=2&foo=z")),
+        params={"foo": "bar"},
+    )
+    assert r.content == b'{"params": {"a": ["1", "2"], "foo": ["bar"]}}'
+
+    r = requests.get(
+        str(server.url.copy_with(path="/echo_params?a=1&a=2&foo=z")),
+        params=[("foo", "1"), ("foo", "2")],
+    )
+    assert r.content == b'{"params": {"a": ["1", "2"], "foo": ["z", "1", "2"]}}'
 
 
 def test_headers(server):
@@ -109,7 +148,22 @@ def test_headers(server):
 
 def test_charset_parse(server):
     r = requests.get(str(server.url.copy_with(path="/gbk")))
-    assert r.charset == "gbk"
+    assert r.encoding == "gbk"
+
+
+def test_charset_default_encoding(server):
+    r = requests.get(
+        str(server.url.copy_with(path="/windows1251")), default_encoding="windows-1251"
+    )
+    assert r.encoding == "windows-1251"
+
+
+def test_charset_default_encoding_autodetect(server):
+    def autodetect(content):
+        return detect(content).get("encoding")
+
+    r = requests.get(str(server.url.copy_with(path="/windows1251")), default_encoding=autodetect)
+    assert r.encoding == "windows-1251"
 
 
 def test_content_type_header_with_json(server):
@@ -553,7 +607,7 @@ def test_stream_empty_body(server):
 def test_stream_incomplete_read(server):
     with requests.Session() as s:
         url = str(server.url.copy_with(path="/incomplete_read"))
-        with pytest.raises(requests.RequestsError) as e:
+        with pytest.raises(requests.RequestsError) as e:  # noqa: SIM117
             with s.stream("GET", url) as r:
                 for _ in r.iter_content():
                     continue
@@ -576,7 +630,7 @@ def test_stream_incomplete_read_without_close(server):
 def test_stream_redirect_loop(server):
     with requests.Session() as s:
         url = str(server.url.copy_with(path="/redirect_loop"))
-        with pytest.raises(requests.RequestsError) as e:
+        with pytest.raises(requests.RequestsError) as e:  # noqa: SIM117
             with s.stream("GET", url, max_redirects=2):
                 pass
         assert e.value.code == CURLE_TOO_MANY_REDIRECTS
@@ -651,11 +705,9 @@ def test_stream_close_early(server):
     # from http://xcal1.vodafone.co.uk/
     url = "http://212.183.159.230/200MB.zip"
     r = s.get(url, max_recv_speed=1024 * 1024, stream=True)
-    counter = 0
     start = time.time()
-    for _ in r.iter_content():
-        counter += 1
-        if counter > 10:
+    for i, _ in enumerate(r.iter_content()):
+        if i > 10:
             break
     r.close()
     end = time.time()

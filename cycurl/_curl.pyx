@@ -82,7 +82,7 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
         return wrote
     # should make this an exception in future versions
     if wrote != total:
-        warnings.warn("Wrote bytes != received bytes.", RuntimeWarning)
+        warnings.warn("Wrote bytes != received bytes.", RuntimeWarning, stacklevel=2)
     return total
 
 cdef list slist_to_list(curl.curl_slist *head) with gil:
@@ -259,7 +259,7 @@ cdef class Curl:
         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
         if ret != 0:
             with gil:
-                warnings.warn("Failed to set error buffer")
+                warnings.warn("Failed to set error buffer", stacklevel=2)
         if self._debug:
             with gil:
                 self.setopt(curl.CURLOPT_VERBOSE, 1)
@@ -307,7 +307,7 @@ cdef class Curl:
         # Convert value
         cdef:
             void* c_value = NULL
-            int value_type = option / 10000 * 10000
+            int value_type = option / 10000 * 10000  # "cdivision": True
             int intval
             bytes bytesval
             int ret
@@ -339,7 +339,7 @@ cdef class Curl:
             option = curl.CURLOPT_HEADERDATA
         elif value_type == 10000:
             if isinstance(value, str):
-                bytesval = value.encode()
+                bytesval = value.encode() # keep a ref
                 c_value = <void *> <const char *> bytesval
                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
             elif isinstance(value, bytes):
@@ -447,6 +447,8 @@ cdef class Curl:
         if not self._is_cert_set:
             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
             self._check_error(ret, "set cacert")
+            ret = self.setopt(curl.CURLOPT_PROXY_CAINFO, self._cacert)
+            self._check_error(ret, "set proxy cacert")
 
     cpdef inline int perform(self, clear_headers: bool = True) except -1:
         """Wrapper for ``curl_easy_perform``, performs a curl request.
@@ -583,7 +585,7 @@ if sys.platform == "win32":
         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
             return asyncio_loop
 
-        warnings.warn(PROACTOR_WARNING, RuntimeWarning)
+        warnings.warn(PROACTOR_WARNING, RuntimeWarning, stacklevel=2)
 
         selector_loop = _selectors[asyncio_loop] = AddThreadSelectorEventLoop(asyncio_loop)  # type: ignore
 
@@ -655,7 +657,7 @@ cdef class AsyncCurl:
         set _sockfds   # sockfds
         object loop
         object _checker  # asyncio.Task
-        object _timers   # WeakSet
+        object _timers   # WeakSet todo should this be public? a unittest use this
 
     def __cinit__(self, str cacert = "", object loop=None):
         self._curlm = curl.curl_multi_init()
@@ -737,7 +739,7 @@ cdef class AsyncCurl:
     cpdef inline process_data(self, int sockfd, int ev_bitmask):
         """Call curl_multi_info_read to read data for given socket."""
         if not self._curlm:
-            warnings.warn("Curlm alread closed! quitting from process_data")
+            warnings.warn("Curlm alread closed! quitting from process_data", stacklevel=2)
             return
 
         self.socket_action(sockfd, ev_bitmask)

@@ -7,6 +7,7 @@ import sys
 # typing.Mapping is deprecated in favor of abc.Mapping
 # see: https://docs.python.org/3/library/typing.html#typing.Mapping
 if sys.version_info < (3, 9, 0):
+    from collections.abc import Mapping as AbcMapping
     from typing import (
         ItemsView,
         Iterable,
@@ -17,7 +18,6 @@ if sys.version_info < (3, 9, 0):
         Sequence,
         ValuesView,
     )
-    from collections.abc import Mapping as AbcMapping
 else:
     from collections.abc import (
         ItemsView,
@@ -80,10 +80,7 @@ def normalize_header_key(
     """
     Coerce str/bytes into a strictly byte-wise HTTP header key.
     """
-    if isinstance(value, bytes):
-        bytes_value = value
-    else:
-        bytes_value = value.encode(encoding or "ascii")
+    bytes_value = value if isinstance(value, bytes) else value.encode(encoding or "ascii")
 
     return bytes_value.lower() if lower else bytes_value
 
@@ -250,7 +247,7 @@ class Headers(MutableMapping[str, str]):
 
     def update(self, headers: Optional[HeaderTypes] = None) -> None:  # type: ignore
         headers = Headers(headers)
-        for key in headers.keys():
+        for key in headers:
             if key in self:
                 self.pop(key)
         self._list.extend(headers._list)

@@ -1,13 +1,16 @@
 import queue
+import re
 import warnings
 from concurrent.futures import Future
 from json import loads
-from typing import Any, Awaitable, Dict, List, Optional
+from typing import Any, Awaitable, Callable, Dict, List, Optional, Union
 
 from .. import Curl
 from .cookies import Cookies
 from .errors import RequestsError
 from .headers import Headers
+
+CHARSET_RE = re.compile(r"charset=([\w-]+)")
 
 
 def clear_queue(q: queue.Queue):
@@ -41,6 +44,9 @@ class Response:
         elapsed: how many seconds the request cost.
         encoding: http body encoding.
         charset: alias for encoding.
+        charset_encoding: encoding specified by the Content-Type header.
+        default_encoding: encoding for decoding response content if charset is not found in
+                headers. Defaults to "utf-8". Can be set to a callable for automatic detection.
         redirect_count: how many redirects happened.
         redirect_url: the final redirected url.
         http_version: http version used.
@@ -58,8 +64,7 @@ class Response:
         self.headers = Headers()
         self.cookies = Cookies()
         self.elapsed = 0.0
-        self.encoding = "utf-8"
-        self.charset = self.encoding
+        self.default_encoding: Union[str, Callable[[bytes], str]] = "utf-8"
         self.redirect_count = 0
         self.redirect_url = ""
         self.http_version = 0
@@ -70,15 +75,61 @@ class Response:
         self.astream_task: Optional[Awaitable] = None
         self.quit_now = None
 
-    def _decode(self, content: bytes) -> str:
-        try:
-            return content.decode(self.charset, errors="replace")
-        except (UnicodeDecodeError, LookupError):
-            return content.decode("utf-8-sig")
+    @property
+    def charset(self) -> str:
+        """Alias for encoding."""
+        return self.encoding
+
+    @property
+    def encoding(self) -> str:
+        """
+        Determines the encoding to decode byte content into text.
+
+        The method follows a specific priority to decide the encoding:
+        1. If `.encoding` has been explicitly set, it is used.
+        2. The encoding specified by the `charset` parameter in the `Content-Type` header.
+        3. The encoding specified by the `default_encoding` attribute. This can either be
+           a string (e.g., "utf-8") or a callable for charset autodetection.
+        """
+        if not hasattr(self, "_encoding"):
+            encoding = self.charset_encoding
+            if encoding is None:
+                if isinstance(self.default_encoding, str):
+                    encoding = self.default_encoding
+                elif callable(self.default_encoding):
+                    encoding = self.default_encoding(self.content)
+            self._encoding = encoding or "utf-8"
+        return self._encoding
+
+    @encoding.setter
+    def encoding(self, value: str) -> None:
+        if hasattr(self, "_text"):
+            raise ValueError("Cannot set encoding after text has been accessed")
+        self._encoding = value
+
+    @property
+    def charset_encoding(self) -> Optional[str]:
+        """Return the encoding, as specified by the Content-Type header."""
+        content_type = self.headers.get("Content-Type")
+        if content_type:
+            charset_match = CHARSET_RE.search(content_type)
+            return charset_match.group(1) if charset_match else None
+        return None
 
     @property
     def text(self) -> str:
-        return self._decode(self.content)
+        if not hasattr(self, "_text"):
+            if not self.content:
+                self._text = ""
+            else:
+                self._text = self._decode(self.content)
+        return self._text
+
+    def _decode(self, content: bytes) -> str:
+        try:
+            return content.decode(self.encoding, errors="replace")
+        except (UnicodeDecodeError, LookupError):
+            return content.decode("utf-8-sig")
 
     def raise_for_status(self):
         """Raise an error if status code is not in [200, 400)"""
@@ -97,10 +148,7 @@ class Response:
         for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
             if pending is not None:
                 chunk = pending + chunk
-            if delimiter:
-                lines = chunk.split(delimiter)
-            else:
-                lines = chunk.splitlines()
+            lines = chunk.split(delimiter) if delimiter else chunk.splitlines()
             if lines and lines[-1] and chunk and lines[-1][-1] == chunk[-1]:
                 pending = lines.pop()
             else:
@@ -116,7 +164,7 @@ class Response:
         iterate streaming content chunk by chunk in bytes.
         """
         if chunk_size:
-            warnings.warn("chunk_size is ignored, there is no way to tell curl that.")
+            warnings.warn("chunk_size is ignored, there is no way to tell curl that.", stacklevel=2)
         if decode_unicode:
             raise NotImplementedError()
 
@@ -161,10 +209,7 @@ class Response:
         async for chunk in self.aiter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
             if pending is not None:
                 chunk = pending + chunk
-            if delimiter:
-                lines = chunk.split(delimiter)
-            else:
-                lines = chunk.splitlines()
+            lines = chunk.split(delimiter) if delimiter else chunk.splitlines()
             if lines and lines[-1] and chunk and lines[-1][-1] == chunk[-1]:
                 pending = lines.pop()
             else:
@@ -181,7 +226,7 @@ class Response:
         iterate streaming content chunk by chunk in bytes.
         """
         if chunk_size:
-            warnings.warn("chunk_size is ignored, there is no way to tell curl that.")
+            warnings.warn("chunk_size is ignored, there is no way to tell curl that.", stacklevel=2)
         if decode_unicode:
             raise NotImplementedError()
 

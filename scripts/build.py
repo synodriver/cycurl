@@ -10,7 +10,7 @@ from urllib.request import urlretrieve
 from cffi import FFI
 
 # this is the upstream libcurl-impersonate version
-__version__ = "0.6.2b2"
+__version__ = "0.7.0b4"
 
 tmpdir = None
 
@@ -52,10 +52,8 @@ def download_libcurl():
         return
 
     file = "libcurl-impersonate.tar.gz"
-    if arch["system"] == "Linux":
-        sysname = "linux-" + arch["libc"]
-    else:
-        sysname = arch["sysname"]
+    sysname = "linux-" + arch["libc"] if arch["system"] == "Linux" else arch["sysname"]
+
     url = (
         f"https://github.com/yifeikong/curl-impersonate/releases/download/"
         f"v{__version__}/libcurl-impersonate-v{__version__}"
@@ -82,6 +80,7 @@ def get_curl_archives():
             f"{arch['libdir']}/libssl.a",
             f"{arch['libdir']}/libcrypto.a",
             f"{arch['libdir']}/libz.a",
+            f"{arch['libdir']}/libzstd.a",
             f"{arch['libdir']}/libnghttp2.a",
             f"{arch['libdir']}/libbrotlidec-static.a",
             f"{arch['libdir']}/libbrotlienc-static.a",
@@ -94,9 +93,9 @@ def get_curl_archives():
 def get_curl_libraries():
     if arch["system"] == "Windows":
         return ["libcurl"]
-    elif arch["system"] == "Darwin":
-        return ["curl-impersonate-chrome"]
-    elif arch["system"] == "Linux" and arch.get("link_type") == "dynamic":
+    elif arch["system"] == "Darwin" or (
+        arch["system"] == "Linux" and arch.get("link_type") == "dynamic"
+    ):
         return ["curl-impersonate-chrome"]
     else:
         return []
