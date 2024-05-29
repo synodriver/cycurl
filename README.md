@@ -1,6 +1,6 @@
 # curl_cffi
 
-[![Downloads](https://static.pepy.tech/badge/curl_cffi/week)](https://pepy.tech/project/curl_cffi)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/curl-cffi)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/curl_cffi)
 [![PyPI version](https://badge.fury.io/py/curl-cffi.svg)](https://badge.fury.io/py/curl-cffi)
 [![Generic badge](https://img.shields.io/badge/Telegram%20Group-join-blue?logo=telegram)](https://t.me/+lL9n33eZp480MGM1)
@@ -27,9 +27,8 @@ observability by providing an analytical dashboard and measuring the success rat
 rate in detail.
 
 Scrapfly is a good solution if you are looking for a cloud-managed solution for `curl_cffi`.
-If you are managing TLS/HTTP fingerprint by yourself with `curl_cffi`, they also maintain
-[this tool](https://scrapfly.io/web-scraping-tools/curl-python/curl_cffi) to convert curl
-command into python curl_cffi code!
+If you are managing TLS/HTTP fingerprint by yourself with `curl_cffi`, they also maintain a
+[curl to python converter](https://scrapfly.io/web-scraping-tools/curl-python/curl_cffi).
 
 ------
 
@@ -254,3 +253,18 @@ the box on all subscription plans.
 ## Sponsor
 
 <a href="https://buymeacoffee.com/yifei" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
+## Citation
+
+If you find this project useful, please cite it as below:
+
+```
+@software{Kong2023,
+  author = {Yifei Kong},
+  title = {curl_cffi - A Python HTTP client for impersonating browser TLS and HTTP/2 fingerprints},
+  year = {2023},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  url = {https://github.com/yifeikong/curl_cffi},
+}
+```

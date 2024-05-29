@@ -1,6 +1,6 @@
 # curl_cffi
 
-[![Downloads](https://static.pepy.tech/badge/curl_cffi/week)](https://pepy.tech/project/curl_cffi)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/curl-cffi)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/curl_cffi)
 [![PyPI version](https://badge.fury.io/py/curl-cffi.svg)](https://badge.fury.io/py/curl-cffi)
 
@@ -20,8 +20,7 @@ TLS/JA3 和 HTTP/2 指纹。如果你莫名其妙地被某个网站封锁了，�
 还提供了一个监控面板，让你能够随时观察抓取成功率。
 
 如果你在寻找云端托管 `curl_cffi` 服务的话，Scrapfly 是一个不错的选择。如果你希望自己管理
-脚本，他们还提供了一个[工具](https://scrapfly.io/web-scraping-tools/curl-python/curl_cffi)，
-可以把 curl 命令直接转换成 `curl_cffi` 的 Python 代码。
+脚本，他们还提供了一个[curl 转 Python 的工具](https://scrapfly.io/web-scraping-tools/curl-python/curl_cffi)。
 
 ------
 
