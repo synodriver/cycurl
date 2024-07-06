@@ -3,9 +3,10 @@ tornado 6.1 adds AddThreadSelectorEventLoop event loop,
 running select in a thread and defining these methods on the running event loop.
 This factors out the functionality of AddThreadSelectorEventLoop
 into a standalone SelectorThread object which can be attached to any running event loop.
-Vendored from tornado v6.1.0-64-g289c834b (PR #3029)
+Vendored from tornado v6.4.0
 Redistributed under license Apache-2.0
 """
+
 import asyncio
 import atexit
 import errno
@@ -14,30 +15,33 @@ import select
 import socket
 import threading
 import typing
+from contextlib import suppress
 from typing import (
     Any,
-    TypeVar,
-    Awaitable,
     Callable,
-    Union,
-    Optional,
-    List,
-    Tuple,
     Dict,
-)  # noqa: F401
+    List,
+    Optional,
+    Protocol,
+    Set,
+    Tuple,
+    TypeVar,
+    Union,
+)
 
-from typing import Set  # noqa: F401
-from typing_extensions import Protocol
+_T = TypeVar("_T")
+
 
 class _HasFileno(Protocol):
     def fileno(self) -> int:
-        pass
+        return 0
+
 
 _FileDescriptorLike = Union[int, _HasFileno]
 
 
 # Collection of selector thread event loops to shut down on exit.
-_selector_loops = set()  # type: Set[SelectorThread]
+_selector_loops: Set["SelectorThread"] = set()
 
 
 def _atexit_callback() -> None:
@@ -45,15 +49,14 @@ def _atexit_callback() -> None:
         with loop._select_cond:
             loop._closing_selector = True
             loop._select_cond.notify()
-        try:
+        with suppress(BlockingIOError):
             loop._waker_w.send(b"a")
-        except BlockingIOError:
-            pass
-        # If we don't join our (daemon) thread here, we may get a deadlock
-        # during interpreter shutdown. I don't really understand why. This
-        # deadlock happens every time in CI (both travis and appveyor) but
-        # I've never been able to reproduce locally.
-        loop._thread.join()
+        if loop._thread is not None:
+            # If we don't join our (daemon) thread here, we may get a deadlock
+            # during interpreter shutdown. I don't really understand why. This
+            # deadlock happens every time in CI (both travis and appveyor) but
+            # I've never been able to reproduce locally.
+            loop._thread.join()
     _selector_loops.clear()
 
 
@@ -77,9 +80,9 @@ class SelectorThread:
         self._real_loop = real_loop
 
         self._select_cond = threading.Condition()
-        self._select_args: Optional[
-            Tuple[List[_FileDescriptorLike], List[_FileDescriptorLike]]
-        ] = None
+        self._select_args: Optional[Tuple[List[_FileDescriptorLike], List[_FileDescriptorLike]]] = (
+            None
+        )
         self._closing_selector = False
         self._thread: Optional[threading.Thread] = None
         self._thread_manager_handle = self._thread_manager()
@@ -92,9 +95,7 @@ class SelectorThread:
         # When the loop starts, start the thread. Not too soon because we can't
         # clean up if we get to this point but the event loop is closed without
         # starting.
-        self._real_loop.call_soon(
-            lambda: self._real_loop.create_task(thread_manager_anext())
-        )
+        self._real_loop.call_soon(lambda: self._real_loop.create_task(thread_manager_anext()))
 
         self._readers: Dict[_FileDescriptorLike, Callable] = {}
         self._writers: Dict[_FileDescriptorLike, Callable] = {}
@@ -150,16 +151,12 @@ class SelectorThread:
     def _wake_selector(self) -> None:
         if self._closed:
             return
-        try:
+        with suppress(BlockingIOError):
             self._waker_w.send(b"a")
-        except BlockingIOError:
-            pass
 
     def _consume_waker(self) -> None:
-        try:
+        with suppress(BlockingIOError):
             self._waker_r.recv(1024)
-        except BlockingIOError:
-            pass
 
     def _start_select(self) -> None:
         # Capture reader and writer sets here in the event loop
@@ -234,9 +231,7 @@ class SelectorThread:
                 # Swallow it too for consistency.
                 pass
 
-    def _handle_select(
-        self, rs: List[_FileDescriptorLike], ws: List[_FileDescriptorLike]
-    ) -> None:
+    def _handle_select(self, rs: List[_FileDescriptorLike], ws: List[_FileDescriptorLike]) -> None:
         for r in rs:
             self._handle_event(r, self._readers)
         for w in ws:
@@ -327,12 +322,18 @@ class AddThreadSelectorEventLoop(asyncio.AbstractEventLoop):
         self._real_loop.close()
 
     def add_reader(
-        self, fd: "_FileDescriptorLike", callback: Callable[..., None], *args: Any
+        self,
+        fd: "_FileDescriptorLike",
+        callback: Callable[..., None],
+        *args: Any,  # type: ignore
     ) -> None:
         return self._selector.add_reader(fd, callback, *args)
 
     def add_writer(
-        self, fd: "_FileDescriptorLike", callback: Callable[..., None], *args: Any
+        self,
+        fd: "_FileDescriptorLike",
+        callback: Callable[..., None],
+        *args: Any,  # type: ignore
     ) -> None:
         return self._selector.add_writer(fd, callback, *args)
 

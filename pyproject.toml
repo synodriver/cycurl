@@ -1,19 +1,21 @@
 [project]
 name = "curl_cffi"
-version = "0.5.10"
+version = "0.7.0"
 authors = [{ name = "Yifei Kong", email = "kong@yifei.me" }]
-description = "libcurl ffi bindings for Python, with impersonation support"
+description = "libcurl ffi bindings for Python, with impersonation support."
 license = { file = "LICENSE" }
-dependencies = ["cffi>=1.12.0"]
+dependencies = [
+    "cffi>=1.12.0",
+    "certifi>=2024.2.2",
+]
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 urls = { "repository" = "https://github.com/yifeikong/curl_cffi" }
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -24,47 +26,39 @@ classifiers = [
 
 [project.optional-dependencies]
 dev = [
-    "autoflake==1.4",
-    "black==22.8.0",
-    "coverage==6.4.1",
-    "cryptography==38.0.3",
-    "flake8==6.0.0",
-    "flake8-bugbear==22.7.1",
-    "flake8-pie==0.15.0",
-    "httpx==0.23.1",
-    "isort==5.10.1",
-    "mypy==0.971",
-    "types-certifi==2021.10.8.2",
-    "pytest==7.1.2",
-    "pytest-asyncio==0.19.0",
-    "pytest-trio==0.7.0",
-    "trio==0.21.0",
-    "trio-typing==0.7.0",
-    "trustme==0.9.0",
-    "uvicorn==0.18.3",
+    "charset_normalizer>=3.3.2,<4.0",
+    "coverage>=6.4.1,<7.0",
+    "cryptography>=42.0.5,<43.0",
+    "httpx==0.23.1",  # don't change, tests will raise "httpx.InvalidURL: Invalid URL component 'path'"
+    "mypy>=1.9.0,<2.0",
+    "pytest>=8.1.1,<9.0",
+    "pytest-asyncio>=0.23.6,<1.0",
+    "pytest-trio>=0.8.0,<1.0",
+    "ruff>=0.3.5,<1.0",
+    "trio>=0.25.0,<1.0",
+    "trustme>=1.1.0,<2.0",
+    "uvicorn>=0.29.0,<1.0",
+    "websockets>=12.0,<13.0",
 ]
 build = [
     "cibuildwheel",
-    "wheel"
+    "wheel",
 ]
 test = [
-    "cryptography==38.0.3",
-    "httpx==0.23.1",
-    "types-certifi==2021.10.8.2",
-    "pytest==7.1.2",
-    "pytest-asyncio==0.19.0",
-    "pytest-trio==0.7.0",
-    "trio==0.21.0",
-    "trio-typing==0.7.0",
-    "trustme==0.9.0",
-    "uvicorn==0.18.3",
+    "charset_normalizer>=3.3.2,<4.0",
+    "cryptography>=42.0.5,<43.0",
+    "fastapi==0.110.0,<1.0",
+    "httpx==0.23.1",  # don't change, tests will raise "httpx.InvalidURL: Invalid URL component 'path'"
+    "proxy.py>=2.4.3,<3.0",
+    "pytest>=8.1.1,<9.0",
+    "pytest-asyncio>=0.23.6,<1.0",
+    "pytest-trio>=0.8.0,<1.0",
+    "python-multipart>=0.0.9,<1.0",
+    "trio>=0.25.0,<1.0",
+    "trustme>=1.1.0,<2.0",
+    "uvicorn>=0.29.0,<1.0",
+    "websockets>=12.0,<13.0",
 ]
-
-
-[tool.setuptools]
-packages = ["curl_cffi", "curl_cffi.requests"]
-# package-data = { curl_cffi = ["libcurl/*/*"] }
-# include-package-data = true
 
 
 [build-system]
@@ -72,29 +66,71 @@ requires = ["wheel", "setuptools", "cffi>=1.12.0"]
 build-backend = "setuptools.build_meta"
 
 
+[tool.setuptools]
+packages = ["curl_cffi", "curl_cffi.requests"]
+package-data = { curl_cffi = ["libcurl.dll"] }
+
+
 [tool.cibuildwheel]
 # musllinux(alpine) is not supported because we download the binaries from upstream.
 # TODO build binaries inside musllinux/manylinux
 # skip = ["*-musllinux_*", "*-win32", "*-manylinux_i686"]
 # Building for these platforms is enough since we are using abi3 packages
-build = ["cp37-macosx_x86_64", "cp37-win_amd64", "cp37-manylinux_x86_64", "cp37-manylinux_aarch64"]
+build = [
+    "cp38-macosx_x86_64",
+    "cp39-macosx_arm64",
+    "cp38-win_amd64",
+    "cp38-win32",
+    "cp38-manylinux_x86_64",
+    "cp38-manylinux_aarch64",
+    "cp38-manylinux_i686",
+    "cp38-musllinux_x86_64",
+    "cp38-musllinux_aarch64",
+]
 before-all = "make preprocess"
 test-requires = "pytest"
 test-command = "python -bb -m pytest {project}/tests/unittest"
 test-extras = ["test"]
-test-skip = "pp*"
+test-skip = "cp38-manylinux_i686"  # trustme not available
+build-verbosity = 1
+
+
+# configure cibuildwheel to build native archs ('auto'), and some emulated ones
+[tool.cibuildwheel.linux]
+archs = ["auto", "aarch64"]
+environment = { LD_LIBRARY_PATH="$HOME/.local/lib" }
+environment-pass = ["LD_LIBRARY_PATH"]
+
 
 [tool.cibuildwheel.macos]
 before-all = "gmake preprocess"
 
 [tool.cibuildwheel.windows]
 before-build = "pip install delvewheel"
-repair-wheel-command = "delvewheel repair --add-path ./lib -w {dest_dir} {wheel}"
+repair-wheel-command = "delvewheel repair --add-path ./lib64;./lib32 -w {dest_dir} {wheel}"
 
-
-[tool.isort]
-profile = "black"
 
 [tool.pytest.ini_options]
 # pythonpath = [ "." ]
 asyncio_mode = "auto"
+
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle
+    "F",  # Pyflakes
+    "UP",  # pyupgrade
+    "B",  # flake8-bugbear
+    "SIM",  # flake8-simplify
+    "I",  # isort
+]
+
+[tool.mypy]
+python_version = "3.8"
+ignore_missing_imports = true
+#warn_unused_ignores = true
+#strict = true
+exclude = ["benchmark/", "docs/", "examples/", "scripts/", "tests/", "build/"]

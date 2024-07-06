@@ -6,17 +6,16 @@ __all__ = ["Cookies"]
 
 import re
 import time
-import typing
-from http.cookiejar import Cookie, CookieJar
-from urllib.parse import urlparse
-from dataclasses import dataclass
 import warnings
+from dataclasses import dataclass
+from http.cookiejar import Cookie, CookieJar
+from http.cookies import _unquote
+from typing import Dict, Iterator, List, MutableMapping, Optional, Tuple, Union
+from urllib.parse import urlparse
 
 from .errors import CookieConflict, RequestsError
 
-CookieTypes = typing.Union[
-    "Cookies", CookieJar, typing.Dict[str, str], typing.List[typing.Tuple[str, str]]
-]
+CookieTypes = Union["Cookies", CookieJar, Dict[str, str], List[Tuple[str, str]]]
 
 
 @dataclass
@@ -63,15 +62,13 @@ class CurlMorsel:
             secure=cls.parse_bool(secure),
             expires=int(expires),
             name=name,
-            value=value,
+            value=_unquote(value),
             http_only=http_only,
         )
 
     def to_curl_format(self):
         if not self.hostname:
-            raise RequestsError(
-                "Domain not found for cookie {}={}".format(self.name, self.value)
-            )
+            raise RequestsError(f"Domain not found for cookie {self.name}={self.value}")
         return "\t".join(
             [
                 self.hostname,
@@ -115,10 +112,10 @@ class CurlMorsel:
             secure=self.secure,
             # using if explicitly to make it clear.
             expires=None if self.expires == 0 else self.expires,
-            discard=True if self.expires == 0 else False,
+            discard=self.expires == 0,
             comment=None,
             comment_url=None,
-            rest=dict(http_only=self.http_only),  # type: ignore
+            rest=dict(http_only=f"{self.http_only}"),
             rfc2109=False,
         )
 
@@ -127,12 +124,12 @@ cut_port_re = re.compile(r":\d+$", re.ASCII)
 IPV4_RE = re.compile(r"\.\d+$", re.ASCII)
 
 
-class Cookies(typing.MutableMapping[str, str]):
+class Cookies(MutableMapping[str, str]):
     """
     HTTP Cookies, as a mutable mapping.
     """
 
-    def __init__(self, cookies: typing.Optional[CookieTypes] = None) -> None:
+    def __init__(self, cookies: Optional[CookieTypes] = None) -> None:
         if cookies is None or isinstance(cookies, dict):
             self.jar = CookieJar()
             if isinstance(cookies, dict):
@@ -165,7 +162,7 @@ class Cookies(typing.MutableMapping[str, str]):
             host += ".local"
         return host
 
-    def get_cookies_for_curl(self, request) -> typing.List[CurlMorsel]:
+    def get_cookies_for_curl(self, request) -> List[CurlMorsel]:
         """the process is similar to `cookiejar.add_cookie_header`, but load all cookies"""
         self.jar._cookies_lock.acquire()  # type: ignore
         morsels = []
@@ -182,7 +179,7 @@ class Cookies(typing.MutableMapping[str, str]):
         self.jar.clear_expired_cookies()
         return morsels
 
-    def update_cookies_from_curl(self, morsels: typing.List[CurlMorsel]):
+    def update_cookies_from_curl(self, morsels: List[CurlMorsel]):
         for morsel in morsels:
             cookie = morsel.to_cookiejar_cookie()
             self.jar.set_cookie(cookie)
@@ -196,12 +193,16 @@ class Cookies(typing.MutableMapping[str, str]):
         """
         # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie
         if name.startswith("__Secure-") and secure is False:
-            warnings.warn("`secure` changed to True for `__Secure-` prefixed cookies")
+            warnings.warn(
+                "`secure` changed to True for `__Secure-` prefixed cookies",
+                stacklevel=2,
+            )
             secure = True
         elif name.startswith("__Host-") and (secure is False or domain or path != "/"):
             warnings.warn(
                 "`host` changed to True, `domain` removed, `path` changed to `/` "
-                "for `__Host-` prefixed cookies"
+                "for `__Host-` prefixed cookies",
+                stacklevel=2,
             )
             secure = True
             domain = ""
@@ -225,16 +226,16 @@ class Cookies(typing.MutableMapping[str, str]):
             "rest": {"HttpOnly": None},
             "rfc2109": False,
         }
-        cookie = Cookie(**kwargs)  # type: ignore
+        cookie = Cookie(**kwargs)
         self.jar.set_cookie(cookie)
 
     def get(  # type: ignore
         self,
         name: str,
-        default: typing.Optional[str] = None,
-        domain: typing.Optional[str] = None,
-        path: typing.Optional[str] = None,
-    ) -> typing.Optional[str]:
+        default: Optional[str] = None,
+        domain: Optional[str] = None,
+        path: Optional[str] = None,
+    ) -> Optional[str]:
         """
         Get a cookie by name. May optionally include domain and path
         in order to specify exactly which cookie to retrieve.
@@ -242,33 +243,51 @@ class Cookies(typing.MutableMapping[str, str]):
         value = None
         matched_domain = ""
         for cookie in self.jar:
-            if cookie.name == name:
-                if domain is None or cookie.domain == domain:
-                    if path is None or cookie.path == path:
-                        # if cookies on two different domains do not share a same value
-                        if (
-                            value is not None
-                            and not matched_domain.endswith(cookie.domain)
-                            and not str(cookie.domain).endswith(matched_domain)
-                            and value != cookie.value
-                        ):
-                            message = (
-                                f"Multiple cookies exist with name={name} on "
-                                f"{matched_domain} and {cookie.domain}"
-                            )
-                            raise CookieConflict(message)
-                        value = cookie.value
-                        matched_domain = cookie.domain or ""
+            if (
+                cookie.name == name
+                and (domain is None or cookie.domain == domain)
+                and (path is None or cookie.path == path)
+            ):
+                # if cookies on two different domains do not share a same value
+                if (
+                    value is not None
+                    and not matched_domain.endswith(cookie.domain)
+                    and not str(cookie.domain).endswith(matched_domain)
+                    and value != cookie.value
+                ):
+                    message = (
+                        f"Multiple cookies exist with name={name} on "
+                        f"{matched_domain} and {cookie.domain}, add domain "
+                        "parameter to suppress this error."
+                    )
+                    raise CookieConflict(message)
+                value = cookie.value
+                matched_domain = cookie.domain or ""
 
         if value is None:
             return default
         return value
 
+    def get_dict(
+        self, domain: Optional[str] = None, path: Optional[str] = None
+    ) -> dict:
+        """
+        Cookies with the same name on different domains may overwrite each other,
+        do NOT use this function as a method of serialization.
+        """
+        ret = {}
+        for cookie in self.jar:
+            if (domain is None or cookie.name == domain) and (
+                path is None or cookie.path == path
+            ):
+                ret[cookie.name] = cookie.value
+        return ret
+
     def delete(
         self,
         name: str,
-        domain: typing.Optional[str] = None,
-        path: typing.Optional[str] = None,
+        domain: Optional[str] = None,
+        path: Optional[str] = None,
     ) -> None:
         """
         Delete a cookie by name. May optionally include domain and path
@@ -288,9 +307,7 @@ class Cookies(typing.MutableMapping[str, str]):
         for cookie in remove:
             self.jar.clear(cookie.domain, cookie.path, cookie.name)
 
-    def clear(
-        self, domain: typing.Optional[str] = None, path: typing.Optional[str] = None
-    ) -> None:
+    def clear(self, domain: Optional[str] = None, path: Optional[str] = None) -> None:
         """
         Delete all cookies. Optionally include a domain and path in
         order to only delete a subset of all the cookies.
@@ -303,7 +320,7 @@ class Cookies(typing.MutableMapping[str, str]):
             args.append(path)
         self.jar.clear(*args)
 
-    def update(self, cookies: typing.Optional[CookieTypes] = None) -> None:  # type: ignore
+    def update(self, cookies: Optional[CookieTypes] = None) -> None:  # type: ignore
         cookies = Cookies(cookies)
         for cookie in cookies.jar:
             self.jar.set_cookie(cookie)
@@ -323,7 +340,7 @@ class Cookies(typing.MutableMapping[str, str]):
     def __len__(self) -> int:
         return len(self.jar)
 
-    def __iter__(self) -> typing.Iterator[str]:
+    def __iter__(self) -> Iterator[str]:
         return (cookie.name for cookie in self.jar)
 
     def __bool__(self) -> bool:

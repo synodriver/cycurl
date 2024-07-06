@@ -4,6 +4,9 @@ from enum import IntEnum
 
 
 class CurlOpt(IntEnum):
+    """``CULROPT_`` constancs extracted from libcurl,
+    see: https://curl.se/libcurl/c/curl_easy_setopt.html"""
+
     WRITEDATA = 10000 + 1
     URL = 10000 + 2
     PORT = 0 + 3
@@ -106,7 +109,7 @@ class CurlOpt(IntEnum):
     SSL_CTX_DATA = 10000 + 109
     FTP_CREATE_MISSING_DIRS = 0 + 110
     PROXYAUTH = 0 + 111
-    FTP_RESPONSE_TIMEOUT = 0 + 112
+    SERVER_RESPONSE_TIMEOUT = 0 + 112
     IPRESOLVE = 0 + 113
     MAXFILESIZE = 0 + 114
     INFILESIZE_LARGE = 30000 + 115
@@ -275,7 +278,7 @@ class CurlOpt(IntEnum):
     ALTSVC = 10000 + 287
     MAXAGE_CONN = 0 + 288
     SASL_AUTHZID = 10000 + 289
-    MAIL_RCPT_ALLLOWFAILS = 0 + 290
+    MAIL_RCPT_ALLOWFAILS = 0 + 290
     SSLCERT_BLOB = 40000 + 291
     SSLKEY_BLOB = 40000 + 292
     PROXY_SSLCERT_BLOB = 40000 + 293
@@ -303,14 +306,30 @@ class CurlOpt(IntEnum):
     MIME_OPTIONS = 0 + 315
     SSH_HOSTKEYFUNCTION = 20000 + 316
     SSH_HOSTKEYDATA = 10000 + 317
-    HTTPBASEHEADER = 10000 + 318
-    SSL_SIG_HASH_ALGS = 10000 + 319
-    SSL_ENABLE_ALPS = 0 + 320
-    SSL_CERT_COMPRESSION = 10000 + 321
-    SSL_ENABLE_TICKET = 0 + 322
-    HTTP2_PSEUDO_HEADERS_ORDER = 10000 + 323
-    HTTP2_NO_SERVER_PUSH = 0 + 324
-    SSL_PERMUTE_EXTENSIONS = 0 + 325
+    PROTOCOLS_STR = 10000 + 318
+    REDIR_PROTOCOLS_STR = 10000 + 319
+    WS_OPTIONS = 0 + 320
+    CA_CACHE_TIMEOUT = 0 + 321
+    QUICK_EXIT = 0 + 322
+    HAPROXY_CLIENT_IP = 10000 + 323
+    SERVER_RESPONSE_TIMEOUT_MS = 0 + 324
+    HTTPBASEHEADER = 10000 + 1000
+    SSL_SIG_HASH_ALGS = 10000 + 1001
+    SSL_ENABLE_ALPS = 0 + 1002
+    SSL_CERT_COMPRESSION = 10000 + 1003
+    SSL_ENABLE_TICKET = 0 + 1004
+    HTTP2_PSEUDO_HEADERS_ORDER = 10000 + 1005
+    HTTP2_SETTINGS = 10000 + 1006
+    SSL_PERMUTE_EXTENSIONS = 0 + 1007
+    HTTP2_WINDOW_UPDATE = 0 + 1008
+    ECH = 10000 + 1009
+    HTTP2_STREAMS = 10000 + 1010
+    TLS_GREASE = 0 + 1011
+    TLS_EXTENSION_ORDER = 10000 + 1012
+    STREAM_EXCLUSIVE = 0 + 1013
+    TLS_KEY_USAGE_NO_CHECK = 0 + 1014
+    TLS_SIGNED_CERT_TIMESTAMPS = 0 + 1015
+    TLS_STATUS_REQUEST = 0 + 1016
 
     if locals().get("WRITEDATA"):
         FILE = locals().get("WRITEDATA")
@@ -321,6 +340,9 @@ class CurlOpt(IntEnum):
 
 
 class CurlInfo(IntEnum):
+    """``CURLINFO_`` constancs extracted from libcurl,
+    see: https://curl.se/libcurl/c/curl_easy_getinfo.html"""
+
     TEXT = 0
     EFFECTIVE_URL = 0x100000 + 1
     RESPONSE_CODE = 0x200000 + 2
@@ -328,22 +350,16 @@ class CurlInfo(IntEnum):
     NAMELOOKUP_TIME = 0x300000 + 4
     CONNECT_TIME = 0x300000 + 5
     PRETRANSFER_TIME = 0x300000 + 6
-    SIZE_UPLOAD = 0x300000 + 7
     SIZE_UPLOAD_T = 0x600000 + 7
-    SIZE_DOWNLOAD = 0x300000 + 8
     SIZE_DOWNLOAD_T = 0x600000 + 8
-    SPEED_DOWNLOAD = 0x300000 + 9
     SPEED_DOWNLOAD_T = 0x600000 + 9
-    SPEED_UPLOAD = 0x300000 + 10
     SPEED_UPLOAD_T = 0x600000 + 10
     HEADER_SIZE = 0x200000 + 11
     REQUEST_SIZE = 0x200000 + 12
     SSL_VERIFYRESULT = 0x200000 + 13
     FILETIME = 0x200000 + 14
     FILETIME_T = 0x600000 + 14
-    CONTENT_LENGTH_DOWNLOAD = 0x300000 + 15
     CONTENT_LENGTH_DOWNLOAD_T = 0x600000 + 15
-    CONTENT_LENGTH_UPLOAD = 0x300000 + 16
     CONTENT_LENGTH_UPLOAD_T = 0x600000 + 16
     STARTTRANSFER_TIME = 0x300000 + 17
     CONTENT_TYPE = 0x100000 + 18
@@ -357,7 +373,6 @@ class CurlInfo(IntEnum):
     NUM_CONNECTS = 0x200000 + 26
     SSL_ENGINES = 0x400000 + 27
     COOKIELIST = 0x400000 + 28
-    LASTSOCKET = 0x200000 + 29
     FTP_ENTRY_PATH = 0x100000 + 30
     REDIRECT_URL = 0x100000 + 31
     PRIMARY_IP = 0x100000 + 32
@@ -371,12 +386,10 @@ class CurlInfo(IntEnum):
     PRIMARY_PORT = 0x200000 + 40
     LOCAL_IP = 0x100000 + 41
     LOCAL_PORT = 0x200000 + 42
-    TLS_SESSION = 0x400000 + 43
     ACTIVESOCKET = 0x500000 + 44
     TLS_SSL_PTR = 0x400000 + 45
     HTTP_VERSION = 0x200000 + 46
     PROXY_SSL_VERIFYRESULT = 0x200000 + 47
-    PROTOCOL = 0x200000 + 48
     SCHEME = 0x100000 + 49
     TOTAL_TIME_T = 0x600000 + 50
     NAMELOOKUP_TIME_T = 0x600000 + 51
@@ -391,13 +404,20 @@ class CurlInfo(IntEnum):
     REFERER = 0x100000 + 60
     CAINFO = 0x100000 + 61
     CAPATH = 0x100000 + 62
-    LASTONE = 62
+    XFER_ID = 0x600000 + 63
+    CONN_ID = 0x600000 + 64
+    QUEUE_TIME_T = 0x600000 + 65
+    USED_PROXY = 0x200000 + 66
+    LASTONE = 66
 
     if locals().get("RESPONSE_CODE"):
         HTTP_CODE = locals().get("RESPONSE_CODE")
 
 
 class CurlMOpt(IntEnum):
+    """``CURLMOPT_`` constancs extracted from libcurl,
+    see: https://curl.se/libcurl/c/curl_multi_setopt.html"""
+
     SOCKETFUNCTION = 20000 + 1
     SOCKETDATA = 10000 + 2
     PIPELINING = 0 + 3
@@ -417,6 +437,9 @@ class CurlMOpt(IntEnum):
 
 
 class CurlECode(IntEnum):
+    """``CURLECODE_`` constancs extracted from libcurl,
+    see: https://curl.se/libcurl/c/libcurl-errors.html"""
+
     OK = 0
     UNSUPPORTED_PROTOCOL = 1
     FAILED_INIT = 2
@@ -492,7 +515,7 @@ class CurlECode(IntEnum):
     TFTP_UNKNOWNID = 72
     REMOTE_FILE_EXISTS = 73
     TFTP_NOSUCHUSER = 74
-    CONV_FAILED = 75
+    OBSOLETE75 = 75
     OBSOLETE76 = 76
     SSL_CACERT_BADFILE = 77
     REMOTE_FILE_NOT_FOUND = 78
@@ -517,9 +540,13 @@ class CurlECode(IntEnum):
     PROXY = 97
     SSL_CLIENTCERT = 98
     UNRECOVERABLE_POLL = 99
+    TOO_LARGE = 100
+    ECH_REQUIRED = 101
 
 
 class CurlHttpVersion(IntEnum):
+    """``CURL_HTTP_VERSION`` constants extracted from libcurl, see comments for details."""
+
     NONE = 0
     V1_0 = 1  # please use HTTP 1.0 in the request */
     V1_1 = 2  # please use HTTP 1.1 in the request */
@@ -527,3 +554,28 @@ class CurlHttpVersion(IntEnum):
     V2TLS = 4  # use version 2 for HTTPS, version 1.1 for HTTP */
     V2_PRIOR_KNOWLEDGE = 5  # please use HTTP 2 without HTTP/1.1 Upgrade */
     V3 = 30  # Makes use of explicit HTTP/3 without fallback.
+
+
+class CurlWsFlag(IntEnum):
+    """``CURL_WS_FLAG`` constants extracted from libcurl, see comments for details."""
+
+    TEXT = 1 << 0
+    BINARY = 1 << 1
+    CONT = 1 << 2
+    CLOSE = 1 << 3
+    PING = 1 << 4
+    OFFSET = 1 << 5
+
+
+class CurlSslVersion(IntEnum):
+    """``CURL_SSLVERSION`` constants extracted from libcurl, see comments for details."""
+
+    DEFAULT = 0
+    TLSv1 = 1
+    SSLv2 = 2
+    SSLv3 = 3
+    TLSv1_0 = 4
+    TLSv1_1 = 5
+    TLSv1_2 = 6
+    TLSv1_3 = 7
+    MAX_DEFAULT = 1 << 16

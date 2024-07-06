@@ -1,17 +1,17 @@
-import os
 import re
 import warnings
 from http.cookies import SimpleCookie
-from typing import Any, List, Tuple, Union
+from pathlib import Path
+from typing import Any, List, Optional, Tuple, Union
 
-from ._wrapper import ffi, lib  # type: ignore
-from .const import CurlHttpVersion, CurlInfo, CurlOpt
+import certifi
 
-try:
-    import certifi
-    DEFAULT_CACERT = certifi.where()
-except ImportError:
-    DEFAULT_CACERT = os.path.join(os.path.dirname(__file__), "cacert.pem")
+from ._wrapper import ffi, lib
+from .const import CurlHttpVersion, CurlInfo, CurlOpt, CurlWsFlag
+
+DEFAULT_CACERT = certifi.where()
+REASON_PHRASE_RE = re.compile(rb"HTTP/\d\.\d [0-9]{3} (.*)")
+STATUS_LINE_RE = re.compile(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)")
 
 
 class CurlError(Exception):
@@ -36,11 +36,12 @@ CURL_WRITEFUNC_ERROR = 0xFFFFFFFF
 
 @ffi.def_extern()
 def debug_function(curl, type: int, data, size, clientp) -> int:
+    """ffi callback for curl debug info"""
     text = ffi.buffer(data, size)[:]
     if type in (CURLINFO_SSL_DATA_IN, CURLINFO_SSL_DATA_OUT):
         print("SSL OUT", text)
     elif type in (CURLINFO_DATA_IN, CURLINFO_DATA_OUT):
-        print(text.decode())
+        print(text.decode("utf-8", "replace"))
     else:
         print(text.decode(), end="")
     return 0
@@ -48,32 +49,37 @@ def debug_function(curl, type: int, data, size, clientp) -> int:
 
 @ffi.def_extern()
 def buffer_callback(ptr, size, nmemb, userdata):
+    """ffi callback for curl write function, directly writes to a buffer"""
     # assert size == 1
     buffer = ffi.from_handle(userdata)
     buffer.write(ffi.buffer(ptr, nmemb)[:])
     return nmemb * size
+
 
 def ensure_int(s):
     if not s:
         return 0
     return int(s)
 
+
 @ffi.def_extern()
 def write_callback(ptr, size, nmemb, userdata):
+    """ffi callback for curl write function, calls the callback python function"""
     # although similar enough to the function above, kept here for performance reasons
     callback = ffi.from_handle(userdata)
     wrote = callback(ffi.buffer(ptr, nmemb)[:])
     wrote = ensure_int(wrote)
-    if wrote == CURL_WRITEFUNC_PAUSE or wrote == CURL_WRITEFUNC_ERROR:
+    if wrote == CURL_WRITEFUNC_PAUSE or wrote == CURL_WRITEFUNC_ERROR:  # noqa: SIM109
         return wrote
     # should make this an exception in future versions
     if wrote != nmemb * size:
-        warnings.warn("Wrote bytes != received bytes.", RuntimeWarning)
+        warnings.warn("Wrote bytes != received bytes.", RuntimeWarning, stacklevel=2)
     return nmemb * size
 
 
 # Credits: @alexio777 on https://github.com/yifeikong/curl_cffi/issues/4
 def slist_to_list(head) -> List[bytes]:
+    """Converts curl slist to a python list."""
     result = []
     ptr = head
     while ptr:
@@ -85,19 +91,21 @@ def slist_to_list(head) -> List[bytes]:
 
 class Curl:
     """
-    Wrapper for `curl_easy_*` functions of libcurl.
+    Wrapper for ``curl_easy_*`` functions of libcurl.
     """
 
-    def __init__(self, cacert: str = DEFAULT_CACERT, debug: bool = False, handle = None):
+    def __init__(self, cacert: str = "", debug: bool = False, handle=None) -> None:
         """
         Parameters:
-            cacert: CA cert path to use, by default, curl_cffi uses its own bundled cert.
+            cacert: CA cert path to use, by default, curl_cffi uses certs from ``certifi``.
             debug: whether to show curl debug messages.
+            handle: a curl handle instance from ``curl_easy_init``.
         """
-        self._curl = lib.curl_easy_init() if not handle else handle
+        self._curl = handle if handle else lib.curl_easy_init()
         self._headers = ffi.NULL
+        self._proxy_headers = ffi.NULL
         self._resolve = ffi.NULL
-        self._cacert = cacert
+        self._cacert = cacert or DEFAULT_CACERT
         self._is_cert_set = False
         self._write_handle = None
         self._header_handle = None
@@ -107,39 +115,46 @@ class Curl:
         self._debug = debug
         self._set_error_buffer()
 
-    def _set_error_buffer(self):
+    def _set_error_buffer(self) -> None:
         ret = lib._curl_easy_setopt(self._curl, CurlOpt.ERRORBUFFER, self._error_buffer)
         if ret != 0:
-            warnings.warn("Failed to set error buffer")
+            warnings.warn("Failed to set error buffer", stacklevel=2)
         if self._debug:
             self.setopt(CurlOpt.VERBOSE, 1)
             lib._curl_easy_setopt(self._curl, CurlOpt.DEBUGFUNCTION, lib.debug_function)
 
-    def __del__(self):
+    def debug(self) -> None:
+        """Set debug to True"""
+        self.setopt(CurlOpt.VERBOSE, 1)
+        lib._curl_easy_setopt(self._curl, CurlOpt.DEBUGFUNCTION, lib.debug_function)
+
+    def __del__(self) -> None:
         self.close()
 
-    def _check_error(self, errcode: int, *args):
+    def _check_error(self, errcode: int, *args: Any) -> None:
         error = self._get_error(errcode, *args)
         if error is not None:
             raise error
 
-    def _get_error(self, errcode: int, *args):
+    def _get_error(self, errcode: int, *args: Any):
         if errcode != 0:
             errmsg = ffi.string(self._error_buffer).decode()
             action = " ".join([str(a) for a in args])
             return CurlError(
-                f"Failed to {action}, ErrCode: {errcode}, Reason: '{errmsg}'. "
-                "This may be a libcurl error, "
+                f"Failed to {action}, curl: ({errcode}) {errmsg}. "
                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
                 code=errcode,
             )
 
-    def setopt(self, option: CurlOpt, value: Any):
-        """Wrapper for curl_easy_setopt.
+    def setopt(self, option: CurlOpt, value: Any) -> int:
+        """Wrapper for ``curl_easy_setopt``.
 
         Parameters:
-            option: option to set, use the constants from CurlOpt enum
+            option: option to set, using constants from CurlOpt enum
             value: value to set, strings will be handled automatically
+
+        Returns:
+            0 if no error, see ``CurlECode``.
         """
         input_option = {
             # this should be int in curl, but cffi requires pointer for void*
@@ -158,15 +173,11 @@ class Curl:
         elif option == CurlOpt.WRITEDATA:
             c_value = ffi.new_handle(value)
             self._write_handle = c_value
-            lib._curl_easy_setopt(
-                self._curl, CurlOpt.WRITEFUNCTION, lib.buffer_callback
-            )
+            lib._curl_easy_setopt(self._curl, CurlOpt.WRITEFUNCTION, lib.buffer_callback)
         elif option == CurlOpt.HEADERDATA:
             c_value = ffi.new_handle(value)
             self._header_handle = c_value
-            lib._curl_easy_setopt(
-                self._curl, CurlOpt.HEADERFUNCTION, lib.buffer_callback
-            )
+            lib._curl_easy_setopt(self._curl, CurlOpt.HEADERFUNCTION, lib.buffer_callback)
         elif option == CurlOpt.WRITEFUNCTION:
             c_value = ffi.new_handle(value)
             self._write_handle = c_value
@@ -178,10 +189,7 @@ class Curl:
             lib._curl_easy_setopt(self._curl, CurlOpt.WRITEFUNCTION, lib.write_callback)
             option = CurlOpt.HEADERDATA
         elif value_type == "char*":
-            if isinstance(value, str):
-                c_value = value.encode()
-            else:
-                c_value = value
+            c_value = value.encode() if isinstance(value, str) else value
             # Must keep a reference, otherwise may be GCed.
             if option == CurlOpt.POSTFIELDS:
                 self._body_handle = c_value
@@ -192,6 +200,10 @@ class Curl:
             for header in value:
                 self._headers = lib.curl_slist_append(self._headers, header)
             ret = lib._curl_easy_setopt(self._curl, option, self._headers)
+        elif option == CurlOpt.PROXYHEADER:
+            for proxy_header in value:
+                self._proxy_headers = lib.curl_slist_append(self._proxy_headers, proxy_header)
+            ret = lib._curl_easy_setopt(self._curl, option, self._proxy_headers)
         elif option == CurlOpt.RESOLVE:
             for resolve in value:
                 if isinstance(resolve, str):
@@ -208,10 +220,13 @@ class Curl:
         return ret
 
     def getinfo(self, option: CurlInfo) -> Union[bytes, int, float, List]:
-        """Wrapper for curl_easy_getinfo. Gets information in response after curl perform.
+        """Wrapper for ``curl_easy_getinfo``. Gets information in response after curl perform.
 
         Parameters:
-            option: option to get info of, use the constants from CurlInfo enum
+            option: option to get info of, using constants from ``CurlInfo`` enum
+
+        Returns:
+            value retrieved from last perform.
         """
         ret_option = {
             0x100000: "char**",
@@ -244,21 +259,27 @@ class Curl:
         Parameters:
             target: browser to impersonate.
             default_headers: whether to add default headers, like User-Agent.
-        """
-        return lib.curl_easy_impersonate(
-            self._curl, target.encode(), int(default_headers)
-        )
 
-    def _ensure_cacert(self):
+        Returns:
+            0 if no error.
+        """
+        return lib.curl_easy_impersonate(self._curl, target.encode(), int(default_headers))
+
+    def _ensure_cacert(self) -> None:
         if not self._is_cert_set:
             ret = self.setopt(CurlOpt.CAINFO, self._cacert)
             self._check_error(ret, "set cacert")
+            ret = self.setopt(CurlOpt.PROXY_CAINFO, self._cacert)
+            self._check_error(ret, "set proxy cacert")
 
-    def perform(self, clear_headers: bool = True):
-        """Wrapper for curl_easy_perform, performs a curl request.
+    def perform(self, clear_headers: bool = True) -> None:
+        """Wrapper for ``curl_easy_perform``, performs a curl request.
 
         Parameters:
             clear_headers: clear header slist used in this perform
+
+        Raises:
+            CurlError: if the perform was not successful.
         """
         # make sure we set a cacert store
         self._ensure_cacert()
@@ -272,7 +293,7 @@ class Curl:
             # cleaning
             self.clean_after_perform(clear_headers)
 
-    def clean_after_perform(self, clear_headers: bool = True):
+    def clean_after_perform(self, clear_headers: bool = True) -> None:
         """Clean up handles and buffers after perform, called at the end of `perform`."""
         self._write_handle = None
         self._header_handle = None
@@ -282,15 +303,21 @@ class Curl:
                 lib.curl_slist_free_all(self._headers)
             self._headers = ffi.NULL
 
-    def duphandle(self):
-        """This is not a full copy of entire curl object in python. For example, headers
+            if self._proxy_headers != ffi.NULL:
+                lib.curl_slist_free_all(self._proxy_headers)
+            self._proxy_headers = ffi.NULL
+
+    def duphandle(self) -> "Curl":
+        """Wrapper for ``curl_easy_duphandle``.
+
+        This is not a full copy of entire curl object in python. For example, headers
         handle is not copied, you have to set them again."""
         new_handle = lib.curl_easy_duphandle(self._curl)
         c = Curl(cacert=self._cacert, debug=self._debug, handle=new_handle)
         return c
 
-    def reset(self):
-        """Reset all curl options, wrapper for curl_easy_reset."""
+    def reset(self) -> None:
+        """Reset all curl options, wrapper for ``curl_easy_reset``."""
         self._is_cert_set = False
         if self._curl is not None:
             lib.curl_easy_reset(self._curl)
@@ -298,7 +325,7 @@ class Curl:
         self._resolve = ffi.NULL
 
     def parse_cookie_headers(self, headers: List[bytes]) -> SimpleCookie:
-        """Extract cookies.SimpleCookie from header lines.
+        """Extract ``cookies.SimpleCookie`` from header lines.
 
         Parameters:
             headers: list of headers in bytes.
@@ -306,7 +333,7 @@ class Curl:
         Returns:
             A parsed cookies.SimpleCookie instance.
         """
-        cookie = SimpleCookie()
+        cookie: SimpleCookie = SimpleCookie()
         for header in headers:
             if header.lower().startswith(b"set-cookie: "):
                 cookie.load(header[12:].decode())  # len("set-cookie: ") == 12
@@ -314,14 +341,18 @@ class Curl:
 
     @staticmethod
     def get_reason_phrase(status_line: bytes) -> bytes:
-        """Extract reason phrase, like `OK`, `Not Found` from response status line."""
-        m = re.match(rb"HTTP/\d\.\d [0-9]{3} (.*)", status_line)
+        """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
+        m = REASON_PHRASE_RE.match(status_line)
         return m.group(1) if m else b""
 
     @staticmethod
     def parse_status_line(status_line: bytes) -> Tuple[CurlHttpVersion, int, bytes]:
-        """Extract reason phrase, like `OK`, `Not Found` from response status line."""
-        m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
+        """Parse status line.
+
+        Returns:
+            http_version, status_code, and reason phrase
+        """
+        m = STATUS_LINE_RE.match(status_line)
         if not m:
             return CurlHttpVersion.V1_0, 0, b""
         if m.group(1) == "2.0":
@@ -337,10 +368,152 @@ class Curl:
 
         return http_version, status_code, reason
 
-    def close(self):
-        """Close and cleanup curl handle, wrapper for curl_easy_cleanup"""
+    def close(self) -> None:
+        """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
         if self._curl:
             lib.curl_easy_cleanup(self._curl)
             self._curl = None
         ffi.release(self._error_buffer)
         self._resolve = ffi.NULL
+
+    def ws_recv(self, n: int = 1024) -> Tuple[bytes, Any]:
+        """Receive a frame from a websocket connection.
+
+        Args:
+            n: maximum data to receive.
+
+        Returns:
+            a tuple of frame content and curl frame meta struct.
+
+        Raises:
+            CurlError: if failed.
+        """
+        buffer = ffi.new("char[]", n)
+        n_recv = ffi.new("int *")
+        p_frame = ffi.new("struct curl_ws_frame **")
+
+        ret = lib.curl_ws_recv(self._curl, buffer, n, n_recv, p_frame)
+        self._check_error(ret, "WS_RECV")
+
+        # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html
+        frame = p_frame[0]
+
+        return ffi.buffer(buffer)[: n_recv[0]], frame
+
+    def ws_send(self, payload: bytes, flags: CurlWsFlag = CurlWsFlag.BINARY) -> int:
+        """Send data to a websocket connection.
+
+        Args:
+            payload: content to send.
+            flags: websocket flag to set for the frame, default: binary.
+
+        Returns:
+            0 if no error.
+
+        Raises:
+            CurlError: if failed.
+        """
+        n_sent = ffi.new("int *")
+        buffer = ffi.from_buffer(payload)
+        ret = lib.curl_ws_send(self._curl, buffer, len(buffer), n_sent, 0, flags)
+        self._check_error(ret, "WS_SEND")
+        return n_sent[0]
+
+    def ws_close(self) -> None:
+        """Send the close frame."""
+        self.ws_send(b"", CurlWsFlag.CLOSE)
+
+
+class CurlMime:
+    """Wrapper for the ``curl_mime_`` API."""
+
+    def __init__(self, curl: Optional[Curl] = None):
+        """
+        Args:
+            curl: Curl instance to use.
+        """
+        self._curl = curl if curl else Curl()
+        self._form = lib.curl_mime_init(self._curl._curl)
+
+    def addpart(
+        self,
+        name: str,
+        *,
+        content_type: Optional[str] = None,
+        filename: Optional[str] = None,
+        local_path: Optional[Union[str, bytes, Path]] = None,
+        data: Optional[bytes] = None,
+    ) -> None:
+        """Add a mime part for a mutlipart html form.
+
+        Note: You can only use either local_path or data, not both.
+
+        Args:
+            name: name of the field.
+            content_type: content_type for the field. for example: ``image/png``.
+            filename: filename for the server.
+            local_path: file to upload on local disk.
+            data: file content to upload.
+        """
+        part = lib.curl_mime_addpart(self._form)
+
+        ret = lib.curl_mime_name(part, name.encode())
+        if ret != 0:
+            raise CurlError("Add field failed.")
+
+        # mime type
+        if content_type is not None:
+            ret = lib.curl_mime_type(part, content_type.encode())
+            if ret != 0:
+                raise CurlError("Add field failed.")
+
+        # remote file name
+        if filename is not None:
+            ret = lib.curl_mime_filename(part, filename.encode())
+            if ret != 0:
+                raise CurlError("Add field failed.")
+
+        if local_path and data:
+            raise CurlError("Can not use local_path and data at the same time.")
+
+        # this is a filename
+        if local_path is not None:
+            if isinstance(local_path, Path):
+                local_path_str = str(local_path)
+            elif isinstance(local_path, bytes):
+                local_path_str = local_path.decode()
+            else:
+                local_path_str = local_path
+
+            if not Path(local_path_str).exists():
+                raise FileNotFoundError(f"File not found at {local_path_str}")
+            ret = lib.curl_mime_filedata(part, local_path_str.encode())
+            if ret != 0:
+                raise CurlError("Add field failed.")
+
+        if data is not None:
+            if not isinstance(data, bytes):
+                data = str(data).encode()
+            ret = lib.curl_mime_data(part, data, len(data))
+
+    @classmethod
+    def from_list(cls, files: List[dict]):
+        """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
+        form = cls()
+        for file in files:
+            form.addpart(**file)
+        return form
+
+    def attach(self, curl: Optional[Curl] = None) -> None:
+        """Attach the mime instance to a curl instance."""
+        c = curl if curl else self._curl
+        c.setopt(CurlOpt.MIMEPOST, self._form)
+
+    def close(self) -> None:
+        """Close the mime instance and underlying files. This method must be called after
+        ``perform`` or ``request``."""
+        lib.curl_mime_free(self._form)
+        self._form = ffi.NULL
+
+    def __del__(self) -> None:
+        self.close()

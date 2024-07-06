@@ -1,4 +1,5 @@
 import asyncio
+import contextlib
 import json
 import os
 import threading
@@ -8,8 +9,11 @@ from asyncio import sleep
 from collections import defaultdict
 from urllib.parse import parse_qs
 
+import proxy
 import pytest
 import trustme
+import uvicorn
+import websockets
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.serialization import (
     BestAvailableEncryption,
@@ -17,6 +21,7 @@ from cryptography.hazmat.primitives.serialization import (
     PrivateFormat,
     load_pem_private_key,
 )
+from fastapi import FastAPI, Form, UploadFile
 from httpx import URL
 from uvicorn.config import Config
 from uvicorn.main import Server
@@ -117,6 +122,10 @@ async def app(scope, receive, send):
         await hello_world_json(scope, receive, send)
     elif scope["path"].startswith("/incomplete_read"):
         await incomplete_read(scope, receive, send)
+    elif scope["path"].startswith("/gbk"):
+        await hello_world_gbk(scope, receive, send)
+    elif scope["path"].startswith("/windows1251"):
+        await hello_world_windows1251(scope, receive, send)
     elif scope["path"].startswith("http://"):
         await http_proxy(scope, receive, send)
     elif scope["method"] == "CONNECT":
@@ -145,6 +154,33 @@ async def hello_world_json(scope, receive, send):
         }
     )
     await send({"type": "http.response.body", "body": b'{"Hello": "world!"}'})
+
+
+async def hello_world_gbk(scope, receive, send):
+    await send(
+        {
+            "type": "http.response.start",
+            "status": 200,
+            "headers": [[b"content-type", b"text/plain; charset=gbk"]],
+        }
+    )
+    await send({"type": "http.response.body", "body": b"Hello, world!"})
+
+
+async def hello_world_windows1251(scope, receive, send):
+    await send(
+        {
+            "type": "http.response.start",
+            "status": 200,
+            "headers": [[b"content-type", b"text/plain"]],
+        }
+    )
+    await send(
+        {
+            "type": "http.response.body",
+            "body": "Bсеки човек има право на образование.".encode("cp1251"),
+        }
+    )
 
 
 async def http_proxy(scope, receive, send):
@@ -399,9 +435,7 @@ async def set_special_cookies(scope, receive, send):
 
 
 async def redirect_301(scope, receive, send):
-    await send(
-        {"type": "http.response.start", "status": 301, "headers": [[b"location", b"/"]]}
-    )
+    await send({"type": "http.response.start", "status": 301, "headers": [[b"location", b"/"]]})
     await send({"type": "http.response.body", "body": b"Redirecting..."})
 
 
@@ -411,7 +445,7 @@ async def redirect_to(scope, receive, send):
         {
             "type": "http.response.start",
             "status": 301,
-            "headers": [[b"location", params["to"][0].encode()]],  # type: ignore
+            "headers": [[b"location", params["to"][0].encode()]],
         }
     )
     await send({"type": "http.response.body", "body": b"Redirecting..."})
@@ -558,6 +592,29 @@ class TestServer(Server):
             await self.startup()
 
 
+async def echo(websocket):
+    while True:
+        name = (await websocket.recv()).decode()
+        # print(f"<<< {name}")
+
+        await websocket.send(name)
+        # print(f">>> {name}")
+
+
+class TestWebsocketServer:
+    def __init__(self, port):
+        self.url = f"ws://127.0.0.1:{port}"
+        self.port = port
+
+    def run(self):
+        async def serve(port):
+            # GitHub actions only likes 127, not localhost, wtf...
+            async with websockets.serve(echo, "127.0.0.1", port):  # pyright: ignore
+                await asyncio.Future()  # run forever
+
+        asyncio.run(serve(self.port))
+
+
 def serve_in_thread(server: Server):
     thread = threading.Thread(target=server.run)
     thread.start()
@@ -568,6 +625,19 @@ def serve_in_thread(server: Server):
     finally:
         server.should_exit = True
         thread.join()
+
+
+@pytest.fixture(scope="session")
+def ws_server():
+    server = TestWebsocketServer(port=8964)
+    thread = threading.Thread(target=server.run, daemon=True)
+    thread.start()
+    try:
+        time.sleep(2)  # FIXME find a reliable way to check the server is up
+        yield server
+    finally:
+        pass
+        # thread.join()
 
 
 @pytest.fixture(scope="session")
@@ -589,3 +659,78 @@ def https_server(cert_pem_file, cert_private_key_file):
     )
     server = TestServer(config=config)
     yield from serve_in_thread(server)
+
+
+@pytest.fixture(scope="session")
+def proxy_server(request):
+    ps = proxy.Proxy(port=8002, plugins=["proxy.plugin.ManInTheMiddlePlugin"])
+    request.addfinalizer(ps.__exit__)
+    return ps.__enter__()
+
+
+class FileServer(uvicorn.Server):
+    def install_signal_handlers(self):
+        pass
+
+    @contextlib.contextmanager
+    def run_in_thread(self):
+        thread = threading.Thread(target=self.run)
+        thread.start()
+        try:
+            while not self.started:
+                time.sleep(1e-3)
+            yield
+        finally:
+            self.should_exit = True
+            thread.join()
+
+    @property
+    def url(self):
+        return f"http://{self.config.host}:{self.config.port}"
+
+
+file_app = FastAPI()
+
+
+@file_app.post("/file")
+def upload_single_file(image: UploadFile, foo: typing.Optional[str] = Form(None)):
+    content = image.file.read()
+    return {
+        "foo": foo,
+        "filename": image.filename,
+        "content_type": image.content_type,
+        "size": len(content),
+    }
+
+
+@file_app.post("/files")
+def upload_multi_files(images: typing.List[UploadFile]):
+    files = []
+    for image in images:
+        content = image.file.read()
+        files.append(
+            {
+                "filename": image.filename,
+                "content_type": image.content_type,
+                "size": len(content),
+            }
+        )
+
+    return {"files": files}
+
+
+@file_app.post("/two-files")
+def upload_two_files(image1: UploadFile, image2: UploadFile):
+    return {
+        "size1": len(image1.file.read()),
+        "size2": len(image2.file.read()),
+    }
+
+
+@pytest.fixture(scope="session")
+def file_server():
+    FastAPI()
+    config = uvicorn.Config(file_app, host="127.0.0.1", port=2952, log_level="info")
+    server = FileServer(config=config)
+    with server.run_in_thread():
+        yield server

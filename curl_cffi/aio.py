@@ -1,68 +1,64 @@
 import asyncio
 import sys
 import warnings
-from typing import Any
-from weakref import WeakSet, WeakKeyDictionary
+from contextlib import suppress
+from typing import Any, Dict, Set
+from weakref import WeakKeyDictionary, WeakSet
 
-from ._wrapper import ffi, lib  # type: ignore
+from ._wrapper import ffi, lib
 from .const import CurlMOpt
-from .curl import Curl, DEFAULT_CACERT
+from .curl import DEFAULT_CACERT, Curl
 
 __all__ = ["AsyncCurl"]
 
-# registry of asyncio loop : selector thread
-_selectors: WeakKeyDictionary = WeakKeyDictionary()
-PROACTOR_WARNING = """
-Proactor event loop does not implement add_reader family of methods required.
-Registering an additional selector thread for add_reader support.
-To avoid this warning use:
-    asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())
-"""
-
-def _get_selector_windows(asyncio_loop) -> asyncio.AbstractEventLoop:
-    """Get selector-compatible loop
-
-    Returns an object with ``add_reader`` family of methods,
-    either the loop itself or a SelectorThread instance.
-
-    Workaround Windows proactor removal of *reader methods.
+if sys.platform == "win32":
+    # registry of asyncio loop : selector thread
+    _selectors: WeakKeyDictionary = WeakKeyDictionary()
+    PROACTOR_WARNING = """
+    Proactor event loop does not implement add_reader family of methods required.
+    Registering an additional selector thread for add_reader support.
+    To avoid this warning use:
+        asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())
     """
 
-    if asyncio_loop in _selectors:
-        return _selectors[asyncio_loop]
+    def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:
+        """Get selector-compatible loop
 
-    if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
-        return asyncio_loop
+        Returns an object with ``add_reader`` family of methods,
+        either the loop itself or a SelectorThread instance.
 
-    from ._asyncio_selector import AddThreadSelectorEventLoop
+        Workaround Windows proactor removal of *reader methods.
+        """
 
-    warnings.warn(PROACTOR_WARNING, RuntimeWarning)
+        if asyncio_loop in _selectors:
+            return _selectors[asyncio_loop]
 
-    selector_loop = _selectors[asyncio_loop] = AddThreadSelectorEventLoop(asyncio_loop)  # type: ignore
+        if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
+            return asyncio_loop
 
-    # patch loop.close to also close the selector thread
-    loop_close = asyncio_loop.close
+        warnings.warn(PROACTOR_WARNING, RuntimeWarning, stacklevel=2)
 
-    def _close_selector_and_loop():
-        # restore original before calling selector.close,
-        # which in turn calls eventloop.close!
-        asyncio_loop.close = loop_close
-        _selectors.pop(asyncio_loop, None)
-        selector_loop.close()
+        from ._asyncio_selector import AddThreadSelectorEventLoop
 
-    asyncio_loop.close = _close_selector_and_loop  # type: ignore # mypy bug - assign a function to method
-    return selector_loop
+        selector_loop = _selectors[asyncio_loop] = AddThreadSelectorEventLoop(asyncio_loop)  # type: ignore
 
+        # patch loop.close to also close the selector thread
+        loop_close = asyncio_loop.close
 
-def _get_selector_noop(loop) -> asyncio.AbstractEventLoop:
-    """no-op on non-Windows"""
-    return loop
+        def _close_selector_and_loop():
+            # restore original before calling selector.close,
+            # which in turn calls eventloop.close!
+            asyncio_loop.close = loop_close
+            _selectors.pop(asyncio_loop, None)
+            selector_loop.close()
 
+        asyncio_loop.close = _close_selector_and_loop
+        return selector_loop
 
-if sys.platform == "win32":
-    _get_selector = _get_selector_windows
 else:
-    _get_selector = _get_selector_noop
+
+    def _get_selector(loop) -> asyncio.AbstractEventLoop:
+        return loop
 
 
 CURL_POLL_NONE = 0
@@ -82,12 +78,13 @@ CURLMSG_DONE = 1
 
 
 @ffi.def_extern()
-def timer_function(curlm, timeout_ms: int, clientp: Any):
+def timer_function(curlm, timeout_ms: int, clientp: "AsyncCurl"):
     """
     see: https://curl.se/libcurl/c/CURLMOPT_TIMERFUNCTION.html
     """
     async_curl = ffi.from_handle(clientp)
-    # print("time out in %sms" % timeout_ms)
+
+    # A timeout_ms value of -1 means you should delete the timer.
     if timeout_ms == -1:
         for timer in async_curl._timers:
             timer.cancel()
@@ -103,18 +100,14 @@ def timer_function(curlm, timeout_ms: int, clientp: Any):
 
 
 @ffi.def_extern()
-def socket_function(curl, sockfd: int, what: int, clientp: Any, data: Any):
+def socket_function(curl, sockfd: int, what: int, clientp: "AsyncCurl", data: Any):
     async_curl = ffi.from_handle(clientp)
     loop = async_curl.loop
 
-    if what & CURL_POLL_IN or what & CURL_POLL_OUT or what & CURL_POLL_REMOVE:
-        if sockfd in async_curl._sockfds:
-            loop.remove_reader(sockfd)
-            loop.remove_writer(sockfd)
-            async_curl._sockfds.remove(sockfd)
-        elif what & CURL_POLL_REMOVE:
-            message = f"File descriptor {sockfd} not found."
-            raise TypeError(message)
+    # Always remove and readd fd
+    if sockfd in async_curl._sockfds:
+        loop.remove_reader(sockfd)
+        loop.remove_writer(sockfd)
 
     if what & CURL_POLL_IN:
         loop.add_reader(sockfd, async_curl.process_data, sockfd, CURL_CSELECT_IN)
@@ -122,22 +115,28 @@ def socket_function(curl, sockfd: int, what: int, clientp: Any, data: Any):
     if what & CURL_POLL_OUT:
         loop.add_writer(sockfd, async_curl.process_data, sockfd, CURL_CSELECT_OUT)
         async_curl._sockfds.add(sockfd)
+    if what & CURL_POLL_REMOVE:
+        async_curl._sockfds.remove(sockfd)
+
 
 class AsyncCurl:
     """Wrapper around curl_multi handle to provide asyncio support. It uses the libcurl
     socket_action APIs."""
 
-    def __init__(self, cacert: str = DEFAULT_CACERT, loop=None):
+    def __init__(self, cacert: str = "", loop=None):
+        """
+        Parameters:
+            cacert: CA cert path to use, by default, curl_cffi uses certs from ``certifi``.
+            loop: EventLoop to use.
+        """
         self._curlm = lib.curl_multi_init()
-        self._cacert = cacert
-        self._curl2future = {}  # curl to future map
-        self._curl2curl = {}  # c curl to Curl
-        self._sockfds = set()  # sockfds
-        self.loop = _get_selector(
-            loop if loop is not None else asyncio.get_running_loop()
-        )
+        self._cacert = cacert or DEFAULT_CACERT
+        self._curl2future: Dict[Curl, asyncio.Future] = {}  # curl to future map
+        self._curl2curl: Dict[ffi.CData, Curl] = {}  # c curl to Curl
+        self._sockfds: Set[int] = set()  # sockfds
+        self.loop = _get_selector(loop if loop is not None else asyncio.get_running_loop())
         self._checker = self.loop.create_task(self._force_timeout())
-        self._timers = WeakSet()
+        self._timers: WeakSet[asyncio.TimerHandle] = WeakSet()
         self._setup()
 
     def _setup(self):
@@ -146,23 +145,31 @@ class AsyncCurl:
         self._self_handle = ffi.new_handle(self)
         self.setopt(CurlMOpt.SOCKETDATA, self._self_handle)
         self.setopt(CurlMOpt.TIMERDATA, self._self_handle)
+        # self.setopt(CurlMOpt.PIPELINING, 0)
 
-    def close(self):
+    async def close(self):
         """Close and cleanup running timers, readers, writers and handles."""
-        # Close force timeout checker
+
+        # Close and wait for the force timeout checker to complete
         self._checker.cancel()
+        with suppress(asyncio.CancelledError):
+            await self._checker
+
         # Close all pending futures
         for curl, future in self._curl2future.items():
             lib.curl_multi_remove_handle(self._curlm, curl._curl)
             if not future.done() and not future.cancelled():
                 future.set_result(None)
+
         # Cleanup curl_multi handle
         lib.curl_multi_cleanup(self._curlm)
         self._curlm = None
+
         # Remove add readers and writers
         for sockfd in self._sockfds:
             self.loop.remove_reader(sockfd)
             self.loop.remove_writer(sockfd)
+
         # Cancel all time functions
         for timer in self._timers:
             timer.cancel()
@@ -178,6 +185,7 @@ class AsyncCurl:
     def add_handle(self, curl: Curl):
         """Add a curl handle to be managed by curl_multi. This is the equivalent of
         `perform` in the async world."""
+
         # import pdb; pdb.set_trace()
         curl._ensure_cacert()
         lib.curl_multi_add_handle(self._curlm, curl._curl)
@@ -195,7 +203,7 @@ class AsyncCurl:
     def process_data(self, sockfd: int, ev_bitmask: int):
         """Call curl_multi_info_read to read data for given socket."""
         if not self._curlm:
-            warnings.warn("Curlm alread closed! quitting from process_data")
+            warnings.warn("Curlm alread closed! quitting from process_data", stacklevel=2)
             return
 
         self.socket_action(sockfd, ev_bitmask)
