@@ -19,7 +19,6 @@ import re
 import sys
 import warnings
 from contextlib import suppress
-from enum import IntEnum
 from http.cookies import SimpleCookie
 from weakref import WeakKeyDictionary, WeakSet
 
@@ -28,14 +27,6 @@ import certifi
 DEFAULT_CACERT = certifi.where()
 
 
-class CurlHttpVersion(IntEnum):
-    NONE = 0
-    V1_0 = 1  # please use HTTP 1.0 in the request */
-    V1_1 = 2  # please use HTTP 1.1 in the request */
-    V2_0 = 3  # please use HTTP 2 in the request */
-    V2TLS = 4  # use version 2 for HTTPS, version 1.1 for HTTP */
-    V2_PRIOR_KNOWLEDGE = 5  # please use HTTP 2 without HTTP/1.1 Upgrade */
-    V3 = 30  # Makes use of explicit HTTP/3 without fallback.
 
 
 class CurlError(Exception):
@@ -99,9 +90,9 @@ cdef list slist_to_list(curl.curl_slist *head) with gil:
 @cython.no_gc
 @cython.freelist(8)
 cdef class WSFrame:
-    cdef curl.curl_ws_frame* frame
+    cdef const curl.curl_ws_frame* frame
     @staticmethod
-    cdef inline WSFrame from_ptr(curl.curl_ws_frame* frame):
+    cdef inline WSFrame from_ptr(const curl.curl_ws_frame* frame):
         cdef WSFrame self = WSFrame.__new__(WSFrame)
         self.frame = frame
         return self
@@ -252,7 +243,7 @@ cdef class Curl:
         self.ws_send(b"", curl.CURLWS_CLOSE)
 
     def ws_meta(self):
-        cdef curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
+        cdef const curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
         return WSFrame.from_ptr(frame)
 
     cdef inline void _set_error_buffer(self) nogil:
@@ -543,15 +534,15 @@ cdef class Curl:
         """
         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
         if not m:
-            return CurlHttpVersion.V1_0, 0, b""
+            return CURL_HTTP_VERSION_1_0, 0, b""
         if m.group(1) == "2.0":
-            http_version = CurlHttpVersion.V2_0
+            http_version = CURL_HTTP_VERSION_2_0
         elif m.group(1) == "1.1":
-            http_version = CurlHttpVersion.V1_1
+            http_version = CURL_HTTP_VERSION_1_1
         elif m.group(1) == "1.0":
-            http_version = CurlHttpVersion.V1_0
+            http_version = CURL_HTTP_VERSION_1_0
         else:
-            http_version = CurlHttpVersion.NONE
+            http_version = CURL_HTTP_VERSION_NONE
         status_code = int(m.group(2))
         reason = m.group(3)
 

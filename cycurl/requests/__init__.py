@@ -26,7 +26,7 @@ from functools import partial
 from io import BytesIO
 from typing import Callable, Dict, List, Optional, Tuple, Union
 
-from cycurl._curl import CurlHttpVersion, CurlMime
+from cycurl._curl import CurlMime
 from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
@@ -70,7 +70,7 @@ def request(
     default_headers: Optional[bool] = None,
     default_encoding: Union[str, Callable[[bytes], str]] = "utf-8",
     curl_options: Optional[dict] = None,
-    http_version: Optional[CurlHttpVersion] = None,
+    http_version: Optional[int] = None,
     debug: bool = False,
     interface: Optional[str] = None,
     cert: Optional[Union[str, Tuple[str, str]]] = None,

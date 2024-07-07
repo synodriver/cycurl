@@ -4,16 +4,6 @@ from pathlib import Path
 from typing import Any, Optional, Union
 from enum import IntEnum
 
-class CurlHttpVersion(IntEnum):
-    """``CURL_HTTP_VERSION`` constants extracted from libcurl, see comments for details"""
-
-    NONE = 0
-    V1_0 = 1  # please use HTTP 1.0 in the request */
-    V1_1 = 2  # please use HTTP 1.1 in the request */
-    V2_0 = 3  # please use HTTP 2 in the request */
-    V2TLS = 4  # use version 2 for HTTPS, version 1.1 for HTTP */
-    V2_PRIOR_KNOWLEDGE = 5  # please use HTTP 2 without HTTP/1.1 Upgrade */
-    V3 = 30  # Makes use of explicit HTTP/3 without fallback.
 
 class CurlWsFlag(IntEnum):
     """``CURL_WS_FLAG`` constancs extracted from libcurl, see comments for details"""
@@ -69,7 +59,7 @@ class Curl:
     @staticmethod
     def get_reason_phrase(status_line: bytes) -> bytes: ...
     @staticmethod
-    def parse_status_line(status_line: bytes) -> tuple[CurlHttpVersion, int, bytes]: ...
+    def parse_status_line(status_line: bytes) -> tuple[int, int, bytes]: ...
     def close(self) -> None: ...
     def ws_recv(self, n: int = 1024) -> tuple[bytes, Any]: ...
     def ws_send(self, payload: bytes, flags: CurlWsFlag = ...) -> int: ...

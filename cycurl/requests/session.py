@@ -30,7 +30,6 @@ from cycurl._curl import (
     AsyncCurl,
     Curl,
     CurlError,
-    CurlHttpVersion,
     CurlMime,
 )
 from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
@@ -191,7 +190,7 @@ class BaseSession:
         default_encoding: Union[str, Callable[[bytes], str]] = "utf-8",
         curl_options: Optional[dict] = None,
         curl_infos: Optional[list] = None,
-        http_version: Optional[CurlHttpVersion] = None,
+        http_version: Optional[int] = None,
         debug: bool = False,
         interface: Optional[str] = None,
         cert: Optional[Union[str, Tuple[str, str]]] = None,
@@ -294,7 +293,7 @@ class BaseSession:
         """
         settings, window_update, streams, header_order = akamai.split("|")
 
-        curl.setopt(m.CURLOPT_HTTP_VERSION, CurlHttpVersion.V2_0)
+        curl.setopt(m.CURLOPT_HTTP_VERSION, m.CURL_HTTP_VERSION_2_0)
 
         curl.setopt(m.CURLOPT_HTTP2_SETTINGS, settings)
         curl.setopt(m.CURLOPT_HTTP2_WINDOW_UPDATE, int(window_update))
@@ -345,7 +344,7 @@ class BaseSession:
         akamai: Optional[str] = None,
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: Optional[bool] = None,
-        http_version: Optional[CurlHttpVersion] = None,
+        http_version: Optional[int] = None,
         interface: Optional[str] = None,
         cert: Optional[Union[str, Tuple[str, str]]] = None,
         stream: bool = False,
@@ -887,7 +886,7 @@ class Session(BaseSession):
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: Optional[bool] = None,
         default_encoding: Union[str, Callable[[bytes], str]] = "utf-8",
-        http_version: Optional[CurlHttpVersion] = None,
+        http_version: Optional[int] = None,
         interface: Optional[str] = None,
         cert: Optional[Union[str, Tuple[str, str]]] = None,
         stream: bool = False,
@@ -1179,7 +1178,7 @@ class AsyncSession(BaseSession):
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: Optional[bool] = None,
         default_encoding: Union[str, Callable[[bytes], str]] = "utf-8",
-        http_version: Optional[CurlHttpVersion] = None,
+        http_version: Optional[int] = None,
         interface: Optional[str] = None,
         cert: Optional[Union[str, Tuple[str, str]]] = None,
         stream: bool = False,
