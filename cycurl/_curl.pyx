@@ -684,6 +684,7 @@ cdef class AsyncCurl:
         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETFUNCTION, <void *>socket_function)
         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETDATA, <void*>self)
         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)
+        # curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_PIPELINING, 0)
 
     async def close(self):
         """Close and cleanup running timers, readers, writers and handles."""
@@ -718,6 +719,7 @@ cdef class AsyncCurl:
     cpdef inline add_handle(self, Curl curl_):
         """Add a curl handle to be managed by curl_multi. This is the equivalent of
         `perform` in the async world."""
+
         # import pdb; pdb.set_trace()
         curl_._ensure_cacert()
         curl.curl_multi_add_handle(self._curlm, curl_._curl)

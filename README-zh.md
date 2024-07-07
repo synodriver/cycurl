@@ -10,6 +10,10 @@
 不同于其他的纯 Python http 客户端，比如 `httpx` 和 `requests`，`curl_cffi ` 可以模拟浏览器的
 TLS/JA3 和 HTTP/2 指纹。如果你莫名其妙地被某个网站封锁了，可以来试试 `curl_cffi`。
 
+0.6 版本在 Windows 上的指纹全错了，如果你用的是 Windows 的话，请尽快升级。造成不便，多有抱歉。
+
+只支持 Python 3.8 和以上版本，Python 3.7 已经官宣退役了。
+
 ------
 
 <a href="https://scrapfly.io/?utm_source=github&utm_medium=sponsoring&utm_campaign=curl_cffi" target="_blank"><img src="assets/scrapfly.png" alt="Scrapfly.io" width="149"></a>
@@ -26,7 +30,7 @@ TLS/JA3 和 HTTP/2 指纹。如果你莫名其妙地被某个网站封锁了，�
 
 ## 功能
 
-- 支持 JA3/TLS 和 http2 指纹模拟。
+- 支持 JA3/TLS 和 http2 指纹模拟，包含最新的浏览器和自定义指纹。
 - 比 requests/httpx 快得多，和 aiohttp/pycurl 的速度比肩，详见 [benchmarks](https://github.com/yifeikong/curl_cffi/tree/master/benchmark)。
 - 模仿 requests 的 API，不用再学一个新的。
 - 预编译，不需要在自己机器上从头开始。
@@ -83,6 +87,12 @@ print(r.json())
 # Other similar values are: "safari" and "safari_ios"
 r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome")
 
+# To pin a specific version, use version numbers together.
+r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome124")
+
+# 自定义指纹, examples 中有具体例子。
+r = requests.get("https://tls.browserleaks.com/json", ja3=..., akamai=...)
+
 # 支持使用代理
 proxies = {"https": "http://localhost:3128"}
 r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome110", proxies=proxies)
@@ -109,6 +119,11 @@ print(r.json())
 
 不过只支持类似 Chrome 的浏览器。Firefox 的支持进展可以查看 [#59](https://github.com/yifeikong/curl_cffi/issues/59)。
 
+只有当浏览器指纹发生改编的时候，才会添加新版本。如果你看到某个版本被跳过去了，那是因为
+他们的指纹没有发生改变，直接用之前的版本加上新的 header 即可。
+
+如果你要模仿的不是浏览器, 使用 `ja3=...` and `akamai=...` 来指定你的自定义指纹. 参见[文档](https://curl-cffi.readthedocs.io/en/latest/impersonate.html).
+
 - chrome99
 - chrome100
 - chrome101
@@ -118,6 +133,8 @@ print(r.json())
 - chrome116 <sup>[1]</sup>
 - chrome119 <sup>[1]</sup>
 - chrome120 <sup>[1]</sup>
+- chrome123 <sup>[3]</sup>
+- chrome124 <sup>[3]</sup>
 - chrome99_android
 - edge99
 - edge101
@@ -129,6 +146,7 @@ print(r.json())
 注意:
 1. 自 `0.6.0` 起添加。
 2. 在 `0.6.0` 中修复, 之前的 http2 指纹是[错误的](https://github.com/lwthiker/curl-impersonate/issues/215)。
+3. 自 `0.7.0` 起添加。
 
 ### asyncio
 
@@ -237,3 +255,18 @@ JSON 数据。在所有的订阅方案中，切换代理都是直接可用的。
 ## 赞助
 
 <img src="assets/alipay.jpg" style="width: 512px;" />
+
+## 引用
+
+If you find this project useful, please cite it as below:
+
+```
+@software{Kong2023,
+  author = {Yifei Kong},
+  title = {curl_cffi - A Python HTTP client for impersonating browser TLS and HTTP/2 fingerprints},
+  year = {2023},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  url = {https://github.com/yifeikong/curl_cffi},
+}
+```

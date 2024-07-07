@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import glob
 import os
 import platform
 import re
@@ -30,22 +31,23 @@ class build_ext_compiler_check(build_ext):
 
 
 if uname.system == "Windows":
-    library_dirs = ["./dep/win"]
-    extra_objects = ["./dep/win/libcurl.lib"]
-    shutil.copy("./dep/win/libcurl.dll", "./cycurl")
+    library_dirs = ["./dep/libcurl-impersonate-v0.7.0.x86_64-win32"]
+    extra_objects = ["./dep/libcurl-impersonate-v0.7.0.x86_64-win32/libcurl.lib"]
+    for file in glob.glob("./dep/libcurl-impersonate-v0.7.0.x86_64-win32/*.dll"):
+        shutil.copy(file, "./cycurl")
 elif uname.system == "Darwin":
     if platform.machine() == "x86_64":
-        library_dirs = ["./dep/macos_v0.6.0-alpha.1.x86_64"]
+        library_dirs = ["./dep/libcurl-impersonate-v0.7.0.x86_64-macos"]
         extra_objects = [
-            "./dep/macos_v0.6.0-alpha.1.x86_64/libcurl-impersonate-chrome.4.dylib"
+            "./dep/libcurl-impersonate-v0.7.0.x86_64-macos/libcurl-impersonate-chrome.4.dylib"
         ]
     else:
-        library_dirs = ["./dep/macos_arm"]
-        extra_objects = ["./dep/macos_arm/libcurl-impersonate-chrome.4.dylib"]
+        library_dirs = ["./dep/libcurl-impersonate-v0.7.0.arm64-macos"]
+        extra_objects = ["./dep/libcurl-impersonate-v0.7.0.arm64-macos/libcurl-impersonate-chrome.4.dylib"]
 else:
-    library_dirs = ["./dep/linux_latest/chromelibs"]
+    library_dirs = ["./dep/libcurl-impersonate-v0.7.0.x86_64-linux-gnu"]
     extra_objects = [
-        "./dep/linux_latest/chromelibs/libcurl-impersonate-chrome.so.4.8.0"
+        "./dep/libcurl-impersonate-v0.7.0.x86_64-linux-gnu/libcurl-impersonate-chrome.so.4.8.0"
     ]
     # library_diexit(rs = ["./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu"]
     # extra_objects = [
@@ -57,7 +59,7 @@ extensions = [
         "cycurl._curl",
         ["cycurl/_curl.pyx", "ffi/shim.c"],
         include_dirs=[
-            f"./dep/curl-8.1.1/include",
+            f"./dep/curl-8.7.1/include",
             "ffi",
         ],
         library_dirs=library_dirs,

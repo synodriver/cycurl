@@ -6,7 +6,6 @@ import warnings
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager, contextmanager, suppress
-from enum import Enum
 from functools import partialmethod
 from io import BytesIO
 from json import dumps
@@ -39,6 +38,15 @@ from cycurl.requests.errors import RequestsError, SessionClosed
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.models import Request, Response
 from cycurl.requests.websockets import WebSocket
+from cycurl.requests.impersonate import (
+    ExtraFingerprints,
+    ExtraFpDict,
+    toggle_extension,
+    BrowserType,
+    TLS_VERSION_MAP,
+    TLS_CIPHER_NAME_MAP,
+    TLS_EC_CURVES_MAP
+)
 
 with suppress(ImportError):
     import gevent
@@ -59,52 +67,6 @@ else:
     ProxySpec = Dict[str, str]
 
 ThreadType = Literal["eventlet", "gevent"]
-
-
-class BrowserType(str, Enum):
-    edge99 = "edge99"
-    edge101 = "edge101"
-    chrome99 = "chrome99"
-    chrome100 = "chrome100"
-    chrome101 = "chrome101"
-    chrome104 = "chrome104"
-    chrome107 = "chrome107"
-    chrome110 = "chrome110"
-    chrome116 = "chrome116"
-    chrome119 = "chrome119"
-    chrome120 = "chrome120"
-    chrome123 = "chrome123"
-    chrome124 = "chrome124"
-    chrome99_android = "chrome99_android"
-    safari15_3 = "safari15_3"
-    safari15_5 = "safari15_5"
-    safari17_0 = "safari17_0"
-    safari17_2_ios = "safari17_2_ios"
-
-    chrome = "chrome123"
-    safari = "safari17_0"
-    safari_ios = "safari17_2_ios"
-
-    @classmethod
-    def has(cls, item):
-        return item in cls.__members__
-
-    @classmethod
-    def normalize(cls, item):
-        if item == "chrome":  # noqa: SIM116
-            return cls.chrome
-        elif item == "safari":
-            return cls.safari
-        elif item == "safari_ios":
-            return cls.safari_ios
-        else:
-            return item
-
-
-class BrowserSpec:
-    """A more structured way of selecting browsers"""
-
-    # TODO
 
 
 def _is_absolute_url(url: str) -> bool:
@@ -220,8 +182,11 @@ class BaseSession:
         timeout: Union[float, Tuple[float, float]] = 30,
         trust_env: bool = True,
         allow_redirects: bool = True,
-        max_redirects: int = -1,
+        max_redirects: int = 30,
         impersonate: Optional[Union[str, BrowserType]] = None,
+        ja3: Optional[str] = None,
+        akamai: Optional[str] = None,
+        extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: bool = True,
         default_encoding: Union[str, Callable[[bytes], str]] = "utf-8",
         curl_options: Optional[dict] = None,
@@ -242,6 +207,9 @@ class BaseSession:
         self.allow_redirects = allow_redirects
         self.max_redirects = max_redirects
         self.impersonate = impersonate
+        self.ja3 = ja3
+        self.akamai = akamai
+        self.extra_fp = extra_fp
         self.default_headers = default_headers
         self.default_encoding = default_encoding
         self.curl_options = curl_options or {}
@@ -263,6 +231,93 @@ class BaseSession:
 
         self._closed = False
 
+    def _toggle_extensions_by_ids(self, curl, extension_ids):
+        # TODO find a better representation, rather than magic numbers
+        default_enabled = {0, 51, 13, 43, 65281, 23, 10, 45, 35, 11, 16}
+
+        to_enable_ids = extension_ids - default_enabled
+        for ext_id in to_enable_ids:
+            toggle_extension(curl, ext_id, enable=True)
+
+        # print("to_enable: ", to_enable_ids)
+
+        to_disable_ids = default_enabled - extension_ids
+        for ext_id in to_disable_ids:
+            toggle_extension(curl, ext_id, enable=False)
+
+        # print("to_disable: ", to_disable_ids)
+
+    def _set_ja3_options(self, curl, ja3: str, permute: bool = False):
+        """
+        Detailed explanation: https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967/
+        """
+        tls_version, ciphers, extensions, curves, curve_formats = ja3.split(",")
+
+        curl_tls_version = TLS_VERSION_MAP[int(tls_version)]
+        curl.setopt(m.CURLOPT_SSLVERSION, curl_tls_version | m.CURL_SSLVERSION_MAX_DEFAULT)
+        assert curl_tls_version == m.CURL_SSLVERSION_TLSv1_2, "Only TLS v1.2 works for now."
+
+        cipher_names = []
+        for cipher in ciphers.split("-"):
+            cipher_id = int(cipher)
+            cipher_name = TLS_CIPHER_NAME_MAP[cipher_id]
+            cipher_names.append(cipher_name)
+
+        curl.setopt(m.CURLOPT_SSL_CIPHER_LIST, ":".join(cipher_names))
+
+        if extensions.endswith("-21"):
+            extensions = extensions[:-3]
+            warnings.warn(
+                "Padding(21) extension found in ja3 string, whether to add it should "
+                "be managed by the SSL engine. The TLS client hello packet may contain "
+                "or not contain this extension, any of which should be correct."
+            )
+        extension_ids = set(int(e) for e in extensions.split("-"))
+        self._toggle_extensions_by_ids(curl, extension_ids)
+
+        if not permute:
+            curl.setopt(m.CURLOPT_TLS_EXTENSION_ORDER, extensions)
+
+        curve_names = []
+        for curve in curves.split("-"):
+            curve_id = int(curve)
+            curve_name = TLS_EC_CURVES_MAP[curve_id]
+            curve_names.append(curve_name)
+
+        curl.setopt(m.CURLOPT_SSL_EC_CURVES, ":".join(curve_names))
+
+        assert int(curve_formats) == 0, "Only curve_formats == 0 is supported."
+
+    def _set_akamai_options(self, curl, akamai: str):
+        """
+        Detailed explanation: https://www.blackhat.com/docs/eu-17/materials/eu-17-Shuster-Passive-Fingerprinting-Of-HTTP2-Clients-wp.pdf
+        """
+        settings, window_update, streams, header_order = akamai.split("|")
+
+        curl.setopt(m.CURLOPT_HTTP_VERSION, CurlHttpVersion.V2_0)
+
+        curl.setopt(m.CURLOPT_HTTP2_SETTINGS, settings)
+        curl.setopt(m.CURLOPT_HTTP2_WINDOW_UPDATE, int(window_update))
+
+        if streams != "0":
+            curl.setopt(m.CURLOPT_HTTP2_STREAMS, streams)
+
+        # m,a,s,p -> masp
+        # curl-impersonate only accepts masp format, without commas.
+        curl.setopt(m.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER, header_order.replace(",", ""))
+
+    def _set_extra_fp(self, curl, fp: ExtraFingerprints):
+
+        if fp.tls_signature_algorithms:
+            curl.setopt(m.CURLOPT_SSL_SIG_HASH_ALGS, ",".join(fp.tls_signature_algorithms))
+
+        curl.setopt(m.CURLOPT_SSLVERSION, fp.tls_min_version | m.CURL_SSLVERSION_MAX_DEFAULT)
+        curl.setopt(m.CURLOPT_TLS_GREASE, int(fp.tls_grease))
+        curl.setopt(m.CURLOPT_SSL_PERMUTE_EXTENSIONS, int(fp.tls_permute_extensions))
+        curl.setopt(m.CURLOPT_SSL_CERT_COMPRESSION, fp.tls_cert_compression)
+        curl.setopt(m.CURLOPT_STREAM_WEIGHT, fp.http2_stream_weight)
+        curl.setopt(m.CURLOPT_STREAM_EXCLUSIVE, fp.http2_stream_exclusive)
+
     def _set_curl_options(
         self,
         curl,
@@ -283,9 +338,12 @@ class BaseSession:
         proxy_auth: Optional[Tuple[str, str]] = None,
         verify: Optional[Union[bool, str]] = None,
         referer: Optional[str] = None,
-        accept_encoding: Optional[str] = "gzip, deflate, br",
+        accept_encoding: Optional[str] = "gzip, deflate, br, zstd",
         content_callback: Optional[Callable] = None,
         impersonate: Optional[Union[str, BrowserType]] = None,
+        ja3: Optional[str] = None,
+        akamai: Optional[str] = None,
+        extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: Optional[bool] = None,
         http_version: Optional[CurlHttpVersion] = None,
         interface: Optional[str] = None,
@@ -327,7 +385,7 @@ class BaseSession:
         elif data is None:
             body = b""
         else:
-            raise TypeError("data must be dict, str, BytesIO or bytes")
+            raise TypeError("data must be dict/list/tuple, str, BytesIO or bytes")
         if json is not None:
             body = dumps(json, separators=(",", ":")).encode()
 
@@ -467,18 +525,21 @@ class BaseSession:
                 )
 
             if proxy is not None:
-                if parts.scheme == "https" and proxy.startswith("https://"):
-                    warnings.warn(
-                        "You may be using http proxy WRONG, the prefix should be 'http://' not 'https://',"
-                        "see: https://github.com/yifeikong/curl_cffi/issues/6",
-                        RuntimeWarning,
-                        stacklevel=2,
-                    )
 
                 c.setopt(m.CURLOPT_PROXY, proxy)
-                # for http proxy, need to tell curl to enable tunneling
-                if not proxy.startswith("socks"):
-                    c.setopt(m.CURLOPT_HTTPPROXYTUNNEL, 1)
+
+                if parts.scheme == "https":
+                    if proxy.startswith("https://"):
+                        warnings.warn(
+                            "Make sure you are using https over https proxy, otherwise, "
+                            "the proxy prefix should be 'http://' not 'https://', "
+                            "see: https://github.com/yifeikong/curl_cffi/issues/6",
+                            RuntimeWarning,
+                            stacklevel=2,
+                        )
+                    # For https site with http tunnel proxy, tell curl to enable tunneling
+                    if not proxy.startswith("socks"):
+                        c.setopt(m.CURLOPT_HTTPPROXYTUNNEL, 1)
 
                 # proxy_auth
                 proxy_auth = proxy_auth or self.proxy_auth
@@ -526,6 +587,34 @@ class BaseSession:
             ret = c.impersonate(impersonate, default_headers=default_headers)
             if ret != 0:
                 raise RequestsError(f"Impersonating {impersonate} is not supported")
+
+        # ja3 string
+        ja3 = ja3 or self.ja3
+        if ja3:
+            if impersonate:
+                warnings.warn("JA3 was altered after browser version was set.")
+            permute = False
+            if isinstance(extra_fp, ExtraFingerprints) and extra_fp.tls_permute_extensions:
+                permute = True
+            if isinstance(extra_fp, dict) and extra_fp.get("tls_permute_extensions"):
+                permute = True
+            self._set_ja3_options(c, ja3, permute=permute)
+
+        # akamai string
+        akamai = akamai or self.akamai
+        if akamai:
+            if impersonate:
+                warnings.warn("Akamai was altered after browser version was set.")
+            self._set_akamai_options(c, akamai)
+
+        # extra_fp options
+        extra_fp = extra_fp or self.extra_fp
+        if extra_fp:
+            if isinstance(extra_fp, dict):
+                extra_fp = ExtraFingerprints(**extra_fp)
+            if impersonate:
+                warnings.warn("Extra fingerprints was altered after browser version was set.")
+            self._set_extra_fp(c, extra_fp)
 
         # http_version, after impersonate, which will change this to http2
         http_version = http_version or self.http_version
@@ -604,11 +693,11 @@ class BaseSession:
         morsels = [CurlMorsel.from_curl_format(c) for c in c.getinfo(m.CURLINFO_COOKIELIST)]
         # for l in c.getinfo(CurlInfo.COOKIELIST):
         #     print("Curl Cookies", l.decode())
-
         self.cookies.update_cookies_from_curl(morsels)
         rsp.cookies = self.cookies
         # print("Cookies after extraction", self.cookies)
-
+        rsp.primary_ip = cast(bytes, c.getinfo(m.CURLINFO_PRIMARY_IP)).decode()
+        rsp.local_ip = cast(bytes, c.getinfo(m.CURLINFO_LOCAL_IP)).decode()
         rsp.default_encoding = default_encoding
         rsp.elapsed = cast(float, c.getinfo(m.CURLINFO_TOTAL_TIME))
         rsp.redirect_count = cast(int, c.getinfo(m.CURLINFO_REDIRECT_COUNT))
@@ -643,7 +732,7 @@ class Session(BaseSession):
                 created. Also, a fresh curl object will always be created when accessed
                 from another thread.
             thread: thread engine to use for working with other thread implementations.
-                choices: eventlet, gevent., possible values: eventlet, gevent.
+                choices: eventlet, gevent.
             headers: headers to use in the session.
             cookies: cookies to add in the session.
             auth: HTTP basic auth, a tuple of (username, password), only basic auth is supported.
@@ -651,17 +740,21 @@ class Session(BaseSession):
             proxy: proxy to use, format: "http://proxy_url".
                 Cannot be used with the above parameter.
             proxy_auth: HTTP basic auth for proxy, a tuple of (username, password).
-            base_url: absolute url to use for relative urls.
+            base_url: absolute url to use as base for relative urls.
             params: query string for the session.
             verify: whether to verify https certs.
             timeout: how many seconds to wait before giving up.
             trust_env: use http_proxy/https_proxy and other environments, default True.
             allow_redirects: whether to allow redirection.
-            max_redirects: max redirect counts, default unlimited(-1).
+            max_redirects: max redirect counts, default 30, use -1 for unlimited.
             impersonate: which browser version to impersonate in the session.
-            interface: which interface use in request to server.
+            ja3: ja3 string to impersonate in the session.
+            akamai: akamai string to impersonate in the session.
+            extra_fp: extra fingerprints options, in complement to ja3 and akamai strings.
+            interface: which interface use.
             default_encoding: encoding for decoding response content if charset is not found in
                 headers. Defaults to "utf-8". Can be set to a callable for automatic detection.
+            cert: a tuple of (cert, key) filenames for client cert.
 
         Notes:
             This class can be used as a context manager.
@@ -743,7 +836,7 @@ class Session(BaseSession):
             on_message: message callback, ``def on_message(ws, str)``
             on_error: error callback, ``def on_error(ws, error)``
             on_open: open callback, ``def on_open(ws)``
-            on_cloes: close callback, ``def on_close(ws)``
+            on_close: close callback, ``def on_close(ws)``
 
         Other parameters are the same as ``.request``
 
@@ -789,6 +882,9 @@ class Session(BaseSession):
         accept_encoding: Optional[str] = "gzip, deflate, br",
         content_callback: Optional[Callable] = None,
         impersonate: Optional[Union[str, BrowserType]] = None,
+        ja3: Optional[str] = None,
+        akamai: Optional[str] = None,
+        extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: Optional[bool] = None,
         default_encoding: Union[str, Callable[[bytes], str]] = "utf-8",
         http_version: Optional[CurlHttpVersion] = None,
@@ -831,6 +927,9 @@ class Session(BaseSession):
             accept_encoding=accept_encoding,
             content_callback=content_callback,
             impersonate=impersonate,
+            ja3=ja3,
+            akamai=akamai,
+            extra_fp=extra_fp,
             default_headers=default_headers,
             http_version=http_version,
             interface=interface,
@@ -943,10 +1042,14 @@ class AsyncSession(BaseSession):
             timeout: how many seconds to wait before giving up.
             trust_env: use http_proxy/https_proxy and other environments, default True.
             allow_redirects: whether to allow redirection.
-            max_redirects: max redirect counts, default unlimited(-1).
+            max_redirects: max redirect counts, default 30, use -1 for unlimited.
             impersonate: which browser version to impersonate in the session.
+            ja3: ja3 string to impersonate in the session.
+            akamai: akamai string to impersonate in the session.
+            extra_fp: extra fingerprints options, in complement to ja3 and akamai strings.
             default_encoding: encoding for decoding response content if charset is not found
                 in headers. Defaults to "utf-8". Can be set to a callable for automatic detection.
+            cert: a tuple of (cert, key) filenames for client cert.
 
         Notes:
             This class can be used as a context manager, and it's recommended to use via
@@ -993,6 +1096,8 @@ class AsyncSession(BaseSession):
         curl = await self.pool.get()
         if curl is None:
             curl = Curl(debug=self.debug)
+        # curl.setopt(CurlOpt.FRESH_CONNECT, 1)
+        # curl.setopt(CurlOpt.FORBID_REUSE, 1)
         return curl
 
     def push_curl(self, curl):
@@ -1023,6 +1128,7 @@ class AsyncSession(BaseSession):
         if not self._closed:
             self.acurl.remove_handle(curl)
             curl.reset()
+            # curl.setopt(CurlOpt.PIPEWAIT, 1)
             self.push_curl(curl)
         else:
             curl.close()
@@ -1068,6 +1174,9 @@ class AsyncSession(BaseSession):
         accept_encoding: Optional[str] = "gzip, deflate, br",
         content_callback: Optional[Callable] = None,
         impersonate: Optional[Union[str, BrowserType]] = None,
+        ja3: Optional[str] = None,
+        akamai: Optional[str] = None,
+        extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: Optional[bool] = None,
         default_encoding: Union[str, Callable[[bytes], str]] = "utf-8",
         http_version: Optional[CurlHttpVersion] = None,
@@ -1103,6 +1212,9 @@ class AsyncSession(BaseSession):
             accept_encoding=accept_encoding,
             content_callback=content_callback,
             impersonate=impersonate,
+            ja3=ja3,
+            akamai=akamai,
+            extra_fp=extra_fp,
             default_headers=default_headers,
             http_version=http_version,
             interface=interface,
@@ -1155,9 +1267,9 @@ class AsyncSession(BaseSession):
         else:
             try:
                 # curl.debug()
+                # print("using curl instance: ", curl)
                 task = self.acurl.add_handle(curl)
                 await task
-                # print(curl.getinfo(m.CURLINFO_CAINFO))
             except CurlError as e:
                 rsp = self._parse_response(curl, buffer, header_buffer, default_encoding)
                 rsp.request = req

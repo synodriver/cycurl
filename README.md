@@ -15,9 +15,14 @@ Unlike other pure python http clients like `httpx` or `requests`, `curl_cffi` ca
 impersonate browsers' TLS/JA3 and HTTP/2 fingerprints. If you are blocked by some
 website for no obvious reason, you can give `curl_cffi` a try.
 
+The fingerprints in 0.6 on Windows are all wrong, you should update to 0.7 if you are on
+Windows. Sorry for the inconvenience.
+
+Only Python 3.8 and above are supported. Python 3.7 has reached its end of life.
+
 ------
 
-<a href="https://scrapfly.io/?utm_source=github&utm_medium=sponsoring&utm_campaign=curl_cffi" target="_blank"><img src="assets/scrapfly.png" alt="Scrapfly.io" width="149"></a>
+<a href="https://scrapfly.io/?utm_source=github&utm_medium=sponsoring&utm_campaign=curl_cffi" target="_blank"><img src="https://raw.githubusercontent.com/yifeikong/curl_cffi/main/assets/scrapfly.png" alt="Scrapfly.io" width="149"></a>
 
 [Scrapfly](https://scrapfly.io/?utm_source=github&utm_medium=sponsoring&utm_campaign=curl_cffi)
 is an enterprise-grade solution providing Web Scraping API that aims to simplify the
@@ -34,7 +39,7 @@ If you are managing TLS/HTTP fingerprint by yourself with `curl_cffi`, they also
 
 ## Features
 
-- Supports JA3/TLS and http2 fingerprints impersonation.
+- Supports JA3/TLS and http2 fingerprints impersonation, inlucding recent browsers and custome fingerprints.
 - Much faster than requests/httpx, on par with aiohttp/pycurl, see [benchmarks](https://github.com/yifeikong/curl_cffi/tree/main/benchmark).
 - Mimics requests API, no need to learn another one.
 - Pre-compiled, so you don't have to compile on your machine.
@@ -74,15 +79,13 @@ To install unstable version from GitHub:
 
 `curl_cffi` comes with a low-level `curl` API and a high-level `requests`-like API.
 
-Use the latest impersonate versions, do NOT copy `chrome110` here without changing.
-
 ### requests-like
 
 ```python
 from cycurl import requests
 
 # Notice the impersonate parameter
-r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome110")
+r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome")
 
 print(r.json())
 # output: {..., "ja3n_hash": "aa56c057ad164ec4fdcb7a5a283be9fc", ...}
@@ -93,12 +96,19 @@ print(r.json())
 # Other similar values are: "safari" and "safari_ios"
 r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome")
 
+# To pin a specific version, use version numbers together.
+r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome124")
+
+# To impersonate other than browsers, bring your own ja3/akamai strings
+# See examples directory for details.
+r = requests.get("https://tls.browserleaks.com/json", ja3=..., akamai=...)
+
 # http/socks proxies are supported
 proxies = {"https": "http://localhost:3128"}
-r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome110", proxies=proxies)
+r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome", proxies=proxies)
 
 proxies = {"https": "socks://localhost:3128"}
-r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome110", proxies=proxies)
+r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome", proxies=proxies)
 ```
 
 ### Sessions
@@ -117,12 +127,15 @@ print(r.json())
 # {'cookies': {'foo': 'bar'}}
 ```
 
-Supported impersonate versions, as supported by my [fork](https://github.com/yifeikong/curl-impersonate) of [curl-impersonate](https://github.com/lwthiker/curl-impersonate):
+`curl_cffi` supports the same browser versions as supported by my [fork](https://github.com/yifeikong/curl-impersonate) of [curl-impersonate](https://github.com/lwthiker/curl-impersonate):
 
 However, only Chrome-like browsers are supported. Firefox support is tracked in [#59](https://github.com/yifeikong/curl_cffi/issues/59).
 
 Browser versions will be added **only** when their fingerprints change. If you see a version, e.g.
 chrome122, were skipped, you can simply impersonate it with your own headers and the previous version.
+
+If you are trying to impersonate a target other than a browser, use `ja3=...` and `akamai=...`
+to specify your own customized fingerprints. See the [docs on impersonatation](https://curl-cffi.readthedocs.io/en/latest/impersonate.html) for details.
 
 - chrome99
 - chrome100

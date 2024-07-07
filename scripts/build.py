@@ -10,7 +10,7 @@ from urllib.request import urlretrieve
 from cffi import FFI
 
 # this is the upstream libcurl-impersonate version
-__version__ = "0.7.0b4"
+__version__ = "0.7.0"
 
 tmpdir = None
 
@@ -69,9 +69,6 @@ def download_libcurl():
     os.makedirs(arch["libdir"], exist_ok=True)
     shutil.unpack_archive(file, arch["libdir"])
 
-    if arch["system"] == "Windows":
-        shutil.copy2(f"{arch['libdir']}/libcurl.dll", "curl_cffi")
-
 
 def get_curl_archives():
     if arch["system"] == "Linux" and arch.get("link_type") == "static":
@@ -84,9 +81,9 @@ def get_curl_archives():
             f"{arch['libdir']}/libz.a",
             f"{arch['libdir']}/libzstd.a",
             f"{arch['libdir']}/libnghttp2.a",
-            f"{arch['libdir']}/libbrotlidec-static.a",
-            f"{arch['libdir']}/libbrotlienc-static.a",
-            f"{arch['libdir']}/libbrotlicommon-static.a",
+            f"{arch['libdir']}/libbrotlidec.a",
+            f"{arch['libdir']}/libbrotlienc.a",
+            f"{arch['libdir']}/libbrotlicommon.a",
         ]
     else:
         return []

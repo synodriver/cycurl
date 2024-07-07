@@ -1,6 +1,6 @@
 [project]
 name = "cycurl"
-version = "0.7.0b4"
+version = "0.7.0"
 authors = [{ name = "Yifei Kong", email = "kong@yifei.me" }]
 description = "Ultra fast python binding for curl-impersonate via cython"
 license = { file = "LICENSE" }
@@ -106,6 +106,10 @@ environment-pass = ["LD_LIBRARY_PATH"]
 
 [tool.cibuildwheel.macos]
 before-all = "gmake preprocess"
+
+[tool.cibuildwheel.windows]
+before-build = "pip install delvewheel"
+repair-wheel-command = "delvewheel repair --add-path ./lib64;./lib32 -w {dest_dir} {wheel}"
 
 
 [tool.pytest.ini_options]
