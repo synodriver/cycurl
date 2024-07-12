@@ -9,7 +9,7 @@ from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport (PyCapsule_CheckExact, PyCapsule_GetPointer,
                                 PyCapsule_New)
-from libc.stdint cimport uint8_t
+from libc.stdint cimport uint8_t, int64_t
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
 
 include "consts.pxi"
@@ -299,12 +299,12 @@ cdef class Curl:
         cdef:
             void* c_value = NULL
             int value_type = option / 10000 * 10000  # "cdivision": True
-            int intval
+            int64_t intval
             bytes bytesval
             int ret
         if value_type == 30000 or value_type == 0:
-            # c_value = ffi.new("int*", value)
-            intval = <int>value
+            # c_value = ffi.new("long*", value)
+            intval = <int64_t>value
             c_value = <void*>&intval
         elif option == curl.CURLOPT_WRITEDATA:
             c_value = <void*>value
