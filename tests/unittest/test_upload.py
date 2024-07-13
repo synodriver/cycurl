@@ -39,7 +39,9 @@ def test_upload_with_text_fields(file_server):
         ]
     )
 
-    r = requests.post(file_server.url + "/file", data={"foo": "bar"}, multipart=multipart)
+    r = requests.post(
+        file_server.url + "/file", data={"foo": "bar"}, multipart=multipart
+    )
     data = r.json()
     assert data["filename"] == "alipay.jpg"
     assert data["content_type"] == "image/jpg"

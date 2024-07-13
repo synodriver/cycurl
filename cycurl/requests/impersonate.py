@@ -1,10 +1,11 @@
-from dataclasses import dataclass
-from typing import List, Literal, Optional, TypedDict
 import warnings
+from dataclasses import dataclass
 from enum import Enum
+from typing import List, Literal, Optional, TypedDict
 
 # from ..const import CurlSslVersion, CurlOpt
 from cycurl import _curl as m
+
 
 class BrowserType(str, Enum):
     edge99 = "edge99"
@@ -214,10 +215,10 @@ TLS_EXTENSION_NAME_MAP = {
     # 64251-64767:"Unassigned
     64768: "ech_outer_extensions",
     # 64769-65036:"Unassigned
-    65037:"encrypted_client_hello",
+    65037: "encrypted_client_hello",
     # 65038-65279:"Unassigned
     # 65280:"Reserved for Private Use
-    65281:"renegotiation_info",
+    65281: "renegotiation_info",
     # 65282-65535:"Reserved for Private Use
 }
 
@@ -243,7 +244,9 @@ def toggle_extension(curl, extension_id: int, enable: bool):
     # compress certificate
     elif extension_id == 27:
         if enable:
-            warnings.warn("Cert compression setting to brotli, you had better specify which to use: zlib/brotli")
+            warnings.warn(
+                "Cert compression setting to brotli, you had better specify which to use: zlib/brotli"
+            )
             curl.setopt(m.CURLOPT_SSL_CERT_COMPRESSION, "brotli")
         else:
             curl.setopt(m.CURLOPT_SSL_CERT_COMPRESSION, "")
@@ -255,10 +258,14 @@ def toggle_extension(curl, extension_id: int, enable: bool):
             curl.setopt(m.CURLOPT_SSL_ENABLE_ALPS, 0)
     # server_name
     elif extension_id == 0:
-        raise NotImplementedError("It's unlikely that the server_name(0) extension being changed.")
+        raise NotImplementedError(
+            "It's unlikely that the server_name(0) extension being changed."
+        )
     # ALPN
     elif extension_id == 16:
-        raise NotImplementedError("It's unlikely that the ALPN(16) extension being changed.")
+        raise NotImplementedError(
+            "It's unlikely that the ALPN(16) extension being changed."
+        )
     # status_request
     elif extension_id == 5:
         if enable:
@@ -277,4 +284,6 @@ def toggle_extension(curl, extension_id: int, enable: bool):
     elif extension_id == 21:
         pass
     else:
-        raise NotImplementedError(f"This extension({extension_id}) can not be toggled for now, it may be updated later.")
+        raise NotImplementedError(
+            f"This extension({extension_id}) can not be toggled for now, it may be updated later."
+        )

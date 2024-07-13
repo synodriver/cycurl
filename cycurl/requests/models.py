@@ -149,7 +149,9 @@ class Response:
         """
         pending = None
 
-        for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+        for chunk in self.iter_content(
+            chunk_size=chunk_size, decode_unicode=decode_unicode
+        ):
             if pending is not None:
                 chunk = pending + chunk
             lines = chunk.split(delimiter) if delimiter else chunk.splitlines()
@@ -168,7 +170,10 @@ class Response:
         iterate streaming content chunk by chunk in bytes.
         """
         if chunk_size:
-            warnings.warn("chunk_size is ignored, there is no way to tell curl that.", stacklevel=2)
+            warnings.warn(
+                "chunk_size is ignored, there is no way to tell curl that.",
+                stacklevel=2,
+            )
         if decode_unicode:
             raise NotImplementedError()
 
@@ -210,7 +215,9 @@ class Response:
         """
         pending = None
 
-        async for chunk in self.aiter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+        async for chunk in self.aiter_content(
+            chunk_size=chunk_size, decode_unicode=decode_unicode
+        ):
             if pending is not None:
                 chunk = pending + chunk
             lines = chunk.split(delimiter) if delimiter else chunk.splitlines()
@@ -230,7 +237,10 @@ class Response:
         iterate streaming content chunk by chunk in bytes.
         """
         if chunk_size:
-            warnings.warn("chunk_size is ignored, there is no way to tell curl that.", stacklevel=2)
+            warnings.warn(
+                "chunk_size is ignored, there is no way to tell curl that.",
+                stacklevel=2,
+            )
         if decode_unicode:
             raise NotImplementedError()
 

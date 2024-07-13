@@ -2,10 +2,11 @@ import eventlet
 
 eventlet.monkey_patch()
 
-import threading  #  noqa: E402
-import time  #  noqa: E402
+import threading  # noqa: E402
+import time  # noqa: E402
 
-from cycurl import requests  #  noqa: E402
+from cycurl import requests  # noqa: E402
+
 
 def delay():
     requests.get("http://192.168.64.5:8080/delay/2", thread="eventlet")

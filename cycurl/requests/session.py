@@ -25,27 +25,21 @@ from typing import (
 from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urljoin, urlparse
 
 import cycurl._curl as m
-from cycurl._curl import (
-    CURL_WRITEFUNC_ERROR,
-    AsyncCurl,
-    Curl,
-    CurlError,
-    CurlMime,
-)
+from cycurl._curl import CURL_WRITEFUNC_ERROR, AsyncCurl, Curl, CurlError, CurlMime
 from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
 from cycurl.requests.errors import RequestsError, SessionClosed
 from cycurl.requests.headers import Headers, HeaderTypes
-from cycurl.requests.models import Request, Response
-from cycurl.requests.websockets import WebSocket
 from cycurl.requests.impersonate import (
+    TLS_CIPHER_NAME_MAP,
+    TLS_EC_CURVES_MAP,
+    TLS_VERSION_MAP,
+    BrowserType,
     ExtraFingerprints,
     ExtraFpDict,
     toggle_extension,
-    BrowserType,
-    TLS_VERSION_MAP,
-    TLS_CIPHER_NAME_MAP,
-    TLS_EC_CURVES_MAP
 )
+from cycurl.requests.models import Request, Response
+from cycurl.requests.websockets import WebSocket
 
 with suppress(ImportError):
     import gevent
@@ -115,7 +109,9 @@ def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
 
         # 1 to 1 mapping, we have to search and update it.
         if old_args_counter.get(key) == 1 and new_args_counter.get(key) == 1:
-            parsed_get_args = [(x if x[0] != key else (key, value)) for x in parsed_get_args]
+            parsed_get_args = [
+                (x if x[0] != key else (key, value)) for x in parsed_get_args
+            ]
         else:
             parsed_get_args.append((key, value))
 
@@ -253,8 +249,12 @@ class BaseSession:
         tls_version, ciphers, extensions, curves, curve_formats = ja3.split(",")
 
         curl_tls_version = TLS_VERSION_MAP[int(tls_version)]
-        curl.setopt(m.CURLOPT_SSLVERSION, curl_tls_version | m.CURL_SSLVERSION_MAX_DEFAULT)
-        assert curl_tls_version == m.CURL_SSLVERSION_TLSv1_2, "Only TLS v1.2 works for now."
+        curl.setopt(
+            m.CURLOPT_SSLVERSION, curl_tls_version | m.CURL_SSLVERSION_MAX_DEFAULT
+        )
+        assert (
+            curl_tls_version == m.CURL_SSLVERSION_TLSv1_2
+        ), "Only TLS v1.2 works for now."
 
         cipher_names = []
         for cipher in ciphers.split("-"):
@@ -306,11 +306,14 @@ class BaseSession:
         curl.setopt(m.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER, header_order.replace(",", ""))
 
     def _set_extra_fp(self, curl, fp: ExtraFingerprints):
-
         if fp.tls_signature_algorithms:
-            curl.setopt(m.CURLOPT_SSL_SIG_HASH_ALGS, ",".join(fp.tls_signature_algorithms))
+            curl.setopt(
+                m.CURLOPT_SSL_SIG_HASH_ALGS, ",".join(fp.tls_signature_algorithms)
+            )
 
-        curl.setopt(m.CURLOPT_SSLVERSION, fp.tls_min_version | m.CURL_SSLVERSION_MAX_DEFAULT)
+        curl.setopt(
+            m.CURLOPT_SSLVERSION, fp.tls_min_version | m.CURL_SSLVERSION_MAX_DEFAULT
+        )
         curl.setopt(m.CURLOPT_TLS_GREASE, int(fp.tls_grease))
         curl.setopt(m.CURLOPT_SSL_PERMUTE_EXTENSIONS, int(fp.tls_permute_extensions))
         curl.setopt(m.CURLOPT_SSL_CERT_COMPRESSION, fp.tls_cert_compression)
@@ -420,7 +423,9 @@ class BaseSession:
         if json is not None:
             _update_header_line(header_lines, "Content-Type", "application/json")
         if isinstance(data, dict) and method != "POST":
-            _update_header_line(header_lines, "Content-Type", "application/x-www-form-urlencoded")
+            _update_header_line(
+                header_lines, "Content-Type", "application/x-www-form-urlencoded"
+            )
 
         # Never send `Expect` header.
         _update_header_line(header_lines, "Expect", "")
@@ -460,8 +465,12 @@ class BaseSession:
                 username, password = self.auth
             if auth:
                 username, password = auth
-            c.setopt(m.CURLOPT_USERNAME, username.encode())  # pyright: ignore [reportPossiblyUnboundVariable=none]
-            c.setopt(m.CURLOPT_PASSWORD, password.encode())  # pyright: ignore [reportPossiblyUnboundVariable=none]
+            c.setopt(
+                m.CURLOPT_USERNAME, username.encode()
+            )  # pyright: ignore [reportPossiblyUnboundVariable=none]
+            c.setopt(
+                m.CURLOPT_PASSWORD, password.encode()
+            )  # pyright: ignore [reportPossiblyUnboundVariable=none]
 
         # timeout
         if timeout is not_set:
@@ -524,7 +533,6 @@ class BaseSession:
                 )
 
             if proxy is not None:
-
                 c.setopt(m.CURLOPT_PROXY, proxy)
 
                 if parts.scheme == "https":
@@ -580,7 +588,9 @@ class BaseSession:
 
         # impersonate
         impersonate = impersonate or self.impersonate
-        default_headers = self.default_headers if default_headers is None else default_headers
+        default_headers = (
+            self.default_headers if default_headers is None else default_headers
+        )
         if impersonate:
             impersonate = BrowserType.normalize(impersonate)
             ret = c.impersonate(impersonate, default_headers=default_headers)
@@ -593,7 +603,10 @@ class BaseSession:
             if impersonate:
                 warnings.warn("JA3 was altered after browser version was set.")
             permute = False
-            if isinstance(extra_fp, ExtraFingerprints) and extra_fp.tls_permute_extensions:
+            if (
+                isinstance(extra_fp, ExtraFingerprints)
+                and extra_fp.tls_permute_extensions
+            ):
                 permute = True
             if isinstance(extra_fp, dict) and extra_fp.get("tls_permute_extensions"):
                 permute = True
@@ -612,7 +625,9 @@ class BaseSession:
             if isinstance(extra_fp, dict):
                 extra_fp = ExtraFingerprints(**extra_fp)
             if impersonate:
-                warnings.warn("Extra fingerprints was altered after browser version was set.")
+                warnings.warn(
+                    "Extra fingerprints was altered after browser version was set."
+                )
             self._set_extra_fp(c, extra_fp)
 
         # http_version, after impersonate, which will change this to http2
@@ -689,7 +704,9 @@ class BaseSession:
             header_list.append(header_line)
         rsp.headers = Headers(header_list)
         # print("Set-cookie", rsp.headers["set-cookie"])
-        morsels = [CurlMorsel.from_curl_format(c) for c in c.getinfo(m.CURLINFO_COOKIELIST)]
+        morsels = [
+            CurlMorsel.from_curl_format(c) for c in c.getinfo(m.CURLINFO_COOKIELIST)
+        ]
         # for l in c.getinfo(CurlInfo.COOKIELIST):
         #     print("Curl Cookies", l.decode())
         self.cookies.update_cookies_from_curl(morsels)
@@ -785,7 +802,9 @@ class Session(BaseSession):
     def curl(self):
         if self._use_thread_local_curl:
             if self._is_customized_curl:
-                warnings.warn("Creating fresh curl handle in different thread.", stacklevel=2)
+                warnings.warn(
+                    "Creating fresh curl handle in different thread.", stacklevel=2
+                )
             if not getattr(self._local, "curl", None):
                 self._local.curl = Curl(debug=self.debug)
             return self._local.curl
@@ -947,7 +966,9 @@ class Session(BaseSession):
                 try:
                     c.perform()
                 except CurlError as e:
-                    rsp = self._parse_response(c, buffer, header_buffer, default_encoding)
+                    rsp = self._parse_response(
+                        c, buffer, header_buffer, default_encoding
+                    )
                     rsp.request = req
                     cast(queue.Queue, q).put_nowait(RequestsError(str(e), e.code, rsp))
                 finally:
@@ -1231,9 +1252,13 @@ class AsyncSession(BaseSession):
                 try:
                     await task
                 except CurlError as e:
-                    rsp = self._parse_response(curl, buffer, header_buffer, default_encoding)
+                    rsp = self._parse_response(
+                        curl, buffer, header_buffer, default_encoding
+                    )
                     rsp.request = req
-                    cast(asyncio.Queue, q).put_nowait(RequestsError(str(e), e.code, rsp))
+                    cast(asyncio.Queue, q).put_nowait(
+                        RequestsError(str(e), e.code, rsp)
+                    )
                 finally:
                     if not cast(asyncio.Event, header_recved).is_set():
                         cast(asyncio.Event, header_recved).set()
@@ -1270,11 +1295,15 @@ class AsyncSession(BaseSession):
                 task = self.acurl.add_handle(curl)
                 await task
             except CurlError as e:
-                rsp = self._parse_response(curl, buffer, header_buffer, default_encoding)
+                rsp = self._parse_response(
+                    curl, buffer, header_buffer, default_encoding
+                )
                 rsp.request = req
                 raise RequestsError(str(e), e.code, rsp) from e
             else:
-                rsp = self._parse_response(curl, buffer, header_buffer, default_encoding)
+                rsp = self._parse_response(
+                    curl, buffer, header_buffer, default_encoding
+                )
                 rsp.request = req
                 return rsp
             finally:

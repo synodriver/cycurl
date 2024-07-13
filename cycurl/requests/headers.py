@@ -32,15 +32,7 @@ else:
 
     AbcMapping = Mapping  # type: ignore[misc]
 
-from typing import (
-    Any,
-    AnyStr,
-    Dict,
-    List,
-    Optional,
-    Tuple,
-    Union,
-)
+from typing import Any, AnyStr, Dict, List, Optional, Tuple, Union
 
 HeaderTypes = Union[
     "Headers",
@@ -57,7 +49,9 @@ def to_str(value: Union[str, bytes], encoding: str = "utf-8") -> str:
 
 
 def to_bytes_or_str(value: str, match_type_of: AnyStr) -> AnyStr:
-    return value if isinstance(match_type_of, str) else value.encode()  # pyright: ignore [reportGeneralTypeIssues]
+    return (
+        value if isinstance(match_type_of, str) else value.encode()
+    )  # pyright: ignore [reportGeneralTypeIssues]
 
 
 SENSITIVE_HEADERS = {"authorization", "proxy-authorization"}
@@ -80,12 +74,16 @@ def normalize_header_key(
     """
     Coerce str/bytes into a strictly byte-wise HTTP header key.
     """
-    bytes_value = value if isinstance(value, bytes) else value.encode(encoding or "ascii")
+    bytes_value = (
+        value if isinstance(value, bytes) else value.encode(encoding or "ascii")
+    )
 
     return bytes_value.lower() if lower else bytes_value
 
 
-def normalize_header_value(value: Union[str, bytes], encoding: Optional[str] = None) -> bytes:
+def normalize_header_value(
+    value: Union[str, bytes], encoding: Optional[str] = None
+) -> bytes:
     """
     Coerce str/bytes into a strictly byte-wise HTTP header value.
     """
@@ -210,7 +208,8 @@ class Headers(MutableMapping[str, str]):
         comma separated value.
         """
         return [
-            (key.decode(self.encoding), value.decode(self.encoding)) for key, _, value in self._list
+            (key.decode(self.encoding), value.decode(self.encoding))
+            for key, _, value in self._list
         ]
 
     def get(self, key: str, default: Any = None) -> Any:
@@ -284,7 +283,9 @@ class Headers(MutableMapping[str, str]):
         lookup_key = set_key.lower()
 
         found_indexes = [
-            idx for idx, (_, item_key, _) in enumerate(self._list) if item_key == lookup_key
+            idx
+            for idx, (_, item_key, _) in enumerate(self._list)
+            if item_key == lookup_key
         ]
 
         for idx in reversed(found_indexes[1:]):
@@ -303,7 +304,9 @@ class Headers(MutableMapping[str, str]):
         del_key = key.lower().encode(self.encoding)
 
         pop_indexes = [
-            idx for idx, (_, item_key, _) in enumerate(self._list) if item_key.lower() == del_key
+            idx
+            for idx, (_, item_key, _) in enumerate(self._list)
+            if item_key.lower() == del_key
         ]
 
         if not pop_indexes:

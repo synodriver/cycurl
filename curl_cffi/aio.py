@@ -136,7 +136,9 @@ class AsyncCurl:
         self._curl2future: Dict[Curl, asyncio.Future] = {}  # curl to future map
         self._curl2curl: Dict[ffi.CData, Curl] = {}  # c curl to Curl
         self._sockfds: Set[int] = set()  # sockfds
-        self.loop = _get_selector(loop if loop is not None else asyncio.get_running_loop())
+        self.loop = _get_selector(
+            loop if loop is not None else asyncio.get_running_loop()
+        )
         self._checker = self.loop.create_task(self._force_timeout())
         self._timers: WeakSet[asyncio.TimerHandle] = WeakSet()
         self._setup()
@@ -205,7 +207,9 @@ class AsyncCurl:
     def process_data(self, sockfd: int, ev_bitmask: int):
         """Call curl_multi_info_read to read data for given socket."""
         if not self._curlm:
-            warnings.warn("Curlm alread closed! quitting from process_data", stacklevel=2)
+            warnings.warn(
+                "Curlm alread closed! quitting from process_data", stacklevel=2
+            )
             return
 
         self.socket_action(sockfd, ev_bitmask)

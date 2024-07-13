@@ -45,7 +45,9 @@ elif uname.system == "Darwin":
             shutil.copy(file, "./cycurl")
     else:
         library_dirs = ["./dep/libcurl-impersonate-v0.7.0.arm64-macos"]
-        extra_objects = ["./dep/libcurl-impersonate-v0.7.0.arm64-macos/libcurl-impersonate-chrome.4.dylib"]
+        extra_objects = [
+            "./dep/libcurl-impersonate-v0.7.0.arm64-macos/libcurl-impersonate-chrome.4.dylib"
+        ]
         for file in glob.glob("./dep/libcurl-impersonate-v0.7.0.arm64-macos/*.dylib"):
             shutil.copy(file, "./cycurl")
 else:

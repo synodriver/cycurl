@@ -9,7 +9,7 @@ from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport (PyCapsule_CheckExact, PyCapsule_GetPointer,
                                 PyCapsule_New)
-from libc.stdint cimport uint8_t, int64_t
+from libc.stdint cimport int64_t, uint8_t
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
 
 include "consts.pxi"
@@ -527,7 +527,7 @@ cdef class Curl:
         return m.group(1) if m else b""
 
     @staticmethod
-    def parse_status_line(status_line: bytes) -> tuple:
+    def parse_status_line(bytes status_line) -> tuple:
         """Parse status line.
         Returns:
             http_version, status_code, and reason phrase

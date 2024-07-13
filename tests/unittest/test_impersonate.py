@@ -166,7 +166,9 @@ def test_customized_extra_fp_permute():
     _, _, extensions, _, _ = r["ja3_text"].split(",")
     assert extensions == "65037-65281-0-11-23-5-18-27-16-17513-10-35-43-45-13-51"
 
-    r = requests.get(url, ja3=ja3, extra_fp=requests.ExtraFingerprints(tls_permute_extensions=True)).json()
+    r = requests.get(
+        url, ja3=ja3, extra_fp=requests.ExtraFingerprints(tls_permute_extensions=True)
+    ).json()
     _, _, extensions, _, _ = r["ja3_text"].split(",")
     assert extensions != "65037-65281-0-11-23-5-18-27-16-17513-10-35-43-45-13-51"
 
