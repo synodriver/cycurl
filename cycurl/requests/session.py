@@ -399,6 +399,8 @@ class BaseSession:
             c.setopt(m.CURLOPT_POSTFIELDS, body)
             # necessary if body contains '\0'
             c.setopt(m.CURLOPT_POSTFIELDSIZE, len(body))
+            if method == "GET":
+                c.setopt(m.CURLOPT_CUSTOMREQUEST, method)
 
         # headers
         h = Headers(self.headers)
