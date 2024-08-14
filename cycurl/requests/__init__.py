@@ -2,6 +2,7 @@ __all__ = [
     "Session",
     "AsyncSession",
     "BrowserType",
+    "BrowserTypeLiteral",
     # "CurlWsFlag",
     "request",
     "head",
@@ -20,6 +21,9 @@ __all__ = [
     "WebSocketError",
     "WsCloseCode",
     "ExtraFingerprints",
+    "CookieTypes",
+    "HeaderTypes",
+    "ProxySpec",
 ]
 
 from functools import partial
@@ -30,20 +34,14 @@ from cycurl._curl import CurlMime
 from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
-from cycurl.requests.impersonate import ExtraFingerprints, ExtraFpDict
+from cycurl.requests.impersonate import BrowserType, BrowserTypeLiteral, ExtraFingerprints, ExtraFpDict
 from cycurl.requests.models import Request, Response
-from cycurl.requests.session import (
-    AsyncSession,
-    BrowserType,
-    ProxySpec,
-    Session,
-    ThreadType,
-)
+from cycurl.requests.session import AsyncSession, HttpMethod, ProxySpec, Session, ThreadType
 from cycurl.requests.websockets import WebSocket, WebSocketError, WsCloseCode
 
 
 def request(
-    method: str,
+    method: HttpMethod,
     url: str,
     params: Optional[Union[Dict, List, Tuple]] = None,
     data: Optional[Union[Dict[str, str], List[Tuple], str, BytesIO, bytes]] = None,
@@ -62,7 +60,7 @@ def request(
     referer: Optional[str] = None,
     accept_encoding: Optional[str] = "gzip, deflate, br, zstd",
     content_callback: Optional[Callable] = None,
-    impersonate: Optional[Union[str, BrowserType]] = None,
+    impersonate: Optional[BrowserTypeLiteral] = None,
     ja3: Optional[str] = None,
     akamai: Optional[str] = None,
     extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,

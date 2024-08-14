@@ -5,9 +5,61 @@ from typing import List, Literal, Optional, TypedDict
 
 # from ..const import CurlSslVersion, CurlOpt
 from cycurl import _curl as m
+# from ..const import CurlOpt, CurlSslVersion
+
+BrowserTypeLiteral = Literal[
+    # Edge
+    "edge99",
+    "edge101",
+    # Chrome
+    "chrome99",
+    "chrome100",
+    "chrome101",
+    "chrome104",
+    "chrome107",
+    "chrome110",
+    "chrome116",
+    "chrome119",
+    "chrome120",
+    "chrome123",
+    "chrome124",
+    "chrome99_android",
+    # Safari
+    "safari15_3",
+    "safari15_5",
+    "safari17_0",
+    "safari17_2_ios",
+    # alias
+    "chrome",
+    "edge",
+    "safari",
+    "safari_ios",
+    "chrome_android",
+]
+
+DEFAULT_CHROME = "chrome124"
+DEFAULT_EDGE = "edge101"
+DEFAULT_SAFARI = "safari17_0"
+DEFAULT_SAFARI_IOS = "safari17_2_ios"
+DEFAULT_CHROME_ANDROID = "chrome99_android"
 
 
-class BrowserType(str, Enum):
+def normalize_browser_type(item):
+    if item == "chrome":  # noqa: SIM116
+        return DEFAULT_CHROME
+    elif item == "edge":
+        return DEFAULT_EDGE
+    elif item == "safari":
+        return DEFAULT_SAFARI
+    elif item == "safari_ios":
+        return DEFAULT_SAFARI_IOS
+    elif item == "chrome_android":
+        return DEFAULT_CHROME_ANDROID
+    else:
+        return item
+
+
+class BrowserType(str, Enum):  # todo: remove in version 1.x
     edge99 = "edge99"
     edge101 = "edge101"
     chrome99 = "chrome99"
@@ -26,25 +78,6 @@ class BrowserType(str, Enum):
     safari15_5 = "safari15_5"
     safari17_0 = "safari17_0"
     safari17_2_ios = "safari17_2_ios"
-
-    chrome = "chrome124"
-    safari = "safari17_0"
-    safari_ios = "safari17_2_ios"
-
-    @classmethod
-    def has(cls, item):
-        return item in cls.__members__
-
-    @classmethod
-    def normalize(cls, item):
-        if item == "chrome":  # noqa: SIM116
-            return cls.chrome
-        elif item == "safari":
-            return cls.safari
-        elif item == "safari_ios":
-            return cls.safari_ios
-        else:
-            return item
 
 
 @dataclass
@@ -90,6 +123,7 @@ TLS_CIPHER_NAME_MAP = {
     0x008D: "TLS_PSK_WITH_AES_256_CBC_SHA",
     0x009C: "TLS_RSA_WITH_AES_128_GCM_SHA256",
     0x009D: "TLS_RSA_WITH_AES_256_GCM_SHA384",
+    0xC008: "TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA",
     0xC009: "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA",
     0xC00A: "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA",
     0xC012: "TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA",
@@ -245,7 +279,9 @@ def toggle_extension(curl, extension_id: int, enable: bool):
     elif extension_id == 27:
         if enable:
             warnings.warn(
-                "Cert compression setting to brotli, you had better specify which to use: zlib/brotli"
+                "Cert compression setting to brotli, "
+                "you had better specify which to use: zlib/brotli",
+                stacklevel=1,
             )
             curl.setopt(m.CURLOPT_SSL_CERT_COMPRESSION, "brotli")
         else:

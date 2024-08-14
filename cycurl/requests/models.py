@@ -7,7 +7,7 @@ from typing import Any, Awaitable, Callable, Dict, List, Optional, Union
 
 from .. import Curl
 from .cookies import Cookies
-from .errors import RequestsError
+from .exceptions import HTTPError, RequestException
 from .headers import Headers
 
 CHARSET_RE = re.compile(r"charset=([\w-]+)")
@@ -138,7 +138,7 @@ class Response:
     def raise_for_status(self):
         """Raise an error if status code is not in [200, 400)"""
         if not self.ok:
-            raise RequestsError(f"HTTP Error {self.status_code}: {self.reason}")
+            raise HTTPError(f"HTTP Error {self.status_code}: {self.reason}")
 
     def iter_lines(self, chunk_size=None, decode_unicode=False, delimiter=None):
         """
@@ -155,10 +155,11 @@ class Response:
             if pending is not None:
                 chunk = pending + chunk
             lines = chunk.split(delimiter) if delimiter else chunk.splitlines()
-            if lines and lines[-1] and chunk and lines[-1][-1] == chunk[-1]:
-                pending = lines.pop()
-            else:
-                pending = None
+            pending = (
+                lines.pop()
+                if lines and lines[-1] and chunk and lines[-1][-1] == chunk[-1]
+                else None
+            )
 
             yield from lines
 
@@ -183,7 +184,7 @@ class Response:
             chunk = self.queue.get()
 
             # re-raise the exception if something wrong happened.
-            if isinstance(chunk, RequestsError):
+            if isinstance(chunk, RequestException):
                 self.curl.reset()
                 raise chunk
 
@@ -221,10 +222,11 @@ class Response:
             if pending is not None:
                 chunk = pending + chunk
             lines = chunk.split(delimiter) if delimiter else chunk.splitlines()
-            if lines and lines[-1] and chunk and lines[-1][-1] == chunk[-1]:
-                pending = lines.pop()
-            else:
-                pending = None
+            pending = (
+                lines.pop()
+                if lines and lines[-1] and chunk and lines[-1][-1] == chunk[-1]
+                else None
+            )
 
             for line in lines:
                 yield line
@@ -250,7 +252,7 @@ class Response:
             chunk = await self.queue.get()
 
             # re-raise the exception if something wrong happened.
-            if isinstance(chunk, RequestsError):
+            if isinstance(chunk, RequestException):
                 await self.aclose()
                 raise chunk
 

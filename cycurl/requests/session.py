@@ -22,24 +22,28 @@ from typing import (
     Union,
     cast,
 )
-from urllib.parse import ParseResult, parse_qsl, unquote, urlencode, urljoin, urlparse
+from urllib.parse import ParseResult, parse_qsl, quote, unquote, urlencode, urljoin, urlparse
+
+from typing_extensions import Unpack
 
 import cycurl._curl as m
 from cycurl._curl import CURL_WRITEFUNC_ERROR, AsyncCurl, Curl, CurlError, CurlMime
 from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
-from cycurl.requests.errors import RequestsError, SessionClosed
+from cycurl.requests.exceptions import ImpersonateError, RequestException, SessionClosed, code2error
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.impersonate import (
     TLS_CIPHER_NAME_MAP,
     TLS_EC_CURVES_MAP,
     TLS_VERSION_MAP,
     BrowserType,
+    BrowserTypeLiteral,
     ExtraFingerprints,
     ExtraFpDict,
+    normalize_browser_type,
     toggle_extension,
 )
 from cycurl.requests.models import Request, Response
-from cycurl.requests.websockets import WebSocket
+from cycurl.requests.websockets import ON_CLOSE_T, ON_ERROR_T, ON_MESSAGE_T, ON_OPEN_T, WebSocket
 
 with suppress(ImportError):
     import gevent
@@ -56,10 +60,39 @@ if TYPE_CHECKING:
         ws: str
         wss: str
 
+    class BaseSessionParams(TypedDict, total=False):
+        headers: Optional[HeaderTypes]
+        cookies: Optional[CookieTypes]
+        auth: Optional[Tuple[str, str]]
+        proxies: Optional[ProxySpec]
+        proxy: Optional[str]
+        proxy_auth: Optional[Tuple[str, str]]
+        base_url: Optional[str]
+        params: Optional[dict]
+        verify: bool
+        timeout: Union[float, Tuple[float, float]]
+        trust_env: bool
+        allow_redirects: bool
+        max_redirects: int
+        impersonate: Optional[BrowserTypeLiteral]
+        ja3: Optional[str]
+        akamai: Optional[str]
+        extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]]
+        default_headers: bool
+        default_encoding: Union[str, Callable[[bytes], str]]
+        curl_options: Optional[dict]
+        curl_infos: Optional[list]
+        http_version: Optional[CurlHttpVersion]
+        debug: bool
+        interface: Optional[str]
+        cert: Optional[Union[str, Tuple[str, str]]]
+
 else:
     ProxySpec = Dict[str, str]
+    BaseSessionParams = TypedDict
 
 ThreadType = Literal["eventlet", "gevent"]
+HttpMethod = Literal["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "PATCH"]
 
 
 def _is_absolute_url(url: str) -> bool:
@@ -68,12 +101,12 @@ def _is_absolute_url(url: str) -> bool:
     return bool(parsed_url.scheme and parsed_url.hostname)
 
 
-def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
-    """Add GET params to provided URL being aware of existing.
+def _update_url_params(url: str, *params_list: Union[Dict, List, Tuple, None]) -> str:
+    """Add URL query params to provided URL being aware of existing.
 
     Parameters:
         url: string of target URL
-        params: dict containing requested params to be added
+        params: list of dict or list containing requested params to be added
 
     Returns:
         string with updated URL
@@ -83,37 +116,35 @@ def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
     >> _update_url_params(url, new_params)
     'http://stackoverflow.com/test?data=some&data=values&answers=false'
     """
-    # Unquoting URL first so we don't loose existing args
+    # Unquoting and parse
     url = unquote(url)
-
-    # Extracting url info
     parsed_url = urlparse(url)
 
-    # Extracting URL arguments from parsed URL
-    get_args = parsed_url.query
-
-    # Do NOT converting URL arguments to dict
-    parsed_get_args = parse_qsl(get_args)
+    # Extracting URL arguments from parsed URL, NOTE the result is a list, not dict
+    parsed_get_args = parse_qsl(parsed_url.query)
 
     # Merging URL arguments dict with new params
-    old_args_counter = Counter(x[0] for x in parsed_get_args)
-    if isinstance(params, dict):
-        params = list(params.items())
-    new_args_counter = Counter(x[0] for x in params)
+    for params in params_list:
+        if not params:
+            continue
 
-    for key, value in params:
-        # Bool and Dict values should be converted to json-friendly values
-        # you may throw this part away if you don't like it :)
-        if isinstance(value, (bool, dict)):
-            value = dumps(value)
+        # Check the args appearance count of keys
+        old_args_counter = Counter(x[0] for x in parsed_get_args)
+        if isinstance(params, dict):
+            params = list(params.items())
+        new_args_counter = Counter(x[0] for x in params)
 
-        # 1 to 1 mapping, we have to search and update it.
-        if old_args_counter.get(key) == 1 and new_args_counter.get(key) == 1:
-            parsed_get_args = [
-                (x if x[0] != key else (key, value)) for x in parsed_get_args
-            ]
-        else:
-            parsed_get_args.append((key, value))
+        for key, value in params:
+            # Bool and dict values should be converted to json-friendly values
+            if isinstance(value, (bool, dict)):
+                value = dumps(value)
+
+            # k:v is 1-to-1 mapping, we have to search and update it, e.g. k=v
+            if old_args_counter.get(key) == 1 and new_args_counter.get(key) == 1:
+                parsed_get_args = [(x if x[0] != key else (key, value)) for x in parsed_get_args]
+            # k:v is 1-to-list mapping, simply append them, e.g. k=v1&k=v2
+            else:
+                parsed_get_args.append((key, value))
 
     # Converting URL argument to proper query string
     encoded_get_args = urlencode(parsed_get_args, doseq=True)
@@ -123,7 +154,7 @@ def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
     new_url = ParseResult(
         parsed_url.scheme,
         parsed_url.netloc,
-        parsed_url.path,
+        quote(parsed_url.path),
         parsed_url.params,
         encoded_get_args,
         parsed_url.fragment,
@@ -178,7 +209,7 @@ class BaseSession:
         trust_env: bool = True,
         allow_redirects: bool = True,
         max_redirects: int = 30,
-        impersonate: Optional[Union[str, BrowserType]] = None,
+        impersonate: Optional[BrowserTypeLiteral] = None,
         ja3: Optional[str] = None,
         akamai: Optional[str] = None,
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
@@ -269,7 +300,8 @@ class BaseSession:
             warnings.warn(
                 "Padding(21) extension found in ja3 string, whether to add it should "
                 "be managed by the SSL engine. The TLS client hello packet may contain "
-                "or not contain this extension, any of which should be correct."
+                "or not contain this extension, any of which should be correct.",
+                stacklevel=1,
             )
         extension_ids = set(int(e) for e in extensions.split("-"))
         self._toggle_extensions_by_ids(curl, extension_ids)
@@ -292,6 +324,9 @@ class BaseSession:
         Detailed explanation: https://www.blackhat.com/docs/eu-17/materials/eu-17-Shuster-Passive-Fingerprinting-Of-HTTP2-Clients-wp.pdf
         """
         settings, window_update, streams, header_order = akamai.split("|")
+
+        # For compatiblity with tls.peet.ws
+        settings = settings.replace(",", ";")
 
         curl.setopt(m.CURLOPT_HTTP_VERSION, m.CURL_HTTP_VERSION_2_0)
 
@@ -323,7 +358,7 @@ class BaseSession:
     def _set_curl_options(
         self,
         curl,
-        method: str,
+        method: HttpMethod,
         url: str,
         params: Optional[Union[Dict, List, Tuple]] = None,
         data: Optional[Union[Dict[str, str], List[Tuple], str, BytesIO, bytes]] = None,
@@ -342,7 +377,7 @@ class BaseSession:
         referer: Optional[str] = None,
         accept_encoding: Optional[str] = "gzip, deflate, br, zstd",
         content_callback: Optional[Callable] = None,
-        impersonate: Optional[Union[str, BrowserType]] = None,
+        impersonate: Optional[BrowserTypeLiteral] = None,
         ja3: Optional[str] = None,
         akamai: Optional[str] = None,
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
@@ -358,6 +393,8 @@ class BaseSession:
     ):
         c = curl
 
+        method = method.upper()  # type: ignore
+
         # method
         if method == "POST":
             c.setopt(m.CURLOPT_POST, 1)
@@ -366,11 +403,8 @@ class BaseSession:
         if method == "HEAD":
             c.setopt(m.CURLOPT_NOBODY, 1)
 
-        # url
-        if self.params:
-            url = _update_url_params(url, self.params)
-        if params:
-            url = _update_url_params(url, params)
+        # url, always unquote and re-quote
+        url = _update_url_params(url, self.params, params)
         if self.base_url:
             url = urljoin(self.base_url, url)
         c.setopt(m.CURLOPT_URL, url.encode())
@@ -452,7 +486,10 @@ class BaseSession:
 
         # files
         if files:
-            raise NotImplementedError("files is not supported, use `multipart`.")
+            raise NotImplementedError(
+                "files is not supported, use `multipart`. See examples here: "
+                "https://github.com/yifeikong/curl_cffi/blob/main/examples/upload.py"
+            )
 
         # multipart
         if multipart:
@@ -594,16 +631,16 @@ class BaseSession:
             self.default_headers if default_headers is None else default_headers
         )
         if impersonate:
-            impersonate = BrowserType.normalize(impersonate)
+            impersonate = normalize_browser_type(impersonate)
             ret = c.impersonate(impersonate, default_headers=default_headers)
             if ret != 0:
-                raise RequestsError(f"Impersonating {impersonate} is not supported")
+                raise ImpersonateError(f"Impersonating {impersonate} is not supported")
 
         # ja3 string
         ja3 = ja3 or self.ja3
         if ja3:
             if impersonate:
-                warnings.warn("JA3 was altered after browser version was set.")
+                warnings.warn("JA3 was altered after browser version was set.", stacklevel=1)
             permute = False
             if (
                 isinstance(extra_fp, ExtraFingerprints)
@@ -618,7 +655,7 @@ class BaseSession:
         akamai = akamai or self.akamai
         if akamai:
             if impersonate:
-                warnings.warn("Akamai was altered after browser version was set.")
+                warnings.warn("Akamai was altered after browser version was set.", stacklevel=1)
             self._set_akamai_options(c, akamai)
 
         # extra_fp options
@@ -628,7 +665,8 @@ class BaseSession:
                 extra_fp = ExtraFingerprints(**extra_fp)
             if impersonate:
                 warnings.warn(
-                    "Extra fingerprints was altered after browser version was set."
+                    "Extra fingerprints was altered after browser version was set.",
+                    stacklevel=1,
                 )
             self._set_extra_fp(c, extra_fp)
 
@@ -740,7 +778,7 @@ class Session(BaseSession):
         curl: Optional[Curl] = None,
         thread: Optional[ThreadType] = None,
         use_thread_local_curl: bool = True,
-        **kwargs,
+        **kwargs: Unpack[BaseSessionParams],
     ):
         """
         Parameters set in the init method will be override by the same parameter in request method.
@@ -843,10 +881,10 @@ class Session(BaseSession):
         self,
         url,
         *args,
-        on_message: Optional[Callable[[WebSocket, bytes], None]] = None,
-        on_error: Optional[Callable[[WebSocket, CurlError], None]] = None,
-        on_open: Optional[Callable] = None,
-        on_close: Optional[Callable] = None,
+        on_message: Optional[ON_MESSAGE_T] = None,
+        on_error: Optional[ON_ERROR_T] = None,
+        on_open: Optional[ON_OPEN_T] = None,
+        on_close: Optional[ON_CLOSE_T] = None,
         **kwargs,
     ) -> WebSocket:
         """Connects to a websocket url.
@@ -882,7 +920,7 @@ class Session(BaseSession):
 
     def request(
         self,
-        method: str,
+        method: HttpMethod,
         url: str,
         params: Optional[Union[Dict, List, Tuple]] = None,
         data: Optional[Union[Dict[str, str], List[Tuple], str, BytesIO, bytes]] = None,
@@ -901,7 +939,7 @@ class Session(BaseSession):
         referer: Optional[str] = None,
         accept_encoding: Optional[str] = "gzip, deflate, br",
         content_callback: Optional[Callable] = None,
-        impersonate: Optional[Union[str, BrowserType]] = None,
+        impersonate: Optional[BrowserTypeLiteral] = None,
         ja3: Optional[str] = None,
         akamai: Optional[str] = None,
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
@@ -972,7 +1010,7 @@ class Session(BaseSession):
                         c, buffer, header_buffer, default_encoding
                     )
                     rsp.request = req
-                    cast(queue.Queue, q).put_nowait(RequestsError(str(e), e.code, rsp))
+                    cast(queue.Queue, q).put_nowait(RequestException(str(e), e.code, rsp))
                 finally:
                     if not cast(threading.Event, header_recved).is_set():
                         cast(threading.Event, header_recved).set()
@@ -993,7 +1031,7 @@ class Session(BaseSession):
 
             # Raise the exception if something wrong happens when receiving the header.
             first_element = _peek_queue(cast(queue.Queue, q))
-            if isinstance(first_element, RequestsError):
+            if isinstance(first_element, RequestException):
                 c.reset()
                 raise first_element
 
@@ -1015,7 +1053,8 @@ class Session(BaseSession):
             except CurlError as e:
                 rsp = self._parse_response(c, buffer, header_buffer, default_encoding)
                 rsp.request = req
-                raise RequestsError(str(e), e.code, rsp) from e
+                error = code2error(e.code, str(e))
+                raise error(str(e), e.code, rsp) from e
             else:
                 rsp = self._parse_response(c, buffer, header_buffer, default_encoding)
                 rsp.request = req
@@ -1041,7 +1080,7 @@ class AsyncSession(BaseSession):
         loop=None,
         async_curl: Optional[AsyncCurl] = None,
         max_clients: int = 10,
-        **kwargs,
+        **kwargs: Unpack[BaseSessionParams],
     ):
         """
         Parameters set in the init method will be override by the same parameter in request method.
@@ -1176,7 +1215,7 @@ class AsyncSession(BaseSession):
 
     async def request(
         self,
-        method: str,
+        method: HttpMethod,
         url: str,
         params: Optional[Union[Dict, List, Tuple]] = None,
         data: Optional[Union[Dict[str, str], List[Tuple], str, BytesIO, bytes]] = None,
@@ -1195,7 +1234,7 @@ class AsyncSession(BaseSession):
         referer: Optional[str] = None,
         accept_encoding: Optional[str] = "gzip, deflate, br",
         content_callback: Optional[Callable] = None,
-        impersonate: Optional[Union[str, BrowserType]] = None,
+        impersonate: Optional[BrowserTypeLiteral] = None,
         ja3: Optional[str] = None,
         akamai: Optional[str] = None,
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
@@ -1258,9 +1297,7 @@ class AsyncSession(BaseSession):
                         curl, buffer, header_buffer, default_encoding
                     )
                     rsp.request = req
-                    cast(asyncio.Queue, q).put_nowait(
-                        RequestsError(str(e), e.code, rsp)
-                    )
+                    cast(asyncio.Queue, q).put_nowait(RequestException(str(e), e.code, rsp))
                 finally:
                     if not cast(asyncio.Event, header_recved).is_set():
                         cast(asyncio.Event, header_recved).set()
@@ -1281,7 +1318,7 @@ class AsyncSession(BaseSession):
             rsp = self._parse_response(curl, buffer, header_buffer, default_encoding)
 
             first_element = _peek_aio_queue(cast(asyncio.Queue, q))
-            if isinstance(first_element, RequestsError):
+            if isinstance(first_element, RequestException):
                 self.release_curl(curl)
                 raise first_element
 
@@ -1301,7 +1338,8 @@ class AsyncSession(BaseSession):
                     curl, buffer, header_buffer, default_encoding
                 )
                 rsp.request = req
-                raise RequestsError(str(e), e.code, rsp) from e
+                error = code2error(e.code, str(e))
+                raise error(str(e), e.code, rsp) from e
             else:
                 rsp = self._parse_response(
                     curl, buffer, header_buffer, default_encoding

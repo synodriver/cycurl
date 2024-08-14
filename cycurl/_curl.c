@@ -31339,7 +31339,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_34get_reason_phrase(PyObject *__p
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
- *     def parse_status_line(status_line: bytes) -> tuple:
+ *     def parse_status_line(bytes status_line) -> tuple:
  *         """Parse status line.
  */
 
@@ -31351,7 +31351,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_36parse_status_line, "Curl.parse_status_line(bytes status_line: bytes) -> tuple\nParse status line.\n        Returns:\n            http_version, status_code, and reason phrase\n        ");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_36parse_status_line, "Curl.parse_status_line(bytes status_line) -> tuple\nParse status line.\n        Returns:\n            http_version, status_code, and reason phrase\n        ");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_37parse_status_line = {"parse_status_line", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_37parse_status_line, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_36parse_status_line};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_37parse_status_line(CYTHON_UNUSED PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -31427,7 +31427,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 0, "status_line", 1))) __PYX_ERR(0, 530, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 1, "status_line", 1))) __PYX_ERR(0, 530, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(__pyx_v_status_line);
 
   /* function exit code */
@@ -31829,7 +31829,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36parse_status_line(PyObject *__p
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
- *     def parse_status_line(status_line: bytes) -> tuple:
+ *     def parse_status_line(bytes status_line) -> tuple:
  *         """Parse status line.
  */
 
@@ -39370,7 +39370,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_4close(CYT
  *         self._selector.close()
  *         self._real_loop.close()             # <<<<<<<<<<<<<<
  * 
- *     def add_reader(
+ *     def add_reader(  # type: ignore
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real_loop_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 322, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -39427,7 +39427,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_4close(CYT
 /* "cycurl/_asyncio_selector.pxi":324
  *         self._real_loop.close()
  * 
- *     def add_reader(             # <<<<<<<<<<<<<<
+ *     def add_reader(  # type: ignore             # <<<<<<<<<<<<<<
  *         self,
  *         fd: "_FileDescriptorLike",
  */
@@ -39581,11 +39581,11 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_6add_reade
   __Pyx_RefNannySetupContext("add_reader", 1);
 
   /* "cycurl/_asyncio_selector.pxi":330
- *         *args: Any,  # type: ignore
+ *         *args: Any,
  *     ) -> None:
  *         return self._selector.add_reader(fd, callback, *args)             # <<<<<<<<<<<<<<
  * 
- *     def add_writer(
+ *     def add_writer(  # type: ignore
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_selector); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 330, __pyx_L1_error)
@@ -39615,7 +39615,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_6add_reade
   /* "cycurl/_asyncio_selector.pxi":324
  *         self._real_loop.close()
  * 
- *     def add_reader(             # <<<<<<<<<<<<<<
+ *     def add_reader(  # type: ignore             # <<<<<<<<<<<<<<
  *         self,
  *         fd: "_FileDescriptorLike",
  */
@@ -39636,7 +39636,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_6add_reade
 /* "cycurl/_asyncio_selector.pxi":332
  *         return self._selector.add_reader(fd, callback, *args)
  * 
- *     def add_writer(             # <<<<<<<<<<<<<<
+ *     def add_writer(  # type: ignore             # <<<<<<<<<<<<<<
  *         self,
  *         fd: "_FileDescriptorLike",
  */
@@ -39824,7 +39824,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_8add_write
   /* "cycurl/_asyncio_selector.pxi":332
  *         return self._selector.add_reader(fd, callback, *args)
  * 
- *     def add_writer(             # <<<<<<<<<<<<<<
+ *     def add_writer(  # type: ignore             # <<<<<<<<<<<<<<
  *         self,
  *         fd: "_FileDescriptorLike",
  */
@@ -51671,7 +51671,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
- *     def parse_status_line(status_line: bytes) -> tuple:
+ *     def parse_status_line(bytes status_line) -> tuple:
  *         """Parse status line.
  */
   __pyx_tuple__70 = PyTuple_Pack(5, __pyx_n_s_status_line, __pyx_n_s_m, __pyx_n_s_http_version, __pyx_n_s_status_code, __pyx_n_s_reason); if (unlikely(!__pyx_tuple__70)) __PYX_ERR(0, 529, __pyx_L1_error)
@@ -51897,7 +51897,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "cycurl/_asyncio_selector.pxi":324
  *         self._real_loop.close()
  * 
- *     def add_reader(             # <<<<<<<<<<<<<<
+ *     def add_reader(  # type: ignore             # <<<<<<<<<<<<<<
  *         self,
  *         fd: "_FileDescriptorLike",
  */
@@ -51906,7 +51906,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "cycurl/_asyncio_selector.pxi":332
  *         return self._selector.add_reader(fd, callback, *args)
  * 
- *     def add_writer(             # <<<<<<<<<<<<<<
+ *     def add_writer(  # type: ignore             # <<<<<<<<<<<<<<
  *         self,
  *         fd: "_FileDescriptorLike",
  */
@@ -61758,12 +61758,11 @@ if (!__Pyx_RefNanny) {
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
- *     def parse_status_line(status_line: bytes) -> tuple:
+ *     def parse_status_line(bytes status_line) -> tuple:
  *         """Parse status line.
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 529, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 529, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_status_line, __pyx_n_s_bytes) < 0) __PYX_ERR(0, 529, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_s_tuple) < 0) __PYX_ERR(0, 529, __pyx_L1_error)
   __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_37parse_status_line, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Curl_parse_status_line, NULL, __pyx_n_s_cycurl__curl, __pyx_d, ((PyObject *)__pyx_codeobj__71)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 529, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
@@ -62532,7 +62531,7 @@ if (!__Pyx_RefNanny) {
   /* "cycurl/_asyncio_selector.pxi":324
  *         self._real_loop.close()
  * 
- *     def add_reader(             # <<<<<<<<<<<<<<
+ *     def add_reader(  # type: ignore             # <<<<<<<<<<<<<<
  *         self,
  *         fd: "_FileDescriptorLike",
  */
@@ -62552,7 +62551,7 @@ if (!__Pyx_RefNanny) {
   /* "cycurl/_asyncio_selector.pxi":332
  *         return self._selector.add_reader(fd, callback, *args)
  * 
- *     def add_writer(             # <<<<<<<<<<<<<<
+ *     def add_writer(  # type: ignore             # <<<<<<<<<<<<<<
  *         self,
  *         fd: "_FileDescriptorLike",
  */
