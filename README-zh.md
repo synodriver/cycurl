@@ -222,6 +222,7 @@ print(body.decode())
 
 - [tieyongjie/scrapy-fingerprint](https://github.com/tieyongjie/scrapy-fingerprint)
 - [jxlil/scrapy-impersonate](https://github.com/jxlil/scrapy-impersonate)
+- [synodriver/awsome_scrapy_utils](https://github.com/synodriver/awsome_scrapy_utils)
 
 对于底层 API, Scrapy 集成等进阶话题, 请查阅 [文档](https://curl-cffi.readthedocs.io)
 

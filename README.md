@@ -234,6 +234,7 @@ If you are using scrapy, check out these middlewares:
 
 - [tieyongjie/scrapy-fingerprint](https://github.com/tieyongjie/scrapy-fingerprint)
 - [jxlil/scrapy-impersonate](https://github.com/jxlil/scrapy-impersonate)
+- [synodriver/awsome_scrapy_utils](https://github.com/synodriver/awsome_scrapy_utils)
 
 For low-level APIs, Scrapy integration and other advanced topics, see the
 [docs](https://curl-cffi.readthedocs.io) for more details.
