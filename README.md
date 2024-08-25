@@ -4,9 +4,8 @@
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/curl_cffi)
 [![PyPI version](https://badge.fury.io/py/curl-cffi.svg)](https://badge.fury.io/py/curl-cffi)
 [![Generic badge](https://img.shields.io/badge/Telegram%20Group-join-blue?logo=telegram)](https://t.me/+lL9n33eZp480MGM1)
-[![Generic badge](https://img.shields.io/badge/微信交流群-加入-brightgreen?logo=wechat)](./assets/wechat.jpg)
 
-[Documentation](https://curl-cffi.readthedocs.io) | [中文 README](https://github.com/yifeikong/curl_cffi/blob/main/README-zh.md) 
+[Documentation](https://curl-cffi.readthedocs.io)
 
 Python binding for [curl-impersonate](https://github.com/lwthiker/curl-impersonate)
 via [cffi](https://cffi.readthedocs.io/en/latest/).
@@ -22,7 +21,7 @@ Only Python 3.8 and above are supported. Python 3.7 has reached its end of life.
 
 ------
 
-<a href="https://scrapfly.io/?utm_source=github&utm_medium=sponsoring&utm_campaign=curl_cffi" target="_blank"><img src="https://raw.githubusercontent.com/yifeikong/curl_cffi/main/assets/scrapfly.png" alt="Scrapfly.io" width="149"></a>
+<a href="https://scrapfly.io/?utm_source=github&utm_medium=sponsoring&utm_campaign=curl_cffi" target="_blank"><img src="https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/scrapfly.png" alt="Scrapfly.io" width="149"></a>
 
 [Scrapfly](https://scrapfly.io/?utm_source=github&utm_medium=sponsoring&utm_campaign=curl_cffi)
 is an enterprise-grade solution providing Web Scraping API that aims to simplify the
@@ -40,7 +39,7 @@ If you are managing TLS/HTTP fingerprint by yourself with `curl_cffi`, they also
 ## Features
 
 - Supports JA3/TLS and http2 fingerprints impersonation, inlucding recent browsers and custome fingerprints.
-- Much faster than requests/httpx, on par with aiohttp/pycurl, see [benchmarks](https://github.com/yifeikong/curl_cffi/tree/main/benchmark).
+- Much faster than requests/httpx, on par with aiohttp/pycurl, see [benchmarks](https://github.com/lexiforest/curl_cffi/tree/main/benchmark).
 - Mimics requests API, no need to learn another one.
 - Pre-compiled, so you don't have to compile on your machine.
 - Supports `asyncio` with proxy rotation on each request.
@@ -70,7 +69,7 @@ To install beta releases:
 
 To install unstable version from GitHub:
 
-    git clone https://github.com/yifeikong/curl_cffi/
+    git clone https://github.com/lexiforest/curl_cffi/
     cd curl_cffi
     make preprocess
     pip install .
@@ -127,9 +126,9 @@ print(r.json())
 # {'cookies': {'foo': 'bar'}}
 ```
 
-`curl_cffi` supports the same browser versions as supported by my [fork](https://github.com/yifeikong/curl-impersonate) of [curl-impersonate](https://github.com/lwthiker/curl-impersonate):
+`curl_cffi` supports the same browser versions as supported by my [fork](https://github.com/lexiforest/curl-impersonate) of [curl-impersonate](https://github.com/lwthiker/curl-impersonate):
 
-However, only Chrome-like browsers are supported. Firefox support is tracked in [#59](https://github.com/yifeikong/curl_cffi/issues/59).
+However, only Chrome-like browsers are supported. Firefox support is tracked in [#59](https://github.com/lexiforest/curl_cffi/issues/59).
 
 Browser versions will be added **only** when their fingerprints change. If you see a version, e.g.
 chrome122, were skipped, you can simply impersonate it with your own headers and the previous version.
@@ -266,18 +265,3 @@ the box on all subscription plans.
 ## Sponsor
 
 <a href="https://buymeacoffee.com/yifei" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
-
-## Citation
-
-If you find this project useful, please cite it as below:
-
-```
-@software{Kong2023,
-  author = {Yifei Kong},
-  title = {curl_cffi - A Python HTTP client for impersonating browser TLS and HTTP/2 fingerprints},
-  year = {2023},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  url = {https://github.com/yifeikong/curl_cffi},
-}
-```

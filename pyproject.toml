@@ -1,8 +1,8 @@
 [project]
 name = "cycurl"
 version = "0.7.1"
-authors = [{ name = "Yifei Kong", email = "kong@yifei.me" }]
-description = "Ultra fast python binding for curl-impersonate via cython"
+authors = [{ name = "Lyonnet", email = "infinitesheldon@gmail.com" }]
+description = "Ultra fast python binding for curl-impersonate via cython, with impersonation support."
 license = { file = "LICENSE" }
 dependencies = [
     "cython >= 3.0.9",

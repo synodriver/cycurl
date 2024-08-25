@@ -442,7 +442,7 @@ class BaseSession:
 
         # remove Host header if it's unnecessary, otherwise curl may get confused.
         # Host header will be automatically added by curl if it's not present.
-        # https://github.com/yifeikong/curl_cffi/issues/119
+        # https://github.com/lexiforest/curl_cffi/issues/119
         host_header = h.get("Host")
         if host_header is not None:
             u = urlparse(url)
@@ -488,7 +488,7 @@ class BaseSession:
         if files:
             raise NotImplementedError(
                 "files is not supported, use `multipart`. See examples here: "
-                "https://github.com/yifeikong/curl_cffi/blob/main/examples/upload.py"
+                "https://github.com/lexiforest/curl_cffi/blob/main/examples/upload.py"
             )
 
         # multipart
@@ -524,7 +524,7 @@ class BaseSession:
             if not stream:
                 c.setopt(m.CURLOPT_TIMEOUT_MS, int(all_timeout * 1000))
             else:
-                # trick from: https://github.com/yifeikong/curl_cffi/issues/156
+                # trick from: https://github.com/lexiforest/curl_cffi/issues/156
                 c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
                 c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(all_timeout))
 
@@ -579,7 +579,7 @@ class BaseSession:
                         warnings.warn(
                             "Make sure you are using https over https proxy, otherwise, "
                             "the proxy prefix should be 'http://' not 'https://', "
-                            "see: https://github.com/yifeikong/curl_cffi/issues/6",
+                            "see: https://github.com/lexiforest/curl_cffi/issues/6",
                             RuntimeWarning,
                             stacklevel=2,
                         )
