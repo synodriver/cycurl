@@ -1,18 +1,18 @@
-# curl_cffi
+# cycurl
 
-![PyPI - Downloads](https://img.shields.io/pypi/dm/curl-cffi)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/curl_cffi)
-[![PyPI version](https://badge.fury.io/py/curl-cffi.svg)](https://badge.fury.io/py/curl-cffi)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/cycurl)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/cycurl)
+[![PyPI version](https://badge.fury.io/py/curl-cffi.svg)](https://badge.fury.io/py/cycurl)
 [![Generic badge](https://img.shields.io/badge/Telegram%20Group-join-blue?logo=telegram)](https://t.me/+lL9n33eZp480MGM1)
 
 [Documentation](https://curl-cffi.readthedocs.io)
 
 Python binding for [curl-impersonate](https://github.com/lwthiker/curl-impersonate)
-via [cffi](https://cffi.readthedocs.io/en/latest/).
+via [cython](https://cython.readthedocs.io/en/latest/).
 
-Unlike other pure python http clients like `httpx` or `requests`, `curl_cffi` can
+Unlike other pure python http clients like `httpx` or `requests`, `cycurl` can
 impersonate browsers' TLS/JA3 and HTTP/2 fingerprints. If you are blocked by some
-website for no obvious reason, you can give `curl_cffi` a try.
+website for no obvious reason, you can give `cycurl` a try.
 
 The fingerprints in 0.6 on Windows are all wrong, you should update to 0.7 if you are on
 Windows. Sorry for the inconvenience.
@@ -46,18 +46,18 @@ If you are managing TLS/HTTP fingerprint by yourself with `curl_cffi`, they also
 - Supports http 2.0, which requests does not.
 - Supports websocket.
 
-||requests|aiohttp|httpx|pycurl|curl_cffi|
-|---|---|---|---|---|---|
-|http2|❌|❌|✅|✅|✅|
-|sync|✅|❌|✅|✅|✅|
-|async|❌|✅|✅|❌|✅|
-|websocket|❌|✅|❌|❌|✅|
-|fingerprints|❌|❌|❌|❌|✅|
-|speed|🐇|🐇🐇|🐇|🐇🐇|🐇🐇|
+||requests|aiohttp|httpx|pycurl|curl_cffi|cycurl|
+|---|---|---|---|---|---|---|
+|http2|❌|❌|✅|✅|✅|✅|
+|sync|✅|❌|✅|✅|✅|✅|
+|async|❌|✅|✅|❌|✅|✅|
+|websocket|❌|✅|❌|❌|✅|✅|
+|fingerprints|❌|❌|❌|❌|✅|✅|
+|speed|🐇|🐇🐇|🐇|🐇🐇|🐇🐇|🐇🐇|
 
 ## Install
 
-    pip install curl_cffi --upgrade
+    pip install cycurl --upgrade
 
 This should work on Linux, macOS and Windows out of the box.
 If it does not work on you platform, you may need to compile and install `curl-impersonate`
@@ -65,18 +65,17 @@ first and set some environment variables like `LD_LIBRARY_PATH`.
 
 To install beta releases:
 
-    pip install curl_cffi --upgrade --pre
+    pip install cycurl --upgrade --pre
 
 To install unstable version from GitHub:
 
-    git clone https://github.com/lexiforest/curl_cffi/
-    cd curl_cffi
-    make preprocess
-    pip install .
+    git clone https://github.com/synodriver/cycurl/
+    cd cycurl
+    python setup.py bdist_wheel
 
 ## Usage
 
-`curl_cffi` comes with a low-level `curl` API and a high-level `requests`-like API.
+`cycurl` comes with a low-level `curl` API and a high-level `requests`-like API.
 
 ### requests-like
 
@@ -192,7 +191,7 @@ async with AsyncSession() as s:
 ### WebSockets
 
 ```python
-from curl_cffi.requests import Session, WebSocket
+from cycurl.requests import Session, WebSocket
 
 def on_message(ws: WebSocket, message):
     print(message)
@@ -210,7 +209,7 @@ with Session() as s:
 Alternatively, you can use the low-level curl-like API:
 
 ```python
-from cycurl import Curl, CurlOpt
+from cycurl import Curl, CURLOPT_URL, CURLOPT_WRITEDATA
 from io import BytesIO
 
 buffer = BytesIO()

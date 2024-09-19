@@ -620,7 +620,7 @@ cdef int timer_function(curl.CURLM *curlm, long timeout_ms, void *clientp) with 
     return 0
 
 cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, void *socketp) with gil:
-    cdef AsyncCurl async_curl = <AsyncCurl><object>clientp
+    cdef AsyncCurl async_curl = <AsyncCurl>clientp
     cdef object loop = async_curl.loop
 
     # Always remove and re-add fd
