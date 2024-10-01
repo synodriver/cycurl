@@ -112,7 +112,7 @@ def main():
         author="synodriver",
         author_email="diguohuangjiajinweijun@gmail.com",
         python_requires=">=3.6",
-        setup_requires=["cython>=3"],
+        setup_requires=["cython>=3.0.10"],
         license="BSD",
         classifiers=[
             "Development Status :: 4 - Beta",

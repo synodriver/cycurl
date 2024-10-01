@@ -268,7 +268,7 @@ cdef class Curl:
 
     cdef _get_error(self, int errcode, str args):
         if errcode != 0:
-            errmsg = (<bytes>self._error_buffer).decode()
+            errmsg = (<bytes>self._error_buffer).decode(errors="backslashreplace")
             return CurlError(
                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "
                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
