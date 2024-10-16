@@ -18,6 +18,7 @@ from typing import (
     Literal,
     Optional,
     Tuple,
+    Type,
     TypedDict,
     Union,
     cast,
@@ -86,13 +87,14 @@ if TYPE_CHECKING:
         debug: bool
         interface: Optional[str]
         cert: Optional[Union[str, Tuple[str, str]]]
+        response_class: Optional[Type[Response]]
 
 else:
     ProxySpec = Dict[str, str]
     BaseSessionParams = TypedDict
 
 ThreadType = Literal["eventlet", "gevent"]
-HttpMethod = Literal["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "PATCH"]
+HttpMethod = Literal["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "PATCH", "QUERY"]
 
 
 def _is_absolute_url(url: str) -> bool:
@@ -101,12 +103,30 @@ def _is_absolute_url(url: str) -> bool:
     return bool(parsed_url.scheme and parsed_url.hostname)
 
 
-def _update_url_params(url: str, *params_list: Union[Dict, List, Tuple, None]) -> str:
+SAFE_CHARS = set("!#$%&'()*+,/:;=?@[]~")
+
+
+def _quote_path_and_params(url: str, quote_str: str = ""):
+    safe = "".join(SAFE_CHARS - set(quote_str))
+    parsed_url = urlparse(url)
+    parsed_get_args = parse_qsl(parsed_url.query)
+    encoded_get_args = urlencode(parsed_get_args, doseq=True, safe=safe)
+    return ParseResult(
+        parsed_url.scheme,
+        parsed_url.netloc,
+        quote(parsed_url.path, safe=safe),
+        parsed_url.params,
+        encoded_get_args,
+        parsed_url.fragment,
+    ).geturl()
+
+
+def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
     """Add URL query params to provided URL being aware of existing.
 
     Parameters:
         url: string of target URL
-        params: list of dict or list containing requested params to be added
+        params: dict containing requested params to be added
 
     Returns:
         string with updated URL
@@ -124,27 +144,20 @@ def _update_url_params(url: str, *params_list: Union[Dict, List, Tuple, None]) -
     parsed_get_args = parse_qsl(parsed_url.query)
 
     # Merging URL arguments dict with new params
-    for params in params_list:
-        if not params:
-            continue
-
-        # Check the args appearance count of keys
-        old_args_counter = Counter(x[0] for x in parsed_get_args)
-        if isinstance(params, dict):
-            params = list(params.items())
-        new_args_counter = Counter(x[0] for x in params)
-
-        for key, value in params:
-            # Bool and dict values should be converted to json-friendly values
-            if isinstance(value, (bool, dict)):
-                value = dumps(value)
-
-            # k:v is 1-to-1 mapping, we have to search and update it, e.g. k=v
-            if old_args_counter.get(key) == 1 and new_args_counter.get(key) == 1:
-                parsed_get_args = [(x if x[0] != key else (key, value)) for x in parsed_get_args]
-            # k:v is 1-to-list mapping, simply append them, e.g. k=v1&k=v2
-            else:
-                parsed_get_args.append((key, value))
+    old_args_counter = Counter(x[0] for x in parsed_get_args)
+    if isinstance(params, dict):
+        params = list(params.items())
+    new_args_counter = Counter(x[0] for x in params)
+    for key, value in params:
+        # Bool and Dict values should be converted to json-friendly values
+        # you may throw this part away if you don't like it :)
+        if isinstance(value, (bool, dict)):
+            value = dumps(value)
+        # 1 to 1 mapping, we have to search and update it.
+        if old_args_counter.get(key) == 1 and new_args_counter.get(key) == 1:
+            parsed_get_args = [(x if x[0] != key else (key, value)) for x in parsed_get_args]
+        else:
+            parsed_get_args.append((key, value))
 
     # Converting URL argument to proper query string
     encoded_get_args = urlencode(parsed_get_args, doseq=True)
@@ -154,7 +167,7 @@ def _update_url_params(url: str, *params_list: Union[Dict, List, Tuple, None]) -
     new_url = ParseResult(
         parsed_url.scheme,
         parsed_url.netloc,
-        quote(parsed_url.path),
+        parsed_url.path,
         parsed_url.params,
         encoded_get_args,
         parsed_url.fragment,
@@ -225,6 +238,7 @@ class BaseSession:
         debug: bool = False,
         interface: Optional[str] = None,
         cert: Optional[Union[str, Tuple[str, str]]] = None,
+        response_class: Optional[Type[Response]] = None,
     ):
         self.headers = Headers(headers)
         self.cookies = Cookies(cookies)
@@ -248,6 +262,15 @@ class BaseSession:
         self.debug = debug
         self.interface = interface
         self.cert = cert
+
+        if response_class is None:
+            response_class = Response
+        elif not issubclass(response_class, Response):
+            raise TypeError(
+                "`response_class` must be a subclass of `cycurl.requests.models.Response`"
+                f" not of type `{response_class}`"
+            )
+        self.response_class = response_class
 
         if proxy and proxies:
             raise TypeError("Cannot specify both 'proxy' and 'proxies'")
@@ -386,6 +409,7 @@ class BaseSession:
         akamai: Optional[str] = None,
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: Optional[bool] = None,
+        quote: Union[str, Literal[False]] = "",
         http_version: Optional[int] = None,
         interface: Optional[str] = None,
         cert: Optional[Union[str, Tuple[str, str]]] = None,
@@ -407,10 +431,15 @@ class BaseSession:
         if method == "HEAD":
             c.setopt(m.CURLOPT_NOBODY, 1)
 
-        # url, always unquote and re-quote
-        url = _update_url_params(url, self.params, params)
+        # url
+        if self.params:
+            url = _update_url_params(url, self.params)
+        if params:
+            url = _update_url_params(url, params)
         if self.base_url:
             url = urljoin(self.base_url, url)
+        if quote is not False:
+            url = _quote_path_and_params(url, quote_str=quote)
         c.setopt(m.CURLOPT_URL, url.encode())
 
         # data/body/json
@@ -722,7 +751,7 @@ class BaseSession:
 
     def _parse_response(self, curl, buffer, header_buffer, default_encoding):
         c = curl
-        rsp = Response(c)
+        rsp = self.response_class(c)
         rsp.url = cast(bytes, c.getinfo(m.CURLINFO_EFFECTIVE_URL)).decode()
         if buffer:
             rsp.content = buffer.getvalue()
@@ -815,13 +844,14 @@ class Session(BaseSession):
             default_encoding: encoding for decoding response content if charset is not found in
                 headers. Defaults to "utf-8". Can be set to a callable for automatic detection.
             cert: a tuple of (cert, key) filenames for client cert.
+            response_class: A customized subtype of ``Response`` to use.
 
         Notes:
             This class can be used as a context manager.
 
         .. code-block:: python
 
-            from curl_cffi.requests import Session
+            from cycurl.requests import Session
 
             with Session() as s:
                 r = s.get("https://example.com")
@@ -949,6 +979,7 @@ class Session(BaseSession):
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: Optional[bool] = None,
         default_encoding: Union[str, Callable[[bytes], str]] = "utf-8",
+        quote: Union[str, Literal[False]] = "",
         http_version: Optional[int] = None,
         interface: Optional[str] = None,
         cert: Optional[Union[str, Tuple[str, str]]] = None,
@@ -993,6 +1024,7 @@ class Session(BaseSession):
             akamai=akamai,
             extra_fp=extra_fp,
             default_headers=default_headers,
+            quote=quote,
             http_version=http_version,
             interface=interface,
             stream=stream,
@@ -1073,6 +1105,8 @@ class Session(BaseSession):
     patch = partialmethod(request, "PATCH")
     delete = partialmethod(request, "DELETE")
     options = partialmethod(request, "OPTIONS")
+    trace = partialmethod(request, "TRACE")
+    query = partialmethod(request, "QUERY")
 
 
 class AsyncSession(BaseSession):
@@ -1091,7 +1125,7 @@ class AsyncSession(BaseSession):
 
         Parameters:
             loop: loop to use, if not provided, the running loop will be used.
-            async_curl: [AsyncCurl](/api/curl_cffi#curl_cffi.AsyncCurl) object to use.
+            async_curl: [AsyncCurl](/api/cycurl#cycurl.AsyncCurl) object to use.
             max_clients: maxmium curl handle to use in the session,
                 this will affect the concurrency ratio.
             headers: headers to use in the session.
@@ -1115,6 +1149,7 @@ class AsyncSession(BaseSession):
             default_encoding: encoding for decoding response content if charset is not found
                 in headers. Defaults to "utf-8". Can be set to a callable for automatic detection.
             cert: a tuple of (cert, key) filenames for client cert.
+            response_class: A customized subtype of ``Response`` to use.
 
         Notes:
             This class can be used as a context manager, and it's recommended to use via
@@ -1244,6 +1279,7 @@ class AsyncSession(BaseSession):
         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
         default_headers: Optional[bool] = None,
         default_encoding: Union[str, Callable[[bytes], str]] = "utf-8",
+        quote: Union[str, Literal[False]] = "",
         http_version: Optional[int] = None,
         interface: Optional[str] = None,
         cert: Optional[Union[str, Tuple[str, str]]] = None,
@@ -1281,6 +1317,7 @@ class AsyncSession(BaseSession):
             akamai=akamai,
             extra_fp=extra_fp,
             default_headers=default_headers,
+            quote=quote,
             http_version=http_version,
             interface=interface,
             stream=stream,
@@ -1360,3 +1397,5 @@ class AsyncSession(BaseSession):
     patch = partialmethod(request, "PATCH")
     delete = partialmethod(request, "DELETE")
     options = partialmethod(request, "OPTIONS")
+    trace = partialmethod(request, "TRACE")
+    query = partialmethod(request, "QUERY")

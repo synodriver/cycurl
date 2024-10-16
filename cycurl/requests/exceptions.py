@@ -10,7 +10,7 @@ from cycurl._curl import *
 
 # Note IOError is an alias of OSError in Python 3.x
 class RequestException(CurlError, OSError):
-    """Base exception for curl_cffi.requests package"""
+    """Base exception for cycurl.requests package"""
 
     def __init__(self, msg, code: Union[int, Literal[0]] = 0, response=None, *args, **kwargs):
         super().__init__(msg, code, *args, **kwargs)
