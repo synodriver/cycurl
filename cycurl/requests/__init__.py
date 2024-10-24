@@ -34,9 +34,20 @@ from cycurl._curl import CurlMime
 from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
-from cycurl.requests.impersonate import BrowserType, BrowserTypeLiteral, ExtraFingerprints, ExtraFpDict
+from cycurl.requests.impersonate import (
+    BrowserType,
+    BrowserTypeLiteral,
+    ExtraFingerprints,
+    ExtraFpDict,
+)
 from cycurl.requests.models import Request, Response
-from cycurl.requests.session import AsyncSession, HttpMethod, ProxySpec, Session, ThreadType
+from cycurl.requests.session import (
+    AsyncSession,
+    HttpMethod,
+    ProxySpec,
+    Session,
+    ThreadType,
+)
 from cycurl.requests.websockets import WebSocket, WebSocketError, WsCloseCode
 
 

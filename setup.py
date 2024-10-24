@@ -4,9 +4,12 @@ import os
 import platform
 import re
 import shutil
+import sys
 from collections import defaultdict
 
 from Cython.Build import cythonize
+from Cython.Compiler.Version import version as cython_version
+from packaging.version import Version
 from setuptools import Extension, find_packages, setup
 from setuptools.command.build_ext import build_ext
 
@@ -62,6 +65,18 @@ else:
     #     "./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu/libcurl-impersonate-chrome.so.4.8.0"
     # ]
 
+if (
+    sys.version_info > (3, 13, 0)
+    and hasattr(sys, "_is_gil_enabled")
+    and not sys._is_gil_enabled()
+):
+    print("build nogil")
+    defined_macros = [
+        ("Py_GIL_DISABLED", "1"),
+    ]  # ("CYTHON_METH_FASTCALL", "1"), ("CYTHON_VECTORCALL",  1)]
+else:
+    defined_macros = []
+
 extensions = [
     Extension(
         "cycurl._curl",
@@ -75,6 +90,7 @@ extensions = [
         extra_compile_args=(
             ["-Wno-implicit-function-declaration"] if uname.system == "Darwin" else []
         ),
+        define_macros=defined_macros,
     ),
 ]
 
@@ -96,6 +112,17 @@ def get_version() -> str:
 
 packages = ["cycurl"]
 
+compiler_directives = {
+    "cdivision": True,
+    "embedsignature": True,
+    "boundscheck": False,
+    "wraparound": False,
+}
+
+
+if Version(cython_version) >= Version("3.1.0a0"):
+    compiler_directives["freethreading_compatible"] = True
+
 
 def main():
     version: str = get_version()
@@ -113,6 +140,7 @@ def main():
         author_email="diguohuangjiajinweijun@gmail.com",
         python_requires=">=3.6",
         setup_requires=["cython>=3.0.10"],
+        install_requires=["certifi>=2024.2.2"],
         license="BSD",
         classifiers=[
             "Development Status :: 4 - Beta",
@@ -128,6 +156,7 @@ def main():
             "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",
             "Programming Language :: Python :: 3.12",
+            "Programming Language :: Python :: 3.13",
             "Programming Language :: Python :: Implementation :: CPython",
         ],
         include_package_data=True,
@@ -135,12 +164,7 @@ def main():
         cmdclass={"build_ext": build_ext_compiler_check},
         ext_modules=cythonize(
             extensions,
-            compiler_directives={
-                "cdivision": True,
-                "embedsignature": True,
-                "boundscheck": False,
-                "wraparound": False,
-            },
+            compiler_directives=compiler_directives,
         ),
     )
 

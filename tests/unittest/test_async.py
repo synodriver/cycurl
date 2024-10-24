@@ -28,5 +28,4 @@ async def test_socket_action(server):
     # assert running == 1
 
 
-async def test_process_data(server):
-    ...
+async def test_process_data(server): ...

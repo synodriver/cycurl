@@ -1,4 +1,5 @@
 import asyncio
+import select
 import struct
 from enum import IntEnum
 from typing import Callable, Optional, Tuple
@@ -63,14 +64,20 @@ class WebSocket:
         """
         chunks = []
         flags = 0
-        # TODO use select here
+        sock_fd = self.curl.getinfo(m.CURLINFO_ACTIVESOCKET)
+        if sock_fd == m.CURL_SOCKET_BAD:
+            raise WebSocketError(
+                "Invalid active socket", m.CURLE_NO_CONNECTION_AVAILABLE
+            )
         while True:
             try:
-                chunk, frame = self.curl.ws_recv()
-                flags = frame.flags
-                chunks.append(chunk)
-                if frame.bytesleft == 0 and flags & m.CURLWS_CONT == 0:
-                    break
+                rlist, _, _ = select.select([sock_fd], [], [], 5.0)
+                if rlist:
+                    chunk, frame = self.curl.ws_recv()
+                    flags = frame.flags
+                    chunks.append(chunk)
+                    if frame.bytesleft == 0 and flags & m.CURLWS_CONT == 0:
+                        break
             except m.CurlError as e:
                 if e.code == m.CURLE_AGAIN:
                     pass

@@ -3,5 +3,6 @@
 __all__ = ["CurlError", "RequestsError", "CookieConflict", "SessionClosed"]
 
 from .. import CurlError
-from .exceptions import CookieConflict, SessionClosed
+from .exceptions import CookieConflict
 from .exceptions import RequestException as RequestsError
+from .exceptions import SessionClosed

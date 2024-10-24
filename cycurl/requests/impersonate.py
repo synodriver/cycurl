@@ -5,6 +5,7 @@ from typing import List, Literal, Optional, TypedDict
 
 # from ..const import CurlSslVersion, CurlOpt
 from cycurl import _curl as m
+
 # from ..const import CurlOpt, CurlSslVersion
 
 BrowserTypeLiteral = Literal[

@@ -7,8 +7,7 @@ from cpython.bytes cimport PyBytes_GET_SIZE
 from cpython.float cimport PyFloat_FromDouble
 from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
-from cpython.pycapsule cimport (PyCapsule_CheckExact, PyCapsule_GetPointer,
-                                PyCapsule_New)
+from cpython.pycapsule cimport PyCapsule_CheckExact, PyCapsule_GetPointer, PyCapsule_New
 from libc.stdint cimport int64_t, uint8_t
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
 
@@ -402,7 +401,7 @@ cdef class Curl:
             if charret == NULL:
                 return b""
             return <bytes>charret
-        elif ret_type == 0x200000:
+        elif ret_type == 0x200000 or ret_type == 0x500000:
             ret = curl.curl_easy_getinfo(self._curl, option, &longret)
             self._check_error(ret, f"getinfo {option}")
             return PyLong_FromLong(longret)

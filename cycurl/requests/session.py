@@ -23,14 +23,27 @@ from typing import (
     Union,
     cast,
 )
-from urllib.parse import ParseResult, parse_qsl, quote, unquote, urlencode, urljoin, urlparse
+from urllib.parse import (
+    ParseResult,
+    parse_qsl,
+    quote,
+    unquote,
+    urlencode,
+    urljoin,
+    urlparse,
+)
 
 from typing_extensions import Unpack
 
 import cycurl._curl as m
 from cycurl._curl import CURL_WRITEFUNC_ERROR, AsyncCurl, Curl, CurlError, CurlMime
 from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
-from cycurl.requests.exceptions import ImpersonateError, RequestException, SessionClosed, code2error
+from cycurl.requests.exceptions import (
+    ImpersonateError,
+    RequestException,
+    SessionClosed,
+    code2error,
+)
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.impersonate import (
     TLS_CIPHER_NAME_MAP,
@@ -44,7 +57,13 @@ from cycurl.requests.impersonate import (
     toggle_extension,
 )
 from cycurl.requests.models import Request, Response
-from cycurl.requests.websockets import ON_CLOSE_T, ON_ERROR_T, ON_MESSAGE_T, ON_OPEN_T, WebSocket
+from cycurl.requests.websockets import (
+    ON_CLOSE_T,
+    ON_ERROR_T,
+    ON_MESSAGE_T,
+    ON_OPEN_T,
+    WebSocket,
+)
 
 with suppress(ImportError):
     import gevent
@@ -94,7 +113,9 @@ else:
     BaseSessionParams = TypedDict
 
 ThreadType = Literal["eventlet", "gevent"]
-HttpMethod = Literal["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "PATCH", "QUERY"]
+HttpMethod = Literal[
+    "GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "PATCH", "QUERY"
+]
 
 
 def _is_absolute_url(url: str) -> bool:
@@ -109,7 +130,7 @@ SAFE_CHARS = set("!#$%&'()*+,/:;=?@[]~")
 def _quote_path_and_params(url: str, quote_str: str = ""):
     safe = "".join(SAFE_CHARS - set(quote_str))
     parsed_url = urlparse(url)
-    parsed_get_args = parse_qsl(parsed_url.query)
+    parsed_get_args = parse_qsl(parsed_url.query, keep_blank_values=True)
     encoded_get_args = urlencode(parsed_get_args, doseq=True, safe=safe)
     return ParseResult(
         parsed_url.scheme,
@@ -141,7 +162,7 @@ def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
     parsed_url = urlparse(url)
 
     # Extracting URL arguments from parsed URL, NOTE the result is a list, not dict
-    parsed_get_args = parse_qsl(parsed_url.query)
+    parsed_get_args = parse_qsl(parsed_url.query, keep_blank_values=True)
 
     # Merging URL arguments dict with new params
     old_args_counter = Counter(x[0] for x in parsed_get_args)
@@ -155,7 +176,9 @@ def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
             value = dumps(value)
         # 1 to 1 mapping, we have to search and update it.
         if old_args_counter.get(key) == 1 and new_args_counter.get(key) == 1:
-            parsed_get_args = [(x if x[0] != key else (key, value)) for x in parsed_get_args]
+            parsed_get_args = [
+                (x if x[0] != key else (key, value)) for x in parsed_get_args
+            ]
         else:
             parsed_get_args.append((key, value))
 
@@ -177,7 +200,9 @@ def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
 
 
 # TODO: should we move this function to headers.py?
-def _update_header_line(header_lines: List[str], key: str, value: str, replace: bool = False):
+def _update_header_line(
+    header_lines: List[str], key: str, value: str, replace: bool = False
+):
     """Update header line list by key value pair."""
     found = False
     for idx, line in enumerate(header_lines):
@@ -490,11 +515,17 @@ class BaseSession:
 
         # Add content-type if missing
         if json is not None:
-            _update_header_line(header_lines, "Content-Type", "application/json", replace=True)
+            _update_header_line(
+                header_lines, "Content-Type", "application/json", replace=True
+            )
         if isinstance(data, dict) and method != "POST":
-            _update_header_line(header_lines, "Content-Type", "application/x-www-form-urlencoded")
+            _update_header_line(
+                header_lines, "Content-Type", "application/x-www-form-urlencoded"
+            )
         if isinstance(data, (str, bytes)):
-            _update_header_line(header_lines, "Content-Type", "application/octet-stream")
+            _update_header_line(
+                header_lines, "Content-Type", "application/octet-stream"
+            )
 
         # Never send `Expect` header.
         _update_header_line(header_lines, "Expect", "", replace=True)
@@ -673,7 +704,9 @@ class BaseSession:
         ja3 = ja3 or self.ja3
         if ja3:
             if impersonate:
-                warnings.warn("JA3 was altered after browser version was set.", stacklevel=1)
+                warnings.warn(
+                    "JA3 was altered after browser version was set.", stacklevel=1
+                )
             permute = False
             if (
                 isinstance(extra_fp, ExtraFingerprints)
@@ -688,7 +721,9 @@ class BaseSession:
         akamai = akamai or self.akamai
         if akamai:
             if impersonate:
-                warnings.warn("Akamai was altered after browser version was set.", stacklevel=1)
+                warnings.warn(
+                    "Akamai was altered after browser version was set.", stacklevel=1
+                )
             self._set_akamai_options(c, akamai)
 
         # extra_fp options
@@ -1046,7 +1081,9 @@ class Session(BaseSession):
                         c, buffer, header_buffer, default_encoding
                     )
                     rsp.request = req
-                    cast(queue.Queue, q).put_nowait(RequestException(str(e), e.code, rsp))
+                    cast(queue.Queue, q).put_nowait(
+                        RequestException(str(e), e.code, rsp)
+                    )
                 finally:
                     if not cast(threading.Event, header_recved).is_set():
                         cast(threading.Event, header_recved).set()
@@ -1338,7 +1375,9 @@ class AsyncSession(BaseSession):
                         curl, buffer, header_buffer, default_encoding
                     )
                     rsp.request = req
-                    cast(asyncio.Queue, q).put_nowait(RequestException(str(e), e.code, rsp))
+                    cast(asyncio.Queue, q).put_nowait(
+                        RequestException(str(e), e.code, rsp)
+                    )
                 finally:
                     if not cast(asyncio.Event, header_recved).is_set():
                         cast(asyncio.Event, header_recved).set()

@@ -6,6 +6,7 @@ We do not support requests.post(url, files=...), for 2 reasons.
 
 You use the multipart instead, it's very simple and straightforward.
 """
+
 from cycurl import CurlMime, requests
 
 mp = CurlMime()
