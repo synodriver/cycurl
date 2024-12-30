@@ -17,8 +17,11 @@ __all__ = [
     "Headers",
     "Request",
     "Response",
+    "AsyncWebSocket",
     "WebSocket",
     "WebSocketError",
+    "WebSocketClosed",
+    "WebSocketTimeout",
     "WsCloseCode",
     "ExtraFingerprints",
     "CookieTypes",
@@ -48,7 +51,14 @@ from cycurl.requests.session import (
     Session,
     ThreadType,
 )
-from cycurl.requests.websockets import WebSocket, WebSocketError, WsCloseCode
+from cycurl.requests.websockets import (
+    AsyncWebSocket,
+    WebSocket,
+    WebSocketClosed,
+    WebSocketError,
+    WebSocketTimeout,
+    WsCloseCode,
+)
 
 
 def request(

@@ -13,7 +13,8 @@ from http.cookies import _unquote
 from typing import Dict, Iterator, List, MutableMapping, Optional, Tuple, Union
 from urllib.parse import urlparse
 
-from .errors import CookieConflict, RequestsError
+from cycurl._curl import CurlWarning
+from cycurl.requests.errors import CookieConflict, RequestsError
 
 CookieTypes = Union["Cookies", CookieJar, Dict[str, str], List[Tuple[str, str]]]
 
@@ -195,6 +196,7 @@ class Cookies(MutableMapping[str, str]):
         if name.startswith("__Secure-") and secure is False:
             warnings.warn(
                 "`secure` changed to True for `__Secure-` prefixed cookies",
+                CurlWarning,
                 stacklevel=2,
             )
             secure = True
@@ -202,6 +204,7 @@ class Cookies(MutableMapping[str, str]):
             warnings.warn(
                 "`host` changed to True, `domain` removed, `path` changed to `/` "
                 "for `__Host-` prefixed cookies",
+                CurlWarning,
                 stacklevel=2,
             )
             secure = True

@@ -24,7 +24,9 @@ BrowserTypeLiteral = Literal[
     "chrome120",
     "chrome123",
     "chrome124",
+    "chrome131",
     "chrome99_android",
+    "chrome131_android",
     # Safari
     "safari15_3",
     "safari15_5",
@@ -50,19 +52,19 @@ BrowserTypeLiteral = Literal[
 ]
 
 
-DEFAULT_CHROME = "chrome124"
+DEFAULT_CHROME = "chrome131"
 DEFAULT_EDGE = "edge101"
 DEFAULT_SAFARI = "safari18_0"
 DEFAULT_SAFARI_IOS = "safari18_0_ios"
-DEFAULT_CHROME_ANDROID = "chrome99_android"
+DEFAULT_CHROME_ANDROID = "chrome131_android"
 
 
 REAL_TARGET_MAP = {
-    "chrome": "chrome124",
+    "chrome": "chrome131",
     "edge": "edge101",
     "safari": "safari17_0",
     "safari_ios": "safari17_2_ios",
-    "chrome_android": "chrome99_android",
+    "chrome_android": "chrome131_android",
 }
 
 
@@ -95,7 +97,9 @@ class BrowserType(str, Enum):  # todo: remove in version 1.x
     chrome120 = "chrome120"
     chrome123 = "chrome123"
     chrome124 = "chrome124"
+    chrome131 = "chrome131"
     chrome99_android = "chrome99_android"
+    chrome131_android = "chrome131_android"
     safari15_3 = "safari15_3"
     safari15_5 = "safari15_5"
     safari17_0 = "safari17_0"
@@ -288,6 +292,7 @@ TLS_EC_CURVES_MAP = {
     24: "P-384",
     25: "P-521",
     29: "X25519",
+    4588: "X25519MLKEM768",
     25497: "X25519Kyber768Draft00",
 }
 
@@ -305,6 +310,7 @@ def toggle_extension(curl, extension_id: int, enable: bool):
             warnings.warn(
                 "Cert compression setting to brotli, "
                 "you had better specify which to use: zlib/brotli",
+                m.CurlWarning,
                 stacklevel=1,
             )
             curl.setopt(m.CURLOPT_SSL_CERT_COMPRESSION, "brotli")

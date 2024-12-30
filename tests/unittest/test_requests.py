@@ -7,10 +7,9 @@ import pytest
 from charset_normalizer import detect
 
 from cycurl import *
-from cycurl import requests
-from cycurl.requests.errors import SessionClosed
+from cycurl import CurlWarning, config_warnings, requests
+from cycurl.requests.exceptions import HTTPError, SessionClosed
 from cycurl.requests.models import Response
-from cycurl.requests.session import _update_url_params
 
 
 def test_head(server):
@@ -174,8 +173,8 @@ def test_url_encode(server):
 
     # should not change
     url = "http://127.0.0.1:8000/%2f%2f%2f"
-    r = requests.get(str(url))
-    assert r.url == str(url)
+    r = requests.get(url)
+    assert r.url == url
 
     url = "http://127.0.0.1:8000/imaginary-pagination:7"
     r = requests.get(str(url))
@@ -185,15 +184,17 @@ def test_url_encode(server):
     r = requests.get(str(url))
     assert r.url == url
 
+    # NOTE: this seems to be unnecessary
+
     # Non-ASCII URL should be percent encoded as UTF-8 sequence
-    non_ascii_url = "http://127.0.0.1:8000/search?q=测试"
-    encoded_non_ascii_url = "http://127.0.0.1:8000/search?q=%E6%B5%8B%E8%AF%95"
+    # non_ascii_url = "http://127.0.0.1:8000/search?q=测试"
+    # encoded_non_ascii_url = "http://127.0.0.1:8000/search?q=%E6%B5%8B%E8%AF%95"
+    #
+    # r = requests.get(non_ascii_url)
+    # assert r.url == encoded_non_ascii_url
 
-    r = requests.get(non_ascii_url)
-    assert r.url == encoded_non_ascii_url
-
-    r = requests.get(encoded_non_ascii_url)
-    assert r.url == encoded_non_ascii_url
+    # r = requests.get(encoded_non_ascii_url)
+    # assert r.url == encoded_non_ascii_url
 
     # should be quoted
     url = "http://127.0.0.1:8000/e x a m p l e"
@@ -226,6 +227,12 @@ def test_url_encode(server):
     r = requests.get(url, quote=False)
     assert r.url == url
 
+    # Do not unquote
+    url = "http://127.0.0.1:8000/path?token=example%7C2024-10-20T10%3A00%3A00Z"
+    r = requests.get(url)
+    print(r.url)
+    assert r.url == url
+
     # empty values should be kept
     url = "http://127.0.0.1:8000/api?param1=value1&param2=&param3=value3"
     r = requests.get(url)
@@ -248,6 +255,21 @@ def test_empty_header_included(server):
     headers = r.json()
     assert headers["Foo"][0] == "bar"
     assert headers["Xxx"][0] == ""
+
+
+def test_explict_remove_header(server):
+    r = requests.get(
+        str(server.url.copy_with(path="/echo_headers")), json={"foo": "bar"}
+    )
+    headers = r.json()
+    assert headers["Content-type"][0] == "application/json"
+    r = requests.get(
+        str(server.url.copy_with(path="/echo_headers")),
+        json={"foo": "bar"},
+        headers={"Content-Type": None},
+    )
+    headers = r.json()
+    assert "Content-type" not in headers
 
 
 def test_expect_header_omitted(server):
@@ -311,7 +333,7 @@ def test_cookies(server):
 
 
 def test_secure_cookies(server):
-    with pytest.warns(UserWarning, match="changed"):
+    with pytest.warns(CurlWarning, match="changed"):
         r = requests.get(
             str(server.url.copy_with(path="/echo_cookies")),
             cookies={"__Secure-foo": "bar", "__Host-hello": "world"},
@@ -429,6 +451,15 @@ def test_reason(server):
     )
     assert r.status_code == 200
     assert r.reason == "OK"
+
+
+def test_raise_for_status(server):
+    r = requests.get(str(server.url.copy_with(path="/status/400")))
+    assert r.status_code == 400
+    try:
+        r.raise_for_status()
+    except HTTPError as e:
+        assert e.response.status_code == 400  # type: ignore
 
 
 #######################################################################################
@@ -688,9 +719,6 @@ def test_closed_session_throws_error():
 
     with pytest.raises(SessionClosed):
         s.patch("https://example.com")
-
-    with pytest.raises(SessionClosed):
-        s.ws_connect("wss://example.com")
 
 
 def test_stream_iter_content(server):

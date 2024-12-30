@@ -8,6 +8,7 @@ from weakref import WeakKeyDictionary, WeakSet
 from ._wrapper import ffi, lib
 from .const import CurlMOpt
 from .curl import DEFAULT_CACERT, Curl
+from .utils import CurlWarning
 
 __all__ = ["AsyncCurl"]
 
@@ -38,7 +39,7 @@ if sys.platform == "win32":
         ):
             return asyncio_loop
 
-        warnings.warn(PROACTOR_WARNING, RuntimeWarning, stacklevel=2)
+        warnings.warn(PROACTOR_WARNING, CurlWarning, stacklevel=2)
 
         from ._asyncio_selector import AddThreadSelectorEventLoop
 
@@ -208,7 +209,9 @@ class AsyncCurl:
         """Call curl_multi_info_read to read data for given socket."""
         if not self._curlm:
             warnings.warn(
-                "Curlm alread closed! quitting from process_data", stacklevel=2
+                "Curlm alread closed! quitting from process_data",
+                CurlWarning,
+                stacklevel=2,
             )
             return
 

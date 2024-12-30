@@ -1,7 +1,6 @@
 from typing import cast
 
-from curl_cffi import requests
-from curl_cffi.curl import Curl, CurlInfo
+from cycurl import CURLINFO_CONNECT_TIME, CURLINFO_LOCAL_PORT, Curl, requests
 
 
 class CustomResponse(requests.Response):
@@ -9,8 +8,8 @@ class CustomResponse(requests.Response):
         self, curl: Curl | None = None, request: requests.Request | None = None
     ):
         super().__init__(curl, request)
-        self.local_port = cast(int, curl.getinfo(CurlInfo.LOCAL_PORT))
-        self.connect_time = cast(float, curl.getinfo(CurlInfo.CONNECT_TIME))
+        self.local_port = cast(int, curl.getinfo(CURLINFO_LOCAL_PORT))
+        self.connect_time = cast(float, curl.getinfo(CURLINFO_CONNECT_TIME))
 
     @property
     def status(self):

@@ -19,18 +19,14 @@ Only Python 3.8 and above are supported. Python 3.7 has reached its end of life.
 
 ------
 
-<a href="https://scrapfly.io/?utm_source=github&utm_medium=sponsoring&utm_campaign=curl_cffi" target="_blank"><img src="https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/scrapfly.png" alt="Scrapfly.io" width="149"></a>
+<a href="https://nubela.co/proxycurl/?utm_campaign=influencer_marketing&utm_source=github&utm_medium=social&utm_term=-&utm_content=lexiforest-curl_cffi" target="_blank"><img src="https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/proxycurl.png" alt="ProxyCurl" height="63" width="120"></a>
 
-[Scrapfly](https://scrapfly.io/?utm_source=github&utm_medium=sponsoring&utm_campaign=curl_cffi)
-is an enterprise-grade solution providing Web Scraping API that aims to simplify the
-scraping process by managing everything: real browser rendering, rotating proxies, and
-fingerprints (TLS, HTTP, browser) to bypass all major anti-bots. Scrapfly also unlocks the
-observability by providing an analytical dashboard and measuring the success rate/block
-rate in detail.
+Scrape public LinkedIn profile data at scale with [Proxycurl APIs](https://nubela.co/proxycurl/?utm_campaign=influencer_marketing&utm_source=github&utm_medium=social&utm_term=-&utm_content=lexiforest-curl_cffi). Built for developers, by developers.
 
-Scrapfly is a good solution if you are looking for a cloud-managed solution for `curl_cffi`.
-If you are managing TLS/HTTP fingerprint by yourself with `curl_cffi`, they also maintain a
-[curl to python converter](https://scrapfly.io/web-scraping-tools/curl-python/curl_cffi).
+- GDPR, CCPA, SOC2 compliant
+- High rate limit (300 requests/min), Fast (APIs respond in ~2s), High accuracy
+- Fresh data - 88% of data is scraped real-time, other 12% is <29 days
+- Tons of data points returned per profile
 
 ------
 
@@ -165,7 +161,9 @@ to specify your own customized fingerprints. See the [docs on impersonatation](h
 - chrome120 <sup>[1]</sup>
 - chrome123 <sup>[3]</sup>
 - chrome124 <sup>[3]</sup>
+- chrome131 <sup>[4]</sup>
 - chrome99_android
+- chrome131_android <sup>[4]</sup>
 - edge99
 - edge101
 - safari15_3 <sup>[2]</sup>
@@ -213,17 +211,13 @@ async with AsyncSession() as s:
 ### WebSockets
 
 ```python
-from cycurl.requests import Session, WebSocket
+from cycurl.requests import WebSocket
 
-def on_message(ws: WebSocket, message):
+def on_message(ws: WebSocket, message: str | bytes):
     print(message)
 
-with Session() as s:
-    ws = s.ws_connect(
-        "wss://api.gemini.com/v1/marketdata/BTCUSD",
-        on_message=on_message,
-    )
-    ws.run_forever()
+ws = WebSocket(on_message=on_message)
+ws.run_forever("wss://api.gemini.com/v1/marketdata/BTCUSD")
 ```
 
 ### curl-like
@@ -260,12 +254,26 @@ If you are using scrapy, check out these middlewares:
 For low-level APIs, Scrapy integration and other advanced topics, see the
 [docs](https://curl-cffi.readthedocs.io) for more details.
 
+### asyncio WebSockets
+
+```python
+import asyncio
+from curl_cffi.requests import AsyncSession
+
+async with AsyncSession() as s:
+    ws = await s.ws_connect("wss://echo.websocket.org")
+    await asyncio.gather(*[ws.send_str("Hello, World!") for _ in range(10)])
+    async for message in ws:
+        print(message)
+```
+
 ## Acknowledgement
 
 - Originally forked from [multippt/python_curl_cffi](https://github.com/multippt/python_curl_cffi), which is under the MIT license.
 - Headers/Cookies files are copied from [httpx](https://github.com/encode/httpx/blob/master/httpx/_models.py), which is under the BSD license.
 - Asyncio support is inspired by Tornado's curl http client.
-- The WebSocket API is inspired by [websocket_client](https://github.com/websocket-client/websocket-client).
+- The synchronous WebSocket API is inspired by [websocket_client](https://github.com/websocket-client/websocket-client).
+- The asynchronous WebSocket API is inspired by [aiohttp](https://github.com/aio-libs/aiohttp).
 
 
 ## Sponsor

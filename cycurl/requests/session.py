@@ -1,17 +1,15 @@
+from __future__ import annotations
+
 import asyncio
-import math
 import queue
 import threading
 import warnings
-from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager, contextmanager, suppress
 from functools import partialmethod
 from io import BytesIO
-from json import dumps
 from typing import (
     TYPE_CHECKING,
-    Any,
     Callable,
     Dict,
     List,
@@ -23,47 +21,21 @@ from typing import (
     Union,
     cast,
 )
-from urllib.parse import (
-    ParseResult,
-    parse_qsl,
-    quote,
-    unquote,
-    urlencode,
-    urljoin,
-    urlparse,
-)
-
-from typing_extensions import Unpack
+from urllib.parse import urlparse
 
 import cycurl._curl as m
-from cycurl._curl import CURL_WRITEFUNC_ERROR, AsyncCurl, Curl, CurlError, CurlMime
+from cycurl._curl import AsyncCurl, Curl, CurlError, CurlMime, CurlWarning
 from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
-from cycurl.requests.exceptions import (
-    ImpersonateError,
-    RequestException,
-    SessionClosed,
-    code2error,
-)
+from cycurl.requests.exceptions import RequestException, SessionClosed, code2error
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.impersonate import (
-    TLS_CIPHER_NAME_MAP,
-    TLS_EC_CURVES_MAP,
-    TLS_VERSION_MAP,
-    BrowserType,
     BrowserTypeLiteral,
     ExtraFingerprints,
     ExtraFpDict,
-    normalize_browser_type,
-    toggle_extension,
 )
 from cycurl.requests.models import Request, Response
-from cycurl.requests.websockets import (
-    ON_CLOSE_T,
-    ON_ERROR_T,
-    ON_MESSAGE_T,
-    ON_OPEN_T,
-    WebSocket,
-)
+from cycurl.requests.utils import not_set, set_curl_options
+from cycurl.requests.websockets import AsyncWebSocket, WebSocket
 
 with suppress(ImportError):
     import gevent
@@ -72,6 +44,7 @@ with suppress(ImportError):
     import eventlet.tpool
 
 if TYPE_CHECKING:
+    from typing_extensions import Unpack
 
     class ProxySpec(TypedDict, total=False):
         all: str
@@ -102,7 +75,7 @@ if TYPE_CHECKING:
         default_encoding: Union[str, Callable[[bytes], str]]
         curl_options: Optional[dict]
         curl_infos: Optional[list]
-        http_version: Optional[CurlHttpVersion]
+        http_version: Optional[int]
         debug: bool
         interface: Optional[str]
         cert: Optional[Union[str, Tuple[str, str]]]
@@ -124,97 +97,97 @@ def _is_absolute_url(url: str) -> bool:
     return bool(parsed_url.scheme and parsed_url.hostname)
 
 
-SAFE_CHARS = set("!#$%&'()*+,/:;=?@[]~")
-
-
-def _quote_path_and_params(url: str, quote_str: str = ""):
-    safe = "".join(SAFE_CHARS - set(quote_str))
-    parsed_url = urlparse(url)
-    parsed_get_args = parse_qsl(parsed_url.query, keep_blank_values=True)
-    encoded_get_args = urlencode(parsed_get_args, doseq=True, safe=safe)
-    return ParseResult(
-        parsed_url.scheme,
-        parsed_url.netloc,
-        quote(parsed_url.path, safe=safe),
-        parsed_url.params,
-        encoded_get_args,
-        parsed_url.fragment,
-    ).geturl()
-
-
-def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
-    """Add URL query params to provided URL being aware of existing.
-
-    Parameters:
-        url: string of target URL
-        params: dict containing requested params to be added
-
-    Returns:
-        string with updated URL
-
-    >> url = 'http://stackoverflow.com/test?answers=true'
-    >> new_params = {'answers': False, 'data': ['some','values']}
-    >> _update_url_params(url, new_params)
-    'http://stackoverflow.com/test?data=some&data=values&answers=false'
-    """
-    # Unquoting and parse
-    url = unquote(url)
-    parsed_url = urlparse(url)
-
-    # Extracting URL arguments from parsed URL, NOTE the result is a list, not dict
-    parsed_get_args = parse_qsl(parsed_url.query, keep_blank_values=True)
-
-    # Merging URL arguments dict with new params
-    old_args_counter = Counter(x[0] for x in parsed_get_args)
-    if isinstance(params, dict):
-        params = list(params.items())
-    new_args_counter = Counter(x[0] for x in params)
-    for key, value in params:
-        # Bool and Dict values should be converted to json-friendly values
-        # you may throw this part away if you don't like it :)
-        if isinstance(value, (bool, dict)):
-            value = dumps(value)
-        # 1 to 1 mapping, we have to search and update it.
-        if old_args_counter.get(key) == 1 and new_args_counter.get(key) == 1:
-            parsed_get_args = [
-                (x if x[0] != key else (key, value)) for x in parsed_get_args
-            ]
-        else:
-            parsed_get_args.append((key, value))
-
-    # Converting URL argument to proper query string
-    encoded_get_args = urlencode(parsed_get_args, doseq=True)
-
-    # Creating new parsed result object based on provided with new
-    # URL arguments. Same thing happens inside of urlparse.
-    new_url = ParseResult(
-        parsed_url.scheme,
-        parsed_url.netloc,
-        parsed_url.path,
-        parsed_url.params,
-        encoded_get_args,
-        parsed_url.fragment,
-    ).geturl()
-
-    return new_url
-
-
-# TODO: should we move this function to headers.py?
-def _update_header_line(
-    header_lines: List[str], key: str, value: str, replace: bool = False
-):
-    """Update header line list by key value pair."""
-    found = False
-    for idx, line in enumerate(header_lines):
-        if line.lower().startswith(key.lower() + ":"):
-            found = True
-            if replace:
-                header_lines[idx] = f"{key}: {value}"
-            break
-    if not found:
-        header_lines.append(f"{key}: {value}")
-
-
+# SAFE_CHARS = set("!#$%&'()*+,/:;=?@[]~")
+#
+#
+# def _quote_path_and_params(url: str, quote_str: str = ""):
+#     safe = "".join(SAFE_CHARS - set(quote_str))
+#     parsed_url = urlparse(url)
+#     parsed_get_args = parse_qsl(parsed_url.query, keep_blank_values=True)
+#     encoded_get_args = urlencode(parsed_get_args, doseq=True, safe=safe)
+#     return ParseResult(
+#         parsed_url.scheme,
+#         parsed_url.netloc,
+#         quote(parsed_url.path, safe=safe),
+#         parsed_url.params,
+#         encoded_get_args,
+#         parsed_url.fragment,
+#     ).geturl()
+#
+#
+# def _update_url_params(url: str, params: Union[Dict, List, Tuple]) -> str:
+#     """Add URL query params to provided URL being aware of existing.
+#
+#     Parameters:
+#         url: string of target URL
+#         params: dict containing requested params to be added
+#
+#     Returns:
+#         string with updated URL
+#
+#     >> url = 'http://stackoverflow.com/test?answers=true'
+#     >> new_params = {'answers': False, 'data': ['some','values']}
+#     >> _update_url_params(url, new_params)
+#     'http://stackoverflow.com/test?data=some&data=values&answers=false'
+#     """
+#     # Unquoting and parse
+#     url = unquote(url)
+#     parsed_url = urlparse(url)
+#
+#     # Extracting URL arguments from parsed URL, NOTE the result is a list, not dict
+#     parsed_get_args = parse_qsl(parsed_url.query, keep_blank_values=True)
+#
+#     # Merging URL arguments dict with new params
+#     old_args_counter = Counter(x[0] for x in parsed_get_args)
+#     if isinstance(params, dict):
+#         params = list(params.items())
+#     new_args_counter = Counter(x[0] for x in params)
+#     for key, value in params:
+#         # Bool and Dict values should be converted to json-friendly values
+#         # you may throw this part away if you don't like it :)
+#         if isinstance(value, (bool, dict)):
+#             value = dumps(value)
+#         # 1 to 1 mapping, we have to search and update it.
+#         if old_args_counter.get(key) == 1 and new_args_counter.get(key) == 1:
+#             parsed_get_args = [
+#                 (x if x[0] != key else (key, value)) for x in parsed_get_args
+#             ]
+#         else:
+#             parsed_get_args.append((key, value))
+#
+#     # Converting URL argument to proper query string
+#     encoded_get_args = urlencode(parsed_get_args, doseq=True)
+#
+#     # Creating new parsed result object based on provided with new
+#     # URL arguments. Same thing happens inside of urlparse.
+#     new_url = ParseResult(
+#         parsed_url.scheme,
+#         parsed_url.netloc,
+#         parsed_url.path,
+#         parsed_url.params,
+#         encoded_get_args,
+#         parsed_url.fragment,
+#     ).geturl()
+#
+#     return new_url
+#
+#
+# # TODO: should we move this function to headers.py?
+# def _update_header_line(
+#     header_lines: List[str], key: str, value: str, replace: bool = False
+# ):
+#     """Update header line list by key value pair."""
+#     found = False
+#     for idx, line in enumerate(header_lines):
+#         if line.lower().startswith(key.lower() + ":"):
+#             found = True
+#             if replace:
+#                 header_lines[idx] = f"{key}: {value}"
+#             break
+#     if not found:
+#         header_lines.append(f"{key}: {value}")
+#
+#
 def _peek_queue(q: queue.Queue, default=None):
     try:
         return q.queue[0]
@@ -227,9 +200,6 @@ def _peek_aio_queue(q: asyncio.Queue, default=None):
         return q._queue[0]  # type: ignore
     except IndexError:
         return default
-
-
-not_set = object()
 
 
 class BaseSession:
@@ -266,7 +236,7 @@ class BaseSession:
         response_class: Optional[Type[Response]] = None,
     ):
         self.headers = Headers(headers)
-        self.cookies = Cookies(cookies)
+        self._cookies = Cookies(cookies)  # guarded by @property
         self.auth = auth
         self.base_url = base_url
         self.params = params
@@ -309,481 +279,481 @@ class BaseSession:
 
         self._closed = False
 
-    def _toggle_extensions_by_ids(self, curl, extension_ids):
-        # TODO find a better representation, rather than magic numbers
-        default_enabled = {0, 51, 13, 43, 65281, 23, 10, 45, 35, 11, 16}
-
-        to_enable_ids = extension_ids - default_enabled
-        for ext_id in to_enable_ids:
-            toggle_extension(curl, ext_id, enable=True)
-
-        # print("to_enable: ", to_enable_ids)
-
-        to_disable_ids = default_enabled - extension_ids
-        for ext_id in to_disable_ids:
-            toggle_extension(curl, ext_id, enable=False)
-
-        # print("to_disable: ", to_disable_ids)
-
-    def _set_ja3_options(self, curl, ja3: str, permute: bool = False):
-        """
-        Detailed explanation: https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967/
-        """
-        tls_version, ciphers, extensions, curves, curve_formats = ja3.split(",")
-
-        curl_tls_version = TLS_VERSION_MAP[int(tls_version)]
-        curl.setopt(
-            m.CURLOPT_SSLVERSION, curl_tls_version | m.CURL_SSLVERSION_MAX_DEFAULT
-        )
-        assert (
-            curl_tls_version == m.CURL_SSLVERSION_TLSv1_2
-        ), "Only TLS v1.2 works for now."
-
-        cipher_names = []
-        for cipher in ciphers.split("-"):
-            cipher_id = int(cipher)
-            cipher_name = TLS_CIPHER_NAME_MAP[cipher_id]
-            cipher_names.append(cipher_name)
-
-        curl.setopt(m.CURLOPT_SSL_CIPHER_LIST, ":".join(cipher_names))
-
-        if extensions.endswith("-21"):
-            extensions = extensions[:-3]
-            warnings.warn(
-                "Padding(21) extension found in ja3 string, whether to add it should "
-                "be managed by the SSL engine. The TLS client hello packet may contain "
-                "or not contain this extension, any of which should be correct.",
-                stacklevel=1,
-            )
-        extension_ids = set(int(e) for e in extensions.split("-"))
-        self._toggle_extensions_by_ids(curl, extension_ids)
-
-        if not permute:
-            curl.setopt(m.CURLOPT_TLS_EXTENSION_ORDER, extensions)
-
-        curve_names = []
-        for curve in curves.split("-"):
-            curve_id = int(curve)
-            curve_name = TLS_EC_CURVES_MAP[curve_id]
-            curve_names.append(curve_name)
-
-        curl.setopt(m.CURLOPT_SSL_EC_CURVES, ":".join(curve_names))
-
-        assert int(curve_formats) == 0, "Only curve_formats == 0 is supported."
-
-    def _set_akamai_options(self, curl, akamai: str):
-        """
-        Detailed explanation: https://www.blackhat.com/docs/eu-17/materials/eu-17-Shuster-Passive-Fingerprinting-Of-HTTP2-Clients-wp.pdf
-        """
-        settings, window_update, streams, header_order = akamai.split("|")
-
-        # For compatiblity with tls.peet.ws
-        settings = settings.replace(",", ";")
-
-        curl.setopt(m.CURLOPT_HTTP_VERSION, m.CURL_HTTP_VERSION_2_0)
-
-        curl.setopt(m.CURLOPT_HTTP2_SETTINGS, settings)
-        curl.setopt(m.CURLOPT_HTTP2_WINDOW_UPDATE, int(window_update))
-
-        if streams != "0":
-            curl.setopt(m.CURLOPT_HTTP2_STREAMS, streams)
-
-        # m,a,s,p -> masp
-        # curl-impersonate only accepts masp format, without commas.
-        curl.setopt(m.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER, header_order.replace(",", ""))
-
-    def _set_extra_fp(self, curl, fp: ExtraFingerprints):
-        if fp.tls_signature_algorithms:
-            curl.setopt(
-                m.CURLOPT_SSL_SIG_HASH_ALGS, ",".join(fp.tls_signature_algorithms)
-            )
-
-        curl.setopt(
-            m.CURLOPT_SSLVERSION, fp.tls_min_version | m.CURL_SSLVERSION_MAX_DEFAULT
-        )
-        curl.setopt(m.CURLOPT_TLS_GREASE, int(fp.tls_grease))
-        curl.setopt(m.CURLOPT_SSL_PERMUTE_EXTENSIONS, int(fp.tls_permute_extensions))
-        curl.setopt(m.CURLOPT_SSL_CERT_COMPRESSION, fp.tls_cert_compression)
-        curl.setopt(m.CURLOPT_STREAM_WEIGHT, fp.http2_stream_weight)
-        curl.setopt(m.CURLOPT_STREAM_EXCLUSIVE, fp.http2_stream_exclusive)
-
-    def _set_curl_options(
-        self,
-        curl,
-        method: HttpMethod,
-        url: str,
-        params: Optional[Union[Dict, List, Tuple]] = None,
-        data: Optional[Union[Dict[str, str], List[Tuple], str, BytesIO, bytes]] = None,
-        json: Optional[dict] = None,
-        headers: Optional[HeaderTypes] = None,
-        cookies: Optional[CookieTypes] = None,
-        files: Optional[Dict] = None,
-        auth: Optional[Tuple[str, str]] = None,
-        timeout: Optional[Union[float, Tuple[float, float], object]] = not_set,
-        allow_redirects: Optional[bool] = None,
-        max_redirects: Optional[int] = None,
-        proxies: Optional[ProxySpec] = None,
-        proxy: Optional[str] = None,
-        proxy_auth: Optional[Tuple[str, str]] = None,
-        verify: Optional[Union[bool, str]] = None,
-        referer: Optional[str] = None,
-        accept_encoding: Optional[str] = "gzip, deflate, br, zstd",
-        content_callback: Optional[Callable] = None,
-        impersonate: Optional[BrowserTypeLiteral] = None,
-        ja3: Optional[str] = None,
-        akamai: Optional[str] = None,
-        extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
-        default_headers: Optional[bool] = None,
-        quote: Union[str, Literal[False]] = "",
-        http_version: Optional[int] = None,
-        interface: Optional[str] = None,
-        cert: Optional[Union[str, Tuple[str, str]]] = None,
-        stream: bool = False,
-        max_recv_speed: int = 0,
-        multipart: Optional[CurlMime] = None,
-        queue_class: Any = None,
-        event_class: Any = None,
-    ):
-        c = curl
-
-        method = method.upper()  # type: ignore
-
-        # method
-        if method == "POST":
-            c.setopt(m.CURLOPT_POST, 1)
-        elif method != "GET":
-            c.setopt(m.CURLOPT_CUSTOMREQUEST, method.encode())
-        if method == "HEAD":
-            c.setopt(m.CURLOPT_NOBODY, 1)
-
-        # url
-        if self.params:
-            url = _update_url_params(url, self.params)
-        if params:
-            url = _update_url_params(url, params)
-        if self.base_url:
-            url = urljoin(self.base_url, url)
-        if quote is not False:
-            url = _quote_path_and_params(url, quote_str=quote)
-        c.setopt(m.CURLOPT_URL, url.encode())
-
-        # data/body/json
-        if isinstance(data, (dict, list, tuple)):
-            body = urlencode(data).encode()
-        elif isinstance(data, str):
-            body = data.encode()
-        elif isinstance(data, BytesIO):
-            body = data.read()
-        elif isinstance(data, bytes):
-            body = data
-        elif data is None:
-            body = b""
-        else:
-            raise TypeError("data must be dict/list/tuple, str, BytesIO or bytes")
-        if json is not None:
-            body = dumps(json, separators=(",", ":")).encode()
-
-        # Tell libcurl to be aware of bodies and related headers when,
-        # 1. POST/PUT/PATCH, even if the body is empty, it's up to curl to decide what to do;
-        # 2. GET/DELETE with body, although it's against the RFC, some applications.
-        #   e.g. Elasticsearch, use this.
-        if body or method in ("POST", "PUT", "PATCH"):
-            c.setopt(m.CURLOPT_POSTFIELDS, body)
-            # necessary if body contains '\0'
-            c.setopt(m.CURLOPT_POSTFIELDSIZE, len(body))
-            if method == "GET":
-                c.setopt(m.CURLOPT_CUSTOMREQUEST, method)
-
-        # headers
-        h = Headers(self.headers)
-        h.update(headers)
-
-        # remove Host header if it's unnecessary, otherwise curl may get confused.
-        # Host header will be automatically added by curl if it's not present.
-        # https://github.com/lexiforest/curl_cffi/issues/119
-        host_header = h.get("Host")
-        if host_header is not None:
-            u = urlparse(url)
-            if host_header == u.netloc or host_header == u.hostname:
-                h.pop("Host", None)
-
-        # Make curl always include empty headers.
-        # See: https://stackoverflow.com/a/32911474/1061155
-        header_lines = []
-        for k, v in h.multi_items():
-            header_lines.append(f"{k}: {v}" if v else f"{k};")
-
-        # Add content-type if missing
-        if json is not None:
-            _update_header_line(
-                header_lines, "Content-Type", "application/json", replace=True
-            )
-        if isinstance(data, dict) and method != "POST":
-            _update_header_line(
-                header_lines, "Content-Type", "application/x-www-form-urlencoded"
-            )
-        if isinstance(data, (str, bytes)):
-            _update_header_line(
-                header_lines, "Content-Type", "application/octet-stream"
-            )
-
-        # Never send `Expect` header.
-        _update_header_line(header_lines, "Expect", "", replace=True)
-
-        c.setopt(m.CURLOPT_HTTPHEADER, [h.encode() for h in header_lines])
-
-        req = Request(url, h, method)
-
-        # cookies
-        c.setopt(
-            m.CURLOPT_COOKIEFILE, b""
-        )  # always enable the curl cookie engine first
-        c.setopt(m.CURLOPT_COOKIELIST, "ALL")  # remove all the old cookies first.
-
-        for morsel in self.cookies.get_cookies_for_curl(req):
-            # print("Setting", morsel.to_curl_format())
-            curl.setopt(m.CURLOPT_COOKIELIST, morsel.to_curl_format())
-        if cookies:
-            temp_cookies = Cookies(cookies)
-            for morsel in temp_cookies.get_cookies_for_curl(req):
-                curl.setopt(m.CURLOPT_COOKIELIST, morsel.to_curl_format())
-
-        # files
-        if files:
-            raise NotImplementedError(
-                "files is not supported, use `multipart`. See examples here: "
-                "https://github.com/lexiforest/curl_cffi/blob/main/examples/upload.py"
-            )
-
-        # multipart
-        if multipart:
-            # multipart will overrides postfields
-            for k, v in cast(dict, data or {}).items():
-                multipart.addpart(name=k, data=v.encode() if isinstance(v, str) else v)
-            c.setopt(m.CURLOPT_MIMEPOST, multipart._form)
-
-        # auth
-        if self.auth or auth:
-            if self.auth:
-                username, password = self.auth
-            if auth:
-                username, password = auth
-            c.setopt(
-                m.CURLOPT_USERNAME, username.encode()
-            )  # pyright: ignore [reportPossiblyUnboundVariable=none]
-            c.setopt(
-                m.CURLOPT_PASSWORD, password.encode()
-            )  # pyright: ignore [reportPossiblyUnboundVariable=none]
-
-        # timeout
-        if timeout is not_set:
-            timeout = self.timeout
-        if timeout is None:
-            timeout = 0  # indefinitely
-
-        if isinstance(timeout, tuple):
-            connect_timeout, read_timeout = timeout
-            all_timeout = connect_timeout + read_timeout
-            c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(connect_timeout * 1000))
-            if not stream:
-                c.setopt(m.CURLOPT_TIMEOUT_MS, int(all_timeout * 1000))
-            else:
-                # trick from: https://github.com/lexiforest/curl_cffi/issues/156
-                c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
-                c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(all_timeout))
-
-        elif isinstance(timeout, (int, float)):
-            if not stream:
-                c.setopt(m.CURLOPT_TIMEOUT_MS, int(timeout * 1000))
-            else:
-                c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(timeout * 1000))
-                c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
-                c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(timeout))
-
-        # allow_redirects
-        c.setopt(
-            m.CURLOPT_FOLLOWLOCATION,
-            int(self.allow_redirects if allow_redirects is None else allow_redirects),
-        )
-
-        # max_redirects
-        c.setopt(
-            m.CURLOPT_MAXREDIRS,
-            self.max_redirects if max_redirects is None else max_redirects,
-        )
-
-        # proxies
-        if proxy and proxies:
-            raise TypeError("Cannot specify both 'proxy' and 'proxies'")
-        if proxy:
-            proxies = {"all": proxy}
-        if proxies is None:
-            proxies = self.proxies
-
-        if proxies:
-            parts = urlparse(url)
-            proxy = cast(Optional[str], proxies.get(parts.scheme, proxies.get("all")))
-            if parts.hostname:
-                proxy = (
-                    cast(
-                        Optional[str],
-                        proxies.get(
-                            f"{parts.scheme}://{parts.hostname}",
-                            proxies.get(f"all://{parts.hostname}"),
-                        ),
-                    )
-                    or proxy
-                )
-
-            if proxy is not None:
-                c.setopt(m.CURLOPT_PROXY, proxy)
-
-                if parts.scheme == "https":
-                    if proxy.startswith("https://"):
-                        warnings.warn(
-                            "Make sure you are using https over https proxy, otherwise, "
-                            "the proxy prefix should be 'http://' not 'https://', "
-                            "see: https://github.com/lexiforest/curl_cffi/issues/6",
-                            RuntimeWarning,
-                            stacklevel=2,
-                        )
-                    # For https site with http tunnel proxy, tell curl to enable tunneling
-                    if not proxy.startswith("socks"):
-                        c.setopt(m.CURLOPT_HTTPPROXYTUNNEL, 1)
-
-                # proxy_auth
-                proxy_auth = proxy_auth or self.proxy_auth
-                if proxy_auth:
-                    username, password = proxy_auth
-                    c.setopt(m.CURLOPT_PROXYUSERNAME, username.encode())
-                    c.setopt(m.CURLOPT_PROXYPASSWORD, password.encode())
-
-        # verify
-        if verify is False or not self.verify and verify is None:
-            c.setopt(m.CURLOPT_SSL_VERIFYPEER, 0)
-            c.setopt(m.CURLOPT_SSL_VERIFYHOST, 0)
-
-        # cert for this single request
-        if isinstance(verify, str):
-            c.setopt(m.CURLOPT_CAINFO, verify)
-
-        # cert for the session
-        if verify in (None, True) and isinstance(self.verify, str):
-            c.setopt(m.CURLOPT_CAINFO, self.verify)
-
-        # referer
-        if referer:
-            c.setopt(m.CURLOPT_REFERER, referer.encode())
-
-        # accept_encoding
-        if accept_encoding is not None:
-            c.setopt(m.CURLOPT_ACCEPT_ENCODING, accept_encoding.encode())
-
-        # cert
-        cert = cert or self.cert
-        if cert:
-            if isinstance(cert, str):
-                c.setopt(m.CURLOPT_SSLCERT, cert)
-            else:
-                cert, key = cert
-                c.setopt(m.CURLOPT_SSLCERT, cert)
-                c.setopt(m.CURLOPT_SSLKEY, key)
-
-        # impersonate
-        impersonate = impersonate or self.impersonate
-        default_headers = (
-            self.default_headers if default_headers is None else default_headers
-        )
-        if impersonate:
-            impersonate = normalize_browser_type(impersonate)
-            ret = c.impersonate(impersonate, default_headers=default_headers)
-            if ret != 0:
-                raise ImpersonateError(f"Impersonating {impersonate} is not supported")
-
-        # ja3 string
-        ja3 = ja3 or self.ja3
-        if ja3:
-            if impersonate:
-                warnings.warn(
-                    "JA3 was altered after browser version was set.", stacklevel=1
-                )
-            permute = False
-            if (
-                isinstance(extra_fp, ExtraFingerprints)
-                and extra_fp.tls_permute_extensions
-            ):
-                permute = True
-            if isinstance(extra_fp, dict) and extra_fp.get("tls_permute_extensions"):
-                permute = True
-            self._set_ja3_options(c, ja3, permute=permute)
-
-        # akamai string
-        akamai = akamai or self.akamai
-        if akamai:
-            if impersonate:
-                warnings.warn(
-                    "Akamai was altered after browser version was set.", stacklevel=1
-                )
-            self._set_akamai_options(c, akamai)
-
-        # extra_fp options
-        extra_fp = extra_fp or self.extra_fp
-        if extra_fp:
-            if isinstance(extra_fp, dict):
-                extra_fp = ExtraFingerprints(**extra_fp)
-            if impersonate:
-                warnings.warn(
-                    "Extra fingerprints was altered after browser version was set.",
-                    stacklevel=1,
-                )
-            self._set_extra_fp(c, extra_fp)
-
-        # http_version, after impersonate, which will change this to http2
-        http_version = http_version or self.http_version
-        if http_version:
-            c.setopt(m.CURLOPT_HTTP_VERSION, http_version)
-
-        # set extra curl options, must come after impersonate, because it will alter some options
-        for k, v in self.curl_options.items():
-            c.setopt(k, v)
-
-        buffer = None
-        q = None
-        header_recved = None
-        quit_now = None
-        if stream:
-            q = queue_class()
-            header_recved = event_class()
-            quit_now = event_class()
-
-            def qput(chunk):
-                if not header_recved.is_set():
-                    header_recved.set()
-                if quit_now.is_set():
-                    return CURL_WRITEFUNC_ERROR
-                q.put_nowait(chunk)
-                return len(chunk)
-
-            c.setopt(m.CURLOPT_WRITEFUNCTION, qput)
-        elif content_callback is not None:
-            c.setopt(m.CURLOPT_WRITEFUNCTION, content_callback)
-        else:
-            buffer = BytesIO()
-            c.setopt(m.CURLOPT_WRITEDATA, buffer)
-        header_buffer = BytesIO()
-        c.setopt(m.CURLOPT_HEADERDATA, header_buffer)
-
-        # interface
-        interface = interface or self.interface
-        if interface:
-            c.setopt(m.CURLOPT_INTERFACE, interface.encode())
-
-        # max_recv_speed
-        # do not check, since 0 is a valid value to disable it
-        c.setopt(m.CURLOPT_MAX_RECV_SPEED_LARGE, max_recv_speed)
-
-        return req, buffer, header_buffer, q, header_recved, quit_now
-
+    #     def _toggle_extensions_by_ids(self, curl, extension_ids):
+    #         # TODO find a better representation, rather than magic numbers
+    #         default_enabled = {0, 51, 13, 43, 65281, 23, 10, 45, 35, 11, 16}
+    #
+    #         to_enable_ids = extension_ids - default_enabled
+    #         for ext_id in to_enable_ids:
+    #             toggle_extension(curl, ext_id, enable=True)
+    #
+    #         # print("to_enable: ", to_enable_ids)
+    #
+    #         to_disable_ids = default_enabled - extension_ids
+    #         for ext_id in to_disable_ids:
+    #             toggle_extension(curl, ext_id, enable=False)
+    #
+    #         # print("to_disable: ", to_disable_ids)
+    #
+    #     def _set_ja3_options(self, curl, ja3: str, permute: bool = False):
+    #         """
+    #         Detailed explanation: https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967/
+    #         """
+    #         tls_version, ciphers, extensions, curves, curve_formats = ja3.split(",")
+    #
+    #         curl_tls_version = TLS_VERSION_MAP[int(tls_version)]
+    #         curl.setopt(
+    #             m.CURLOPT_SSLVERSION, curl_tls_version | m.CURL_SSLVERSION_MAX_DEFAULT
+    #         )
+    #         assert (
+    #             curl_tls_version == m.CURL_SSLVERSION_TLSv1_2
+    #         ), "Only TLS v1.2 works for now."
+    #
+    #         cipher_names = []
+    #         for cipher in ciphers.split("-"):
+    #             cipher_id = int(cipher)
+    #             cipher_name = TLS_CIPHER_NAME_MAP[cipher_id]
+    #             cipher_names.append(cipher_name)
+    #
+    #         curl.setopt(m.CURLOPT_SSL_CIPHER_LIST, ":".join(cipher_names))
+    #
+    #         if extensions.endswith("-21"):
+    #             extensions = extensions[:-3]
+    #             warnings.warn(
+    #                 "Padding(21) extension found in ja3 string, whether to add it should "
+    #                 "be managed by the SSL engine. The TLS client hello packet may contain "
+    #                 "or not contain this extension, any of which should be correct.",
+    #                 stacklevel=1,
+    #             )
+    #         extension_ids = set(int(e) for e in extensions.split("-"))
+    #         self._toggle_extensions_by_ids(curl, extension_ids)
+    #
+    #         if not permute:
+    #             curl.setopt(m.CURLOPT_TLS_EXTENSION_ORDER, extensions)
+    #
+    #         curve_names = []
+    #         for curve in curves.split("-"):
+    #             curve_id = int(curve)
+    #             curve_name = TLS_EC_CURVES_MAP[curve_id]
+    #             curve_names.append(curve_name)
+    #
+    #         curl.setopt(m.CURLOPT_SSL_EC_CURVES, ":".join(curve_names))
+    #
+    #         assert int(curve_formats) == 0, "Only curve_formats == 0 is supported."
+    #
+    #     def _set_akamai_options(self, curl, akamai: str):
+    #         """
+    #         Detailed explanation: https://www.blackhat.com/docs/eu-17/materials/eu-17-Shuster-Passive-Fingerprinting-Of-HTTP2-Clients-wp.pdf
+    #         """
+    #         settings, window_update, streams, header_order = akamai.split("|")
+    #
+    #         # For compatiblity with tls.peet.ws
+    #         settings = settings.replace(",", ";")
+    #
+    #         curl.setopt(m.CURLOPT_HTTP_VERSION, m.CURL_HTTP_VERSION_2_0)
+    #
+    #         curl.setopt(m.CURLOPT_HTTP2_SETTINGS, settings)
+    #         curl.setopt(m.CURLOPT_HTTP2_WINDOW_UPDATE, int(window_update))
+    #
+    #         if streams != "0":
+    #             curl.setopt(m.CURLOPT_HTTP2_STREAMS, streams)
+    #
+    #         # m,a,s,p -> masp
+    #         # curl-impersonate only accepts masp format, without commas.
+    #         curl.setopt(m.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER, header_order.replace(",", ""))
+    #
+    #     def _set_extra_fp(self, curl, fp: ExtraFingerprints):
+    #         if fp.tls_signature_algorithms:
+    #             curl.setopt(
+    #                 m.CURLOPT_SSL_SIG_HASH_ALGS, ",".join(fp.tls_signature_algorithms)
+    #             )
+    #
+    #         curl.setopt(
+    #             m.CURLOPT_SSLVERSION, fp.tls_min_version | m.CURL_SSLVERSION_MAX_DEFAULT
+    #         )
+    #         curl.setopt(m.CURLOPT_TLS_GREASE, int(fp.tls_grease))
+    #         curl.setopt(m.CURLOPT_SSL_PERMUTE_EXTENSIONS, int(fp.tls_permute_extensions))
+    #         curl.setopt(m.CURLOPT_SSL_CERT_COMPRESSION, fp.tls_cert_compression)
+    #         curl.setopt(m.CURLOPT_STREAM_WEIGHT, fp.http2_stream_weight)
+    #         curl.setopt(m.CURLOPT_STREAM_EXCLUSIVE, fp.http2_stream_exclusive)
+    #
+    #     def _set_curl_options(
+    #         self,
+    #         curl,
+    #         method: HttpMethod,
+    #         url: str,
+    #         params: Optional[Union[Dict, List, Tuple]] = None,
+    #         data: Optional[Union[Dict[str, str], List[Tuple], str, BytesIO, bytes]] = None,
+    #         json: Optional[dict] = None,
+    #         headers: Optional[HeaderTypes] = None,
+    #         cookies: Optional[CookieTypes] = None,
+    #         files: Optional[Dict] = None,
+    #         auth: Optional[Tuple[str, str]] = None,
+    #         timeout: Optional[Union[float, Tuple[float, float], object]] = not_set,
+    #         allow_redirects: Optional[bool] = None,
+    #         max_redirects: Optional[int] = None,
+    #         proxies: Optional[ProxySpec] = None,
+    #         proxy: Optional[str] = None,
+    #         proxy_auth: Optional[Tuple[str, str]] = None,
+    #         verify: Optional[Union[bool, str]] = None,
+    #         referer: Optional[str] = None,
+    #         accept_encoding: Optional[str] = "gzip, deflate, br, zstd",
+    #         content_callback: Optional[Callable] = None,
+    #         impersonate: Optional[BrowserTypeLiteral] = None,
+    #         ja3: Optional[str] = None,
+    #         akamai: Optional[str] = None,
+    #         extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
+    #         default_headers: Optional[bool] = None,
+    #         quote: Union[str, Literal[False]] = "",
+    #         http_version: Optional[int] = None,
+    #         interface: Optional[str] = None,
+    #         cert: Optional[Union[str, Tuple[str, str]]] = None,
+    #         stream: bool = False,
+    #         max_recv_speed: int = 0,
+    #         multipart: Optional[CurlMime] = None,
+    #         queue_class: Any = None,
+    #         event_class: Any = None,
+    #     ):
+    #         c = curl
+    #
+    #         method = method.upper()  # type: ignore
+    #
+    #         # method
+    #         if method == "POST":
+    #             c.setopt(m.CURLOPT_POST, 1)
+    #         elif method != "GET":
+    #             c.setopt(m.CURLOPT_CUSTOMREQUEST, method.encode())
+    #         if method == "HEAD":
+    #             c.setopt(m.CURLOPT_NOBODY, 1)
+    #
+    #         # url
+    #         if self.params:
+    #             url = _update_url_params(url, self.params)
+    #         if params:
+    #             url = _update_url_params(url, params)
+    #         if self.base_url:
+    #             url = urljoin(self.base_url, url)
+    #         if quote is not False:
+    #             url = _quote_path_and_params(url, quote_str=quote)
+    #         c.setopt(m.CURLOPT_URL, url.encode())
+    #
+    #         # data/body/json
+    #         if isinstance(data, (dict, list, tuple)):
+    #             body = urlencode(data).encode()
+    #         elif isinstance(data, str):
+    #             body = data.encode()
+    #         elif isinstance(data, BytesIO):
+    #             body = data.read()
+    #         elif isinstance(data, bytes):
+    #             body = data
+    #         elif data is None:
+    #             body = b""
+    #         else:
+    #             raise TypeError("data must be dict/list/tuple, str, BytesIO or bytes")
+    #         if json is not None:
+    #             body = dumps(json, separators=(",", ":")).encode()
+    #
+    #         # Tell libcurl to be aware of bodies and related headers when,
+    #         # 1. POST/PUT/PATCH, even if the body is empty, it's up to curl to decide what to do;
+    #         # 2. GET/DELETE with body, although it's against the RFC, some applications.
+    #         #   e.g. Elasticsearch, use this.
+    #         if body or method in ("POST", "PUT", "PATCH"):
+    #             c.setopt(m.CURLOPT_POSTFIELDS, body)
+    #             # necessary if body contains '\0'
+    #             c.setopt(m.CURLOPT_POSTFIELDSIZE, len(body))
+    #             if method == "GET":
+    #                 c.setopt(m.CURLOPT_CUSTOMREQUEST, method)
+    #
+    #         # headers
+    #         h = Headers(self.headers)
+    #         h.update(headers)
+    #
+    #         # remove Host header if it's unnecessary, otherwise curl may get confused.
+    #         # Host header will be automatically added by curl if it's not present.
+    #         # https://github.com/lexiforest/curl_cffi/issues/119
+    #         host_header = h.get("Host")
+    #         if host_header is not None:
+    #             u = urlparse(url)
+    #             if host_header == u.netloc or host_header == u.hostname:
+    #                 h.pop("Host", None)
+    #
+    #         # Make curl always include empty headers.
+    #         # See: https://stackoverflow.com/a/32911474/1061155
+    #         header_lines = []
+    #         for k, v in h.multi_items():
+    #             header_lines.append(f"{k}: {v}" if v else f"{k};")
+    #
+    #         # Add content-type if missing
+    #         if json is not None:
+    #             _update_header_line(
+    #                 header_lines, "Content-Type", "application/json", replace=True
+    #             )
+    #         if isinstance(data, dict) and method != "POST":
+    #             _update_header_line(
+    #                 header_lines, "Content-Type", "application/x-www-form-urlencoded"
+    #             )
+    #         if isinstance(data, (str, bytes)):
+    #             _update_header_line(
+    #                 header_lines, "Content-Type", "application/octet-stream"
+    #             )
+    #
+    #         # Never send `Expect` header.
+    #         _update_header_line(header_lines, "Expect", "", replace=True)
+    #
+    #         c.setopt(m.CURLOPT_HTTPHEADER, [h.encode() for h in header_lines])
+    #
+    #         req = Request(url, h, method)
+    #
+    #         # cookies
+    #         c.setopt(
+    #             m.CURLOPT_COOKIEFILE, b""
+    #         )  # always enable the curl cookie engine first
+    #         c.setopt(m.CURLOPT_COOKIELIST, "ALL")  # remove all the old cookies first.
+    #
+    #         for morsel in self.cookies.get_cookies_for_curl(req):
+    #             # print("Setting", morsel.to_curl_format())
+    #             curl.setopt(m.CURLOPT_COOKIELIST, morsel.to_curl_format())
+    #         if cookies:
+    #             temp_cookies = Cookies(cookies)
+    #             for morsel in temp_cookies.get_cookies_for_curl(req):
+    #                 curl.setopt(m.CURLOPT_COOKIELIST, morsel.to_curl_format())
+    #
+    #         # files
+    #         if files:
+    #             raise NotImplementedError(
+    #                 "files is not supported, use `multipart`. See examples here: "
+    #                 "https://github.com/lexiforest/curl_cffi/blob/main/examples/upload.py"
+    #             )
+    #
+    #         # multipart
+    #         if multipart:
+    #             # multipart will overrides postfields
+    #             for k, v in cast(dict, data or {}).items():
+    #                 multipart.addpart(name=k, data=v.encode() if isinstance(v, str) else v)
+    #             c.setopt(m.CURLOPT_MIMEPOST, multipart._form)
+    #
+    #         # auth
+    #         if self.auth or auth:
+    #             if self.auth:
+    #                 username, password = self.auth
+    #             if auth:
+    #                 username, password = auth
+    #             c.setopt(
+    #                 m.CURLOPT_USERNAME, username.encode()
+    #             )  # pyright: ignore [reportPossiblyUnboundVariable=none]
+    #             c.setopt(
+    #                 m.CURLOPT_PASSWORD, password.encode()
+    #             )  # pyright: ignore [reportPossiblyUnboundVariable=none]
+    #
+    #         # timeout
+    #         if timeout is not_set:
+    #             timeout = self.timeout
+    #         if timeout is None:
+    #             timeout = 0  # indefinitely
+    #
+    #         if isinstance(timeout, tuple):
+    #             connect_timeout, read_timeout = timeout
+    #             all_timeout = connect_timeout + read_timeout
+    #             c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(connect_timeout * 1000))
+    #             if not stream:
+    #                 c.setopt(m.CURLOPT_TIMEOUT_MS, int(all_timeout * 1000))
+    #             else:
+    #                 # trick from: https://github.com/lexiforest/curl_cffi/issues/156
+    #                 c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
+    #                 c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(all_timeout))
+    #
+    #         elif isinstance(timeout, (int, float)):
+    #             if not stream:
+    #                 c.setopt(m.CURLOPT_TIMEOUT_MS, int(timeout * 1000))
+    #             else:
+    #                 c.setopt(m.CURLOPT_CONNECTTIMEOUT_MS, int(timeout * 1000))
+    #                 c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
+    #                 c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(timeout))
+    #
+    #         # allow_redirects
+    #         c.setopt(
+    #             m.CURLOPT_FOLLOWLOCATION,
+    #             int(self.allow_redirects if allow_redirects is None else allow_redirects),
+    #         )
+    #
+    #         # max_redirects
+    #         c.setopt(
+    #             m.CURLOPT_MAXREDIRS,
+    #             self.max_redirects if max_redirects is None else max_redirects,
+    #         )
+    #
+    #         # proxies
+    #         if proxy and proxies:
+    #             raise TypeError("Cannot specify both 'proxy' and 'proxies'")
+    #         if proxy:
+    #             proxies = {"all": proxy}
+    #         if proxies is None:
+    #             proxies = self.proxies
+    #
+    #         if proxies:
+    #             parts = urlparse(url)
+    #             proxy = cast(Optional[str], proxies.get(parts.scheme, proxies.get("all")))
+    #             if parts.hostname:
+    #                 proxy = (
+    #                     cast(
+    #                         Optional[str],
+    #                         proxies.get(
+    #                             f"{parts.scheme}://{parts.hostname}",
+    #                             proxies.get(f"all://{parts.hostname}"),
+    #                         ),
+    #                     )
+    #                     or proxy
+    #                 )
+    #
+    #             if proxy is not None:
+    #                 c.setopt(m.CURLOPT_PROXY, proxy)
+    #
+    #                 if parts.scheme == "https":
+    #                     if proxy.startswith("https://"):
+    #                         warnings.warn(
+    #                             "Make sure you are using https over https proxy, otherwise, "
+    #                             "the proxy prefix should be 'http://' not 'https://', "
+    #                             "see: https://github.com/lexiforest/curl_cffi/issues/6",
+    #                             RuntimeWarning,
+    #                             stacklevel=2,
+    #                         )
+    #                     # For https site with http tunnel proxy, tell curl to enable tunneling
+    #                     if not proxy.startswith("socks"):
+    #                         c.setopt(m.CURLOPT_HTTPPROXYTUNNEL, 1)
+    #
+    #                 # proxy_auth
+    #                 proxy_auth = proxy_auth or self.proxy_auth
+    #                 if proxy_auth:
+    #                     username, password = proxy_auth
+    #                     c.setopt(m.CURLOPT_PROXYUSERNAME, username.encode())
+    #                     c.setopt(m.CURLOPT_PROXYPASSWORD, password.encode())
+    #
+    #         # verify
+    #         if verify is False or not self.verify and verify is None:
+    #             c.setopt(m.CURLOPT_SSL_VERIFYPEER, 0)
+    #             c.setopt(m.CURLOPT_SSL_VERIFYHOST, 0)
+    #
+    #         # cert for this single request
+    #         if isinstance(verify, str):
+    #             c.setopt(m.CURLOPT_CAINFO, verify)
+    #
+    #         # cert for the session
+    #         if verify in (None, True) and isinstance(self.verify, str):
+    #             c.setopt(m.CURLOPT_CAINFO, self.verify)
+    #
+    #         # referer
+    #         if referer:
+    #             c.setopt(m.CURLOPT_REFERER, referer.encode())
+    #
+    #         # accept_encoding
+    #         if accept_encoding is not None:
+    #             c.setopt(m.CURLOPT_ACCEPT_ENCODING, accept_encoding.encode())
+    #
+    #         # cert
+    #         cert = cert or self.cert
+    #         if cert:
+    #             if isinstance(cert, str):
+    #                 c.setopt(m.CURLOPT_SSLCERT, cert)
+    #             else:
+    #                 cert, key = cert
+    #                 c.setopt(m.CURLOPT_SSLCERT, cert)
+    #                 c.setopt(m.CURLOPT_SSLKEY, key)
+    #
+    #         # impersonate
+    #         impersonate = impersonate or self.impersonate
+    #         default_headers = (
+    #             self.default_headers if default_headers is None else default_headers
+    #         )
+    #         if impersonate:
+    #             impersonate = normalize_browser_type(impersonate)
+    #             ret = c.impersonate(impersonate, default_headers=default_headers)
+    #             if ret != 0:
+    #                 raise ImpersonateError(f"Impersonating {impersonate} is not supported")
+    #
+    #         # ja3 string
+    #         ja3 = ja3 or self.ja3
+    #         if ja3:
+    #             if impersonate:
+    #                 warnings.warn(
+    #                     "JA3 was altered after browser version was set.", stacklevel=1
+    #                 )
+    #             permute = False
+    #             if (
+    #                 isinstance(extra_fp, ExtraFingerprints)
+    #                 and extra_fp.tls_permute_extensions
+    #             ):
+    #                 permute = True
+    #             if isinstance(extra_fp, dict) and extra_fp.get("tls_permute_extensions"):
+    #                 permute = True
+    #             self._set_ja3_options(c, ja3, permute=permute)
+    #
+    #         # akamai string
+    #         akamai = akamai or self.akamai
+    #         if akamai:
+    #             if impersonate:
+    #                 warnings.warn(
+    #                     "Akamai was altered after browser version was set.", stacklevel=1
+    #                 )
+    #             self._set_akamai_options(c, akamai)
+    #
+    #         # extra_fp options
+    #         extra_fp = extra_fp or self.extra_fp
+    #         if extra_fp:
+    #             if isinstance(extra_fp, dict):
+    #                 extra_fp = ExtraFingerprints(**extra_fp)
+    #             if impersonate:
+    #                 warnings.warn(
+    #                     "Extra fingerprints was altered after browser version was set.",
+    #                     stacklevel=1,
+    #                 )
+    #             self._set_extra_fp(c, extra_fp)
+    #
+    #         # http_version, after impersonate, which will change this to http2
+    #         http_version = http_version or self.http_version
+    #         if http_version:
+    #             c.setopt(m.CURLOPT_HTTP_VERSION, http_version)
+    #
+    #         # set extra curl options, must come after impersonate, because it will alter some options
+    #         for k, v in self.curl_options.items():
+    #             c.setopt(k, v)
+    #
+    #         buffer = None
+    #         q = None
+    #         header_recved = None
+    #         quit_now = None
+    #         if stream:
+    #             q = queue_class()
+    #             header_recved = event_class()
+    #             quit_now = event_class()
+    #
+    #             def qput(chunk):
+    #                 if not header_recved.is_set():
+    #                     header_recved.set()
+    #                 if quit_now.is_set():
+    #                     return CURL_WRITEFUNC_ERROR
+    #                 q.put_nowait(chunk)
+    #                 return len(chunk)
+    #
+    #             c.setopt(m.CURLOPT_WRITEFUNCTION, qput)
+    #         elif content_callback is not None:
+    #             c.setopt(m.CURLOPT_WRITEFUNCTION, content_callback)
+    #         else:
+    #             buffer = BytesIO()
+    #             c.setopt(m.CURLOPT_WRITEDATA, buffer)
+    #         header_buffer = BytesIO()
+    #         c.setopt(m.CURLOPT_HEADERDATA, header_buffer)
+    #
+    #         # interface
+    #         interface = interface or self.interface
+    #         if interface:
+    #             c.setopt(m.CURLOPT_INTERFACE, interface.encode())
+    #
+    #         # max_recv_speed
+    #         # do not check, since 0 is a valid value to disable it
+    #         c.setopt(m.CURLOPT_MAX_RECV_SPEED_LARGE, max_recv_speed)
+    #
+    #         return req, buffer, header_buffer, q, header_recved, quit_now
+    #
     def _parse_response(self, curl, buffer, header_buffer, default_encoding):
         c = curl
         rsp = self.response_class(c)
@@ -795,7 +765,7 @@ class BaseSession:
         rsp.ok = 200 <= rsp.status_code < 400
         header_lines = header_buffer.getvalue().splitlines()
 
-        # TODO history urls
+        # TODO: history urls
         header_list = []
         for header_line in header_lines:
             if not header_line.strip():
@@ -811,15 +781,17 @@ class BaseSession:
                 continue
             header_list.append(header_line)
         rsp.headers = Headers(header_list)
-        # print("Set-cookie", rsp.headers["set-cookie"])
+
+        # cookies
         morsels = [
             CurlMorsel.from_curl_format(c) for c in c.getinfo(m.CURLINFO_COOKIELIST)
         ]
         # for l in c.getinfo(CurlInfo.COOKIELIST):
         #     print("Curl Cookies", l.decode())
-        self.cookies.update_cookies_from_curl(morsels)
-        rsp.cookies = self.cookies
-        # print("Cookies after extraction", self.cookies)
+        self._cookies.update_cookies_from_curl(morsels)
+        rsp.cookies = self._cookies
+        # print("Cookies after extraction", self._cookies)
+
         rsp.primary_ip = cast(bytes, c.getinfo(m.CURLINFO_PRIMARY_IP)).decode()
         rsp.local_ip = cast(bytes, c.getinfo(m.CURLINFO_LOCAL_IP)).decode()
         rsp.default_encoding = default_encoding
@@ -827,6 +799,7 @@ class BaseSession:
         rsp.redirect_count = cast(int, c.getinfo(m.CURLINFO_REDIRECT_COUNT))
         rsp.redirect_url = cast(bytes, c.getinfo(m.CURLINFO_REDIRECT_URL)).decode()
 
+        # custom info options
         for info in self.curl_infos:
             rsp.infos[info] = c.getinfo(info)
 
@@ -836,10 +809,19 @@ class BaseSession:
         if self._closed:
             raise SessionClosed("Session is closed, cannot send request.")
 
+    @property
+    def cookies(self) -> Cookies:
+        return self._cookies
+
+    @cookies.setter
+    def cookies(self, cookies: CookieTypes) -> None:
+        # This ensures that the cookies property is always converted to Cookies.
+        self._cookies = Cookies(cookies)
+
 
 class Session(BaseSession):
     """A request session, cookies and connections will be reused. This object is thread-safe,
-    but it's recommended to use a seperate session for each thread."""
+    but it's recommended to use a separate session for each thread."""
 
     def __init__(
         self,
@@ -849,7 +831,7 @@ class Session(BaseSession):
         **kwargs: Unpack[BaseSessionParams],
     ):
         """
-        Parameters set in the init method will be override by the same parameter in request method.
+        Parameters set in the init method will be overriden by the same parameter in request method.
 
         Args:
             curl: curl object to use in the session. If not provided, a new one will be
@@ -912,7 +894,9 @@ class Session(BaseSession):
         if self._use_thread_local_curl:
             if self._is_customized_curl:
                 warnings.warn(
-                    "Creating fresh curl handle in different thread.", stacklevel=2
+                    "Creating fresh curl handle in different thread.",
+                    CurlWarning,
+                    stacklevel=2,
                 )
             if not getattr(self._local, "curl", None):
                 self._local.curl = Curl(debug=self.debug)
@@ -947,16 +931,11 @@ class Session(BaseSession):
             rsp.close()
 
     def ws_connect(
-        self,
-        url,
-        *args,
-        on_message: Optional[ON_MESSAGE_T] = None,
-        on_error: Optional[ON_ERROR_T] = None,
-        on_open: Optional[ON_OPEN_T] = None,
-        on_close: Optional[ON_CLOSE_T] = None,
-        **kwargs,
+        self, url, on_message=None, on_error=None, on_open=None, on_close=None, **kwargs
     ) -> WebSocket:
         """Connects to a websocket url.
+
+        Note: This method is deprecated, use WebSocket instead.
 
         Args:
             url: the ws url to connect.
@@ -968,24 +947,23 @@ class Session(BaseSession):
         Other parameters are the same as ``.request``
 
         Returns:
-            a ws instance to communicate with the server.
+            a WebSocket instance to communicate with the server.
         """
         self._check_session_closed()
 
-        self._set_curl_options(self.curl, "GET", url, *args, **kwargs)
+        curl = self.curl.duphandle()
+        self.curl.reset()
 
-        # https://curl.se/docs/websocket.html
-        self.curl.setopt(m.CURLOPT_CONNECT_ONLY, 2)
-        self.curl.perform()
-
-        return WebSocket(
-            self,
-            self.curl,
+        ws = WebSocket(
+            curl=curl,
             on_message=on_message,
             on_error=on_error,
             on_open=on_open,
             on_close=on_close,
         )
+
+        ws.connect(url, **kwargs)
+        return ws
 
     def request(
         self,
@@ -1033,39 +1011,47 @@ class Session(BaseSession):
         else:
             c = self.curl
 
-        req, buffer, header_buffer, q, header_recved, quit_now = self._set_curl_options(
+        req, buffer, header_buffer, q, header_recved, quit_now = set_curl_options(
             c,
             method=method,
             url=url,
-            params=params,
+            params_list=[self.params, params],
+            base_url=self.base_url,
             data=data,
             json=json,
-            headers=headers,
-            cookies=cookies,
+            headers_list=[self.headers, headers],
+            cookies_list=[self._cookies, cookies],
             files=files,
-            auth=auth,
-            timeout=timeout,
-            allow_redirects=allow_redirects,
-            max_redirects=max_redirects,
-            proxies=proxies,
+            auth=auth or self.auth,
+            timeout=self.timeout if timeout is not_set else timeout,
+            allow_redirects=(
+                self.allow_redirects if allow_redirects is None else allow_redirects
+            ),
+            max_redirects=(
+                self.max_redirects if max_redirects is None else max_redirects
+            ),
+            proxies_list=[self.proxies, proxies],
             proxy=proxy,
-            proxy_auth=proxy_auth,
-            verify=verify,
+            proxy_auth=proxy_auth or self.proxy_auth,
+            verify_list=[self.verify, verify],
             referer=referer,
             accept_encoding=accept_encoding,
             content_callback=content_callback,
-            impersonate=impersonate,
-            ja3=ja3,
-            akamai=akamai,
-            extra_fp=extra_fp,
-            default_headers=default_headers,
+            impersonate=impersonate or self.impersonate,
+            ja3=ja3 or self.ja3,
+            akamai=akamai or self.akamai,
+            extra_fp=extra_fp or self.extra_fp,
+            default_headers=(
+                self.default_headers if default_headers is None else default_headers
+            ),
             quote=quote,
-            http_version=http_version,
-            interface=interface,
+            http_version=http_version or self.http_version,
+            interface=interface or self.interface,
             stream=stream,
             max_recv_speed=max_recv_speed,
             multipart=multipart,
-            cert=cert,
+            cert=cert or self.cert,
+            curl_options=self.curl_options,
             queue_class=queue.Queue,
             event_class=threading.Event,
         )
@@ -1117,10 +1103,10 @@ class Session(BaseSession):
             try:
                 if self._thread == "eventlet":
                     # see: https://eventlet.net/doc/threading.html
-                    eventlet.tpool.execute(c.perform)
+                    eventlet.tpool.execute(c.perform)  # type: ignore
                 elif self._thread == "gevent":
                     # see: https://www.gevent.org/api/gevent.threadpool.html
-                    gevent.get_hub().threadpool.spawn(c.perform).get()
+                    gevent.get_hub().threadpool.spawn(c.perform).get()  # type: ignore
                 else:
                     c.perform()
             except CurlError as e:
@@ -1233,6 +1219,7 @@ class AsyncSession(BaseSession):
         curl = await self.pool.get()
         if curl is None:
             curl = Curl(debug=self.debug)
+        # XXX: This may be related to proxy rotation
         # curl.setopt(CurlOpt.FRESH_CONNECT, 1)
         # curl.setopt(CurlOpt.FORBID_REUSE, 1)
         return curl
@@ -1279,15 +1266,113 @@ class AsyncSession(BaseSession):
         finally:
             await rsp.aclose()
 
-    async def ws_connect(self, url, *args, **kwargs):
+    async def ws_connect(
+        self,
+        url: str,
+        autoclose: bool = True,
+        params: Optional[Union[Dict, List, Tuple]] = None,
+        headers: Optional[HeaderTypes] = None,
+        cookies: Optional[CookieTypes] = None,
+        auth: Optional[Tuple[str, str]] = None,
+        timeout: Optional[Union[float, Tuple[float, float], object]] = not_set,
+        allow_redirects: Optional[bool] = None,
+        max_redirects: Optional[int] = None,
+        proxies: Optional[ProxySpec] = None,
+        proxy: Optional[str] = None,
+        proxy_auth: Optional[Tuple[str, str]] = None,
+        verify: Optional[bool] = None,
+        referer: Optional[str] = None,
+        accept_encoding: Optional[str] = "gzip, deflate, br",
+        impersonate: Optional[BrowserTypeLiteral] = None,
+        ja3: Optional[str] = None,
+        akamai: Optional[str] = None,
+        extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
+        default_headers: Optional[bool] = None,
+        quote: Union[str, Literal[False]] = "",
+        http_version: Optional[CurlHttpVersion] = None,
+        interface: Optional[str] = None,
+        cert: Optional[Union[str, Tuple[str, str]]] = None,
+        max_recv_speed: int = 0,
+    ) -> AsyncWebSocket:
+        """Connects to a WebSocket.
+
+        Args:
+            url: url for the requests.
+            autoclose: whether to close the WebSocket after receiving a close frame.
+            params: query string for the requests.
+            headers: headers to send.
+            cookies: cookies to use.
+            auth: HTTP basic auth, a tuple of (username, password), only basic auth is supported.
+            timeout: how many seconds to wait before giving up.
+            allow_redirects: whether to allow redirection.
+            max_redirects: max redirect counts, default 30, use -1 for unlimited.
+            proxies: dict of proxies to use, format: ``{"http": proxy_url, "https": proxy_url}``.
+            proxy: proxy to use, format: "http://user@pass:proxy_url".
+                Can't be used with `proxies` parameter.
+            proxy_auth: HTTP basic auth for proxy, a tuple of (username, password).
+            verify: whether to verify https certs.
+            referer: shortcut for setting referer header.
+            accept_encoding: shortcut for setting accept-encoding header.
+            impersonate: which browser version to impersonate.
+            ja3: ja3 string to impersonate.
+            akamai: akamai string to impersonate.
+            extra_fp: extra fingerprints options, in complement to ja3 and akamai strings.
+            default_headers: whether to set default browser headers.
+            quote: Set characters to be quoted, i.e. percent-encoded. Default safe string
+                is ``!#$%&'()*+,/:;=?@[]~``. If set to a sting, the character will be removed
+                from the safe string, thus quoted. If set to False, the url will be kept as is,
+                without any automatic percent-encoding, you must encode the URL yourself.
+            curl_options: extra curl options to use.
+            http_version: limiting http version, defaults to http2.
+            interface: which interface to use.
+            cert: a tuple of (cert, key) filenames for client cert.
+            max_recv_speed: maximum receive speed, bytes per second.
+        """
+
         self._check_session_closed()
 
         curl = await self.pop_curl()
-        # curl.debug()
-        self._set_curl_options(curl, "GET", url, *args, **kwargs)
+        set_curl_options(
+            curl=curl,
+            method="GET",
+            url=url,
+            base_url=self.base_url,
+            params_list=[self.params, params],
+            headers_list=[self.headers, headers],
+            cookies_list=[self.cookies, cookies],
+            auth=auth or self.auth,
+            timeout=self.timeout if timeout is not_set else timeout,
+            allow_redirects=(
+                self.allow_redirects if allow_redirects is None else allow_redirects
+            ),
+            max_redirects=(
+                self.max_redirects if max_redirects is None else max_redirects
+            ),
+            proxies_list=[self.proxies, proxies],
+            proxy=proxy,
+            proxy_auth=proxy_auth or self.proxy_auth,
+            verify_list=[self.verify, verify],
+            referer=referer,
+            accept_encoding=accept_encoding,
+            impersonate=impersonate or self.impersonate,
+            ja3=ja3 or self.ja3,
+            akamai=akamai or self.akamai,
+            extra_fp=extra_fp or self.extra_fp,
+            default_headers=(
+                self.default_headers if default_headers is None else default_headers
+            ),
+            quote=quote,
+            http_version=http_version or self.http_version,
+            interface=interface or self.interface,
+            max_recv_speed=max_recv_speed,
+            cert=cert or self.cert,
+            queue_class=asyncio.Queue,
+            event_class=asyncio.Event,
+        )
         curl.setopt(m.CURLOPT_CONNECT_ONLY, 2)  # https://curl.se/docs/websocket.html
+
         await self.loop.run_in_executor(None, curl.perform)
-        return WebSocket(self, curl)
+        return AsyncWebSocket(self, curl, autoclose=autoclose)
 
     async def request(
         self,
@@ -1324,43 +1409,52 @@ class AsyncSession(BaseSession):
         max_recv_speed: int = 0,
         multipart: Optional[CurlMime] = None,
     ):
-        """Send the request, see ``cycurl.requests.request`` for details on parameters."""
+        """Send the request, see ``curl_cffi.requests.request`` for details on parameters."""
+
         self._check_session_closed()
 
         curl = await self.pop_curl()
-        req, buffer, header_buffer, q, header_recved, quit_now = self._set_curl_options(
+        req, buffer, header_buffer, q, header_recved, quit_now = set_curl_options(
             curl=curl,
             method=method,
             url=url,
-            params=params,
+            params_list=[self.params, params],
+            base_url=self.base_url,
             data=data,
             json=json,
-            headers=headers,
-            cookies=cookies,
+            headers_list=[self.headers, headers],
+            cookies_list=[self.cookies, cookies],
             files=files,
-            auth=auth,
-            timeout=timeout,
-            allow_redirects=allow_redirects,
-            max_redirects=max_redirects,
-            proxies=proxies,
+            auth=auth or self.auth,
+            timeout=self.timeout if timeout is not_set else timeout,
+            allow_redirects=(
+                self.allow_redirects if allow_redirects is None else allow_redirects
+            ),
+            max_redirects=(
+                self.max_redirects if max_redirects is None else max_redirects
+            ),
+            proxies_list=[self.proxies, proxies],
             proxy=proxy,
-            proxy_auth=proxy_auth,
-            verify=verify,
+            proxy_auth=proxy_auth or self.proxy_auth,
+            verify_list=[self.verify, verify],
             referer=referer,
             accept_encoding=accept_encoding,
             content_callback=content_callback,
-            impersonate=impersonate,
-            ja3=ja3,
-            akamai=akamai,
-            extra_fp=extra_fp,
-            default_headers=default_headers,
+            impersonate=impersonate or self.impersonate,
+            ja3=ja3 or self.ja3,
+            akamai=akamai or self.akamai,
+            extra_fp=extra_fp or self.extra_fp,
+            default_headers=(
+                self.default_headers if default_headers is None else default_headers
+            ),
             quote=quote,
-            http_version=http_version,
-            interface=interface,
+            http_version=http_version or self.http_version,
+            interface=interface or self.interface,
             stream=stream,
             max_recv_speed=max_recv_speed,
             multipart=multipart,
-            cert=cert,
+            cert=cert or self.cert,
+            curl_options=self.curl_options,
             queue_class=asyncio.Queue,
             event_class=asyncio.Event,
         )
@@ -1409,8 +1503,6 @@ class AsyncSession(BaseSession):
             return rsp
         else:
             try:
-                # curl.debug()
-                # print("using curl instance: ", curl)
                 task = self.acurl.add_handle(curl)
                 await task
             except CurlError as e:

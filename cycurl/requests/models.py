@@ -4,10 +4,10 @@ import warnings
 from concurrent.futures import Future
 from typing import Any, Awaitable, Callable, Dict, List, Optional, Union
 
-from .. import Curl
-from .cookies import Cookies
-from .exceptions import HTTPError, RequestException
-from .headers import Headers
+from cycurl._curl import Curl, CurlWarning
+from cycurl.requests.cookies import Cookies
+from cycurl.requests.exceptions import HTTPError, RequestException
+from cycurl.requests.headers import Headers
 
 # Use orjson if present
 try:
@@ -143,7 +143,7 @@ class Response:
     def raise_for_status(self):
         """Raise an error if status code is not in [200, 400)"""
         if not self.ok:
-            raise HTTPError(f"HTTP Error {self.status_code}: {self.reason}")
+            raise HTTPError(f"HTTP Error {self.status_code}: {self.reason}", 0, self)
 
     def iter_lines(self, chunk_size=None, decode_unicode=False, delimiter=None):
         """
@@ -178,6 +178,7 @@ class Response:
         if chunk_size:
             warnings.warn(
                 "chunk_size is ignored, there is no way to tell curl that.",
+                CurlWarning,
                 stacklevel=2,
             )
         if decode_unicode:
@@ -246,6 +247,7 @@ class Response:
         if chunk_size:
             warnings.warn(
                 "chunk_size is ignored, there is no way to tell curl that.",
+                CurlWarning,
                 stacklevel=2,
             )
         if decode_unicode:

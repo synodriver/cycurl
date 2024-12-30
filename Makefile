@@ -2,7 +2,7 @@
 SHELL := bash
 
 # this is the upstream libcurl-impersonate version
-VERSION := 0.8.0
+VERSION := 0.8.2
 CURL_VERSION := curl-8_7_1
 
 $(CURL_VERSION):
@@ -51,9 +51,9 @@ build: .preprocessed
 	python -m build --wheel
 
 lint:
-	ruff check
+	ruff check --exclude issues
 	ruff format --diff
-	mypy --install-types --non-interactive .
+	mypy --install-types --non-interactive . --exclude 'issues/.*'
 
 format:
 	ruff check --fix

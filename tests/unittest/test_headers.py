@@ -1,5 +1,5 @@
 from cycurl.requests import Headers
-from cycurl.requests.session import _update_header_line
+from cycurl.requests.utils import update_header_line
 
 
 def test_headers():
@@ -26,11 +26,17 @@ def test_header_output():
 
 def test_replace_header():
     header_lines = []
-    _update_header_line(header_lines, "content-type", "image/png")
+    update_header_line(header_lines, "content-type", "image/png")
     assert header_lines == ["content-type: image/png"]
-    _update_header_line(header_lines, "Content-Type", "application/json")
+    update_header_line(header_lines, "Content-Type", "application/json")
     assert header_lines == ["content-type: image/png"]
-    _update_header_line(header_lines, "Content-Type", "application/json", replace=True)
+    update_header_line(header_lines, "Content-Type", "application/json", replace=True)
     assert header_lines == ["Content-Type: application/json"]
-    _update_header_line(header_lines, "Host", "example.com", replace=True)
+    update_header_line(header_lines, "Host", "example.com", replace=True)
     assert header_lines == ["Content-Type: application/json", "Host: example.com"]
+
+
+def test_none_headers():
+    """Allow using None to explictly remove headers"""
+    headers = Headers({"Content-Type": None})
+    assert headers["content-type"] is None

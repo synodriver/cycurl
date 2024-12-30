@@ -1,17 +1,30 @@
+from __future__ import annotations
+
 import re
+import struct
 import warnings
 from http.cookies import SimpleCookie
 from pathlib import Path
-from typing import Any, List, Literal, Optional, Tuple, Union, cast
+from typing import TYPE_CHECKING, Any, List, Literal, Optional, Tuple, Union, cast
 
 import certifi
 
 from ._wrapper import ffi, lib
 from .const import CurlECode, CurlHttpVersion, CurlInfo, CurlOpt, CurlWsFlag
+from .utils import CurlWarning
 
 DEFAULT_CACERT = certifi.where()
 REASON_PHRASE_RE = re.compile(rb"HTTP/\d\.\d [0-9]{3} (.*)")
 STATUS_LINE_RE = re.compile(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)")
+
+if TYPE_CHECKING:
+
+    class CurlWsFrame:
+        age: int
+        flags: int
+        offset: int
+        bytesleft: int
+        len: int
 
 
 class CurlError(Exception):
@@ -73,7 +86,7 @@ def write_callback(ptr, size, nmemb, userdata):
         return wrote
     # should make this an exception in future versions
     if wrote != nmemb * size:
-        warnings.warn("Wrote bytes != received bytes.", RuntimeWarning, stacklevel=2)
+        warnings.warn("Wrote bytes != received bytes.", CurlWarning, stacklevel=2)
     return nmemb * size
 
 
@@ -118,7 +131,7 @@ class Curl:
     def _set_error_buffer(self) -> None:
         ret = lib._curl_easy_setopt(self._curl, CurlOpt.ERRORBUFFER, self._error_buffer)
         if ret != 0:
-            warnings.warn("Failed to set error buffer", stacklevel=2)
+            warnings.warn("Failed to set error buffer", CurlWarning, stacklevel=2)
         if self._debug:
             self.setopt(CurlOpt.VERBOSE, 1)
             lib._curl_easy_setopt(self._curl, CurlOpt.DEBUGFUNCTION, lib.debug_function)
@@ -318,7 +331,7 @@ class Curl:
                 lib.curl_slist_free_all(self._proxy_headers)
             self._proxy_headers = ffi.NULL
 
-    def duphandle(self) -> "Curl":
+    def duphandle(self) -> Curl:
         """Wrapper for ``curl_easy_duphandle``.
 
         This is not a full copy of entire curl object in python. For example, headers
@@ -387,7 +400,7 @@ class Curl:
         ffi.release(self._error_buffer)
         self._resolve = ffi.NULL
 
-    def ws_recv(self, n: int = 1024) -> Tuple[bytes, Any]:
+    def ws_recv(self, n: int = 1024) -> Tuple[bytes, CurlWsFrame]:
         """Receive a frame from a websocket connection.
 
         Args:
@@ -430,9 +443,22 @@ class Curl:
         self._check_error(ret, "WS_SEND")
         return n_sent[0]
 
-    def ws_close(self) -> None:
-        """Send the close frame."""
-        self.ws_send(b"", CurlWsFlag.CLOSE)
+    def ws_close(self, code: int = 1000, message: bytes = b"") -> int:
+        """Close a websocket connection. Shorthand for :meth:`ws_send`
+        with close code and message. Note that to completely close the connection,
+        you must close the curl handle after this call with :meth:`close`.
+
+        Args:
+            code: close code.
+            message: close message.
+
+        Returns:
+            0 if no error.
+
+        Raises:
+            CurlError: if failed.
+        """
+        return self.ws_send(struct.pack("!H", code) + message)
 
 
 class CurlMime:

@@ -12,11 +12,12 @@ from libc.stdint cimport int64_t, uint8_t
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
 
 include "consts.pxi"
+include "utils.pxi"
 
 import asyncio
 import re
+import struct
 import sys
-import warnings
 from contextlib import suppress
 from http.cookies import SimpleCookie
 from weakref import WeakKeyDictionary, WeakSet
@@ -72,7 +73,7 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
         return wrote
     # should make this an exception in future versions
     if wrote != total:
-        warnings.warn("Wrote bytes != received bytes.", RuntimeWarning, stacklevel=2)
+        warnings.warn("Wrote bytes != received bytes.", CurlWarning, stacklevel=2)
     return total
 
 cdef list slist_to_list(curl.curl_slist *head) with gil:
@@ -238,8 +239,19 @@ cdef class Curl:
         self._check_error(ret, "WS_SEND")
         return n_sent
 
-    def ws_close(self):
-        self.ws_send(b"", curl.CURLWS_CLOSE)
+    def ws_close(self, int code = 1000, bytes message = b""):
+        """Close a websocket connection. Shorthand for :meth:`ws_send`
+        with close code and message. Note that to completely close the connection,
+        you must close the curl handle after this call with :meth:`close`.
+        Args:
+            code: close code.
+            message: close message.
+        Returns:
+            0 if no error.
+        Raises:
+            CurlError: if failed.
+        """
+        return self.ws_send(struct.pack("!H", code) + message) # todo use buffer protocol
 
     def ws_meta(self):
         cdef const curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
@@ -249,7 +261,7 @@ cdef class Curl:
         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
         if ret != 0:
             with gil:
-                warnings.warn("Failed to set error buffer", stacklevel=2)
+                warnings.warn("Failed to set error buffer", CurlWarning, stacklevel=2)
         if self._debug:
             with gil:
                 self.setopt(curl.CURLOPT_VERBOSE, 1)
@@ -575,7 +587,7 @@ if sys.platform == "win32":
         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
             return asyncio_loop
 
-        warnings.warn(PROACTOR_WARNING, RuntimeWarning, stacklevel=2)
+        warnings.warn(PROACTOR_WARNING, CurlWarning, stacklevel=2)
 
         selector_loop = _selectors[asyncio_loop] = AddThreadSelectorEventLoop(asyncio_loop)  # type: ignore
 
@@ -731,7 +743,9 @@ cdef class AsyncCurl:
     cpdef inline process_data(self, int sockfd, int ev_bitmask):
         """Call curl_multi_info_read to read data for given socket."""
         if not self._curlm:
-            warnings.warn("Curlm alread closed! quitting from process_data", stacklevel=2)
+            warnings.warn(
+                "Curlm alread closed! quitting from process_data", CurlWarning, stacklevel=2
+            )
             return
 
         self.socket_action(sockfd, ev_bitmask)

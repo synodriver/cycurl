@@ -152,7 +152,7 @@ class InterfaceError(RequestException):
 # Warnings
 
 
-# TODO use this warning as a base
+# TODO: use this warning as a base
 class RequestsWarning(Warning):
     """Base warning for Requests. not used"""
 

@@ -2,7 +2,7 @@
 
 __all__ = ["CurlError", "RequestsError", "CookieConflict", "SessionClosed"]
 
-from .. import CurlError
-from .exceptions import CookieConflict
-from .exceptions import RequestException as RequestsError
-from .exceptions import SessionClosed
+from cycurl._curl import CurlError
+from cycurl.requests.exceptions import CookieConflict
+from cycurl.requests.exceptions import RequestException as RequestsError
+from cycurl.requests.exceptions import SessionClosed
