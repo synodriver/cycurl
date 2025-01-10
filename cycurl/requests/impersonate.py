@@ -329,9 +329,10 @@ def toggle_extension(curl, extension_id: int, enable: bool):
         )
     # ALPN
     elif extension_id == 16:
-        raise NotImplementedError(
-            "It's unlikely that the ALPN(16) extension being changed."
-        )
+        if enable:
+            curl.setopt(m.CURLOPT_SSL_ENABLE_ALPN, 1)
+        else:
+            curl.setopt(m.CURLOPT_SSL_ENABLE_ALPN, 0)
     # status_request
     elif extension_id == 5:
         if enable:
