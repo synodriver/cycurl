@@ -4,7 +4,7 @@ import os
 import platform
 import re
 import shutil
-import sys
+import sysconfig
 from collections import defaultdict
 
 from Cython.Build import cythonize
@@ -65,11 +65,7 @@ else:
     #     "./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu/libcurl-impersonate-chrome.so.4.8.0"
     # ]
 
-if (
-    sys.version_info > (3, 13, 0)
-    and hasattr(sys, "_is_gil_enabled")
-    and not sys._is_gil_enabled()
-):
+if sysconfig.get_config_var("Py_GIL_DISABLED"):
     print("build nogil")
     defined_macros = [
         ("Py_GIL_DISABLED", "1"),

@@ -10,6 +10,7 @@ from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport PyCapsule_CheckExact, PyCapsule_GetPointer, PyCapsule_New
 from libc.stdint cimport int64_t, uint8_t
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
+from libc.string cimport memcpy
 
 include "consts.pxi"
 include "utils.pxi"
@@ -76,6 +77,33 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
         warnings.warn("Wrote bytes != received bytes.", CurlWarning, stacklevel=2)
     return total
 
+cdef size_t read_callback(char *buffer, size_t size, size_t nitems, void *userdata) with gil:
+    cdef:
+        size_t total
+        size_t read_size
+        object callback
+        bytes ret
+        const char* ret_ptr
+    callback = <object>userdata
+    total = size * nitems
+    try:
+        ret = callback(total)
+    except:
+        return curl.CURL_READFUNC_ABORT
+    read_size = PyBytes_GET_SIZE(ret)
+    if read_size != total:
+        warnings.warn("Read bytes != received bytes.", CurlWarning, stacklevel=2)
+    ret_ptr = <const char*>ret
+    memcpy(buffer, ret_ptr, total)
+    return nitems
+
+cdef int trailer_callback(curl.curl_slist ** list, void *userdata) with gil:
+    cdef object callback = <object>userdata
+    trailers = callback()
+    for tr in trailers:
+        list[0] = curl.curl_slist_append(list[0], <const char*>tr)
+    return curl.CURL_TRAILERFUNC_OK
+
 cdef list slist_to_list(curl.curl_slist *head) with gil:
     """Converts curl slist to a python list."""
     cdef list result = []
@@ -134,6 +162,8 @@ cdef class Curl:
         object _write_handle
         object _header_handle
         bytes _body_handle
+        object _read_handle
+        object _trailer_handle
         char* _error_buffer # char[256]
         bint _debug
 
@@ -165,6 +195,8 @@ cdef class Curl:
         self._write_handle = None
         self._header_handle = None
         self._body_handle = None
+        self._read_handle = None
+        self._trailer_handle = None
         self._debug = debug
         self._set_error_buffer()
 
@@ -339,6 +371,16 @@ cdef class Curl:
             self._header_handle = value # store a ref
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)
             option = curl.CURLOPT_HEADERDATA
+        elif option == curl.CURLOPT_READFUNCTION:
+            c_value = <void*>value
+            self._read_handle = value # store a ref
+            curl._curl_easy_setopt(self._curl, curl.CURLOPT_READFUNCTION, <void*>read_callback)
+            option = curl.CURLOPT_READDATA
+        elif option == curl.CURLOPT_TRAILERFUNCTION:
+            c_value = <void*>value
+            self._trailer_handle = value
+            curl._curl_easy_setopt(self._curl, curl.CURLOPT_TRAILERFUNCTION, <void*>trailer_callback)
+            option = curl.CURLOPT_TRAILERDATA
         elif value_type == 10000:
             if isinstance(value, str):
                 bytesval = value.encode() # keep a ref

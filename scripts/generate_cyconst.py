@@ -137,6 +137,10 @@ async def main():
                     fconsts.write(name + b" = curl." + name + b"\n")
         fconsts.write(b"CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT\n")
         fconsts.write(b"CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD\n")
+        fconsts.write(b"CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT\n")
+        fconsts.write(b"CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE\n")
+        fconsts.write(b"CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK\n")
+        fconsts.write(b"CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT\n")
 
         fconsts.write(b"#CURLMSG_\n")
         proc = await asyncio.create_subprocess_shell(

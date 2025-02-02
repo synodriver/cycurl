@@ -736,6 +736,10 @@ cdef extern from "curl/curl.h" nogil:
     int CURL_CSELECT_ERR
     int CURL_SOCKET_TIMEOUT
     int CURL_SOCKET_BAD
+    int CURL_READFUNC_ABORT
+    int CURL_READFUNC_PAUSE
+    int CURL_TRAILERFUNC_OK
+    int CURL_TRAILERFUNC_ABORT
     #CURLMSG_
     int CURLMSG_NONE
     int CURLMSG_DONE
