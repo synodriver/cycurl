@@ -1,6 +1,9 @@
 # cython: language_level=3
 # cython: cdivision=True
+from libc.stdint cimport int64_t
+
 cdef extern from "curl/curl.h" nogil:
+    ctypedef int64_t curl_off_t
     ctypedef struct CURL:
         pass
     CURL *curl_easy_init()
@@ -740,6 +743,11 @@ cdef extern from "curl/curl.h" nogil:
     int CURL_READFUNC_PAUSE
     int CURL_TRAILERFUNC_OK
     int CURL_TRAILERFUNC_ABORT
+    int CURL_PREREQFUNC_OK
+    int CURL_PREREQFUNC_ABORT
+    int CURL_FNMATCHFUNC_MATCH
+    int CURL_FNMATCHFUNC_NOMATCH
+    int CURL_FNMATCHFUNC_FAIL
     #CURLMSG_
     int CURLMSG_NONE
     int CURLMSG_DONE

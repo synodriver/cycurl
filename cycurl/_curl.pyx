@@ -3,6 +3,7 @@
 from pathlib import Path
 
 cimport cython
+from cpython.unicode cimport PyUnicode_FromString
 from cpython.bytes cimport PyBytes_GET_SIZE
 from cpython.float cimport PyFloat_FromDouble
 from cpython.long cimport PyLong_FromLong
@@ -77,7 +78,7 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
         warnings.warn("Wrote bytes != received bytes.", CurlWarning, stacklevel=2)
     return total
 
-cdef size_t read_callback(char *buffer, size_t size, size_t nitems, void *userdata) with gil:
+cdef size_t read_callback(char *buffer, size_t size, size_t nitems, void *userdata) except? 268435456 with gil:
     cdef:
         size_t total
         size_t read_size
@@ -86,10 +87,7 @@ cdef size_t read_callback(char *buffer, size_t size, size_t nitems, void *userda
         const char* ret_ptr
     callback = <object>userdata
     total = size * nitems
-    try:
-        ret = callback(total)
-    except:
-        return curl.CURL_READFUNC_ABORT
+    ret = callback(total)
     read_size = PyBytes_GET_SIZE(ret)
     if read_size != total:
         warnings.warn("Read bytes != received bytes.", CurlWarning, stacklevel=2)
@@ -97,12 +95,37 @@ cdef size_t read_callback(char *buffer, size_t size, size_t nitems, void *userda
     memcpy(buffer, ret_ptr, total)
     return nitems
 
-cdef int trailer_callback(curl.curl_slist ** list, void *userdata) with gil:
+cdef int trailer_callback(curl.curl_slist ** list, void *userdata) except? 1 with gil:
     cdef object callback = <object>userdata
     trailers = callback()
     for tr in trailers:
         list[0] = curl.curl_slist_append(list[0], <const char*>tr)
     return curl.CURL_TRAILERFUNC_OK
+
+cdef int prereq_callback(void *clientp,
+                    char *conn_primary_ip,
+                    char *conn_local_ip,
+                    int conn_primary_port,
+                    int conn_local_port) except? 1 with gil:
+    cdef object callback = <object>clientp
+    return callback(PyUnicode_FromString(conn_primary_ip),
+                    PyUnicode_FromString(conn_local_ip),
+                    conn_primary_port,
+                    conn_local_port)
+
+cdef int xferinfo_callback(void *clientp,
+                      curl.curl_off_t dltotal,
+                      curl.curl_off_t dlnow,
+                      curl.curl_off_t ultotal,
+                      curl.curl_off_t ulnow) except? 1 with gil:
+    cdef object callback = <object> clientp
+    return callback(dltotal, dlnow, ultotal, ulnow)
+
+cdef int fnmatch_callback(void *clientp,
+                     const char *pattern,
+                     const char *string) except? 2 with gil:
+    cdef object callback = <object> clientp
+    return callback(PyUnicode_FromString(pattern), PyUnicode_FromString(string))
 
 cdef list slist_to_list(curl.curl_slist *head) with gil:
     """Converts curl slist to a python list."""
@@ -164,6 +187,9 @@ cdef class Curl:
         bytes _body_handle
         object _read_handle
         object _trailer_handle
+        object _prereq_handle
+        object _xferinfo_handle
+        object _fnmatch_handle
         char* _error_buffer # char[256]
         bint _debug
 
@@ -197,6 +223,9 @@ cdef class Curl:
         self._body_handle = None
         self._read_handle = None
         self._trailer_handle = None
+        self._prereq_handle = None
+        self._xferinfo_handle = None
+        self._fnmatch_handle = None
         self._debug = debug
         self._set_error_buffer()
 
@@ -381,6 +410,21 @@ cdef class Curl:
             self._trailer_handle = value
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_TRAILERFUNCTION, <void*>trailer_callback)
             option = curl.CURLOPT_TRAILERDATA
+        elif option == curl.CURLOPT_PREREQFUNCTION:
+            c_value = <void *> value
+            self._prereq_handle = value
+            curl._curl_easy_setopt(self._curl, curl.CURLOPT_PREREQFUNCTION, <void *> prereq_callback)
+            option = curl.CURLOPT_PREREQDATA
+        elif option == curl.CURLOPT_XFERINFOFUNCTION:
+            c_value = <void *> value
+            self._xferinfo_handle = value
+            curl._curl_easy_setopt(self._curl, curl.CURLOPT_XFERINFOFUNCTION, <void *> xferinfo_callback)
+            option = curl.CURLOPT_XFERINFODATA
+        elif option == curl.CURLOPT_FNMATCH_FUNCTION:
+            c_value = <void *> value
+            self._fnmatch_handle = value
+            curl._curl_easy_setopt(self._curl, curl.CURLOPT_FNMATCH_FUNCTION, <void *> fnmatch_callback)
+            option = curl.CURLOPT_FNMATCH_DATA
         elif value_type == 10000:
             if isinstance(value, str):
                 bytesval = value.encode() # keep a ref
