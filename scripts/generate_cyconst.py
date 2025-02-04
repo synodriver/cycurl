@@ -146,6 +146,9 @@ async def main():
         fconsts.write(b"CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH\n")
         fconsts.write(b"CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH\n")
         fconsts.write(b"CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL\n")
+        fconsts.write(b"CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK\n")
+        fconsts.write(b"CURL_SEEKFUNC_FAIL = curl.CURL_SEEKFUNC_FAIL\n")
+        fconsts.write(b"CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK\n")
         fconsts.write(b"#CURLMSG_\n")
         proc = await asyncio.create_subprocess_shell(
             """ echo '#include "curl/multi.h"' | gcc -E - | grep -i "CURLMSG_.\+" | sed "s/,//g" """,

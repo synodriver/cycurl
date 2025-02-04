@@ -86,14 +86,18 @@ cdef size_t read_callback(char *buffer, size_t size, size_t nitems, void *userda
         bytes ret
         const char* ret_ptr
     callback = <object>userdata
-    total = size * nitems
+    total = size * nitems # numbytes
     ret = callback(total)
     read_size = PyBytes_GET_SIZE(ret)
-    if read_size != total:
-        warnings.warn("Read bytes != received bytes.", CurlWarning, stacklevel=2)
+    # if read_size != total: # stream end
+    #     warnings.warn("Read bytes != received bytes.", CurlWarning, stacklevel=2)
     ret_ptr = <const char*>ret
-    memcpy(buffer, ret_ptr, total)
-    return nitems
+    memcpy(buffer, ret_ptr, read_size)
+    return read_size / size
+
+cdef int seek_callback(void *clientp, curl.curl_off_t offset, int origin) except? 2 with gil:
+    cdef object callback = <object> clientp
+    return callback(offset, origin)
 
 cdef int trailer_callback(curl.curl_slist ** list, void *userdata) except? 1 with gil:
     cdef object callback = <object>userdata
@@ -186,6 +190,7 @@ cdef class Curl:
         object _header_handle
         bytes _body_handle
         object _read_handle
+        object _seek_handle
         object _trailer_handle
         object _prereq_handle
         object _xferinfo_handle
@@ -222,6 +227,7 @@ cdef class Curl:
         self._header_handle = None
         self._body_handle = None
         self._read_handle = None
+        self._seek_handle = None
         self._trailer_handle = None
         self._prereq_handle = None
         self._xferinfo_handle = None
@@ -405,6 +411,11 @@ cdef class Curl:
             self._read_handle = value # store a ref
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_READFUNCTION, <void*>read_callback)
             option = curl.CURLOPT_READDATA
+        elif option == curl.CURLOPT_SEEKFUNCTION:
+            c_value = <void*>value
+            self._seek_handle = value
+            curl._curl_easy_setopt(self._curl, curl.CURLOPT_SEEKFUNCTION, <void*>seek_callback)
+            option = curl.CURLOPT_SEEKDATA
         elif option == curl.CURLOPT_TRAILERFUNCTION:
             c_value = <void*>value
             self._trailer_handle = value

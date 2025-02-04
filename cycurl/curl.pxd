@@ -748,6 +748,9 @@ cdef extern from "curl/curl.h" nogil:
     int CURL_FNMATCHFUNC_MATCH
     int CURL_FNMATCHFUNC_NOMATCH
     int CURL_FNMATCHFUNC_FAIL
+    int CURL_SEEKFUNC_OK
+    int CURL_SEEKFUNC_FAIL
+    int CURL_SEEKFUNC_CANTSEEK
     #CURLMSG_
     int CURLMSG_NONE
     int CURLMSG_DONE
