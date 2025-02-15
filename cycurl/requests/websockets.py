@@ -546,7 +546,7 @@ class AsyncWebSocket(BaseWebSocket):
     @property
     def loop(self):
         if self._loop is None:
-            self._loop = asyncio.get_running_loop()
+            self._loop = m.get_selector(asyncio.get_running_loop())
         return self._loop
 
     def __aiter__(self) -> Self:

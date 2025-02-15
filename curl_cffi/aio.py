@@ -8,7 +8,7 @@ from weakref import WeakKeyDictionary, WeakSet
 from ._wrapper import ffi, lib
 from .const import CurlMOpt
 from .curl import DEFAULT_CACERT, Curl
-from .utils import CurlWarning
+from .utils import CurlCffiWarning
 
 __all__ = ["AsyncCurl"]
 
@@ -22,7 +22,7 @@ if sys.platform == "win32":
         asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())
     """
 
-    def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:
+    def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:
         """Get selector-compatible loop
 
         Returns an object with ``add_reader`` family of methods,
@@ -34,12 +34,10 @@ if sys.platform == "win32":
         if asyncio_loop in _selectors:
             return _selectors[asyncio_loop]
 
-        if not isinstance(
-            asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))
-        ):
+        if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
             return asyncio_loop
 
-        warnings.warn(PROACTOR_WARNING, CurlWarning, stacklevel=2)
+        warnings.warn(PROACTOR_WARNING, CurlCffiWarning, stacklevel=2)
 
         from ._asyncio_selector import AddThreadSelectorEventLoop
 
@@ -60,7 +58,7 @@ if sys.platform == "win32":
 
 else:
 
-    def _get_selector(loop) -> asyncio.AbstractEventLoop:
+    def get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:
         return loop
 
 
@@ -137,9 +135,7 @@ class AsyncCurl:
         self._curl2future: Dict[Curl, asyncio.Future] = {}  # curl to future map
         self._curl2curl: Dict[ffi.CData, Curl] = {}  # c curl to Curl
         self._sockfds: Set[int] = set()  # sockfds
-        self.loop = _get_selector(
-            loop if loop is not None else asyncio.get_running_loop()
-        )
+        self.loop = get_selector(loop if loop is not None else asyncio.get_running_loop())
         self._checker = self.loop.create_task(self._force_timeout())
         self._timers: WeakSet[asyncio.TimerHandle] = WeakSet()
         self._setup()
@@ -209,9 +205,7 @@ class AsyncCurl:
         """Call curl_multi_info_read to read data for given socket."""
         if not self._curlm:
             warnings.warn(
-                "Curlm alread closed! quitting from process_data",
-                CurlWarning,
-                stacklevel=2,
+                "Curlm already closed! quitting from process_data", CurlCffiWarning, stacklevel=2
             )
             return
 

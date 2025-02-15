@@ -11,14 +11,28 @@
         ],
         "depends": [],
         "extra_objects": [
-            "./dep/libcurl-impersonate-v0.7.0.x86_64-win32/libcurl.lib"
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib\\brotlicommon.lib",
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib\\brotlidec.lib",
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib\\brotlienc.lib",
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib\\crypto.lib",
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib\\libcurl_imp.lib",
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib\\nghttp2.lib",
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib\\ssl.lib",
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib\\zlib.lib",
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib\\zstd.lib"
         ],
         "include_dirs": [
             "./dep/curl-8.7.1/include",
             "ffi"
         ],
+        "libraries": [
+            "Crypt32",
+            "Secur32",
+            "wldap32",
+            "Normaliz"
+        ],
         "library_dirs": [
-            "./dep/libcurl-impersonate-v0.7.0.x86_64-win32"
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib"
         ],
         "name": "cycurl._curl",
         "sources": [
@@ -1450,7 +1464,7 @@ struct __pyx_defaults;
 struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct____init__;
 struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext;
 struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_2__thread_manager;
-struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector;
+struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector;
 struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4_close;
 struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5__force_timeout;
 struct __pyx_array_obj;
@@ -1691,11 +1705,11 @@ struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_2__thread_manager {
 /* "cycurl/_curl.pyx":677
  *     """
  * 
- *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
+ *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         """Get selector-compatible loop
  * 
 */
-struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector {
+struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector {
   PyObject_HEAD
   PyObject *__pyx_v_asyncio_loop;
   PyObject *__pyx_v_loop_close;
@@ -3469,6 +3483,7 @@ static const char __pyx_k_xs[] = "xs";
 static const char __pyx_k_1_0[] = "1.0";
 static const char __pyx_k_1_1[] = "1.1";
 static const char __pyx_k_2_0[] = "2.0";
+static const char __pyx_k_9_q[] = "\320\004\033\320\0339\270\021\330\010\017\210q";
 static const char __pyx_k_A_q[] = "\200A\340\010\017\210{\230-\240q";
 static const char __pyx_k_A_t[] = "\200A\340\014\r\330\022\023\340\t\n\330\010\017\210t\220:\230[\250\001\250\024\250[\270\001";
 static const char __pyx_k_Any[] = "Any";
@@ -3489,7 +3504,6 @@ static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_q_2[] = "\320\004\030\230\001\330\010\017\210q";
-static const char __pyx_k_q_q[] = "\320\004\037\230q\330\010\017\210q";
 static const char __pyx_k_str[] = "str";
 static const char __pyx_k_sys[] = "sys";
 static const char __pyx_k_A_G1[] = "\200A\340\010\014\210G\2201";
@@ -3780,7 +3794,7 @@ static const char __pyx_k_SimpleCookie[] = "SimpleCookie";
 static const char __pyx_k_asyncio_loop[] = "asyncio_loop";
 static const char __pyx_k_content_type[] = "content_type";
 static const char __pyx_k_cycurl__curl[] = "cycurl._curl";
-static const char __pyx_k_get_selector[] = "_get_selector";
+static const char __pyx_k_get_selector[] = "get_selector";
 static const char __pyx_k_getattribute[] = "__getattribute__";
 static const char __pyx_k_handle_event[] = "_handle_event";
 static const char __pyx_k_http_cookies[] = "http.cookies";
@@ -4548,7 +4562,8 @@ static const char __pyx_k_SelectorThread__thread_manager[] = "SelectorThread._th
 static const char __pyx_k_m1D_awat8SZZ_aaeeffnnqqr_M_q_q[] = "\320\004[\320[\\\360\034\000\016\017\330\014\026\220m\2401\240D\250\010\260\016\270a\270w\300a\300t\3108\320SZ\320Z`\320`a\320ae\320ef\320fn\320nq\320qr\330\010\014\210M\230\021\230%\230q\330\010\017\210q";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
 static const char __pyx_k_0_G_q_6_1_q_HHHCq_PQQR_Qe1_7_39[] = "\320\0040\260\001\360\022\000\t\035\230G\240<\250q\260\001\330\010\013\2106\220\022\2201\330\014\r\360\006\000\t*\250\021\360\010\000\t\n\330\021\022\330\020\032\230-\240q\250\004\250H\260H\270H\300C\300q\310\010\320PQ\320QR\330\014\020\220\r\230Q\230e\2401\360\006\000\r\024\2207\230&\240\003\320#3\2609\270A\270Q\340\014\026\220a\220q";
-static const char __pyx_k_A_4t1_E_C_P_N_81_0_Yaq_y_1_xuG1[] = "\200A\340\010\013\2104\210t\2201\330\014\024\220E\230\021\330\020C\300=\320P[\320[\\\340\014\r\340\010\014\210N\230!\2308\2401\360\016\000\t\n\330\014\033\320\0330\260\001\260\024\260Y\270a\270q\340\014\017\210y\230\003\2301\330\020\021\330\014\017\210x\220u\230G\2401\340\020\030\230\006\230d\240+\250Q\250k\270\027\300\010\310\001\330\020\032\230(\240%\240q\330\020\023\2208\2303\230a\330\024\030\230\013\2401\240A\360\006\000\025\031\230\016\240a\240w\250e\260;\270a\270y\310\001\340\020\025\220Q\220a";
+static const char __pyx_k_A_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I[] = "\320\004#\320#A\300\021\360\022\000\t\014\210=\230\003\2301\330\014\023\220:\230Q\230a\340\010\013\2104\210z\230\021\230.\250\007\250q\260\t\3209N\310d\320RS\320ST\330\014\023\2201\340\010\020\220\005\220Q\320\026(\250\r\260[\300\001\340\010\030\230\n\240!\320#3\3203M\310Q\310a\360\006\000\t\026\220\\\240\021\340\010\t\360\016\000\t\025\220I\230Q\330\010\017\210q";
+static const char __pyx_k_A_4t1_E_DMQ_N_81_0_Yaq_y_1_xuG1[] = "\200A\340\010\013\2104\210t\2201\330\014\024\220E\230\021\330\020D\300M\320Q\\\320\\]\340\014\r\340\010\014\210N\230!\2308\2401\360\016\000\t\n\330\014\033\320\0330\260\001\260\024\260Y\270a\270q\340\014\017\210y\230\003\2301\330\020\021\330\014\017\210x\220u\230G\2401\340\020\030\230\006\230d\240+\250Q\250k\270\027\300\010\310\001\330\020\032\230(\240%\240q\330\020\023\2208\2303\230a\330\024\030\230\013\2401\240A\360\006\000\025\031\230\016\240a\240w\250e\260;\270a\270y\310\001\340\020\025\220Q\220a";
 static const char __pyx_k_CURLINFO_PROXY_SSL_VERIFYRESULT[] = "CURLINFO_PROXY_SSL_VERIFYRESULT";
 static const char __pyx_k_CURLMOPT_CONTENT_LENGTH_PENALTY[] = "CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE";
 static const char __pyx_k_CURLMOPT_MAX_CONCURRENT_STREAMS[] = "CURLMOPT_MAX_CONCURRENT_STREAMS";
@@ -4565,8 +4580,6 @@ static const char __pyx_k_Proactor_event_loop_does_not_im[] = "\n    Proactor ev
 static const char __pyx_k_Q_Q_d_5_D_A_U_4q_t_D_A_D_V7_9Ja[] = "\320\004\035\230Q\330\010\t\330\021\025\220Q\330\020\026\220d\230.\250\003\2505\260\004\260D\270\004\270A\330\024\030\230\r\240U\250!\330\020\023\2204\220q\330\024\025\330\020\027\220t\230>\250\027\260\001\330\020\031\230\033\240D\250\001\330\020\024\320\024$\240A\360\022\000\r\016\360\020\000\021\025\220D\230\005\230V\2407\250!\2509\260J\270a\330\020\025\220S\230\002\230!\330\014\023\220;\230a\360\030\000\021\024\2201\220G\2303\230g\240Q\240g\250_\270E\300\021\330\024\030\230\003\2304\230v\240W\250A\250Q\250d\260)\2707\300%\300t\3104\310q\330\024\027\220q\330\030\035\230Q\340\030\031\340\024\025\340\014\r\330\020\024\220K\320\0374\260A\260T\3209J\310$\310a\330\023\024\360\016\000\024\025";
 static const char __pyx_k_Q_a_A_1_t_S_Q_L_t_3a_Q_a_4z_A_A[] = "\320\004:\270'\300\021\340\010\014\320\014\035\230Q\330\010\014\320\014\036\230a\330\010\014\320\014\034\230A\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\340\010\013\2104\210z\230\023\230A\330\020$\240A\240T\250\021\330\014\020\220\014\230A";
 static const char __pyx_k_See_https_curl_se_libcurl_c_lib[] = ". See https://curl.se/libcurl/c/libcurl-errors.html first for more details.";
-static const char __pyx_k_get_selector_locals__close_sele[] = "_get_selector.<locals>._close_selector_and_loop";
-static const char __pyx_k_q_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I[] = "\320\004'\240q\360\022\000\t\014\210=\230\003\2301\330\014\023\220:\230Q\230a\340\010\013\2104\210z\230\021\230.\250\007\250q\260\t\3209N\310d\320RS\320ST\330\014\023\2201\340\010\020\220\005\220Q\320\026(\250\r\260[\300\001\340\010\030\230\n\240!\320#3\3203M\310Q\310a\360\006\000\t\026\220\\\240\021\340\010\t\360\016\000\t\025\220I\230Q\330\010\017\210q";
 static const char __pyx_k_q_4q_Q_WA_O1_4y_q_Q_xq_N_4q_IV1[] = "\320\004\027\220q\330\010\013\2104\210q\330\014\r\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\010\014\210O\2301\330\010\013\2104\210y\230\007\230q\330\014\020\220\010\230\005\230Q\330\010\027\220x\230q\240\001\330\010\014\210N\230!\2304\230q\330\010\014\210I\220V\2301\330\010\014\210I\220V\2301\330\010\014\210K\220q";
 static const char __pyx_k_typing_AsyncGenerator_None_None[] = "typing.AsyncGenerator[None, None]";
 static const char __pyx_k_A01_BfA_8_4q_Q_1F_3c_1_fAS_1_1_f[] = "\200A\33001\360\n\000\t\r\210B\210f\220A\320\0258\270\001\330\010\013\2104\210q\330\014\023\320\023*\250#\250Q\330\010\013\2101\210F\220!\2203\220c\230\021\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\340\014\033\2301\330\010\026\220c\230\021\230!\2306\240\021\240!\330\010\021\220\021\220&\230\001\230\021\340\010\017\210~\230]\250!";
@@ -4598,7 +4611,7 @@ static const char __pyx_k_Can_only_create_a_buffer_that_is[] = "Can only create 
 static const char __pyx_k_Cannot_assign_to_read_only_memor[] = "Cannot assign to read-only memoryview";
 static const char __pyx_k_Cannot_create_writable_memory_vi[] = "Cannot create writable memory view from read-only memoryview";
 static const char __pyx_k_Cannot_transpose_memoryview_with[] = "Cannot transpose memoryview with indirect dimensions";
-static const char __pyx_k_Curlm_alread_closed_quitting_fro[] = "Curlm alread closed! quitting from process_data";
+static const char __pyx_k_Curlm_already_closed_quitting_fr[] = "Curlm already closed! quitting from process_data";
 static const char __pyx_k_Dict__FileDescriptorLike_Callabl[] = "Dict[_FileDescriptorLike, Callable]";
 static const char __pyx_k_Empty_shape_tuple_for_cython_arr[] = "Empty shape tuple for cython.array";
 static const char __pyx_k_Incompatible_checksums_0x_x_vs_0[] = "Incompatible checksums (0x%x vs (0x82a3537, 0x6ae9995, 0xb068931) = (name))";
@@ -4611,6 +4624,7 @@ static const char __pyx_k_SelectorThread___init___locals_t[] = "SelectorThread._
 static const char __pyx_k_Unable_to_convert_item_to_object[] = "Unable to convert item to object";
 static const char __pyx_k_Wrap_an_event_loop_to_add_implem[] = "Wrap an event loop to add implementations of the ``add_reader`` method family.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user; all callbacks are\n    run on the wrapped event loop's thread.\n\n    This class is used automatically by Tornado; applications should not need\n    to refer to it directly.\n\n    It is safe to wrap any event loop with this class, although it only makes sense\n    for event loops that do not implement the ``add_reader`` family of methods\n    themselves (i.e. ``WindowsProactorEventLoop``)\n\n    Closing the ``AddThreadSelectorEventLoop`` also closes the wrapped event loop.\n\n    ";
 static const char __pyx_k_failed_to_call_curl_multi_socket[] = "failed to call curl_multi_socket_action";
+static const char __pyx_k_get_selector_locals__close_selec[] = "get_selector.<locals>._close_selector_and_loop";
 static const char __pyx_k_got_differing_extents_in_dimensi[] = "got differing extents in dimension ";
 static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
 static const char __pyx_k_self_form_cannot_be_converted_to[] = "self.form cannot be converted to a Python object for pickling";
@@ -4717,9 +4731,9 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_6add_reade
 static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_8add_writer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_fd, PyObject *__pyx_v_callback, PyObject *__pyx_v_args); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_10remove_reader(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_fd); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_12remove_writer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_fd); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loop(PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_asyncio_loop); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_6_get_selector(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_loop); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_12get_selector__close_selector_and_loop(PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_4get_selector(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_asyncio_loop); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_loop); /* proto */
 static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, PyObject *__pyx_v_cacert, PyObject *__pyx_v_loop); /* proto */
 static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_4close(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto */
@@ -4747,7 +4761,7 @@ static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_defaults(PyTypeObject *t, PyO
 static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct____init__(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_2__thread_manager(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3__get_selector(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3_get_selector(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_4_close(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_5__force_timeout(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_array(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -4801,7 +4815,7 @@ typedef struct {
   PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct____init__;
   PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext;
   PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_2__thread_manager;
-  PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector;
+  PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector;
   PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close;
   PyObject *__pyx_type_6cycurl_5_curl___pyx_scope_struct_5__force_timeout;
   PyObject *__pyx_type___pyx_array;
@@ -4816,7 +4830,7 @@ typedef struct {
   PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct____init__;
   PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext;
   PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_2__thread_manager;
-  PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector;
+  PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector;
   PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close;
   PyTypeObject *__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout;
   PyTypeObject *__pyx_array_type;
@@ -4883,8 +4897,8 @@ int __pyx_freecount_6cycurl_5_curl___pyx_scope_struct_2__thread_manager;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_3__get_selector[8];
-int __pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3__get_selector;
+struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_3_get_selector[8];
+int __pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3_get_selector;
 #endif
 
 #if CYTHON_USE_FREELISTS
@@ -5668,7 +5682,7 @@ static __pyx_mstatetype *__pyx_mstate_global = &__pyx_mstate_global_static;
 #define __pyx_n_u_Curl_ws_meta __pyx_string_tab[732]
 #define __pyx_n_u_Curl_ws_recv __pyx_string_tab[733]
 #define __pyx_n_u_Curl_ws_send __pyx_string_tab[734]
-#define __pyx_kp_u_Curlm_alread_closed_quitting_fro __pyx_string_tab[735]
+#define __pyx_kp_u_Curlm_already_closed_quitting_fr __pyx_string_tab[735]
 #define __pyx_n_u_DEFAULT_CACERT __pyx_string_tab[736]
 #define __pyx_kp_u_Define_add_reader_methods_to_be __pyx_string_tab[737]
 #define __pyx_n_u_Dict __pyx_string_tab[738]
@@ -5881,7 +5895,7 @@ static __pyx_mstatetype *__pyx_mstate_global = &__pyx_mstate_global_static;
 #define __pyx_n_u_get_reason_phrase __pyx_string_tab[945]
 #define __pyx_n_u_get_running_loop __pyx_string_tab[946]
 #define __pyx_n_u_get_selector __pyx_string_tab[947]
-#define __pyx_n_u_get_selector_locals__close_sele __pyx_string_tab[948]
+#define __pyx_n_u_get_selector_locals__close_selec __pyx_string_tab[948]
 #define __pyx_n_u_getattribute __pyx_string_tab[949]
 #define __pyx_kp_u_getinfo __pyx_string_tab[950]
 #define __pyx_n_u_getinfo_2 __pyx_string_tab[951]
@@ -6100,8 +6114,8 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext);
   Py_CLEAR(clear_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_2__thread_manager);
   Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_2__thread_manager);
-  Py_CLEAR(clear_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector);
-  Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector);
+  Py_CLEAR(clear_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector);
+  Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector);
   Py_CLEAR(clear_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close);
   Py_CLEAR(clear_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close);
   Py_CLEAR(clear_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout);
@@ -6166,8 +6180,8 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_1_thread_manager_anext);
   Py_VISIT(traverse_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_2__thread_manager);
   Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_2__thread_manager);
-  Py_VISIT(traverse_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector);
-  Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector);
+  Py_VISIT(traverse_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector);
+  Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector);
   Py_VISIT(traverse_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_4_close);
   Py_VISIT(traverse_module_state->__pyx_type_6cycurl_5_curl___pyx_scope_struct_4_close);
   Py_VISIT(traverse_module_state->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5__force_timeout);
@@ -37238,22 +37252,22 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_12remove_w
 /* "cycurl/_curl.pyx":677
  *     """
  * 
- *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
+ *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         """Get selector-compatible loop
  * 
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_5_get_selector(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_5get_selector(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4_get_selector, "_get_selector(asyncio_loop) -> asyncio.AbstractEventLoop\nGet selector-compatible loop\n\nReturns an object with ``add_reader`` family of methods,\neither the loop itself or a SelectorThread instance.\n\nWorkaround Windows proactor removal of *reader methods.");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_5_get_selector = {"_get_selector", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_5_get_selector, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4_get_selector};
-static PyObject *__pyx_pw_6cycurl_5_curl_5_get_selector(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4get_selector, "get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop\nGet selector-compatible loop\n\nReturns an object with ``add_reader`` family of methods,\neither the loop itself or a SelectorThread instance.\n\nWorkaround Windows proactor removal of *reader methods.");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_5get_selector = {"get_selector", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_5get_selector, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4get_selector};
+static PyObject *__pyx_pw_6cycurl_5_curl_5get_selector(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -37271,7 +37285,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_get_selector (wrapper)", 0);
+  __Pyx_RefNannySetupContext("get_selector (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -37303,7 +37317,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "_get_selector") < 0)) __PYX_ERR(1, 677, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_selector") < 0)) __PYX_ERR(1, 677, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -37314,7 +37328,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 677, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 677, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -37324,11 +37338,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("cycurl._curl._get_selector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cycurl._curl.get_selector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_4_get_selector(__pyx_self, __pyx_v_asyncio_loop);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_4get_selector(__pyx_self, __pyx_v_asyncio_loop);
 
   /* function exit code */
   {
@@ -37350,24 +37364,24 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_13_get_selector_1_close_selector_and_loop(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_13_get_selector_1_close_selector_and_loop = {"_close_selector_and_loop", (PyCFunction)__pyx_pw_6cycurl_5_curl_13_get_selector_1_close_selector_and_loop, METH_NOARGS, 0};
-static PyObject *__pyx_pw_6cycurl_5_curl_13_get_selector_1_close_selector_and_loop(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_6cycurl_5_curl_12get_selector_1_close_selector_and_loop(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_12get_selector_1_close_selector_and_loop = {"_close_selector_and_loop", (PyCFunction)__pyx_pw_6cycurl_5_curl_12get_selector_1_close_selector_and_loop, METH_NOARGS, 0};
+static PyObject *__pyx_pw_6cycurl_5_curl_12get_selector_1_close_selector_and_loop(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_close_selector_and_loop (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loop(__pyx_self);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_12get_selector__close_selector_and_loop(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loop(PyObject *__pyx_self) {
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *__pyx_cur_scope;
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *__pyx_outer_scope;
+static PyObject *__pyx_pf_6cycurl_5_curl_12get_selector__close_selector_and_loop(PyObject *__pyx_self) {
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *__pyx_cur_scope;
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *__pyx_outer_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -37378,7 +37392,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loo
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_close_selector_and_loop", 0);
-  __pyx_outer_scope = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
   /* "cycurl/_curl.pyx":702
@@ -37458,7 +37472,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loo
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("cycurl._curl._get_selector._close_selector_and_loop", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cycurl._curl.get_selector._close_selector_and_loop", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -37469,13 +37483,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_13_get_selector__close_selector_and_loo
 /* "cycurl/_curl.pyx":677
  *     """
  * 
- *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
+ *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         """Get selector-compatible loop
  * 
 */
 
-static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_asyncio_loop) {
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *__pyx_cur_scope;
+static PyObject *__pyx_pf_6cycurl_5_curl_4get_selector(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_asyncio_loop) {
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *__pyx_cur_scope;
   PyObject *__pyx_v__close_selector_and_loop = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -37491,10 +37505,10 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_get_selector", 0);
-  __pyx_cur_scope = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3__get_selector(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("get_selector", 0);
+  __pyx_cur_scope = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3_get_selector(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(1, 677, __pyx_L1_error)
   } else {
@@ -37688,7 +37702,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *
  *             # restore original before calling selector.close,
  *             # which in turn calls eventloop.close!
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_13_get_selector_1_close_selector_and_loop, 0, __pyx_mstate_global->__pyx_n_u_get_selector_locals__close_sele, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 699, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_12get_selector_1_close_selector_and_loop, 0, __pyx_mstate_global->__pyx_n_u_get_selector_locals__close_selec, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 699, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_v__close_selector_and_loop = __pyx_t_4;
   __pyx_t_4 = 0;
@@ -37717,7 +37731,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *
   /* "cycurl/_curl.pyx":677
  *     """
  * 
- *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
+ *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         """Get selector-compatible loop
  * 
 */
@@ -37730,7 +37744,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("cycurl._curl._get_selector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cycurl._curl.get_selector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v__close_selector_and_loop);
@@ -37743,22 +37757,22 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4_get_selector(CYTHON_UNUSED PyObject *
 /* "cycurl/_curl.pyx":710
  * 
  * else:
- *     def _get_selector(loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
+ *     def get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         return loop
  * 
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_7_get_selector(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_7get_selector(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_6_get_selector, "_get_selector(loop) -> asyncio.AbstractEventLoop");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_7_get_selector = {"_get_selector", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_7_get_selector, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_6_get_selector};
-static PyObject *__pyx_pw_6cycurl_5_curl_7_get_selector(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_6get_selector, "get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_7get_selector = {"get_selector", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_7get_selector, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_6get_selector};
+static PyObject *__pyx_pw_6cycurl_5_curl_7get_selector(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -37776,7 +37790,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_get_selector (wrapper)", 0);
+  __Pyx_RefNannySetupContext("get_selector (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -37808,7 +37822,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "_get_selector") < 0)) __PYX_ERR(1, 710, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_selector") < 0)) __PYX_ERR(1, 710, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -37819,7 +37833,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 710, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 710, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -37829,11 +37843,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("cycurl._curl._get_selector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cycurl._curl.get_selector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_6_get_selector(__pyx_self, __pyx_v_loop);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_6get_selector(__pyx_self, __pyx_v_loop);
 
   /* function exit code */
   {
@@ -37846,14 +37860,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_6_get_selector(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_loop) {
+static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_loop) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_get_selector", 0);
+  __Pyx_RefNannySetupContext("get_selector", 0);
 
   /* "cycurl/_curl.pyx":711
  * else:
- *     def _get_selector(loop) -> asyncio.AbstractEventLoop:
+ *     def get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:
  *         return loop             # <<<<<<<<<<<<<<
  * 
  * 
@@ -37866,7 +37880,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6_get_selector(CYTHON_UNUSED PyObject *
   /* "cycurl/_curl.pyx":710
  * 
  * else:
- *     def _get_selector(loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
+ *     def get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         return loop
  * 
 */
@@ -38800,7 +38814,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
  *         self._curl2future = {}  # curl to future map
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]             # <<<<<<<<<<<<<<
  *         self._sockfds = set()  # sockfds
- *         self.loop = _get_selector(
+ *         self.loop = get_selector(
 */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 772, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -38814,7 +38828,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
  *         self._curl2future = {}  # curl to future map
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds             # <<<<<<<<<<<<<<
- *         self.loop = _get_selector(
+ *         self.loop = get_selector(
  *             loop if loop is not None else asyncio.get_running_loop()
 */
   __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 773, __pyx_L1_error)
@@ -38828,7 +38842,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   /* "cycurl/_curl.pyx":774
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds
- *         self.loop = _get_selector(             # <<<<<<<<<<<<<<
+ *         self.loop = get_selector(             # <<<<<<<<<<<<<<
  *             loop if loop is not None else asyncio.get_running_loop()
  *         )
 */
@@ -38837,7 +38851,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
 
   /* "cycurl/_curl.pyx":775
  *         self._sockfds = set()  # sockfds
- *         self.loop = _get_selector(
+ *         self.loop = get_selector(
  *             loop if loop is not None else asyncio.get_running_loop()             # <<<<<<<<<<<<<<
  *         )
  *         self._checker = self.loop.create_task(self._force_timeout())
@@ -38884,7 +38898,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   /* "cycurl/_curl.pyx":774
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds
- *         self.loop = _get_selector(             # <<<<<<<<<<<<<<
+ *         self.loop = get_selector(             # <<<<<<<<<<<<<<
  *             loop if loop is not None else asyncio.get_running_loop()
  *         )
 */
@@ -40637,7 +40651,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:             # <<<<<<<<<<<<<<
  *             warnings.warn(
- *                 "Curlm alread closed! quitting from process_data", CurlWarning, stacklevel=2
+ *                 "Curlm already closed! quitting from process_data", CurlWarning, stacklevel=2
 */
   __pyx_t_1 = (!(__pyx_v_self->_curlm != 0));
   if (__pyx_t_1) {
@@ -40646,7 +40660,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:
  *             warnings.warn(             # <<<<<<<<<<<<<<
- *                 "Curlm alread closed! quitting from process_data", CurlWarning, stacklevel=2
+ *                 "Curlm already closed! quitting from process_data", CurlWarning, stacklevel=2
  *             )
 */
     __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warnings); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 848, __pyx_L1_error)
@@ -40658,7 +40672,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
     /* "cycurl/_curl.pyx":849
  *         if not self._curlm:
  *             warnings.warn(
- *                 "Curlm alread closed! quitting from process_data", CurlWarning, stacklevel=2             # <<<<<<<<<<<<<<
+ *                 "Curlm already closed! quitting from process_data", CurlWarning, stacklevel=2             # <<<<<<<<<<<<<<
  *             )
  *             return
 */
@@ -40680,7 +40694,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
     __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 848, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     {
-      PyObject *__pyx_callargs[3+ ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_5, __pyx_mstate_global->__pyx_kp_u_Curlm_alread_closed_quitting_fro, __pyx_t_3};
+      PyObject *__pyx_callargs[3+ ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_5, __pyx_mstate_global->__pyx_kp_u_Curlm_already_closed_quitting_fr, __pyx_t_3};
       if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_stacklevel, __pyx_mstate_global->__pyx_int_2, __pyx_t_7, __pyx_callargs+3, 0) < 0) __PYX_ERR(1, 848, __pyx_L1_error)
       __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 2+__pyx_t_6, __pyx_t_7);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -40693,7 +40707,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
     /* "cycurl/_curl.pyx":851
- *                 "Curlm alread closed! quitting from process_data", CurlWarning, stacklevel=2
+ *                 "Curlm already closed! quitting from process_data", CurlWarning, stacklevel=2
  *             )
  *             return             # <<<<<<<<<<<<<<
  * 
@@ -40708,7 +40722,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:             # <<<<<<<<<<<<<<
  *             warnings.warn(
- *                 "Curlm alread closed! quitting from process_data", CurlWarning, stacklevel=2
+ *                 "Curlm already closed! quitting from process_data", CurlWarning, stacklevel=2
 */
   }
 
@@ -45321,16 +45335,16 @@ static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_2__thread_manag
 };
 #endif
 
-static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3__get_selector(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3_get_selector(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3__get_selector > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_3__get_selector[--__pyx_mstate_global->__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3__get_selector];
-    memset(o, 0, sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector));
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3_get_selector > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_3_get_selector[--__pyx_mstate_global->__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3_get_selector];
+    memset(o, 0, sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -45343,11 +45357,11 @@ static PyObject *__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3__get_selector(
   return o;
 }
 
-static void __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3__get_selector(PyObject *o) {
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *)o;
+static void __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3_get_selector(PyObject *o) {
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3__get_selector) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3_get_selector) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -45357,8 +45371,8 @@ static void __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3__get_selector(P
   Py_CLEAR(p->__pyx_v_loop_close);
   Py_CLEAR(p->__pyx_v_selector_loop);
   #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3__get_selector < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector)))) {
-    __pyx_mstate_global->__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_3__get_selector[__pyx_mstate_global->__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3__get_selector++] = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *)o);
+  if (((int)(__pyx_mstate_global->__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3_get_selector < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector)))) {
+    __pyx_mstate_global->__pyx_freelist_6cycurl_5_curl___pyx_scope_struct_3_get_selector[__pyx_mstate_global->__pyx_freecount_6cycurl_5_curl___pyx_scope_struct_3_get_selector++] = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *)o);
   } else
   #endif
   {
@@ -45373,9 +45387,9 @@ static void __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3__get_selector(P
   }
 }
 
-static int __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_3__get_selector(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_3_get_selector(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *)o;
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -45392,9 +45406,9 @@ static int __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_3__get_selector(P
   return 0;
 }
 
-static int __pyx_tp_clear_6cycurl_5_curl___pyx_scope_struct_3__get_selector(PyObject *o) {
+static int __pyx_tp_clear_6cycurl_5_curl___pyx_scope_struct_3_get_selector(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector *)o;
+  struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *p = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector *)o;
   tmp = ((PyObject*)p->__pyx_v_asyncio_loop);
   p->__pyx_v_asyncio_loop = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
@@ -45407,28 +45421,28 @@ static int __pyx_tp_clear_6cycurl_5_curl___pyx_scope_struct_3__get_selector(PyOb
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3__get_selector},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_3__get_selector},
-  {Py_tp_clear, (void *)__pyx_tp_clear_6cycurl_5_curl___pyx_scope_struct_3__get_selector},
-  {Py_tp_new, (void *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3__get_selector},
+static PyType_Slot __pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3_get_selector},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_3_get_selector},
+  {Py_tp_clear, (void *)__pyx_tp_clear_6cycurl_5_curl___pyx_scope_struct_3_get_selector},
+  {Py_tp_new, (void *)__pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3_get_selector},
   {0, 0},
 };
-static PyType_Spec __pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector_spec = {
-  "cycurl._curl.__pyx_scope_struct_3__get_selector",
-  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector),
+static PyType_Spec __pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector_spec = {
+  "cycurl._curl.__pyx_scope_struct_3_get_selector",
+  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector_slots,
+  __pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector = {
+static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector = {
   PyVarObject_HEAD_INIT(0, 0)
-  "cycurl._curl.""__pyx_scope_struct_3__get_selector", /*tp_name*/
-  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3__get_selector), /*tp_basicsize*/
+  "cycurl._curl.""__pyx_scope_struct_3_get_selector", /*tp_name*/
+  sizeof(struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_3_get_selector), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3__get_selector, /*tp_dealloc*/
+  __pyx_tp_dealloc_6cycurl_5_curl___pyx_scope_struct_3_get_selector, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -45450,8 +45464,8 @@ static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_3__get_selector, /*tp_traverse*/
-  __pyx_tp_clear_6cycurl_5_curl___pyx_scope_struct_3__get_selector, /*tp_clear*/
+  __pyx_tp_traverse_6cycurl_5_curl___pyx_scope_struct_3_get_selector, /*tp_traverse*/
+  __pyx_tp_clear_6cycurl_5_curl___pyx_scope_struct_3_get_selector, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
@@ -45468,7 +45482,7 @@ static PyTypeObject __pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3__get_selector, /*tp_new*/
+  __pyx_tp_new_6cycurl_5_curl___pyx_scope_struct_3_get_selector, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -47003,22 +47017,22 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector)) __PYX_ERR(1, 677, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector) < 0) __PYX_ERR(1, 677, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector)) __PYX_ERR(1, 677, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector) < 0) __PYX_ERR(1, 677, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector = &__pyx_type_6cycurl_5_curl___pyx_scope_struct_3__get_selector;
+  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector = &__pyx_type_6cycurl_5_curl___pyx_scope_struct_3_get_selector;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector) < 0) __PYX_ERR(1, 677, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector) < 0) __PYX_ERR(1, 677, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
-  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector->tp_print = 0;
+  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector->tp_print = 0;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector->tp_dictoffset && __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3__get_selector->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector->tp_dictoffset && __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_3_get_selector->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
@@ -57344,14 +57358,15 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
     /* "cycurl/_curl.pyx":677
  *     """
  * 
- *     def _get_selector(asyncio_loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
+ *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         """Get selector-compatible loop
  * 
 */
-    __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 677, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 677, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
+    if (PyDict_SetItem(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_asyncio_loop, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < 0) __PYX_ERR(1, 677, __pyx_L1_error)
     if (PyDict_SetItem(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < 0) __PYX_ERR(1, 677, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_5_get_selector, 0, __pyx_mstate_global->__pyx_n_u_get_selector, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[50])); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 677, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_5get_selector, 0, __pyx_mstate_global->__pyx_n_u_get_selector, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[50])); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 677, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_6, __pyx_t_10);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -57371,15 +57386,16 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   /* "cycurl/_curl.pyx":710
  * 
  * else:
- *     def _get_selector(loop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
+ *     def get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         return loop
  * 
 */
   /*else*/ {
-    __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 710, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 710, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
+    if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_loop, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < 0) __PYX_ERR(1, 710, __pyx_L1_error)
     if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < 0) __PYX_ERR(1, 710, __pyx_L1_error)
-    __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_7_get_selector, 0, __pyx_mstate_global->__pyx_n_u_get_selector, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[51])); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 710, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_7get_selector, 0, __pyx_mstate_global->__pyx_n_u_get_selector, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[51])); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 710, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_10, __pyx_t_6);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -58367,7 +58383,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Curl_ws_meta, sizeof(__pyx_k_Curl_ws_meta), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Curl_ws_meta */
   {__pyx_k_Curl_ws_recv, sizeof(__pyx_k_Curl_ws_recv), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Curl_ws_recv */
   {__pyx_k_Curl_ws_send, sizeof(__pyx_k_Curl_ws_send), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Curl_ws_send */
-  {__pyx_k_Curlm_alread_closed_quitting_fro, sizeof(__pyx_k_Curlm_alread_closed_quitting_fro), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Curlm_alread_closed_quitting_fro */
+  {__pyx_k_Curlm_already_closed_quitting_fr, sizeof(__pyx_k_Curlm_already_closed_quitting_fr), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Curlm_already_closed_quitting_fr */
   {__pyx_k_DEFAULT_CACERT, sizeof(__pyx_k_DEFAULT_CACERT), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DEFAULT_CACERT */
   {__pyx_k_Define_add_reader_methods_to_be, sizeof(__pyx_k_Define_add_reader_methods_to_be), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Define_add_reader_methods_to_be */
   {__pyx_k_Dict, sizeof(__pyx_k_Dict), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Dict */
@@ -58580,7 +58596,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_get_reason_phrase, sizeof(__pyx_k_get_reason_phrase), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_reason_phrase */
   {__pyx_k_get_running_loop, sizeof(__pyx_k_get_running_loop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_running_loop */
   {__pyx_k_get_selector, sizeof(__pyx_k_get_selector), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_selector */
-  {__pyx_k_get_selector_locals__close_sele, sizeof(__pyx_k_get_selector_locals__close_sele), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_selector_locals__close_sele */
+  {__pyx_k_get_selector_locals__close_selec, sizeof(__pyx_k_get_selector_locals__close_selec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_selector_locals__close_selec */
   {__pyx_k_getattribute, sizeof(__pyx_k_getattribute), 0, 1, 1}, /* PyObject cname: __pyx_n_u_getattribute */
   {__pyx_k_getinfo, sizeof(__pyx_k_getinfo), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_getinfo */
   {__pyx_k_getinfo_2, sizeof(__pyx_k_getinfo_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_getinfo_2 */
@@ -59348,14 +59364,14 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[49] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__asyncio_selector_pxi, __pyx_mstate->__pyx_n_u_remove_writer, __pyx_k_t_1A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[49])) goto bad;
   }
   {
-    __Pyx_PyCode_New_function_description descr = {1, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 677, 117};
+    __Pyx_PyCode_New_function_description descr = {1, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 677, 120};
     PyObject* varnames[] = {__pyx_mstate->__pyx_n_u_asyncio_loop, __pyx_mstate->__pyx_n_u_selector_loop, __pyx_mstate->__pyx_n_u_loop_close, __pyx_mstate->__pyx_n_u_close_selector_and_loop, __pyx_mstate->__pyx_n_u_close_selector_and_loop};
-    __pyx_mstate_global->__pyx_codeobj_tab[50] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_get_selector, __pyx_k_q_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[50])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[50] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_get_selector, __pyx_k_A_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[50])) goto bad;
   }
   {
-    __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 710, 10};
+    __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 710, 13};
     PyObject* varnames[] = {__pyx_mstate->__pyx_n_u_loop};
-    __pyx_mstate_global->__pyx_codeobj_tab[51] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_get_selector, __pyx_k_q_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[51])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[51] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_get_selector, __pyx_k_9_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[51])) goto bad;
   }
   {
     __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 823, 68};
@@ -59370,7 +59386,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 845, 161};
     PyObject* varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_sockfd, __pyx_mstate->__pyx_n_u_ev_bitmask};
-    __pyx_mstate_global->__pyx_codeobj_tab[54] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_process_data, __pyx_k_A_4t1_E_C_P_N_81_0_Yaq_y_1_xuG1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[54])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[54] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_process_data, __pyx_k_A_4t1_E_DMQ_N_81_0_Yaq_y_1_xuG1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[54])) goto bad;
   }
   {
     __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 882, 45};

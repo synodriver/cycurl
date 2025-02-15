@@ -32,33 +32,47 @@ class build_ext_compiler_check(build_ext):
             ext.extra_compile_args.extend(args)
         super().build_extensions()
 
+def get_curl_libraries():
+    if uname.system == "Windows":
+        return [
+            "Crypt32",
+            "Secur32",
+            "wldap32",
+            "Normaliz",
+        ]
+    else:
+        return []
+
 
 if uname.system == "Windows":
-    library_dirs = ["./dep/libcurl-impersonate-v0.7.0.x86_64-win32"]
-    extra_objects = ["./dep/libcurl-impersonate-v0.7.0.x86_64-win32/libcurl.lib"]
-    for file in glob.glob("./dep/libcurl-impersonate-v0.7.0.x86_64-win32/*.dll"):
+    library_dirs = ["./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib"]
+    extra_objects = []
+    for obj in glob.glob("./dep/libcurl-impersonate-v0.9.2.x86_64-win32/lib/*.lib"):
+        extra_objects.append(obj)
+    extra_objects = [i for i in extra_objects if "libcurl.lib" not in i] # only libcurl_imp is enough
+    for file in glob.glob("./dep/libcurl-impersonate-v0.9.2.x86_64-win32/bin/*.dll"):
         shutil.copy(file, "./cycurl")
 elif uname.system == "Darwin":
     if platform.machine() == "x86_64":
-        library_dirs = ["./dep/libcurl-impersonate-v0.8.2.x86_64-macos"]
+        library_dirs = ["./dep/libcurl-impersonate-v0.9.2.x86_64-macos"]
         extra_objects = [
-            "./dep/libcurl-impersonate-v0.8.2.x86_64-macos/libcurl-impersonate-chrome.4.dylib"
+            "./dep/libcurl-impersonate-v0.9.2.x86_64-macos/libcurl-impersonate-chrome.4.dylib"
         ]
-        for file in glob.glob("./dep/libcurl-impersonate-v0.8.2.x86_64-macos/*.dylib"):
+        for file in glob.glob("./dep/libcurl-impersonate-v0.9.2.x86_64-macos/*.dylib"):
             shutil.copy(file, "./cycurl")
     else:
-        library_dirs = ["./dep/libcurl-impersonate-v0.8.2.arm64-macos"]
+        library_dirs = ["./dep/libcurl-impersonate-v0.9.2.arm64-macos"]
         extra_objects = [
-            "./dep/libcurl-impersonate-v0.8.2.arm64-macos/libcurl-impersonate-chrome.4.dylib"
+            "./dep/libcurl-impersonate-v0.9.2.arm64-macos/libcurl-impersonate-chrome.4.dylib"
         ]
-        for file in glob.glob("./dep/libcurl-impersonate-v0.8.2.arm64-macos/*.dylib"):
+        for file in glob.glob("./dep/libcurl-impersonate-v0.9.2.arm64-macos/*.dylib"):
             shutil.copy(file, "./cycurl")
 else:
-    library_dirs = ["./dep/libcurl-impersonate-v0.8.2.x86_64-linux-gnu"]
+    library_dirs = ["./dep/libcurl-impersonate-v0.9.2.x86_64-linux-gnu"]
     extra_objects = [
-        "./dep/libcurl-impersonate-v0.8.2.x86_64-linux-gnu/libcurl-impersonate-chrome.so.4.8.0"
+        "./dep/libcurl-impersonate-v0.9.2.x86_64-linux-gnu/libcurl-impersonate-chrome.so.4.8.0"
     ]
-    for file in glob.glob("./dep/libcurl-impersonate-v0.8.2.x86_64-linux-gnu/*.so"):
+    for file in glob.glob("./dep/libcurl-impersonate-v0.9.2.x86_64-linux-gnu/*.so"):
         shutil.copy(file, "./cycurl")
     # library_diexit(rs = ["./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu"]
     # extra_objects = [
@@ -77,6 +91,7 @@ extensions = [
     Extension(
         "cycurl._curl",
         ["cycurl/_curl.pyx", "ffi/shim.c"],
+        libraries=get_curl_libraries(),
         include_dirs=[
             f"./dep/curl-8.7.1/include",
             "ffi",
@@ -86,6 +101,7 @@ extensions = [
         extra_compile_args=(
             ["-Wno-implicit-function-declaration"] if uname.system == "Darwin" else []
         ),
+        extra_link_args=(["-lstdc++"] if uname.system != "Windows" else []),
         define_macros=defined_macros,
     ),
 ]

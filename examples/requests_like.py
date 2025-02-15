@@ -11,3 +11,7 @@ print("With impersonation", r.json())
 s = requests.Session(impersonate="chrome110")
 r = s.get("https://tls.browserleaks.com/json")
 print("With impersonation", r.json())
+
+s = requests.Session(impersonate="firefox133")
+r = s.get("https://tls.browserleaks.com/json")
+print("With impersonation", r.json())
