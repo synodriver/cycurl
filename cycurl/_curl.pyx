@@ -334,6 +334,11 @@ cdef class Curl:
                 self.setopt(curl.CURLOPT_VERBOSE, 1)
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
 
+    def __eq__(self, other):
+        if not isinstance(other, Curl):
+            return False
+        return self._curl == (<Curl>other)._curl
+
     def debug(self):
         """Set debug to True"""
         self.setopt(CURLOPT_VERBOSE, 1)
