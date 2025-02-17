@@ -339,6 +339,9 @@ cdef class Curl:
             return False
         return self._curl == (<Curl>other)._curl
 
+    def __hash__(self):
+        return <Py_hash_t>(self._curl)
+
     def debug(self):
         """Set debug to True"""
         self.setopt(CURLOPT_VERBOSE, 1)
