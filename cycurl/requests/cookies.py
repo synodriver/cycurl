@@ -10,13 +10,13 @@ import warnings
 from dataclasses import dataclass
 from http.cookiejar import Cookie, CookieJar
 from http.cookies import _unquote
-from typing import Dict, Iterator, List, MutableMapping, Optional, Tuple, Union
+from typing import Iterator, MutableMapping, Optional, Union
 from urllib.parse import urlparse
 
 from cycurl._curl import CurlWarning
 from cycurl.requests.errors import CookieConflict, RequestsError
 
-CookieTypes = Union["Cookies", CookieJar, Dict[str, str], List[Tuple[str, str]]]
+CookieTypes = Union["Cookies", CookieJar, dict[str, str], list[tuple[str, str]]]
 
 
 @dataclass
@@ -163,7 +163,7 @@ class Cookies(MutableMapping[str, str]):
             host += ".local"
         return host
 
-    def get_cookies_for_curl(self, request) -> List[CurlMorsel]:
+    def get_cookies_for_curl(self, request) -> list[CurlMorsel]:
         """the process is similar to `cookiejar.add_cookie_header`, but load all cookies"""
         self.jar._cookies_lock.acquire()  # type: ignore
         morsels = []
@@ -180,7 +180,7 @@ class Cookies(MutableMapping[str, str]):
         self.jar.clear_expired_cookies()
         return morsels
 
-    def update_cookies_from_curl(self, morsels: List[CurlMorsel]):
+    def update_cookies_from_curl(self, morsels: list[CurlMorsel]):
         for morsel in morsels:
             cookie = morsel.to_cookiejar_cookie()
             self.jar.set_cookie(cookie)

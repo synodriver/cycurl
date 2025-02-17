@@ -10,8 +10,6 @@ from typing import (
     TYPE_CHECKING,
     Any,
     Callable,
-    Dict,
-    List,
     Literal,
     Optional,
     Tuple,
@@ -70,7 +68,9 @@ class WsCloseCode(IntEnum):
 class WebSocketError(CurlError):
     """WebSocket-specific error."""
 
-    def __init__(self, message: str, code: Union[WsCloseCode, int, Literal[0]] = 0):
+    def __init__(
+        self, message: str, code: Union[WsCloseCode, int, Literal[0]] = 0
+    ):
         super().__init__(message, code)  # type: ignore
 
 
@@ -221,7 +221,7 @@ class WebSocket(BaseWebSocket):
     def connect(
         self,
         url: str,
-        params: Optional[Union[Dict, List, Tuple]] = None,
+        params: Optional[Union[dict, list, tuple]] = None,
         headers: Optional[HeaderTypes] = None,
         cookies: Optional[CookieTypes] = None,
         auth: Optional[Tuple[str, str]] = None,
@@ -244,7 +244,7 @@ class WebSocket(BaseWebSocket):
         interface: Optional[str] = None,
         cert: Optional[Union[str, Tuple[str, str]]] = None,
         max_recv_speed: int = 0,
-        curl_options: Optional[Dict[int, str]] = None,
+        curl_options: Optional[dict[int, str]] = None,
     ):
         """Connect to the WebSocket.
 
@@ -657,7 +657,9 @@ class AsyncWebSocket(BaseWebSocket):
         data = await self.recv_str(timeout=timeout)
         return loads(data)
 
-    async def send(self, payload: Union[str, bytes], flags: int = m.CURLWS_BINARY):
+    async def send(
+        self, payload: Union[str, bytes], flags: int = m.CURLWS_BINARY
+    ):
         """Send a data frame.
 
         Args:

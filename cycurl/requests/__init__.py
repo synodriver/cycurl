@@ -30,7 +30,6 @@ __all__ = [
 ]
 
 from typing import Optional, TYPE_CHECKING, TypedDict
-
 from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
@@ -60,12 +59,14 @@ from cycurl.requests.websockets import (
 )
 
 if TYPE_CHECKING:
+
     class SessionRequestParams(RequestParams):
         thread: Optional[ThreadType]
         curl_options: Optional[dict]
         debug: Optional[bool]
 else:
     SessionRequestParams = TypedDict
+
 
 def request(
     method: HttpMethod,
@@ -130,29 +131,38 @@ def request(
     with Session(thread=thread, curl_options=curl_options, debug=debug) as s:
         return s.request(method=method, url=url, **kwargs)
 
+
 def head(url: str, **kwargs: Unpack[SessionRequestParams]):
     return request(method="HEAD", url=url, **kwargs)
+
 
 def get(url: str, **kwargs: Unpack[SessionRequestParams]):
     return request(method="GET", url=url, **kwargs)
 
+
 def post(url: str, **kwargs: Unpack[SessionRequestParams]):
     return request(method="POST", url=url, **kwargs)
+
 
 def put(url: str, **kwargs: Unpack[SessionRequestParams]):
     return request(method="PUT", url=url, **kwargs)
 
+
 def patch(url: str, **kwargs: Unpack[SessionRequestParams]):
     return request(method="PATCH", url=url, **kwargs)
+
 
 def delete(url: str, **kwargs: Unpack[SessionRequestParams]):
     return request(method="DELETE", url=url, **kwargs)
 
+
 def options(url: str, **kwargs: Unpack[SessionRequestParams]):
     return request(method="OPTIONS", url=url, **kwargs)
 
+
 def trace(url: str, **kwargs: Unpack[SessionRequestParams]):
     return request(method="TRACE", url=url, **kwargs)
+
 
 def query(url: str, **kwargs: Unpack[SessionRequestParams]):
     return request(method="QUERY", url=url, **kwargs)
