@@ -2,6 +2,7 @@
 # cython: cdivision=True
 from libc.stdint cimport int64_t
 
+
 cdef extern from "curl/curl.h" nogil:
     ctypedef int64_t curl_off_t
     ctypedef struct CURL:

@@ -13,7 +13,6 @@ from collections.abc import (
     Sequence,
     ValuesView,
 )
-
 from typing import Any, AnyStr, Optional, Union, cast
 
 HeaderTypes = Union[
@@ -89,6 +88,7 @@ class Headers(MutableMapping[str, Optional[str]]):
             self._list: list[tuple[bytes, bytes, Optional[bytes]]] = []
         elif isinstance(headers, Headers):
             self._list = list(headers._list)
+            encoding = encoding or headers.encoding
         elif isinstance(headers, Mapping):
             self._list = [
                 (
@@ -250,9 +250,11 @@ class Headers(MutableMapping[str, Optional[str]]):
         normalized_key = key.lower().encode(self.encoding)
 
         items = [
-            header_value.decode(self.encoding)
-            if header_value is not None
-            else header_value
+            (
+                header_value.decode(self.encoding)
+                if header_value is not None
+                else header_value
+            )
             for _, header_key, header_value in self._list
             if header_key == normalized_key
         ]

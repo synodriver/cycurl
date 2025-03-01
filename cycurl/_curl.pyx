@@ -3,12 +3,12 @@
 from pathlib import Path
 
 cimport cython
-from cpython.unicode cimport PyUnicode_FromString
 from cpython.bytes cimport PyBytes_GET_SIZE
 from cpython.float cimport PyFloat_FromDouble
 from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport PyCapsule_CheckExact, PyCapsule_GetPointer, PyCapsule_New
+from cpython.unicode cimport PyUnicode_FromString
 from libc.stdint cimport int64_t, uint8_t
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
 from libc.string cimport memcpy
@@ -497,11 +497,15 @@ cdef class Curl:
         #     0x200000: "long*",
         #     0x300000: "double*",
         #     0x400000: "struct curl_slist **",
+        #     0x500000: "long*",
+        #     0x600000: "int64_t*"
         # }
         # ret_cast_option = {
         #     0x100000: ffi.string,
         #     0x200000: int,
         #     0x300000: float,
+        #     0x500000: int,
+        #     0x600000: int
         # }
         cdef:
             int ret_type
@@ -510,6 +514,7 @@ cdef class Curl:
             long longret
             double doubleret
             curl.curl_slist *slistret = NULL
+            int64_t int64ret
         ret_type = option & 0xF00000
         # c_value = ffi.new(ret_option[option & 0xF00000])
         if ret_type == 0x100000:
@@ -532,6 +537,10 @@ cdef class Curl:
             if slistret == NULL:
                 return []
             return slist_to_list(slistret)
+        elif ret_type == 0x600000:
+            ret = curl.curl_easy_getinfo(self._curl, option, &int64ret)
+            self._check_error(ret, f"getinfo {option}")
+            return int64ret
 
     cpdef inline bytes version(self):
         """Get the underlying libcurl version."""

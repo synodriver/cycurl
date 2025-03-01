@@ -3,21 +3,22 @@ from io import BytesIO
 from cycurl import *
 
 
-def preq(conn_primary_ip,
-                    conn_local_ip,
-                    conn_primary_port, p):
+def preq(conn_primary_ip, conn_local_ip, conn_primary_port, p):
     print("PREREQFUNCTION 咕咕咕", conn_primary_ip, conn_local_ip, conn_primary_port, p)
     return CURL_PREREQFUNC_OK
+
 
 def progress(dltotal, dlnow, ultotal, ulnow):
     print("progress:", dltotal, dlnow, ultotal, ulnow)
     return 0
+
 
 def match_cb(pattern, str2):
     print("match_cb:", pattern, str2)
     if pattern in str2:
         return CURL_FNMATCHFUNC_MATCH
     return CURL_FNMATCHFUNC_NOMATCH
+
 
 buffer = BytesIO()
 c = Curl()

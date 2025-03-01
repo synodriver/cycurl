@@ -899,16 +899,19 @@ def test_max_recv_speed(server):
 
 
 def test_curl_infos(server):
-    s = requests.Session(curl_infos=[CURLINFO_PRIMARY_IP])
+    s = requests.Session(curl_infos=[CURLINFO_PRIMARY_IP, CURLINFO_PRIMARY_PORT])
 
     r = s.get(str(server.url))
 
     assert r.infos[CURLINFO_PRIMARY_IP] == b"127.0.0.1"  # pyright: ignore
+    assert r.infos[CURLINFO_PRIMARY_PORT] == 8000
 
 
-def test_response_ip(server):
+def test_response_ip_and_port(server):
     s = requests.Session()
     r = s.get(str(server.url))
 
     assert r.primary_ip == "127.0.0.1"
+    assert r.primary_port == 8000
     assert r.local_ip == "127.0.0.1"
+    assert r.local_port != 0

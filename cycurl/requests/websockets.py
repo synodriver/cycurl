@@ -68,9 +68,7 @@ class WsCloseCode(IntEnum):
 class WebSocketError(CurlError):
     """WebSocket-specific error."""
 
-    def __init__(
-        self, message: str, code: Union[WsCloseCode, int, Literal[0]] = 0
-    ):
+    def __init__(self, message: str, code: Union[WsCloseCode, int, Literal[0]] = 0):
         super().__init__(message, code)  # type: ignore
 
 
@@ -657,9 +655,7 @@ class AsyncWebSocket(BaseWebSocket):
         data = await self.recv_str(timeout=timeout)
         return loads(data)
 
-    async def send(
-        self, payload: Union[str, bytes], flags: int = m.CURLWS_BINARY
-    ):
+    async def send(self, payload: Union[str, bytes], flags: int = m.CURLWS_BINARY):
         """Send a data frame.
 
         Args:

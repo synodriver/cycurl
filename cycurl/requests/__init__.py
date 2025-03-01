@@ -29,7 +29,8 @@ __all__ = [
     "ProxySpec",
 ]
 
-from typing import Optional, TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING, Optional, TypedDict
+
 from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
@@ -44,10 +45,10 @@ from cycurl.requests.session import (
     AsyncSession,
     HttpMethod,
     ProxySpec,
+    RequestParams,
     Session,
     ThreadType,
-    RequestParams,
-    Unpack
+    Unpack,
 )
 from cycurl.requests.websockets import (
     AsyncWebSocket,
@@ -60,10 +61,11 @@ from cycurl.requests.websockets import (
 
 if TYPE_CHECKING:
 
-    class SessionRequestParams(RequestParams):
+    class SessionRequestParams(RequestParams, total=False):
         thread: Optional[ThreadType]
         curl_options: Optional[dict]
         debug: Optional[bool]
+
 else:
     SessionRequestParams = TypedDict
 
