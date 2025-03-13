@@ -235,6 +235,12 @@ cdef class Curl:
         self._debug = debug
         self._set_error_buffer()
 
+    # cycurl has problems wrapping the handle to AsyncCurl claiming 
+    # it's an unhashable type, in curl_cffi it has no problem with this, 
+    # this solves that problem
+    def __hash__(self):
+        return <long long><void*>self._curl
+    
     cdef inline void _close(self) noexcept nogil:
         if self._curl:
             curl.curl_easy_cleanup(self._curl)
