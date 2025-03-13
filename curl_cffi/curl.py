@@ -5,7 +5,7 @@ import struct
 import warnings
 from http.cookies import SimpleCookie
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, List, Literal, Optional, Tuple, Union, cast
+from typing import TYPE_CHECKING, Any, Literal, Optional, Union, cast
 
 import certifi
 
@@ -110,7 +110,7 @@ class Curl:
     def __init__(self, cacert: str = "", debug: bool = False, handle=None) -> None:
         """
         Parameters:
-            cacert: CA cert path to use, by default, curl_cffi uses certs from ``certifi``.
+            cacert: CA cert path to use, by default, certs from ``certifi`` are used.
             debug: whether to show curl debug messages.
             handle: a curl handle instance from ``curl_easy_init``.
         """
@@ -155,7 +155,8 @@ class Curl:
             action = " ".join([str(a) for a in args])
             return CurlError(
                 f"Failed to {action}, curl: ({errcode}) {errmsg}. "
-                "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+                "See https://curl.se/libcurl/c/libcurl-errors.html first for more "
+                "details.",
                 code=cast(CurlECode, errcode),
             )
 
@@ -239,8 +240,9 @@ class Curl:
 
         return ret
 
-    def getinfo(self, option: CurlInfo) -> Union[bytes, int, float, List]:
-        """Wrapper for ``curl_easy_getinfo``. Gets information in response after curl perform.
+    def getinfo(self, option: CurlInfo) -> Union[bytes, int, float, list]:
+        """Wrapper for ``curl_easy_getinfo``. Gets information in response after
+        curl.perform.
 
         Parameters:
             option: option to get info of, using constants from ``CurlInfo`` enum
@@ -320,7 +322,8 @@ class Curl:
             self.clean_after_perform(clear_headers)
 
     def clean_after_perform(self, clear_headers: bool = True) -> None:
-        """Clean up handles and buffers after perform, called at the end of `perform`."""
+        """Clean up handles and buffers after ``perform``, called at the end of
+        ``perform``."""
         self._write_handle = None
         self._header_handle = None
         self._body_handle = None
@@ -350,7 +353,7 @@ class Curl:
             self._set_error_buffer()
         self._resolve = ffi.NULL
 
-    def parse_cookie_headers(self, headers: List[bytes]) -> SimpleCookie:
+    def parse_cookie_headers(self, headers: list[bytes]) -> SimpleCookie:
         """Extract ``cookies.SimpleCookie`` from header lines.
 
         Parameters:
@@ -367,7 +370,8 @@ class Curl:
 
     @staticmethod
     def get_reason_phrase(status_line: bytes) -> bytes:
-        """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
+        """Extract reason phrase, like ``OK``, ``Not Found`` from response status
+        line."""
         m = REASON_PHRASE_RE.match(status_line)
         return m.group(1) if m else b""
 
@@ -402,7 +406,7 @@ class Curl:
         ffi.release(self._error_buffer)
         self._resolve = ffi.NULL
 
-    def ws_recv(self, n: int = 1024) -> Tuple[bytes, CurlWsFrame]:
+    def ws_recv(self, n: int = 1024) -> tuple[bytes, CurlWsFrame]:
         """Receive a frame from a websocket connection.
 
         Args:
@@ -549,8 +553,8 @@ class CurlMime:
         c.setopt(CurlOpt.MIMEPOST, self._form)
 
     def close(self) -> None:
-        """Close the mime instance and underlying files. This method must be called after
-        ``perform`` or ``request``."""
+        """Close the mime instance and underlying files. This method must be called
+        after ``perform`` or ``request``."""
         lib.curl_mime_free(self._form)
         self._form = ffi.NULL
 

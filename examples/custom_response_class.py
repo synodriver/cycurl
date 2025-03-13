@@ -1,11 +1,12 @@
 from typing import cast
 
 from cycurl import CURLINFO_CONNECT_TIME, CURLINFO_LOCAL_PORT, Curl, requests
+from cycurl.requests import Response, Request
 
 
-class CustomResponse(requests.Response):
+class CustomResponse(Response):
     def __init__(
-        self, curl: Curl | None = None, request: requests.Request | None = None
+      self, curl: Curl | None = None, request: Request | None = None
     ):
         super().__init__(curl, request)
         self.local_port = cast(int, curl.getinfo(CURLINFO_LOCAL_PORT))

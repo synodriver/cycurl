@@ -5,7 +5,7 @@ from curl_cffi import requests
 
 def test_default_response():
     response = requests.get("http://example.com")
-    assert type(response) == requests.Response
+    assert type(response) is requests.Response
     print(response.status_code)
 
 

@@ -1,18 +1,18 @@
 import asyncio
 
-from cycurl import requests
+import cycurl
 
 URL = "ws://echo.websocket.events"
 
 
-ws = requests.WebSocket().connect(URL)
+ws = cycurl.WebSocket().connect(URL)
 ws.send(b"Foo")
 reply = ws.recv()
 print(reply)
 
 
 async def async_examples():
-    async with requests.AsyncSession() as s:
+    async with cycurl.AsyncSession() as s:
         ws = await s.ws_connect(URL)
         await ws.send(b"Bar")
         reply = await ws.recv()

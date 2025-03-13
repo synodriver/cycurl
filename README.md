@@ -9,33 +9,31 @@
 [Documentation](https://curl-cffi.readthedocs.io)
 
 Python binding for [curl-impersonate fork](https://github.com/lexiforest/curl-impersonate)
-via [cython](https://cython.readthedocs.io/en/latest/).
+via [cython](https://cython.readthedocs.io/en/latest/). For commercial support, visit [impersonate.pro](https://impersonate.pro).
 
 Unlike other pure python http clients like `httpx` or `requests`, `cycurl` can
 impersonate browsers' TLS/JA3 and HTTP/2 fingerprints. If you are blocked by some
 website for no obvious reason, you can give `cycurl` a try.
 
-Minimum supported python versions:
+Python 3.9 is the minimum supported version since v0.10.
 
-- Since 0.10, Python 3.9
-- 0.9 and below, Python 3.8
+## Sponsors
+
+<p align="center">
+ Maintenance of this project is made possible by all the <a href="https://github.com/lexiforest/cycurl/graphs/contributors">contributors</a> and <a href="https://github.com/sponsors/lexiforest">sponsors</a>. If you'd like to sponsor this project and have your avatar or company logo appear below <a href="https://github.com/sponsors/lexiforest">click here</a>. 💖
+</p>
 
 ------
 
-<a href="https://nubela.co/proxycurl/?utm_campaign=influencer_marketing&utm_source=github&utm_medium=social&utm_term=-&utm_content=lexiforest-curl_cffi" target="_blank"><img src="https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/proxycurl.png" alt="ProxyCurl" height="63" width="120"></a>
+<a href="https://serpapi.com/" target="_blank"><img src="https://raw.githubusercontent.com/lexiforest/cycurl/main/assets/serpapi.png" alt="SerpAPI" height="67" width="63"></a>
 
-Scrape public LinkedIn profile data at scale with [Proxycurl APIs](https://nubela.co/proxycurl/?utm_campaign=influencer_marketing&utm_source=github&utm_medium=social&utm_term=-&utm_content=lexiforest-curl_cffi). Built for developers, by developers.
-
-- GDPR, CCPA, SOC2 compliant
-- High rate limit (300 requests/min), Fast (APIs respond in ~2s), High accuracy
-- Fresh data - 88% of data is scraped real-time, other 12% is <29 days
-- Tons of data points returned per profile
+Scrape Google and other search engines from [SerpApi](https://serpapi.com/)'s fast, easy, and complete API. 0.66s average response time (≤ 0.5s for Ludicrous Speed Max accounts), 99.95% SLAs, pay for successful responses only.
 
 ------
 
 ### Bypass Cloudflare with API
 
-<a href="https://yescaptcha.com/i/stfnIO" target="_blank"><img src="https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/yescaptcha.png" alt="Yes Captcha!" height="47" width="149"></a>
+<a href="https://yescaptcha.com/i/stfnIO" target="_blank"><img src="https://raw.githubusercontent.com/lexiforest/cycurl/main/assets/yescaptcha.png" alt="Yes Captcha!" height="47" width="149"></a>
 
 Yescaptcha is a proxy service that bypasses Cloudflare and uses the API interface to
 obtain verified cookies (e.g. `cf_clearance`). Click [here](https://yescaptcha.com/i/stfnIO)
@@ -43,35 +41,24 @@ to register: https://yescaptcha.com/i/stfnIO
 
 ------
 
-<a href="https://scrapeninja.net?utm_source=github&utm_medium=banner&utm_campaign=cffi" target="_blank"><img src="https://scrapeninja.net/img/logo_with_text_new5.svg" alt="Scrape Ninja" width="149"></a>
-
-[ScrapeNinja](https://scrapeninja.net?utm_source=github&utm_medium=banner&utm_campaign=cffi) is a web scraping API with two engines: fast, with high performance and TLS
-fingerprint; and slower with a real browser under the hood.
-
-ScrapeNinja handles headless browsers, proxies, timeouts, retries, and helps with data
-extraction, so you can just get the data in JSON. Rotating proxies are available out of
-the box on all subscription plans.
-
-------
-
 ## Features
 
 - Supports JA3/TLS and http2 fingerprints impersonation, including recent browsers and custome fingerprints.
-- Much faster than requests/httpx, on par with aiohttp/pycurl, see [benchmarks](https://github.com/lexiforest/curl_cffi/tree/main/benchmark).
+- Much faster than requests/httpx, on par with aiohttp/pycurl, see [benchmarks](https://github.com/lexiforest/cycurl/tree/main/benchmark).
 - Mimics requests API, no need to learn another one.
 - Pre-compiled, so you don't have to compile on your machine.
 - Supports `asyncio` with proxy rotation on each request.
 - Supports http 2.0, which requests does not.
 - Supports websocket.
 
-||requests|aiohttp|httpx|pycurl|curl_cffi|cycurl|
-|---|---|---|---|---|---|---|
-|http2|❌|❌|✅|✅|✅|✅|
-|sync|✅|❌|✅|✅|✅|✅|
-|async|❌|✅|✅|❌|✅|✅|
-|websocket|❌|✅|❌|❌|✅|✅|
-|fingerprints|❌|❌|❌|❌|✅|✅|
-|speed|🐇|🐇🐇|🐇|🐇🐇|🐇🐇|🐇🐇|
+||requests|aiohttp|httpx|pycurl| cycurl |cycurl|
+|---|---|---|---|---|--------|---|
+|http2|❌|❌|✅|✅| ✅      |✅|
+|sync|✅|❌|✅|✅| ✅      |✅|
+|async|❌|✅|✅|❌| ✅      |✅|
+|websocket|❌|✅|❌|❌| ✅      |✅|
+|fingerprints|❌|❌|❌|❌| ✅      |✅|
+|speed|🐇|🐇🐇|🐇|🐇🐇| 🐇🐇   |🐇🐇|
 
 ## Install
 
@@ -97,40 +84,65 @@ To install unstable version from GitHub:
 
 ### requests-like
 
-```python
+v0.9:
+
+```py
 from cycurl import requests
 
+r = requests.get("https://tls.browserleaks.com/json", impersonate="chrome")
+```
+
+v0.10:
+
+```python
+import cycurl
+
 # Notice the impersonate parameter
-r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome")
+r = cycurl.get("https://tls.browserleaks.com/json", impersonate="chrome")
 
 print(r.json())
 # output: {..., "ja3n_hash": "aa56c057ad164ec4fdcb7a5a283be9fc", ...}
 # the js3n fingerprint should be the same as target browser
 
-# To keep using the latest browser version as `curl_cffi` updates,
+# To keep using the latest browser version as `cycurl` updates,
 # simply set impersonate="chrome" without specifying a version.
 # Other similar values are: "safari" and "safari_ios"
-r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome")
+r = cycurl.get("https://tls.browserleaks.com/json", impersonate="chrome")
+
+# Randomly choose a browser version based on current market share in real world
+# from: https://caniuse.com/usage-table
+# NOTE: this is a pro feature.
+r = cycurl.get("https://example.com", impersonate="realworld")
 
 # To pin a specific version, use version numbers together.
-r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome124")
+r = cycurl.get("https://tls.browserleaks.com/json", impersonate="chrome124")
 
 # To impersonate other than browsers, bring your own ja3/akamai strings
 # See examples directory for details.
-r = requests.get("https://tls.browserleaks.com/json", ja3=..., akamai=...)
+r = cycurl.get("https://tls.browserleaks.com/json", ja3=..., akamai=...)
 
 # http/socks proxies are supported
 proxies = {"https": "http://localhost:3128"}
-r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome", proxies=proxies)
+r = cycurl.get("https://tls.browserleaks.com/json", impersonate="chrome", proxies=proxies)
 
 proxies = {"https": "socks://localhost:3128"}
-r = requests.get("https://tools.scrapfly.io/api/fp/ja3", impersonate="chrome", proxies=proxies)
+r = cycurl.get("https://tls.browserleaks.com/json", impersonate="chrome", proxies=proxies)
 ```
 
 ### Sessions
 
-```python
+v0.9:
+
+```py
+from cycurl import requests
+
 s = requests.Session()
+```
+
+v0.10:
+
+```python
+s = cycurl.Session()
 
 # httpbin is a http test website, this endpoint makes the server set cookies
 s.get("https://httpbin.org/cookies/set/foo/bar")
@@ -143,38 +155,32 @@ print(r.json())
 # {'cookies': {'foo': 'bar'}}
 ```
 
-`curl_cffi` supports the same browser versions as supported by my [fork](https://github.com/lexiforest/curl-impersonate) of [curl-impersonate](https://github.com/lwthiker/curl-impersonate):
+### Supported impersonate browsers
 
-Browser versions will be added **only** when their fingerprints change. If you see a version, e.g.
-chrome122, were skipped, you can simply impersonate it with your own headers and the previous version.
+`cycurl` supports the same browser versions as supported by the [fork](https://github.com/lexiforest/curl-impersonate) of [curl-impersonate](https://github.com/lwthiker/curl-impersonate):
+
+Open source version of cycurl includes versions whose fingerprints differ from previous versions.
+If you see a version, e.g. `chrome135`, were skipped, you can simply impersonate it with your own headers and the previous version.
+
+If you don't want to look up the headers etc, by yourself, consider buying commercial support from [impersonate.pro](https://impersonate.pro),
+we have comprehensive browser fingerprints database for almost all the browser versions on various platforms.
 
 If you are trying to impersonate a target other than a browser, use `ja3=...` and `akamai=...`
-to specify your own customized fingerprints. See the [docs on impersonatation](https://curl-cffi.readthedocs.io/en/latest/impersonate.html) for details.
+to specify your own customized fingerprints. See the [docs on impersonation](https://curl-cffi.readthedocs.io/en/latest/impersonate.html) for details.
 
-- chrome99
-- chrome100
-- chrome101
-- chrome104
-- chrome107
-- chrome110
-- chrome116 <sup>[1]</sup>
-- chrome119 <sup>[1]</sup>
-- chrome120 <sup>[1]</sup>
-- chrome123 <sup>[3]</sup>
-- chrome124 <sup>[3]</sup>
-- chrome131 <sup>[4]</sup>
-- chrome133a <sup>[5][6]</sup>
-- chrome99_android
-- chrome131_android <sup>[4]</sup>
-- edge99
-- edge101
-- safari15_3 <sup>[2]</sup>
-- safari15_5 <sup>[2]</sup>
-- safari17_0 <sup>[1]</sup>
-- safari17_2_ios <sup>[1]</sup>
-- safari18_0 <sup>[4]</sup>
-- safari18_0_ios <sup>[4]</sup>
-- firefox133 <sup>[5]</sup>
+|Browser|Open Source| Pro version|
+|---|---|---|
+|Chrome|chrome99, chrome100, chrome101, chrome104, chrome107, chrome110, chrome116<sup>[1]</sup>, chrome119 <sup>[1]</sup>, chrome120 <sup>[1]</sup>, chrome123 <sup>[3]</sup>, chrome124 <sup>[3]</sup>, chrome131 <sup>[4]</sup>, chrome133a <sup>[5][6]</sup>|chrome132, chrome134, chrome135|
+|Chrome Android| chrome99_android, chrome131_android <sup>[4]</sup>|chrome132_android, chrome133_android, chrome134_android, chrome135_android|
+|Chrome iOS|N/A|coming soon|
+|Safari|safari15_3 <sup>[2]</sup>, safari15_5 <sup>[2]</sup>, safari17_0 <sup>[1]</sup>,|coming soon|
+|Safari iOS| safari17_2_ios <sup>[1]</sup>, safari18_0 <sup>[4]</sup>, safari18_0_ios <sup>[4]</sup>|coming soon|
+|Firefox|firefox133 <sup>[5]</sup>, firefox135 <sup>[7]</sup>|coming soon|
+|Firefox Android|N/A|firefox135_android|
+|Edge|edge99, edge101|edge133, edge135|
+|Opera|N/A|coming soon|
+|Brave|N/A|coming soon|
+
 
 Notes:
 1. Added in version `0.6.0`.
@@ -183,21 +189,23 @@ Notes:
 4. Added in version `0.8.0`.
 5. Added in version `0.9.0`.
 6. The version postfix `-a`(e.g. `chrome133a`) means that this is an alternative version, i.e. the fingerprint has not been officially updated by browser, but has been observed because of A/B testing.
+5. Added in version `0.10.0`.
 
-### asyncio
+### Asyncio
 
 ```python
-from cycurl.requests import AsyncSession
+from cycurl import AsyncSession
 
-async with AsyncSession() as s:
-    r = await s.get("https://example.com")
+async def main():
+    async with AsyncSession() as s:
+        r = await s.get("https://example.com")
 ```
 
 More concurrency:
 
 ```python
 import asyncio
-from cycurl.requests import AsyncSession
+from cycurl import AsyncSession
 
 urls = [
     "https://google.com/",
@@ -216,7 +224,7 @@ async with AsyncSession() as s:
 ### WebSockets
 
 ```python
-from cycurl.requests import WebSocket
+from cycurl import WebSocket
 
 def on_message(ws: WebSocket, message: str | bytes):
     print(message)
@@ -259,17 +267,18 @@ If you are using scrapy, check out these middlewares:
 For low-level APIs, Scrapy integration and other advanced topics, see the
 [docs](https://curl-cffi.readthedocs.io) for more details.
 
-### asyncio WebSockets
+### Asyncio WebSockets
 
 ```python
 import asyncio
-from curl_cffi.requests import AsyncSession
+from cycurl import AsyncSession
 
-async with AsyncSession() as s:
-    ws = await s.ws_connect("wss://echo.websocket.org")
-    await asyncio.gather(*[ws.send_str("Hello, World!") for _ in range(10)])
-    async for message in ws:
-        print(message)
+async def main():
+    async with AsyncSession() as s:
+        ws = await s.ws_connect("wss://echo.websocket.org")
+        await asyncio.gather(*[ws.send_str("Hello, World!") for _ in range(10)])
+        async for message in ws:
+            print(message)
 ```
 
 ## Acknowledgement
@@ -280,7 +289,3 @@ async with AsyncSession() as s:
 - The synchronous WebSocket API is inspired by [websocket_client](https://github.com/websocket-client/websocket-client).
 - The asynchronous WebSocket API is inspired by [aiohttp](https://github.com/aio-libs/aiohttp).
 
-
-## Sponsor
-
-<a href="https://buymeacoffee.com/yifei" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>

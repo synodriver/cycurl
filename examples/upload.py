@@ -7,9 +7,9 @@ We do not support requests.post(url, files=...), for 2 reasons.
 You use the multipart instead, it's very simple and straightforward.
 """
 
-from cycurl import CurlMime, requests
+import cycurl
 
-mp = CurlMime()
+mp = cycurl.CurlMime()
 mp.addpart(
     name="image",  # form field name
     content_type="image/png",  # mime type
@@ -17,7 +17,7 @@ mp.addpart(
     local_path="./image.png",  # local file to upload
 )
 
-with open("./image.jpg", "rb") as file:
+with open("./image.PNG", "rb") as file:
     data = file.read()
 
 # you can add multiple files under the same field name
@@ -29,7 +29,7 @@ mp.addpart(
 )
 
 # from a list
-mp = CurlMime.from_list(
+mp = cycurl.CurlMime.from_list(
     [
         {
             "name": "text",
@@ -46,7 +46,7 @@ mp = CurlMime.from_list(
     ]
 )
 
-r = requests.post("https://httpbin.org/post", data={"foo": "bar"}, multipart=mp)
+r = cycurl.post("https://httpbin.org/post", data={"foo": "bar"}, multipart=mp)
 print(r.json())
 
 # close the form object, otherwise you have to wait for GC to recycle it. If you files
