@@ -3,12 +3,12 @@
 from pathlib import Path
 
 cimport cython
-from cpython.bytes cimport PyBytes_GET_SIZE
+from cpython.bytes cimport PyBytes_GET_SIZE, PyBytes_AS_STRING
 from cpython.float cimport PyFloat_FromDouble
 from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport PyCapsule_CheckExact, PyCapsule_GetPointer, PyCapsule_New
-from cpython.unicode cimport PyUnicode_FromString
+from cpython.unicode cimport PyUnicode_FromString, PyUnicode_FromStringAndSize
 from libc.stdint cimport int64_t, uint8_t
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
 from libc.string cimport memcpy
@@ -39,16 +39,21 @@ class CurlError(Exception):
         self.code = code
 
 
-cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, void *clientp) nogil:
+cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, void *clientp) with gil:
     """ffi callback for curl debug info"""
+    cdef object callback = <object>clientp
+    cdef bytes text = <bytes>data[:size]
+    return callback(type_, text)
+
+def debug_function_default(int type_, bytes text):
     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:
         fprintf(stderr, "SSL OUT:")
-        fwrite(data, sizeof(char), size, stderr)
+        fwrite(PyBytes_AS_STRING(text), sizeof(char), PyBytes_GET_SIZE(text), stderr)
     elif type_ == curl.CURLINFO_DATA_IN or type_ == curl.CURLINFO_DATA_OUT:
         fprintf(stderr, "DATA OUT:")
-        fwrite(data, sizeof(char), size, stderr)
+        fwrite(PyBytes_AS_STRING(text), sizeof(char), PyBytes_GET_SIZE(text), stderr)
     else:
-        fwrite(data, sizeof(char), size, stderr)
+        fwrite(PyBytes_AS_STRING(text), sizeof(char), PyBytes_GET_SIZE(text), stderr)
     fprintf(stderr, "\n")
     fflush(stderr)
     return 0
@@ -188,6 +193,7 @@ cdef class Curl:
         bint _is_cert_set
         object _write_handle
         object _header_handle
+        object _debug_handle
         bytes _body_handle
         object _read_handle
         object _seek_handle
@@ -225,6 +231,7 @@ cdef class Curl:
         self._is_cert_set = False
         self._write_handle = None
         self._header_handle = None
+        self._debug_handle = None
         self._body_handle = None
         self._read_handle = None
         self._seek_handle = None
@@ -331,8 +338,7 @@ cdef class Curl:
                 warnings.warn("Failed to set error buffer", CurlWarning, stacklevel=2)
         if self._debug:
             with gil:
-                self.setopt(curl.CURLOPT_VERBOSE, 1)
-            curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
+                self.debug()
 
     def __eq__(self, other):
         if not isinstance(other, Curl):
@@ -344,8 +350,8 @@ cdef class Curl:
 
     def debug(self):
         """Set debug to True"""
-        self.setopt(CURLOPT_VERBOSE, 1)
-        curl._curl_easy_setopt(self._curl, CURLOPT_DEBUGFUNCTION, <void*>debug_function)
+        self.setopt(curl.CURLOPT_VERBOSE, 1)
+        self.setopt(curl.CURLOPT_DEBUGFUNCTION, True)
 
     cdef int _check_error(self, int errcode, str args) except -1:
         error = self._get_error(errcode, args)
@@ -414,6 +420,13 @@ cdef class Curl:
             self._header_handle = value # store a ref
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)
             option = curl.CURLOPT_HEADERDATA
+        elif option == curl.CURLOPT_DEBUGFUNCTION:
+            if value is True:
+                value = debug_function_default
+            c_value = <void*>value
+            self._debug_handle = value # store a ref
+            curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
+            option = curl.CURLOPT_DEBUGDATA
         elif option == curl.CURLOPT_READFUNCTION:
             c_value = <void*>value
             self._read_handle = value # store a ref

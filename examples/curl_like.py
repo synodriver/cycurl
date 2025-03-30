@@ -19,6 +19,9 @@ def match_cb(pattern, str2):
         return CURL_FNMATCHFUNC_MATCH
     return CURL_FNMATCHFUNC_NOMATCH
 
+def debug_cb(type_, text):
+    print("debug_cb:", type_, text)
+    return 0
 
 buffer = BytesIO()
 c = Curl()
@@ -45,6 +48,8 @@ c.setopt(CURLOPT_PREREQFUNCTION, preq)
 c.setopt(CURLOPT_NOPROGRESS, 0)
 c.setopt(CURLOPT_XFERINFOFUNCTION, progress)
 c.setopt(CURLOPT_FNMATCH_FUNCTION, match_cb)
+c.setopt(CURLOPT_VERBOSE, 1)
+c.setopt(CURLOPT_DEBUGFUNCTION, debug_cb)
 c.perform()
 body = buffer.getvalue()
 print("with impersonate:")

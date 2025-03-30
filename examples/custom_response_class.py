@@ -9,6 +9,7 @@ class CustomResponse(Response):
       self, curl: Curl | None = None, request: Request | None = None
     ):
         super().__init__(curl, request)
+        curl.debug()
         self.local_port = cast(int, curl.getinfo(CURLINFO_LOCAL_PORT))
         self.connect_time = cast(float, curl.getinfo(CURLINFO_CONNECT_TIME))
 
