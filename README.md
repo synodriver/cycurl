@@ -19,9 +19,7 @@ Python 3.9 is the minimum supported version since v0.10.
 
 ## Sponsors
 
-<p align="center">
- Maintenance of this project is made possible by all the <a href="https://github.com/lexiforest/cycurl/graphs/contributors">contributors</a> and <a href="https://github.com/sponsors/lexiforest">sponsors</a>. If you'd like to sponsor this project and have your avatar or company logo appear below <a href="https://github.com/sponsors/lexiforest">click here</a>. 💖
-</p>
+Maintenance of this project is made possible by all the <a href="https://github.com/lexiforest/curl_cffi/graphs/contributors">contributors</a> and <a href="https://github.com/sponsors/lexiforest">sponsors</a>. If you'd like to sponsor this project and have your avatar or company logo appear below <a href="https://github.com/sponsors/lexiforest">click here</a>. 💖
 
 ------
 
@@ -38,6 +36,18 @@ Scrape Google and other search engines from [SerpApi](https://serpapi.com/)'s fa
 Yescaptcha is a proxy service that bypasses Cloudflare and uses the API interface to
 obtain verified cookies (e.g. `cf_clearance`). Click [here](https://yescaptcha.com/i/stfnIO)
 to register: https://yescaptcha.com/i/stfnIO
+
+------
+
+### Easy Captcha Bypass for Scraping
+
+<a href="https://www.capsolver.com/?utm_source=github&utm_medium=banner_repo&utm_campaign=scraping&utm_term=curl_cffi" target="_blank"><img src="https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/capsolver.jpg" alt="CapSolver" height="50" width="178"></a>
+
+[CapSolver](https://www.capsolver.com/?utm_source=github&utm_medium=banner_repo&utm_campaign=scraping&utm_term=curl_cffi)
+is an AI-powered tool that easily bypasses Captchas, allowing uninterrupted access to
+public data. It supports a variety of Captchas and works seamlessly with `curl_cffi`,
+Puppeteer, Playwright, and more. Fast, reliable, and cost-effective. Plus, `curl_cffi`
+users can use the code **"CURL"** to get an extra 6% balance! and register [here](https://dashboard.capsolver.com/passport/?utm_source=github&utm_medium=banner_repo&utm_campaign=scraping&utm_term=curl_cffi).
 
 ------
 

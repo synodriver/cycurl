@@ -92,7 +92,7 @@ def normalize_browser_type(item):
         return item
 
 
-class BrowserType(str, Enum):  # todo: remove in version 1.x
+class BrowserType(str, Enum):  # TODO: remove in version 1.x
     edge99 = "edge99"
     edge101 = "edge101"
     chrome99 = "chrome99"
@@ -254,6 +254,7 @@ TLS_EXTENSION_NAME_MAP = {
     60: "sequence_number_encryption_algorithms",
     61: "rrc",
     17513: "application_settings",  # BoringSSL private usage
+    17613: "application_settings new",  # BoringSSL private usage
     # 62-2569:"Unassigned
     # 2570:"Reserved
     # 2571-6681:"Unassigned
@@ -334,6 +335,13 @@ def toggle_extension(curl, extension_id: int, enable: bool):
             curl.setopt(m.CURLOPT_SSL_ENABLE_ALPS, 1)
         else:
             curl.setopt(m.CURLOPT_SSL_ENABLE_ALPS, 0)
+    elif extension_id == 17613:
+        if enable:
+            curl.setopt(m.CURLOPT_SSL_ENABLE_ALPS, 1)
+            curl.setopt(m.CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT, 1)
+        else:
+            curl.setopt(m.CURLOPT_SSL_ENABLE_ALPS, 0)
+            curl.setopt(m.CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT, 0)
     # server_name
     elif extension_id == 0:
         raise NotImplementedError(

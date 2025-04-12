@@ -24,7 +24,8 @@ Welcome to curl_cffi's documentation!
 
 .. _Discuss on Telegram: https://t.me/+lL9n33eZp480MGM1
 
-curl_cffi is a Python binding for `curl-impersonate fork`_ via `cffi`_.
+curl_cffi is a Python binding for `curl-impersonate fork`_ via `cffi`_. For commercial
+support, visit `impersonate.pro <https://impersonate.pro>`_.
 
 .. _curl-impersonate: https://github.com/lexiforest/curl-impersonate
 .. _cffi: https://cffi.readthedocs.io/en/latest/
@@ -33,19 +34,49 @@ Unlike other pure Python http clients like ``httpx`` or ``requests``, ``curl_cff
 impersonate browsers' TLS signatures or JA3 fingerprints. If you are blocked by some
 website for no obvious reason, you can give this package a try.
 
+Sponsors
 ------
 
-.. image:: https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/proxycurl.png
-   :width: 300
-   :alt: ProxyCurl
-   :target: https://nubela.co/proxycurl/?utm_campaign=influencer_marketing&utm_source=github&utm_medium=social&utm_term=-&utm_content=lexiforest-curl_cffi
+SerpAPI
+~~~~~~
 
-Scrape public LinkedIn profile data at scale with `Proxycurl APIs <https://nubela.co/proxycurl/?utm_campaign=influencer_marketing&utm_source=github&utm_medium=social&utm_term=-&utm_content=lexiforest-curl_cffi>`_. Built for developers, by developers.
+.. image:: https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/serpapi.png
+   :width: 100
+   :alt: SerpAPI
+   :target: https://serpapi.com
 
-- GDPR, CCPA, SOC2 compliant
-- High rate limit (300 requests/min), Fast (APIs respond in ~2s), High accuracy
-- Fresh data - 88% of data is scraped real-time, other 12% is <29 days
-- Tons of data points returned per profile
+Scrape Google and other search engines from `SerpApi <https://serpapi.com/>`_'s fast, easy,
+and complete API. 0.66s average response time (≤ 0.5s for Ludicrous Speed Max accounts),
+99.95% SLAs, pay for successful responses only.
+
+Bypass Cloudflare with API
+~~~~~~
+
+.. image:: https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/yescaptcha.png
+   :width: 149
+   :alt: YesCaptcha
+   :target: https://yescaptcha.com/i/stfnIO
+
+`Yescaptcha <https://yescaptcha.com/i/stfnIO>`_ is a proxy service that bypasses Cloudflare and uses the API interface to
+obtain verified cookies (e.g. ``cf_clearance``). Click `here <https://yescaptcha.com/i/stfnIO>`_
+to register.
+
+Easy Captcha Bypass for Scraping
+~~~~~~
+
+.. image:: https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/capsolver.jpg
+   :width: 170
+   :alt: Capsolver
+   :target: https://www.capsolver.com/?utm_source=github&utm_medium=banner_repo&utm_campaign=scraping&utm_term=curl_cffi
+
+`CapSolver <https://www.capsolver.com/?utm_source=github&utm_medium=banner_repo&utm_campaign=scraping&utm_term=curl_cffi>`_
+is an AI-powered tool that easily bypasses Captchas, allowing uninterrupted access to
+public data. It supports a variety of Captchas and works seamlessly with ``curl_cffi``,
+Puppeteer, Playwright, and more. Fast, reliable, and cost-effective. Plus, ``curl_cffi``
+users can use the code **"CURL"** to get an extra 6% balance! and register `here <https://dashboard.capsolver.com/passport/?utm_source=github&utm_medium=banner_repo&utm_campaign=scraping&utm_term=curl_cffi>`_
+
+
+You can also click `here <https://buymeacoffee.com/yifei>`_ to buy me a coffee.
 
 ------
 
@@ -211,39 +242,6 @@ WebSockets
         )
         ws.run_forever()
 
-
-Sponsor
-------
-
-Click `here <https://buymeacoffee.com/yifei>`_ to buy me a coffee.
-
-Bypass Cloudflare with API
-~~~~~~
-
-.. image:: https://raw.githubusercontent.com/lexiforest/curl_cffi/main/assets/yescaptcha.png
-   :width: 149
-   :alt: YesCaptcha
-   :target: https://yescaptcha.com/i/stfnIO
-
-`Yescaptcha <https://yescaptcha.com/i/stfnIO>`_ is a proxy service that bypasses Cloudflare and uses the API interface to
-obtain verified cookies (e.g. ``cf_clearance``). Click `here <https://yescaptcha.com/i/stfnIO>`_
-to register.
-
-ScrapeNinja
-~~~~~~
-
-.. image:: https://scrapeninja.net/img/logo_with_text_new5.svg
-   :width: 149
-   :alt: ScrapeNinja
-   :target: https://scrapeninja.net/?utm_source=github&utm_medium=banner&utm_campaign=cffi
-
-`ScrapeNinja <https://scrapeninja.net/?utm_source=github&utm_medium=banner&utm_campaign=cffi>`_
-is a web scraping API with two engines: fast, with high performance and TLS
-fingerprint; and slower with a real browser under the hood. 
-
-ScrapeNinja handles headless browsers, proxies, timeouts, retries, and helps with data
-extraction, so you can just get the data in JSON. Rotating proxies are available out of
-the box on all subscription plans.
 
 Indices and tables
 ==================

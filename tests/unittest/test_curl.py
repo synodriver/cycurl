@@ -78,7 +78,7 @@ def test_headers(server):
 
 
 def test_proxy_headers(server):
-    # XXX only tests that proxy header is not present for target server, should add
+    # XXX: only tests that proxy header is not present for target server, should add
     # tests that verifies proxy headers are sent to proxy server.
     c = Curl()
     url = str(server.url.copy_with(path="/echo_headers"))
@@ -343,3 +343,8 @@ def test_duphandle(server):
     c = c.duphandle()
     with pytest.raises(CurlError):
         c.perform()
+
+
+def test_is_pro():
+    assert curl_cffi.is_pro() is False
+
