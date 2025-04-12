@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import asyncio
-
+import re
 
 async def main():
     with open("./consts.pxi", "wb") as fconsts:
@@ -11,11 +11,15 @@ async def main():
 
         fconsts.write(b"#CURLOPT_\n")
         proc = await asyncio.create_subprocess_shell(
-            """ echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLOPT_.\+ =" | sed "s/,//g" """,
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLOPT_.\+ =" | sed "s/,//g" """,
             stdout=asyncio.subprocess.PIPE,
         )
         stdout, _ = await proc.communicate()
         for line in stdout.splitlines():
+            if b"deprecated" in line:
+                matchobj = re.search(r"(__attribute__\(\(deprecated\(.+?\)\)\))", line.decode())
+                substring = line[matchobj.start(0): matchobj.end(0)]
+                line = line.replace(substring, b"")
             idx = line.index(b"=")
             name = line[:idx].strip()
             fconsts.write(name + b" = curl." + name + b"\n")
@@ -27,21 +31,29 @@ async def main():
 
         fconsts.write(b"#CURLINFO_\n")
         proc = await asyncio.create_subprocess_shell(
-            """ echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLINFO_.\+" | sed "s/,//g" """,
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLINFO_.\+" | sed "s/,//g" """,
             stdout=asyncio.subprocess.PIPE,
         )
         stdout, _ = await proc.communicate()
         for line in stdout.splitlines():
+            if line.startswith(b"__attribute__"):
+                continue
+            if b"deprecated" in line:
+                matchobj = re.search(r"(__attribute__\(\(deprecated\(.+?\)\)\))", line.decode())
+                substring = line[matchobj.start(0): matchobj.end(0)]
+                line = line.replace(substring, b"")
             try:
                 idx = line.index(b"=")
                 name = line[:idx].strip()
             except ValueError:
                 name = line.strip()
+            if not name:
+                continue
             fconsts.write(name + b" = curl." + name + b"\n")
 
         fconsts.write(b"#CURLMOPT_\n")
         proc = await asyncio.create_subprocess_shell(
-            """ echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLMOPT_.\+ =" | sed "s/,//g" """,
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLMOPT_.\+ =" | sed "s/,//g" """,
             stdout=asyncio.subprocess.PIPE,
         )
         stdout, _ = await proc.communicate()
@@ -52,7 +64,7 @@ async def main():
 
         fconsts.write(b"#CURLE_\n")
         proc = await asyncio.create_subprocess_shell(
-            """ echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLE_.\+" | sed "s/,//g" """,
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLE_.\+" | sed "s/,//g" """,
             stdout=asyncio.subprocess.PIPE,
         )
         stdout, _ = await proc.communicate()
@@ -71,7 +83,7 @@ async def main():
 
         fconsts.write(b"#CURL_HTTP_VERSION_\n")
         proc = await asyncio.create_subprocess_shell(
-            """ echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURL_HTTP_VERSION_.\+" | sed "s/,//g" """,
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURL_HTTP_VERSION_.\+" | sed "s/,//g" """,
             stdout=asyncio.subprocess.PIPE,
         )
         stdout, _ = await proc.communicate()
@@ -92,7 +104,7 @@ async def main():
 
         fconsts.write(b"#CURL_SSLVERSION_\n")
         proc = await asyncio.create_subprocess_shell(
-            """ echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURL_SSLVERSION_.\+" | sed "s/,//g" """,
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURL_SSLVERSION_.\+" | sed "s/,//g" """,
             stdout=asyncio.subprocess.PIPE,
         )
         stdout, _ = await proc.communicate()
@@ -151,7 +163,7 @@ async def main():
         fconsts.write(b"CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK\n")
         fconsts.write(b"#CURLMSG_\n")
         proc = await asyncio.create_subprocess_shell(
-            """ echo '#include "curl/multi.h"' | gcc -E - | grep -i "CURLMSG_.\+" | sed "s/,//g" """,
+            r""" echo '#include "curl/multi.h"' | gcc -E - | grep -i "CURLMSG_.\+" | sed "s/,//g" """,
             stdout=asyncio.subprocess.PIPE,
         )
         stdout, _ = await proc.communicate()

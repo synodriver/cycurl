@@ -10,7 +10,7 @@ from collections import defaultdict
 from Cython.Build import cythonize
 from Cython.Compiler.Version import version as cython_version
 from packaging.version import Version
-from setuptools import Extension, find_packages, setup
+from setuptools import Extension, setup
 from setuptools.command.build_ext import build_ext
 
 BUILD_ARGS = defaultdict(lambda: ["-O3", "-g0"])
