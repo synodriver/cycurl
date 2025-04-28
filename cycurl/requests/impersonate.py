@@ -314,7 +314,7 @@ def toggle_extension(curl, extension_id: int, enable: bool):
     # ECH
     if extension_id == 65037:
         if enable:
-            curl.setopt(m.CURLOPT_ECH, "GREASE")
+            curl.setopt(m.CURLOPT_ECH, "grease")
         else:
             curl.setopt(m.CURLOPT_ECH, "")
     # compress certificate

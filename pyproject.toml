@@ -1,6 +1,6 @@
 [project]
 name = "cycurl"
-version = "0.10.0"
+version = "0.11.0b1"
 authors = [{ name = "Lyonnet", email = "infinitesheldon@gmail.com" }]
 description = "Ultra fast python binding for curl-impersonate via cython, with impersonation support."
 license = { file = "LICENSE" }
@@ -25,6 +25,11 @@ classifiers = [
 
 
 [project.optional-dependencies]
+extra = [
+    "readability-lxml>=0.8.1",
+    "markdownify>=1.1.0",
+    "lxml_html_clean",
+]
 dev = [
     "charset_normalizer>=3.3.2,<4.0",
     "coverage>=6.4.1,<7.0",

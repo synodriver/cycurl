@@ -61,14 +61,18 @@ elif uname.system == "Darwin":
         extra_objects = [
             "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-macos/libcurl-impersonate-chrome.4.dylib"
         ]
-        for file in glob.glob("./dep/libcurl-impersonate-v1.0.0rc2.x86_64-macos/*.dylib"):
+        for file in glob.glob(
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-macos/*.dylib"
+        ):
             shutil.copy(file, "./cycurl")
     else:
         library_dirs = ["./dep/libcurl-impersonate-v1.0.0rc2.arm64-macos"]
         extra_objects = [
             "./dep/libcurl-impersonate-v1.0.0rc2.arm64-macos/libcurl-impersonate-chrome.4.dylib"
         ]
-        for file in glob.glob("./dep/libcurl-impersonate-v1.0.0rc2.arm64-macos/*.dylib"):
+        for file in glob.glob(
+            "./dep/libcurl-impersonate-v1.0.0rc2.arm64-macos/*.dylib"
+        ):
             shutil.copy(file, "./cycurl")
 else:
     library_dirs = ["./dep/libcurl-impersonate-v1.0.0rc2.x86_64-linux-gnu"]
@@ -156,6 +160,11 @@ def main():
         python_requires=">=3.6",
         setup_requires=["cython>=3.0.10"],
         install_requires=["certifi>=2024.2.2"],
+        extra_requires={
+            "readability-lxml>": ["readability-lxml>=0.8.1"],
+            "markdownify": ["markdownify>=1.1.0"],
+            "lxml_html_clean": ["lxml_html_clean"],
+        },
         license="BSD",
         classifiers=[
             "Development Status :: 4 - Beta",
