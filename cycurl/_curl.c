@@ -11,15 +11,14 @@
         ],
         "depends": [],
         "extra_objects": [
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib\\brotlicommon.lib",
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib\\brotlidec.lib",
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib\\brotlienc.lib",
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib\\crypto.lib",
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib\\libcurl_imp.lib",
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib\\nghttp2.lib",
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib\\ssl.lib",
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib\\zlib.lib",
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib\\zstd.lib"
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-win32/lib\\brotlicommon.lib",
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-win32/lib\\brotlidec.lib",
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-win32/lib\\brotlienc.lib",
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-win32/lib\\crypto.lib",
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-win32/lib\\nghttp2.lib",
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-win32/lib\\ssl.lib",
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-win32/lib\\zlib.lib",
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-win32/lib\\zstd.lib"
         ],
         "include_dirs": [
             "./dep/curl-8.7.1/include",
@@ -32,7 +31,7 @@
             "Normaliz"
         ],
         "library_dirs": [
-            "./dep/libcurl-impersonate-v0.9.5.x86_64-win32/lib"
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-win32/lib"
         ],
         "name": "cycurl._curl",
         "sources": [
@@ -3920,7 +3919,9 @@ static const char __pyx_k_CURLE_OBSOLETE20[] = "CURLE_OBSOLETE20";
 static const char __pyx_k_CURLE_OBSOLETE24[] = "CURLE_OBSOLETE24";
 static const char __pyx_k_CURLE_OBSOLETE29[] = "CURLE_OBSOLETE29";
 static const char __pyx_k_CURLE_OBSOLETE32[] = "CURLE_OBSOLETE32";
+static const char __pyx_k_CURLE_OBSOLETE34[] = "CURLE_OBSOLETE34";
 static const char __pyx_k_CURLE_OBSOLETE40[] = "CURLE_OBSOLETE40";
+static const char __pyx_k_CURLE_OBSOLETE41[] = "CURLE_OBSOLETE41";
 static const char __pyx_k_CURLE_OBSOLETE44[] = "CURLE_OBSOLETE44";
 static const char __pyx_k_CURLE_OBSOLETE46[] = "CURLE_OBSOLETE46";
 static const char __pyx_k_CURLE_OBSOLETE50[] = "CURLE_OBSOLETE50";
@@ -3980,6 +3981,18 @@ static const char __pyx_k_CURLE_FAILED_INIT[] = "CURLE_FAILED_INIT";
 static const char __pyx_k_CURLE_GOT_NOTHING[] = "CURLE_GOT_NOTHING";
 static const char __pyx_k_CURLE_QUOTE_ERROR[] = "CURLE_QUOTE_ERROR";
 static const char __pyx_k_CURLE_RANGE_ERROR[] = "CURLE_RANGE_ERROR";
+static const char __pyx_k_CURLE_RESERVED115[] = "CURLE_RESERVED115";
+static const char __pyx_k_CURLE_RESERVED116[] = "CURLE_RESERVED116";
+static const char __pyx_k_CURLE_RESERVED117[] = "CURLE_RESERVED117";
+static const char __pyx_k_CURLE_RESERVED118[] = "CURLE_RESERVED118";
+static const char __pyx_k_CURLE_RESERVED119[] = "CURLE_RESERVED119";
+static const char __pyx_k_CURLE_RESERVED120[] = "CURLE_RESERVED120";
+static const char __pyx_k_CURLE_RESERVED121[] = "CURLE_RESERVED121";
+static const char __pyx_k_CURLE_RESERVED122[] = "CURLE_RESERVED122";
+static const char __pyx_k_CURLE_RESERVED123[] = "CURLE_RESERVED123";
+static const char __pyx_k_CURLE_RESERVED124[] = "CURLE_RESERVED124";
+static const char __pyx_k_CURLE_RESERVED125[] = "CURLE_RESERVED125";
+static const char __pyx_k_CURLE_RESERVED126[] = "CURLE_RESERVED126";
 static const char __pyx_k_CURLE_TFTP_EXISTS[] = "CURLE_TFTP_EXISTS";
 static const char __pyx_k_CURLE_WRITE_ERROR[] = "CURLE_WRITE_ERROR";
 static const char __pyx_k_CURLINFO_CERTINFO[] = "CURLINFO_CERTINFO";
@@ -4112,10 +4125,12 @@ static const char __pyx_k_CURLOPT_SSH_KEYDATA[] = "CURLOPT_SSH_KEYDATA";
 static const char __pyx_k_CURLOPT_SSLCERTTYPE[] = "CURLOPT_SSLCERTTYPE";
 static const char __pyx_k_CURLOPT_SSLKEY_BLOB[] = "CURLOPT_SSLKEY_BLOB";
 static const char __pyx_k_CURLOPT_SSL_OPTIONS[] = "CURLOPT_SSL_OPTIONS";
+static const char __pyx_k_CURLOPT_TCP_KEEPCNT[] = "CURLOPT_TCP_KEEPCNT";
 static const char __pyx_k_CURLOPT_TCP_NODELAY[] = "CURLOPT_TCP_NODELAY";
 static const char __pyx_k_CURLOPT_TRAILERDATA[] = "CURLOPT_TRAILERDATA";
 static const char __pyx_k_CURLOPT_WRITEHEADER[] = "CURLOPT_WRITEHEADER";
 static const char __pyx_k_CURLSSH_AUTH_GSSAPI[] = "CURLSSH_AUTH_GSSAPI";
+static const char __pyx_k_CURL_HTTP_VERSION_2[] = "CURL_HTTP_VERSION_2";
 static const char __pyx_k_CURL_HTTP_VERSION_3[] = "CURL_HTTP_VERSION_3";
 static const char __pyx_k_CURL_READFUNC_ABORT[] = "CURL_READFUNC_ABORT";
 static const char __pyx_k_CURL_READFUNC_PAUSE[] = "CURL_READFUNC_PAUSE";
@@ -4169,6 +4184,7 @@ static const char __pyx_k_CURLOPT_TCP_KEEPIDLE[] = "CURLOPT_TCP_KEEPIDLE";
 static const char __pyx_k_CURLOPT_TFTP_BLKSIZE[] = "CURLOPT_TFTP_BLKSIZE";
 static const char __pyx_k_CURLOPT_TLSAUTH_TYPE[] = "CURLOPT_TLSAUTH_TYPE";
 static const char __pyx_k_CURLOPT_TRANSFERTEXT[] = "CURLOPT_TRANSFERTEXT";
+static const char __pyx_k_CURLOPT_UPLOAD_FLAGS[] = "CURLOPT_UPLOAD_FLAGS";
 static const char __pyx_k_CURLOPT_XFERINFODATA[] = "CURLOPT_XFERINFODATA";
 static const char __pyx_k_CURLSSH_AUTH_DEFAULT[] = "CURLSSH_AUTH_DEFAULT";
 static const char __pyx_k_CURL_SSLVERSION_LAST[] = "CURL_SSLVERSION_LAST";
@@ -4262,6 +4278,7 @@ static const char __pyx_k_CURLE_REMOTE_DISK_FULL[] = "CURLE_REMOTE_DISK_FULL";
 static const char __pyx_k_CURLE_SEND_FAIL_REWIND[] = "CURLE_SEND_FAIL_REWIND";
 static const char __pyx_k_CURLE_SSL_ISSUER_ERROR[] = "CURLE_SSL_ISSUER_ERROR";
 static const char __pyx_k_CURLINFO_EFFECTIVE_URL[] = "CURLINFO_EFFECTIVE_URL";
+static const char __pyx_k_CURLINFO_HTTPAUTH_USED[] = "CURLINFO_HTTPAUTH_USED";
 static const char __pyx_k_CURLINFO_REDIRECT_TIME[] = "CURLINFO_REDIRECT_TIME";
 static const char __pyx_k_CURLINFO_RESPONSE_CODE[] = "CURLINFO_RESPONSE_CODE";
 static const char __pyx_k_CURLINFO_SIZE_DOWNLOAD[] = "CURLINFO_SIZE_DOWNLOAD";
@@ -4317,6 +4334,7 @@ static const char __pyx_k_CURLE_SSL_CONNECT_ERROR[] = "CURLE_SSL_CONNECT_ERROR";
 static const char __pyx_k_CURLINFO_CONNECT_TIME_T[] = "CURLINFO_CONNECT_TIME_T";
 static const char __pyx_k_CURLINFO_FTP_ENTRY_PATH[] = "CURLINFO_FTP_ENTRY_PATH";
 static const char __pyx_k_CURLINFO_HTTPAUTH_AVAIL[] = "CURLINFO_HTTPAUTH_AVAIL";
+static const char __pyx_k_CURLINFO_PROXYAUTH_USED[] = "CURLINFO_PROXYAUTH_USED";
 static const char __pyx_k_CURLINFO_REDIRECT_COUNT[] = "CURLINFO_REDIRECT_COUNT";
 static const char __pyx_k_CURLINFO_RTSP_CSEQ_RECV[] = "CURLINFO_RTSP_CSEQ_RECV";
 static const char __pyx_k_CURLINFO_SPEED_DOWNLOAD[] = "CURLINFO_SPEED_DOWNLOAD";
@@ -4411,6 +4429,7 @@ static const char __pyx_k_CURLE_HTTP_RETURNED_ERROR[] = "CURLE_HTTP_RETURNED_ERR
 static const char __pyx_k_CURLE_OPERATION_TIMEOUTED[] = "CURLE_OPERATION_TIMEOUTED";
 static const char __pyx_k_CURLE_SSL_ENGINE_NOTFOUND[] = "CURLE_SSL_ENGINE_NOTFOUND";
 static const char __pyx_k_CURLE_SSL_SHUTDOWN_FAILED[] = "CURLE_SSL_SHUTDOWN_FAILED";
+static const char __pyx_k_CURLINFO_EARLYDATA_SENT_T[] = "CURLINFO_EARLYDATA_SENT_T";
 static const char __pyx_k_CURLINFO_EFFECTIVE_METHOD[] = "CURLINFO_EFFECTIVE_METHOD";
 static const char __pyx_k_CURLINFO_HTTP_CONNECTCODE[] = "CURLINFO_HTTP_CONNECTCODE";
 static const char __pyx_k_CURLINFO_PRETRANSFER_TIME[] = "CURLINFO_PRETRANSFER_TIME";
@@ -4513,6 +4532,7 @@ static const char __pyx_k_itemsize_0_for_cython_array[] = "itemsize <= 0 for cyt
 static const char __pyx_k_CURLE_FILE_COULDNT_READ_FILE[] = "CURLE_FILE_COULDNT_READ_FILE";
 static const char __pyx_k_CURLE_FTP_COULDNT_SET_BINARY[] = "CURLE_FTP_COULDNT_SET_BINARY";
 static const char __pyx_k_CURLE_FTP_WEIRD_SERVER_REPLY[] = "CURLE_FTP_WEIRD_SERVER_REPLY";
+static const char __pyx_k_CURLINFO_POSTTRANSFER_TIME_T[] = "CURLINFO_POSTTRANSFER_TIME_T";
 static const char __pyx_k_CURLMOPT_MAX_PIPELINE_LENGTH[] = "CURLMOPT_MAX_PIPELINE_LENGTH";
 static const char __pyx_k_CURLOPT_ABSTRACT_UNIX_SOCKET[] = "CURLOPT_ABSTRACT_UNIX_SOCKET";
 static const char __pyx_k_CURLOPT_DNS_USE_GLOBAL_CACHE[] = "CURLOPT_DNS_USE_GLOBAL_CACHE";
@@ -4610,6 +4630,7 @@ static const char __pyx_k_CURLOPT_SSH_HOST_PUBLIC_KEY_SHA2[] = "CURLOPT_SSH_HOST
 static const char __pyx_k_CURLOPT_SUPPRESS_CONNECT_HEADERS[] = "CURLOPT_SUPPRESS_CONNECT_HEADERS";
 static const char __pyx_k_CURLOPT_TLS_DELEGATED_CREDENTIAL[] = "CURLOPT_TLS_DELEGATED_CREDENTIALS";
 static const char __pyx_k_CURLOPT_TLS_SIGNED_CERT_TIMESTAM[] = "CURLOPT_TLS_SIGNED_CERT_TIMESTAMPS";
+static const char __pyx_k_CURLOPT_TLS_USE_FIREFOX_TLS13_CI[] = "CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS";
 static const char __pyx_k_CURLOPT_TLS_USE_NEW_ALPS_CODEPOI[] = "CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT";
 static const char __pyx_k_CURL_HTTP_VERSION_2_PRIOR_KNOWLE[] = "CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE";
 static const char __pyx_k_Can_only_create_a_buffer_that_is[] = "Can only create a buffer that is contiguous in memory.";
@@ -4849,7 +4870,7 @@ typedef struct {
   PyObject *__pyx_slice[2];
   PyObject *__pyx_tuple[20];
   PyObject *__pyx_codeobj_tab[65];
-  PyObject *__pyx_string_tab[1136];
+  PyObject *__pyx_string_tab[1158];
   PyObject *__pyx_int_0;
   PyObject *__pyx_int_1;
   PyObject *__pyx_int_2;
@@ -5072,1024 +5093,1046 @@ static __pyx_mstatetype *__pyx_mstate_global = &__pyx_mstate_global_static;
 #define __pyx_n_u_CURLE_OBSOLETE24 __pyx_string_tab[115]
 #define __pyx_n_u_CURLE_OBSOLETE29 __pyx_string_tab[116]
 #define __pyx_n_u_CURLE_OBSOLETE32 __pyx_string_tab[117]
-#define __pyx_n_u_CURLE_OBSOLETE40 __pyx_string_tab[118]
-#define __pyx_n_u_CURLE_OBSOLETE44 __pyx_string_tab[119]
-#define __pyx_n_u_CURLE_OBSOLETE46 __pyx_string_tab[120]
-#define __pyx_n_u_CURLE_OBSOLETE50 __pyx_string_tab[121]
-#define __pyx_n_u_CURLE_OBSOLETE51 __pyx_string_tab[122]
-#define __pyx_n_u_CURLE_OBSOLETE57 __pyx_string_tab[123]
-#define __pyx_n_u_CURLE_OBSOLETE62 __pyx_string_tab[124]
-#define __pyx_n_u_CURLE_OBSOLETE75 __pyx_string_tab[125]
-#define __pyx_n_u_CURLE_OBSOLETE76 __pyx_string_tab[126]
-#define __pyx_n_u_CURLE_OK __pyx_string_tab[127]
-#define __pyx_n_u_CURLE_OPERATION_TIMEDOUT __pyx_string_tab[128]
-#define __pyx_n_u_CURLE_OPERATION_TIMEOUTED __pyx_string_tab[129]
-#define __pyx_n_u_CURLE_OUT_OF_MEMORY __pyx_string_tab[130]
-#define __pyx_n_u_CURLE_PARTIAL_FILE __pyx_string_tab[131]
-#define __pyx_n_u_CURLE_PEER_FAILED_VERIFICATION __pyx_string_tab[132]
-#define __pyx_n_u_CURLE_PROXY __pyx_string_tab[133]
-#define __pyx_n_u_CURLE_QUIC_CONNECT_ERROR __pyx_string_tab[134]
-#define __pyx_n_u_CURLE_QUOTE_ERROR __pyx_string_tab[135]
-#define __pyx_n_u_CURLE_RANGE_ERROR __pyx_string_tab[136]
-#define __pyx_n_u_CURLE_READ_ERROR __pyx_string_tab[137]
-#define __pyx_n_u_CURLE_RECURSIVE_API_CALL __pyx_string_tab[138]
-#define __pyx_n_u_CURLE_RECV_ERROR __pyx_string_tab[139]
-#define __pyx_n_u_CURLE_REMOTE_ACCESS_DENIED __pyx_string_tab[140]
-#define __pyx_n_u_CURLE_REMOTE_DISK_FULL __pyx_string_tab[141]
-#define __pyx_n_u_CURLE_REMOTE_FILE_EXISTS __pyx_string_tab[142]
-#define __pyx_n_u_CURLE_REMOTE_FILE_NOT_FOUND __pyx_string_tab[143]
-#define __pyx_n_u_CURLE_RTSP_CSEQ_ERROR __pyx_string_tab[144]
-#define __pyx_n_u_CURLE_RTSP_SESSION_ERROR __pyx_string_tab[145]
-#define __pyx_n_u_CURLE_SEND_ERROR __pyx_string_tab[146]
-#define __pyx_n_u_CURLE_SEND_FAIL_REWIND __pyx_string_tab[147]
-#define __pyx_n_u_CURLE_SETOPT_OPTION_SYNTAX __pyx_string_tab[148]
-#define __pyx_n_u_CURLE_SHARE_IN_USE __pyx_string_tab[149]
-#define __pyx_n_u_CURLE_SSH __pyx_string_tab[150]
-#define __pyx_n_u_CURLE_SSL_CACERT __pyx_string_tab[151]
-#define __pyx_n_u_CURLE_SSL_CACERT_BADFILE __pyx_string_tab[152]
-#define __pyx_n_u_CURLE_SSL_CERTPROBLEM __pyx_string_tab[153]
-#define __pyx_n_u_CURLE_SSL_CIPHER __pyx_string_tab[154]
-#define __pyx_n_u_CURLE_SSL_CLIENTCERT __pyx_string_tab[155]
-#define __pyx_n_u_CURLE_SSL_CONNECT_ERROR __pyx_string_tab[156]
-#define __pyx_n_u_CURLE_SSL_CRL_BADFILE __pyx_string_tab[157]
-#define __pyx_n_u_CURLE_SSL_ENGINE_INITFAILED __pyx_string_tab[158]
-#define __pyx_n_u_CURLE_SSL_ENGINE_NOTFOUND __pyx_string_tab[159]
-#define __pyx_n_u_CURLE_SSL_ENGINE_SETFAILED __pyx_string_tab[160]
-#define __pyx_n_u_CURLE_SSL_INVALIDCERTSTATUS __pyx_string_tab[161]
-#define __pyx_n_u_CURLE_SSL_ISSUER_ERROR __pyx_string_tab[162]
-#define __pyx_n_u_CURLE_SSL_PEER_CERTIFICATE __pyx_string_tab[163]
-#define __pyx_n_u_CURLE_SSL_PINNEDPUBKEYNOTMATCH __pyx_string_tab[164]
-#define __pyx_n_u_CURLE_SSL_SHUTDOWN_FAILED __pyx_string_tab[165]
-#define __pyx_n_u_CURLE_TELNET_OPTION_SYNTAX __pyx_string_tab[166]
-#define __pyx_n_u_CURLE_TFTP_DISKFULL __pyx_string_tab[167]
-#define __pyx_n_u_CURLE_TFTP_EXISTS __pyx_string_tab[168]
-#define __pyx_n_u_CURLE_TFTP_ILLEGAL __pyx_string_tab[169]
-#define __pyx_n_u_CURLE_TFTP_NOSUCHUSER __pyx_string_tab[170]
-#define __pyx_n_u_CURLE_TFTP_NOTFOUND __pyx_string_tab[171]
-#define __pyx_n_u_CURLE_TFTP_PERM __pyx_string_tab[172]
-#define __pyx_n_u_CURLE_TFTP_UNKNOWNID __pyx_string_tab[173]
-#define __pyx_n_u_CURLE_TOO_LARGE __pyx_string_tab[174]
-#define __pyx_n_u_CURLE_TOO_MANY_REDIRECTS __pyx_string_tab[175]
-#define __pyx_n_u_CURLE_UNKNOWN_OPTION __pyx_string_tab[176]
-#define __pyx_n_u_CURLE_UNKNOWN_TELNET_OPTION __pyx_string_tab[177]
-#define __pyx_n_u_CURLE_UNRECOVERABLE_POLL __pyx_string_tab[178]
-#define __pyx_n_u_CURLE_UNSUPPORTED_PROTOCOL __pyx_string_tab[179]
-#define __pyx_n_u_CURLE_UPLOAD_FAILED __pyx_string_tab[180]
-#define __pyx_n_u_CURLE_URL_MALFORMAT __pyx_string_tab[181]
-#define __pyx_n_u_CURLE_URL_MALFORMAT_USER __pyx_string_tab[182]
-#define __pyx_n_u_CURLE_USE_SSL_FAILED __pyx_string_tab[183]
-#define __pyx_n_u_CURLE_WEIRD_SERVER_REPLY __pyx_string_tab[184]
-#define __pyx_n_u_CURLE_WRITE_ERROR __pyx_string_tab[185]
-#define __pyx_n_u_CURLINFO_ACTIVESOCKET __pyx_string_tab[186]
-#define __pyx_n_u_CURLINFO_APPCONNECT_TIME __pyx_string_tab[187]
-#define __pyx_n_u_CURLINFO_APPCONNECT_TIME_T __pyx_string_tab[188]
-#define __pyx_n_u_CURLINFO_CAINFO __pyx_string_tab[189]
-#define __pyx_n_u_CURLINFO_CAPATH __pyx_string_tab[190]
-#define __pyx_n_u_CURLINFO_CERTINFO __pyx_string_tab[191]
-#define __pyx_n_u_CURLINFO_CONDITION_UNMET __pyx_string_tab[192]
-#define __pyx_n_u_CURLINFO_CONNECT_TIME __pyx_string_tab[193]
-#define __pyx_n_u_CURLINFO_CONNECT_TIME_T __pyx_string_tab[194]
-#define __pyx_n_u_CURLINFO_CONN_ID __pyx_string_tab[195]
-#define __pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD __pyx_string_tab[196]
-#define __pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD_2 __pyx_string_tab[197]
-#define __pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD __pyx_string_tab[198]
-#define __pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD_T __pyx_string_tab[199]
-#define __pyx_n_u_CURLINFO_CONTENT_TYPE __pyx_string_tab[200]
-#define __pyx_n_u_CURLINFO_COOKIELIST __pyx_string_tab[201]
-#define __pyx_n_u_CURLINFO_DATA_IN __pyx_string_tab[202]
-#define __pyx_n_u_CURLINFO_DATA_OUT __pyx_string_tab[203]
-#define __pyx_n_u_CURLINFO_EFFECTIVE_METHOD __pyx_string_tab[204]
-#define __pyx_n_u_CURLINFO_EFFECTIVE_URL __pyx_string_tab[205]
-#define __pyx_n_u_CURLINFO_END __pyx_string_tab[206]
-#define __pyx_n_u_CURLINFO_FILETIME __pyx_string_tab[207]
-#define __pyx_n_u_CURLINFO_FILETIME_T __pyx_string_tab[208]
-#define __pyx_n_u_CURLINFO_FTP_ENTRY_PATH __pyx_string_tab[209]
-#define __pyx_n_u_CURLINFO_HEADER_IN __pyx_string_tab[210]
-#define __pyx_n_u_CURLINFO_HEADER_OUT __pyx_string_tab[211]
-#define __pyx_n_u_CURLINFO_HEADER_SIZE __pyx_string_tab[212]
-#define __pyx_n_u_CURLINFO_HTTPAUTH_AVAIL __pyx_string_tab[213]
-#define __pyx_n_u_CURLINFO_HTTP_CONNECTCODE __pyx_string_tab[214]
-#define __pyx_n_u_CURLINFO_HTTP_VERSION __pyx_string_tab[215]
-#define __pyx_n_u_CURLINFO_LASTONE __pyx_string_tab[216]
-#define __pyx_n_u_CURLINFO_LASTSOCKET __pyx_string_tab[217]
-#define __pyx_n_u_CURLINFO_LOCAL_IP __pyx_string_tab[218]
-#define __pyx_n_u_CURLINFO_LOCAL_PORT __pyx_string_tab[219]
-#define __pyx_n_u_CURLINFO_NAMELOOKUP_TIME __pyx_string_tab[220]
-#define __pyx_n_u_CURLINFO_NAMELOOKUP_TIME_T __pyx_string_tab[221]
-#define __pyx_n_u_CURLINFO_NONE __pyx_string_tab[222]
-#define __pyx_n_u_CURLINFO_NUM_CONNECTS __pyx_string_tab[223]
-#define __pyx_n_u_CURLINFO_OS_ERRNO __pyx_string_tab[224]
-#define __pyx_n_u_CURLINFO_PRETRANSFER_TIME __pyx_string_tab[225]
-#define __pyx_n_u_CURLINFO_PRETRANSFER_TIME_T __pyx_string_tab[226]
-#define __pyx_n_u_CURLINFO_PRIMARY_IP __pyx_string_tab[227]
-#define __pyx_n_u_CURLINFO_PRIMARY_PORT __pyx_string_tab[228]
-#define __pyx_n_u_CURLINFO_PRIVATE __pyx_string_tab[229]
-#define __pyx_n_u_CURLINFO_PROTOCOL __pyx_string_tab[230]
-#define __pyx_n_u_CURLINFO_PROXYAUTH_AVAIL __pyx_string_tab[231]
-#define __pyx_n_u_CURLINFO_PROXY_ERROR __pyx_string_tab[232]
-#define __pyx_n_u_CURLINFO_PROXY_SSL_VERIFYRESULT __pyx_string_tab[233]
-#define __pyx_n_u_CURLINFO_QUEUE_TIME_T __pyx_string_tab[234]
-#define __pyx_n_u_CURLINFO_REDIRECT_COUNT __pyx_string_tab[235]
-#define __pyx_n_u_CURLINFO_REDIRECT_TIME __pyx_string_tab[236]
-#define __pyx_n_u_CURLINFO_REDIRECT_TIME_T __pyx_string_tab[237]
-#define __pyx_n_u_CURLINFO_REDIRECT_URL __pyx_string_tab[238]
-#define __pyx_n_u_CURLINFO_REFERER __pyx_string_tab[239]
-#define __pyx_n_u_CURLINFO_REQUEST_SIZE __pyx_string_tab[240]
-#define __pyx_n_u_CURLINFO_RESPONSE_CODE __pyx_string_tab[241]
-#define __pyx_n_u_CURLINFO_RETRY_AFTER __pyx_string_tab[242]
-#define __pyx_n_u_CURLINFO_RTSP_CLIENT_CSEQ __pyx_string_tab[243]
-#define __pyx_n_u_CURLINFO_RTSP_CSEQ_RECV __pyx_string_tab[244]
-#define __pyx_n_u_CURLINFO_RTSP_SERVER_CSEQ __pyx_string_tab[245]
-#define __pyx_n_u_CURLINFO_RTSP_SESSION_ID __pyx_string_tab[246]
-#define __pyx_n_u_CURLINFO_SCHEME __pyx_string_tab[247]
-#define __pyx_n_u_CURLINFO_SIZE_DOWNLOAD __pyx_string_tab[248]
-#define __pyx_n_u_CURLINFO_SIZE_DOWNLOAD_T __pyx_string_tab[249]
-#define __pyx_n_u_CURLINFO_SIZE_UPLOAD __pyx_string_tab[250]
-#define __pyx_n_u_CURLINFO_SIZE_UPLOAD_T __pyx_string_tab[251]
-#define __pyx_n_u_CURLINFO_SPEED_DOWNLOAD __pyx_string_tab[252]
-#define __pyx_n_u_CURLINFO_SPEED_DOWNLOAD_T __pyx_string_tab[253]
-#define __pyx_n_u_CURLINFO_SPEED_UPLOAD __pyx_string_tab[254]
-#define __pyx_n_u_CURLINFO_SPEED_UPLOAD_T __pyx_string_tab[255]
-#define __pyx_n_u_CURLINFO_SSL_DATA_IN __pyx_string_tab[256]
-#define __pyx_n_u_CURLINFO_SSL_DATA_OUT __pyx_string_tab[257]
-#define __pyx_n_u_CURLINFO_SSL_ENGINES __pyx_string_tab[258]
-#define __pyx_n_u_CURLINFO_SSL_VERIFYRESULT __pyx_string_tab[259]
-#define __pyx_n_u_CURLINFO_STARTTRANSFER_TIME __pyx_string_tab[260]
-#define __pyx_n_u_CURLINFO_STARTTRANSFER_TIME_T __pyx_string_tab[261]
-#define __pyx_n_u_CURLINFO_TEXT __pyx_string_tab[262]
-#define __pyx_n_u_CURLINFO_TLS_SESSION __pyx_string_tab[263]
-#define __pyx_n_u_CURLINFO_TLS_SSL_PTR __pyx_string_tab[264]
-#define __pyx_n_u_CURLINFO_TOTAL_TIME __pyx_string_tab[265]
-#define __pyx_n_u_CURLINFO_TOTAL_TIME_T __pyx_string_tab[266]
-#define __pyx_n_u_CURLINFO_USED_PROXY __pyx_string_tab[267]
-#define __pyx_n_u_CURLINFO_XFER_ID __pyx_string_tab[268]
-#define __pyx_n_u_CURLMOPT_CHUNK_LENGTH_PENALTY_SI __pyx_string_tab[269]
-#define __pyx_n_u_CURLMOPT_CONTENT_LENGTH_PENALTY __pyx_string_tab[270]
-#define __pyx_n_u_CURLMOPT_MAXCONNECTS __pyx_string_tab[271]
-#define __pyx_n_u_CURLMOPT_MAX_CONCURRENT_STREAMS __pyx_string_tab[272]
-#define __pyx_n_u_CURLMOPT_MAX_HOST_CONNECTIONS __pyx_string_tab[273]
-#define __pyx_n_u_CURLMOPT_MAX_PIPELINE_LENGTH __pyx_string_tab[274]
-#define __pyx_n_u_CURLMOPT_MAX_TOTAL_CONNECTIONS __pyx_string_tab[275]
-#define __pyx_n_u_CURLMOPT_PIPELINING __pyx_string_tab[276]
-#define __pyx_n_u_CURLMOPT_PIPELINING_SERVER_BL __pyx_string_tab[277]
-#define __pyx_n_u_CURLMOPT_PIPELINING_SITE_BL __pyx_string_tab[278]
-#define __pyx_n_u_CURLMOPT_PUSHDATA __pyx_string_tab[279]
-#define __pyx_n_u_CURLMOPT_PUSHFUNCTION __pyx_string_tab[280]
-#define __pyx_n_u_CURLMOPT_SOCKETDATA __pyx_string_tab[281]
-#define __pyx_n_u_CURLMOPT_SOCKETFUNCTION __pyx_string_tab[282]
-#define __pyx_n_u_CURLMOPT_TIMERDATA __pyx_string_tab[283]
-#define __pyx_n_u_CURLMOPT_TIMERFUNCTION __pyx_string_tab[284]
-#define __pyx_n_u_CURLMSG_DONE __pyx_string_tab[285]
-#define __pyx_n_u_CURLMSG_LAST __pyx_string_tab[286]
-#define __pyx_n_u_CURLMSG_NONE __pyx_string_tab[287]
-#define __pyx_n_u_CURLOPT_ABSTRACT_UNIX_SOCKET __pyx_string_tab[288]
-#define __pyx_n_u_CURLOPT_ACCEPTTIMEOUT_MS __pyx_string_tab[289]
-#define __pyx_n_u_CURLOPT_ACCEPT_ENCODING __pyx_string_tab[290]
-#define __pyx_n_u_CURLOPT_ADDRESS_SCOPE __pyx_string_tab[291]
-#define __pyx_n_u_CURLOPT_ALTSVC __pyx_string_tab[292]
-#define __pyx_n_u_CURLOPT_ALTSVC_CTRL __pyx_string_tab[293]
-#define __pyx_n_u_CURLOPT_APPEND __pyx_string_tab[294]
-#define __pyx_n_u_CURLOPT_AUTOREFERER __pyx_string_tab[295]
-#define __pyx_n_u_CURLOPT_AWS_SIGV4 __pyx_string_tab[296]
-#define __pyx_n_u_CURLOPT_BUFFERSIZE __pyx_string_tab[297]
-#define __pyx_n_u_CURLOPT_CAINFO __pyx_string_tab[298]
-#define __pyx_n_u_CURLOPT_CAINFO_BLOB __pyx_string_tab[299]
-#define __pyx_n_u_CURLOPT_CAPATH __pyx_string_tab[300]
-#define __pyx_n_u_CURLOPT_CA_CACHE_TIMEOUT __pyx_string_tab[301]
-#define __pyx_n_u_CURLOPT_CERTINFO __pyx_string_tab[302]
-#define __pyx_n_u_CURLOPT_CHUNK_BGN_FUNCTION __pyx_string_tab[303]
-#define __pyx_n_u_CURLOPT_CHUNK_DATA __pyx_string_tab[304]
-#define __pyx_n_u_CURLOPT_CHUNK_END_FUNCTION __pyx_string_tab[305]
-#define __pyx_n_u_CURLOPT_CLOSEPOLICY __pyx_string_tab[306]
-#define __pyx_n_u_CURLOPT_CLOSESOCKETDATA __pyx_string_tab[307]
-#define __pyx_n_u_CURLOPT_CLOSESOCKETFUNCTION __pyx_string_tab[308]
-#define __pyx_n_u_CURLOPT_CONNECTTIMEOUT __pyx_string_tab[309]
-#define __pyx_n_u_CURLOPT_CONNECTTIMEOUT_MS __pyx_string_tab[310]
-#define __pyx_n_u_CURLOPT_CONNECT_ONLY __pyx_string_tab[311]
-#define __pyx_n_u_CURLOPT_CONNECT_TO __pyx_string_tab[312]
-#define __pyx_n_u_CURLOPT_CONV_FROM_NETWORK_FUNCTI __pyx_string_tab[313]
-#define __pyx_n_u_CURLOPT_CONV_FROM_UTF8_FUNCTION __pyx_string_tab[314]
-#define __pyx_n_u_CURLOPT_CONV_TO_NETWORK_FUNCTION __pyx_string_tab[315]
-#define __pyx_n_u_CURLOPT_COOKIE __pyx_string_tab[316]
-#define __pyx_n_u_CURLOPT_COOKIEFILE __pyx_string_tab[317]
-#define __pyx_n_u_CURLOPT_COOKIEJAR __pyx_string_tab[318]
-#define __pyx_n_u_CURLOPT_COOKIELIST __pyx_string_tab[319]
-#define __pyx_n_u_CURLOPT_COOKIESESSION __pyx_string_tab[320]
-#define __pyx_n_u_CURLOPT_COPYPOSTFIELDS __pyx_string_tab[321]
-#define __pyx_n_u_CURLOPT_CRLF __pyx_string_tab[322]
-#define __pyx_n_u_CURLOPT_CRLFILE __pyx_string_tab[323]
-#define __pyx_n_u_CURLOPT_CURLU __pyx_string_tab[324]
-#define __pyx_n_u_CURLOPT_CUSTOMREQUEST __pyx_string_tab[325]
-#define __pyx_n_u_CURLOPT_DEBUGDATA __pyx_string_tab[326]
-#define __pyx_n_u_CURLOPT_DEBUGFUNCTION __pyx_string_tab[327]
-#define __pyx_n_u_CURLOPT_DEFAULT_PROTOCOL __pyx_string_tab[328]
-#define __pyx_n_u_CURLOPT_DIRLISTONLY __pyx_string_tab[329]
-#define __pyx_n_u_CURLOPT_DISALLOW_USERNAME_IN_URL __pyx_string_tab[330]
-#define __pyx_n_u_CURLOPT_DNS_CACHE_TIMEOUT __pyx_string_tab[331]
-#define __pyx_n_u_CURLOPT_DNS_INTERFACE __pyx_string_tab[332]
-#define __pyx_n_u_CURLOPT_DNS_LOCAL_IP4 __pyx_string_tab[333]
-#define __pyx_n_u_CURLOPT_DNS_LOCAL_IP6 __pyx_string_tab[334]
-#define __pyx_n_u_CURLOPT_DNS_SERVERS __pyx_string_tab[335]
-#define __pyx_n_u_CURLOPT_DNS_SHUFFLE_ADDRESSES __pyx_string_tab[336]
-#define __pyx_n_u_CURLOPT_DNS_USE_GLOBAL_CACHE __pyx_string_tab[337]
-#define __pyx_n_u_CURLOPT_DOH_SSL_VERIFYHOST __pyx_string_tab[338]
-#define __pyx_n_u_CURLOPT_DOH_SSL_VERIFYPEER __pyx_string_tab[339]
-#define __pyx_n_u_CURLOPT_DOH_SSL_VERIFYSTATUS __pyx_string_tab[340]
-#define __pyx_n_u_CURLOPT_DOH_URL __pyx_string_tab[341]
-#define __pyx_n_u_CURLOPT_ECH __pyx_string_tab[342]
-#define __pyx_n_u_CURLOPT_EGDSOCKET __pyx_string_tab[343]
-#define __pyx_n_u_CURLOPT_ENCODING __pyx_string_tab[344]
-#define __pyx_n_u_CURLOPT_ERRORBUFFER __pyx_string_tab[345]
-#define __pyx_n_u_CURLOPT_EXPECT_100_TIMEOUT_MS __pyx_string_tab[346]
-#define __pyx_n_u_CURLOPT_FAILONERROR __pyx_string_tab[347]
-#define __pyx_n_u_CURLOPT_FILE __pyx_string_tab[348]
-#define __pyx_n_u_CURLOPT_FILETIME __pyx_string_tab[349]
-#define __pyx_n_u_CURLOPT_FNMATCH_DATA __pyx_string_tab[350]
-#define __pyx_n_u_CURLOPT_FNMATCH_FUNCTION __pyx_string_tab[351]
-#define __pyx_n_u_CURLOPT_FOLLOWLOCATION __pyx_string_tab[352]
-#define __pyx_n_u_CURLOPT_FORBID_REUSE __pyx_string_tab[353]
-#define __pyx_n_u_CURLOPT_FRESH_CONNECT __pyx_string_tab[354]
-#define __pyx_n_u_CURLOPT_FTPAPPEND __pyx_string_tab[355]
-#define __pyx_n_u_CURLOPT_FTPLISTONLY __pyx_string_tab[356]
-#define __pyx_n_u_CURLOPT_FTPPORT __pyx_string_tab[357]
-#define __pyx_n_u_CURLOPT_FTPSSLAUTH __pyx_string_tab[358]
-#define __pyx_n_u_CURLOPT_FTP_ACCOUNT __pyx_string_tab[359]
-#define __pyx_n_u_CURLOPT_FTP_ALTERNATIVE_TO_USER __pyx_string_tab[360]
-#define __pyx_n_u_CURLOPT_FTP_CREATE_MISSING_DIRS __pyx_string_tab[361]
-#define __pyx_n_u_CURLOPT_FTP_FILEMETHOD __pyx_string_tab[362]
-#define __pyx_n_u_CURLOPT_FTP_RESPONSE_TIMEOUT __pyx_string_tab[363]
-#define __pyx_n_u_CURLOPT_FTP_SKIP_PASV_IP __pyx_string_tab[364]
-#define __pyx_n_u_CURLOPT_FTP_SSL __pyx_string_tab[365]
-#define __pyx_n_u_CURLOPT_FTP_SSL_CCC __pyx_string_tab[366]
-#define __pyx_n_u_CURLOPT_FTP_USE_EPRT __pyx_string_tab[367]
-#define __pyx_n_u_CURLOPT_FTP_USE_EPSV __pyx_string_tab[368]
-#define __pyx_n_u_CURLOPT_FTP_USE_PRET __pyx_string_tab[369]
-#define __pyx_n_u_CURLOPT_GSSAPI_DELEGATION __pyx_string_tab[370]
-#define __pyx_n_u_CURLOPT_HAPPY_EYEBALLS_TIMEOUT_M __pyx_string_tab[371]
-#define __pyx_n_u_CURLOPT_HAPROXYPROTOCOL __pyx_string_tab[372]
-#define __pyx_n_u_CURLOPT_HAPROXY_CLIENT_IP __pyx_string_tab[373]
-#define __pyx_n_u_CURLOPT_HEADER __pyx_string_tab[374]
-#define __pyx_n_u_CURLOPT_HEADERDATA __pyx_string_tab[375]
-#define __pyx_n_u_CURLOPT_HEADERFUNCTION __pyx_string_tab[376]
-#define __pyx_n_u_CURLOPT_HEADEROPT __pyx_string_tab[377]
-#define __pyx_n_u_CURLOPT_HSTS __pyx_string_tab[378]
-#define __pyx_n_u_CURLOPT_HSTSREADDATA __pyx_string_tab[379]
-#define __pyx_n_u_CURLOPT_HSTSREADFUNCTION __pyx_string_tab[380]
-#define __pyx_n_u_CURLOPT_HSTSWRITEDATA __pyx_string_tab[381]
-#define __pyx_n_u_CURLOPT_HSTSWRITEFUNCTION __pyx_string_tab[382]
-#define __pyx_n_u_CURLOPT_HSTS_CTRL __pyx_string_tab[383]
-#define __pyx_n_u_CURLOPT_HTTP09_ALLOWED __pyx_string_tab[384]
-#define __pyx_n_u_CURLOPT_HTTP200ALIASES __pyx_string_tab[385]
-#define __pyx_n_u_CURLOPT_HTTP2_PSEUDO_HEADERS_ORD __pyx_string_tab[386]
-#define __pyx_n_u_CURLOPT_HTTP2_SETTINGS __pyx_string_tab[387]
-#define __pyx_n_u_CURLOPT_HTTP2_STREAMS __pyx_string_tab[388]
-#define __pyx_n_u_CURLOPT_HTTP2_WINDOW_UPDATE __pyx_string_tab[389]
-#define __pyx_n_u_CURLOPT_HTTPAUTH __pyx_string_tab[390]
-#define __pyx_n_u_CURLOPT_HTTPBASEHEADER __pyx_string_tab[391]
-#define __pyx_n_u_CURLOPT_HTTPGET __pyx_string_tab[392]
-#define __pyx_n_u_CURLOPT_HTTPHEADER __pyx_string_tab[393]
-#define __pyx_n_u_CURLOPT_HTTPPOST __pyx_string_tab[394]
-#define __pyx_n_u_CURLOPT_HTTPPROXYTUNNEL __pyx_string_tab[395]
-#define __pyx_n_u_CURLOPT_HTTP_CONTENT_DECODING __pyx_string_tab[396]
-#define __pyx_n_u_CURLOPT_HTTP_TRANSFER_DECODING __pyx_string_tab[397]
-#define __pyx_n_u_CURLOPT_HTTP_VERSION __pyx_string_tab[398]
-#define __pyx_n_u_CURLOPT_IGNORE_CONTENT_LENGTH __pyx_string_tab[399]
-#define __pyx_n_u_CURLOPT_INFILE __pyx_string_tab[400]
-#define __pyx_n_u_CURLOPT_INFILESIZE __pyx_string_tab[401]
-#define __pyx_n_u_CURLOPT_INFILESIZE_LARGE __pyx_string_tab[402]
-#define __pyx_n_u_CURLOPT_INTERFACE __pyx_string_tab[403]
-#define __pyx_n_u_CURLOPT_INTERLEAVEDATA __pyx_string_tab[404]
-#define __pyx_n_u_CURLOPT_INTERLEAVEFUNCTION __pyx_string_tab[405]
-#define __pyx_n_u_CURLOPT_IOCTLDATA __pyx_string_tab[406]
-#define __pyx_n_u_CURLOPT_IOCTLFUNCTION __pyx_string_tab[407]
-#define __pyx_n_u_CURLOPT_IPRESOLVE __pyx_string_tab[408]
-#define __pyx_n_u_CURLOPT_ISSUERCERT __pyx_string_tab[409]
-#define __pyx_n_u_CURLOPT_ISSUERCERT_BLOB __pyx_string_tab[410]
-#define __pyx_n_u_CURLOPT_KEEP_SENDING_ON_ERROR __pyx_string_tab[411]
-#define __pyx_n_u_CURLOPT_KEYPASSWD __pyx_string_tab[412]
-#define __pyx_n_u_CURLOPT_KRB4LEVEL __pyx_string_tab[413]
-#define __pyx_n_u_CURLOPT_KRBLEVEL __pyx_string_tab[414]
-#define __pyx_n_u_CURLOPT_LOCALPORT __pyx_string_tab[415]
-#define __pyx_n_u_CURLOPT_LOCALPORTRANGE __pyx_string_tab[416]
-#define __pyx_n_u_CURLOPT_LOGIN_OPTIONS __pyx_string_tab[417]
-#define __pyx_n_u_CURLOPT_LOW_SPEED_LIMIT __pyx_string_tab[418]
-#define __pyx_n_u_CURLOPT_LOW_SPEED_TIME __pyx_string_tab[419]
-#define __pyx_n_u_CURLOPT_MAIL_AUTH __pyx_string_tab[420]
-#define __pyx_n_u_CURLOPT_MAIL_FROM __pyx_string_tab[421]
-#define __pyx_n_u_CURLOPT_MAIL_RCPT __pyx_string_tab[422]
-#define __pyx_n_u_CURLOPT_MAIL_RCPT_ALLLOWFAILS __pyx_string_tab[423]
-#define __pyx_n_u_CURLOPT_MAIL_RCPT_ALLOWFAILS __pyx_string_tab[424]
-#define __pyx_n_u_CURLOPT_MAXAGE_CONN __pyx_string_tab[425]
-#define __pyx_n_u_CURLOPT_MAXCONNECTS __pyx_string_tab[426]
-#define __pyx_n_u_CURLOPT_MAXFILESIZE __pyx_string_tab[427]
-#define __pyx_n_u_CURLOPT_MAXFILESIZE_LARGE __pyx_string_tab[428]
-#define __pyx_n_u_CURLOPT_MAXLIFETIME_CONN __pyx_string_tab[429]
-#define __pyx_n_u_CURLOPT_MAXREDIRS __pyx_string_tab[430]
-#define __pyx_n_u_CURLOPT_MAX_RECV_SPEED_LARGE __pyx_string_tab[431]
-#define __pyx_n_u_CURLOPT_MAX_SEND_SPEED_LARGE __pyx_string_tab[432]
-#define __pyx_n_u_CURLOPT_MIMEPOST __pyx_string_tab[433]
-#define __pyx_n_u_CURLOPT_MIME_OPTIONS __pyx_string_tab[434]
-#define __pyx_n_u_CURLOPT_NETRC __pyx_string_tab[435]
-#define __pyx_n_u_CURLOPT_NETRC_FILE __pyx_string_tab[436]
-#define __pyx_n_u_CURLOPT_NEW_DIRECTORY_PERMS __pyx_string_tab[437]
-#define __pyx_n_u_CURLOPT_NEW_FILE_PERMS __pyx_string_tab[438]
-#define __pyx_n_u_CURLOPT_NOBODY __pyx_string_tab[439]
-#define __pyx_n_u_CURLOPT_NOPROGRESS __pyx_string_tab[440]
-#define __pyx_n_u_CURLOPT_NOPROXY __pyx_string_tab[441]
-#define __pyx_n_u_CURLOPT_NOSIGNAL __pyx_string_tab[442]
-#define __pyx_n_u_CURLOPT_OBSOLETE40 __pyx_string_tab[443]
-#define __pyx_n_u_CURLOPT_OBSOLETE72 __pyx_string_tab[444]
-#define __pyx_n_u_CURLOPT_OPENSOCKETDATA __pyx_string_tab[445]
-#define __pyx_n_u_CURLOPT_OPENSOCKETFUNCTION __pyx_string_tab[446]
-#define __pyx_n_u_CURLOPT_PASSWORD __pyx_string_tab[447]
-#define __pyx_n_u_CURLOPT_PATH_AS_IS __pyx_string_tab[448]
-#define __pyx_n_u_CURLOPT_PINNEDPUBLICKEY __pyx_string_tab[449]
-#define __pyx_n_u_CURLOPT_PIPEWAIT __pyx_string_tab[450]
-#define __pyx_n_u_CURLOPT_PORT __pyx_string_tab[451]
-#define __pyx_n_u_CURLOPT_POST __pyx_string_tab[452]
-#define __pyx_n_u_CURLOPT_POST301 __pyx_string_tab[453]
-#define __pyx_n_u_CURLOPT_POSTFIELDS __pyx_string_tab[454]
-#define __pyx_n_u_CURLOPT_POSTFIELDSIZE __pyx_string_tab[455]
-#define __pyx_n_u_CURLOPT_POSTFIELDSIZE_LARGE __pyx_string_tab[456]
-#define __pyx_n_u_CURLOPT_POSTQUOTE __pyx_string_tab[457]
-#define __pyx_n_u_CURLOPT_POSTREDIR __pyx_string_tab[458]
-#define __pyx_n_u_CURLOPT_PREQUOTE __pyx_string_tab[459]
-#define __pyx_n_u_CURLOPT_PREREQDATA __pyx_string_tab[460]
-#define __pyx_n_u_CURLOPT_PREREQFUNCTION __pyx_string_tab[461]
-#define __pyx_n_u_CURLOPT_PRE_PROXY __pyx_string_tab[462]
-#define __pyx_n_u_CURLOPT_PRIVATE __pyx_string_tab[463]
-#define __pyx_n_u_CURLOPT_PROGRESSDATA __pyx_string_tab[464]
-#define __pyx_n_u_CURLOPT_PROGRESSFUNCTION __pyx_string_tab[465]
-#define __pyx_n_u_CURLOPT_PROTOCOLS __pyx_string_tab[466]
-#define __pyx_n_u_CURLOPT_PROTOCOLS_STR __pyx_string_tab[467]
-#define __pyx_n_u_CURLOPT_PROXY __pyx_string_tab[468]
-#define __pyx_n_u_CURLOPT_PROXYAUTH __pyx_string_tab[469]
-#define __pyx_n_u_CURLOPT_PROXYHEADER __pyx_string_tab[470]
-#define __pyx_n_u_CURLOPT_PROXYPASSWORD __pyx_string_tab[471]
-#define __pyx_n_u_CURLOPT_PROXYPORT __pyx_string_tab[472]
-#define __pyx_n_u_CURLOPT_PROXYTYPE __pyx_string_tab[473]
-#define __pyx_n_u_CURLOPT_PROXYUSERNAME __pyx_string_tab[474]
-#define __pyx_n_u_CURLOPT_PROXYUSERPWD __pyx_string_tab[475]
-#define __pyx_n_u_CURLOPT_PROXY_CAINFO __pyx_string_tab[476]
-#define __pyx_n_u_CURLOPT_PROXY_CAINFO_BLOB __pyx_string_tab[477]
-#define __pyx_n_u_CURLOPT_PROXY_CAPATH __pyx_string_tab[478]
-#define __pyx_n_u_CURLOPT_PROXY_CRLFILE __pyx_string_tab[479]
-#define __pyx_n_u_CURLOPT_PROXY_ISSUERCERT __pyx_string_tab[480]
-#define __pyx_n_u_CURLOPT_PROXY_ISSUERCERT_BLOB __pyx_string_tab[481]
-#define __pyx_n_u_CURLOPT_PROXY_KEYPASSWD __pyx_string_tab[482]
-#define __pyx_n_u_CURLOPT_PROXY_PINNEDPUBLICKEY __pyx_string_tab[483]
-#define __pyx_n_u_CURLOPT_PROXY_SERVICE_NAME __pyx_string_tab[484]
-#define __pyx_n_u_CURLOPT_PROXY_SSLCERT __pyx_string_tab[485]
-#define __pyx_n_u_CURLOPT_PROXY_SSLCERTTYPE __pyx_string_tab[486]
-#define __pyx_n_u_CURLOPT_PROXY_SSLCERT_BLOB __pyx_string_tab[487]
-#define __pyx_n_u_CURLOPT_PROXY_SSLKEY __pyx_string_tab[488]
-#define __pyx_n_u_CURLOPT_PROXY_SSLKEYTYPE __pyx_string_tab[489]
-#define __pyx_n_u_CURLOPT_PROXY_SSLKEY_BLOB __pyx_string_tab[490]
-#define __pyx_n_u_CURLOPT_PROXY_SSLVERSION __pyx_string_tab[491]
-#define __pyx_n_u_CURLOPT_PROXY_SSL_CIPHER_LIST __pyx_string_tab[492]
-#define __pyx_n_u_CURLOPT_PROXY_SSL_OPTIONS __pyx_string_tab[493]
-#define __pyx_n_u_CURLOPT_PROXY_SSL_VERIFYHOST __pyx_string_tab[494]
-#define __pyx_n_u_CURLOPT_PROXY_SSL_VERIFYPEER __pyx_string_tab[495]
-#define __pyx_n_u_CURLOPT_PROXY_TLS13_CIPHERS __pyx_string_tab[496]
-#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_PASSWORD __pyx_string_tab[497]
-#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_TYPE __pyx_string_tab[498]
-#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_USERNAME __pyx_string_tab[499]
-#define __pyx_n_u_CURLOPT_PROXY_TRANSFER_MODE __pyx_string_tab[500]
-#define __pyx_n_u_CURLOPT_PUT __pyx_string_tab[501]
-#define __pyx_n_u_CURLOPT_QUICK_EXIT __pyx_string_tab[502]
-#define __pyx_n_u_CURLOPT_QUOTE __pyx_string_tab[503]
-#define __pyx_n_u_CURLOPT_RANDOM_FILE __pyx_string_tab[504]
-#define __pyx_n_u_CURLOPT_RANGE __pyx_string_tab[505]
-#define __pyx_n_u_CURLOPT_READDATA __pyx_string_tab[506]
-#define __pyx_n_u_CURLOPT_READFUNCTION __pyx_string_tab[507]
-#define __pyx_n_u_CURLOPT_REDIR_PROTOCOLS __pyx_string_tab[508]
-#define __pyx_n_u_CURLOPT_REDIR_PROTOCOLS_STR __pyx_string_tab[509]
-#define __pyx_n_u_CURLOPT_REFERER __pyx_string_tab[510]
-#define __pyx_n_u_CURLOPT_REQUEST_TARGET __pyx_string_tab[511]
-#define __pyx_n_u_CURLOPT_RESOLVE __pyx_string_tab[512]
-#define __pyx_n_u_CURLOPT_RESOLVER_START_DATA __pyx_string_tab[513]
-#define __pyx_n_u_CURLOPT_RESOLVER_START_FUNCTION __pyx_string_tab[514]
-#define __pyx_n_u_CURLOPT_RESUME_FROM __pyx_string_tab[515]
-#define __pyx_n_u_CURLOPT_RESUME_FROM_LARGE __pyx_string_tab[516]
-#define __pyx_n_u_CURLOPT_RTSPHEADER __pyx_string_tab[517]
-#define __pyx_n_u_CURLOPT_RTSP_CLIENT_CSEQ __pyx_string_tab[518]
-#define __pyx_n_u_CURLOPT_RTSP_REQUEST __pyx_string_tab[519]
-#define __pyx_n_u_CURLOPT_RTSP_SERVER_CSEQ __pyx_string_tab[520]
-#define __pyx_n_u_CURLOPT_RTSP_SESSION_ID __pyx_string_tab[521]
-#define __pyx_n_u_CURLOPT_RTSP_STREAM_URI __pyx_string_tab[522]
-#define __pyx_n_u_CURLOPT_RTSP_TRANSPORT __pyx_string_tab[523]
-#define __pyx_n_u_CURLOPT_SASL_AUTHZID __pyx_string_tab[524]
-#define __pyx_n_u_CURLOPT_SASL_IR __pyx_string_tab[525]
-#define __pyx_n_u_CURLOPT_SEEKDATA __pyx_string_tab[526]
-#define __pyx_n_u_CURLOPT_SEEKFUNCTION __pyx_string_tab[527]
-#define __pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT __pyx_string_tab[528]
-#define __pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT_2 __pyx_string_tab[529]
-#define __pyx_n_u_CURLOPT_SERVICE_NAME __pyx_string_tab[530]
-#define __pyx_n_u_CURLOPT_SHARE __pyx_string_tab[531]
-#define __pyx_n_u_CURLOPT_SOCKOPTDATA __pyx_string_tab[532]
-#define __pyx_n_u_CURLOPT_SOCKOPTFUNCTION __pyx_string_tab[533]
-#define __pyx_n_u_CURLOPT_SOCKS5_AUTH __pyx_string_tab[534]
-#define __pyx_n_u_CURLOPT_SOCKS5_GSSAPI_NEC __pyx_string_tab[535]
-#define __pyx_n_u_CURLOPT_SOCKS5_GSSAPI_SERVICE __pyx_string_tab[536]
-#define __pyx_n_u_CURLOPT_SSH_AUTH_TYPES __pyx_string_tab[537]
-#define __pyx_n_u_CURLOPT_SSH_COMPRESSION __pyx_string_tab[538]
-#define __pyx_n_u_CURLOPT_SSH_HOSTKEYDATA __pyx_string_tab[539]
-#define __pyx_n_u_CURLOPT_SSH_HOSTKEYFUNCTION __pyx_string_tab[540]
-#define __pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 __pyx_string_tab[541]
-#define __pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_SHA2 __pyx_string_tab[542]
-#define __pyx_n_u_CURLOPT_SSH_KEYDATA __pyx_string_tab[543]
-#define __pyx_n_u_CURLOPT_SSH_KEYFUNCTION __pyx_string_tab[544]
-#define __pyx_n_u_CURLOPT_SSH_KNOWNHOSTS __pyx_string_tab[545]
-#define __pyx_n_u_CURLOPT_SSH_PRIVATE_KEYFILE __pyx_string_tab[546]
-#define __pyx_n_u_CURLOPT_SSH_PUBLIC_KEYFILE __pyx_string_tab[547]
-#define __pyx_n_u_CURLOPT_SSLCERT __pyx_string_tab[548]
-#define __pyx_n_u_CURLOPT_SSLCERTPASSWD __pyx_string_tab[549]
-#define __pyx_n_u_CURLOPT_SSLCERTTYPE __pyx_string_tab[550]
-#define __pyx_n_u_CURLOPT_SSLCERT_BLOB __pyx_string_tab[551]
-#define __pyx_n_u_CURLOPT_SSLENGINE __pyx_string_tab[552]
-#define __pyx_n_u_CURLOPT_SSLENGINE_DEFAULT __pyx_string_tab[553]
-#define __pyx_n_u_CURLOPT_SSLKEY __pyx_string_tab[554]
-#define __pyx_n_u_CURLOPT_SSLKEYPASSWD __pyx_string_tab[555]
-#define __pyx_n_u_CURLOPT_SSLKEYTYPE __pyx_string_tab[556]
-#define __pyx_n_u_CURLOPT_SSLKEY_BLOB __pyx_string_tab[557]
-#define __pyx_n_u_CURLOPT_SSLVERSION __pyx_string_tab[558]
-#define __pyx_n_u_CURLOPT_SSL_CERT_COMPRESSION __pyx_string_tab[559]
-#define __pyx_n_u_CURLOPT_SSL_CIPHER_LIST __pyx_string_tab[560]
-#define __pyx_n_u_CURLOPT_SSL_CTX_DATA __pyx_string_tab[561]
-#define __pyx_n_u_CURLOPT_SSL_CTX_FUNCTION __pyx_string_tab[562]
-#define __pyx_n_u_CURLOPT_SSL_EC_CURVES __pyx_string_tab[563]
-#define __pyx_n_u_CURLOPT_SSL_ENABLE_ALPN __pyx_string_tab[564]
-#define __pyx_n_u_CURLOPT_SSL_ENABLE_ALPS __pyx_string_tab[565]
-#define __pyx_n_u_CURLOPT_SSL_ENABLE_NPN __pyx_string_tab[566]
-#define __pyx_n_u_CURLOPT_SSL_ENABLE_TICKET __pyx_string_tab[567]
-#define __pyx_n_u_CURLOPT_SSL_FALSESTART __pyx_string_tab[568]
-#define __pyx_n_u_CURLOPT_SSL_OPTIONS __pyx_string_tab[569]
-#define __pyx_n_u_CURLOPT_SSL_PERMUTE_EXTENSIONS __pyx_string_tab[570]
-#define __pyx_n_u_CURLOPT_SSL_SESSIONID_CACHE __pyx_string_tab[571]
-#define __pyx_n_u_CURLOPT_SSL_SIG_HASH_ALGS __pyx_string_tab[572]
-#define __pyx_n_u_CURLOPT_SSL_VERIFYHOST __pyx_string_tab[573]
-#define __pyx_n_u_CURLOPT_SSL_VERIFYPEER __pyx_string_tab[574]
-#define __pyx_n_u_CURLOPT_SSL_VERIFYSTATUS __pyx_string_tab[575]
-#define __pyx_n_u_CURLOPT_STDERR __pyx_string_tab[576]
-#define __pyx_n_u_CURLOPT_STREAM_DEPENDS __pyx_string_tab[577]
-#define __pyx_n_u_CURLOPT_STREAM_DEPENDS_E __pyx_string_tab[578]
-#define __pyx_n_u_CURLOPT_STREAM_EXCLUSIVE __pyx_string_tab[579]
-#define __pyx_n_u_CURLOPT_STREAM_WEIGHT __pyx_string_tab[580]
-#define __pyx_n_u_CURLOPT_SUPPRESS_CONNECT_HEADERS __pyx_string_tab[581]
-#define __pyx_n_u_CURLOPT_TCP_FASTOPEN __pyx_string_tab[582]
-#define __pyx_n_u_CURLOPT_TCP_KEEPALIVE __pyx_string_tab[583]
-#define __pyx_n_u_CURLOPT_TCP_KEEPIDLE __pyx_string_tab[584]
-#define __pyx_n_u_CURLOPT_TCP_KEEPINTVL __pyx_string_tab[585]
-#define __pyx_n_u_CURLOPT_TCP_NODELAY __pyx_string_tab[586]
-#define __pyx_n_u_CURLOPT_TELNETOPTIONS __pyx_string_tab[587]
-#define __pyx_n_u_CURLOPT_TFTP_BLKSIZE __pyx_string_tab[588]
-#define __pyx_n_u_CURLOPT_TFTP_NO_OPTIONS __pyx_string_tab[589]
-#define __pyx_n_u_CURLOPT_TIMECONDITION __pyx_string_tab[590]
-#define __pyx_n_u_CURLOPT_TIMEOUT __pyx_string_tab[591]
-#define __pyx_n_u_CURLOPT_TIMEOUT_MS __pyx_string_tab[592]
-#define __pyx_n_u_CURLOPT_TIMEVALUE __pyx_string_tab[593]
-#define __pyx_n_u_CURLOPT_TIMEVALUE_LARGE __pyx_string_tab[594]
-#define __pyx_n_u_CURLOPT_TLS13_CIPHERS __pyx_string_tab[595]
-#define __pyx_n_u_CURLOPT_TLSAUTH_PASSWORD __pyx_string_tab[596]
-#define __pyx_n_u_CURLOPT_TLSAUTH_TYPE __pyx_string_tab[597]
-#define __pyx_n_u_CURLOPT_TLSAUTH_USERNAME __pyx_string_tab[598]
-#define __pyx_n_u_CURLOPT_TLS_DELEGATED_CREDENTIAL __pyx_string_tab[599]
-#define __pyx_n_u_CURLOPT_TLS_EXTENSION_ORDER __pyx_string_tab[600]
-#define __pyx_n_u_CURLOPT_TLS_GREASE __pyx_string_tab[601]
-#define __pyx_n_u_CURLOPT_TLS_KEY_SHARES_LIMIT __pyx_string_tab[602]
-#define __pyx_n_u_CURLOPT_TLS_KEY_USAGE_NO_CHECK __pyx_string_tab[603]
-#define __pyx_n_u_CURLOPT_TLS_RECORD_SIZE_LIMIT __pyx_string_tab[604]
-#define __pyx_n_u_CURLOPT_TLS_SIGNED_CERT_TIMESTAM __pyx_string_tab[605]
-#define __pyx_n_u_CURLOPT_TLS_STATUS_REQUEST __pyx_string_tab[606]
-#define __pyx_n_u_CURLOPT_TLS_USE_NEW_ALPS_CODEPOI __pyx_string_tab[607]
-#define __pyx_n_u_CURLOPT_TRAILERDATA __pyx_string_tab[608]
-#define __pyx_n_u_CURLOPT_TRAILERFUNCTION __pyx_string_tab[609]
-#define __pyx_n_u_CURLOPT_TRANSFERTEXT __pyx_string_tab[610]
-#define __pyx_n_u_CURLOPT_TRANSFER_ENCODING __pyx_string_tab[611]
-#define __pyx_n_u_CURLOPT_UNIX_SOCKET_PATH __pyx_string_tab[612]
-#define __pyx_n_u_CURLOPT_UNRESTRICTED_AUTH __pyx_string_tab[613]
-#define __pyx_n_u_CURLOPT_UPKEEP_INTERVAL_MS __pyx_string_tab[614]
-#define __pyx_n_u_CURLOPT_UPLOAD __pyx_string_tab[615]
-#define __pyx_n_u_CURLOPT_UPLOAD_BUFFERSIZE __pyx_string_tab[616]
-#define __pyx_n_u_CURLOPT_URL __pyx_string_tab[617]
-#define __pyx_n_u_CURLOPT_USERAGENT __pyx_string_tab[618]
-#define __pyx_n_u_CURLOPT_USERNAME __pyx_string_tab[619]
-#define __pyx_n_u_CURLOPT_USERPWD __pyx_string_tab[620]
-#define __pyx_n_u_CURLOPT_USE_SSL __pyx_string_tab[621]
-#define __pyx_n_u_CURLOPT_VERBOSE __pyx_string_tab[622]
-#define __pyx_n_u_CURLOPT_WILDCARDMATCH __pyx_string_tab[623]
-#define __pyx_n_u_CURLOPT_WRITEDATA __pyx_string_tab[624]
-#define __pyx_n_u_CURLOPT_WRITEFUNCTION __pyx_string_tab[625]
-#define __pyx_n_u_CURLOPT_WRITEHEADER __pyx_string_tab[626]
-#define __pyx_n_u_CURLOPT_WRITEINFO __pyx_string_tab[627]
-#define __pyx_n_u_CURLOPT_WS_OPTIONS __pyx_string_tab[628]
-#define __pyx_n_u_CURLOPT_XFERINFODATA __pyx_string_tab[629]
-#define __pyx_n_u_CURLOPT_XFERINFOFUNCTION __pyx_string_tab[630]
-#define __pyx_n_u_CURLOPT_XOAUTH2_BEARER __pyx_string_tab[631]
-#define __pyx_n_u_CURLSSH_AUTH_AGENT __pyx_string_tab[632]
-#define __pyx_n_u_CURLSSH_AUTH_ANY __pyx_string_tab[633]
-#define __pyx_n_u_CURLSSH_AUTH_DEFAULT __pyx_string_tab[634]
-#define __pyx_n_u_CURLSSH_AUTH_GSSAPI __pyx_string_tab[635]
-#define __pyx_n_u_CURLSSH_AUTH_HOST __pyx_string_tab[636]
-#define __pyx_n_u_CURLSSH_AUTH_KEYBOARD __pyx_string_tab[637]
-#define __pyx_n_u_CURLSSH_AUTH_NONE __pyx_string_tab[638]
-#define __pyx_n_u_CURLSSH_AUTH_PASSWORD __pyx_string_tab[639]
-#define __pyx_n_u_CURLSSH_AUTH_PUBLICKEY __pyx_string_tab[640]
-#define __pyx_n_u_CURLWS_BINARY __pyx_string_tab[641]
-#define __pyx_n_u_CURLWS_CLOSE __pyx_string_tab[642]
-#define __pyx_n_u_CURLWS_CONT __pyx_string_tab[643]
-#define __pyx_n_u_CURLWS_OFFSET __pyx_string_tab[644]
-#define __pyx_n_u_CURLWS_PING __pyx_string_tab[645]
-#define __pyx_n_u_CURLWS_PONG __pyx_string_tab[646]
-#define __pyx_n_u_CURLWS_RAW_MODE __pyx_string_tab[647]
-#define __pyx_n_u_CURLWS_TEXT __pyx_string_tab[648]
-#define __pyx_n_u_CURL_CSELECT_ERR __pyx_string_tab[649]
-#define __pyx_n_u_CURL_CSELECT_IN __pyx_string_tab[650]
-#define __pyx_n_u_CURL_CSELECT_OUT __pyx_string_tab[651]
-#define __pyx_n_u_CURL_ERROR_SIZE __pyx_string_tab[652]
-#define __pyx_n_u_CURL_FNMATCHFUNC_FAIL __pyx_string_tab[653]
-#define __pyx_n_u_CURL_FNMATCHFUNC_MATCH __pyx_string_tab[654]
-#define __pyx_n_u_CURL_FNMATCHFUNC_NOMATCH __pyx_string_tab[655]
-#define __pyx_n_u_CURL_HTTP_VERSION_1_0 __pyx_string_tab[656]
-#define __pyx_n_u_CURL_HTTP_VERSION_1_1 __pyx_string_tab[657]
-#define __pyx_n_u_CURL_HTTP_VERSION_2TLS __pyx_string_tab[658]
-#define __pyx_n_u_CURL_HTTP_VERSION_2_0 __pyx_string_tab[659]
-#define __pyx_n_u_CURL_HTTP_VERSION_2_PRIOR_KNOWLE __pyx_string_tab[660]
-#define __pyx_n_u_CURL_HTTP_VERSION_3 __pyx_string_tab[661]
-#define __pyx_n_u_CURL_HTTP_VERSION_3ONLY __pyx_string_tab[662]
-#define __pyx_n_u_CURL_HTTP_VERSION_LAST __pyx_string_tab[663]
-#define __pyx_n_u_CURL_HTTP_VERSION_NONE __pyx_string_tab[664]
-#define __pyx_n_u_CURL_POLL_IN __pyx_string_tab[665]
-#define __pyx_n_u_CURL_POLL_INOUT __pyx_string_tab[666]
-#define __pyx_n_u_CURL_POLL_NONE __pyx_string_tab[667]
-#define __pyx_n_u_CURL_POLL_OUT __pyx_string_tab[668]
-#define __pyx_n_u_CURL_POLL_REMOVE __pyx_string_tab[669]
-#define __pyx_n_u_CURL_PREREQFUNC_ABORT __pyx_string_tab[670]
-#define __pyx_n_u_CURL_PREREQFUNC_OK __pyx_string_tab[671]
-#define __pyx_n_u_CURL_READFUNC_ABORT __pyx_string_tab[672]
-#define __pyx_n_u_CURL_READFUNC_PAUSE __pyx_string_tab[673]
-#define __pyx_n_u_CURL_SEEKFUNC_CANTSEEK __pyx_string_tab[674]
-#define __pyx_n_u_CURL_SEEKFUNC_FAIL __pyx_string_tab[675]
-#define __pyx_n_u_CURL_SEEKFUNC_OK __pyx_string_tab[676]
-#define __pyx_n_u_CURL_SOCKET_BAD __pyx_string_tab[677]
-#define __pyx_n_u_CURL_SOCKET_TIMEOUT __pyx_string_tab[678]
-#define __pyx_n_u_CURL_SSLVERSION_DEFAULT __pyx_string_tab[679]
-#define __pyx_n_u_CURL_SSLVERSION_LAST __pyx_string_tab[680]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_DEFAULT __pyx_string_tab[681]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_LAST __pyx_string_tab[682]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_NONE __pyx_string_tab[683]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_0 __pyx_string_tab[684]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_1 __pyx_string_tab[685]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_2 __pyx_string_tab[686]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_3 __pyx_string_tab[687]
-#define __pyx_n_u_CURL_SSLVERSION_SSLv2 __pyx_string_tab[688]
-#define __pyx_n_u_CURL_SSLVERSION_SSLv3 __pyx_string_tab[689]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1 __pyx_string_tab[690]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1_0 __pyx_string_tab[691]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1_1 __pyx_string_tab[692]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1_2 __pyx_string_tab[693]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1_3 __pyx_string_tab[694]
-#define __pyx_n_u_CURL_TRAILERFUNC_ABORT __pyx_string_tab[695]
-#define __pyx_n_u_CURL_TRAILERFUNC_OK __pyx_string_tab[696]
-#define __pyx_n_u_CURL_WRITEFUNC_ERROR __pyx_string_tab[697]
-#define __pyx_n_u_CURL_WRITEFUNC_PAUSE __pyx_string_tab[698]
-#define __pyx_n_u_Callable __pyx_string_tab[699]
-#define __pyx_kp_u_Callable_None __pyx_string_tab[700]
-#define __pyx_kp_u_Can_not_use_local_path_and_data __pyx_string_tab[701]
-#define __pyx_kp_u_Can_only_create_a_buffer_that_is __pyx_string_tab[702]
-#define __pyx_n_u_CancelledError __pyx_string_tab[703]
-#define __pyx_kp_u_Cannot_assign_to_read_only_memor __pyx_string_tab[704]
-#define __pyx_kp_u_Cannot_create_writable_memory_vi __pyx_string_tab[705]
-#define __pyx_kp_u_Cannot_index_with_type __pyx_string_tab[706]
-#define __pyx_kp_u_Cannot_transpose_memoryview_with __pyx_string_tab[707]
-#define __pyx_n_u_Condition __pyx_string_tab[708]
-#define __pyx_n_u_Curl __pyx_string_tab[709]
-#define __pyx_n_u_CurlError __pyx_string_tab[710]
-#define __pyx_n_u_CurlError___init __pyx_string_tab[711]
-#define __pyx_n_u_CurlMime __pyx_string_tab[712]
-#define __pyx_n_u_CurlMime___reduce_cython __pyx_string_tab[713]
-#define __pyx_n_u_CurlMime___setstate_cython __pyx_string_tab[714]
-#define __pyx_n_u_CurlMime_addpart __pyx_string_tab[715]
-#define __pyx_n_u_CurlMime_attach __pyx_string_tab[716]
-#define __pyx_n_u_CurlMime_close __pyx_string_tab[717]
-#define __pyx_n_u_CurlMime_from_list __pyx_string_tab[718]
-#define __pyx_n_u_CurlWarning __pyx_string_tab[719]
-#define __pyx_n_u_Curl___reduce_cython __pyx_string_tab[720]
-#define __pyx_n_u_Curl___setstate_cython __pyx_string_tab[721]
-#define __pyx_n_u_Curl_clean_after_perform __pyx_string_tab[722]
-#define __pyx_n_u_Curl_close __pyx_string_tab[723]
-#define __pyx_n_u_Curl_debug __pyx_string_tab[724]
-#define __pyx_n_u_Curl_duphandle __pyx_string_tab[725]
-#define __pyx_n_u_Curl_get_reason_phrase __pyx_string_tab[726]
-#define __pyx_n_u_Curl_getinfo __pyx_string_tab[727]
-#define __pyx_n_u_Curl_impersonate __pyx_string_tab[728]
-#define __pyx_n_u_Curl_parse_cookie_headers __pyx_string_tab[729]
-#define __pyx_n_u_Curl_parse_status_line __pyx_string_tab[730]
-#define __pyx_n_u_Curl_perform __pyx_string_tab[731]
-#define __pyx_n_u_Curl_reset __pyx_string_tab[732]
-#define __pyx_n_u_Curl_setopt __pyx_string_tab[733]
-#define __pyx_n_u_Curl_version __pyx_string_tab[734]
-#define __pyx_n_u_Curl_ws_close __pyx_string_tab[735]
-#define __pyx_n_u_Curl_ws_meta __pyx_string_tab[736]
-#define __pyx_n_u_Curl_ws_recv __pyx_string_tab[737]
-#define __pyx_n_u_Curl_ws_send __pyx_string_tab[738]
-#define __pyx_kp_u_Curlm_already_closed_quitting_fr __pyx_string_tab[739]
-#define __pyx_n_u_DEFAULT_CACERT __pyx_string_tab[740]
-#define __pyx_kp_u_Define_add_reader_methods_to_be __pyx_string_tab[741]
-#define __pyx_kp_u_Dimension_d_is_not_direct __pyx_string_tab[742]
-#define __pyx_n_u_EBADF __pyx_string_tab[743]
-#define __pyx_n_u_Ellipsis __pyx_string_tab[744]
-#define __pyx_kp_u_Empty_shape_tuple_for_cython_arr __pyx_string_tab[745]
-#define __pyx_kp_u_Failed_to __pyx_string_tab[746]
-#define __pyx_kp_u_Failed_to_set_error_buffer __pyx_string_tab[747]
-#define __pyx_n_u_FileDescriptorLike __pyx_string_tab[748]
-#define __pyx_kp_u_FileDescriptorLike_2 __pyx_string_tab[749]
-#define __pyx_n_u_FileNotFoundError __pyx_string_tab[750]
-#define __pyx_kp_u_File_not_found_at __pyx_string_tab[751]
-#define __pyx_n_u_GeneratorExit __pyx_string_tab[752]
-#define __pyx_kp_u_H __pyx_string_tab[753]
-#define __pyx_kp_b_HTTP_d_d_0_9_3 __pyx_string_tab[754]
-#define __pyx_kp_b_HTTP_d_d_0_9_3_2 __pyx_string_tab[755]
-#define __pyx_n_u_HasFileno __pyx_string_tab[756]
-#define __pyx_n_u_HasFileno_fileno __pyx_string_tab[757]
-#define __pyx_kp_u_Incompatible_checksums_0x_x_vs_0 __pyx_string_tab[758]
-#define __pyx_n_u_IndexError __pyx_string_tab[759]
-#define __pyx_kp_u_Index_out_of_bounds_axis_d __pyx_string_tab[760]
-#define __pyx_kp_u_Indirect_dimensions_not_supporte __pyx_string_tab[761]
-#define __pyx_kp_u_Invalid_mode_expected_c_or_fortr __pyx_string_tab[762]
-#define __pyx_kp_u_Invalid_shape_in_axis __pyx_string_tab[763]
-#define __pyx_n_u_KeyError __pyx_string_tab[764]
-#define __pyx_n_u_MY_ATTRIBUTES __pyx_string_tab[765]
-#define __pyx_n_u_MemoryError __pyx_string_tab[766]
-#define __pyx_kp_u_MemoryView_of __pyx_string_tab[767]
-#define __pyx_kp_u_NOT_DONE __pyx_string_tab[768]
-#define __pyx_n_u_None __pyx_string_tab[769]
-#define __pyx_kp_u_None __pyx_string_tab[770]
-#define __pyx_n_u_NotImplementedError __pyx_string_tab[771]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[772]
-#define __pyx_n_b_O __pyx_string_tab[773]
-#define __pyx_n_u_OSError __pyx_string_tab[774]
-#define __pyx_kp_u_Option_unsupported_s __pyx_string_tab[775]
-#define __pyx_n_u_Optional __pyx_string_tab[776]
-#define __pyx_kp_u_Out_of_bounds_on_buffer_access_a __pyx_string_tab[777]
-#define __pyx_n_u_PROACTOR_WARNING __pyx_string_tab[778]
-#define __pyx_n_u_Path __pyx_string_tab[779]
-#define __pyx_n_u_PickleError __pyx_string_tab[780]
-#define __pyx_n_u_ProactorEventLoop __pyx_string_tab[781]
-#define __pyx_kp_u_Proactor_event_loop_does_not_im __pyx_string_tab[782]
-#define __pyx_n_u_Protocol __pyx_string_tab[783]
-#define __pyx_n_u_RuntimeError __pyx_string_tab[784]
-#define __pyx_n_u_RuntimeWarning __pyx_string_tab[785]
-#define __pyx_kp_u_See_https_curl_se_libcurl_c_lib __pyx_string_tab[786]
-#define __pyx_n_u_SelectorThread __pyx_string_tab[787]
-#define __pyx_n_u_SelectorThread___init __pyx_string_tab[788]
-#define __pyx_n_u_SelectorThread___init___locals_l __pyx_string_tab[789]
-#define __pyx_n_u_SelectorThread___init___locals_t __pyx_string_tab[790]
-#define __pyx_n_u_SelectorThread__consume_waker __pyx_string_tab[791]
-#define __pyx_n_u_SelectorThread__handle_event __pyx_string_tab[792]
-#define __pyx_n_u_SelectorThread__handle_select __pyx_string_tab[793]
-#define __pyx_n_u_SelectorThread__run_select __pyx_string_tab[794]
-#define __pyx_n_u_SelectorThread__start_select __pyx_string_tab[795]
-#define __pyx_n_u_SelectorThread__thread_manager __pyx_string_tab[796]
-#define __pyx_n_u_SelectorThread__wake_selector __pyx_string_tab[797]
-#define __pyx_n_u_SelectorThread_add_reader __pyx_string_tab[798]
-#define __pyx_n_u_SelectorThread_add_writer __pyx_string_tab[799]
-#define __pyx_n_u_SelectorThread_close __pyx_string_tab[800]
-#define __pyx_n_u_SelectorThread_remove_reader __pyx_string_tab[801]
-#define __pyx_n_u_SelectorThread_remove_writer __pyx_string_tab[802]
-#define __pyx_n_u_Sequence __pyx_string_tab[803]
-#define __pyx_n_u_SimpleCookie __pyx_string_tab[804]
-#define __pyx_kp_u_Step_may_not_be_zero_axis_d __pyx_string_tab[805]
-#define __pyx_n_u_T __pyx_string_tab[806]
-#define __pyx_n_u_Thread __pyx_string_tab[807]
-#define __pyx_kp_u_Tornado_selector __pyx_string_tab[808]
-#define __pyx_n_u_TypeError __pyx_string_tab[809]
-#define __pyx_n_u_TypeVar __pyx_string_tab[810]
-#define __pyx_kp_u_Unable_to_convert_item_to_object __pyx_string_tab[811]
-#define __pyx_n_u_Union __pyx_string_tab[812]
-#define __pyx_n_u_UserWarning __pyx_string_tab[813]
-#define __pyx_n_u_ValueError __pyx_string_tab[814]
-#define __pyx_n_u_View_MemoryView __pyx_string_tab[815]
-#define __pyx_n_u_WSAENOTSOCK __pyx_string_tab[816]
-#define __pyx_n_u_WSFrame __pyx_string_tab[817]
-#define __pyx_n_u_WSFrame___reduce_cython __pyx_string_tab[818]
-#define __pyx_n_u_WSFrame___setstate_cython __pyx_string_tab[819]
-#define __pyx_n_u_WS_RECV __pyx_string_tab[820]
-#define __pyx_n_u_WS_SEND __pyx_string_tab[821]
-#define __pyx_n_u_WeakKeyDictionary __pyx_string_tab[822]
-#define __pyx_n_u_WeakSet __pyx_string_tab[823]
-#define __pyx_kp_u_Wrap_an_event_loop_to_add_implem __pyx_string_tab[824]
-#define __pyx_kp_u_Wrote_bytes_received_bytes __pyx_string_tab[825]
-#define __pyx_kp_u__10 __pyx_string_tab[826]
-#define __pyx_n_u__12 __pyx_string_tab[827]
-#define __pyx_kp_u__2 __pyx_string_tab[828]
-#define __pyx_kp_u__3 __pyx_string_tab[829]
-#define __pyx_kp_u__4 __pyx_string_tab[830]
-#define __pyx_kp_u__5 __pyx_string_tab[831]
-#define __pyx_kp_b__6 __pyx_string_tab[832]
-#define __pyx_kp_u__6 __pyx_string_tab[833]
-#define __pyx_kp_u__8 __pyx_string_tab[834]
-#define __pyx_kp_u__9 __pyx_string_tab[835]
-#define __pyx_n_b_a __pyx_string_tab[836]
-#define __pyx_n_u_abc __pyx_string_tab[837]
-#define __pyx_n_u_add __pyx_string_tab[838]
-#define __pyx_n_u_add_handle __pyx_string_tab[839]
-#define __pyx_kp_u_add_note __pyx_string_tab[840]
-#define __pyx_n_u_add_reader __pyx_string_tab[841]
-#define __pyx_n_u_add_writer __pyx_string_tab[842]
-#define __pyx_n_u_addpart __pyx_string_tab[843]
-#define __pyx_n_u_allocate_buffer __pyx_string_tab[844]
-#define __pyx_kp_u_and __pyx_string_tab[845]
-#define __pyx_n_u_anext __pyx_string_tab[846]
-#define __pyx_n_u_args __pyx_string_tab[847]
-#define __pyx_n_u_asyncio __pyx_string_tab[848]
-#define __pyx_kp_u_asyncio_AbstractEventLoop __pyx_string_tab[849]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[850]
-#define __pyx_n_u_asyncio_loop __pyx_string_tab[851]
-#define __pyx_kp_u_at_0x __pyx_string_tab[852]
-#define __pyx_n_u_atexit __pyx_string_tab[853]
-#define __pyx_n_u_atexit_callback __pyx_string_tab[854]
-#define __pyx_n_u_attach __pyx_string_tab[855]
-#define __pyx_n_u_await __pyx_string_tab[856]
-#define __pyx_n_u_backslashreplace __pyx_string_tab[857]
-#define __pyx_n_u_base __pyx_string_tab[858]
-#define __pyx_n_u_bool __pyx_string_tab[859]
-#define __pyx_n_u_bytes __pyx_string_tab[860]
-#define __pyx_n_u_c __pyx_string_tab[861]
-#define __pyx_n_u_cacert __pyx_string_tab[862]
-#define __pyx_n_u_call_later __pyx_string_tab[863]
-#define __pyx_n_u_call_soon __pyx_string_tab[864]
-#define __pyx_n_u_call_soon_threadsafe __pyx_string_tab[865]
-#define __pyx_n_u_callback __pyx_string_tab[866]
-#define __pyx_n_u_cancel __pyx_string_tab[867]
-#define __pyx_n_u_cancelled __pyx_string_tab[868]
-#define __pyx_n_u_category __pyx_string_tab[869]
-#define __pyx_n_u_cb_map __pyx_string_tab[870]
-#define __pyx_n_u_certifi __pyx_string_tab[871]
-#define __pyx_n_u_class __pyx_string_tab[872]
-#define __pyx_n_u_class_getitem __pyx_string_tab[873]
-#define __pyx_n_u_clean_after_perform __pyx_string_tab[874]
-#define __pyx_n_u_clear __pyx_string_tab[875]
-#define __pyx_n_u_clear_headers __pyx_string_tab[876]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[877]
-#define __pyx_n_u_close __pyx_string_tab[878]
-#define __pyx_n_u_close_selector_and_loop __pyx_string_tab[879]
-#define __pyx_n_u_closed __pyx_string_tab[880]
-#define __pyx_n_u_closing_selector __pyx_string_tab[881]
-#define __pyx_n_u_cls __pyx_string_tab[882]
-#define __pyx_n_u_code __pyx_string_tab[883]
-#define __pyx_kp_u_collections_abc __pyx_string_tab[884]
-#define __pyx_n_u_config_warnings __pyx_string_tab[885]
-#define __pyx_n_u_consume_waker __pyx_string_tab[886]
-#define __pyx_n_u_content_type __pyx_string_tab[887]
-#define __pyx_n_u_contextlib __pyx_string_tab[888]
-#define __pyx_kp_u_contiguous_and_direct __pyx_string_tab[889]
-#define __pyx_kp_u_contiguous_and_indirect __pyx_string_tab[890]
-#define __pyx_n_u_cookie __pyx_string_tab[891]
-#define __pyx_n_u_count __pyx_string_tab[892]
-#define __pyx_n_u_create_future __pyx_string_tab[893]
-#define __pyx_n_u_create_task __pyx_string_tab[894]
-#define __pyx_kp_u_curl __pyx_string_tab[895]
-#define __pyx_n_u_curl_2 __pyx_string_tab[896]
-#define __pyx_n_u_curl_3 __pyx_string_tab[897]
-#define __pyx_kp_u_cycurl__asyncio_selector_pxi __pyx_string_tab[898]
-#define __pyx_n_u_cycurl__curl __pyx_string_tab[899]
-#define __pyx_kp_u_cycurl__curl_pyx __pyx_string_tab[900]
-#define __pyx_kp_u_cycurl_utils_pxi __pyx_string_tab[901]
-#define __pyx_n_u_daemon __pyx_string_tab[902]
-#define __pyx_n_u_data __pyx_string_tab[903]
-#define __pyx_n_u_debug __pyx_string_tab[904]
-#define __pyx_n_u_debug_function_default __pyx_string_tab[905]
-#define __pyx_n_u_decode __pyx_string_tab[906]
-#define __pyx_n_u_default __pyx_string_tab[907]
-#define __pyx_n_u_default_headers __pyx_string_tab[908]
-#define __pyx_n_u_dict __pyx_string_tab[909]
-#define __pyx_kp_u_dict__FileDescriptorLike_Callabl __pyx_string_tab[910]
-#define __pyx_kp_u_disable __pyx_string_tab[911]
-#define __pyx_n_u_discard __pyx_string_tab[912]
-#define __pyx_n_u_doc __pyx_string_tab[913]
-#define __pyx_n_u_done __pyx_string_tab[914]
-#define __pyx_n_u_dtype_is_object __pyx_string_tab[915]
-#define __pyx_n_u_duphandle __pyx_string_tab[916]
-#define __pyx_n_u_e __pyx_string_tab[917]
-#define __pyx_kp_u_enable __pyx_string_tab[918]
-#define __pyx_n_u_encode __pyx_string_tab[919]
-#define __pyx_n_u_enter __pyx_string_tab[920]
-#define __pyx_n_u_enumerate __pyx_string_tab[921]
-#define __pyx_n_u_errno __pyx_string_tab[922]
-#define __pyx_n_u_error __pyx_string_tab[923]
-#define __pyx_n_u_errors __pyx_string_tab[924]
-#define __pyx_n_u_ev_bitmask __pyx_string_tab[925]
-#define __pyx_n_u_exists __pyx_string_tab[926]
-#define __pyx_n_u_exit __pyx_string_tab[927]
-#define __pyx_kp_u_failed_to_call_curl_multi_socket __pyx_string_tab[928]
-#define __pyx_n_u_fd __pyx_string_tab[929]
-#define __pyx_n_u_file __pyx_string_tab[930]
-#define __pyx_n_u_filename __pyx_string_tab[931]
-#define __pyx_n_u_fileno __pyx_string_tab[932]
-#define __pyx_n_u_files __pyx_string_tab[933]
-#define __pyx_n_u_flags __pyx_string_tab[934]
-#define __pyx_n_u_force_timeout __pyx_string_tab[935]
-#define __pyx_n_u_form __pyx_string_tab[936]
-#define __pyx_n_u_format __pyx_string_tab[937]
-#define __pyx_n_u_fortran __pyx_string_tab[938]
-#define __pyx_n_u_frame __pyx_string_tab[939]
-#define __pyx_n_u_from_list __pyx_string_tab[940]
-#define __pyx_n_u_func __pyx_string_tab[941]
-#define __pyx_n_u_functools __pyx_string_tab[942]
-#define __pyx_n_u_future __pyx_string_tab[943]
-#define __pyx_kp_u_gc __pyx_string_tab[944]
-#define __pyx_n_u_get_reason_phrase __pyx_string_tab[945]
-#define __pyx_n_u_get_running_loop __pyx_string_tab[946]
-#define __pyx_n_u_get_selector __pyx_string_tab[947]
-#define __pyx_n_u_get_selector_locals__close_selec __pyx_string_tab[948]
-#define __pyx_n_u_getattribute __pyx_string_tab[949]
-#define __pyx_kp_u_getinfo __pyx_string_tab[950]
-#define __pyx_n_u_getinfo_2 __pyx_string_tab[951]
-#define __pyx_n_u_getstate __pyx_string_tab[952]
-#define __pyx_kp_u_got __pyx_string_tab[953]
-#define __pyx_kp_u_got_differing_extents_in_dimensi __pyx_string_tab[954]
-#define __pyx_n_u_group __pyx_string_tab[955]
-#define __pyx_n_u_handle __pyx_string_tab[956]
-#define __pyx_n_u_handle_event __pyx_string_tab[957]
-#define __pyx_n_u_handle_select __pyx_string_tab[958]
-#define __pyx_n_u_header __pyx_string_tab[959]
-#define __pyx_n_u_headers __pyx_string_tab[960]
-#define __pyx_n_u_http_cookies __pyx_string_tab[961]
-#define __pyx_n_u_http_version __pyx_string_tab[962]
-#define __pyx_n_u_id __pyx_string_tab[963]
-#define __pyx_n_u_ignore __pyx_string_tab[964]
-#define __pyx_n_u_impersonate __pyx_string_tab[965]
-#define __pyx_n_u_import __pyx_string_tab[966]
-#define __pyx_n_u_index __pyx_string_tab[967]
-#define __pyx_n_u_init __pyx_string_tab[968]
-#define __pyx_n_u_initializing __pyx_string_tab[969]
-#define __pyx_n_u_int __pyx_string_tab[970]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[971]
-#define __pyx_kp_u_isenabled __pyx_string_tab[972]
-#define __pyx_n_u_items __pyx_string_tab[973]
-#define __pyx_n_u_itemsize __pyx_string_tab[974]
-#define __pyx_kp_u_itemsize_0_for_cython_array __pyx_string_tab[975]
-#define __pyx_n_u_join __pyx_string_tab[976]
-#define __pyx_n_u_keys __pyx_string_tab[977]
-#define __pyx_n_u_kwargs __pyx_string_tab[978]
-#define __pyx_n_u_lambda __pyx_string_tab[979]
-#define __pyx_kp_u_list__FileDescriptorLike __pyx_string_tab[980]
-#define __pyx_n_u_load __pyx_string_tab[981]
-#define __pyx_n_u_local_path __pyx_string_tab[982]
-#define __pyx_n_u_loop __pyx_string_tab[983]
-#define __pyx_n_u_loop_close __pyx_string_tab[984]
-#define __pyx_n_u_lower __pyx_string_tab[985]
-#define __pyx_n_u_m __pyx_string_tab[986]
-#define __pyx_n_u_main __pyx_string_tab[987]
-#define __pyx_n_u_match __pyx_string_tab[988]
-#define __pyx_n_u_memview __pyx_string_tab[989]
-#define __pyx_n_u_message __pyx_string_tab[990]
-#define __pyx_n_u_metaclass __pyx_string_tab[991]
-#define __pyx_n_u_mode __pyx_string_tab[992]
-#define __pyx_n_u_module __pyx_string_tab[993]
-#define __pyx_n_u_mro_entries __pyx_string_tab[994]
-#define __pyx_n_u_msg __pyx_string_tab[995]
-#define __pyx_n_u_n __pyx_string_tab[996]
-#define __pyx_n_u_name __pyx_string_tab[997]
-#define __pyx_n_u_name_2 __pyx_string_tab[998]
-#define __pyx_n_u_ndim __pyx_string_tab[999]
-#define __pyx_n_u_new __pyx_string_tab[1000]
-#define __pyx_n_u_next __pyx_string_tab[1001]
-#define __pyx_kp_u_no_default___reduce___due_to_non __pyx_string_tab[1002]
-#define __pyx_n_u_notify __pyx_string_tab[1003]
-#define __pyx_n_u_obj __pyx_string_tab[1004]
-#define __pyx_kp_u_object __pyx_string_tab[1005]
-#define __pyx_n_u_on __pyx_string_tab[1006]
-#define __pyx_n_u_option __pyx_string_tab[1007]
-#define __pyx_n_u_pack __pyx_string_tab[1008]
-#define __pyx_n_u_parse_cookie_headers __pyx_string_tab[1009]
-#define __pyx_n_u_parse_status_line __pyx_string_tab[1010]
-#define __pyx_n_u_partial __pyx_string_tab[1011]
-#define __pyx_n_u_pathlib __pyx_string_tab[1012]
-#define __pyx_n_u_payload __pyx_string_tab[1013]
-#define __pyx_n_u_perform __pyx_string_tab[1014]
-#define __pyx_n_u_pickle __pyx_string_tab[1015]
-#define __pyx_n_u_platform __pyx_string_tab[1016]
-#define __pyx_n_u_pop __pyx_string_tab[1017]
-#define __pyx_n_u_prepare __pyx_string_tab[1018]
-#define __pyx_n_u_print __pyx_string_tab[1019]
-#define __pyx_n_u_process_data __pyx_string_tab[1020]
-#define __pyx_n_u_pyx_checksum __pyx_string_tab[1021]
-#define __pyx_n_u_pyx_state __pyx_string_tab[1022]
-#define __pyx_n_u_pyx_type __pyx_string_tab[1023]
-#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[1024]
-#define __pyx_n_u_pyx_vtable __pyx_string_tab[1025]
-#define __pyx_n_u_qualname __pyx_string_tab[1026]
-#define __pyx_n_u_r __pyx_string_tab[1027]
-#define __pyx_n_u_range __pyx_string_tab[1028]
-#define __pyx_n_u_re __pyx_string_tab[1029]
-#define __pyx_n_u_readers __pyx_string_tab[1030]
-#define __pyx_n_u_real_loop __pyx_string_tab[1031]
-#define __pyx_n_u_real_loop_2 __pyx_string_tab[1032]
-#define __pyx_n_u_reason __pyx_string_tab[1033]
-#define __pyx_n_u_recv __pyx_string_tab[1034]
-#define __pyx_n_u_reduce __pyx_string_tab[1035]
-#define __pyx_n_u_reduce_cython __pyx_string_tab[1036]
-#define __pyx_n_u_reduce_ex __pyx_string_tab[1037]
-#define __pyx_n_u_register __pyx_string_tab[1038]
-#define __pyx_n_u_remove_handle __pyx_string_tab[1039]
-#define __pyx_n_u_remove_reader __pyx_string_tab[1040]
-#define __pyx_n_u_remove_writer __pyx_string_tab[1041]
-#define __pyx_n_u_reset __pyx_string_tab[1042]
-#define __pyx_n_u_return __pyx_string_tab[1043]
-#define __pyx_n_u_rs __pyx_string_tab[1044]
-#define __pyx_n_u_run_select __pyx_string_tab[1045]
-#define __pyx_n_u_select __pyx_string_tab[1046]
-#define __pyx_n_u_select_args __pyx_string_tab[1047]
-#define __pyx_n_u_select_cond __pyx_string_tab[1048]
-#define __pyx_n_u_selector __pyx_string_tab[1049]
-#define __pyx_n_u_selector_loop __pyx_string_tab[1050]
-#define __pyx_n_u_selector_loops __pyx_string_tab[1051]
-#define __pyx_n_u_selectors __pyx_string_tab[1052]
-#define __pyx_n_u_self __pyx_string_tab[1053]
-#define __pyx_kp_u_self_form_cannot_be_converted_to __pyx_string_tab[1054]
-#define __pyx_kp_u_self_frame_cannot_be_converted_t __pyx_string_tab[1055]
-#define __pyx_n_u_send __pyx_string_tab[1056]
-#define __pyx_kp_u_set_cacert __pyx_string_tab[1057]
-#define __pyx_kp_b_set_cookie __pyx_string_tab[1058]
-#define __pyx_n_u_set_exception __pyx_string_tab[1059]
-#define __pyx_n_u_set_name __pyx_string_tab[1060]
-#define __pyx_kp_u_set_proxy_cacert __pyx_string_tab[1061]
-#define __pyx_n_u_set_result __pyx_string_tab[1062]
-#define __pyx_n_u_setblocking __pyx_string_tab[1063]
-#define __pyx_kp_u_setopt __pyx_string_tab[1064]
-#define __pyx_n_u_setopt_2 __pyx_string_tab[1065]
-#define __pyx_n_u_setstate __pyx_string_tab[1066]
-#define __pyx_n_u_setstate_cython __pyx_string_tab[1067]
-#define __pyx_n_u_shape __pyx_string_tab[1068]
-#define __pyx_n_u_simplefilter __pyx_string_tab[1069]
-#define __pyx_n_u_size __pyx_string_tab[1070]
-#define __pyx_n_u_sleep __pyx_string_tab[1071]
-#define __pyx_n_u_socket __pyx_string_tab[1072]
-#define __pyx_n_u_socket_action __pyx_string_tab[1073]
-#define __pyx_n_u_socketpair __pyx_string_tab[1074]
-#define __pyx_n_u_sockfd __pyx_string_tab[1075]
-#define __pyx_n_u_spec __pyx_string_tab[1076]
-#define __pyx_n_u_stacklevel __pyx_string_tab[1077]
-#define __pyx_n_u_start __pyx_string_tab[1078]
-#define __pyx_n_u_start_select __pyx_string_tab[1079]
-#define __pyx_n_u_startswith __pyx_string_tab[1080]
-#define __pyx_n_u_staticmethod __pyx_string_tab[1081]
-#define __pyx_n_u_status_code __pyx_string_tab[1082]
-#define __pyx_n_u_status_line __pyx_string_tab[1083]
-#define __pyx_n_u_step __pyx_string_tab[1084]
-#define __pyx_n_u_stop __pyx_string_tab[1085]
-#define __pyx_n_u_str __pyx_string_tab[1086]
-#define __pyx_kp_u_strided_and_direct __pyx_string_tab[1087]
-#define __pyx_kp_u_strided_and_direct_or_indirect __pyx_string_tab[1088]
-#define __pyx_kp_u_strided_and_indirect __pyx_string_tab[1089]
-#define __pyx_kp_u_stringsource __pyx_string_tab[1090]
-#define __pyx_n_u_struct __pyx_string_tab[1091]
-#define __pyx_n_u_super __pyx_string_tab[1092]
-#define __pyx_n_u_suppress __pyx_string_tab[1093]
-#define __pyx_n_u_sys __pyx_string_tab[1094]
-#define __pyx_n_u_target __pyx_string_tab[1095]
-#define __pyx_n_u_test __pyx_string_tab[1096]
-#define __pyx_n_u_text __pyx_string_tab[1097]
-#define __pyx_n_u_thread __pyx_string_tab[1098]
-#define __pyx_n_u_thread_manager __pyx_string_tab[1099]
-#define __pyx_n_u_thread_manager_anext __pyx_string_tab[1100]
-#define __pyx_n_u_thread_manager_handle __pyx_string_tab[1101]
-#define __pyx_n_u_threading __pyx_string_tab[1102]
-#define __pyx_n_u_throw __pyx_string_tab[1103]
-#define __pyx_n_u_timer __pyx_string_tab[1104]
-#define __pyx_n_u_to_read __pyx_string_tab[1105]
-#define __pyx_n_u_to_write __pyx_string_tab[1106]
-#define __pyx_n_u_tuple __pyx_string_tab[1107]
-#define __pyx_n_u_type __pyx_string_tab[1108]
-#define __pyx_n_u_typing __pyx_string_tab[1109]
-#define __pyx_kp_u_typing_AsyncGenerator_None_None __pyx_string_tab[1110]
-#define __pyx_kp_u_unable_to_allocate_array_data __pyx_string_tab[1111]
-#define __pyx_kp_u_unable_to_allocate_shape_and_str __pyx_string_tab[1112]
-#define __pyx_n_u_unpack __pyx_string_tab[1113]
-#define __pyx_n_u_update __pyx_string_tab[1114]
-#define __pyx_n_u_value __pyx_string_tab[1115]
-#define __pyx_n_u_version __pyx_string_tab[1116]
-#define __pyx_n_u_w __pyx_string_tab[1117]
-#define __pyx_n_u_wait __pyx_string_tab[1118]
-#define __pyx_n_u_wake_selector __pyx_string_tab[1119]
-#define __pyx_n_u_waker_r __pyx_string_tab[1120]
-#define __pyx_n_u_waker_w __pyx_string_tab[1121]
-#define __pyx_n_u_warn __pyx_string_tab[1122]
-#define __pyx_n_u_warnings __pyx_string_tab[1123]
-#define __pyx_n_u_weakref __pyx_string_tab[1124]
-#define __pyx_n_u_where __pyx_string_tab[1125]
-#define __pyx_n_u_win32 __pyx_string_tab[1126]
-#define __pyx_n_u_write __pyx_string_tab[1127]
-#define __pyx_n_u_writers __pyx_string_tab[1128]
-#define __pyx_n_u_ws __pyx_string_tab[1129]
-#define __pyx_n_u_ws_close __pyx_string_tab[1130]
-#define __pyx_n_u_ws_meta __pyx_string_tab[1131]
-#define __pyx_n_u_ws_recv __pyx_string_tab[1132]
-#define __pyx_n_u_ws_send __pyx_string_tab[1133]
-#define __pyx_n_u_x __pyx_string_tab[1134]
-#define __pyx_n_u_xs __pyx_string_tab[1135]
+#define __pyx_n_u_CURLE_OBSOLETE34 __pyx_string_tab[118]
+#define __pyx_n_u_CURLE_OBSOLETE40 __pyx_string_tab[119]
+#define __pyx_n_u_CURLE_OBSOLETE41 __pyx_string_tab[120]
+#define __pyx_n_u_CURLE_OBSOLETE44 __pyx_string_tab[121]
+#define __pyx_n_u_CURLE_OBSOLETE46 __pyx_string_tab[122]
+#define __pyx_n_u_CURLE_OBSOLETE50 __pyx_string_tab[123]
+#define __pyx_n_u_CURLE_OBSOLETE51 __pyx_string_tab[124]
+#define __pyx_n_u_CURLE_OBSOLETE57 __pyx_string_tab[125]
+#define __pyx_n_u_CURLE_OBSOLETE62 __pyx_string_tab[126]
+#define __pyx_n_u_CURLE_OBSOLETE75 __pyx_string_tab[127]
+#define __pyx_n_u_CURLE_OBSOLETE76 __pyx_string_tab[128]
+#define __pyx_n_u_CURLE_OK __pyx_string_tab[129]
+#define __pyx_n_u_CURLE_OPERATION_TIMEDOUT __pyx_string_tab[130]
+#define __pyx_n_u_CURLE_OPERATION_TIMEOUTED __pyx_string_tab[131]
+#define __pyx_n_u_CURLE_OUT_OF_MEMORY __pyx_string_tab[132]
+#define __pyx_n_u_CURLE_PARTIAL_FILE __pyx_string_tab[133]
+#define __pyx_n_u_CURLE_PEER_FAILED_VERIFICATION __pyx_string_tab[134]
+#define __pyx_n_u_CURLE_PROXY __pyx_string_tab[135]
+#define __pyx_n_u_CURLE_QUIC_CONNECT_ERROR __pyx_string_tab[136]
+#define __pyx_n_u_CURLE_QUOTE_ERROR __pyx_string_tab[137]
+#define __pyx_n_u_CURLE_RANGE_ERROR __pyx_string_tab[138]
+#define __pyx_n_u_CURLE_READ_ERROR __pyx_string_tab[139]
+#define __pyx_n_u_CURLE_RECURSIVE_API_CALL __pyx_string_tab[140]
+#define __pyx_n_u_CURLE_RECV_ERROR __pyx_string_tab[141]
+#define __pyx_n_u_CURLE_REMOTE_ACCESS_DENIED __pyx_string_tab[142]
+#define __pyx_n_u_CURLE_REMOTE_DISK_FULL __pyx_string_tab[143]
+#define __pyx_n_u_CURLE_REMOTE_FILE_EXISTS __pyx_string_tab[144]
+#define __pyx_n_u_CURLE_REMOTE_FILE_NOT_FOUND __pyx_string_tab[145]
+#define __pyx_n_u_CURLE_RESERVED115 __pyx_string_tab[146]
+#define __pyx_n_u_CURLE_RESERVED116 __pyx_string_tab[147]
+#define __pyx_n_u_CURLE_RESERVED117 __pyx_string_tab[148]
+#define __pyx_n_u_CURLE_RESERVED118 __pyx_string_tab[149]
+#define __pyx_n_u_CURLE_RESERVED119 __pyx_string_tab[150]
+#define __pyx_n_u_CURLE_RESERVED120 __pyx_string_tab[151]
+#define __pyx_n_u_CURLE_RESERVED121 __pyx_string_tab[152]
+#define __pyx_n_u_CURLE_RESERVED122 __pyx_string_tab[153]
+#define __pyx_n_u_CURLE_RESERVED123 __pyx_string_tab[154]
+#define __pyx_n_u_CURLE_RESERVED124 __pyx_string_tab[155]
+#define __pyx_n_u_CURLE_RESERVED125 __pyx_string_tab[156]
+#define __pyx_n_u_CURLE_RESERVED126 __pyx_string_tab[157]
+#define __pyx_n_u_CURLE_RTSP_CSEQ_ERROR __pyx_string_tab[158]
+#define __pyx_n_u_CURLE_RTSP_SESSION_ERROR __pyx_string_tab[159]
+#define __pyx_n_u_CURLE_SEND_ERROR __pyx_string_tab[160]
+#define __pyx_n_u_CURLE_SEND_FAIL_REWIND __pyx_string_tab[161]
+#define __pyx_n_u_CURLE_SETOPT_OPTION_SYNTAX __pyx_string_tab[162]
+#define __pyx_n_u_CURLE_SHARE_IN_USE __pyx_string_tab[163]
+#define __pyx_n_u_CURLE_SSH __pyx_string_tab[164]
+#define __pyx_n_u_CURLE_SSL_CACERT __pyx_string_tab[165]
+#define __pyx_n_u_CURLE_SSL_CACERT_BADFILE __pyx_string_tab[166]
+#define __pyx_n_u_CURLE_SSL_CERTPROBLEM __pyx_string_tab[167]
+#define __pyx_n_u_CURLE_SSL_CIPHER __pyx_string_tab[168]
+#define __pyx_n_u_CURLE_SSL_CLIENTCERT __pyx_string_tab[169]
+#define __pyx_n_u_CURLE_SSL_CONNECT_ERROR __pyx_string_tab[170]
+#define __pyx_n_u_CURLE_SSL_CRL_BADFILE __pyx_string_tab[171]
+#define __pyx_n_u_CURLE_SSL_ENGINE_INITFAILED __pyx_string_tab[172]
+#define __pyx_n_u_CURLE_SSL_ENGINE_NOTFOUND __pyx_string_tab[173]
+#define __pyx_n_u_CURLE_SSL_ENGINE_SETFAILED __pyx_string_tab[174]
+#define __pyx_n_u_CURLE_SSL_INVALIDCERTSTATUS __pyx_string_tab[175]
+#define __pyx_n_u_CURLE_SSL_ISSUER_ERROR __pyx_string_tab[176]
+#define __pyx_n_u_CURLE_SSL_PEER_CERTIFICATE __pyx_string_tab[177]
+#define __pyx_n_u_CURLE_SSL_PINNEDPUBKEYNOTMATCH __pyx_string_tab[178]
+#define __pyx_n_u_CURLE_SSL_SHUTDOWN_FAILED __pyx_string_tab[179]
+#define __pyx_n_u_CURLE_TELNET_OPTION_SYNTAX __pyx_string_tab[180]
+#define __pyx_n_u_CURLE_TFTP_DISKFULL __pyx_string_tab[181]
+#define __pyx_n_u_CURLE_TFTP_EXISTS __pyx_string_tab[182]
+#define __pyx_n_u_CURLE_TFTP_ILLEGAL __pyx_string_tab[183]
+#define __pyx_n_u_CURLE_TFTP_NOSUCHUSER __pyx_string_tab[184]
+#define __pyx_n_u_CURLE_TFTP_NOTFOUND __pyx_string_tab[185]
+#define __pyx_n_u_CURLE_TFTP_PERM __pyx_string_tab[186]
+#define __pyx_n_u_CURLE_TFTP_UNKNOWNID __pyx_string_tab[187]
+#define __pyx_n_u_CURLE_TOO_LARGE __pyx_string_tab[188]
+#define __pyx_n_u_CURLE_TOO_MANY_REDIRECTS __pyx_string_tab[189]
+#define __pyx_n_u_CURLE_UNKNOWN_OPTION __pyx_string_tab[190]
+#define __pyx_n_u_CURLE_UNKNOWN_TELNET_OPTION __pyx_string_tab[191]
+#define __pyx_n_u_CURLE_UNRECOVERABLE_POLL __pyx_string_tab[192]
+#define __pyx_n_u_CURLE_UNSUPPORTED_PROTOCOL __pyx_string_tab[193]
+#define __pyx_n_u_CURLE_UPLOAD_FAILED __pyx_string_tab[194]
+#define __pyx_n_u_CURLE_URL_MALFORMAT __pyx_string_tab[195]
+#define __pyx_n_u_CURLE_URL_MALFORMAT_USER __pyx_string_tab[196]
+#define __pyx_n_u_CURLE_USE_SSL_FAILED __pyx_string_tab[197]
+#define __pyx_n_u_CURLE_WEIRD_SERVER_REPLY __pyx_string_tab[198]
+#define __pyx_n_u_CURLE_WRITE_ERROR __pyx_string_tab[199]
+#define __pyx_n_u_CURLINFO_ACTIVESOCKET __pyx_string_tab[200]
+#define __pyx_n_u_CURLINFO_APPCONNECT_TIME __pyx_string_tab[201]
+#define __pyx_n_u_CURLINFO_APPCONNECT_TIME_T __pyx_string_tab[202]
+#define __pyx_n_u_CURLINFO_CAINFO __pyx_string_tab[203]
+#define __pyx_n_u_CURLINFO_CAPATH __pyx_string_tab[204]
+#define __pyx_n_u_CURLINFO_CERTINFO __pyx_string_tab[205]
+#define __pyx_n_u_CURLINFO_CONDITION_UNMET __pyx_string_tab[206]
+#define __pyx_n_u_CURLINFO_CONNECT_TIME __pyx_string_tab[207]
+#define __pyx_n_u_CURLINFO_CONNECT_TIME_T __pyx_string_tab[208]
+#define __pyx_n_u_CURLINFO_CONN_ID __pyx_string_tab[209]
+#define __pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD __pyx_string_tab[210]
+#define __pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD_2 __pyx_string_tab[211]
+#define __pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD __pyx_string_tab[212]
+#define __pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD_T __pyx_string_tab[213]
+#define __pyx_n_u_CURLINFO_CONTENT_TYPE __pyx_string_tab[214]
+#define __pyx_n_u_CURLINFO_COOKIELIST __pyx_string_tab[215]
+#define __pyx_n_u_CURLINFO_DATA_IN __pyx_string_tab[216]
+#define __pyx_n_u_CURLINFO_DATA_OUT __pyx_string_tab[217]
+#define __pyx_n_u_CURLINFO_EARLYDATA_SENT_T __pyx_string_tab[218]
+#define __pyx_n_u_CURLINFO_EFFECTIVE_METHOD __pyx_string_tab[219]
+#define __pyx_n_u_CURLINFO_EFFECTIVE_URL __pyx_string_tab[220]
+#define __pyx_n_u_CURLINFO_END __pyx_string_tab[221]
+#define __pyx_n_u_CURLINFO_FILETIME __pyx_string_tab[222]
+#define __pyx_n_u_CURLINFO_FILETIME_T __pyx_string_tab[223]
+#define __pyx_n_u_CURLINFO_FTP_ENTRY_PATH __pyx_string_tab[224]
+#define __pyx_n_u_CURLINFO_HEADER_IN __pyx_string_tab[225]
+#define __pyx_n_u_CURLINFO_HEADER_OUT __pyx_string_tab[226]
+#define __pyx_n_u_CURLINFO_HEADER_SIZE __pyx_string_tab[227]
+#define __pyx_n_u_CURLINFO_HTTPAUTH_AVAIL __pyx_string_tab[228]
+#define __pyx_n_u_CURLINFO_HTTPAUTH_USED __pyx_string_tab[229]
+#define __pyx_n_u_CURLINFO_HTTP_CONNECTCODE __pyx_string_tab[230]
+#define __pyx_n_u_CURLINFO_HTTP_VERSION __pyx_string_tab[231]
+#define __pyx_n_u_CURLINFO_LASTONE __pyx_string_tab[232]
+#define __pyx_n_u_CURLINFO_LASTSOCKET __pyx_string_tab[233]
+#define __pyx_n_u_CURLINFO_LOCAL_IP __pyx_string_tab[234]
+#define __pyx_n_u_CURLINFO_LOCAL_PORT __pyx_string_tab[235]
+#define __pyx_n_u_CURLINFO_NAMELOOKUP_TIME __pyx_string_tab[236]
+#define __pyx_n_u_CURLINFO_NAMELOOKUP_TIME_T __pyx_string_tab[237]
+#define __pyx_n_u_CURLINFO_NONE __pyx_string_tab[238]
+#define __pyx_n_u_CURLINFO_NUM_CONNECTS __pyx_string_tab[239]
+#define __pyx_n_u_CURLINFO_OS_ERRNO __pyx_string_tab[240]
+#define __pyx_n_u_CURLINFO_POSTTRANSFER_TIME_T __pyx_string_tab[241]
+#define __pyx_n_u_CURLINFO_PRETRANSFER_TIME __pyx_string_tab[242]
+#define __pyx_n_u_CURLINFO_PRETRANSFER_TIME_T __pyx_string_tab[243]
+#define __pyx_n_u_CURLINFO_PRIMARY_IP __pyx_string_tab[244]
+#define __pyx_n_u_CURLINFO_PRIMARY_PORT __pyx_string_tab[245]
+#define __pyx_n_u_CURLINFO_PRIVATE __pyx_string_tab[246]
+#define __pyx_n_u_CURLINFO_PROTOCOL __pyx_string_tab[247]
+#define __pyx_n_u_CURLINFO_PROXYAUTH_AVAIL __pyx_string_tab[248]
+#define __pyx_n_u_CURLINFO_PROXYAUTH_USED __pyx_string_tab[249]
+#define __pyx_n_u_CURLINFO_PROXY_ERROR __pyx_string_tab[250]
+#define __pyx_n_u_CURLINFO_PROXY_SSL_VERIFYRESULT __pyx_string_tab[251]
+#define __pyx_n_u_CURLINFO_QUEUE_TIME_T __pyx_string_tab[252]
+#define __pyx_n_u_CURLINFO_REDIRECT_COUNT __pyx_string_tab[253]
+#define __pyx_n_u_CURLINFO_REDIRECT_TIME __pyx_string_tab[254]
+#define __pyx_n_u_CURLINFO_REDIRECT_TIME_T __pyx_string_tab[255]
+#define __pyx_n_u_CURLINFO_REDIRECT_URL __pyx_string_tab[256]
+#define __pyx_n_u_CURLINFO_REFERER __pyx_string_tab[257]
+#define __pyx_n_u_CURLINFO_REQUEST_SIZE __pyx_string_tab[258]
+#define __pyx_n_u_CURLINFO_RESPONSE_CODE __pyx_string_tab[259]
+#define __pyx_n_u_CURLINFO_RETRY_AFTER __pyx_string_tab[260]
+#define __pyx_n_u_CURLINFO_RTSP_CLIENT_CSEQ __pyx_string_tab[261]
+#define __pyx_n_u_CURLINFO_RTSP_CSEQ_RECV __pyx_string_tab[262]
+#define __pyx_n_u_CURLINFO_RTSP_SERVER_CSEQ __pyx_string_tab[263]
+#define __pyx_n_u_CURLINFO_RTSP_SESSION_ID __pyx_string_tab[264]
+#define __pyx_n_u_CURLINFO_SCHEME __pyx_string_tab[265]
+#define __pyx_n_u_CURLINFO_SIZE_DOWNLOAD __pyx_string_tab[266]
+#define __pyx_n_u_CURLINFO_SIZE_DOWNLOAD_T __pyx_string_tab[267]
+#define __pyx_n_u_CURLINFO_SIZE_UPLOAD __pyx_string_tab[268]
+#define __pyx_n_u_CURLINFO_SIZE_UPLOAD_T __pyx_string_tab[269]
+#define __pyx_n_u_CURLINFO_SPEED_DOWNLOAD __pyx_string_tab[270]
+#define __pyx_n_u_CURLINFO_SPEED_DOWNLOAD_T __pyx_string_tab[271]
+#define __pyx_n_u_CURLINFO_SPEED_UPLOAD __pyx_string_tab[272]
+#define __pyx_n_u_CURLINFO_SPEED_UPLOAD_T __pyx_string_tab[273]
+#define __pyx_n_u_CURLINFO_SSL_DATA_IN __pyx_string_tab[274]
+#define __pyx_n_u_CURLINFO_SSL_DATA_OUT __pyx_string_tab[275]
+#define __pyx_n_u_CURLINFO_SSL_ENGINES __pyx_string_tab[276]
+#define __pyx_n_u_CURLINFO_SSL_VERIFYRESULT __pyx_string_tab[277]
+#define __pyx_n_u_CURLINFO_STARTTRANSFER_TIME __pyx_string_tab[278]
+#define __pyx_n_u_CURLINFO_STARTTRANSFER_TIME_T __pyx_string_tab[279]
+#define __pyx_n_u_CURLINFO_TEXT __pyx_string_tab[280]
+#define __pyx_n_u_CURLINFO_TLS_SESSION __pyx_string_tab[281]
+#define __pyx_n_u_CURLINFO_TLS_SSL_PTR __pyx_string_tab[282]
+#define __pyx_n_u_CURLINFO_TOTAL_TIME __pyx_string_tab[283]
+#define __pyx_n_u_CURLINFO_TOTAL_TIME_T __pyx_string_tab[284]
+#define __pyx_n_u_CURLINFO_USED_PROXY __pyx_string_tab[285]
+#define __pyx_n_u_CURLINFO_XFER_ID __pyx_string_tab[286]
+#define __pyx_n_u_CURLMOPT_CHUNK_LENGTH_PENALTY_SI __pyx_string_tab[287]
+#define __pyx_n_u_CURLMOPT_CONTENT_LENGTH_PENALTY __pyx_string_tab[288]
+#define __pyx_n_u_CURLMOPT_MAXCONNECTS __pyx_string_tab[289]
+#define __pyx_n_u_CURLMOPT_MAX_CONCURRENT_STREAMS __pyx_string_tab[290]
+#define __pyx_n_u_CURLMOPT_MAX_HOST_CONNECTIONS __pyx_string_tab[291]
+#define __pyx_n_u_CURLMOPT_MAX_PIPELINE_LENGTH __pyx_string_tab[292]
+#define __pyx_n_u_CURLMOPT_MAX_TOTAL_CONNECTIONS __pyx_string_tab[293]
+#define __pyx_n_u_CURLMOPT_PIPELINING __pyx_string_tab[294]
+#define __pyx_n_u_CURLMOPT_PIPELINING_SERVER_BL __pyx_string_tab[295]
+#define __pyx_n_u_CURLMOPT_PIPELINING_SITE_BL __pyx_string_tab[296]
+#define __pyx_n_u_CURLMOPT_PUSHDATA __pyx_string_tab[297]
+#define __pyx_n_u_CURLMOPT_PUSHFUNCTION __pyx_string_tab[298]
+#define __pyx_n_u_CURLMOPT_SOCKETDATA __pyx_string_tab[299]
+#define __pyx_n_u_CURLMOPT_SOCKETFUNCTION __pyx_string_tab[300]
+#define __pyx_n_u_CURLMOPT_TIMERDATA __pyx_string_tab[301]
+#define __pyx_n_u_CURLMOPT_TIMERFUNCTION __pyx_string_tab[302]
+#define __pyx_n_u_CURLMSG_DONE __pyx_string_tab[303]
+#define __pyx_n_u_CURLMSG_LAST __pyx_string_tab[304]
+#define __pyx_n_u_CURLMSG_NONE __pyx_string_tab[305]
+#define __pyx_n_u_CURLOPT_ABSTRACT_UNIX_SOCKET __pyx_string_tab[306]
+#define __pyx_n_u_CURLOPT_ACCEPTTIMEOUT_MS __pyx_string_tab[307]
+#define __pyx_n_u_CURLOPT_ACCEPT_ENCODING __pyx_string_tab[308]
+#define __pyx_n_u_CURLOPT_ADDRESS_SCOPE __pyx_string_tab[309]
+#define __pyx_n_u_CURLOPT_ALTSVC __pyx_string_tab[310]
+#define __pyx_n_u_CURLOPT_ALTSVC_CTRL __pyx_string_tab[311]
+#define __pyx_n_u_CURLOPT_APPEND __pyx_string_tab[312]
+#define __pyx_n_u_CURLOPT_AUTOREFERER __pyx_string_tab[313]
+#define __pyx_n_u_CURLOPT_AWS_SIGV4 __pyx_string_tab[314]
+#define __pyx_n_u_CURLOPT_BUFFERSIZE __pyx_string_tab[315]
+#define __pyx_n_u_CURLOPT_CAINFO __pyx_string_tab[316]
+#define __pyx_n_u_CURLOPT_CAINFO_BLOB __pyx_string_tab[317]
+#define __pyx_n_u_CURLOPT_CAPATH __pyx_string_tab[318]
+#define __pyx_n_u_CURLOPT_CA_CACHE_TIMEOUT __pyx_string_tab[319]
+#define __pyx_n_u_CURLOPT_CERTINFO __pyx_string_tab[320]
+#define __pyx_n_u_CURLOPT_CHUNK_BGN_FUNCTION __pyx_string_tab[321]
+#define __pyx_n_u_CURLOPT_CHUNK_DATA __pyx_string_tab[322]
+#define __pyx_n_u_CURLOPT_CHUNK_END_FUNCTION __pyx_string_tab[323]
+#define __pyx_n_u_CURLOPT_CLOSEPOLICY __pyx_string_tab[324]
+#define __pyx_n_u_CURLOPT_CLOSESOCKETDATA __pyx_string_tab[325]
+#define __pyx_n_u_CURLOPT_CLOSESOCKETFUNCTION __pyx_string_tab[326]
+#define __pyx_n_u_CURLOPT_CONNECTTIMEOUT __pyx_string_tab[327]
+#define __pyx_n_u_CURLOPT_CONNECTTIMEOUT_MS __pyx_string_tab[328]
+#define __pyx_n_u_CURLOPT_CONNECT_ONLY __pyx_string_tab[329]
+#define __pyx_n_u_CURLOPT_CONNECT_TO __pyx_string_tab[330]
+#define __pyx_n_u_CURLOPT_CONV_FROM_NETWORK_FUNCTI __pyx_string_tab[331]
+#define __pyx_n_u_CURLOPT_CONV_FROM_UTF8_FUNCTION __pyx_string_tab[332]
+#define __pyx_n_u_CURLOPT_CONV_TO_NETWORK_FUNCTION __pyx_string_tab[333]
+#define __pyx_n_u_CURLOPT_COOKIE __pyx_string_tab[334]
+#define __pyx_n_u_CURLOPT_COOKIEFILE __pyx_string_tab[335]
+#define __pyx_n_u_CURLOPT_COOKIEJAR __pyx_string_tab[336]
+#define __pyx_n_u_CURLOPT_COOKIELIST __pyx_string_tab[337]
+#define __pyx_n_u_CURLOPT_COOKIESESSION __pyx_string_tab[338]
+#define __pyx_n_u_CURLOPT_COPYPOSTFIELDS __pyx_string_tab[339]
+#define __pyx_n_u_CURLOPT_CRLF __pyx_string_tab[340]
+#define __pyx_n_u_CURLOPT_CRLFILE __pyx_string_tab[341]
+#define __pyx_n_u_CURLOPT_CURLU __pyx_string_tab[342]
+#define __pyx_n_u_CURLOPT_CUSTOMREQUEST __pyx_string_tab[343]
+#define __pyx_n_u_CURLOPT_DEBUGDATA __pyx_string_tab[344]
+#define __pyx_n_u_CURLOPT_DEBUGFUNCTION __pyx_string_tab[345]
+#define __pyx_n_u_CURLOPT_DEFAULT_PROTOCOL __pyx_string_tab[346]
+#define __pyx_n_u_CURLOPT_DIRLISTONLY __pyx_string_tab[347]
+#define __pyx_n_u_CURLOPT_DISALLOW_USERNAME_IN_URL __pyx_string_tab[348]
+#define __pyx_n_u_CURLOPT_DNS_CACHE_TIMEOUT __pyx_string_tab[349]
+#define __pyx_n_u_CURLOPT_DNS_INTERFACE __pyx_string_tab[350]
+#define __pyx_n_u_CURLOPT_DNS_LOCAL_IP4 __pyx_string_tab[351]
+#define __pyx_n_u_CURLOPT_DNS_LOCAL_IP6 __pyx_string_tab[352]
+#define __pyx_n_u_CURLOPT_DNS_SERVERS __pyx_string_tab[353]
+#define __pyx_n_u_CURLOPT_DNS_SHUFFLE_ADDRESSES __pyx_string_tab[354]
+#define __pyx_n_u_CURLOPT_DNS_USE_GLOBAL_CACHE __pyx_string_tab[355]
+#define __pyx_n_u_CURLOPT_DOH_SSL_VERIFYHOST __pyx_string_tab[356]
+#define __pyx_n_u_CURLOPT_DOH_SSL_VERIFYPEER __pyx_string_tab[357]
+#define __pyx_n_u_CURLOPT_DOH_SSL_VERIFYSTATUS __pyx_string_tab[358]
+#define __pyx_n_u_CURLOPT_DOH_URL __pyx_string_tab[359]
+#define __pyx_n_u_CURLOPT_ECH __pyx_string_tab[360]
+#define __pyx_n_u_CURLOPT_EGDSOCKET __pyx_string_tab[361]
+#define __pyx_n_u_CURLOPT_ENCODING __pyx_string_tab[362]
+#define __pyx_n_u_CURLOPT_ERRORBUFFER __pyx_string_tab[363]
+#define __pyx_n_u_CURLOPT_EXPECT_100_TIMEOUT_MS __pyx_string_tab[364]
+#define __pyx_n_u_CURLOPT_FAILONERROR __pyx_string_tab[365]
+#define __pyx_n_u_CURLOPT_FILE __pyx_string_tab[366]
+#define __pyx_n_u_CURLOPT_FILETIME __pyx_string_tab[367]
+#define __pyx_n_u_CURLOPT_FNMATCH_DATA __pyx_string_tab[368]
+#define __pyx_n_u_CURLOPT_FNMATCH_FUNCTION __pyx_string_tab[369]
+#define __pyx_n_u_CURLOPT_FOLLOWLOCATION __pyx_string_tab[370]
+#define __pyx_n_u_CURLOPT_FORBID_REUSE __pyx_string_tab[371]
+#define __pyx_n_u_CURLOPT_FRESH_CONNECT __pyx_string_tab[372]
+#define __pyx_n_u_CURLOPT_FTPAPPEND __pyx_string_tab[373]
+#define __pyx_n_u_CURLOPT_FTPLISTONLY __pyx_string_tab[374]
+#define __pyx_n_u_CURLOPT_FTPPORT __pyx_string_tab[375]
+#define __pyx_n_u_CURLOPT_FTPSSLAUTH __pyx_string_tab[376]
+#define __pyx_n_u_CURLOPT_FTP_ACCOUNT __pyx_string_tab[377]
+#define __pyx_n_u_CURLOPT_FTP_ALTERNATIVE_TO_USER __pyx_string_tab[378]
+#define __pyx_n_u_CURLOPT_FTP_CREATE_MISSING_DIRS __pyx_string_tab[379]
+#define __pyx_n_u_CURLOPT_FTP_FILEMETHOD __pyx_string_tab[380]
+#define __pyx_n_u_CURLOPT_FTP_RESPONSE_TIMEOUT __pyx_string_tab[381]
+#define __pyx_n_u_CURLOPT_FTP_SKIP_PASV_IP __pyx_string_tab[382]
+#define __pyx_n_u_CURLOPT_FTP_SSL __pyx_string_tab[383]
+#define __pyx_n_u_CURLOPT_FTP_SSL_CCC __pyx_string_tab[384]
+#define __pyx_n_u_CURLOPT_FTP_USE_EPRT __pyx_string_tab[385]
+#define __pyx_n_u_CURLOPT_FTP_USE_EPSV __pyx_string_tab[386]
+#define __pyx_n_u_CURLOPT_FTP_USE_PRET __pyx_string_tab[387]
+#define __pyx_n_u_CURLOPT_GSSAPI_DELEGATION __pyx_string_tab[388]
+#define __pyx_n_u_CURLOPT_HAPPY_EYEBALLS_TIMEOUT_M __pyx_string_tab[389]
+#define __pyx_n_u_CURLOPT_HAPROXYPROTOCOL __pyx_string_tab[390]
+#define __pyx_n_u_CURLOPT_HAPROXY_CLIENT_IP __pyx_string_tab[391]
+#define __pyx_n_u_CURLOPT_HEADER __pyx_string_tab[392]
+#define __pyx_n_u_CURLOPT_HEADERDATA __pyx_string_tab[393]
+#define __pyx_n_u_CURLOPT_HEADERFUNCTION __pyx_string_tab[394]
+#define __pyx_n_u_CURLOPT_HEADEROPT __pyx_string_tab[395]
+#define __pyx_n_u_CURLOPT_HSTS __pyx_string_tab[396]
+#define __pyx_n_u_CURLOPT_HSTSREADDATA __pyx_string_tab[397]
+#define __pyx_n_u_CURLOPT_HSTSREADFUNCTION __pyx_string_tab[398]
+#define __pyx_n_u_CURLOPT_HSTSWRITEDATA __pyx_string_tab[399]
+#define __pyx_n_u_CURLOPT_HSTSWRITEFUNCTION __pyx_string_tab[400]
+#define __pyx_n_u_CURLOPT_HSTS_CTRL __pyx_string_tab[401]
+#define __pyx_n_u_CURLOPT_HTTP09_ALLOWED __pyx_string_tab[402]
+#define __pyx_n_u_CURLOPT_HTTP200ALIASES __pyx_string_tab[403]
+#define __pyx_n_u_CURLOPT_HTTP2_PSEUDO_HEADERS_ORD __pyx_string_tab[404]
+#define __pyx_n_u_CURLOPT_HTTP2_SETTINGS __pyx_string_tab[405]
+#define __pyx_n_u_CURLOPT_HTTP2_STREAMS __pyx_string_tab[406]
+#define __pyx_n_u_CURLOPT_HTTP2_WINDOW_UPDATE __pyx_string_tab[407]
+#define __pyx_n_u_CURLOPT_HTTPAUTH __pyx_string_tab[408]
+#define __pyx_n_u_CURLOPT_HTTPBASEHEADER __pyx_string_tab[409]
+#define __pyx_n_u_CURLOPT_HTTPGET __pyx_string_tab[410]
+#define __pyx_n_u_CURLOPT_HTTPHEADER __pyx_string_tab[411]
+#define __pyx_n_u_CURLOPT_HTTPPOST __pyx_string_tab[412]
+#define __pyx_n_u_CURLOPT_HTTPPROXYTUNNEL __pyx_string_tab[413]
+#define __pyx_n_u_CURLOPT_HTTP_CONTENT_DECODING __pyx_string_tab[414]
+#define __pyx_n_u_CURLOPT_HTTP_TRANSFER_DECODING __pyx_string_tab[415]
+#define __pyx_n_u_CURLOPT_HTTP_VERSION __pyx_string_tab[416]
+#define __pyx_n_u_CURLOPT_IGNORE_CONTENT_LENGTH __pyx_string_tab[417]
+#define __pyx_n_u_CURLOPT_INFILE __pyx_string_tab[418]
+#define __pyx_n_u_CURLOPT_INFILESIZE __pyx_string_tab[419]
+#define __pyx_n_u_CURLOPT_INFILESIZE_LARGE __pyx_string_tab[420]
+#define __pyx_n_u_CURLOPT_INTERFACE __pyx_string_tab[421]
+#define __pyx_n_u_CURLOPT_INTERLEAVEDATA __pyx_string_tab[422]
+#define __pyx_n_u_CURLOPT_INTERLEAVEFUNCTION __pyx_string_tab[423]
+#define __pyx_n_u_CURLOPT_IOCTLDATA __pyx_string_tab[424]
+#define __pyx_n_u_CURLOPT_IOCTLFUNCTION __pyx_string_tab[425]
+#define __pyx_n_u_CURLOPT_IPRESOLVE __pyx_string_tab[426]
+#define __pyx_n_u_CURLOPT_ISSUERCERT __pyx_string_tab[427]
+#define __pyx_n_u_CURLOPT_ISSUERCERT_BLOB __pyx_string_tab[428]
+#define __pyx_n_u_CURLOPT_KEEP_SENDING_ON_ERROR __pyx_string_tab[429]
+#define __pyx_n_u_CURLOPT_KEYPASSWD __pyx_string_tab[430]
+#define __pyx_n_u_CURLOPT_KRB4LEVEL __pyx_string_tab[431]
+#define __pyx_n_u_CURLOPT_KRBLEVEL __pyx_string_tab[432]
+#define __pyx_n_u_CURLOPT_LOCALPORT __pyx_string_tab[433]
+#define __pyx_n_u_CURLOPT_LOCALPORTRANGE __pyx_string_tab[434]
+#define __pyx_n_u_CURLOPT_LOGIN_OPTIONS __pyx_string_tab[435]
+#define __pyx_n_u_CURLOPT_LOW_SPEED_LIMIT __pyx_string_tab[436]
+#define __pyx_n_u_CURLOPT_LOW_SPEED_TIME __pyx_string_tab[437]
+#define __pyx_n_u_CURLOPT_MAIL_AUTH __pyx_string_tab[438]
+#define __pyx_n_u_CURLOPT_MAIL_FROM __pyx_string_tab[439]
+#define __pyx_n_u_CURLOPT_MAIL_RCPT __pyx_string_tab[440]
+#define __pyx_n_u_CURLOPT_MAIL_RCPT_ALLLOWFAILS __pyx_string_tab[441]
+#define __pyx_n_u_CURLOPT_MAIL_RCPT_ALLOWFAILS __pyx_string_tab[442]
+#define __pyx_n_u_CURLOPT_MAXAGE_CONN __pyx_string_tab[443]
+#define __pyx_n_u_CURLOPT_MAXCONNECTS __pyx_string_tab[444]
+#define __pyx_n_u_CURLOPT_MAXFILESIZE __pyx_string_tab[445]
+#define __pyx_n_u_CURLOPT_MAXFILESIZE_LARGE __pyx_string_tab[446]
+#define __pyx_n_u_CURLOPT_MAXLIFETIME_CONN __pyx_string_tab[447]
+#define __pyx_n_u_CURLOPT_MAXREDIRS __pyx_string_tab[448]
+#define __pyx_n_u_CURLOPT_MAX_RECV_SPEED_LARGE __pyx_string_tab[449]
+#define __pyx_n_u_CURLOPT_MAX_SEND_SPEED_LARGE __pyx_string_tab[450]
+#define __pyx_n_u_CURLOPT_MIMEPOST __pyx_string_tab[451]
+#define __pyx_n_u_CURLOPT_MIME_OPTIONS __pyx_string_tab[452]
+#define __pyx_n_u_CURLOPT_NETRC __pyx_string_tab[453]
+#define __pyx_n_u_CURLOPT_NETRC_FILE __pyx_string_tab[454]
+#define __pyx_n_u_CURLOPT_NEW_DIRECTORY_PERMS __pyx_string_tab[455]
+#define __pyx_n_u_CURLOPT_NEW_FILE_PERMS __pyx_string_tab[456]
+#define __pyx_n_u_CURLOPT_NOBODY __pyx_string_tab[457]
+#define __pyx_n_u_CURLOPT_NOPROGRESS __pyx_string_tab[458]
+#define __pyx_n_u_CURLOPT_NOPROXY __pyx_string_tab[459]
+#define __pyx_n_u_CURLOPT_NOSIGNAL __pyx_string_tab[460]
+#define __pyx_n_u_CURLOPT_OBSOLETE40 __pyx_string_tab[461]
+#define __pyx_n_u_CURLOPT_OBSOLETE72 __pyx_string_tab[462]
+#define __pyx_n_u_CURLOPT_OPENSOCKETDATA __pyx_string_tab[463]
+#define __pyx_n_u_CURLOPT_OPENSOCKETFUNCTION __pyx_string_tab[464]
+#define __pyx_n_u_CURLOPT_PASSWORD __pyx_string_tab[465]
+#define __pyx_n_u_CURLOPT_PATH_AS_IS __pyx_string_tab[466]
+#define __pyx_n_u_CURLOPT_PINNEDPUBLICKEY __pyx_string_tab[467]
+#define __pyx_n_u_CURLOPT_PIPEWAIT __pyx_string_tab[468]
+#define __pyx_n_u_CURLOPT_PORT __pyx_string_tab[469]
+#define __pyx_n_u_CURLOPT_POST __pyx_string_tab[470]
+#define __pyx_n_u_CURLOPT_POST301 __pyx_string_tab[471]
+#define __pyx_n_u_CURLOPT_POSTFIELDS __pyx_string_tab[472]
+#define __pyx_n_u_CURLOPT_POSTFIELDSIZE __pyx_string_tab[473]
+#define __pyx_n_u_CURLOPT_POSTFIELDSIZE_LARGE __pyx_string_tab[474]
+#define __pyx_n_u_CURLOPT_POSTQUOTE __pyx_string_tab[475]
+#define __pyx_n_u_CURLOPT_POSTREDIR __pyx_string_tab[476]
+#define __pyx_n_u_CURLOPT_PREQUOTE __pyx_string_tab[477]
+#define __pyx_n_u_CURLOPT_PREREQDATA __pyx_string_tab[478]
+#define __pyx_n_u_CURLOPT_PREREQFUNCTION __pyx_string_tab[479]
+#define __pyx_n_u_CURLOPT_PRE_PROXY __pyx_string_tab[480]
+#define __pyx_n_u_CURLOPT_PRIVATE __pyx_string_tab[481]
+#define __pyx_n_u_CURLOPT_PROGRESSDATA __pyx_string_tab[482]
+#define __pyx_n_u_CURLOPT_PROGRESSFUNCTION __pyx_string_tab[483]
+#define __pyx_n_u_CURLOPT_PROTOCOLS __pyx_string_tab[484]
+#define __pyx_n_u_CURLOPT_PROTOCOLS_STR __pyx_string_tab[485]
+#define __pyx_n_u_CURLOPT_PROXY __pyx_string_tab[486]
+#define __pyx_n_u_CURLOPT_PROXYAUTH __pyx_string_tab[487]
+#define __pyx_n_u_CURLOPT_PROXYHEADER __pyx_string_tab[488]
+#define __pyx_n_u_CURLOPT_PROXYPASSWORD __pyx_string_tab[489]
+#define __pyx_n_u_CURLOPT_PROXYPORT __pyx_string_tab[490]
+#define __pyx_n_u_CURLOPT_PROXYTYPE __pyx_string_tab[491]
+#define __pyx_n_u_CURLOPT_PROXYUSERNAME __pyx_string_tab[492]
+#define __pyx_n_u_CURLOPT_PROXYUSERPWD __pyx_string_tab[493]
+#define __pyx_n_u_CURLOPT_PROXY_CAINFO __pyx_string_tab[494]
+#define __pyx_n_u_CURLOPT_PROXY_CAINFO_BLOB __pyx_string_tab[495]
+#define __pyx_n_u_CURLOPT_PROXY_CAPATH __pyx_string_tab[496]
+#define __pyx_n_u_CURLOPT_PROXY_CRLFILE __pyx_string_tab[497]
+#define __pyx_n_u_CURLOPT_PROXY_ISSUERCERT __pyx_string_tab[498]
+#define __pyx_n_u_CURLOPT_PROXY_ISSUERCERT_BLOB __pyx_string_tab[499]
+#define __pyx_n_u_CURLOPT_PROXY_KEYPASSWD __pyx_string_tab[500]
+#define __pyx_n_u_CURLOPT_PROXY_PINNEDPUBLICKEY __pyx_string_tab[501]
+#define __pyx_n_u_CURLOPT_PROXY_SERVICE_NAME __pyx_string_tab[502]
+#define __pyx_n_u_CURLOPT_PROXY_SSLCERT __pyx_string_tab[503]
+#define __pyx_n_u_CURLOPT_PROXY_SSLCERTTYPE __pyx_string_tab[504]
+#define __pyx_n_u_CURLOPT_PROXY_SSLCERT_BLOB __pyx_string_tab[505]
+#define __pyx_n_u_CURLOPT_PROXY_SSLKEY __pyx_string_tab[506]
+#define __pyx_n_u_CURLOPT_PROXY_SSLKEYTYPE __pyx_string_tab[507]
+#define __pyx_n_u_CURLOPT_PROXY_SSLKEY_BLOB __pyx_string_tab[508]
+#define __pyx_n_u_CURLOPT_PROXY_SSLVERSION __pyx_string_tab[509]
+#define __pyx_n_u_CURLOPT_PROXY_SSL_CIPHER_LIST __pyx_string_tab[510]
+#define __pyx_n_u_CURLOPT_PROXY_SSL_OPTIONS __pyx_string_tab[511]
+#define __pyx_n_u_CURLOPT_PROXY_SSL_VERIFYHOST __pyx_string_tab[512]
+#define __pyx_n_u_CURLOPT_PROXY_SSL_VERIFYPEER __pyx_string_tab[513]
+#define __pyx_n_u_CURLOPT_PROXY_TLS13_CIPHERS __pyx_string_tab[514]
+#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_PASSWORD __pyx_string_tab[515]
+#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_TYPE __pyx_string_tab[516]
+#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_USERNAME __pyx_string_tab[517]
+#define __pyx_n_u_CURLOPT_PROXY_TRANSFER_MODE __pyx_string_tab[518]
+#define __pyx_n_u_CURLOPT_PUT __pyx_string_tab[519]
+#define __pyx_n_u_CURLOPT_QUICK_EXIT __pyx_string_tab[520]
+#define __pyx_n_u_CURLOPT_QUOTE __pyx_string_tab[521]
+#define __pyx_n_u_CURLOPT_RANDOM_FILE __pyx_string_tab[522]
+#define __pyx_n_u_CURLOPT_RANGE __pyx_string_tab[523]
+#define __pyx_n_u_CURLOPT_READDATA __pyx_string_tab[524]
+#define __pyx_n_u_CURLOPT_READFUNCTION __pyx_string_tab[525]
+#define __pyx_n_u_CURLOPT_REDIR_PROTOCOLS __pyx_string_tab[526]
+#define __pyx_n_u_CURLOPT_REDIR_PROTOCOLS_STR __pyx_string_tab[527]
+#define __pyx_n_u_CURLOPT_REFERER __pyx_string_tab[528]
+#define __pyx_n_u_CURLOPT_REQUEST_TARGET __pyx_string_tab[529]
+#define __pyx_n_u_CURLOPT_RESOLVE __pyx_string_tab[530]
+#define __pyx_n_u_CURLOPT_RESOLVER_START_DATA __pyx_string_tab[531]
+#define __pyx_n_u_CURLOPT_RESOLVER_START_FUNCTION __pyx_string_tab[532]
+#define __pyx_n_u_CURLOPT_RESUME_FROM __pyx_string_tab[533]
+#define __pyx_n_u_CURLOPT_RESUME_FROM_LARGE __pyx_string_tab[534]
+#define __pyx_n_u_CURLOPT_RTSPHEADER __pyx_string_tab[535]
+#define __pyx_n_u_CURLOPT_RTSP_CLIENT_CSEQ __pyx_string_tab[536]
+#define __pyx_n_u_CURLOPT_RTSP_REQUEST __pyx_string_tab[537]
+#define __pyx_n_u_CURLOPT_RTSP_SERVER_CSEQ __pyx_string_tab[538]
+#define __pyx_n_u_CURLOPT_RTSP_SESSION_ID __pyx_string_tab[539]
+#define __pyx_n_u_CURLOPT_RTSP_STREAM_URI __pyx_string_tab[540]
+#define __pyx_n_u_CURLOPT_RTSP_TRANSPORT __pyx_string_tab[541]
+#define __pyx_n_u_CURLOPT_SASL_AUTHZID __pyx_string_tab[542]
+#define __pyx_n_u_CURLOPT_SASL_IR __pyx_string_tab[543]
+#define __pyx_n_u_CURLOPT_SEEKDATA __pyx_string_tab[544]
+#define __pyx_n_u_CURLOPT_SEEKFUNCTION __pyx_string_tab[545]
+#define __pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT __pyx_string_tab[546]
+#define __pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT_2 __pyx_string_tab[547]
+#define __pyx_n_u_CURLOPT_SERVICE_NAME __pyx_string_tab[548]
+#define __pyx_n_u_CURLOPT_SHARE __pyx_string_tab[549]
+#define __pyx_n_u_CURLOPT_SOCKOPTDATA __pyx_string_tab[550]
+#define __pyx_n_u_CURLOPT_SOCKOPTFUNCTION __pyx_string_tab[551]
+#define __pyx_n_u_CURLOPT_SOCKS5_AUTH __pyx_string_tab[552]
+#define __pyx_n_u_CURLOPT_SOCKS5_GSSAPI_NEC __pyx_string_tab[553]
+#define __pyx_n_u_CURLOPT_SOCKS5_GSSAPI_SERVICE __pyx_string_tab[554]
+#define __pyx_n_u_CURLOPT_SSH_AUTH_TYPES __pyx_string_tab[555]
+#define __pyx_n_u_CURLOPT_SSH_COMPRESSION __pyx_string_tab[556]
+#define __pyx_n_u_CURLOPT_SSH_HOSTKEYDATA __pyx_string_tab[557]
+#define __pyx_n_u_CURLOPT_SSH_HOSTKEYFUNCTION __pyx_string_tab[558]
+#define __pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 __pyx_string_tab[559]
+#define __pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_SHA2 __pyx_string_tab[560]
+#define __pyx_n_u_CURLOPT_SSH_KEYDATA __pyx_string_tab[561]
+#define __pyx_n_u_CURLOPT_SSH_KEYFUNCTION __pyx_string_tab[562]
+#define __pyx_n_u_CURLOPT_SSH_KNOWNHOSTS __pyx_string_tab[563]
+#define __pyx_n_u_CURLOPT_SSH_PRIVATE_KEYFILE __pyx_string_tab[564]
+#define __pyx_n_u_CURLOPT_SSH_PUBLIC_KEYFILE __pyx_string_tab[565]
+#define __pyx_n_u_CURLOPT_SSLCERT __pyx_string_tab[566]
+#define __pyx_n_u_CURLOPT_SSLCERTPASSWD __pyx_string_tab[567]
+#define __pyx_n_u_CURLOPT_SSLCERTTYPE __pyx_string_tab[568]
+#define __pyx_n_u_CURLOPT_SSLCERT_BLOB __pyx_string_tab[569]
+#define __pyx_n_u_CURLOPT_SSLENGINE __pyx_string_tab[570]
+#define __pyx_n_u_CURLOPT_SSLENGINE_DEFAULT __pyx_string_tab[571]
+#define __pyx_n_u_CURLOPT_SSLKEY __pyx_string_tab[572]
+#define __pyx_n_u_CURLOPT_SSLKEYPASSWD __pyx_string_tab[573]
+#define __pyx_n_u_CURLOPT_SSLKEYTYPE __pyx_string_tab[574]
+#define __pyx_n_u_CURLOPT_SSLKEY_BLOB __pyx_string_tab[575]
+#define __pyx_n_u_CURLOPT_SSLVERSION __pyx_string_tab[576]
+#define __pyx_n_u_CURLOPT_SSL_CERT_COMPRESSION __pyx_string_tab[577]
+#define __pyx_n_u_CURLOPT_SSL_CIPHER_LIST __pyx_string_tab[578]
+#define __pyx_n_u_CURLOPT_SSL_CTX_DATA __pyx_string_tab[579]
+#define __pyx_n_u_CURLOPT_SSL_CTX_FUNCTION __pyx_string_tab[580]
+#define __pyx_n_u_CURLOPT_SSL_EC_CURVES __pyx_string_tab[581]
+#define __pyx_n_u_CURLOPT_SSL_ENABLE_ALPN __pyx_string_tab[582]
+#define __pyx_n_u_CURLOPT_SSL_ENABLE_ALPS __pyx_string_tab[583]
+#define __pyx_n_u_CURLOPT_SSL_ENABLE_NPN __pyx_string_tab[584]
+#define __pyx_n_u_CURLOPT_SSL_ENABLE_TICKET __pyx_string_tab[585]
+#define __pyx_n_u_CURLOPT_SSL_FALSESTART __pyx_string_tab[586]
+#define __pyx_n_u_CURLOPT_SSL_OPTIONS __pyx_string_tab[587]
+#define __pyx_n_u_CURLOPT_SSL_PERMUTE_EXTENSIONS __pyx_string_tab[588]
+#define __pyx_n_u_CURLOPT_SSL_SESSIONID_CACHE __pyx_string_tab[589]
+#define __pyx_n_u_CURLOPT_SSL_SIG_HASH_ALGS __pyx_string_tab[590]
+#define __pyx_n_u_CURLOPT_SSL_VERIFYHOST __pyx_string_tab[591]
+#define __pyx_n_u_CURLOPT_SSL_VERIFYPEER __pyx_string_tab[592]
+#define __pyx_n_u_CURLOPT_SSL_VERIFYSTATUS __pyx_string_tab[593]
+#define __pyx_n_u_CURLOPT_STDERR __pyx_string_tab[594]
+#define __pyx_n_u_CURLOPT_STREAM_DEPENDS __pyx_string_tab[595]
+#define __pyx_n_u_CURLOPT_STREAM_DEPENDS_E __pyx_string_tab[596]
+#define __pyx_n_u_CURLOPT_STREAM_EXCLUSIVE __pyx_string_tab[597]
+#define __pyx_n_u_CURLOPT_STREAM_WEIGHT __pyx_string_tab[598]
+#define __pyx_n_u_CURLOPT_SUPPRESS_CONNECT_HEADERS __pyx_string_tab[599]
+#define __pyx_n_u_CURLOPT_TCP_FASTOPEN __pyx_string_tab[600]
+#define __pyx_n_u_CURLOPT_TCP_KEEPALIVE __pyx_string_tab[601]
+#define __pyx_n_u_CURLOPT_TCP_KEEPCNT __pyx_string_tab[602]
+#define __pyx_n_u_CURLOPT_TCP_KEEPIDLE __pyx_string_tab[603]
+#define __pyx_n_u_CURLOPT_TCP_KEEPINTVL __pyx_string_tab[604]
+#define __pyx_n_u_CURLOPT_TCP_NODELAY __pyx_string_tab[605]
+#define __pyx_n_u_CURLOPT_TELNETOPTIONS __pyx_string_tab[606]
+#define __pyx_n_u_CURLOPT_TFTP_BLKSIZE __pyx_string_tab[607]
+#define __pyx_n_u_CURLOPT_TFTP_NO_OPTIONS __pyx_string_tab[608]
+#define __pyx_n_u_CURLOPT_TIMECONDITION __pyx_string_tab[609]
+#define __pyx_n_u_CURLOPT_TIMEOUT __pyx_string_tab[610]
+#define __pyx_n_u_CURLOPT_TIMEOUT_MS __pyx_string_tab[611]
+#define __pyx_n_u_CURLOPT_TIMEVALUE __pyx_string_tab[612]
+#define __pyx_n_u_CURLOPT_TIMEVALUE_LARGE __pyx_string_tab[613]
+#define __pyx_n_u_CURLOPT_TLS13_CIPHERS __pyx_string_tab[614]
+#define __pyx_n_u_CURLOPT_TLSAUTH_PASSWORD __pyx_string_tab[615]
+#define __pyx_n_u_CURLOPT_TLSAUTH_TYPE __pyx_string_tab[616]
+#define __pyx_n_u_CURLOPT_TLSAUTH_USERNAME __pyx_string_tab[617]
+#define __pyx_n_u_CURLOPT_TLS_DELEGATED_CREDENTIAL __pyx_string_tab[618]
+#define __pyx_n_u_CURLOPT_TLS_EXTENSION_ORDER __pyx_string_tab[619]
+#define __pyx_n_u_CURLOPT_TLS_GREASE __pyx_string_tab[620]
+#define __pyx_n_u_CURLOPT_TLS_KEY_SHARES_LIMIT __pyx_string_tab[621]
+#define __pyx_n_u_CURLOPT_TLS_KEY_USAGE_NO_CHECK __pyx_string_tab[622]
+#define __pyx_n_u_CURLOPT_TLS_RECORD_SIZE_LIMIT __pyx_string_tab[623]
+#define __pyx_n_u_CURLOPT_TLS_SIGNED_CERT_TIMESTAM __pyx_string_tab[624]
+#define __pyx_n_u_CURLOPT_TLS_STATUS_REQUEST __pyx_string_tab[625]
+#define __pyx_n_u_CURLOPT_TLS_USE_FIREFOX_TLS13_CI __pyx_string_tab[626]
+#define __pyx_n_u_CURLOPT_TLS_USE_NEW_ALPS_CODEPOI __pyx_string_tab[627]
+#define __pyx_n_u_CURLOPT_TRAILERDATA __pyx_string_tab[628]
+#define __pyx_n_u_CURLOPT_TRAILERFUNCTION __pyx_string_tab[629]
+#define __pyx_n_u_CURLOPT_TRANSFERTEXT __pyx_string_tab[630]
+#define __pyx_n_u_CURLOPT_TRANSFER_ENCODING __pyx_string_tab[631]
+#define __pyx_n_u_CURLOPT_UNIX_SOCKET_PATH __pyx_string_tab[632]
+#define __pyx_n_u_CURLOPT_UNRESTRICTED_AUTH __pyx_string_tab[633]
+#define __pyx_n_u_CURLOPT_UPKEEP_INTERVAL_MS __pyx_string_tab[634]
+#define __pyx_n_u_CURLOPT_UPLOAD __pyx_string_tab[635]
+#define __pyx_n_u_CURLOPT_UPLOAD_BUFFERSIZE __pyx_string_tab[636]
+#define __pyx_n_u_CURLOPT_UPLOAD_FLAGS __pyx_string_tab[637]
+#define __pyx_n_u_CURLOPT_URL __pyx_string_tab[638]
+#define __pyx_n_u_CURLOPT_USERAGENT __pyx_string_tab[639]
+#define __pyx_n_u_CURLOPT_USERNAME __pyx_string_tab[640]
+#define __pyx_n_u_CURLOPT_USERPWD __pyx_string_tab[641]
+#define __pyx_n_u_CURLOPT_USE_SSL __pyx_string_tab[642]
+#define __pyx_n_u_CURLOPT_VERBOSE __pyx_string_tab[643]
+#define __pyx_n_u_CURLOPT_WILDCARDMATCH __pyx_string_tab[644]
+#define __pyx_n_u_CURLOPT_WRITEDATA __pyx_string_tab[645]
+#define __pyx_n_u_CURLOPT_WRITEFUNCTION __pyx_string_tab[646]
+#define __pyx_n_u_CURLOPT_WRITEHEADER __pyx_string_tab[647]
+#define __pyx_n_u_CURLOPT_WRITEINFO __pyx_string_tab[648]
+#define __pyx_n_u_CURLOPT_WS_OPTIONS __pyx_string_tab[649]
+#define __pyx_n_u_CURLOPT_XFERINFODATA __pyx_string_tab[650]
+#define __pyx_n_u_CURLOPT_XFERINFOFUNCTION __pyx_string_tab[651]
+#define __pyx_n_u_CURLOPT_XOAUTH2_BEARER __pyx_string_tab[652]
+#define __pyx_n_u_CURLSSH_AUTH_AGENT __pyx_string_tab[653]
+#define __pyx_n_u_CURLSSH_AUTH_ANY __pyx_string_tab[654]
+#define __pyx_n_u_CURLSSH_AUTH_DEFAULT __pyx_string_tab[655]
+#define __pyx_n_u_CURLSSH_AUTH_GSSAPI __pyx_string_tab[656]
+#define __pyx_n_u_CURLSSH_AUTH_HOST __pyx_string_tab[657]
+#define __pyx_n_u_CURLSSH_AUTH_KEYBOARD __pyx_string_tab[658]
+#define __pyx_n_u_CURLSSH_AUTH_NONE __pyx_string_tab[659]
+#define __pyx_n_u_CURLSSH_AUTH_PASSWORD __pyx_string_tab[660]
+#define __pyx_n_u_CURLSSH_AUTH_PUBLICKEY __pyx_string_tab[661]
+#define __pyx_n_u_CURLWS_BINARY __pyx_string_tab[662]
+#define __pyx_n_u_CURLWS_CLOSE __pyx_string_tab[663]
+#define __pyx_n_u_CURLWS_CONT __pyx_string_tab[664]
+#define __pyx_n_u_CURLWS_OFFSET __pyx_string_tab[665]
+#define __pyx_n_u_CURLWS_PING __pyx_string_tab[666]
+#define __pyx_n_u_CURLWS_PONG __pyx_string_tab[667]
+#define __pyx_n_u_CURLWS_RAW_MODE __pyx_string_tab[668]
+#define __pyx_n_u_CURLWS_TEXT __pyx_string_tab[669]
+#define __pyx_n_u_CURL_CSELECT_ERR __pyx_string_tab[670]
+#define __pyx_n_u_CURL_CSELECT_IN __pyx_string_tab[671]
+#define __pyx_n_u_CURL_CSELECT_OUT __pyx_string_tab[672]
+#define __pyx_n_u_CURL_ERROR_SIZE __pyx_string_tab[673]
+#define __pyx_n_u_CURL_FNMATCHFUNC_FAIL __pyx_string_tab[674]
+#define __pyx_n_u_CURL_FNMATCHFUNC_MATCH __pyx_string_tab[675]
+#define __pyx_n_u_CURL_FNMATCHFUNC_NOMATCH __pyx_string_tab[676]
+#define __pyx_n_u_CURL_HTTP_VERSION_1_0 __pyx_string_tab[677]
+#define __pyx_n_u_CURL_HTTP_VERSION_1_1 __pyx_string_tab[678]
+#define __pyx_n_u_CURL_HTTP_VERSION_2 __pyx_string_tab[679]
+#define __pyx_n_u_CURL_HTTP_VERSION_2TLS __pyx_string_tab[680]
+#define __pyx_n_u_CURL_HTTP_VERSION_2_0 __pyx_string_tab[681]
+#define __pyx_n_u_CURL_HTTP_VERSION_2_PRIOR_KNOWLE __pyx_string_tab[682]
+#define __pyx_n_u_CURL_HTTP_VERSION_3 __pyx_string_tab[683]
+#define __pyx_n_u_CURL_HTTP_VERSION_3ONLY __pyx_string_tab[684]
+#define __pyx_n_u_CURL_HTTP_VERSION_LAST __pyx_string_tab[685]
+#define __pyx_n_u_CURL_HTTP_VERSION_NONE __pyx_string_tab[686]
+#define __pyx_n_u_CURL_POLL_IN __pyx_string_tab[687]
+#define __pyx_n_u_CURL_POLL_INOUT __pyx_string_tab[688]
+#define __pyx_n_u_CURL_POLL_NONE __pyx_string_tab[689]
+#define __pyx_n_u_CURL_POLL_OUT __pyx_string_tab[690]
+#define __pyx_n_u_CURL_POLL_REMOVE __pyx_string_tab[691]
+#define __pyx_n_u_CURL_PREREQFUNC_ABORT __pyx_string_tab[692]
+#define __pyx_n_u_CURL_PREREQFUNC_OK __pyx_string_tab[693]
+#define __pyx_n_u_CURL_READFUNC_ABORT __pyx_string_tab[694]
+#define __pyx_n_u_CURL_READFUNC_PAUSE __pyx_string_tab[695]
+#define __pyx_n_u_CURL_SEEKFUNC_CANTSEEK __pyx_string_tab[696]
+#define __pyx_n_u_CURL_SEEKFUNC_FAIL __pyx_string_tab[697]
+#define __pyx_n_u_CURL_SEEKFUNC_OK __pyx_string_tab[698]
+#define __pyx_n_u_CURL_SOCKET_BAD __pyx_string_tab[699]
+#define __pyx_n_u_CURL_SOCKET_TIMEOUT __pyx_string_tab[700]
+#define __pyx_n_u_CURL_SSLVERSION_DEFAULT __pyx_string_tab[701]
+#define __pyx_n_u_CURL_SSLVERSION_LAST __pyx_string_tab[702]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_DEFAULT __pyx_string_tab[703]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_LAST __pyx_string_tab[704]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_NONE __pyx_string_tab[705]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_0 __pyx_string_tab[706]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_1 __pyx_string_tab[707]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_2 __pyx_string_tab[708]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_3 __pyx_string_tab[709]
+#define __pyx_n_u_CURL_SSLVERSION_SSLv2 __pyx_string_tab[710]
+#define __pyx_n_u_CURL_SSLVERSION_SSLv3 __pyx_string_tab[711]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1 __pyx_string_tab[712]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1_0 __pyx_string_tab[713]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1_1 __pyx_string_tab[714]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1_2 __pyx_string_tab[715]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1_3 __pyx_string_tab[716]
+#define __pyx_n_u_CURL_TRAILERFUNC_ABORT __pyx_string_tab[717]
+#define __pyx_n_u_CURL_TRAILERFUNC_OK __pyx_string_tab[718]
+#define __pyx_n_u_CURL_WRITEFUNC_ERROR __pyx_string_tab[719]
+#define __pyx_n_u_CURL_WRITEFUNC_PAUSE __pyx_string_tab[720]
+#define __pyx_n_u_Callable __pyx_string_tab[721]
+#define __pyx_kp_u_Callable_None __pyx_string_tab[722]
+#define __pyx_kp_u_Can_not_use_local_path_and_data __pyx_string_tab[723]
+#define __pyx_kp_u_Can_only_create_a_buffer_that_is __pyx_string_tab[724]
+#define __pyx_n_u_CancelledError __pyx_string_tab[725]
+#define __pyx_kp_u_Cannot_assign_to_read_only_memor __pyx_string_tab[726]
+#define __pyx_kp_u_Cannot_create_writable_memory_vi __pyx_string_tab[727]
+#define __pyx_kp_u_Cannot_index_with_type __pyx_string_tab[728]
+#define __pyx_kp_u_Cannot_transpose_memoryview_with __pyx_string_tab[729]
+#define __pyx_n_u_Condition __pyx_string_tab[730]
+#define __pyx_n_u_Curl __pyx_string_tab[731]
+#define __pyx_n_u_CurlError __pyx_string_tab[732]
+#define __pyx_n_u_CurlError___init __pyx_string_tab[733]
+#define __pyx_n_u_CurlMime __pyx_string_tab[734]
+#define __pyx_n_u_CurlMime___reduce_cython __pyx_string_tab[735]
+#define __pyx_n_u_CurlMime___setstate_cython __pyx_string_tab[736]
+#define __pyx_n_u_CurlMime_addpart __pyx_string_tab[737]
+#define __pyx_n_u_CurlMime_attach __pyx_string_tab[738]
+#define __pyx_n_u_CurlMime_close __pyx_string_tab[739]
+#define __pyx_n_u_CurlMime_from_list __pyx_string_tab[740]
+#define __pyx_n_u_CurlWarning __pyx_string_tab[741]
+#define __pyx_n_u_Curl___reduce_cython __pyx_string_tab[742]
+#define __pyx_n_u_Curl___setstate_cython __pyx_string_tab[743]
+#define __pyx_n_u_Curl_clean_after_perform __pyx_string_tab[744]
+#define __pyx_n_u_Curl_close __pyx_string_tab[745]
+#define __pyx_n_u_Curl_debug __pyx_string_tab[746]
+#define __pyx_n_u_Curl_duphandle __pyx_string_tab[747]
+#define __pyx_n_u_Curl_get_reason_phrase __pyx_string_tab[748]
+#define __pyx_n_u_Curl_getinfo __pyx_string_tab[749]
+#define __pyx_n_u_Curl_impersonate __pyx_string_tab[750]
+#define __pyx_n_u_Curl_parse_cookie_headers __pyx_string_tab[751]
+#define __pyx_n_u_Curl_parse_status_line __pyx_string_tab[752]
+#define __pyx_n_u_Curl_perform __pyx_string_tab[753]
+#define __pyx_n_u_Curl_reset __pyx_string_tab[754]
+#define __pyx_n_u_Curl_setopt __pyx_string_tab[755]
+#define __pyx_n_u_Curl_version __pyx_string_tab[756]
+#define __pyx_n_u_Curl_ws_close __pyx_string_tab[757]
+#define __pyx_n_u_Curl_ws_meta __pyx_string_tab[758]
+#define __pyx_n_u_Curl_ws_recv __pyx_string_tab[759]
+#define __pyx_n_u_Curl_ws_send __pyx_string_tab[760]
+#define __pyx_kp_u_Curlm_already_closed_quitting_fr __pyx_string_tab[761]
+#define __pyx_n_u_DEFAULT_CACERT __pyx_string_tab[762]
+#define __pyx_kp_u_Define_add_reader_methods_to_be __pyx_string_tab[763]
+#define __pyx_kp_u_Dimension_d_is_not_direct __pyx_string_tab[764]
+#define __pyx_n_u_EBADF __pyx_string_tab[765]
+#define __pyx_n_u_Ellipsis __pyx_string_tab[766]
+#define __pyx_kp_u_Empty_shape_tuple_for_cython_arr __pyx_string_tab[767]
+#define __pyx_kp_u_Failed_to __pyx_string_tab[768]
+#define __pyx_kp_u_Failed_to_set_error_buffer __pyx_string_tab[769]
+#define __pyx_n_u_FileDescriptorLike __pyx_string_tab[770]
+#define __pyx_kp_u_FileDescriptorLike_2 __pyx_string_tab[771]
+#define __pyx_n_u_FileNotFoundError __pyx_string_tab[772]
+#define __pyx_kp_u_File_not_found_at __pyx_string_tab[773]
+#define __pyx_n_u_GeneratorExit __pyx_string_tab[774]
+#define __pyx_kp_u_H __pyx_string_tab[775]
+#define __pyx_kp_b_HTTP_d_d_0_9_3 __pyx_string_tab[776]
+#define __pyx_kp_b_HTTP_d_d_0_9_3_2 __pyx_string_tab[777]
+#define __pyx_n_u_HasFileno __pyx_string_tab[778]
+#define __pyx_n_u_HasFileno_fileno __pyx_string_tab[779]
+#define __pyx_kp_u_Incompatible_checksums_0x_x_vs_0 __pyx_string_tab[780]
+#define __pyx_n_u_IndexError __pyx_string_tab[781]
+#define __pyx_kp_u_Index_out_of_bounds_axis_d __pyx_string_tab[782]
+#define __pyx_kp_u_Indirect_dimensions_not_supporte __pyx_string_tab[783]
+#define __pyx_kp_u_Invalid_mode_expected_c_or_fortr __pyx_string_tab[784]
+#define __pyx_kp_u_Invalid_shape_in_axis __pyx_string_tab[785]
+#define __pyx_n_u_KeyError __pyx_string_tab[786]
+#define __pyx_n_u_MY_ATTRIBUTES __pyx_string_tab[787]
+#define __pyx_n_u_MemoryError __pyx_string_tab[788]
+#define __pyx_kp_u_MemoryView_of __pyx_string_tab[789]
+#define __pyx_kp_u_NOT_DONE __pyx_string_tab[790]
+#define __pyx_n_u_None __pyx_string_tab[791]
+#define __pyx_kp_u_None __pyx_string_tab[792]
+#define __pyx_n_u_NotImplementedError __pyx_string_tab[793]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[794]
+#define __pyx_n_b_O __pyx_string_tab[795]
+#define __pyx_n_u_OSError __pyx_string_tab[796]
+#define __pyx_kp_u_Option_unsupported_s __pyx_string_tab[797]
+#define __pyx_n_u_Optional __pyx_string_tab[798]
+#define __pyx_kp_u_Out_of_bounds_on_buffer_access_a __pyx_string_tab[799]
+#define __pyx_n_u_PROACTOR_WARNING __pyx_string_tab[800]
+#define __pyx_n_u_Path __pyx_string_tab[801]
+#define __pyx_n_u_PickleError __pyx_string_tab[802]
+#define __pyx_n_u_ProactorEventLoop __pyx_string_tab[803]
+#define __pyx_kp_u_Proactor_event_loop_does_not_im __pyx_string_tab[804]
+#define __pyx_n_u_Protocol __pyx_string_tab[805]
+#define __pyx_n_u_RuntimeError __pyx_string_tab[806]
+#define __pyx_n_u_RuntimeWarning __pyx_string_tab[807]
+#define __pyx_kp_u_See_https_curl_se_libcurl_c_lib __pyx_string_tab[808]
+#define __pyx_n_u_SelectorThread __pyx_string_tab[809]
+#define __pyx_n_u_SelectorThread___init __pyx_string_tab[810]
+#define __pyx_n_u_SelectorThread___init___locals_l __pyx_string_tab[811]
+#define __pyx_n_u_SelectorThread___init___locals_t __pyx_string_tab[812]
+#define __pyx_n_u_SelectorThread__consume_waker __pyx_string_tab[813]
+#define __pyx_n_u_SelectorThread__handle_event __pyx_string_tab[814]
+#define __pyx_n_u_SelectorThread__handle_select __pyx_string_tab[815]
+#define __pyx_n_u_SelectorThread__run_select __pyx_string_tab[816]
+#define __pyx_n_u_SelectorThread__start_select __pyx_string_tab[817]
+#define __pyx_n_u_SelectorThread__thread_manager __pyx_string_tab[818]
+#define __pyx_n_u_SelectorThread__wake_selector __pyx_string_tab[819]
+#define __pyx_n_u_SelectorThread_add_reader __pyx_string_tab[820]
+#define __pyx_n_u_SelectorThread_add_writer __pyx_string_tab[821]
+#define __pyx_n_u_SelectorThread_close __pyx_string_tab[822]
+#define __pyx_n_u_SelectorThread_remove_reader __pyx_string_tab[823]
+#define __pyx_n_u_SelectorThread_remove_writer __pyx_string_tab[824]
+#define __pyx_n_u_Sequence __pyx_string_tab[825]
+#define __pyx_n_u_SimpleCookie __pyx_string_tab[826]
+#define __pyx_kp_u_Step_may_not_be_zero_axis_d __pyx_string_tab[827]
+#define __pyx_n_u_T __pyx_string_tab[828]
+#define __pyx_n_u_Thread __pyx_string_tab[829]
+#define __pyx_kp_u_Tornado_selector __pyx_string_tab[830]
+#define __pyx_n_u_TypeError __pyx_string_tab[831]
+#define __pyx_n_u_TypeVar __pyx_string_tab[832]
+#define __pyx_kp_u_Unable_to_convert_item_to_object __pyx_string_tab[833]
+#define __pyx_n_u_Union __pyx_string_tab[834]
+#define __pyx_n_u_UserWarning __pyx_string_tab[835]
+#define __pyx_n_u_ValueError __pyx_string_tab[836]
+#define __pyx_n_u_View_MemoryView __pyx_string_tab[837]
+#define __pyx_n_u_WSAENOTSOCK __pyx_string_tab[838]
+#define __pyx_n_u_WSFrame __pyx_string_tab[839]
+#define __pyx_n_u_WSFrame___reduce_cython __pyx_string_tab[840]
+#define __pyx_n_u_WSFrame___setstate_cython __pyx_string_tab[841]
+#define __pyx_n_u_WS_RECV __pyx_string_tab[842]
+#define __pyx_n_u_WS_SEND __pyx_string_tab[843]
+#define __pyx_n_u_WeakKeyDictionary __pyx_string_tab[844]
+#define __pyx_n_u_WeakSet __pyx_string_tab[845]
+#define __pyx_kp_u_Wrap_an_event_loop_to_add_implem __pyx_string_tab[846]
+#define __pyx_kp_u_Wrote_bytes_received_bytes __pyx_string_tab[847]
+#define __pyx_kp_u__10 __pyx_string_tab[848]
+#define __pyx_n_u__12 __pyx_string_tab[849]
+#define __pyx_kp_u__2 __pyx_string_tab[850]
+#define __pyx_kp_u__3 __pyx_string_tab[851]
+#define __pyx_kp_u__4 __pyx_string_tab[852]
+#define __pyx_kp_u__5 __pyx_string_tab[853]
+#define __pyx_kp_b__6 __pyx_string_tab[854]
+#define __pyx_kp_u__6 __pyx_string_tab[855]
+#define __pyx_kp_u__8 __pyx_string_tab[856]
+#define __pyx_kp_u__9 __pyx_string_tab[857]
+#define __pyx_n_b_a __pyx_string_tab[858]
+#define __pyx_n_u_abc __pyx_string_tab[859]
+#define __pyx_n_u_add __pyx_string_tab[860]
+#define __pyx_n_u_add_handle __pyx_string_tab[861]
+#define __pyx_kp_u_add_note __pyx_string_tab[862]
+#define __pyx_n_u_add_reader __pyx_string_tab[863]
+#define __pyx_n_u_add_writer __pyx_string_tab[864]
+#define __pyx_n_u_addpart __pyx_string_tab[865]
+#define __pyx_n_u_allocate_buffer __pyx_string_tab[866]
+#define __pyx_kp_u_and __pyx_string_tab[867]
+#define __pyx_n_u_anext __pyx_string_tab[868]
+#define __pyx_n_u_args __pyx_string_tab[869]
+#define __pyx_n_u_asyncio __pyx_string_tab[870]
+#define __pyx_kp_u_asyncio_AbstractEventLoop __pyx_string_tab[871]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[872]
+#define __pyx_n_u_asyncio_loop __pyx_string_tab[873]
+#define __pyx_kp_u_at_0x __pyx_string_tab[874]
+#define __pyx_n_u_atexit __pyx_string_tab[875]
+#define __pyx_n_u_atexit_callback __pyx_string_tab[876]
+#define __pyx_n_u_attach __pyx_string_tab[877]
+#define __pyx_n_u_await __pyx_string_tab[878]
+#define __pyx_n_u_backslashreplace __pyx_string_tab[879]
+#define __pyx_n_u_base __pyx_string_tab[880]
+#define __pyx_n_u_bool __pyx_string_tab[881]
+#define __pyx_n_u_bytes __pyx_string_tab[882]
+#define __pyx_n_u_c __pyx_string_tab[883]
+#define __pyx_n_u_cacert __pyx_string_tab[884]
+#define __pyx_n_u_call_later __pyx_string_tab[885]
+#define __pyx_n_u_call_soon __pyx_string_tab[886]
+#define __pyx_n_u_call_soon_threadsafe __pyx_string_tab[887]
+#define __pyx_n_u_callback __pyx_string_tab[888]
+#define __pyx_n_u_cancel __pyx_string_tab[889]
+#define __pyx_n_u_cancelled __pyx_string_tab[890]
+#define __pyx_n_u_category __pyx_string_tab[891]
+#define __pyx_n_u_cb_map __pyx_string_tab[892]
+#define __pyx_n_u_certifi __pyx_string_tab[893]
+#define __pyx_n_u_class __pyx_string_tab[894]
+#define __pyx_n_u_class_getitem __pyx_string_tab[895]
+#define __pyx_n_u_clean_after_perform __pyx_string_tab[896]
+#define __pyx_n_u_clear __pyx_string_tab[897]
+#define __pyx_n_u_clear_headers __pyx_string_tab[898]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[899]
+#define __pyx_n_u_close __pyx_string_tab[900]
+#define __pyx_n_u_close_selector_and_loop __pyx_string_tab[901]
+#define __pyx_n_u_closed __pyx_string_tab[902]
+#define __pyx_n_u_closing_selector __pyx_string_tab[903]
+#define __pyx_n_u_cls __pyx_string_tab[904]
+#define __pyx_n_u_code __pyx_string_tab[905]
+#define __pyx_kp_u_collections_abc __pyx_string_tab[906]
+#define __pyx_n_u_config_warnings __pyx_string_tab[907]
+#define __pyx_n_u_consume_waker __pyx_string_tab[908]
+#define __pyx_n_u_content_type __pyx_string_tab[909]
+#define __pyx_n_u_contextlib __pyx_string_tab[910]
+#define __pyx_kp_u_contiguous_and_direct __pyx_string_tab[911]
+#define __pyx_kp_u_contiguous_and_indirect __pyx_string_tab[912]
+#define __pyx_n_u_cookie __pyx_string_tab[913]
+#define __pyx_n_u_count __pyx_string_tab[914]
+#define __pyx_n_u_create_future __pyx_string_tab[915]
+#define __pyx_n_u_create_task __pyx_string_tab[916]
+#define __pyx_kp_u_curl __pyx_string_tab[917]
+#define __pyx_n_u_curl_2 __pyx_string_tab[918]
+#define __pyx_n_u_curl_3 __pyx_string_tab[919]
+#define __pyx_kp_u_cycurl__asyncio_selector_pxi __pyx_string_tab[920]
+#define __pyx_n_u_cycurl__curl __pyx_string_tab[921]
+#define __pyx_kp_u_cycurl__curl_pyx __pyx_string_tab[922]
+#define __pyx_kp_u_cycurl_utils_pxi __pyx_string_tab[923]
+#define __pyx_n_u_daemon __pyx_string_tab[924]
+#define __pyx_n_u_data __pyx_string_tab[925]
+#define __pyx_n_u_debug __pyx_string_tab[926]
+#define __pyx_n_u_debug_function_default __pyx_string_tab[927]
+#define __pyx_n_u_decode __pyx_string_tab[928]
+#define __pyx_n_u_default __pyx_string_tab[929]
+#define __pyx_n_u_default_headers __pyx_string_tab[930]
+#define __pyx_n_u_dict __pyx_string_tab[931]
+#define __pyx_kp_u_dict__FileDescriptorLike_Callabl __pyx_string_tab[932]
+#define __pyx_kp_u_disable __pyx_string_tab[933]
+#define __pyx_n_u_discard __pyx_string_tab[934]
+#define __pyx_n_u_doc __pyx_string_tab[935]
+#define __pyx_n_u_done __pyx_string_tab[936]
+#define __pyx_n_u_dtype_is_object __pyx_string_tab[937]
+#define __pyx_n_u_duphandle __pyx_string_tab[938]
+#define __pyx_n_u_e __pyx_string_tab[939]
+#define __pyx_kp_u_enable __pyx_string_tab[940]
+#define __pyx_n_u_encode __pyx_string_tab[941]
+#define __pyx_n_u_enter __pyx_string_tab[942]
+#define __pyx_n_u_enumerate __pyx_string_tab[943]
+#define __pyx_n_u_errno __pyx_string_tab[944]
+#define __pyx_n_u_error __pyx_string_tab[945]
+#define __pyx_n_u_errors __pyx_string_tab[946]
+#define __pyx_n_u_ev_bitmask __pyx_string_tab[947]
+#define __pyx_n_u_exists __pyx_string_tab[948]
+#define __pyx_n_u_exit __pyx_string_tab[949]
+#define __pyx_kp_u_failed_to_call_curl_multi_socket __pyx_string_tab[950]
+#define __pyx_n_u_fd __pyx_string_tab[951]
+#define __pyx_n_u_file __pyx_string_tab[952]
+#define __pyx_n_u_filename __pyx_string_tab[953]
+#define __pyx_n_u_fileno __pyx_string_tab[954]
+#define __pyx_n_u_files __pyx_string_tab[955]
+#define __pyx_n_u_flags __pyx_string_tab[956]
+#define __pyx_n_u_force_timeout __pyx_string_tab[957]
+#define __pyx_n_u_form __pyx_string_tab[958]
+#define __pyx_n_u_format __pyx_string_tab[959]
+#define __pyx_n_u_fortran __pyx_string_tab[960]
+#define __pyx_n_u_frame __pyx_string_tab[961]
+#define __pyx_n_u_from_list __pyx_string_tab[962]
+#define __pyx_n_u_func __pyx_string_tab[963]
+#define __pyx_n_u_functools __pyx_string_tab[964]
+#define __pyx_n_u_future __pyx_string_tab[965]
+#define __pyx_kp_u_gc __pyx_string_tab[966]
+#define __pyx_n_u_get_reason_phrase __pyx_string_tab[967]
+#define __pyx_n_u_get_running_loop __pyx_string_tab[968]
+#define __pyx_n_u_get_selector __pyx_string_tab[969]
+#define __pyx_n_u_get_selector_locals__close_selec __pyx_string_tab[970]
+#define __pyx_n_u_getattribute __pyx_string_tab[971]
+#define __pyx_kp_u_getinfo __pyx_string_tab[972]
+#define __pyx_n_u_getinfo_2 __pyx_string_tab[973]
+#define __pyx_n_u_getstate __pyx_string_tab[974]
+#define __pyx_kp_u_got __pyx_string_tab[975]
+#define __pyx_kp_u_got_differing_extents_in_dimensi __pyx_string_tab[976]
+#define __pyx_n_u_group __pyx_string_tab[977]
+#define __pyx_n_u_handle __pyx_string_tab[978]
+#define __pyx_n_u_handle_event __pyx_string_tab[979]
+#define __pyx_n_u_handle_select __pyx_string_tab[980]
+#define __pyx_n_u_header __pyx_string_tab[981]
+#define __pyx_n_u_headers __pyx_string_tab[982]
+#define __pyx_n_u_http_cookies __pyx_string_tab[983]
+#define __pyx_n_u_http_version __pyx_string_tab[984]
+#define __pyx_n_u_id __pyx_string_tab[985]
+#define __pyx_n_u_ignore __pyx_string_tab[986]
+#define __pyx_n_u_impersonate __pyx_string_tab[987]
+#define __pyx_n_u_import __pyx_string_tab[988]
+#define __pyx_n_u_index __pyx_string_tab[989]
+#define __pyx_n_u_init __pyx_string_tab[990]
+#define __pyx_n_u_initializing __pyx_string_tab[991]
+#define __pyx_n_u_int __pyx_string_tab[992]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[993]
+#define __pyx_kp_u_isenabled __pyx_string_tab[994]
+#define __pyx_n_u_items __pyx_string_tab[995]
+#define __pyx_n_u_itemsize __pyx_string_tab[996]
+#define __pyx_kp_u_itemsize_0_for_cython_array __pyx_string_tab[997]
+#define __pyx_n_u_join __pyx_string_tab[998]
+#define __pyx_n_u_keys __pyx_string_tab[999]
+#define __pyx_n_u_kwargs __pyx_string_tab[1000]
+#define __pyx_n_u_lambda __pyx_string_tab[1001]
+#define __pyx_kp_u_list__FileDescriptorLike __pyx_string_tab[1002]
+#define __pyx_n_u_load __pyx_string_tab[1003]
+#define __pyx_n_u_local_path __pyx_string_tab[1004]
+#define __pyx_n_u_loop __pyx_string_tab[1005]
+#define __pyx_n_u_loop_close __pyx_string_tab[1006]
+#define __pyx_n_u_lower __pyx_string_tab[1007]
+#define __pyx_n_u_m __pyx_string_tab[1008]
+#define __pyx_n_u_main __pyx_string_tab[1009]
+#define __pyx_n_u_match __pyx_string_tab[1010]
+#define __pyx_n_u_memview __pyx_string_tab[1011]
+#define __pyx_n_u_message __pyx_string_tab[1012]
+#define __pyx_n_u_metaclass __pyx_string_tab[1013]
+#define __pyx_n_u_mode __pyx_string_tab[1014]
+#define __pyx_n_u_module __pyx_string_tab[1015]
+#define __pyx_n_u_mro_entries __pyx_string_tab[1016]
+#define __pyx_n_u_msg __pyx_string_tab[1017]
+#define __pyx_n_u_n __pyx_string_tab[1018]
+#define __pyx_n_u_name __pyx_string_tab[1019]
+#define __pyx_n_u_name_2 __pyx_string_tab[1020]
+#define __pyx_n_u_ndim __pyx_string_tab[1021]
+#define __pyx_n_u_new __pyx_string_tab[1022]
+#define __pyx_n_u_next __pyx_string_tab[1023]
+#define __pyx_kp_u_no_default___reduce___due_to_non __pyx_string_tab[1024]
+#define __pyx_n_u_notify __pyx_string_tab[1025]
+#define __pyx_n_u_obj __pyx_string_tab[1026]
+#define __pyx_kp_u_object __pyx_string_tab[1027]
+#define __pyx_n_u_on __pyx_string_tab[1028]
+#define __pyx_n_u_option __pyx_string_tab[1029]
+#define __pyx_n_u_pack __pyx_string_tab[1030]
+#define __pyx_n_u_parse_cookie_headers __pyx_string_tab[1031]
+#define __pyx_n_u_parse_status_line __pyx_string_tab[1032]
+#define __pyx_n_u_partial __pyx_string_tab[1033]
+#define __pyx_n_u_pathlib __pyx_string_tab[1034]
+#define __pyx_n_u_payload __pyx_string_tab[1035]
+#define __pyx_n_u_perform __pyx_string_tab[1036]
+#define __pyx_n_u_pickle __pyx_string_tab[1037]
+#define __pyx_n_u_platform __pyx_string_tab[1038]
+#define __pyx_n_u_pop __pyx_string_tab[1039]
+#define __pyx_n_u_prepare __pyx_string_tab[1040]
+#define __pyx_n_u_print __pyx_string_tab[1041]
+#define __pyx_n_u_process_data __pyx_string_tab[1042]
+#define __pyx_n_u_pyx_checksum __pyx_string_tab[1043]
+#define __pyx_n_u_pyx_state __pyx_string_tab[1044]
+#define __pyx_n_u_pyx_type __pyx_string_tab[1045]
+#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[1046]
+#define __pyx_n_u_pyx_vtable __pyx_string_tab[1047]
+#define __pyx_n_u_qualname __pyx_string_tab[1048]
+#define __pyx_n_u_r __pyx_string_tab[1049]
+#define __pyx_n_u_range __pyx_string_tab[1050]
+#define __pyx_n_u_re __pyx_string_tab[1051]
+#define __pyx_n_u_readers __pyx_string_tab[1052]
+#define __pyx_n_u_real_loop __pyx_string_tab[1053]
+#define __pyx_n_u_real_loop_2 __pyx_string_tab[1054]
+#define __pyx_n_u_reason __pyx_string_tab[1055]
+#define __pyx_n_u_recv __pyx_string_tab[1056]
+#define __pyx_n_u_reduce __pyx_string_tab[1057]
+#define __pyx_n_u_reduce_cython __pyx_string_tab[1058]
+#define __pyx_n_u_reduce_ex __pyx_string_tab[1059]
+#define __pyx_n_u_register __pyx_string_tab[1060]
+#define __pyx_n_u_remove_handle __pyx_string_tab[1061]
+#define __pyx_n_u_remove_reader __pyx_string_tab[1062]
+#define __pyx_n_u_remove_writer __pyx_string_tab[1063]
+#define __pyx_n_u_reset __pyx_string_tab[1064]
+#define __pyx_n_u_return __pyx_string_tab[1065]
+#define __pyx_n_u_rs __pyx_string_tab[1066]
+#define __pyx_n_u_run_select __pyx_string_tab[1067]
+#define __pyx_n_u_select __pyx_string_tab[1068]
+#define __pyx_n_u_select_args __pyx_string_tab[1069]
+#define __pyx_n_u_select_cond __pyx_string_tab[1070]
+#define __pyx_n_u_selector __pyx_string_tab[1071]
+#define __pyx_n_u_selector_loop __pyx_string_tab[1072]
+#define __pyx_n_u_selector_loops __pyx_string_tab[1073]
+#define __pyx_n_u_selectors __pyx_string_tab[1074]
+#define __pyx_n_u_self __pyx_string_tab[1075]
+#define __pyx_kp_u_self_form_cannot_be_converted_to __pyx_string_tab[1076]
+#define __pyx_kp_u_self_frame_cannot_be_converted_t __pyx_string_tab[1077]
+#define __pyx_n_u_send __pyx_string_tab[1078]
+#define __pyx_kp_u_set_cacert __pyx_string_tab[1079]
+#define __pyx_kp_b_set_cookie __pyx_string_tab[1080]
+#define __pyx_n_u_set_exception __pyx_string_tab[1081]
+#define __pyx_n_u_set_name __pyx_string_tab[1082]
+#define __pyx_kp_u_set_proxy_cacert __pyx_string_tab[1083]
+#define __pyx_n_u_set_result __pyx_string_tab[1084]
+#define __pyx_n_u_setblocking __pyx_string_tab[1085]
+#define __pyx_kp_u_setopt __pyx_string_tab[1086]
+#define __pyx_n_u_setopt_2 __pyx_string_tab[1087]
+#define __pyx_n_u_setstate __pyx_string_tab[1088]
+#define __pyx_n_u_setstate_cython __pyx_string_tab[1089]
+#define __pyx_n_u_shape __pyx_string_tab[1090]
+#define __pyx_n_u_simplefilter __pyx_string_tab[1091]
+#define __pyx_n_u_size __pyx_string_tab[1092]
+#define __pyx_n_u_sleep __pyx_string_tab[1093]
+#define __pyx_n_u_socket __pyx_string_tab[1094]
+#define __pyx_n_u_socket_action __pyx_string_tab[1095]
+#define __pyx_n_u_socketpair __pyx_string_tab[1096]
+#define __pyx_n_u_sockfd __pyx_string_tab[1097]
+#define __pyx_n_u_spec __pyx_string_tab[1098]
+#define __pyx_n_u_stacklevel __pyx_string_tab[1099]
+#define __pyx_n_u_start __pyx_string_tab[1100]
+#define __pyx_n_u_start_select __pyx_string_tab[1101]
+#define __pyx_n_u_startswith __pyx_string_tab[1102]
+#define __pyx_n_u_staticmethod __pyx_string_tab[1103]
+#define __pyx_n_u_status_code __pyx_string_tab[1104]
+#define __pyx_n_u_status_line __pyx_string_tab[1105]
+#define __pyx_n_u_step __pyx_string_tab[1106]
+#define __pyx_n_u_stop __pyx_string_tab[1107]
+#define __pyx_n_u_str __pyx_string_tab[1108]
+#define __pyx_kp_u_strided_and_direct __pyx_string_tab[1109]
+#define __pyx_kp_u_strided_and_direct_or_indirect __pyx_string_tab[1110]
+#define __pyx_kp_u_strided_and_indirect __pyx_string_tab[1111]
+#define __pyx_kp_u_stringsource __pyx_string_tab[1112]
+#define __pyx_n_u_struct __pyx_string_tab[1113]
+#define __pyx_n_u_super __pyx_string_tab[1114]
+#define __pyx_n_u_suppress __pyx_string_tab[1115]
+#define __pyx_n_u_sys __pyx_string_tab[1116]
+#define __pyx_n_u_target __pyx_string_tab[1117]
+#define __pyx_n_u_test __pyx_string_tab[1118]
+#define __pyx_n_u_text __pyx_string_tab[1119]
+#define __pyx_n_u_thread __pyx_string_tab[1120]
+#define __pyx_n_u_thread_manager __pyx_string_tab[1121]
+#define __pyx_n_u_thread_manager_anext __pyx_string_tab[1122]
+#define __pyx_n_u_thread_manager_handle __pyx_string_tab[1123]
+#define __pyx_n_u_threading __pyx_string_tab[1124]
+#define __pyx_n_u_throw __pyx_string_tab[1125]
+#define __pyx_n_u_timer __pyx_string_tab[1126]
+#define __pyx_n_u_to_read __pyx_string_tab[1127]
+#define __pyx_n_u_to_write __pyx_string_tab[1128]
+#define __pyx_n_u_tuple __pyx_string_tab[1129]
+#define __pyx_n_u_type __pyx_string_tab[1130]
+#define __pyx_n_u_typing __pyx_string_tab[1131]
+#define __pyx_kp_u_typing_AsyncGenerator_None_None __pyx_string_tab[1132]
+#define __pyx_kp_u_unable_to_allocate_array_data __pyx_string_tab[1133]
+#define __pyx_kp_u_unable_to_allocate_shape_and_str __pyx_string_tab[1134]
+#define __pyx_n_u_unpack __pyx_string_tab[1135]
+#define __pyx_n_u_update __pyx_string_tab[1136]
+#define __pyx_n_u_value __pyx_string_tab[1137]
+#define __pyx_n_u_version __pyx_string_tab[1138]
+#define __pyx_n_u_w __pyx_string_tab[1139]
+#define __pyx_n_u_wait __pyx_string_tab[1140]
+#define __pyx_n_u_wake_selector __pyx_string_tab[1141]
+#define __pyx_n_u_waker_r __pyx_string_tab[1142]
+#define __pyx_n_u_waker_w __pyx_string_tab[1143]
+#define __pyx_n_u_warn __pyx_string_tab[1144]
+#define __pyx_n_u_warnings __pyx_string_tab[1145]
+#define __pyx_n_u_weakref __pyx_string_tab[1146]
+#define __pyx_n_u_where __pyx_string_tab[1147]
+#define __pyx_n_u_win32 __pyx_string_tab[1148]
+#define __pyx_n_u_write __pyx_string_tab[1149]
+#define __pyx_n_u_writers __pyx_string_tab[1150]
+#define __pyx_n_u_ws __pyx_string_tab[1151]
+#define __pyx_n_u_ws_close __pyx_string_tab[1152]
+#define __pyx_n_u_ws_meta __pyx_string_tab[1153]
+#define __pyx_n_u_ws_recv __pyx_string_tab[1154]
+#define __pyx_n_u_ws_send __pyx_string_tab[1155]
+#define __pyx_n_u_x __pyx_string_tab[1156]
+#define __pyx_n_u_xs __pyx_string_tab[1157]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -6141,7 +6184,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_slice[i]); }
   for (int i=0; i<20; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<65; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<1136; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<1158; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_0);
   Py_CLEAR(clear_module_state->__pyx_int_1);
   Py_CLEAR(clear_module_state->__pyx_int_2);
@@ -6207,7 +6250,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_slice[i]); }
   for (int i=0; i<20; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<65; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<1136; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<1158; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_0);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_1);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_2);
@@ -48864,7 +48907,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * CURLOPT_CUSTOMREQUEST = curl.CURLOPT_CUSTOMREQUEST
  * CURLOPT_STDERR = curl.CURLOPT_STDERR             # <<<<<<<<<<<<<<
  * CURLOPT_POSTQUOTE = curl.CURLOPT_POSTQUOTE
- * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
+ * CURLOPT_VERBOSE = curl.CURLOPT_VERBOSE
 */
   __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_STDERR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
@@ -48875,8 +48918,8 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * CURLOPT_CUSTOMREQUEST = curl.CURLOPT_CUSTOMREQUEST
  * CURLOPT_STDERR = curl.CURLOPT_STDERR
  * CURLOPT_POSTQUOTE = curl.CURLOPT_POSTQUOTE             # <<<<<<<<<<<<<<
- * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
  * CURLOPT_VERBOSE = curl.CURLOPT_VERBOSE
+ * CURLOPT_HEADER = curl.CURLOPT_HEADER
 */
   __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POSTQUOTE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
@@ -48886,3378 +48929,3378 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   /* "cycurl/consts.pxi":40
  * CURLOPT_STDERR = curl.CURLOPT_STDERR
  * CURLOPT_POSTQUOTE = curl.CURLOPT_POSTQUOTE
- * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40             # <<<<<<<<<<<<<<
- * CURLOPT_VERBOSE = curl.CURLOPT_VERBOSE
- * CURLOPT_HEADER = curl.CURLOPT_HEADER
-*/
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_OBSOLETE40); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 40, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OBSOLETE40, __pyx_t_5) < 0) __PYX_ERR(5, 40, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "cycurl/consts.pxi":41
- * CURLOPT_POSTQUOTE = curl.CURLOPT_POSTQUOTE
- * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
  * CURLOPT_VERBOSE = curl.CURLOPT_VERBOSE             # <<<<<<<<<<<<<<
  * CURLOPT_HEADER = curl.CURLOPT_HEADER
  * CURLOPT_NOPROGRESS = curl.CURLOPT_NOPROGRESS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_VERBOSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 41, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_VERBOSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_VERBOSE, __pyx_t_5) < 0) __PYX_ERR(5, 41, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_VERBOSE, __pyx_t_5) < 0) __PYX_ERR(5, 40, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":42
- * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
+  /* "cycurl/consts.pxi":41
+ * CURLOPT_POSTQUOTE = curl.CURLOPT_POSTQUOTE
  * CURLOPT_VERBOSE = curl.CURLOPT_VERBOSE
  * CURLOPT_HEADER = curl.CURLOPT_HEADER             # <<<<<<<<<<<<<<
  * CURLOPT_NOPROGRESS = curl.CURLOPT_NOPROGRESS
  * CURLOPT_NOBODY = curl.CURLOPT_NOBODY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 42, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HEADER, __pyx_t_5) < 0) __PYX_ERR(5, 42, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HEADER, __pyx_t_5) < 0) __PYX_ERR(5, 41, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":43
+  /* "cycurl/consts.pxi":42
  * CURLOPT_VERBOSE = curl.CURLOPT_VERBOSE
  * CURLOPT_HEADER = curl.CURLOPT_HEADER
  * CURLOPT_NOPROGRESS = curl.CURLOPT_NOPROGRESS             # <<<<<<<<<<<<<<
  * CURLOPT_NOBODY = curl.CURLOPT_NOBODY
  * CURLOPT_FAILONERROR = curl.CURLOPT_FAILONERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NOPROGRESS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 43, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NOPROGRESS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NOPROGRESS, __pyx_t_5) < 0) __PYX_ERR(5, 43, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NOPROGRESS, __pyx_t_5) < 0) __PYX_ERR(5, 42, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":44
+  /* "cycurl/consts.pxi":43
  * CURLOPT_HEADER = curl.CURLOPT_HEADER
  * CURLOPT_NOPROGRESS = curl.CURLOPT_NOPROGRESS
  * CURLOPT_NOBODY = curl.CURLOPT_NOBODY             # <<<<<<<<<<<<<<
  * CURLOPT_FAILONERROR = curl.CURLOPT_FAILONERROR
  * CURLOPT_UPLOAD = curl.CURLOPT_UPLOAD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NOBODY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 44, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NOBODY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NOBODY, __pyx_t_5) < 0) __PYX_ERR(5, 44, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NOBODY, __pyx_t_5) < 0) __PYX_ERR(5, 43, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":45
+  /* "cycurl/consts.pxi":44
  * CURLOPT_NOPROGRESS = curl.CURLOPT_NOPROGRESS
  * CURLOPT_NOBODY = curl.CURLOPT_NOBODY
  * CURLOPT_FAILONERROR = curl.CURLOPT_FAILONERROR             # <<<<<<<<<<<<<<
  * CURLOPT_UPLOAD = curl.CURLOPT_UPLOAD
  * CURLOPT_POST = curl.CURLOPT_POST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FAILONERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 45, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FAILONERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FAILONERROR, __pyx_t_5) < 0) __PYX_ERR(5, 45, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FAILONERROR, __pyx_t_5) < 0) __PYX_ERR(5, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":46
+  /* "cycurl/consts.pxi":45
  * CURLOPT_NOBODY = curl.CURLOPT_NOBODY
  * CURLOPT_FAILONERROR = curl.CURLOPT_FAILONERROR
  * CURLOPT_UPLOAD = curl.CURLOPT_UPLOAD             # <<<<<<<<<<<<<<
  * CURLOPT_POST = curl.CURLOPT_POST
  * CURLOPT_DIRLISTONLY = curl.CURLOPT_DIRLISTONLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UPLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 46, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UPLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UPLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 46, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UPLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":47
+  /* "cycurl/consts.pxi":46
  * CURLOPT_FAILONERROR = curl.CURLOPT_FAILONERROR
  * CURLOPT_UPLOAD = curl.CURLOPT_UPLOAD
  * CURLOPT_POST = curl.CURLOPT_POST             # <<<<<<<<<<<<<<
  * CURLOPT_DIRLISTONLY = curl.CURLOPT_DIRLISTONLY
  * CURLOPT_APPEND = curl.CURLOPT_APPEND
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 47, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POST, __pyx_t_5) < 0) __PYX_ERR(5, 47, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POST, __pyx_t_5) < 0) __PYX_ERR(5, 46, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":48
+  /* "cycurl/consts.pxi":47
  * CURLOPT_UPLOAD = curl.CURLOPT_UPLOAD
  * CURLOPT_POST = curl.CURLOPT_POST
  * CURLOPT_DIRLISTONLY = curl.CURLOPT_DIRLISTONLY             # <<<<<<<<<<<<<<
  * CURLOPT_APPEND = curl.CURLOPT_APPEND
  * CURLOPT_NETRC = curl.CURLOPT_NETRC
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DIRLISTONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 48, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DIRLISTONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DIRLISTONLY, __pyx_t_5) < 0) __PYX_ERR(5, 48, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DIRLISTONLY, __pyx_t_5) < 0) __PYX_ERR(5, 47, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":49
+  /* "cycurl/consts.pxi":48
  * CURLOPT_POST = curl.CURLOPT_POST
  * CURLOPT_DIRLISTONLY = curl.CURLOPT_DIRLISTONLY
  * CURLOPT_APPEND = curl.CURLOPT_APPEND             # <<<<<<<<<<<<<<
  * CURLOPT_NETRC = curl.CURLOPT_NETRC
  * CURLOPT_FOLLOWLOCATION = curl.CURLOPT_FOLLOWLOCATION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_APPEND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 49, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_APPEND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_APPEND, __pyx_t_5) < 0) __PYX_ERR(5, 49, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_APPEND, __pyx_t_5) < 0) __PYX_ERR(5, 48, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":50
+  /* "cycurl/consts.pxi":49
  * CURLOPT_DIRLISTONLY = curl.CURLOPT_DIRLISTONLY
  * CURLOPT_APPEND = curl.CURLOPT_APPEND
  * CURLOPT_NETRC = curl.CURLOPT_NETRC             # <<<<<<<<<<<<<<
  * CURLOPT_FOLLOWLOCATION = curl.CURLOPT_FOLLOWLOCATION
  * CURLOPT_TRANSFERTEXT = curl.CURLOPT_TRANSFERTEXT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NETRC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 50, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NETRC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NETRC, __pyx_t_5) < 0) __PYX_ERR(5, 50, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NETRC, __pyx_t_5) < 0) __PYX_ERR(5, 49, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":51
+  /* "cycurl/consts.pxi":50
  * CURLOPT_APPEND = curl.CURLOPT_APPEND
  * CURLOPT_NETRC = curl.CURLOPT_NETRC
  * CURLOPT_FOLLOWLOCATION = curl.CURLOPT_FOLLOWLOCATION             # <<<<<<<<<<<<<<
  * CURLOPT_TRANSFERTEXT = curl.CURLOPT_TRANSFERTEXT
  * CURLOPT_PUT = curl.CURLOPT_PUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FOLLOWLOCATION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 51, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FOLLOWLOCATION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FOLLOWLOCATION, __pyx_t_5) < 0) __PYX_ERR(5, 51, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FOLLOWLOCATION, __pyx_t_5) < 0) __PYX_ERR(5, 50, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":52
+  /* "cycurl/consts.pxi":51
  * CURLOPT_NETRC = curl.CURLOPT_NETRC
  * CURLOPT_FOLLOWLOCATION = curl.CURLOPT_FOLLOWLOCATION
  * CURLOPT_TRANSFERTEXT = curl.CURLOPT_TRANSFERTEXT             # <<<<<<<<<<<<<<
  * CURLOPT_PUT = curl.CURLOPT_PUT
  * CURLOPT_PROGRESSFUNCTION = curl.CURLOPT_PROGRESSFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TRANSFERTEXT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 52, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TRANSFERTEXT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TRANSFERTEXT, __pyx_t_5) < 0) __PYX_ERR(5, 52, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TRANSFERTEXT, __pyx_t_5) < 0) __PYX_ERR(5, 51, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":53
+  /* "cycurl/consts.pxi":52
  * CURLOPT_FOLLOWLOCATION = curl.CURLOPT_FOLLOWLOCATION
  * CURLOPT_TRANSFERTEXT = curl.CURLOPT_TRANSFERTEXT
  * CURLOPT_PUT = curl.CURLOPT_PUT             # <<<<<<<<<<<<<<
  * CURLOPT_PROGRESSFUNCTION = curl.CURLOPT_PROGRESSFUNCTION
  * CURLOPT_XFERINFODATA = curl.CURLOPT_XFERINFODATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 53, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PUT, __pyx_t_5) < 0) __PYX_ERR(5, 53, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PUT, __pyx_t_5) < 0) __PYX_ERR(5, 52, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":54
+  /* "cycurl/consts.pxi":53
  * CURLOPT_TRANSFERTEXT = curl.CURLOPT_TRANSFERTEXT
  * CURLOPT_PUT = curl.CURLOPT_PUT
  * CURLOPT_PROGRESSFUNCTION = curl.CURLOPT_PROGRESSFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_XFERINFODATA = curl.CURLOPT_XFERINFODATA
  * CURLOPT_AUTOREFERER = curl.CURLOPT_AUTOREFERER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROGRESSFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 54, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROGRESSFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROGRESSFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 54, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROGRESSFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 53, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":55
+  /* "cycurl/consts.pxi":54
  * CURLOPT_PUT = curl.CURLOPT_PUT
  * CURLOPT_PROGRESSFUNCTION = curl.CURLOPT_PROGRESSFUNCTION
  * CURLOPT_XFERINFODATA = curl.CURLOPT_XFERINFODATA             # <<<<<<<<<<<<<<
  * CURLOPT_AUTOREFERER = curl.CURLOPT_AUTOREFERER
  * CURLOPT_PROXYPORT = curl.CURLOPT_PROXYPORT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_XFERINFODATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 55, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_XFERINFODATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_XFERINFODATA, __pyx_t_5) < 0) __PYX_ERR(5, 55, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_XFERINFODATA, __pyx_t_5) < 0) __PYX_ERR(5, 54, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":56
+  /* "cycurl/consts.pxi":55
  * CURLOPT_PROGRESSFUNCTION = curl.CURLOPT_PROGRESSFUNCTION
  * CURLOPT_XFERINFODATA = curl.CURLOPT_XFERINFODATA
  * CURLOPT_AUTOREFERER = curl.CURLOPT_AUTOREFERER             # <<<<<<<<<<<<<<
  * CURLOPT_PROXYPORT = curl.CURLOPT_PROXYPORT
  * CURLOPT_POSTFIELDSIZE = curl.CURLOPT_POSTFIELDSIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_AUTOREFERER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 56, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_AUTOREFERER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_AUTOREFERER, __pyx_t_5) < 0) __PYX_ERR(5, 56, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_AUTOREFERER, __pyx_t_5) < 0) __PYX_ERR(5, 55, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":57
+  /* "cycurl/consts.pxi":56
  * CURLOPT_XFERINFODATA = curl.CURLOPT_XFERINFODATA
  * CURLOPT_AUTOREFERER = curl.CURLOPT_AUTOREFERER
  * CURLOPT_PROXYPORT = curl.CURLOPT_PROXYPORT             # <<<<<<<<<<<<<<
  * CURLOPT_POSTFIELDSIZE = curl.CURLOPT_POSTFIELDSIZE
  * CURLOPT_HTTPPROXYTUNNEL = curl.CURLOPT_HTTPPROXYTUNNEL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYPORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 57, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYPORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYPORT, __pyx_t_5) < 0) __PYX_ERR(5, 57, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYPORT, __pyx_t_5) < 0) __PYX_ERR(5, 56, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":58
+  /* "cycurl/consts.pxi":57
  * CURLOPT_AUTOREFERER = curl.CURLOPT_AUTOREFERER
  * CURLOPT_PROXYPORT = curl.CURLOPT_PROXYPORT
  * CURLOPT_POSTFIELDSIZE = curl.CURLOPT_POSTFIELDSIZE             # <<<<<<<<<<<<<<
  * CURLOPT_HTTPPROXYTUNNEL = curl.CURLOPT_HTTPPROXYTUNNEL
  * CURLOPT_INTERFACE = curl.CURLOPT_INTERFACE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POSTFIELDSIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 58, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POSTFIELDSIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POSTFIELDSIZE, __pyx_t_5) < 0) __PYX_ERR(5, 58, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POSTFIELDSIZE, __pyx_t_5) < 0) __PYX_ERR(5, 57, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":59
+  /* "cycurl/consts.pxi":58
  * CURLOPT_PROXYPORT = curl.CURLOPT_PROXYPORT
  * CURLOPT_POSTFIELDSIZE = curl.CURLOPT_POSTFIELDSIZE
  * CURLOPT_HTTPPROXYTUNNEL = curl.CURLOPT_HTTPPROXYTUNNEL             # <<<<<<<<<<<<<<
  * CURLOPT_INTERFACE = curl.CURLOPT_INTERFACE
  * CURLOPT_KRBLEVEL = curl.CURLOPT_KRBLEVEL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTPPROXYTUNNEL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 59, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTPPROXYTUNNEL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTPPROXYTUNNEL, __pyx_t_5) < 0) __PYX_ERR(5, 59, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTPPROXYTUNNEL, __pyx_t_5) < 0) __PYX_ERR(5, 58, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":60
+  /* "cycurl/consts.pxi":59
  * CURLOPT_POSTFIELDSIZE = curl.CURLOPT_POSTFIELDSIZE
  * CURLOPT_HTTPPROXYTUNNEL = curl.CURLOPT_HTTPPROXYTUNNEL
  * CURLOPT_INTERFACE = curl.CURLOPT_INTERFACE             # <<<<<<<<<<<<<<
  * CURLOPT_KRBLEVEL = curl.CURLOPT_KRBLEVEL
  * CURLOPT_SSL_VERIFYPEER = curl.CURLOPT_SSL_VERIFYPEER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INTERFACE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 60, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INTERFACE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INTERFACE, __pyx_t_5) < 0) __PYX_ERR(5, 60, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INTERFACE, __pyx_t_5) < 0) __PYX_ERR(5, 59, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":61
+  /* "cycurl/consts.pxi":60
  * CURLOPT_HTTPPROXYTUNNEL = curl.CURLOPT_HTTPPROXYTUNNEL
  * CURLOPT_INTERFACE = curl.CURLOPT_INTERFACE
  * CURLOPT_KRBLEVEL = curl.CURLOPT_KRBLEVEL             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_VERIFYPEER = curl.CURLOPT_SSL_VERIFYPEER
  * CURLOPT_CAINFO = curl.CURLOPT_CAINFO
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_KRBLEVEL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 61, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_KRBLEVEL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_KRBLEVEL, __pyx_t_5) < 0) __PYX_ERR(5, 61, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_KRBLEVEL, __pyx_t_5) < 0) __PYX_ERR(5, 60, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":62
+  /* "cycurl/consts.pxi":61
  * CURLOPT_INTERFACE = curl.CURLOPT_INTERFACE
  * CURLOPT_KRBLEVEL = curl.CURLOPT_KRBLEVEL
  * CURLOPT_SSL_VERIFYPEER = curl.CURLOPT_SSL_VERIFYPEER             # <<<<<<<<<<<<<<
  * CURLOPT_CAINFO = curl.CURLOPT_CAINFO
  * CURLOPT_MAXREDIRS = curl.CURLOPT_MAXREDIRS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_VERIFYPEER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 62, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_VERIFYPEER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_VERIFYPEER, __pyx_t_5) < 0) __PYX_ERR(5, 62, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_VERIFYPEER, __pyx_t_5) < 0) __PYX_ERR(5, 61, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":63
+  /* "cycurl/consts.pxi":62
  * CURLOPT_KRBLEVEL = curl.CURLOPT_KRBLEVEL
  * CURLOPT_SSL_VERIFYPEER = curl.CURLOPT_SSL_VERIFYPEER
  * CURLOPT_CAINFO = curl.CURLOPT_CAINFO             # <<<<<<<<<<<<<<
  * CURLOPT_MAXREDIRS = curl.CURLOPT_MAXREDIRS
  * CURLOPT_FILETIME = curl.CURLOPT_FILETIME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CAINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 63, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CAINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAINFO, __pyx_t_5) < 0) __PYX_ERR(5, 63, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAINFO, __pyx_t_5) < 0) __PYX_ERR(5, 62, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":64
+  /* "cycurl/consts.pxi":63
  * CURLOPT_SSL_VERIFYPEER = curl.CURLOPT_SSL_VERIFYPEER
  * CURLOPT_CAINFO = curl.CURLOPT_CAINFO
  * CURLOPT_MAXREDIRS = curl.CURLOPT_MAXREDIRS             # <<<<<<<<<<<<<<
  * CURLOPT_FILETIME = curl.CURLOPT_FILETIME
  * CURLOPT_TELNETOPTIONS = curl.CURLOPT_TELNETOPTIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXREDIRS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 64, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXREDIRS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXREDIRS, __pyx_t_5) < 0) __PYX_ERR(5, 64, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXREDIRS, __pyx_t_5) < 0) __PYX_ERR(5, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":65
+  /* "cycurl/consts.pxi":64
  * CURLOPT_CAINFO = curl.CURLOPT_CAINFO
  * CURLOPT_MAXREDIRS = curl.CURLOPT_MAXREDIRS
  * CURLOPT_FILETIME = curl.CURLOPT_FILETIME             # <<<<<<<<<<<<<<
  * CURLOPT_TELNETOPTIONS = curl.CURLOPT_TELNETOPTIONS
  * CURLOPT_MAXCONNECTS = curl.CURLOPT_MAXCONNECTS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FILETIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 65, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FILETIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FILETIME, __pyx_t_5) < 0) __PYX_ERR(5, 65, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FILETIME, __pyx_t_5) < 0) __PYX_ERR(5, 64, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":66
+  /* "cycurl/consts.pxi":65
  * CURLOPT_MAXREDIRS = curl.CURLOPT_MAXREDIRS
  * CURLOPT_FILETIME = curl.CURLOPT_FILETIME
  * CURLOPT_TELNETOPTIONS = curl.CURLOPT_TELNETOPTIONS             # <<<<<<<<<<<<<<
  * CURLOPT_MAXCONNECTS = curl.CURLOPT_MAXCONNECTS
- * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
+ * CURLOPT_FRESH_CONNECT = curl.CURLOPT_FRESH_CONNECT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TELNETOPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 66, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TELNETOPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TELNETOPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 66, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TELNETOPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 65, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":67
+  /* "cycurl/consts.pxi":66
  * CURLOPT_FILETIME = curl.CURLOPT_FILETIME
  * CURLOPT_TELNETOPTIONS = curl.CURLOPT_TELNETOPTIONS
  * CURLOPT_MAXCONNECTS = curl.CURLOPT_MAXCONNECTS             # <<<<<<<<<<<<<<
- * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
- * CURLOPT_FRESH_CONNECT = curl.CURLOPT_FRESH_CONNECT
-*/
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXCONNECTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 67, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXCONNECTS, __pyx_t_5) < 0) __PYX_ERR(5, 67, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "cycurl/consts.pxi":68
- * CURLOPT_TELNETOPTIONS = curl.CURLOPT_TELNETOPTIONS
- * CURLOPT_MAXCONNECTS = curl.CURLOPT_MAXCONNECTS
- * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72             # <<<<<<<<<<<<<<
  * CURLOPT_FRESH_CONNECT = curl.CURLOPT_FRESH_CONNECT
  * CURLOPT_FORBID_REUSE = curl.CURLOPT_FORBID_REUSE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_OBSOLETE72); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 68, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXCONNECTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OBSOLETE72, __pyx_t_5) < 0) __PYX_ERR(5, 68, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXCONNECTS, __pyx_t_5) < 0) __PYX_ERR(5, 66, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":69
+  /* "cycurl/consts.pxi":67
+ * CURLOPT_TELNETOPTIONS = curl.CURLOPT_TELNETOPTIONS
  * CURLOPT_MAXCONNECTS = curl.CURLOPT_MAXCONNECTS
- * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
  * CURLOPT_FRESH_CONNECT = curl.CURLOPT_FRESH_CONNECT             # <<<<<<<<<<<<<<
  * CURLOPT_FORBID_REUSE = curl.CURLOPT_FORBID_REUSE
  * CURLOPT_RANDOM_FILE = curl.CURLOPT_RANDOM_FILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FRESH_CONNECT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 69, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FRESH_CONNECT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FRESH_CONNECT, __pyx_t_5) < 0) __PYX_ERR(5, 69, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FRESH_CONNECT, __pyx_t_5) < 0) __PYX_ERR(5, 67, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":70
- * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
+  /* "cycurl/consts.pxi":68
+ * CURLOPT_MAXCONNECTS = curl.CURLOPT_MAXCONNECTS
  * CURLOPT_FRESH_CONNECT = curl.CURLOPT_FRESH_CONNECT
  * CURLOPT_FORBID_REUSE = curl.CURLOPT_FORBID_REUSE             # <<<<<<<<<<<<<<
  * CURLOPT_RANDOM_FILE = curl.CURLOPT_RANDOM_FILE
  * CURLOPT_EGDSOCKET = curl.CURLOPT_EGDSOCKET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FORBID_REUSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 70, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FORBID_REUSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FORBID_REUSE, __pyx_t_5) < 0) __PYX_ERR(5, 70, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FORBID_REUSE, __pyx_t_5) < 0) __PYX_ERR(5, 68, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":71
+  /* "cycurl/consts.pxi":69
  * CURLOPT_FRESH_CONNECT = curl.CURLOPT_FRESH_CONNECT
  * CURLOPT_FORBID_REUSE = curl.CURLOPT_FORBID_REUSE
  * CURLOPT_RANDOM_FILE = curl.CURLOPT_RANDOM_FILE             # <<<<<<<<<<<<<<
  * CURLOPT_EGDSOCKET = curl.CURLOPT_EGDSOCKET
  * CURLOPT_CONNECTTIMEOUT = curl.CURLOPT_CONNECTTIMEOUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RANDOM_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 71, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RANDOM_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RANDOM_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 71, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RANDOM_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 69, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":72
+  /* "cycurl/consts.pxi":70
  * CURLOPT_FORBID_REUSE = curl.CURLOPT_FORBID_REUSE
  * CURLOPT_RANDOM_FILE = curl.CURLOPT_RANDOM_FILE
  * CURLOPT_EGDSOCKET = curl.CURLOPT_EGDSOCKET             # <<<<<<<<<<<<<<
  * CURLOPT_CONNECTTIMEOUT = curl.CURLOPT_CONNECTTIMEOUT
  * CURLOPT_HEADERFUNCTION = curl.CURLOPT_HEADERFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_EGDSOCKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 72, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_EGDSOCKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_EGDSOCKET, __pyx_t_5) < 0) __PYX_ERR(5, 72, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_EGDSOCKET, __pyx_t_5) < 0) __PYX_ERR(5, 70, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":73
+  /* "cycurl/consts.pxi":71
  * CURLOPT_RANDOM_FILE = curl.CURLOPT_RANDOM_FILE
  * CURLOPT_EGDSOCKET = curl.CURLOPT_EGDSOCKET
  * CURLOPT_CONNECTTIMEOUT = curl.CURLOPT_CONNECTTIMEOUT             # <<<<<<<<<<<<<<
  * CURLOPT_HEADERFUNCTION = curl.CURLOPT_HEADERFUNCTION
  * CURLOPT_HTTPGET = curl.CURLOPT_HTTPGET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONNECTTIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 73, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONNECTTIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONNECTTIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 73, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONNECTTIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 71, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":74
+  /* "cycurl/consts.pxi":72
  * CURLOPT_EGDSOCKET = curl.CURLOPT_EGDSOCKET
  * CURLOPT_CONNECTTIMEOUT = curl.CURLOPT_CONNECTTIMEOUT
  * CURLOPT_HEADERFUNCTION = curl.CURLOPT_HEADERFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_HTTPGET = curl.CURLOPT_HTTPGET
  * CURLOPT_SSL_VERIFYHOST = curl.CURLOPT_SSL_VERIFYHOST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HEADERFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 74, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HEADERFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HEADERFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 74, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HEADERFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 72, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":75
+  /* "cycurl/consts.pxi":73
  * CURLOPT_CONNECTTIMEOUT = curl.CURLOPT_CONNECTTIMEOUT
  * CURLOPT_HEADERFUNCTION = curl.CURLOPT_HEADERFUNCTION
  * CURLOPT_HTTPGET = curl.CURLOPT_HTTPGET             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_VERIFYHOST = curl.CURLOPT_SSL_VERIFYHOST
  * CURLOPT_COOKIEJAR = curl.CURLOPT_COOKIEJAR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTPGET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 75, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTPGET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTPGET, __pyx_t_5) < 0) __PYX_ERR(5, 75, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTPGET, __pyx_t_5) < 0) __PYX_ERR(5, 73, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":76
+  /* "cycurl/consts.pxi":74
  * CURLOPT_HEADERFUNCTION = curl.CURLOPT_HEADERFUNCTION
  * CURLOPT_HTTPGET = curl.CURLOPT_HTTPGET
  * CURLOPT_SSL_VERIFYHOST = curl.CURLOPT_SSL_VERIFYHOST             # <<<<<<<<<<<<<<
  * CURLOPT_COOKIEJAR = curl.CURLOPT_COOKIEJAR
  * CURLOPT_SSL_CIPHER_LIST = curl.CURLOPT_SSL_CIPHER_LIST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_VERIFYHOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 76, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_VERIFYHOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_VERIFYHOST, __pyx_t_5) < 0) __PYX_ERR(5, 76, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_VERIFYHOST, __pyx_t_5) < 0) __PYX_ERR(5, 74, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":77
+  /* "cycurl/consts.pxi":75
  * CURLOPT_HTTPGET = curl.CURLOPT_HTTPGET
  * CURLOPT_SSL_VERIFYHOST = curl.CURLOPT_SSL_VERIFYHOST
  * CURLOPT_COOKIEJAR = curl.CURLOPT_COOKIEJAR             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_CIPHER_LIST = curl.CURLOPT_SSL_CIPHER_LIST
  * CURLOPT_HTTP_VERSION = curl.CURLOPT_HTTP_VERSION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_COOKIEJAR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 77, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_COOKIEJAR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIEJAR, __pyx_t_5) < 0) __PYX_ERR(5, 77, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIEJAR, __pyx_t_5) < 0) __PYX_ERR(5, 75, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":78
+  /* "cycurl/consts.pxi":76
  * CURLOPT_SSL_VERIFYHOST = curl.CURLOPT_SSL_VERIFYHOST
  * CURLOPT_COOKIEJAR = curl.CURLOPT_COOKIEJAR
  * CURLOPT_SSL_CIPHER_LIST = curl.CURLOPT_SSL_CIPHER_LIST             # <<<<<<<<<<<<<<
  * CURLOPT_HTTP_VERSION = curl.CURLOPT_HTTP_VERSION
  * CURLOPT_FTP_USE_EPSV = curl.CURLOPT_FTP_USE_EPSV
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_CIPHER_LIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 78, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_CIPHER_LIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_CIPHER_LIST, __pyx_t_5) < 0) __PYX_ERR(5, 78, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_CIPHER_LIST, __pyx_t_5) < 0) __PYX_ERR(5, 76, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":79
+  /* "cycurl/consts.pxi":77
  * CURLOPT_COOKIEJAR = curl.CURLOPT_COOKIEJAR
  * CURLOPT_SSL_CIPHER_LIST = curl.CURLOPT_SSL_CIPHER_LIST
  * CURLOPT_HTTP_VERSION = curl.CURLOPT_HTTP_VERSION             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_USE_EPSV = curl.CURLOPT_FTP_USE_EPSV
  * CURLOPT_SSLCERTTYPE = curl.CURLOPT_SSLCERTTYPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP_VERSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 79, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP_VERSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 77, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP_VERSION, __pyx_t_5) < 0) __PYX_ERR(5, 79, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP_VERSION, __pyx_t_5) < 0) __PYX_ERR(5, 77, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":80
+  /* "cycurl/consts.pxi":78
  * CURLOPT_SSL_CIPHER_LIST = curl.CURLOPT_SSL_CIPHER_LIST
  * CURLOPT_HTTP_VERSION = curl.CURLOPT_HTTP_VERSION
  * CURLOPT_FTP_USE_EPSV = curl.CURLOPT_FTP_USE_EPSV             # <<<<<<<<<<<<<<
  * CURLOPT_SSLCERTTYPE = curl.CURLOPT_SSLCERTTYPE
  * CURLOPT_SSLKEY = curl.CURLOPT_SSLKEY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_USE_EPSV); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 80, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_USE_EPSV); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_USE_EPSV, __pyx_t_5) < 0) __PYX_ERR(5, 80, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_USE_EPSV, __pyx_t_5) < 0) __PYX_ERR(5, 78, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":81
+  /* "cycurl/consts.pxi":79
  * CURLOPT_HTTP_VERSION = curl.CURLOPT_HTTP_VERSION
  * CURLOPT_FTP_USE_EPSV = curl.CURLOPT_FTP_USE_EPSV
  * CURLOPT_SSLCERTTYPE = curl.CURLOPT_SSLCERTTYPE             # <<<<<<<<<<<<<<
  * CURLOPT_SSLKEY = curl.CURLOPT_SSLKEY
  * CURLOPT_SSLKEYTYPE = curl.CURLOPT_SSLKEYTYPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLCERTTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 81, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLCERTTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERTTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 81, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERTTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 79, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":82
+  /* "cycurl/consts.pxi":80
  * CURLOPT_FTP_USE_EPSV = curl.CURLOPT_FTP_USE_EPSV
  * CURLOPT_SSLCERTTYPE = curl.CURLOPT_SSLCERTTYPE
  * CURLOPT_SSLKEY = curl.CURLOPT_SSLKEY             # <<<<<<<<<<<<<<
  * CURLOPT_SSLKEYTYPE = curl.CURLOPT_SSLKEYTYPE
  * CURLOPT_SSLENGINE = curl.CURLOPT_SSLENGINE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 82, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEY, __pyx_t_5) < 0) __PYX_ERR(5, 82, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEY, __pyx_t_5) < 0) __PYX_ERR(5, 80, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":83
+  /* "cycurl/consts.pxi":81
  * CURLOPT_SSLCERTTYPE = curl.CURLOPT_SSLCERTTYPE
  * CURLOPT_SSLKEY = curl.CURLOPT_SSLKEY
  * CURLOPT_SSLKEYTYPE = curl.CURLOPT_SSLKEYTYPE             # <<<<<<<<<<<<<<
  * CURLOPT_SSLENGINE = curl.CURLOPT_SSLENGINE
  * CURLOPT_SSLENGINE_DEFAULT = curl.CURLOPT_SSLENGINE_DEFAULT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLKEYTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 83, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLKEYTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEYTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 83, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEYTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 81, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":84
+  /* "cycurl/consts.pxi":82
  * CURLOPT_SSLKEY = curl.CURLOPT_SSLKEY
  * CURLOPT_SSLKEYTYPE = curl.CURLOPT_SSLKEYTYPE
  * CURLOPT_SSLENGINE = curl.CURLOPT_SSLENGINE             # <<<<<<<<<<<<<<
  * CURLOPT_SSLENGINE_DEFAULT = curl.CURLOPT_SSLENGINE_DEFAULT
  * CURLOPT_DNS_USE_GLOBAL_CACHE = curl.CURLOPT_DNS_USE_GLOBAL_CACHE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLENGINE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 84, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLENGINE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLENGINE, __pyx_t_5) < 0) __PYX_ERR(5, 84, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLENGINE, __pyx_t_5) < 0) __PYX_ERR(5, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":85
+  /* "cycurl/consts.pxi":83
  * CURLOPT_SSLKEYTYPE = curl.CURLOPT_SSLKEYTYPE
  * CURLOPT_SSLENGINE = curl.CURLOPT_SSLENGINE
  * CURLOPT_SSLENGINE_DEFAULT = curl.CURLOPT_SSLENGINE_DEFAULT             # <<<<<<<<<<<<<<
  * CURLOPT_DNS_USE_GLOBAL_CACHE = curl.CURLOPT_DNS_USE_GLOBAL_CACHE
  * CURLOPT_DNS_CACHE_TIMEOUT = curl.CURLOPT_DNS_CACHE_TIMEOUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLENGINE_DEFAULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 85, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLENGINE_DEFAULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLENGINE_DEFAULT, __pyx_t_5) < 0) __PYX_ERR(5, 85, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLENGINE_DEFAULT, __pyx_t_5) < 0) __PYX_ERR(5, 83, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":86
+  /* "cycurl/consts.pxi":84
  * CURLOPT_SSLENGINE = curl.CURLOPT_SSLENGINE
  * CURLOPT_SSLENGINE_DEFAULT = curl.CURLOPT_SSLENGINE_DEFAULT
  * CURLOPT_DNS_USE_GLOBAL_CACHE = curl.CURLOPT_DNS_USE_GLOBAL_CACHE             # <<<<<<<<<<<<<<
  * CURLOPT_DNS_CACHE_TIMEOUT = curl.CURLOPT_DNS_CACHE_TIMEOUT
  * CURLOPT_PREQUOTE = curl.CURLOPT_PREQUOTE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_USE_GLOBAL_CACHE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 86, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_USE_GLOBAL_CACHE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_USE_GLOBAL_CACHE, __pyx_t_5) < 0) __PYX_ERR(5, 86, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_USE_GLOBAL_CACHE, __pyx_t_5) < 0) __PYX_ERR(5, 84, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":87
+  /* "cycurl/consts.pxi":85
  * CURLOPT_SSLENGINE_DEFAULT = curl.CURLOPT_SSLENGINE_DEFAULT
  * CURLOPT_DNS_USE_GLOBAL_CACHE = curl.CURLOPT_DNS_USE_GLOBAL_CACHE
  * CURLOPT_DNS_CACHE_TIMEOUT = curl.CURLOPT_DNS_CACHE_TIMEOUT             # <<<<<<<<<<<<<<
  * CURLOPT_PREQUOTE = curl.CURLOPT_PREQUOTE
  * CURLOPT_DEBUGFUNCTION = curl.CURLOPT_DEBUGFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_CACHE_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 87, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_CACHE_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_CACHE_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 87, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_CACHE_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 85, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":88
+  /* "cycurl/consts.pxi":86
  * CURLOPT_DNS_USE_GLOBAL_CACHE = curl.CURLOPT_DNS_USE_GLOBAL_CACHE
  * CURLOPT_DNS_CACHE_TIMEOUT = curl.CURLOPT_DNS_CACHE_TIMEOUT
  * CURLOPT_PREQUOTE = curl.CURLOPT_PREQUOTE             # <<<<<<<<<<<<<<
  * CURLOPT_DEBUGFUNCTION = curl.CURLOPT_DEBUGFUNCTION
  * CURLOPT_DEBUGDATA = curl.CURLOPT_DEBUGDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PREQUOTE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 88, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PREQUOTE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 86, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PREQUOTE, __pyx_t_5) < 0) __PYX_ERR(5, 88, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PREQUOTE, __pyx_t_5) < 0) __PYX_ERR(5, 86, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":89
+  /* "cycurl/consts.pxi":87
  * CURLOPT_DNS_CACHE_TIMEOUT = curl.CURLOPT_DNS_CACHE_TIMEOUT
  * CURLOPT_PREQUOTE = curl.CURLOPT_PREQUOTE
  * CURLOPT_DEBUGFUNCTION = curl.CURLOPT_DEBUGFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_DEBUGDATA = curl.CURLOPT_DEBUGDATA
  * CURLOPT_COOKIESESSION = curl.CURLOPT_COOKIESESSION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DEBUGFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 89, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DEBUGFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DEBUGFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 89, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DEBUGFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 87, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":90
+  /* "cycurl/consts.pxi":88
  * CURLOPT_PREQUOTE = curl.CURLOPT_PREQUOTE
  * CURLOPT_DEBUGFUNCTION = curl.CURLOPT_DEBUGFUNCTION
  * CURLOPT_DEBUGDATA = curl.CURLOPT_DEBUGDATA             # <<<<<<<<<<<<<<
  * CURLOPT_COOKIESESSION = curl.CURLOPT_COOKIESESSION
  * CURLOPT_CAPATH = curl.CURLOPT_CAPATH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DEBUGDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 90, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DEBUGDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DEBUGDATA, __pyx_t_5) < 0) __PYX_ERR(5, 90, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DEBUGDATA, __pyx_t_5) < 0) __PYX_ERR(5, 88, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":91
+  /* "cycurl/consts.pxi":89
  * CURLOPT_DEBUGFUNCTION = curl.CURLOPT_DEBUGFUNCTION
  * CURLOPT_DEBUGDATA = curl.CURLOPT_DEBUGDATA
  * CURLOPT_COOKIESESSION = curl.CURLOPT_COOKIESESSION             # <<<<<<<<<<<<<<
  * CURLOPT_CAPATH = curl.CURLOPT_CAPATH
  * CURLOPT_BUFFERSIZE = curl.CURLOPT_BUFFERSIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_COOKIESESSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 91, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_COOKIESESSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIESESSION, __pyx_t_5) < 0) __PYX_ERR(5, 91, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIESESSION, __pyx_t_5) < 0) __PYX_ERR(5, 89, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":92
+  /* "cycurl/consts.pxi":90
  * CURLOPT_DEBUGDATA = curl.CURLOPT_DEBUGDATA
  * CURLOPT_COOKIESESSION = curl.CURLOPT_COOKIESESSION
  * CURLOPT_CAPATH = curl.CURLOPT_CAPATH             # <<<<<<<<<<<<<<
  * CURLOPT_BUFFERSIZE = curl.CURLOPT_BUFFERSIZE
  * CURLOPT_NOSIGNAL = curl.CURLOPT_NOSIGNAL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CAPATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 92, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CAPATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAPATH, __pyx_t_5) < 0) __PYX_ERR(5, 92, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAPATH, __pyx_t_5) < 0) __PYX_ERR(5, 90, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":93
+  /* "cycurl/consts.pxi":91
  * CURLOPT_COOKIESESSION = curl.CURLOPT_COOKIESESSION
  * CURLOPT_CAPATH = curl.CURLOPT_CAPATH
  * CURLOPT_BUFFERSIZE = curl.CURLOPT_BUFFERSIZE             # <<<<<<<<<<<<<<
  * CURLOPT_NOSIGNAL = curl.CURLOPT_NOSIGNAL
  * CURLOPT_SHARE = curl.CURLOPT_SHARE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_BUFFERSIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 93, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_BUFFERSIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_BUFFERSIZE, __pyx_t_5) < 0) __PYX_ERR(5, 93, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_BUFFERSIZE, __pyx_t_5) < 0) __PYX_ERR(5, 91, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":94
+  /* "cycurl/consts.pxi":92
  * CURLOPT_CAPATH = curl.CURLOPT_CAPATH
  * CURLOPT_BUFFERSIZE = curl.CURLOPT_BUFFERSIZE
  * CURLOPT_NOSIGNAL = curl.CURLOPT_NOSIGNAL             # <<<<<<<<<<<<<<
  * CURLOPT_SHARE = curl.CURLOPT_SHARE
  * CURLOPT_PROXYTYPE = curl.CURLOPT_PROXYTYPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NOSIGNAL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 94, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NOSIGNAL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NOSIGNAL, __pyx_t_5) < 0) __PYX_ERR(5, 94, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NOSIGNAL, __pyx_t_5) < 0) __PYX_ERR(5, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":95
+  /* "cycurl/consts.pxi":93
  * CURLOPT_BUFFERSIZE = curl.CURLOPT_BUFFERSIZE
  * CURLOPT_NOSIGNAL = curl.CURLOPT_NOSIGNAL
  * CURLOPT_SHARE = curl.CURLOPT_SHARE             # <<<<<<<<<<<<<<
  * CURLOPT_PROXYTYPE = curl.CURLOPT_PROXYTYPE
  * CURLOPT_ACCEPT_ENCODING = curl.CURLOPT_ACCEPT_ENCODING
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SHARE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 95, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SHARE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SHARE, __pyx_t_5) < 0) __PYX_ERR(5, 95, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SHARE, __pyx_t_5) < 0) __PYX_ERR(5, 93, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":96
+  /* "cycurl/consts.pxi":94
  * CURLOPT_NOSIGNAL = curl.CURLOPT_NOSIGNAL
  * CURLOPT_SHARE = curl.CURLOPT_SHARE
  * CURLOPT_PROXYTYPE = curl.CURLOPT_PROXYTYPE             # <<<<<<<<<<<<<<
  * CURLOPT_ACCEPT_ENCODING = curl.CURLOPT_ACCEPT_ENCODING
  * CURLOPT_PRIVATE = curl.CURLOPT_PRIVATE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 96, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 96, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 94, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":97
+  /* "cycurl/consts.pxi":95
  * CURLOPT_SHARE = curl.CURLOPT_SHARE
  * CURLOPT_PROXYTYPE = curl.CURLOPT_PROXYTYPE
  * CURLOPT_ACCEPT_ENCODING = curl.CURLOPT_ACCEPT_ENCODING             # <<<<<<<<<<<<<<
  * CURLOPT_PRIVATE = curl.CURLOPT_PRIVATE
  * CURLOPT_HTTP200ALIASES = curl.CURLOPT_HTTP200ALIASES
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ACCEPT_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 97, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ACCEPT_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ACCEPT_ENCODING, __pyx_t_5) < 0) __PYX_ERR(5, 97, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ACCEPT_ENCODING, __pyx_t_5) < 0) __PYX_ERR(5, 95, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":98
+  /* "cycurl/consts.pxi":96
  * CURLOPT_PROXYTYPE = curl.CURLOPT_PROXYTYPE
  * CURLOPT_ACCEPT_ENCODING = curl.CURLOPT_ACCEPT_ENCODING
  * CURLOPT_PRIVATE = curl.CURLOPT_PRIVATE             # <<<<<<<<<<<<<<
  * CURLOPT_HTTP200ALIASES = curl.CURLOPT_HTTP200ALIASES
  * CURLOPT_UNRESTRICTED_AUTH = curl.CURLOPT_UNRESTRICTED_AUTH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PRIVATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 98, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PRIVATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 96, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PRIVATE, __pyx_t_5) < 0) __PYX_ERR(5, 98, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PRIVATE, __pyx_t_5) < 0) __PYX_ERR(5, 96, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":99
+  /* "cycurl/consts.pxi":97
  * CURLOPT_ACCEPT_ENCODING = curl.CURLOPT_ACCEPT_ENCODING
  * CURLOPT_PRIVATE = curl.CURLOPT_PRIVATE
  * CURLOPT_HTTP200ALIASES = curl.CURLOPT_HTTP200ALIASES             # <<<<<<<<<<<<<<
  * CURLOPT_UNRESTRICTED_AUTH = curl.CURLOPT_UNRESTRICTED_AUTH
  * CURLOPT_FTP_USE_EPRT = curl.CURLOPT_FTP_USE_EPRT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP200ALIASES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 99, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP200ALIASES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 97, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP200ALIASES, __pyx_t_5) < 0) __PYX_ERR(5, 99, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP200ALIASES, __pyx_t_5) < 0) __PYX_ERR(5, 97, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":100
+  /* "cycurl/consts.pxi":98
  * CURLOPT_PRIVATE = curl.CURLOPT_PRIVATE
  * CURLOPT_HTTP200ALIASES = curl.CURLOPT_HTTP200ALIASES
  * CURLOPT_UNRESTRICTED_AUTH = curl.CURLOPT_UNRESTRICTED_AUTH             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_USE_EPRT = curl.CURLOPT_FTP_USE_EPRT
  * CURLOPT_HTTPAUTH = curl.CURLOPT_HTTPAUTH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UNRESTRICTED_AUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 100, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UNRESTRICTED_AUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 98, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UNRESTRICTED_AUTH, __pyx_t_5) < 0) __PYX_ERR(5, 100, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UNRESTRICTED_AUTH, __pyx_t_5) < 0) __PYX_ERR(5, 98, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":101
+  /* "cycurl/consts.pxi":99
  * CURLOPT_HTTP200ALIASES = curl.CURLOPT_HTTP200ALIASES
  * CURLOPT_UNRESTRICTED_AUTH = curl.CURLOPT_UNRESTRICTED_AUTH
  * CURLOPT_FTP_USE_EPRT = curl.CURLOPT_FTP_USE_EPRT             # <<<<<<<<<<<<<<
  * CURLOPT_HTTPAUTH = curl.CURLOPT_HTTPAUTH
  * CURLOPT_SSL_CTX_FUNCTION = curl.CURLOPT_SSL_CTX_FUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_USE_EPRT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 101, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_USE_EPRT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_USE_EPRT, __pyx_t_5) < 0) __PYX_ERR(5, 101, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_USE_EPRT, __pyx_t_5) < 0) __PYX_ERR(5, 99, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":102
+  /* "cycurl/consts.pxi":100
  * CURLOPT_UNRESTRICTED_AUTH = curl.CURLOPT_UNRESTRICTED_AUTH
  * CURLOPT_FTP_USE_EPRT = curl.CURLOPT_FTP_USE_EPRT
  * CURLOPT_HTTPAUTH = curl.CURLOPT_HTTPAUTH             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_CTX_FUNCTION = curl.CURLOPT_SSL_CTX_FUNCTION
  * CURLOPT_SSL_CTX_DATA = curl.CURLOPT_SSL_CTX_DATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTPAUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 102, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTPAUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTPAUTH, __pyx_t_5) < 0) __PYX_ERR(5, 102, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTPAUTH, __pyx_t_5) < 0) __PYX_ERR(5, 100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":103
+  /* "cycurl/consts.pxi":101
  * CURLOPT_FTP_USE_EPRT = curl.CURLOPT_FTP_USE_EPRT
  * CURLOPT_HTTPAUTH = curl.CURLOPT_HTTPAUTH
  * CURLOPT_SSL_CTX_FUNCTION = curl.CURLOPT_SSL_CTX_FUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_CTX_DATA = curl.CURLOPT_SSL_CTX_DATA
  * CURLOPT_FTP_CREATE_MISSING_DIRS = curl.CURLOPT_FTP_CREATE_MISSING_DIRS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_CTX_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 103, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_CTX_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_CTX_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 103, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_CTX_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 101, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":104
+  /* "cycurl/consts.pxi":102
  * CURLOPT_HTTPAUTH = curl.CURLOPT_HTTPAUTH
  * CURLOPT_SSL_CTX_FUNCTION = curl.CURLOPT_SSL_CTX_FUNCTION
  * CURLOPT_SSL_CTX_DATA = curl.CURLOPT_SSL_CTX_DATA             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_CREATE_MISSING_DIRS = curl.CURLOPT_FTP_CREATE_MISSING_DIRS
  * CURLOPT_PROXYAUTH = curl.CURLOPT_PROXYAUTH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_CTX_DATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 104, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_CTX_DATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_CTX_DATA, __pyx_t_5) < 0) __PYX_ERR(5, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_CTX_DATA, __pyx_t_5) < 0) __PYX_ERR(5, 102, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":105
+  /* "cycurl/consts.pxi":103
  * CURLOPT_SSL_CTX_FUNCTION = curl.CURLOPT_SSL_CTX_FUNCTION
  * CURLOPT_SSL_CTX_DATA = curl.CURLOPT_SSL_CTX_DATA
  * CURLOPT_FTP_CREATE_MISSING_DIRS = curl.CURLOPT_FTP_CREATE_MISSING_DIRS             # <<<<<<<<<<<<<<
  * CURLOPT_PROXYAUTH = curl.CURLOPT_PROXYAUTH
  * CURLOPT_SERVER_RESPONSE_TIMEOUT = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_CREATE_MISSING_DIRS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 105, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_CREATE_MISSING_DIRS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_CREATE_MISSING_DIRS, __pyx_t_5) < 0) __PYX_ERR(5, 105, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_CREATE_MISSING_DIRS, __pyx_t_5) < 0) __PYX_ERR(5, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":106
+  /* "cycurl/consts.pxi":104
  * CURLOPT_SSL_CTX_DATA = curl.CURLOPT_SSL_CTX_DATA
  * CURLOPT_FTP_CREATE_MISSING_DIRS = curl.CURLOPT_FTP_CREATE_MISSING_DIRS
  * CURLOPT_PROXYAUTH = curl.CURLOPT_PROXYAUTH             # <<<<<<<<<<<<<<
  * CURLOPT_SERVER_RESPONSE_TIMEOUT = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT
  * CURLOPT_IPRESOLVE = curl.CURLOPT_IPRESOLVE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYAUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 106, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYAUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYAUTH, __pyx_t_5) < 0) __PYX_ERR(5, 106, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYAUTH, __pyx_t_5) < 0) __PYX_ERR(5, 104, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":107
+  /* "cycurl/consts.pxi":105
  * CURLOPT_FTP_CREATE_MISSING_DIRS = curl.CURLOPT_FTP_CREATE_MISSING_DIRS
  * CURLOPT_PROXYAUTH = curl.CURLOPT_PROXYAUTH
  * CURLOPT_SERVER_RESPONSE_TIMEOUT = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT             # <<<<<<<<<<<<<<
  * CURLOPT_IPRESOLVE = curl.CURLOPT_IPRESOLVE
  * CURLOPT_MAXFILESIZE = curl.CURLOPT_MAXFILESIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SERVER_RESPONSE_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 107, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SERVER_RESPONSE_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 107, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 105, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":108
+  /* "cycurl/consts.pxi":106
  * CURLOPT_PROXYAUTH = curl.CURLOPT_PROXYAUTH
  * CURLOPT_SERVER_RESPONSE_TIMEOUT = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT
  * CURLOPT_IPRESOLVE = curl.CURLOPT_IPRESOLVE             # <<<<<<<<<<<<<<
  * CURLOPT_MAXFILESIZE = curl.CURLOPT_MAXFILESIZE
  * CURLOPT_INFILESIZE_LARGE = curl.CURLOPT_INFILESIZE_LARGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_IPRESOLVE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 108, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_IPRESOLVE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_IPRESOLVE, __pyx_t_5) < 0) __PYX_ERR(5, 108, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_IPRESOLVE, __pyx_t_5) < 0) __PYX_ERR(5, 106, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":109
+  /* "cycurl/consts.pxi":107
  * CURLOPT_SERVER_RESPONSE_TIMEOUT = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT
  * CURLOPT_IPRESOLVE = curl.CURLOPT_IPRESOLVE
  * CURLOPT_MAXFILESIZE = curl.CURLOPT_MAXFILESIZE             # <<<<<<<<<<<<<<
  * CURLOPT_INFILESIZE_LARGE = curl.CURLOPT_INFILESIZE_LARGE
  * CURLOPT_RESUME_FROM_LARGE = curl.CURLOPT_RESUME_FROM_LARGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXFILESIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 109, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXFILESIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXFILESIZE, __pyx_t_5) < 0) __PYX_ERR(5, 109, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXFILESIZE, __pyx_t_5) < 0) __PYX_ERR(5, 107, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":110
+  /* "cycurl/consts.pxi":108
  * CURLOPT_IPRESOLVE = curl.CURLOPT_IPRESOLVE
  * CURLOPT_MAXFILESIZE = curl.CURLOPT_MAXFILESIZE
  * CURLOPT_INFILESIZE_LARGE = curl.CURLOPT_INFILESIZE_LARGE             # <<<<<<<<<<<<<<
  * CURLOPT_RESUME_FROM_LARGE = curl.CURLOPT_RESUME_FROM_LARGE
  * CURLOPT_MAXFILESIZE_LARGE = curl.CURLOPT_MAXFILESIZE_LARGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INFILESIZE_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 110, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INFILESIZE_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INFILESIZE_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 110, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INFILESIZE_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 108, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":111
+  /* "cycurl/consts.pxi":109
  * CURLOPT_MAXFILESIZE = curl.CURLOPT_MAXFILESIZE
  * CURLOPT_INFILESIZE_LARGE = curl.CURLOPT_INFILESIZE_LARGE
  * CURLOPT_RESUME_FROM_LARGE = curl.CURLOPT_RESUME_FROM_LARGE             # <<<<<<<<<<<<<<
  * CURLOPT_MAXFILESIZE_LARGE = curl.CURLOPT_MAXFILESIZE_LARGE
  * CURLOPT_NETRC_FILE = curl.CURLOPT_NETRC_FILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RESUME_FROM_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 111, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RESUME_FROM_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RESUME_FROM_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 111, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RESUME_FROM_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 109, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":112
+  /* "cycurl/consts.pxi":110
  * CURLOPT_INFILESIZE_LARGE = curl.CURLOPT_INFILESIZE_LARGE
  * CURLOPT_RESUME_FROM_LARGE = curl.CURLOPT_RESUME_FROM_LARGE
  * CURLOPT_MAXFILESIZE_LARGE = curl.CURLOPT_MAXFILESIZE_LARGE             # <<<<<<<<<<<<<<
  * CURLOPT_NETRC_FILE = curl.CURLOPT_NETRC_FILE
  * CURLOPT_USE_SSL = curl.CURLOPT_USE_SSL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXFILESIZE_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 112, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXFILESIZE_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXFILESIZE_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 112, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXFILESIZE_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 110, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":113
+  /* "cycurl/consts.pxi":111
  * CURLOPT_RESUME_FROM_LARGE = curl.CURLOPT_RESUME_FROM_LARGE
  * CURLOPT_MAXFILESIZE_LARGE = curl.CURLOPT_MAXFILESIZE_LARGE
  * CURLOPT_NETRC_FILE = curl.CURLOPT_NETRC_FILE             # <<<<<<<<<<<<<<
  * CURLOPT_USE_SSL = curl.CURLOPT_USE_SSL
  * CURLOPT_POSTFIELDSIZE_LARGE = curl.CURLOPT_POSTFIELDSIZE_LARGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NETRC_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 113, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NETRC_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NETRC_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 113, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NETRC_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":114
+  /* "cycurl/consts.pxi":112
  * CURLOPT_MAXFILESIZE_LARGE = curl.CURLOPT_MAXFILESIZE_LARGE
  * CURLOPT_NETRC_FILE = curl.CURLOPT_NETRC_FILE
  * CURLOPT_USE_SSL = curl.CURLOPT_USE_SSL             # <<<<<<<<<<<<<<
  * CURLOPT_POSTFIELDSIZE_LARGE = curl.CURLOPT_POSTFIELDSIZE_LARGE
  * CURLOPT_TCP_NODELAY = curl.CURLOPT_TCP_NODELAY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_USE_SSL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 114, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_USE_SSL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_USE_SSL, __pyx_t_5) < 0) __PYX_ERR(5, 114, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_USE_SSL, __pyx_t_5) < 0) __PYX_ERR(5, 112, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":115
+  /* "cycurl/consts.pxi":113
  * CURLOPT_NETRC_FILE = curl.CURLOPT_NETRC_FILE
  * CURLOPT_USE_SSL = curl.CURLOPT_USE_SSL
  * CURLOPT_POSTFIELDSIZE_LARGE = curl.CURLOPT_POSTFIELDSIZE_LARGE             # <<<<<<<<<<<<<<
  * CURLOPT_TCP_NODELAY = curl.CURLOPT_TCP_NODELAY
  * CURLOPT_FTPSSLAUTH = curl.CURLOPT_FTPSSLAUTH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POSTFIELDSIZE_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 115, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POSTFIELDSIZE_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POSTFIELDSIZE_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 115, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POSTFIELDSIZE_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 113, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":116
+  /* "cycurl/consts.pxi":114
  * CURLOPT_USE_SSL = curl.CURLOPT_USE_SSL
  * CURLOPT_POSTFIELDSIZE_LARGE = curl.CURLOPT_POSTFIELDSIZE_LARGE
  * CURLOPT_TCP_NODELAY = curl.CURLOPT_TCP_NODELAY             # <<<<<<<<<<<<<<
  * CURLOPT_FTPSSLAUTH = curl.CURLOPT_FTPSSLAUTH
  * CURLOPT_IOCTLFUNCTION = curl.CURLOPT_IOCTLFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_NODELAY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 116, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_NODELAY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_NODELAY, __pyx_t_5) < 0) __PYX_ERR(5, 116, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_NODELAY, __pyx_t_5) < 0) __PYX_ERR(5, 114, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":117
+  /* "cycurl/consts.pxi":115
  * CURLOPT_POSTFIELDSIZE_LARGE = curl.CURLOPT_POSTFIELDSIZE_LARGE
  * CURLOPT_TCP_NODELAY = curl.CURLOPT_TCP_NODELAY
  * CURLOPT_FTPSSLAUTH = curl.CURLOPT_FTPSSLAUTH             # <<<<<<<<<<<<<<
  * CURLOPT_IOCTLFUNCTION = curl.CURLOPT_IOCTLFUNCTION
  * CURLOPT_IOCTLDATA = curl.CURLOPT_IOCTLDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTPSSLAUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 117, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTPSSLAUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPSSLAUTH, __pyx_t_5) < 0) __PYX_ERR(5, 117, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPSSLAUTH, __pyx_t_5) < 0) __PYX_ERR(5, 115, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":118
+  /* "cycurl/consts.pxi":116
  * CURLOPT_TCP_NODELAY = curl.CURLOPT_TCP_NODELAY
  * CURLOPT_FTPSSLAUTH = curl.CURLOPT_FTPSSLAUTH
  * CURLOPT_IOCTLFUNCTION = curl.CURLOPT_IOCTLFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_IOCTLDATA = curl.CURLOPT_IOCTLDATA
  * CURLOPT_FTP_ACCOUNT = curl.CURLOPT_FTP_ACCOUNT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_IOCTLFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 118, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_IOCTLFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_IOCTLFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 118, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_IOCTLFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 116, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":119
+  /* "cycurl/consts.pxi":117
  * CURLOPT_FTPSSLAUTH = curl.CURLOPT_FTPSSLAUTH
  * CURLOPT_IOCTLFUNCTION = curl.CURLOPT_IOCTLFUNCTION
  * CURLOPT_IOCTLDATA = curl.CURLOPT_IOCTLDATA             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_ACCOUNT = curl.CURLOPT_FTP_ACCOUNT
  * CURLOPT_COOKIELIST = curl.CURLOPT_COOKIELIST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_IOCTLDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 119, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_IOCTLDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_IOCTLDATA, __pyx_t_5) < 0) __PYX_ERR(5, 119, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_IOCTLDATA, __pyx_t_5) < 0) __PYX_ERR(5, 117, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":120
+  /* "cycurl/consts.pxi":118
  * CURLOPT_IOCTLFUNCTION = curl.CURLOPT_IOCTLFUNCTION
  * CURLOPT_IOCTLDATA = curl.CURLOPT_IOCTLDATA
  * CURLOPT_FTP_ACCOUNT = curl.CURLOPT_FTP_ACCOUNT             # <<<<<<<<<<<<<<
  * CURLOPT_COOKIELIST = curl.CURLOPT_COOKIELIST
  * CURLOPT_IGNORE_CONTENT_LENGTH = curl.CURLOPT_IGNORE_CONTENT_LENGTH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_ACCOUNT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 120, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_ACCOUNT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_ACCOUNT, __pyx_t_5) < 0) __PYX_ERR(5, 120, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_ACCOUNT, __pyx_t_5) < 0) __PYX_ERR(5, 118, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":121
+  /* "cycurl/consts.pxi":119
  * CURLOPT_IOCTLDATA = curl.CURLOPT_IOCTLDATA
  * CURLOPT_FTP_ACCOUNT = curl.CURLOPT_FTP_ACCOUNT
  * CURLOPT_COOKIELIST = curl.CURLOPT_COOKIELIST             # <<<<<<<<<<<<<<
  * CURLOPT_IGNORE_CONTENT_LENGTH = curl.CURLOPT_IGNORE_CONTENT_LENGTH
  * CURLOPT_FTP_SKIP_PASV_IP = curl.CURLOPT_FTP_SKIP_PASV_IP
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_COOKIELIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 121, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_COOKIELIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIELIST, __pyx_t_5) < 0) __PYX_ERR(5, 121, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIELIST, __pyx_t_5) < 0) __PYX_ERR(5, 119, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":122
+  /* "cycurl/consts.pxi":120
  * CURLOPT_FTP_ACCOUNT = curl.CURLOPT_FTP_ACCOUNT
  * CURLOPT_COOKIELIST = curl.CURLOPT_COOKIELIST
  * CURLOPT_IGNORE_CONTENT_LENGTH = curl.CURLOPT_IGNORE_CONTENT_LENGTH             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_SKIP_PASV_IP = curl.CURLOPT_FTP_SKIP_PASV_IP
  * CURLOPT_FTP_FILEMETHOD = curl.CURLOPT_FTP_FILEMETHOD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_IGNORE_CONTENT_LENGTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 122, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_IGNORE_CONTENT_LENGTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_IGNORE_CONTENT_LENGTH, __pyx_t_5) < 0) __PYX_ERR(5, 122, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_IGNORE_CONTENT_LENGTH, __pyx_t_5) < 0) __PYX_ERR(5, 120, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":123
+  /* "cycurl/consts.pxi":121
  * CURLOPT_COOKIELIST = curl.CURLOPT_COOKIELIST
  * CURLOPT_IGNORE_CONTENT_LENGTH = curl.CURLOPT_IGNORE_CONTENT_LENGTH
  * CURLOPT_FTP_SKIP_PASV_IP = curl.CURLOPT_FTP_SKIP_PASV_IP             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_FILEMETHOD = curl.CURLOPT_FTP_FILEMETHOD
  * CURLOPT_LOCALPORT = curl.CURLOPT_LOCALPORT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_SKIP_PASV_IP); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 123, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_SKIP_PASV_IP); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_SKIP_PASV_IP, __pyx_t_5) < 0) __PYX_ERR(5, 123, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_SKIP_PASV_IP, __pyx_t_5) < 0) __PYX_ERR(5, 121, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":124
+  /* "cycurl/consts.pxi":122
  * CURLOPT_IGNORE_CONTENT_LENGTH = curl.CURLOPT_IGNORE_CONTENT_LENGTH
  * CURLOPT_FTP_SKIP_PASV_IP = curl.CURLOPT_FTP_SKIP_PASV_IP
  * CURLOPT_FTP_FILEMETHOD = curl.CURLOPT_FTP_FILEMETHOD             # <<<<<<<<<<<<<<
  * CURLOPT_LOCALPORT = curl.CURLOPT_LOCALPORT
  * CURLOPT_LOCALPORTRANGE = curl.CURLOPT_LOCALPORTRANGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_FILEMETHOD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 124, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_FILEMETHOD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_FILEMETHOD, __pyx_t_5) < 0) __PYX_ERR(5, 124, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_FILEMETHOD, __pyx_t_5) < 0) __PYX_ERR(5, 122, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":125
+  /* "cycurl/consts.pxi":123
  * CURLOPT_FTP_SKIP_PASV_IP = curl.CURLOPT_FTP_SKIP_PASV_IP
  * CURLOPT_FTP_FILEMETHOD = curl.CURLOPT_FTP_FILEMETHOD
  * CURLOPT_LOCALPORT = curl.CURLOPT_LOCALPORT             # <<<<<<<<<<<<<<
  * CURLOPT_LOCALPORTRANGE = curl.CURLOPT_LOCALPORTRANGE
  * CURLOPT_CONNECT_ONLY = curl.CURLOPT_CONNECT_ONLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_LOCALPORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 125, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_LOCALPORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_LOCALPORT, __pyx_t_5) < 0) __PYX_ERR(5, 125, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_LOCALPORT, __pyx_t_5) < 0) __PYX_ERR(5, 123, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":126
+  /* "cycurl/consts.pxi":124
  * CURLOPT_FTP_FILEMETHOD = curl.CURLOPT_FTP_FILEMETHOD
  * CURLOPT_LOCALPORT = curl.CURLOPT_LOCALPORT
  * CURLOPT_LOCALPORTRANGE = curl.CURLOPT_LOCALPORTRANGE             # <<<<<<<<<<<<<<
  * CURLOPT_CONNECT_ONLY = curl.CURLOPT_CONNECT_ONLY
  * CURLOPT_CONV_FROM_NETWORK_FUNCTION = curl.CURLOPT_CONV_FROM_NETWORK_FUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_LOCALPORTRANGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 126, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_LOCALPORTRANGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_LOCALPORTRANGE, __pyx_t_5) < 0) __PYX_ERR(5, 126, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_LOCALPORTRANGE, __pyx_t_5) < 0) __PYX_ERR(5, 124, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":127
+  /* "cycurl/consts.pxi":125
  * CURLOPT_LOCALPORT = curl.CURLOPT_LOCALPORT
  * CURLOPT_LOCALPORTRANGE = curl.CURLOPT_LOCALPORTRANGE
  * CURLOPT_CONNECT_ONLY = curl.CURLOPT_CONNECT_ONLY             # <<<<<<<<<<<<<<
  * CURLOPT_CONV_FROM_NETWORK_FUNCTION = curl.CURLOPT_CONV_FROM_NETWORK_FUNCTION
  * CURLOPT_CONV_TO_NETWORK_FUNCTION = curl.CURLOPT_CONV_TO_NETWORK_FUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONNECT_ONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 127, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONNECT_ONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONNECT_ONLY, __pyx_t_5) < 0) __PYX_ERR(5, 127, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONNECT_ONLY, __pyx_t_5) < 0) __PYX_ERR(5, 125, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":128
+  /* "cycurl/consts.pxi":126
  * CURLOPT_LOCALPORTRANGE = curl.CURLOPT_LOCALPORTRANGE
  * CURLOPT_CONNECT_ONLY = curl.CURLOPT_CONNECT_ONLY
  * CURLOPT_CONV_FROM_NETWORK_FUNCTION = curl.CURLOPT_CONV_FROM_NETWORK_FUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_CONV_TO_NETWORK_FUNCTION = curl.CURLOPT_CONV_TO_NETWORK_FUNCTION
  * CURLOPT_CONV_FROM_UTF8_FUNCTION = curl.CURLOPT_CONV_FROM_UTF8_FUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONV_FROM_NETWORK_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 128, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONV_FROM_NETWORK_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 126, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONV_FROM_NETWORK_FUNCTI, __pyx_t_5) < 0) __PYX_ERR(5, 128, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONV_FROM_NETWORK_FUNCTI, __pyx_t_5) < 0) __PYX_ERR(5, 126, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":129
+  /* "cycurl/consts.pxi":127
  * CURLOPT_CONNECT_ONLY = curl.CURLOPT_CONNECT_ONLY
  * CURLOPT_CONV_FROM_NETWORK_FUNCTION = curl.CURLOPT_CONV_FROM_NETWORK_FUNCTION
  * CURLOPT_CONV_TO_NETWORK_FUNCTION = curl.CURLOPT_CONV_TO_NETWORK_FUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_CONV_FROM_UTF8_FUNCTION = curl.CURLOPT_CONV_FROM_UTF8_FUNCTION
  * CURLOPT_MAX_SEND_SPEED_LARGE = curl.CURLOPT_MAX_SEND_SPEED_LARGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONV_TO_NETWORK_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 129, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONV_TO_NETWORK_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONV_TO_NETWORK_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 129, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONV_TO_NETWORK_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 127, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":130
+  /* "cycurl/consts.pxi":128
  * CURLOPT_CONV_FROM_NETWORK_FUNCTION = curl.CURLOPT_CONV_FROM_NETWORK_FUNCTION
  * CURLOPT_CONV_TO_NETWORK_FUNCTION = curl.CURLOPT_CONV_TO_NETWORK_FUNCTION
  * CURLOPT_CONV_FROM_UTF8_FUNCTION = curl.CURLOPT_CONV_FROM_UTF8_FUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_MAX_SEND_SPEED_LARGE = curl.CURLOPT_MAX_SEND_SPEED_LARGE
  * CURLOPT_MAX_RECV_SPEED_LARGE = curl.CURLOPT_MAX_RECV_SPEED_LARGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONV_FROM_UTF8_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 130, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONV_FROM_UTF8_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONV_FROM_UTF8_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 130, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONV_FROM_UTF8_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 128, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":131
+  /* "cycurl/consts.pxi":129
  * CURLOPT_CONV_TO_NETWORK_FUNCTION = curl.CURLOPT_CONV_TO_NETWORK_FUNCTION
  * CURLOPT_CONV_FROM_UTF8_FUNCTION = curl.CURLOPT_CONV_FROM_UTF8_FUNCTION
  * CURLOPT_MAX_SEND_SPEED_LARGE = curl.CURLOPT_MAX_SEND_SPEED_LARGE             # <<<<<<<<<<<<<<
  * CURLOPT_MAX_RECV_SPEED_LARGE = curl.CURLOPT_MAX_RECV_SPEED_LARGE
  * CURLOPT_FTP_ALTERNATIVE_TO_USER = curl.CURLOPT_FTP_ALTERNATIVE_TO_USER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAX_SEND_SPEED_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 131, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAX_SEND_SPEED_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 129, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAX_SEND_SPEED_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 131, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAX_SEND_SPEED_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 129, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":132
+  /* "cycurl/consts.pxi":130
  * CURLOPT_CONV_FROM_UTF8_FUNCTION = curl.CURLOPT_CONV_FROM_UTF8_FUNCTION
  * CURLOPT_MAX_SEND_SPEED_LARGE = curl.CURLOPT_MAX_SEND_SPEED_LARGE
  * CURLOPT_MAX_RECV_SPEED_LARGE = curl.CURLOPT_MAX_RECV_SPEED_LARGE             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_ALTERNATIVE_TO_USER = curl.CURLOPT_FTP_ALTERNATIVE_TO_USER
  * CURLOPT_SOCKOPTFUNCTION = curl.CURLOPT_SOCKOPTFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAX_RECV_SPEED_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 132, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAX_RECV_SPEED_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAX_RECV_SPEED_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 132, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAX_RECV_SPEED_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 130, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":133
+  /* "cycurl/consts.pxi":131
  * CURLOPT_MAX_SEND_SPEED_LARGE = curl.CURLOPT_MAX_SEND_SPEED_LARGE
  * CURLOPT_MAX_RECV_SPEED_LARGE = curl.CURLOPT_MAX_RECV_SPEED_LARGE
  * CURLOPT_FTP_ALTERNATIVE_TO_USER = curl.CURLOPT_FTP_ALTERNATIVE_TO_USER             # <<<<<<<<<<<<<<
  * CURLOPT_SOCKOPTFUNCTION = curl.CURLOPT_SOCKOPTFUNCTION
  * CURLOPT_SOCKOPTDATA = curl.CURLOPT_SOCKOPTDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_ALTERNATIVE_TO_USER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 133, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_ALTERNATIVE_TO_USER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_ALTERNATIVE_TO_USER, __pyx_t_5) < 0) __PYX_ERR(5, 133, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_ALTERNATIVE_TO_USER, __pyx_t_5) < 0) __PYX_ERR(5, 131, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":134
+  /* "cycurl/consts.pxi":132
  * CURLOPT_MAX_RECV_SPEED_LARGE = curl.CURLOPT_MAX_RECV_SPEED_LARGE
  * CURLOPT_FTP_ALTERNATIVE_TO_USER = curl.CURLOPT_FTP_ALTERNATIVE_TO_USER
  * CURLOPT_SOCKOPTFUNCTION = curl.CURLOPT_SOCKOPTFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_SOCKOPTDATA = curl.CURLOPT_SOCKOPTDATA
  * CURLOPT_SSL_SESSIONID_CACHE = curl.CURLOPT_SSL_SESSIONID_CACHE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKOPTFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 134, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKOPTFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKOPTFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 134, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKOPTFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 132, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":135
+  /* "cycurl/consts.pxi":133
  * CURLOPT_FTP_ALTERNATIVE_TO_USER = curl.CURLOPT_FTP_ALTERNATIVE_TO_USER
  * CURLOPT_SOCKOPTFUNCTION = curl.CURLOPT_SOCKOPTFUNCTION
  * CURLOPT_SOCKOPTDATA = curl.CURLOPT_SOCKOPTDATA             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_SESSIONID_CACHE = curl.CURLOPT_SSL_SESSIONID_CACHE
  * CURLOPT_SSH_AUTH_TYPES = curl.CURLOPT_SSH_AUTH_TYPES
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKOPTDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 135, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKOPTDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKOPTDATA, __pyx_t_5) < 0) __PYX_ERR(5, 135, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKOPTDATA, __pyx_t_5) < 0) __PYX_ERR(5, 133, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":136
+  /* "cycurl/consts.pxi":134
  * CURLOPT_SOCKOPTFUNCTION = curl.CURLOPT_SOCKOPTFUNCTION
  * CURLOPT_SOCKOPTDATA = curl.CURLOPT_SOCKOPTDATA
  * CURLOPT_SSL_SESSIONID_CACHE = curl.CURLOPT_SSL_SESSIONID_CACHE             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_AUTH_TYPES = curl.CURLOPT_SSH_AUTH_TYPES
  * CURLOPT_SSH_PUBLIC_KEYFILE = curl.CURLOPT_SSH_PUBLIC_KEYFILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_SESSIONID_CACHE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 136, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_SESSIONID_CACHE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 134, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_SESSIONID_CACHE, __pyx_t_5) < 0) __PYX_ERR(5, 136, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_SESSIONID_CACHE, __pyx_t_5) < 0) __PYX_ERR(5, 134, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":137
+  /* "cycurl/consts.pxi":135
  * CURLOPT_SOCKOPTDATA = curl.CURLOPT_SOCKOPTDATA
  * CURLOPT_SSL_SESSIONID_CACHE = curl.CURLOPT_SSL_SESSIONID_CACHE
  * CURLOPT_SSH_AUTH_TYPES = curl.CURLOPT_SSH_AUTH_TYPES             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_PUBLIC_KEYFILE = curl.CURLOPT_SSH_PUBLIC_KEYFILE
  * CURLOPT_SSH_PRIVATE_KEYFILE = curl.CURLOPT_SSH_PRIVATE_KEYFILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_AUTH_TYPES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 137, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_AUTH_TYPES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_AUTH_TYPES, __pyx_t_5) < 0) __PYX_ERR(5, 137, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_AUTH_TYPES, __pyx_t_5) < 0) __PYX_ERR(5, 135, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":138
+  /* "cycurl/consts.pxi":136
  * CURLOPT_SSL_SESSIONID_CACHE = curl.CURLOPT_SSL_SESSIONID_CACHE
  * CURLOPT_SSH_AUTH_TYPES = curl.CURLOPT_SSH_AUTH_TYPES
  * CURLOPT_SSH_PUBLIC_KEYFILE = curl.CURLOPT_SSH_PUBLIC_KEYFILE             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_PRIVATE_KEYFILE = curl.CURLOPT_SSH_PRIVATE_KEYFILE
  * CURLOPT_FTP_SSL_CCC = curl.CURLOPT_FTP_SSL_CCC
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_PUBLIC_KEYFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 138, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_PUBLIC_KEYFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_PUBLIC_KEYFILE, __pyx_t_5) < 0) __PYX_ERR(5, 138, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_PUBLIC_KEYFILE, __pyx_t_5) < 0) __PYX_ERR(5, 136, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":139
+  /* "cycurl/consts.pxi":137
  * CURLOPT_SSH_AUTH_TYPES = curl.CURLOPT_SSH_AUTH_TYPES
  * CURLOPT_SSH_PUBLIC_KEYFILE = curl.CURLOPT_SSH_PUBLIC_KEYFILE
  * CURLOPT_SSH_PRIVATE_KEYFILE = curl.CURLOPT_SSH_PRIVATE_KEYFILE             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_SSL_CCC = curl.CURLOPT_FTP_SSL_CCC
  * CURLOPT_TIMEOUT_MS = curl.CURLOPT_TIMEOUT_MS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_PRIVATE_KEYFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 139, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_PRIVATE_KEYFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_PRIVATE_KEYFILE, __pyx_t_5) < 0) __PYX_ERR(5, 139, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_PRIVATE_KEYFILE, __pyx_t_5) < 0) __PYX_ERR(5, 137, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":140
+  /* "cycurl/consts.pxi":138
  * CURLOPT_SSH_PUBLIC_KEYFILE = curl.CURLOPT_SSH_PUBLIC_KEYFILE
  * CURLOPT_SSH_PRIVATE_KEYFILE = curl.CURLOPT_SSH_PRIVATE_KEYFILE
  * CURLOPT_FTP_SSL_CCC = curl.CURLOPT_FTP_SSL_CCC             # <<<<<<<<<<<<<<
  * CURLOPT_TIMEOUT_MS = curl.CURLOPT_TIMEOUT_MS
  * CURLOPT_CONNECTTIMEOUT_MS = curl.CURLOPT_CONNECTTIMEOUT_MS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_SSL_CCC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 140, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_SSL_CCC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 138, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_SSL_CCC, __pyx_t_5) < 0) __PYX_ERR(5, 140, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_SSL_CCC, __pyx_t_5) < 0) __PYX_ERR(5, 138, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":141
+  /* "cycurl/consts.pxi":139
  * CURLOPT_SSH_PRIVATE_KEYFILE = curl.CURLOPT_SSH_PRIVATE_KEYFILE
  * CURLOPT_FTP_SSL_CCC = curl.CURLOPT_FTP_SSL_CCC
  * CURLOPT_TIMEOUT_MS = curl.CURLOPT_TIMEOUT_MS             # <<<<<<<<<<<<<<
  * CURLOPT_CONNECTTIMEOUT_MS = curl.CURLOPT_CONNECTTIMEOUT_MS
  * CURLOPT_HTTP_TRANSFER_DECODING = curl.CURLOPT_HTTP_TRANSFER_DECODING
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 141, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TIMEOUT_MS, __pyx_t_5) < 0) __PYX_ERR(5, 141, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TIMEOUT_MS, __pyx_t_5) < 0) __PYX_ERR(5, 139, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":142
+  /* "cycurl/consts.pxi":140
  * CURLOPT_FTP_SSL_CCC = curl.CURLOPT_FTP_SSL_CCC
  * CURLOPT_TIMEOUT_MS = curl.CURLOPT_TIMEOUT_MS
  * CURLOPT_CONNECTTIMEOUT_MS = curl.CURLOPT_CONNECTTIMEOUT_MS             # <<<<<<<<<<<<<<
  * CURLOPT_HTTP_TRANSFER_DECODING = curl.CURLOPT_HTTP_TRANSFER_DECODING
  * CURLOPT_HTTP_CONTENT_DECODING = curl.CURLOPT_HTTP_CONTENT_DECODING
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONNECTTIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 142, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONNECTTIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONNECTTIMEOUT_MS, __pyx_t_5) < 0) __PYX_ERR(5, 142, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONNECTTIMEOUT_MS, __pyx_t_5) < 0) __PYX_ERR(5, 140, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":143
+  /* "cycurl/consts.pxi":141
  * CURLOPT_TIMEOUT_MS = curl.CURLOPT_TIMEOUT_MS
  * CURLOPT_CONNECTTIMEOUT_MS = curl.CURLOPT_CONNECTTIMEOUT_MS
  * CURLOPT_HTTP_TRANSFER_DECODING = curl.CURLOPT_HTTP_TRANSFER_DECODING             # <<<<<<<<<<<<<<
  * CURLOPT_HTTP_CONTENT_DECODING = curl.CURLOPT_HTTP_CONTENT_DECODING
  * CURLOPT_NEW_FILE_PERMS = curl.CURLOPT_NEW_FILE_PERMS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP_TRANSFER_DECODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 143, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP_TRANSFER_DECODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP_TRANSFER_DECODING, __pyx_t_5) < 0) __PYX_ERR(5, 143, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP_TRANSFER_DECODING, __pyx_t_5) < 0) __PYX_ERR(5, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":144
+  /* "cycurl/consts.pxi":142
  * CURLOPT_CONNECTTIMEOUT_MS = curl.CURLOPT_CONNECTTIMEOUT_MS
  * CURLOPT_HTTP_TRANSFER_DECODING = curl.CURLOPT_HTTP_TRANSFER_DECODING
  * CURLOPT_HTTP_CONTENT_DECODING = curl.CURLOPT_HTTP_CONTENT_DECODING             # <<<<<<<<<<<<<<
  * CURLOPT_NEW_FILE_PERMS = curl.CURLOPT_NEW_FILE_PERMS
  * CURLOPT_NEW_DIRECTORY_PERMS = curl.CURLOPT_NEW_DIRECTORY_PERMS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP_CONTENT_DECODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 144, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP_CONTENT_DECODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP_CONTENT_DECODING, __pyx_t_5) < 0) __PYX_ERR(5, 144, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP_CONTENT_DECODING, __pyx_t_5) < 0) __PYX_ERR(5, 142, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":145
+  /* "cycurl/consts.pxi":143
  * CURLOPT_HTTP_TRANSFER_DECODING = curl.CURLOPT_HTTP_TRANSFER_DECODING
  * CURLOPT_HTTP_CONTENT_DECODING = curl.CURLOPT_HTTP_CONTENT_DECODING
  * CURLOPT_NEW_FILE_PERMS = curl.CURLOPT_NEW_FILE_PERMS             # <<<<<<<<<<<<<<
  * CURLOPT_NEW_DIRECTORY_PERMS = curl.CURLOPT_NEW_DIRECTORY_PERMS
  * CURLOPT_POSTREDIR = curl.CURLOPT_POSTREDIR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NEW_FILE_PERMS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 145, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NEW_FILE_PERMS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NEW_FILE_PERMS, __pyx_t_5) < 0) __PYX_ERR(5, 145, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NEW_FILE_PERMS, __pyx_t_5) < 0) __PYX_ERR(5, 143, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":146
+  /* "cycurl/consts.pxi":144
  * CURLOPT_HTTP_CONTENT_DECODING = curl.CURLOPT_HTTP_CONTENT_DECODING
  * CURLOPT_NEW_FILE_PERMS = curl.CURLOPT_NEW_FILE_PERMS
  * CURLOPT_NEW_DIRECTORY_PERMS = curl.CURLOPT_NEW_DIRECTORY_PERMS             # <<<<<<<<<<<<<<
  * CURLOPT_POSTREDIR = curl.CURLOPT_POSTREDIR
  * CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_MD5
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NEW_DIRECTORY_PERMS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 146, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NEW_DIRECTORY_PERMS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 144, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NEW_DIRECTORY_PERMS, __pyx_t_5) < 0) __PYX_ERR(5, 146, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NEW_DIRECTORY_PERMS, __pyx_t_5) < 0) __PYX_ERR(5, 144, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":147
+  /* "cycurl/consts.pxi":145
  * CURLOPT_NEW_FILE_PERMS = curl.CURLOPT_NEW_FILE_PERMS
  * CURLOPT_NEW_DIRECTORY_PERMS = curl.CURLOPT_NEW_DIRECTORY_PERMS
  * CURLOPT_POSTREDIR = curl.CURLOPT_POSTREDIR             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_MD5
  * CURLOPT_OPENSOCKETFUNCTION = curl.CURLOPT_OPENSOCKETFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POSTREDIR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 147, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POSTREDIR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POSTREDIR, __pyx_t_5) < 0) __PYX_ERR(5, 147, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POSTREDIR, __pyx_t_5) < 0) __PYX_ERR(5, 145, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":148
+  /* "cycurl/consts.pxi":146
  * CURLOPT_NEW_DIRECTORY_PERMS = curl.CURLOPT_NEW_DIRECTORY_PERMS
  * CURLOPT_POSTREDIR = curl.CURLOPT_POSTREDIR
  * CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_MD5             # <<<<<<<<<<<<<<
  * CURLOPT_OPENSOCKETFUNCTION = curl.CURLOPT_OPENSOCKETFUNCTION
  * CURLOPT_OPENSOCKETDATA = curl.CURLOPT_OPENSOCKETDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_HOST_PUBLIC_KEY_MD5); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 148, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_HOST_PUBLIC_KEY_MD5); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 146, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5, __pyx_t_5) < 0) __PYX_ERR(5, 148, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5, __pyx_t_5) < 0) __PYX_ERR(5, 146, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":149
+  /* "cycurl/consts.pxi":147
  * CURLOPT_POSTREDIR = curl.CURLOPT_POSTREDIR
  * CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_MD5
  * CURLOPT_OPENSOCKETFUNCTION = curl.CURLOPT_OPENSOCKETFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_OPENSOCKETDATA = curl.CURLOPT_OPENSOCKETDATA
  * CURLOPT_COPYPOSTFIELDS = curl.CURLOPT_COPYPOSTFIELDS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_OPENSOCKETFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 149, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_OPENSOCKETFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OPENSOCKETFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 149, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OPENSOCKETFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 147, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":150
+  /* "cycurl/consts.pxi":148
  * CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_MD5
  * CURLOPT_OPENSOCKETFUNCTION = curl.CURLOPT_OPENSOCKETFUNCTION
  * CURLOPT_OPENSOCKETDATA = curl.CURLOPT_OPENSOCKETDATA             # <<<<<<<<<<<<<<
  * CURLOPT_COPYPOSTFIELDS = curl.CURLOPT_COPYPOSTFIELDS
  * CURLOPT_PROXY_TRANSFER_MODE = curl.CURLOPT_PROXY_TRANSFER_MODE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_OPENSOCKETDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 150, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_OPENSOCKETDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OPENSOCKETDATA, __pyx_t_5) < 0) __PYX_ERR(5, 150, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OPENSOCKETDATA, __pyx_t_5) < 0) __PYX_ERR(5, 148, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":151
+  /* "cycurl/consts.pxi":149
  * CURLOPT_OPENSOCKETFUNCTION = curl.CURLOPT_OPENSOCKETFUNCTION
  * CURLOPT_OPENSOCKETDATA = curl.CURLOPT_OPENSOCKETDATA
  * CURLOPT_COPYPOSTFIELDS = curl.CURLOPT_COPYPOSTFIELDS             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_TRANSFER_MODE = curl.CURLOPT_PROXY_TRANSFER_MODE
  * CURLOPT_SEEKFUNCTION = curl.CURLOPT_SEEKFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_COPYPOSTFIELDS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 151, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_COPYPOSTFIELDS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 149, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_COPYPOSTFIELDS, __pyx_t_5) < 0) __PYX_ERR(5, 151, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_COPYPOSTFIELDS, __pyx_t_5) < 0) __PYX_ERR(5, 149, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":152
+  /* "cycurl/consts.pxi":150
  * CURLOPT_OPENSOCKETDATA = curl.CURLOPT_OPENSOCKETDATA
  * CURLOPT_COPYPOSTFIELDS = curl.CURLOPT_COPYPOSTFIELDS
  * CURLOPT_PROXY_TRANSFER_MODE = curl.CURLOPT_PROXY_TRANSFER_MODE             # <<<<<<<<<<<<<<
  * CURLOPT_SEEKFUNCTION = curl.CURLOPT_SEEKFUNCTION
  * CURLOPT_SEEKDATA = curl.CURLOPT_SEEKDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TRANSFER_MODE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 152, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TRANSFER_MODE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TRANSFER_MODE, __pyx_t_5) < 0) __PYX_ERR(5, 152, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TRANSFER_MODE, __pyx_t_5) < 0) __PYX_ERR(5, 150, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":153
+  /* "cycurl/consts.pxi":151
  * CURLOPT_COPYPOSTFIELDS = curl.CURLOPT_COPYPOSTFIELDS
  * CURLOPT_PROXY_TRANSFER_MODE = curl.CURLOPT_PROXY_TRANSFER_MODE
  * CURLOPT_SEEKFUNCTION = curl.CURLOPT_SEEKFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_SEEKDATA = curl.CURLOPT_SEEKDATA
  * CURLOPT_CRLFILE = curl.CURLOPT_CRLFILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SEEKFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 153, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SEEKFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SEEKFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 153, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SEEKFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 151, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":154
+  /* "cycurl/consts.pxi":152
  * CURLOPT_PROXY_TRANSFER_MODE = curl.CURLOPT_PROXY_TRANSFER_MODE
  * CURLOPT_SEEKFUNCTION = curl.CURLOPT_SEEKFUNCTION
  * CURLOPT_SEEKDATA = curl.CURLOPT_SEEKDATA             # <<<<<<<<<<<<<<
  * CURLOPT_CRLFILE = curl.CURLOPT_CRLFILE
  * CURLOPT_ISSUERCERT = curl.CURLOPT_ISSUERCERT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SEEKDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 154, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SEEKDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SEEKDATA, __pyx_t_5) < 0) __PYX_ERR(5, 154, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SEEKDATA, __pyx_t_5) < 0) __PYX_ERR(5, 152, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":155
+  /* "cycurl/consts.pxi":153
  * CURLOPT_SEEKFUNCTION = curl.CURLOPT_SEEKFUNCTION
  * CURLOPT_SEEKDATA = curl.CURLOPT_SEEKDATA
  * CURLOPT_CRLFILE = curl.CURLOPT_CRLFILE             # <<<<<<<<<<<<<<
  * CURLOPT_ISSUERCERT = curl.CURLOPT_ISSUERCERT
  * CURLOPT_ADDRESS_SCOPE = curl.CURLOPT_ADDRESS_SCOPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CRLFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 155, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CRLFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CRLFILE, __pyx_t_5) < 0) __PYX_ERR(5, 155, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CRLFILE, __pyx_t_5) < 0) __PYX_ERR(5, 153, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":156
+  /* "cycurl/consts.pxi":154
  * CURLOPT_SEEKDATA = curl.CURLOPT_SEEKDATA
  * CURLOPT_CRLFILE = curl.CURLOPT_CRLFILE
  * CURLOPT_ISSUERCERT = curl.CURLOPT_ISSUERCERT             # <<<<<<<<<<<<<<
  * CURLOPT_ADDRESS_SCOPE = curl.CURLOPT_ADDRESS_SCOPE
  * CURLOPT_CERTINFO = curl.CURLOPT_CERTINFO
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ISSUERCERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 156, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ISSUERCERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ISSUERCERT, __pyx_t_5) < 0) __PYX_ERR(5, 156, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ISSUERCERT, __pyx_t_5) < 0) __PYX_ERR(5, 154, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":157
+  /* "cycurl/consts.pxi":155
  * CURLOPT_CRLFILE = curl.CURLOPT_CRLFILE
  * CURLOPT_ISSUERCERT = curl.CURLOPT_ISSUERCERT
  * CURLOPT_ADDRESS_SCOPE = curl.CURLOPT_ADDRESS_SCOPE             # <<<<<<<<<<<<<<
  * CURLOPT_CERTINFO = curl.CURLOPT_CERTINFO
  * CURLOPT_USERNAME = curl.CURLOPT_USERNAME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ADDRESS_SCOPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 157, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ADDRESS_SCOPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ADDRESS_SCOPE, __pyx_t_5) < 0) __PYX_ERR(5, 157, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ADDRESS_SCOPE, __pyx_t_5) < 0) __PYX_ERR(5, 155, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":158
+  /* "cycurl/consts.pxi":156
  * CURLOPT_ISSUERCERT = curl.CURLOPT_ISSUERCERT
  * CURLOPT_ADDRESS_SCOPE = curl.CURLOPT_ADDRESS_SCOPE
  * CURLOPT_CERTINFO = curl.CURLOPT_CERTINFO             # <<<<<<<<<<<<<<
  * CURLOPT_USERNAME = curl.CURLOPT_USERNAME
  * CURLOPT_PASSWORD = curl.CURLOPT_PASSWORD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CERTINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 158, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CERTINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 156, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CERTINFO, __pyx_t_5) < 0) __PYX_ERR(5, 158, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CERTINFO, __pyx_t_5) < 0) __PYX_ERR(5, 156, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":159
+  /* "cycurl/consts.pxi":157
  * CURLOPT_ADDRESS_SCOPE = curl.CURLOPT_ADDRESS_SCOPE
  * CURLOPT_CERTINFO = curl.CURLOPT_CERTINFO
  * CURLOPT_USERNAME = curl.CURLOPT_USERNAME             # <<<<<<<<<<<<<<
  * CURLOPT_PASSWORD = curl.CURLOPT_PASSWORD
  * CURLOPT_PROXYUSERNAME = curl.CURLOPT_PROXYUSERNAME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_USERNAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 159, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_USERNAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_USERNAME, __pyx_t_5) < 0) __PYX_ERR(5, 159, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_USERNAME, __pyx_t_5) < 0) __PYX_ERR(5, 157, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":160
+  /* "cycurl/consts.pxi":158
  * CURLOPT_CERTINFO = curl.CURLOPT_CERTINFO
  * CURLOPT_USERNAME = curl.CURLOPT_USERNAME
  * CURLOPT_PASSWORD = curl.CURLOPT_PASSWORD             # <<<<<<<<<<<<<<
  * CURLOPT_PROXYUSERNAME = curl.CURLOPT_PROXYUSERNAME
  * CURLOPT_PROXYPASSWORD = curl.CURLOPT_PROXYPASSWORD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 160, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 160, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 158, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":161
+  /* "cycurl/consts.pxi":159
  * CURLOPT_USERNAME = curl.CURLOPT_USERNAME
  * CURLOPT_PASSWORD = curl.CURLOPT_PASSWORD
  * CURLOPT_PROXYUSERNAME = curl.CURLOPT_PROXYUSERNAME             # <<<<<<<<<<<<<<
  * CURLOPT_PROXYPASSWORD = curl.CURLOPT_PROXYPASSWORD
  * CURLOPT_NOPROXY = curl.CURLOPT_NOPROXY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYUSERNAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 161, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYUSERNAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYUSERNAME, __pyx_t_5) < 0) __PYX_ERR(5, 161, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYUSERNAME, __pyx_t_5) < 0) __PYX_ERR(5, 159, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":162
+  /* "cycurl/consts.pxi":160
  * CURLOPT_PASSWORD = curl.CURLOPT_PASSWORD
  * CURLOPT_PROXYUSERNAME = curl.CURLOPT_PROXYUSERNAME
  * CURLOPT_PROXYPASSWORD = curl.CURLOPT_PROXYPASSWORD             # <<<<<<<<<<<<<<
  * CURLOPT_NOPROXY = curl.CURLOPT_NOPROXY
  * CURLOPT_TFTP_BLKSIZE = curl.CURLOPT_TFTP_BLKSIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYPASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 162, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYPASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYPASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 162, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYPASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 160, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":163
+  /* "cycurl/consts.pxi":161
  * CURLOPT_PROXYUSERNAME = curl.CURLOPT_PROXYUSERNAME
  * CURLOPT_PROXYPASSWORD = curl.CURLOPT_PROXYPASSWORD
  * CURLOPT_NOPROXY = curl.CURLOPT_NOPROXY             # <<<<<<<<<<<<<<
  * CURLOPT_TFTP_BLKSIZE = curl.CURLOPT_TFTP_BLKSIZE
  * CURLOPT_SOCKS5_GSSAPI_SERVICE = curl.CURLOPT_SOCKS5_GSSAPI_SERVICE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NOPROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 163, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_NOPROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NOPROXY, __pyx_t_5) < 0) __PYX_ERR(5, 163, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_NOPROXY, __pyx_t_5) < 0) __PYX_ERR(5, 161, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":164
+  /* "cycurl/consts.pxi":162
  * CURLOPT_PROXYPASSWORD = curl.CURLOPT_PROXYPASSWORD
  * CURLOPT_NOPROXY = curl.CURLOPT_NOPROXY
  * CURLOPT_TFTP_BLKSIZE = curl.CURLOPT_TFTP_BLKSIZE             # <<<<<<<<<<<<<<
  * CURLOPT_SOCKS5_GSSAPI_SERVICE = curl.CURLOPT_SOCKS5_GSSAPI_SERVICE
  * CURLOPT_SOCKS5_GSSAPI_NEC = curl.CURLOPT_SOCKS5_GSSAPI_NEC
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TFTP_BLKSIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 164, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TFTP_BLKSIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TFTP_BLKSIZE, __pyx_t_5) < 0) __PYX_ERR(5, 164, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TFTP_BLKSIZE, __pyx_t_5) < 0) __PYX_ERR(5, 162, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":165
+  /* "cycurl/consts.pxi":163
  * CURLOPT_NOPROXY = curl.CURLOPT_NOPROXY
  * CURLOPT_TFTP_BLKSIZE = curl.CURLOPT_TFTP_BLKSIZE
  * CURLOPT_SOCKS5_GSSAPI_SERVICE = curl.CURLOPT_SOCKS5_GSSAPI_SERVICE             # <<<<<<<<<<<<<<
  * CURLOPT_SOCKS5_GSSAPI_NEC = curl.CURLOPT_SOCKS5_GSSAPI_NEC
  * CURLOPT_PROTOCOLS = curl.CURLOPT_PROTOCOLS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKS5_GSSAPI_SERVICE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 165, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKS5_GSSAPI_SERVICE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKS5_GSSAPI_SERVICE, __pyx_t_5) < 0) __PYX_ERR(5, 165, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKS5_GSSAPI_SERVICE, __pyx_t_5) < 0) __PYX_ERR(5, 163, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":166
+  /* "cycurl/consts.pxi":164
  * CURLOPT_TFTP_BLKSIZE = curl.CURLOPT_TFTP_BLKSIZE
  * CURLOPT_SOCKS5_GSSAPI_SERVICE = curl.CURLOPT_SOCKS5_GSSAPI_SERVICE
  * CURLOPT_SOCKS5_GSSAPI_NEC = curl.CURLOPT_SOCKS5_GSSAPI_NEC             # <<<<<<<<<<<<<<
  * CURLOPT_PROTOCOLS = curl.CURLOPT_PROTOCOLS
  * CURLOPT_REDIR_PROTOCOLS = curl.CURLOPT_REDIR_PROTOCOLS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKS5_GSSAPI_NEC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 166, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKS5_GSSAPI_NEC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 164, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKS5_GSSAPI_NEC, __pyx_t_5) < 0) __PYX_ERR(5, 166, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKS5_GSSAPI_NEC, __pyx_t_5) < 0) __PYX_ERR(5, 164, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":167
+  /* "cycurl/consts.pxi":165
  * CURLOPT_SOCKS5_GSSAPI_SERVICE = curl.CURLOPT_SOCKS5_GSSAPI_SERVICE
  * CURLOPT_SOCKS5_GSSAPI_NEC = curl.CURLOPT_SOCKS5_GSSAPI_NEC
  * CURLOPT_PROTOCOLS = curl.CURLOPT_PROTOCOLS             # <<<<<<<<<<<<<<
  * CURLOPT_REDIR_PROTOCOLS = curl.CURLOPT_REDIR_PROTOCOLS
  * CURLOPT_SSH_KNOWNHOSTS = curl.CURLOPT_SSH_KNOWNHOSTS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROTOCOLS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 167, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROTOCOLS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROTOCOLS, __pyx_t_5) < 0) __PYX_ERR(5, 167, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROTOCOLS, __pyx_t_5) < 0) __PYX_ERR(5, 165, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":168
+  /* "cycurl/consts.pxi":166
  * CURLOPT_SOCKS5_GSSAPI_NEC = curl.CURLOPT_SOCKS5_GSSAPI_NEC
  * CURLOPT_PROTOCOLS = curl.CURLOPT_PROTOCOLS
  * CURLOPT_REDIR_PROTOCOLS = curl.CURLOPT_REDIR_PROTOCOLS             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_KNOWNHOSTS = curl.CURLOPT_SSH_KNOWNHOSTS
  * CURLOPT_SSH_KEYFUNCTION = curl.CURLOPT_SSH_KEYFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_REDIR_PROTOCOLS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 168, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_REDIR_PROTOCOLS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_REDIR_PROTOCOLS, __pyx_t_5) < 0) __PYX_ERR(5, 168, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_REDIR_PROTOCOLS, __pyx_t_5) < 0) __PYX_ERR(5, 166, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":169
+  /* "cycurl/consts.pxi":167
  * CURLOPT_PROTOCOLS = curl.CURLOPT_PROTOCOLS
  * CURLOPT_REDIR_PROTOCOLS = curl.CURLOPT_REDIR_PROTOCOLS
  * CURLOPT_SSH_KNOWNHOSTS = curl.CURLOPT_SSH_KNOWNHOSTS             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_KEYFUNCTION = curl.CURLOPT_SSH_KEYFUNCTION
  * CURLOPT_SSH_KEYDATA = curl.CURLOPT_SSH_KEYDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_KNOWNHOSTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 169, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_KNOWNHOSTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_KNOWNHOSTS, __pyx_t_5) < 0) __PYX_ERR(5, 169, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_KNOWNHOSTS, __pyx_t_5) < 0) __PYX_ERR(5, 167, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":170
+  /* "cycurl/consts.pxi":168
  * CURLOPT_REDIR_PROTOCOLS = curl.CURLOPT_REDIR_PROTOCOLS
  * CURLOPT_SSH_KNOWNHOSTS = curl.CURLOPT_SSH_KNOWNHOSTS
  * CURLOPT_SSH_KEYFUNCTION = curl.CURLOPT_SSH_KEYFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_KEYDATA = curl.CURLOPT_SSH_KEYDATA
  * CURLOPT_MAIL_FROM = curl.CURLOPT_MAIL_FROM
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_KEYFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 170, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_KEYFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_KEYFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 170, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_KEYFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 168, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":171
+  /* "cycurl/consts.pxi":169
  * CURLOPT_SSH_KNOWNHOSTS = curl.CURLOPT_SSH_KNOWNHOSTS
  * CURLOPT_SSH_KEYFUNCTION = curl.CURLOPT_SSH_KEYFUNCTION
  * CURLOPT_SSH_KEYDATA = curl.CURLOPT_SSH_KEYDATA             # <<<<<<<<<<<<<<
  * CURLOPT_MAIL_FROM = curl.CURLOPT_MAIL_FROM
  * CURLOPT_MAIL_RCPT = curl.CURLOPT_MAIL_RCPT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_KEYDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 171, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_KEYDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_KEYDATA, __pyx_t_5) < 0) __PYX_ERR(5, 171, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_KEYDATA, __pyx_t_5) < 0) __PYX_ERR(5, 169, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":172
+  /* "cycurl/consts.pxi":170
  * CURLOPT_SSH_KEYFUNCTION = curl.CURLOPT_SSH_KEYFUNCTION
  * CURLOPT_SSH_KEYDATA = curl.CURLOPT_SSH_KEYDATA
  * CURLOPT_MAIL_FROM = curl.CURLOPT_MAIL_FROM             # <<<<<<<<<<<<<<
  * CURLOPT_MAIL_RCPT = curl.CURLOPT_MAIL_RCPT
  * CURLOPT_FTP_USE_PRET = curl.CURLOPT_FTP_USE_PRET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_FROM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 172, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_FROM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_FROM, __pyx_t_5) < 0) __PYX_ERR(5, 172, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_FROM, __pyx_t_5) < 0) __PYX_ERR(5, 170, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":173
+  /* "cycurl/consts.pxi":171
  * CURLOPT_SSH_KEYDATA = curl.CURLOPT_SSH_KEYDATA
  * CURLOPT_MAIL_FROM = curl.CURLOPT_MAIL_FROM
  * CURLOPT_MAIL_RCPT = curl.CURLOPT_MAIL_RCPT             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_USE_PRET = curl.CURLOPT_FTP_USE_PRET
  * CURLOPT_RTSP_REQUEST = curl.CURLOPT_RTSP_REQUEST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_RCPT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 173, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_RCPT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_RCPT, __pyx_t_5) < 0) __PYX_ERR(5, 173, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_RCPT, __pyx_t_5) < 0) __PYX_ERR(5, 171, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":174
+  /* "cycurl/consts.pxi":172
  * CURLOPT_MAIL_FROM = curl.CURLOPT_MAIL_FROM
  * CURLOPT_MAIL_RCPT = curl.CURLOPT_MAIL_RCPT
  * CURLOPT_FTP_USE_PRET = curl.CURLOPT_FTP_USE_PRET             # <<<<<<<<<<<<<<
  * CURLOPT_RTSP_REQUEST = curl.CURLOPT_RTSP_REQUEST
  * CURLOPT_RTSP_SESSION_ID = curl.CURLOPT_RTSP_SESSION_ID
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_USE_PRET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 174, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_USE_PRET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_USE_PRET, __pyx_t_5) < 0) __PYX_ERR(5, 174, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_USE_PRET, __pyx_t_5) < 0) __PYX_ERR(5, 172, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":175
+  /* "cycurl/consts.pxi":173
  * CURLOPT_MAIL_RCPT = curl.CURLOPT_MAIL_RCPT
  * CURLOPT_FTP_USE_PRET = curl.CURLOPT_FTP_USE_PRET
  * CURLOPT_RTSP_REQUEST = curl.CURLOPT_RTSP_REQUEST             # <<<<<<<<<<<<<<
  * CURLOPT_RTSP_SESSION_ID = curl.CURLOPT_RTSP_SESSION_ID
  * CURLOPT_RTSP_STREAM_URI = curl.CURLOPT_RTSP_STREAM_URI
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_REQUEST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 175, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_REQUEST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_REQUEST, __pyx_t_5) < 0) __PYX_ERR(5, 175, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_REQUEST, __pyx_t_5) < 0) __PYX_ERR(5, 173, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":176
+  /* "cycurl/consts.pxi":174
  * CURLOPT_FTP_USE_PRET = curl.CURLOPT_FTP_USE_PRET
  * CURLOPT_RTSP_REQUEST = curl.CURLOPT_RTSP_REQUEST
  * CURLOPT_RTSP_SESSION_ID = curl.CURLOPT_RTSP_SESSION_ID             # <<<<<<<<<<<<<<
  * CURLOPT_RTSP_STREAM_URI = curl.CURLOPT_RTSP_STREAM_URI
  * CURLOPT_RTSP_TRANSPORT = curl.CURLOPT_RTSP_TRANSPORT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_SESSION_ID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 176, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_SESSION_ID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_SESSION_ID, __pyx_t_5) < 0) __PYX_ERR(5, 176, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_SESSION_ID, __pyx_t_5) < 0) __PYX_ERR(5, 174, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":177
+  /* "cycurl/consts.pxi":175
  * CURLOPT_RTSP_REQUEST = curl.CURLOPT_RTSP_REQUEST
  * CURLOPT_RTSP_SESSION_ID = curl.CURLOPT_RTSP_SESSION_ID
  * CURLOPT_RTSP_STREAM_URI = curl.CURLOPT_RTSP_STREAM_URI             # <<<<<<<<<<<<<<
  * CURLOPT_RTSP_TRANSPORT = curl.CURLOPT_RTSP_TRANSPORT
  * CURLOPT_RTSP_CLIENT_CSEQ = curl.CURLOPT_RTSP_CLIENT_CSEQ
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_STREAM_URI); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 177, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_STREAM_URI); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 175, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_STREAM_URI, __pyx_t_5) < 0) __PYX_ERR(5, 177, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_STREAM_URI, __pyx_t_5) < 0) __PYX_ERR(5, 175, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":178
+  /* "cycurl/consts.pxi":176
  * CURLOPT_RTSP_SESSION_ID = curl.CURLOPT_RTSP_SESSION_ID
  * CURLOPT_RTSP_STREAM_URI = curl.CURLOPT_RTSP_STREAM_URI
  * CURLOPT_RTSP_TRANSPORT = curl.CURLOPT_RTSP_TRANSPORT             # <<<<<<<<<<<<<<
  * CURLOPT_RTSP_CLIENT_CSEQ = curl.CURLOPT_RTSP_CLIENT_CSEQ
  * CURLOPT_RTSP_SERVER_CSEQ = curl.CURLOPT_RTSP_SERVER_CSEQ
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_TRANSPORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 178, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_TRANSPORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_TRANSPORT, __pyx_t_5) < 0) __PYX_ERR(5, 178, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_TRANSPORT, __pyx_t_5) < 0) __PYX_ERR(5, 176, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":179
+  /* "cycurl/consts.pxi":177
  * CURLOPT_RTSP_STREAM_URI = curl.CURLOPT_RTSP_STREAM_URI
  * CURLOPT_RTSP_TRANSPORT = curl.CURLOPT_RTSP_TRANSPORT
  * CURLOPT_RTSP_CLIENT_CSEQ = curl.CURLOPT_RTSP_CLIENT_CSEQ             # <<<<<<<<<<<<<<
  * CURLOPT_RTSP_SERVER_CSEQ = curl.CURLOPT_RTSP_SERVER_CSEQ
  * CURLOPT_INTERLEAVEDATA = curl.CURLOPT_INTERLEAVEDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_CLIENT_CSEQ); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 179, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_CLIENT_CSEQ); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_CLIENT_CSEQ, __pyx_t_5) < 0) __PYX_ERR(5, 179, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_CLIENT_CSEQ, __pyx_t_5) < 0) __PYX_ERR(5, 177, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":180
+  /* "cycurl/consts.pxi":178
  * CURLOPT_RTSP_TRANSPORT = curl.CURLOPT_RTSP_TRANSPORT
  * CURLOPT_RTSP_CLIENT_CSEQ = curl.CURLOPT_RTSP_CLIENT_CSEQ
  * CURLOPT_RTSP_SERVER_CSEQ = curl.CURLOPT_RTSP_SERVER_CSEQ             # <<<<<<<<<<<<<<
  * CURLOPT_INTERLEAVEDATA = curl.CURLOPT_INTERLEAVEDATA
  * CURLOPT_INTERLEAVEFUNCTION = curl.CURLOPT_INTERLEAVEFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_SERVER_CSEQ); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 180, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSP_SERVER_CSEQ); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 178, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_SERVER_CSEQ, __pyx_t_5) < 0) __PYX_ERR(5, 180, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSP_SERVER_CSEQ, __pyx_t_5) < 0) __PYX_ERR(5, 178, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":181
+  /* "cycurl/consts.pxi":179
  * CURLOPT_RTSP_CLIENT_CSEQ = curl.CURLOPT_RTSP_CLIENT_CSEQ
  * CURLOPT_RTSP_SERVER_CSEQ = curl.CURLOPT_RTSP_SERVER_CSEQ
  * CURLOPT_INTERLEAVEDATA = curl.CURLOPT_INTERLEAVEDATA             # <<<<<<<<<<<<<<
  * CURLOPT_INTERLEAVEFUNCTION = curl.CURLOPT_INTERLEAVEFUNCTION
  * CURLOPT_WILDCARDMATCH = curl.CURLOPT_WILDCARDMATCH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INTERLEAVEDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 181, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INTERLEAVEDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 179, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INTERLEAVEDATA, __pyx_t_5) < 0) __PYX_ERR(5, 181, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INTERLEAVEDATA, __pyx_t_5) < 0) __PYX_ERR(5, 179, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":182
+  /* "cycurl/consts.pxi":180
  * CURLOPT_RTSP_SERVER_CSEQ = curl.CURLOPT_RTSP_SERVER_CSEQ
  * CURLOPT_INTERLEAVEDATA = curl.CURLOPT_INTERLEAVEDATA
  * CURLOPT_INTERLEAVEFUNCTION = curl.CURLOPT_INTERLEAVEFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_WILDCARDMATCH = curl.CURLOPT_WILDCARDMATCH
  * CURLOPT_CHUNK_BGN_FUNCTION = curl.CURLOPT_CHUNK_BGN_FUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INTERLEAVEFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 182, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INTERLEAVEFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 180, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INTERLEAVEFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 182, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INTERLEAVEFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 180, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":183
+  /* "cycurl/consts.pxi":181
  * CURLOPT_INTERLEAVEDATA = curl.CURLOPT_INTERLEAVEDATA
  * CURLOPT_INTERLEAVEFUNCTION = curl.CURLOPT_INTERLEAVEFUNCTION
  * CURLOPT_WILDCARDMATCH = curl.CURLOPT_WILDCARDMATCH             # <<<<<<<<<<<<<<
  * CURLOPT_CHUNK_BGN_FUNCTION = curl.CURLOPT_CHUNK_BGN_FUNCTION
  * CURLOPT_CHUNK_END_FUNCTION = curl.CURLOPT_CHUNK_END_FUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_WILDCARDMATCH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 183, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_WILDCARDMATCH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WILDCARDMATCH, __pyx_t_5) < 0) __PYX_ERR(5, 183, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WILDCARDMATCH, __pyx_t_5) < 0) __PYX_ERR(5, 181, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":184
+  /* "cycurl/consts.pxi":182
  * CURLOPT_INTERLEAVEFUNCTION = curl.CURLOPT_INTERLEAVEFUNCTION
  * CURLOPT_WILDCARDMATCH = curl.CURLOPT_WILDCARDMATCH
  * CURLOPT_CHUNK_BGN_FUNCTION = curl.CURLOPT_CHUNK_BGN_FUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_CHUNK_END_FUNCTION = curl.CURLOPT_CHUNK_END_FUNCTION
  * CURLOPT_FNMATCH_FUNCTION = curl.CURLOPT_FNMATCH_FUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CHUNK_BGN_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 184, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CHUNK_BGN_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CHUNK_BGN_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 184, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CHUNK_BGN_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 182, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":185
+  /* "cycurl/consts.pxi":183
  * CURLOPT_WILDCARDMATCH = curl.CURLOPT_WILDCARDMATCH
  * CURLOPT_CHUNK_BGN_FUNCTION = curl.CURLOPT_CHUNK_BGN_FUNCTION
  * CURLOPT_CHUNK_END_FUNCTION = curl.CURLOPT_CHUNK_END_FUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_FNMATCH_FUNCTION = curl.CURLOPT_FNMATCH_FUNCTION
  * CURLOPT_CHUNK_DATA = curl.CURLOPT_CHUNK_DATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CHUNK_END_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 185, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CHUNK_END_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 183, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CHUNK_END_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 185, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CHUNK_END_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 183, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":186
+  /* "cycurl/consts.pxi":184
  * CURLOPT_CHUNK_BGN_FUNCTION = curl.CURLOPT_CHUNK_BGN_FUNCTION
  * CURLOPT_CHUNK_END_FUNCTION = curl.CURLOPT_CHUNK_END_FUNCTION
  * CURLOPT_FNMATCH_FUNCTION = curl.CURLOPT_FNMATCH_FUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_CHUNK_DATA = curl.CURLOPT_CHUNK_DATA
  * CURLOPT_FNMATCH_DATA = curl.CURLOPT_FNMATCH_DATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FNMATCH_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 186, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FNMATCH_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FNMATCH_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 186, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FNMATCH_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 184, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":187
+  /* "cycurl/consts.pxi":185
  * CURLOPT_CHUNK_END_FUNCTION = curl.CURLOPT_CHUNK_END_FUNCTION
  * CURLOPT_FNMATCH_FUNCTION = curl.CURLOPT_FNMATCH_FUNCTION
  * CURLOPT_CHUNK_DATA = curl.CURLOPT_CHUNK_DATA             # <<<<<<<<<<<<<<
  * CURLOPT_FNMATCH_DATA = curl.CURLOPT_FNMATCH_DATA
  * CURLOPT_RESOLVE = curl.CURLOPT_RESOLVE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CHUNK_DATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 187, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CHUNK_DATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CHUNK_DATA, __pyx_t_5) < 0) __PYX_ERR(5, 187, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CHUNK_DATA, __pyx_t_5) < 0) __PYX_ERR(5, 185, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":188
+  /* "cycurl/consts.pxi":186
  * CURLOPT_FNMATCH_FUNCTION = curl.CURLOPT_FNMATCH_FUNCTION
  * CURLOPT_CHUNK_DATA = curl.CURLOPT_CHUNK_DATA
  * CURLOPT_FNMATCH_DATA = curl.CURLOPT_FNMATCH_DATA             # <<<<<<<<<<<<<<
  * CURLOPT_RESOLVE = curl.CURLOPT_RESOLVE
  * CURLOPT_TLSAUTH_USERNAME = curl.CURLOPT_TLSAUTH_USERNAME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FNMATCH_DATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 188, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FNMATCH_DATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 186, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FNMATCH_DATA, __pyx_t_5) < 0) __PYX_ERR(5, 188, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FNMATCH_DATA, __pyx_t_5) < 0) __PYX_ERR(5, 186, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":189
+  /* "cycurl/consts.pxi":187
  * CURLOPT_CHUNK_DATA = curl.CURLOPT_CHUNK_DATA
  * CURLOPT_FNMATCH_DATA = curl.CURLOPT_FNMATCH_DATA
  * CURLOPT_RESOLVE = curl.CURLOPT_RESOLVE             # <<<<<<<<<<<<<<
  * CURLOPT_TLSAUTH_USERNAME = curl.CURLOPT_TLSAUTH_USERNAME
  * CURLOPT_TLSAUTH_PASSWORD = curl.CURLOPT_TLSAUTH_PASSWORD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RESOLVE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 189, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RESOLVE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RESOLVE, __pyx_t_5) < 0) __PYX_ERR(5, 189, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RESOLVE, __pyx_t_5) < 0) __PYX_ERR(5, 187, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":190
+  /* "cycurl/consts.pxi":188
  * CURLOPT_FNMATCH_DATA = curl.CURLOPT_FNMATCH_DATA
  * CURLOPT_RESOLVE = curl.CURLOPT_RESOLVE
  * CURLOPT_TLSAUTH_USERNAME = curl.CURLOPT_TLSAUTH_USERNAME             # <<<<<<<<<<<<<<
  * CURLOPT_TLSAUTH_PASSWORD = curl.CURLOPT_TLSAUTH_PASSWORD
  * CURLOPT_TLSAUTH_TYPE = curl.CURLOPT_TLSAUTH_TYPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLSAUTH_USERNAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 190, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLSAUTH_USERNAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLSAUTH_USERNAME, __pyx_t_5) < 0) __PYX_ERR(5, 190, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLSAUTH_USERNAME, __pyx_t_5) < 0) __PYX_ERR(5, 188, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":191
+  /* "cycurl/consts.pxi":189
  * CURLOPT_RESOLVE = curl.CURLOPT_RESOLVE
  * CURLOPT_TLSAUTH_USERNAME = curl.CURLOPT_TLSAUTH_USERNAME
  * CURLOPT_TLSAUTH_PASSWORD = curl.CURLOPT_TLSAUTH_PASSWORD             # <<<<<<<<<<<<<<
  * CURLOPT_TLSAUTH_TYPE = curl.CURLOPT_TLSAUTH_TYPE
  * CURLOPT_TRANSFER_ENCODING = curl.CURLOPT_TRANSFER_ENCODING
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLSAUTH_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 191, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLSAUTH_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLSAUTH_PASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 191, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLSAUTH_PASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 189, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":192
+  /* "cycurl/consts.pxi":190
  * CURLOPT_TLSAUTH_USERNAME = curl.CURLOPT_TLSAUTH_USERNAME
  * CURLOPT_TLSAUTH_PASSWORD = curl.CURLOPT_TLSAUTH_PASSWORD
  * CURLOPT_TLSAUTH_TYPE = curl.CURLOPT_TLSAUTH_TYPE             # <<<<<<<<<<<<<<
  * CURLOPT_TRANSFER_ENCODING = curl.CURLOPT_TRANSFER_ENCODING
  * CURLOPT_CLOSESOCKETFUNCTION = curl.CURLOPT_CLOSESOCKETFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLSAUTH_TYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 192, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLSAUTH_TYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLSAUTH_TYPE, __pyx_t_5) < 0) __PYX_ERR(5, 192, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLSAUTH_TYPE, __pyx_t_5) < 0) __PYX_ERR(5, 190, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":193
+  /* "cycurl/consts.pxi":191
  * CURLOPT_TLSAUTH_PASSWORD = curl.CURLOPT_TLSAUTH_PASSWORD
  * CURLOPT_TLSAUTH_TYPE = curl.CURLOPT_TLSAUTH_TYPE
  * CURLOPT_TRANSFER_ENCODING = curl.CURLOPT_TRANSFER_ENCODING             # <<<<<<<<<<<<<<
  * CURLOPT_CLOSESOCKETFUNCTION = curl.CURLOPT_CLOSESOCKETFUNCTION
  * CURLOPT_CLOSESOCKETDATA = curl.CURLOPT_CLOSESOCKETDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TRANSFER_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 193, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TRANSFER_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 191, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TRANSFER_ENCODING, __pyx_t_5) < 0) __PYX_ERR(5, 193, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TRANSFER_ENCODING, __pyx_t_5) < 0) __PYX_ERR(5, 191, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":194
+  /* "cycurl/consts.pxi":192
  * CURLOPT_TLSAUTH_TYPE = curl.CURLOPT_TLSAUTH_TYPE
  * CURLOPT_TRANSFER_ENCODING = curl.CURLOPT_TRANSFER_ENCODING
  * CURLOPT_CLOSESOCKETFUNCTION = curl.CURLOPT_CLOSESOCKETFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_CLOSESOCKETDATA = curl.CURLOPT_CLOSESOCKETDATA
  * CURLOPT_GSSAPI_DELEGATION = curl.CURLOPT_GSSAPI_DELEGATION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CLOSESOCKETFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 194, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CLOSESOCKETFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CLOSESOCKETFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 194, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CLOSESOCKETFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 192, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":195
+  /* "cycurl/consts.pxi":193
  * CURLOPT_TRANSFER_ENCODING = curl.CURLOPT_TRANSFER_ENCODING
  * CURLOPT_CLOSESOCKETFUNCTION = curl.CURLOPT_CLOSESOCKETFUNCTION
  * CURLOPT_CLOSESOCKETDATA = curl.CURLOPT_CLOSESOCKETDATA             # <<<<<<<<<<<<<<
  * CURLOPT_GSSAPI_DELEGATION = curl.CURLOPT_GSSAPI_DELEGATION
  * CURLOPT_DNS_SERVERS = curl.CURLOPT_DNS_SERVERS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CLOSESOCKETDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 195, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CLOSESOCKETDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CLOSESOCKETDATA, __pyx_t_5) < 0) __PYX_ERR(5, 195, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CLOSESOCKETDATA, __pyx_t_5) < 0) __PYX_ERR(5, 193, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":196
+  /* "cycurl/consts.pxi":194
  * CURLOPT_CLOSESOCKETFUNCTION = curl.CURLOPT_CLOSESOCKETFUNCTION
  * CURLOPT_CLOSESOCKETDATA = curl.CURLOPT_CLOSESOCKETDATA
  * CURLOPT_GSSAPI_DELEGATION = curl.CURLOPT_GSSAPI_DELEGATION             # <<<<<<<<<<<<<<
  * CURLOPT_DNS_SERVERS = curl.CURLOPT_DNS_SERVERS
  * CURLOPT_ACCEPTTIMEOUT_MS = curl.CURLOPT_ACCEPTTIMEOUT_MS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_GSSAPI_DELEGATION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 196, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_GSSAPI_DELEGATION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_GSSAPI_DELEGATION, __pyx_t_5) < 0) __PYX_ERR(5, 196, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_GSSAPI_DELEGATION, __pyx_t_5) < 0) __PYX_ERR(5, 194, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":197
+  /* "cycurl/consts.pxi":195
  * CURLOPT_CLOSESOCKETDATA = curl.CURLOPT_CLOSESOCKETDATA
  * CURLOPT_GSSAPI_DELEGATION = curl.CURLOPT_GSSAPI_DELEGATION
  * CURLOPT_DNS_SERVERS = curl.CURLOPT_DNS_SERVERS             # <<<<<<<<<<<<<<
  * CURLOPT_ACCEPTTIMEOUT_MS = curl.CURLOPT_ACCEPTTIMEOUT_MS
  * CURLOPT_TCP_KEEPALIVE = curl.CURLOPT_TCP_KEEPALIVE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_SERVERS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 197, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_SERVERS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_SERVERS, __pyx_t_5) < 0) __PYX_ERR(5, 197, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_SERVERS, __pyx_t_5) < 0) __PYX_ERR(5, 195, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":198
+  /* "cycurl/consts.pxi":196
  * CURLOPT_GSSAPI_DELEGATION = curl.CURLOPT_GSSAPI_DELEGATION
  * CURLOPT_DNS_SERVERS = curl.CURLOPT_DNS_SERVERS
  * CURLOPT_ACCEPTTIMEOUT_MS = curl.CURLOPT_ACCEPTTIMEOUT_MS             # <<<<<<<<<<<<<<
  * CURLOPT_TCP_KEEPALIVE = curl.CURLOPT_TCP_KEEPALIVE
  * CURLOPT_TCP_KEEPIDLE = curl.CURLOPT_TCP_KEEPIDLE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ACCEPTTIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 198, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ACCEPTTIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ACCEPTTIMEOUT_MS, __pyx_t_5) < 0) __PYX_ERR(5, 198, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ACCEPTTIMEOUT_MS, __pyx_t_5) < 0) __PYX_ERR(5, 196, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":199
+  /* "cycurl/consts.pxi":197
  * CURLOPT_DNS_SERVERS = curl.CURLOPT_DNS_SERVERS
  * CURLOPT_ACCEPTTIMEOUT_MS = curl.CURLOPT_ACCEPTTIMEOUT_MS
  * CURLOPT_TCP_KEEPALIVE = curl.CURLOPT_TCP_KEEPALIVE             # <<<<<<<<<<<<<<
  * CURLOPT_TCP_KEEPIDLE = curl.CURLOPT_TCP_KEEPIDLE
  * CURLOPT_TCP_KEEPINTVL = curl.CURLOPT_TCP_KEEPINTVL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_KEEPALIVE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 199, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_KEEPALIVE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_KEEPALIVE, __pyx_t_5) < 0) __PYX_ERR(5, 199, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_KEEPALIVE, __pyx_t_5) < 0) __PYX_ERR(5, 197, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":200
+  /* "cycurl/consts.pxi":198
  * CURLOPT_ACCEPTTIMEOUT_MS = curl.CURLOPT_ACCEPTTIMEOUT_MS
  * CURLOPT_TCP_KEEPALIVE = curl.CURLOPT_TCP_KEEPALIVE
  * CURLOPT_TCP_KEEPIDLE = curl.CURLOPT_TCP_KEEPIDLE             # <<<<<<<<<<<<<<
  * CURLOPT_TCP_KEEPINTVL = curl.CURLOPT_TCP_KEEPINTVL
  * CURLOPT_SSL_OPTIONS = curl.CURLOPT_SSL_OPTIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_KEEPIDLE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 200, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_KEEPIDLE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_KEEPIDLE, __pyx_t_5) < 0) __PYX_ERR(5, 200, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_KEEPIDLE, __pyx_t_5) < 0) __PYX_ERR(5, 198, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":201
+  /* "cycurl/consts.pxi":199
  * CURLOPT_TCP_KEEPALIVE = curl.CURLOPT_TCP_KEEPALIVE
  * CURLOPT_TCP_KEEPIDLE = curl.CURLOPT_TCP_KEEPIDLE
  * CURLOPT_TCP_KEEPINTVL = curl.CURLOPT_TCP_KEEPINTVL             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_OPTIONS = curl.CURLOPT_SSL_OPTIONS
  * CURLOPT_MAIL_AUTH = curl.CURLOPT_MAIL_AUTH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_KEEPINTVL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 201, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_KEEPINTVL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_KEEPINTVL, __pyx_t_5) < 0) __PYX_ERR(5, 201, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_KEEPINTVL, __pyx_t_5) < 0) __PYX_ERR(5, 199, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":202
+  /* "cycurl/consts.pxi":200
  * CURLOPT_TCP_KEEPIDLE = curl.CURLOPT_TCP_KEEPIDLE
  * CURLOPT_TCP_KEEPINTVL = curl.CURLOPT_TCP_KEEPINTVL
  * CURLOPT_SSL_OPTIONS = curl.CURLOPT_SSL_OPTIONS             # <<<<<<<<<<<<<<
  * CURLOPT_MAIL_AUTH = curl.CURLOPT_MAIL_AUTH
  * CURLOPT_SASL_IR = curl.CURLOPT_SASL_IR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 202, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 202, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 200, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":203
+  /* "cycurl/consts.pxi":201
  * CURLOPT_TCP_KEEPINTVL = curl.CURLOPT_TCP_KEEPINTVL
  * CURLOPT_SSL_OPTIONS = curl.CURLOPT_SSL_OPTIONS
  * CURLOPT_MAIL_AUTH = curl.CURLOPT_MAIL_AUTH             # <<<<<<<<<<<<<<
  * CURLOPT_SASL_IR = curl.CURLOPT_SASL_IR
  * CURLOPT_XFERINFOFUNCTION = curl.CURLOPT_XFERINFOFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_AUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 203, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_AUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_AUTH, __pyx_t_5) < 0) __PYX_ERR(5, 203, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_AUTH, __pyx_t_5) < 0) __PYX_ERR(5, 201, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":204
+  /* "cycurl/consts.pxi":202
  * CURLOPT_SSL_OPTIONS = curl.CURLOPT_SSL_OPTIONS
  * CURLOPT_MAIL_AUTH = curl.CURLOPT_MAIL_AUTH
  * CURLOPT_SASL_IR = curl.CURLOPT_SASL_IR             # <<<<<<<<<<<<<<
  * CURLOPT_XFERINFOFUNCTION = curl.CURLOPT_XFERINFOFUNCTION
  * CURLOPT_XOAUTH2_BEARER = curl.CURLOPT_XOAUTH2_BEARER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SASL_IR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 204, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SASL_IR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 202, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SASL_IR, __pyx_t_5) < 0) __PYX_ERR(5, 204, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SASL_IR, __pyx_t_5) < 0) __PYX_ERR(5, 202, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":205
+  /* "cycurl/consts.pxi":203
  * CURLOPT_MAIL_AUTH = curl.CURLOPT_MAIL_AUTH
  * CURLOPT_SASL_IR = curl.CURLOPT_SASL_IR
  * CURLOPT_XFERINFOFUNCTION = curl.CURLOPT_XFERINFOFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_XOAUTH2_BEARER = curl.CURLOPT_XOAUTH2_BEARER
  * CURLOPT_DNS_INTERFACE = curl.CURLOPT_DNS_INTERFACE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_XFERINFOFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 205, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_XFERINFOFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_XFERINFOFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 205, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_XFERINFOFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 203, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":206
+  /* "cycurl/consts.pxi":204
  * CURLOPT_SASL_IR = curl.CURLOPT_SASL_IR
  * CURLOPT_XFERINFOFUNCTION = curl.CURLOPT_XFERINFOFUNCTION
  * CURLOPT_XOAUTH2_BEARER = curl.CURLOPT_XOAUTH2_BEARER             # <<<<<<<<<<<<<<
  * CURLOPT_DNS_INTERFACE = curl.CURLOPT_DNS_INTERFACE
  * CURLOPT_DNS_LOCAL_IP4 = curl.CURLOPT_DNS_LOCAL_IP4
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_XOAUTH2_BEARER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 206, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_XOAUTH2_BEARER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_XOAUTH2_BEARER, __pyx_t_5) < 0) __PYX_ERR(5, 206, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_XOAUTH2_BEARER, __pyx_t_5) < 0) __PYX_ERR(5, 204, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":207
+  /* "cycurl/consts.pxi":205
  * CURLOPT_XFERINFOFUNCTION = curl.CURLOPT_XFERINFOFUNCTION
  * CURLOPT_XOAUTH2_BEARER = curl.CURLOPT_XOAUTH2_BEARER
  * CURLOPT_DNS_INTERFACE = curl.CURLOPT_DNS_INTERFACE             # <<<<<<<<<<<<<<
  * CURLOPT_DNS_LOCAL_IP4 = curl.CURLOPT_DNS_LOCAL_IP4
  * CURLOPT_DNS_LOCAL_IP6 = curl.CURLOPT_DNS_LOCAL_IP6
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_INTERFACE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 207, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_INTERFACE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_INTERFACE, __pyx_t_5) < 0) __PYX_ERR(5, 207, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_INTERFACE, __pyx_t_5) < 0) __PYX_ERR(5, 205, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":208
+  /* "cycurl/consts.pxi":206
  * CURLOPT_XOAUTH2_BEARER = curl.CURLOPT_XOAUTH2_BEARER
  * CURLOPT_DNS_INTERFACE = curl.CURLOPT_DNS_INTERFACE
  * CURLOPT_DNS_LOCAL_IP4 = curl.CURLOPT_DNS_LOCAL_IP4             # <<<<<<<<<<<<<<
  * CURLOPT_DNS_LOCAL_IP6 = curl.CURLOPT_DNS_LOCAL_IP6
  * CURLOPT_LOGIN_OPTIONS = curl.CURLOPT_LOGIN_OPTIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_LOCAL_IP4); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 208, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_LOCAL_IP4); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_LOCAL_IP4, __pyx_t_5) < 0) __PYX_ERR(5, 208, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_LOCAL_IP4, __pyx_t_5) < 0) __PYX_ERR(5, 206, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":209
+  /* "cycurl/consts.pxi":207
  * CURLOPT_DNS_INTERFACE = curl.CURLOPT_DNS_INTERFACE
  * CURLOPT_DNS_LOCAL_IP4 = curl.CURLOPT_DNS_LOCAL_IP4
  * CURLOPT_DNS_LOCAL_IP6 = curl.CURLOPT_DNS_LOCAL_IP6             # <<<<<<<<<<<<<<
  * CURLOPT_LOGIN_OPTIONS = curl.CURLOPT_LOGIN_OPTIONS
  * CURLOPT_SSL_ENABLE_NPN = curl.CURLOPT_SSL_ENABLE_NPN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_LOCAL_IP6); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 209, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_LOCAL_IP6); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_LOCAL_IP6, __pyx_t_5) < 0) __PYX_ERR(5, 209, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_LOCAL_IP6, __pyx_t_5) < 0) __PYX_ERR(5, 207, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":210
+  /* "cycurl/consts.pxi":208
  * CURLOPT_DNS_LOCAL_IP4 = curl.CURLOPT_DNS_LOCAL_IP4
  * CURLOPT_DNS_LOCAL_IP6 = curl.CURLOPT_DNS_LOCAL_IP6
  * CURLOPT_LOGIN_OPTIONS = curl.CURLOPT_LOGIN_OPTIONS             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_ENABLE_NPN = curl.CURLOPT_SSL_ENABLE_NPN
  * CURLOPT_SSL_ENABLE_ALPN = curl.CURLOPT_SSL_ENABLE_ALPN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_LOGIN_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 210, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_LOGIN_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_LOGIN_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 210, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_LOGIN_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 208, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":211
+  /* "cycurl/consts.pxi":209
  * CURLOPT_DNS_LOCAL_IP6 = curl.CURLOPT_DNS_LOCAL_IP6
  * CURLOPT_LOGIN_OPTIONS = curl.CURLOPT_LOGIN_OPTIONS
  * CURLOPT_SSL_ENABLE_NPN = curl.CURLOPT_SSL_ENABLE_NPN             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_ENABLE_ALPN = curl.CURLOPT_SSL_ENABLE_ALPN
  * CURLOPT_EXPECT_100_TIMEOUT_MS = curl.CURLOPT_EXPECT_100_TIMEOUT_MS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_ENABLE_NPN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 211, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_ENABLE_NPN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_ENABLE_NPN, __pyx_t_5) < 0) __PYX_ERR(5, 211, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_ENABLE_NPN, __pyx_t_5) < 0) __PYX_ERR(5, 209, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":212
+  /* "cycurl/consts.pxi":210
  * CURLOPT_LOGIN_OPTIONS = curl.CURLOPT_LOGIN_OPTIONS
  * CURLOPT_SSL_ENABLE_NPN = curl.CURLOPT_SSL_ENABLE_NPN
  * CURLOPT_SSL_ENABLE_ALPN = curl.CURLOPT_SSL_ENABLE_ALPN             # <<<<<<<<<<<<<<
  * CURLOPT_EXPECT_100_TIMEOUT_MS = curl.CURLOPT_EXPECT_100_TIMEOUT_MS
  * CURLOPT_PROXYHEADER = curl.CURLOPT_PROXYHEADER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_ENABLE_ALPN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 212, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_ENABLE_ALPN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_ENABLE_ALPN, __pyx_t_5) < 0) __PYX_ERR(5, 212, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_ENABLE_ALPN, __pyx_t_5) < 0) __PYX_ERR(5, 210, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":213
+  /* "cycurl/consts.pxi":211
  * CURLOPT_SSL_ENABLE_NPN = curl.CURLOPT_SSL_ENABLE_NPN
  * CURLOPT_SSL_ENABLE_ALPN = curl.CURLOPT_SSL_ENABLE_ALPN
  * CURLOPT_EXPECT_100_TIMEOUT_MS = curl.CURLOPT_EXPECT_100_TIMEOUT_MS             # <<<<<<<<<<<<<<
  * CURLOPT_PROXYHEADER = curl.CURLOPT_PROXYHEADER
  * CURLOPT_HEADEROPT = curl.CURLOPT_HEADEROPT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_EXPECT_100_TIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 213, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_EXPECT_100_TIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_EXPECT_100_TIMEOUT_MS, __pyx_t_5) < 0) __PYX_ERR(5, 213, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_EXPECT_100_TIMEOUT_MS, __pyx_t_5) < 0) __PYX_ERR(5, 211, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":214
+  /* "cycurl/consts.pxi":212
  * CURLOPT_SSL_ENABLE_ALPN = curl.CURLOPT_SSL_ENABLE_ALPN
  * CURLOPT_EXPECT_100_TIMEOUT_MS = curl.CURLOPT_EXPECT_100_TIMEOUT_MS
  * CURLOPT_PROXYHEADER = curl.CURLOPT_PROXYHEADER             # <<<<<<<<<<<<<<
  * CURLOPT_HEADEROPT = curl.CURLOPT_HEADEROPT
  * CURLOPT_PINNEDPUBLICKEY = curl.CURLOPT_PINNEDPUBLICKEY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYHEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 214, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXYHEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 212, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYHEADER, __pyx_t_5) < 0) __PYX_ERR(5, 214, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXYHEADER, __pyx_t_5) < 0) __PYX_ERR(5, 212, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":215
+  /* "cycurl/consts.pxi":213
  * CURLOPT_EXPECT_100_TIMEOUT_MS = curl.CURLOPT_EXPECT_100_TIMEOUT_MS
  * CURLOPT_PROXYHEADER = curl.CURLOPT_PROXYHEADER
  * CURLOPT_HEADEROPT = curl.CURLOPT_HEADEROPT             # <<<<<<<<<<<<<<
  * CURLOPT_PINNEDPUBLICKEY = curl.CURLOPT_PINNEDPUBLICKEY
  * CURLOPT_UNIX_SOCKET_PATH = curl.CURLOPT_UNIX_SOCKET_PATH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HEADEROPT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 215, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HEADEROPT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 213, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HEADEROPT, __pyx_t_5) < 0) __PYX_ERR(5, 215, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HEADEROPT, __pyx_t_5) < 0) __PYX_ERR(5, 213, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":216
+  /* "cycurl/consts.pxi":214
  * CURLOPT_PROXYHEADER = curl.CURLOPT_PROXYHEADER
  * CURLOPT_HEADEROPT = curl.CURLOPT_HEADEROPT
  * CURLOPT_PINNEDPUBLICKEY = curl.CURLOPT_PINNEDPUBLICKEY             # <<<<<<<<<<<<<<
  * CURLOPT_UNIX_SOCKET_PATH = curl.CURLOPT_UNIX_SOCKET_PATH
  * CURLOPT_SSL_VERIFYSTATUS = curl.CURLOPT_SSL_VERIFYSTATUS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PINNEDPUBLICKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 216, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PINNEDPUBLICKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PINNEDPUBLICKEY, __pyx_t_5) < 0) __PYX_ERR(5, 216, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PINNEDPUBLICKEY, __pyx_t_5) < 0) __PYX_ERR(5, 214, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":217
+  /* "cycurl/consts.pxi":215
  * CURLOPT_HEADEROPT = curl.CURLOPT_HEADEROPT
  * CURLOPT_PINNEDPUBLICKEY = curl.CURLOPT_PINNEDPUBLICKEY
  * CURLOPT_UNIX_SOCKET_PATH = curl.CURLOPT_UNIX_SOCKET_PATH             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_VERIFYSTATUS = curl.CURLOPT_SSL_VERIFYSTATUS
  * CURLOPT_SSL_FALSESTART = curl.CURLOPT_SSL_FALSESTART
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UNIX_SOCKET_PATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 217, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UNIX_SOCKET_PATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UNIX_SOCKET_PATH, __pyx_t_5) < 0) __PYX_ERR(5, 217, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UNIX_SOCKET_PATH, __pyx_t_5) < 0) __PYX_ERR(5, 215, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":218
+  /* "cycurl/consts.pxi":216
  * CURLOPT_PINNEDPUBLICKEY = curl.CURLOPT_PINNEDPUBLICKEY
  * CURLOPT_UNIX_SOCKET_PATH = curl.CURLOPT_UNIX_SOCKET_PATH
  * CURLOPT_SSL_VERIFYSTATUS = curl.CURLOPT_SSL_VERIFYSTATUS             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_FALSESTART = curl.CURLOPT_SSL_FALSESTART
  * CURLOPT_PATH_AS_IS = curl.CURLOPT_PATH_AS_IS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_VERIFYSTATUS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 218, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_VERIFYSTATUS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_VERIFYSTATUS, __pyx_t_5) < 0) __PYX_ERR(5, 218, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_VERIFYSTATUS, __pyx_t_5) < 0) __PYX_ERR(5, 216, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":219
+  /* "cycurl/consts.pxi":217
  * CURLOPT_UNIX_SOCKET_PATH = curl.CURLOPT_UNIX_SOCKET_PATH
  * CURLOPT_SSL_VERIFYSTATUS = curl.CURLOPT_SSL_VERIFYSTATUS
  * CURLOPT_SSL_FALSESTART = curl.CURLOPT_SSL_FALSESTART             # <<<<<<<<<<<<<<
  * CURLOPT_PATH_AS_IS = curl.CURLOPT_PATH_AS_IS
  * CURLOPT_PROXY_SERVICE_NAME = curl.CURLOPT_PROXY_SERVICE_NAME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_FALSESTART); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 219, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_FALSESTART); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 217, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_FALSESTART, __pyx_t_5) < 0) __PYX_ERR(5, 219, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_FALSESTART, __pyx_t_5) < 0) __PYX_ERR(5, 217, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":220
+  /* "cycurl/consts.pxi":218
  * CURLOPT_SSL_VERIFYSTATUS = curl.CURLOPT_SSL_VERIFYSTATUS
  * CURLOPT_SSL_FALSESTART = curl.CURLOPT_SSL_FALSESTART
  * CURLOPT_PATH_AS_IS = curl.CURLOPT_PATH_AS_IS             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SERVICE_NAME = curl.CURLOPT_PROXY_SERVICE_NAME
  * CURLOPT_SERVICE_NAME = curl.CURLOPT_SERVICE_NAME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PATH_AS_IS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 220, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PATH_AS_IS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PATH_AS_IS, __pyx_t_5) < 0) __PYX_ERR(5, 220, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PATH_AS_IS, __pyx_t_5) < 0) __PYX_ERR(5, 218, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":221
+  /* "cycurl/consts.pxi":219
  * CURLOPT_SSL_FALSESTART = curl.CURLOPT_SSL_FALSESTART
  * CURLOPT_PATH_AS_IS = curl.CURLOPT_PATH_AS_IS
  * CURLOPT_PROXY_SERVICE_NAME = curl.CURLOPT_PROXY_SERVICE_NAME             # <<<<<<<<<<<<<<
  * CURLOPT_SERVICE_NAME = curl.CURLOPT_SERVICE_NAME
  * CURLOPT_PIPEWAIT = curl.CURLOPT_PIPEWAIT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SERVICE_NAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 221, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SERVICE_NAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SERVICE_NAME, __pyx_t_5) < 0) __PYX_ERR(5, 221, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SERVICE_NAME, __pyx_t_5) < 0) __PYX_ERR(5, 219, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":222
+  /* "cycurl/consts.pxi":220
  * CURLOPT_PATH_AS_IS = curl.CURLOPT_PATH_AS_IS
  * CURLOPT_PROXY_SERVICE_NAME = curl.CURLOPT_PROXY_SERVICE_NAME
  * CURLOPT_SERVICE_NAME = curl.CURLOPT_SERVICE_NAME             # <<<<<<<<<<<<<<
  * CURLOPT_PIPEWAIT = curl.CURLOPT_PIPEWAIT
  * CURLOPT_DEFAULT_PROTOCOL = curl.CURLOPT_DEFAULT_PROTOCOL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SERVICE_NAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 222, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SERVICE_NAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 220, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SERVICE_NAME, __pyx_t_5) < 0) __PYX_ERR(5, 222, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SERVICE_NAME, __pyx_t_5) < 0) __PYX_ERR(5, 220, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":223
+  /* "cycurl/consts.pxi":221
  * CURLOPT_PROXY_SERVICE_NAME = curl.CURLOPT_PROXY_SERVICE_NAME
  * CURLOPT_SERVICE_NAME = curl.CURLOPT_SERVICE_NAME
  * CURLOPT_PIPEWAIT = curl.CURLOPT_PIPEWAIT             # <<<<<<<<<<<<<<
  * CURLOPT_DEFAULT_PROTOCOL = curl.CURLOPT_DEFAULT_PROTOCOL
  * CURLOPT_STREAM_WEIGHT = curl.CURLOPT_STREAM_WEIGHT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PIPEWAIT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 223, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PIPEWAIT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PIPEWAIT, __pyx_t_5) < 0) __PYX_ERR(5, 223, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PIPEWAIT, __pyx_t_5) < 0) __PYX_ERR(5, 221, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":224
+  /* "cycurl/consts.pxi":222
  * CURLOPT_SERVICE_NAME = curl.CURLOPT_SERVICE_NAME
  * CURLOPT_PIPEWAIT = curl.CURLOPT_PIPEWAIT
  * CURLOPT_DEFAULT_PROTOCOL = curl.CURLOPT_DEFAULT_PROTOCOL             # <<<<<<<<<<<<<<
  * CURLOPT_STREAM_WEIGHT = curl.CURLOPT_STREAM_WEIGHT
  * CURLOPT_STREAM_DEPENDS = curl.CURLOPT_STREAM_DEPENDS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DEFAULT_PROTOCOL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 224, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DEFAULT_PROTOCOL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DEFAULT_PROTOCOL, __pyx_t_5) < 0) __PYX_ERR(5, 224, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DEFAULT_PROTOCOL, __pyx_t_5) < 0) __PYX_ERR(5, 222, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":225
+  /* "cycurl/consts.pxi":223
  * CURLOPT_PIPEWAIT = curl.CURLOPT_PIPEWAIT
  * CURLOPT_DEFAULT_PROTOCOL = curl.CURLOPT_DEFAULT_PROTOCOL
  * CURLOPT_STREAM_WEIGHT = curl.CURLOPT_STREAM_WEIGHT             # <<<<<<<<<<<<<<
  * CURLOPT_STREAM_DEPENDS = curl.CURLOPT_STREAM_DEPENDS
  * CURLOPT_STREAM_DEPENDS_E = curl.CURLOPT_STREAM_DEPENDS_E
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_STREAM_WEIGHT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 225, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_STREAM_WEIGHT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_STREAM_WEIGHT, __pyx_t_5) < 0) __PYX_ERR(5, 225, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_STREAM_WEIGHT, __pyx_t_5) < 0) __PYX_ERR(5, 223, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":226
+  /* "cycurl/consts.pxi":224
  * CURLOPT_DEFAULT_PROTOCOL = curl.CURLOPT_DEFAULT_PROTOCOL
  * CURLOPT_STREAM_WEIGHT = curl.CURLOPT_STREAM_WEIGHT
  * CURLOPT_STREAM_DEPENDS = curl.CURLOPT_STREAM_DEPENDS             # <<<<<<<<<<<<<<
  * CURLOPT_STREAM_DEPENDS_E = curl.CURLOPT_STREAM_DEPENDS_E
  * CURLOPT_TFTP_NO_OPTIONS = curl.CURLOPT_TFTP_NO_OPTIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_STREAM_DEPENDS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 226, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_STREAM_DEPENDS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 224, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_STREAM_DEPENDS, __pyx_t_5) < 0) __PYX_ERR(5, 226, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_STREAM_DEPENDS, __pyx_t_5) < 0) __PYX_ERR(5, 224, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":227
+  /* "cycurl/consts.pxi":225
  * CURLOPT_STREAM_WEIGHT = curl.CURLOPT_STREAM_WEIGHT
  * CURLOPT_STREAM_DEPENDS = curl.CURLOPT_STREAM_DEPENDS
  * CURLOPT_STREAM_DEPENDS_E = curl.CURLOPT_STREAM_DEPENDS_E             # <<<<<<<<<<<<<<
  * CURLOPT_TFTP_NO_OPTIONS = curl.CURLOPT_TFTP_NO_OPTIONS
  * CURLOPT_CONNECT_TO = curl.CURLOPT_CONNECT_TO
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_STREAM_DEPENDS_E); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 227, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_STREAM_DEPENDS_E); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 225, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_STREAM_DEPENDS_E, __pyx_t_5) < 0) __PYX_ERR(5, 227, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_STREAM_DEPENDS_E, __pyx_t_5) < 0) __PYX_ERR(5, 225, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":228
+  /* "cycurl/consts.pxi":226
  * CURLOPT_STREAM_DEPENDS = curl.CURLOPT_STREAM_DEPENDS
  * CURLOPT_STREAM_DEPENDS_E = curl.CURLOPT_STREAM_DEPENDS_E
  * CURLOPT_TFTP_NO_OPTIONS = curl.CURLOPT_TFTP_NO_OPTIONS             # <<<<<<<<<<<<<<
  * CURLOPT_CONNECT_TO = curl.CURLOPT_CONNECT_TO
  * CURLOPT_TCP_FASTOPEN = curl.CURLOPT_TCP_FASTOPEN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TFTP_NO_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 228, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TFTP_NO_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TFTP_NO_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 228, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TFTP_NO_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 226, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":229
+  /* "cycurl/consts.pxi":227
  * CURLOPT_STREAM_DEPENDS_E = curl.CURLOPT_STREAM_DEPENDS_E
  * CURLOPT_TFTP_NO_OPTIONS = curl.CURLOPT_TFTP_NO_OPTIONS
  * CURLOPT_CONNECT_TO = curl.CURLOPT_CONNECT_TO             # <<<<<<<<<<<<<<
  * CURLOPT_TCP_FASTOPEN = curl.CURLOPT_TCP_FASTOPEN
  * CURLOPT_KEEP_SENDING_ON_ERROR = curl.CURLOPT_KEEP_SENDING_ON_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONNECT_TO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 229, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CONNECT_TO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONNECT_TO, __pyx_t_5) < 0) __PYX_ERR(5, 229, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CONNECT_TO, __pyx_t_5) < 0) __PYX_ERR(5, 227, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":230
+  /* "cycurl/consts.pxi":228
  * CURLOPT_TFTP_NO_OPTIONS = curl.CURLOPT_TFTP_NO_OPTIONS
  * CURLOPT_CONNECT_TO = curl.CURLOPT_CONNECT_TO
  * CURLOPT_TCP_FASTOPEN = curl.CURLOPT_TCP_FASTOPEN             # <<<<<<<<<<<<<<
  * CURLOPT_KEEP_SENDING_ON_ERROR = curl.CURLOPT_KEEP_SENDING_ON_ERROR
  * CURLOPT_PROXY_CAINFO = curl.CURLOPT_PROXY_CAINFO
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_FASTOPEN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 230, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_FASTOPEN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_FASTOPEN, __pyx_t_5) < 0) __PYX_ERR(5, 230, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_FASTOPEN, __pyx_t_5) < 0) __PYX_ERR(5, 228, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":231
+  /* "cycurl/consts.pxi":229
  * CURLOPT_CONNECT_TO = curl.CURLOPT_CONNECT_TO
  * CURLOPT_TCP_FASTOPEN = curl.CURLOPT_TCP_FASTOPEN
  * CURLOPT_KEEP_SENDING_ON_ERROR = curl.CURLOPT_KEEP_SENDING_ON_ERROR             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_CAINFO = curl.CURLOPT_PROXY_CAINFO
  * CURLOPT_PROXY_CAPATH = curl.CURLOPT_PROXY_CAPATH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_KEEP_SENDING_ON_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 231, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_KEEP_SENDING_ON_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_KEEP_SENDING_ON_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 231, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_KEEP_SENDING_ON_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 229, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":232
+  /* "cycurl/consts.pxi":230
  * CURLOPT_TCP_FASTOPEN = curl.CURLOPT_TCP_FASTOPEN
  * CURLOPT_KEEP_SENDING_ON_ERROR = curl.CURLOPT_KEEP_SENDING_ON_ERROR
  * CURLOPT_PROXY_CAINFO = curl.CURLOPT_PROXY_CAINFO             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_CAPATH = curl.CURLOPT_PROXY_CAPATH
  * CURLOPT_PROXY_SSL_VERIFYPEER = curl.CURLOPT_PROXY_SSL_VERIFYPEER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_CAINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 232, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_CAINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAINFO, __pyx_t_5) < 0) __PYX_ERR(5, 232, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAINFO, __pyx_t_5) < 0) __PYX_ERR(5, 230, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":233
+  /* "cycurl/consts.pxi":231
  * CURLOPT_KEEP_SENDING_ON_ERROR = curl.CURLOPT_KEEP_SENDING_ON_ERROR
  * CURLOPT_PROXY_CAINFO = curl.CURLOPT_PROXY_CAINFO
  * CURLOPT_PROXY_CAPATH = curl.CURLOPT_PROXY_CAPATH             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSL_VERIFYPEER = curl.CURLOPT_PROXY_SSL_VERIFYPEER
  * CURLOPT_PROXY_SSL_VERIFYHOST = curl.CURLOPT_PROXY_SSL_VERIFYHOST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_CAPATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 233, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_CAPATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 231, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAPATH, __pyx_t_5) < 0) __PYX_ERR(5, 233, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAPATH, __pyx_t_5) < 0) __PYX_ERR(5, 231, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":234
+  /* "cycurl/consts.pxi":232
  * CURLOPT_PROXY_CAINFO = curl.CURLOPT_PROXY_CAINFO
  * CURLOPT_PROXY_CAPATH = curl.CURLOPT_PROXY_CAPATH
  * CURLOPT_PROXY_SSL_VERIFYPEER = curl.CURLOPT_PROXY_SSL_VERIFYPEER             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSL_VERIFYHOST = curl.CURLOPT_PROXY_SSL_VERIFYHOST
  * CURLOPT_PROXY_SSLVERSION = curl.CURLOPT_PROXY_SSLVERSION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSL_VERIFYPEER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 234, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSL_VERIFYPEER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSL_VERIFYPEER, __pyx_t_5) < 0) __PYX_ERR(5, 234, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSL_VERIFYPEER, __pyx_t_5) < 0) __PYX_ERR(5, 232, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":235
+  /* "cycurl/consts.pxi":233
  * CURLOPT_PROXY_CAPATH = curl.CURLOPT_PROXY_CAPATH
  * CURLOPT_PROXY_SSL_VERIFYPEER = curl.CURLOPT_PROXY_SSL_VERIFYPEER
  * CURLOPT_PROXY_SSL_VERIFYHOST = curl.CURLOPT_PROXY_SSL_VERIFYHOST             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSLVERSION = curl.CURLOPT_PROXY_SSLVERSION
  * CURLOPT_PROXY_TLSAUTH_USERNAME = curl.CURLOPT_PROXY_TLSAUTH_USERNAME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSL_VERIFYHOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 235, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSL_VERIFYHOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 233, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSL_VERIFYHOST, __pyx_t_5) < 0) __PYX_ERR(5, 235, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSL_VERIFYHOST, __pyx_t_5) < 0) __PYX_ERR(5, 233, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":236
+  /* "cycurl/consts.pxi":234
  * CURLOPT_PROXY_SSL_VERIFYPEER = curl.CURLOPT_PROXY_SSL_VERIFYPEER
  * CURLOPT_PROXY_SSL_VERIFYHOST = curl.CURLOPT_PROXY_SSL_VERIFYHOST
  * CURLOPT_PROXY_SSLVERSION = curl.CURLOPT_PROXY_SSLVERSION             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_TLSAUTH_USERNAME = curl.CURLOPT_PROXY_TLSAUTH_USERNAME
  * CURLOPT_PROXY_TLSAUTH_PASSWORD = curl.CURLOPT_PROXY_TLSAUTH_PASSWORD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLVERSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 236, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLVERSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLVERSION, __pyx_t_5) < 0) __PYX_ERR(5, 236, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLVERSION, __pyx_t_5) < 0) __PYX_ERR(5, 234, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":237
+  /* "cycurl/consts.pxi":235
  * CURLOPT_PROXY_SSL_VERIFYHOST = curl.CURLOPT_PROXY_SSL_VERIFYHOST
  * CURLOPT_PROXY_SSLVERSION = curl.CURLOPT_PROXY_SSLVERSION
  * CURLOPT_PROXY_TLSAUTH_USERNAME = curl.CURLOPT_PROXY_TLSAUTH_USERNAME             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_TLSAUTH_PASSWORD = curl.CURLOPT_PROXY_TLSAUTH_PASSWORD
  * CURLOPT_PROXY_TLSAUTH_TYPE = curl.CURLOPT_PROXY_TLSAUTH_TYPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TLSAUTH_USERNAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 237, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TLSAUTH_USERNAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TLSAUTH_USERNAME, __pyx_t_5) < 0) __PYX_ERR(5, 237, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TLSAUTH_USERNAME, __pyx_t_5) < 0) __PYX_ERR(5, 235, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":238
+  /* "cycurl/consts.pxi":236
  * CURLOPT_PROXY_SSLVERSION = curl.CURLOPT_PROXY_SSLVERSION
  * CURLOPT_PROXY_TLSAUTH_USERNAME = curl.CURLOPT_PROXY_TLSAUTH_USERNAME
  * CURLOPT_PROXY_TLSAUTH_PASSWORD = curl.CURLOPT_PROXY_TLSAUTH_PASSWORD             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_TLSAUTH_TYPE = curl.CURLOPT_PROXY_TLSAUTH_TYPE
  * CURLOPT_PROXY_SSLCERT = curl.CURLOPT_PROXY_SSLCERT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TLSAUTH_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 238, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TLSAUTH_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TLSAUTH_PASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 238, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TLSAUTH_PASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 236, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":239
+  /* "cycurl/consts.pxi":237
  * CURLOPT_PROXY_TLSAUTH_USERNAME = curl.CURLOPT_PROXY_TLSAUTH_USERNAME
  * CURLOPT_PROXY_TLSAUTH_PASSWORD = curl.CURLOPT_PROXY_TLSAUTH_PASSWORD
  * CURLOPT_PROXY_TLSAUTH_TYPE = curl.CURLOPT_PROXY_TLSAUTH_TYPE             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSLCERT = curl.CURLOPT_PROXY_SSLCERT
  * CURLOPT_PROXY_SSLCERTTYPE = curl.CURLOPT_PROXY_SSLCERTTYPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TLSAUTH_TYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 239, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TLSAUTH_TYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TLSAUTH_TYPE, __pyx_t_5) < 0) __PYX_ERR(5, 239, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TLSAUTH_TYPE, __pyx_t_5) < 0) __PYX_ERR(5, 237, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":240
+  /* "cycurl/consts.pxi":238
  * CURLOPT_PROXY_TLSAUTH_PASSWORD = curl.CURLOPT_PROXY_TLSAUTH_PASSWORD
  * CURLOPT_PROXY_TLSAUTH_TYPE = curl.CURLOPT_PROXY_TLSAUTH_TYPE
  * CURLOPT_PROXY_SSLCERT = curl.CURLOPT_PROXY_SSLCERT             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSLCERTTYPE = curl.CURLOPT_PROXY_SSLCERTTYPE
  * CURLOPT_PROXY_SSLKEY = curl.CURLOPT_PROXY_SSLKEY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLCERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 240, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLCERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLCERT, __pyx_t_5) < 0) __PYX_ERR(5, 240, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLCERT, __pyx_t_5) < 0) __PYX_ERR(5, 238, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":241
+  /* "cycurl/consts.pxi":239
  * CURLOPT_PROXY_TLSAUTH_TYPE = curl.CURLOPT_PROXY_TLSAUTH_TYPE
  * CURLOPT_PROXY_SSLCERT = curl.CURLOPT_PROXY_SSLCERT
  * CURLOPT_PROXY_SSLCERTTYPE = curl.CURLOPT_PROXY_SSLCERTTYPE             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSLKEY = curl.CURLOPT_PROXY_SSLKEY
  * CURLOPT_PROXY_SSLKEYTYPE = curl.CURLOPT_PROXY_SSLKEYTYPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLCERTTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 241, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLCERTTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLCERTTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 241, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLCERTTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 239, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":242
+  /* "cycurl/consts.pxi":240
  * CURLOPT_PROXY_SSLCERT = curl.CURLOPT_PROXY_SSLCERT
  * CURLOPT_PROXY_SSLCERTTYPE = curl.CURLOPT_PROXY_SSLCERTTYPE
  * CURLOPT_PROXY_SSLKEY = curl.CURLOPT_PROXY_SSLKEY             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSLKEYTYPE = curl.CURLOPT_PROXY_SSLKEYTYPE
  * CURLOPT_PROXY_KEYPASSWD = curl.CURLOPT_PROXY_KEYPASSWD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 242, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 240, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLKEY, __pyx_t_5) < 0) __PYX_ERR(5, 242, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLKEY, __pyx_t_5) < 0) __PYX_ERR(5, 240, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":243
+  /* "cycurl/consts.pxi":241
  * CURLOPT_PROXY_SSLCERTTYPE = curl.CURLOPT_PROXY_SSLCERTTYPE
  * CURLOPT_PROXY_SSLKEY = curl.CURLOPT_PROXY_SSLKEY
  * CURLOPT_PROXY_SSLKEYTYPE = curl.CURLOPT_PROXY_SSLKEYTYPE             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_KEYPASSWD = curl.CURLOPT_PROXY_KEYPASSWD
  * CURLOPT_PROXY_SSL_CIPHER_LIST = curl.CURLOPT_PROXY_SSL_CIPHER_LIST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLKEYTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 243, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLKEYTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLKEYTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 243, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLKEYTYPE, __pyx_t_5) < 0) __PYX_ERR(5, 241, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":244
+  /* "cycurl/consts.pxi":242
  * CURLOPT_PROXY_SSLKEY = curl.CURLOPT_PROXY_SSLKEY
  * CURLOPT_PROXY_SSLKEYTYPE = curl.CURLOPT_PROXY_SSLKEYTYPE
  * CURLOPT_PROXY_KEYPASSWD = curl.CURLOPT_PROXY_KEYPASSWD             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSL_CIPHER_LIST = curl.CURLOPT_PROXY_SSL_CIPHER_LIST
  * CURLOPT_PROXY_CRLFILE = curl.CURLOPT_PROXY_CRLFILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_KEYPASSWD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 244, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_KEYPASSWD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_KEYPASSWD, __pyx_t_5) < 0) __PYX_ERR(5, 244, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_KEYPASSWD, __pyx_t_5) < 0) __PYX_ERR(5, 242, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":245
+  /* "cycurl/consts.pxi":243
  * CURLOPT_PROXY_SSLKEYTYPE = curl.CURLOPT_PROXY_SSLKEYTYPE
  * CURLOPT_PROXY_KEYPASSWD = curl.CURLOPT_PROXY_KEYPASSWD
  * CURLOPT_PROXY_SSL_CIPHER_LIST = curl.CURLOPT_PROXY_SSL_CIPHER_LIST             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_CRLFILE = curl.CURLOPT_PROXY_CRLFILE
  * CURLOPT_PROXY_SSL_OPTIONS = curl.CURLOPT_PROXY_SSL_OPTIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSL_CIPHER_LIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 245, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSL_CIPHER_LIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSL_CIPHER_LIST, __pyx_t_5) < 0) __PYX_ERR(5, 245, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSL_CIPHER_LIST, __pyx_t_5) < 0) __PYX_ERR(5, 243, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":246
+  /* "cycurl/consts.pxi":244
  * CURLOPT_PROXY_KEYPASSWD = curl.CURLOPT_PROXY_KEYPASSWD
  * CURLOPT_PROXY_SSL_CIPHER_LIST = curl.CURLOPT_PROXY_SSL_CIPHER_LIST
  * CURLOPT_PROXY_CRLFILE = curl.CURLOPT_PROXY_CRLFILE             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSL_OPTIONS = curl.CURLOPT_PROXY_SSL_OPTIONS
  * CURLOPT_PRE_PROXY = curl.CURLOPT_PRE_PROXY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_CRLFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 246, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_CRLFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 244, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CRLFILE, __pyx_t_5) < 0) __PYX_ERR(5, 246, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CRLFILE, __pyx_t_5) < 0) __PYX_ERR(5, 244, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":247
+  /* "cycurl/consts.pxi":245
  * CURLOPT_PROXY_SSL_CIPHER_LIST = curl.CURLOPT_PROXY_SSL_CIPHER_LIST
  * CURLOPT_PROXY_CRLFILE = curl.CURLOPT_PROXY_CRLFILE
  * CURLOPT_PROXY_SSL_OPTIONS = curl.CURLOPT_PROXY_SSL_OPTIONS             # <<<<<<<<<<<<<<
  * CURLOPT_PRE_PROXY = curl.CURLOPT_PRE_PROXY
  * CURLOPT_PROXY_PINNEDPUBLICKEY = curl.CURLOPT_PROXY_PINNEDPUBLICKEY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSL_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 247, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSL_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 245, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSL_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 247, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSL_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 245, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":248
+  /* "cycurl/consts.pxi":246
  * CURLOPT_PROXY_CRLFILE = curl.CURLOPT_PROXY_CRLFILE
  * CURLOPT_PROXY_SSL_OPTIONS = curl.CURLOPT_PROXY_SSL_OPTIONS
  * CURLOPT_PRE_PROXY = curl.CURLOPT_PRE_PROXY             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_PINNEDPUBLICKEY = curl.CURLOPT_PROXY_PINNEDPUBLICKEY
  * CURLOPT_ABSTRACT_UNIX_SOCKET = curl.CURLOPT_ABSTRACT_UNIX_SOCKET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PRE_PROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 248, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PRE_PROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 246, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PRE_PROXY, __pyx_t_5) < 0) __PYX_ERR(5, 248, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PRE_PROXY, __pyx_t_5) < 0) __PYX_ERR(5, 246, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":249
+  /* "cycurl/consts.pxi":247
  * CURLOPT_PROXY_SSL_OPTIONS = curl.CURLOPT_PROXY_SSL_OPTIONS
  * CURLOPT_PRE_PROXY = curl.CURLOPT_PRE_PROXY
  * CURLOPT_PROXY_PINNEDPUBLICKEY = curl.CURLOPT_PROXY_PINNEDPUBLICKEY             # <<<<<<<<<<<<<<
  * CURLOPT_ABSTRACT_UNIX_SOCKET = curl.CURLOPT_ABSTRACT_UNIX_SOCKET
  * CURLOPT_SUPPRESS_CONNECT_HEADERS = curl.CURLOPT_SUPPRESS_CONNECT_HEADERS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_PINNEDPUBLICKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 249, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_PINNEDPUBLICKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 247, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_PINNEDPUBLICKEY, __pyx_t_5) < 0) __PYX_ERR(5, 249, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_PINNEDPUBLICKEY, __pyx_t_5) < 0) __PYX_ERR(5, 247, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":250
+  /* "cycurl/consts.pxi":248
  * CURLOPT_PRE_PROXY = curl.CURLOPT_PRE_PROXY
  * CURLOPT_PROXY_PINNEDPUBLICKEY = curl.CURLOPT_PROXY_PINNEDPUBLICKEY
  * CURLOPT_ABSTRACT_UNIX_SOCKET = curl.CURLOPT_ABSTRACT_UNIX_SOCKET             # <<<<<<<<<<<<<<
  * CURLOPT_SUPPRESS_CONNECT_HEADERS = curl.CURLOPT_SUPPRESS_CONNECT_HEADERS
  * CURLOPT_REQUEST_TARGET = curl.CURLOPT_REQUEST_TARGET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ABSTRACT_UNIX_SOCKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 250, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ABSTRACT_UNIX_SOCKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ABSTRACT_UNIX_SOCKET, __pyx_t_5) < 0) __PYX_ERR(5, 250, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ABSTRACT_UNIX_SOCKET, __pyx_t_5) < 0) __PYX_ERR(5, 248, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":251
+  /* "cycurl/consts.pxi":249
  * CURLOPT_PROXY_PINNEDPUBLICKEY = curl.CURLOPT_PROXY_PINNEDPUBLICKEY
  * CURLOPT_ABSTRACT_UNIX_SOCKET = curl.CURLOPT_ABSTRACT_UNIX_SOCKET
  * CURLOPT_SUPPRESS_CONNECT_HEADERS = curl.CURLOPT_SUPPRESS_CONNECT_HEADERS             # <<<<<<<<<<<<<<
  * CURLOPT_REQUEST_TARGET = curl.CURLOPT_REQUEST_TARGET
  * CURLOPT_SOCKS5_AUTH = curl.CURLOPT_SOCKS5_AUTH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SUPPRESS_CONNECT_HEADERS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 251, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SUPPRESS_CONNECT_HEADERS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SUPPRESS_CONNECT_HEADERS, __pyx_t_5) < 0) __PYX_ERR(5, 251, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SUPPRESS_CONNECT_HEADERS, __pyx_t_5) < 0) __PYX_ERR(5, 249, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":252
+  /* "cycurl/consts.pxi":250
  * CURLOPT_ABSTRACT_UNIX_SOCKET = curl.CURLOPT_ABSTRACT_UNIX_SOCKET
  * CURLOPT_SUPPRESS_CONNECT_HEADERS = curl.CURLOPT_SUPPRESS_CONNECT_HEADERS
  * CURLOPT_REQUEST_TARGET = curl.CURLOPT_REQUEST_TARGET             # <<<<<<<<<<<<<<
  * CURLOPT_SOCKS5_AUTH = curl.CURLOPT_SOCKS5_AUTH
  * CURLOPT_SSH_COMPRESSION = curl.CURLOPT_SSH_COMPRESSION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_REQUEST_TARGET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 252, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_REQUEST_TARGET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_REQUEST_TARGET, __pyx_t_5) < 0) __PYX_ERR(5, 252, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_REQUEST_TARGET, __pyx_t_5) < 0) __PYX_ERR(5, 250, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":253
+  /* "cycurl/consts.pxi":251
  * CURLOPT_SUPPRESS_CONNECT_HEADERS = curl.CURLOPT_SUPPRESS_CONNECT_HEADERS
  * CURLOPT_REQUEST_TARGET = curl.CURLOPT_REQUEST_TARGET
  * CURLOPT_SOCKS5_AUTH = curl.CURLOPT_SOCKS5_AUTH             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_COMPRESSION = curl.CURLOPT_SSH_COMPRESSION
  * CURLOPT_MIMEPOST = curl.CURLOPT_MIMEPOST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKS5_AUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 253, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SOCKS5_AUTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKS5_AUTH, __pyx_t_5) < 0) __PYX_ERR(5, 253, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SOCKS5_AUTH, __pyx_t_5) < 0) __PYX_ERR(5, 251, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":254
+  /* "cycurl/consts.pxi":252
  * CURLOPT_REQUEST_TARGET = curl.CURLOPT_REQUEST_TARGET
  * CURLOPT_SOCKS5_AUTH = curl.CURLOPT_SOCKS5_AUTH
  * CURLOPT_SSH_COMPRESSION = curl.CURLOPT_SSH_COMPRESSION             # <<<<<<<<<<<<<<
  * CURLOPT_MIMEPOST = curl.CURLOPT_MIMEPOST
  * CURLOPT_TIMEVALUE_LARGE = curl.CURLOPT_TIMEVALUE_LARGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_COMPRESSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 254, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_COMPRESSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_COMPRESSION, __pyx_t_5) < 0) __PYX_ERR(5, 254, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_COMPRESSION, __pyx_t_5) < 0) __PYX_ERR(5, 252, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":255
+  /* "cycurl/consts.pxi":253
  * CURLOPT_SOCKS5_AUTH = curl.CURLOPT_SOCKS5_AUTH
  * CURLOPT_SSH_COMPRESSION = curl.CURLOPT_SSH_COMPRESSION
  * CURLOPT_MIMEPOST = curl.CURLOPT_MIMEPOST             # <<<<<<<<<<<<<<
  * CURLOPT_TIMEVALUE_LARGE = curl.CURLOPT_TIMEVALUE_LARGE
  * CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS = curl.CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MIMEPOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 255, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MIMEPOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 253, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MIMEPOST, __pyx_t_5) < 0) __PYX_ERR(5, 255, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MIMEPOST, __pyx_t_5) < 0) __PYX_ERR(5, 253, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":256
+  /* "cycurl/consts.pxi":254
  * CURLOPT_SSH_COMPRESSION = curl.CURLOPT_SSH_COMPRESSION
  * CURLOPT_MIMEPOST = curl.CURLOPT_MIMEPOST
  * CURLOPT_TIMEVALUE_LARGE = curl.CURLOPT_TIMEVALUE_LARGE             # <<<<<<<<<<<<<<
  * CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS = curl.CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS
  * CURLOPT_RESOLVER_START_FUNCTION = curl.CURLOPT_RESOLVER_START_FUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TIMEVALUE_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 256, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TIMEVALUE_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TIMEVALUE_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 256, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TIMEVALUE_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 254, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":257
+  /* "cycurl/consts.pxi":255
  * CURLOPT_MIMEPOST = curl.CURLOPT_MIMEPOST
  * CURLOPT_TIMEVALUE_LARGE = curl.CURLOPT_TIMEVALUE_LARGE
  * CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS = curl.CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS             # <<<<<<<<<<<<<<
  * CURLOPT_RESOLVER_START_FUNCTION = curl.CURLOPT_RESOLVER_START_FUNCTION
  * CURLOPT_RESOLVER_START_DATA = curl.CURLOPT_RESOLVER_START_DATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 257, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 255, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HAPPY_EYEBALLS_TIMEOUT_M, __pyx_t_5) < 0) __PYX_ERR(5, 257, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HAPPY_EYEBALLS_TIMEOUT_M, __pyx_t_5) < 0) __PYX_ERR(5, 255, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":258
+  /* "cycurl/consts.pxi":256
  * CURLOPT_TIMEVALUE_LARGE = curl.CURLOPT_TIMEVALUE_LARGE
  * CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS = curl.CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS
  * CURLOPT_RESOLVER_START_FUNCTION = curl.CURLOPT_RESOLVER_START_FUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_RESOLVER_START_DATA = curl.CURLOPT_RESOLVER_START_DATA
  * CURLOPT_HAPROXYPROTOCOL = curl.CURLOPT_HAPROXYPROTOCOL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RESOLVER_START_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 258, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RESOLVER_START_FUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RESOLVER_START_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 258, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RESOLVER_START_FUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 256, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":259
+  /* "cycurl/consts.pxi":257
  * CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS = curl.CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS
  * CURLOPT_RESOLVER_START_FUNCTION = curl.CURLOPT_RESOLVER_START_FUNCTION
  * CURLOPT_RESOLVER_START_DATA = curl.CURLOPT_RESOLVER_START_DATA             # <<<<<<<<<<<<<<
  * CURLOPT_HAPROXYPROTOCOL = curl.CURLOPT_HAPROXYPROTOCOL
  * CURLOPT_DNS_SHUFFLE_ADDRESSES = curl.CURLOPT_DNS_SHUFFLE_ADDRESSES
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RESOLVER_START_DATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 259, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RESOLVER_START_DATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RESOLVER_START_DATA, __pyx_t_5) < 0) __PYX_ERR(5, 259, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RESOLVER_START_DATA, __pyx_t_5) < 0) __PYX_ERR(5, 257, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":260
+  /* "cycurl/consts.pxi":258
  * CURLOPT_RESOLVER_START_FUNCTION = curl.CURLOPT_RESOLVER_START_FUNCTION
  * CURLOPT_RESOLVER_START_DATA = curl.CURLOPT_RESOLVER_START_DATA
  * CURLOPT_HAPROXYPROTOCOL = curl.CURLOPT_HAPROXYPROTOCOL             # <<<<<<<<<<<<<<
  * CURLOPT_DNS_SHUFFLE_ADDRESSES = curl.CURLOPT_DNS_SHUFFLE_ADDRESSES
  * CURLOPT_TLS13_CIPHERS = curl.CURLOPT_TLS13_CIPHERS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HAPROXYPROTOCOL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 260, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HAPROXYPROTOCOL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 258, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HAPROXYPROTOCOL, __pyx_t_5) < 0) __PYX_ERR(5, 260, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HAPROXYPROTOCOL, __pyx_t_5) < 0) __PYX_ERR(5, 258, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":261
+  /* "cycurl/consts.pxi":259
  * CURLOPT_RESOLVER_START_DATA = curl.CURLOPT_RESOLVER_START_DATA
  * CURLOPT_HAPROXYPROTOCOL = curl.CURLOPT_HAPROXYPROTOCOL
  * CURLOPT_DNS_SHUFFLE_ADDRESSES = curl.CURLOPT_DNS_SHUFFLE_ADDRESSES             # <<<<<<<<<<<<<<
  * CURLOPT_TLS13_CIPHERS = curl.CURLOPT_TLS13_CIPHERS
  * CURLOPT_PROXY_TLS13_CIPHERS = curl.CURLOPT_PROXY_TLS13_CIPHERS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_SHUFFLE_ADDRESSES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 261, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DNS_SHUFFLE_ADDRESSES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_SHUFFLE_ADDRESSES, __pyx_t_5) < 0) __PYX_ERR(5, 261, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DNS_SHUFFLE_ADDRESSES, __pyx_t_5) < 0) __PYX_ERR(5, 259, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":262
+  /* "cycurl/consts.pxi":260
  * CURLOPT_HAPROXYPROTOCOL = curl.CURLOPT_HAPROXYPROTOCOL
  * CURLOPT_DNS_SHUFFLE_ADDRESSES = curl.CURLOPT_DNS_SHUFFLE_ADDRESSES
  * CURLOPT_TLS13_CIPHERS = curl.CURLOPT_TLS13_CIPHERS             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_TLS13_CIPHERS = curl.CURLOPT_PROXY_TLS13_CIPHERS
  * CURLOPT_DISALLOW_USERNAME_IN_URL = curl.CURLOPT_DISALLOW_USERNAME_IN_URL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLS13_CIPHERS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 262, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLS13_CIPHERS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLS13_CIPHERS, __pyx_t_5) < 0) __PYX_ERR(5, 262, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLS13_CIPHERS, __pyx_t_5) < 0) __PYX_ERR(5, 260, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":263
+  /* "cycurl/consts.pxi":261
  * CURLOPT_DNS_SHUFFLE_ADDRESSES = curl.CURLOPT_DNS_SHUFFLE_ADDRESSES
  * CURLOPT_TLS13_CIPHERS = curl.CURLOPT_TLS13_CIPHERS
  * CURLOPT_PROXY_TLS13_CIPHERS = curl.CURLOPT_PROXY_TLS13_CIPHERS             # <<<<<<<<<<<<<<
  * CURLOPT_DISALLOW_USERNAME_IN_URL = curl.CURLOPT_DISALLOW_USERNAME_IN_URL
  * CURLOPT_DOH_URL = curl.CURLOPT_DOH_URL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TLS13_CIPHERS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 263, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_TLS13_CIPHERS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TLS13_CIPHERS, __pyx_t_5) < 0) __PYX_ERR(5, 263, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_TLS13_CIPHERS, __pyx_t_5) < 0) __PYX_ERR(5, 261, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":264
+  /* "cycurl/consts.pxi":262
  * CURLOPT_TLS13_CIPHERS = curl.CURLOPT_TLS13_CIPHERS
  * CURLOPT_PROXY_TLS13_CIPHERS = curl.CURLOPT_PROXY_TLS13_CIPHERS
  * CURLOPT_DISALLOW_USERNAME_IN_URL = curl.CURLOPT_DISALLOW_USERNAME_IN_URL             # <<<<<<<<<<<<<<
  * CURLOPT_DOH_URL = curl.CURLOPT_DOH_URL
  * CURLOPT_UPLOAD_BUFFERSIZE = curl.CURLOPT_UPLOAD_BUFFERSIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DISALLOW_USERNAME_IN_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 264, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DISALLOW_USERNAME_IN_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 262, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DISALLOW_USERNAME_IN_URL, __pyx_t_5) < 0) __PYX_ERR(5, 264, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DISALLOW_USERNAME_IN_URL, __pyx_t_5) < 0) __PYX_ERR(5, 262, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":265
+  /* "cycurl/consts.pxi":263
  * CURLOPT_PROXY_TLS13_CIPHERS = curl.CURLOPT_PROXY_TLS13_CIPHERS
  * CURLOPT_DISALLOW_USERNAME_IN_URL = curl.CURLOPT_DISALLOW_USERNAME_IN_URL
  * CURLOPT_DOH_URL = curl.CURLOPT_DOH_URL             # <<<<<<<<<<<<<<
  * CURLOPT_UPLOAD_BUFFERSIZE = curl.CURLOPT_UPLOAD_BUFFERSIZE
  * CURLOPT_UPKEEP_INTERVAL_MS = curl.CURLOPT_UPKEEP_INTERVAL_MS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DOH_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 265, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DOH_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 263, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DOH_URL, __pyx_t_5) < 0) __PYX_ERR(5, 265, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DOH_URL, __pyx_t_5) < 0) __PYX_ERR(5, 263, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":266
+  /* "cycurl/consts.pxi":264
  * CURLOPT_DISALLOW_USERNAME_IN_URL = curl.CURLOPT_DISALLOW_USERNAME_IN_URL
  * CURLOPT_DOH_URL = curl.CURLOPT_DOH_URL
  * CURLOPT_UPLOAD_BUFFERSIZE = curl.CURLOPT_UPLOAD_BUFFERSIZE             # <<<<<<<<<<<<<<
  * CURLOPT_UPKEEP_INTERVAL_MS = curl.CURLOPT_UPKEEP_INTERVAL_MS
  * CURLOPT_CURLU = curl.CURLOPT_CURLU
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UPLOAD_BUFFERSIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 266, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UPLOAD_BUFFERSIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UPLOAD_BUFFERSIZE, __pyx_t_5) < 0) __PYX_ERR(5, 266, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UPLOAD_BUFFERSIZE, __pyx_t_5) < 0) __PYX_ERR(5, 264, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":267
+  /* "cycurl/consts.pxi":265
  * CURLOPT_DOH_URL = curl.CURLOPT_DOH_URL
  * CURLOPT_UPLOAD_BUFFERSIZE = curl.CURLOPT_UPLOAD_BUFFERSIZE
  * CURLOPT_UPKEEP_INTERVAL_MS = curl.CURLOPT_UPKEEP_INTERVAL_MS             # <<<<<<<<<<<<<<
  * CURLOPT_CURLU = curl.CURLOPT_CURLU
  * CURLOPT_TRAILERFUNCTION = curl.CURLOPT_TRAILERFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UPKEEP_INTERVAL_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 267, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UPKEEP_INTERVAL_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UPKEEP_INTERVAL_MS, __pyx_t_5) < 0) __PYX_ERR(5, 267, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UPKEEP_INTERVAL_MS, __pyx_t_5) < 0) __PYX_ERR(5, 265, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":268
+  /* "cycurl/consts.pxi":266
  * CURLOPT_UPLOAD_BUFFERSIZE = curl.CURLOPT_UPLOAD_BUFFERSIZE
  * CURLOPT_UPKEEP_INTERVAL_MS = curl.CURLOPT_UPKEEP_INTERVAL_MS
  * CURLOPT_CURLU = curl.CURLOPT_CURLU             # <<<<<<<<<<<<<<
  * CURLOPT_TRAILERFUNCTION = curl.CURLOPT_TRAILERFUNCTION
  * CURLOPT_TRAILERDATA = curl.CURLOPT_TRAILERDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CURLU); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 268, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CURLU); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CURLU, __pyx_t_5) < 0) __PYX_ERR(5, 268, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CURLU, __pyx_t_5) < 0) __PYX_ERR(5, 266, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":269
+  /* "cycurl/consts.pxi":267
  * CURLOPT_UPKEEP_INTERVAL_MS = curl.CURLOPT_UPKEEP_INTERVAL_MS
  * CURLOPT_CURLU = curl.CURLOPT_CURLU
  * CURLOPT_TRAILERFUNCTION = curl.CURLOPT_TRAILERFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_TRAILERDATA = curl.CURLOPT_TRAILERDATA
  * CURLOPT_HTTP09_ALLOWED = curl.CURLOPT_HTTP09_ALLOWED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TRAILERFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 269, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TRAILERFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TRAILERFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 269, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TRAILERFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 267, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":270
+  /* "cycurl/consts.pxi":268
  * CURLOPT_CURLU = curl.CURLOPT_CURLU
  * CURLOPT_TRAILERFUNCTION = curl.CURLOPT_TRAILERFUNCTION
  * CURLOPT_TRAILERDATA = curl.CURLOPT_TRAILERDATA             # <<<<<<<<<<<<<<
  * CURLOPT_HTTP09_ALLOWED = curl.CURLOPT_HTTP09_ALLOWED
  * CURLOPT_ALTSVC_CTRL = curl.CURLOPT_ALTSVC_CTRL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TRAILERDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 270, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TRAILERDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TRAILERDATA, __pyx_t_5) < 0) __PYX_ERR(5, 270, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TRAILERDATA, __pyx_t_5) < 0) __PYX_ERR(5, 268, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":271
+  /* "cycurl/consts.pxi":269
  * CURLOPT_TRAILERFUNCTION = curl.CURLOPT_TRAILERFUNCTION
  * CURLOPT_TRAILERDATA = curl.CURLOPT_TRAILERDATA
  * CURLOPT_HTTP09_ALLOWED = curl.CURLOPT_HTTP09_ALLOWED             # <<<<<<<<<<<<<<
  * CURLOPT_ALTSVC_CTRL = curl.CURLOPT_ALTSVC_CTRL
  * CURLOPT_ALTSVC = curl.CURLOPT_ALTSVC
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP09_ALLOWED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 271, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP09_ALLOWED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 269, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP09_ALLOWED, __pyx_t_5) < 0) __PYX_ERR(5, 271, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP09_ALLOWED, __pyx_t_5) < 0) __PYX_ERR(5, 269, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":272
+  /* "cycurl/consts.pxi":270
  * CURLOPT_TRAILERDATA = curl.CURLOPT_TRAILERDATA
  * CURLOPT_HTTP09_ALLOWED = curl.CURLOPT_HTTP09_ALLOWED
  * CURLOPT_ALTSVC_CTRL = curl.CURLOPT_ALTSVC_CTRL             # <<<<<<<<<<<<<<
  * CURLOPT_ALTSVC = curl.CURLOPT_ALTSVC
  * CURLOPT_MAXAGE_CONN = curl.CURLOPT_MAXAGE_CONN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ALTSVC_CTRL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 272, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ALTSVC_CTRL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ALTSVC_CTRL, __pyx_t_5) < 0) __PYX_ERR(5, 272, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ALTSVC_CTRL, __pyx_t_5) < 0) __PYX_ERR(5, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":273
+  /* "cycurl/consts.pxi":271
  * CURLOPT_HTTP09_ALLOWED = curl.CURLOPT_HTTP09_ALLOWED
  * CURLOPT_ALTSVC_CTRL = curl.CURLOPT_ALTSVC_CTRL
  * CURLOPT_ALTSVC = curl.CURLOPT_ALTSVC             # <<<<<<<<<<<<<<
  * CURLOPT_MAXAGE_CONN = curl.CURLOPT_MAXAGE_CONN
  * CURLOPT_SASL_AUTHZID = curl.CURLOPT_SASL_AUTHZID
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ALTSVC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 273, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ALTSVC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ALTSVC, __pyx_t_5) < 0) __PYX_ERR(5, 273, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ALTSVC, __pyx_t_5) < 0) __PYX_ERR(5, 271, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":274
+  /* "cycurl/consts.pxi":272
  * CURLOPT_ALTSVC_CTRL = curl.CURLOPT_ALTSVC_CTRL
  * CURLOPT_ALTSVC = curl.CURLOPT_ALTSVC
  * CURLOPT_MAXAGE_CONN = curl.CURLOPT_MAXAGE_CONN             # <<<<<<<<<<<<<<
  * CURLOPT_SASL_AUTHZID = curl.CURLOPT_SASL_AUTHZID
  * CURLOPT_MAIL_RCPT_ALLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLOWFAILS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXAGE_CONN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 274, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXAGE_CONN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXAGE_CONN, __pyx_t_5) < 0) __PYX_ERR(5, 274, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXAGE_CONN, __pyx_t_5) < 0) __PYX_ERR(5, 272, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":275
+  /* "cycurl/consts.pxi":273
  * CURLOPT_ALTSVC = curl.CURLOPT_ALTSVC
  * CURLOPT_MAXAGE_CONN = curl.CURLOPT_MAXAGE_CONN
  * CURLOPT_SASL_AUTHZID = curl.CURLOPT_SASL_AUTHZID             # <<<<<<<<<<<<<<
  * CURLOPT_MAIL_RCPT_ALLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLOWFAILS
  * CURLOPT_SSLCERT_BLOB = curl.CURLOPT_SSLCERT_BLOB
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SASL_AUTHZID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 275, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SASL_AUTHZID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SASL_AUTHZID, __pyx_t_5) < 0) __PYX_ERR(5, 275, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SASL_AUTHZID, __pyx_t_5) < 0) __PYX_ERR(5, 273, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":276
+  /* "cycurl/consts.pxi":274
  * CURLOPT_MAXAGE_CONN = curl.CURLOPT_MAXAGE_CONN
  * CURLOPT_SASL_AUTHZID = curl.CURLOPT_SASL_AUTHZID
  * CURLOPT_MAIL_RCPT_ALLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLOWFAILS             # <<<<<<<<<<<<<<
  * CURLOPT_SSLCERT_BLOB = curl.CURLOPT_SSLCERT_BLOB
  * CURLOPT_SSLKEY_BLOB = curl.CURLOPT_SSLKEY_BLOB
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_RCPT_ALLOWFAILS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 276, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_RCPT_ALLOWFAILS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_RCPT_ALLOWFAILS, __pyx_t_5) < 0) __PYX_ERR(5, 276, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_RCPT_ALLOWFAILS, __pyx_t_5) < 0) __PYX_ERR(5, 274, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":277
+  /* "cycurl/consts.pxi":275
  * CURLOPT_SASL_AUTHZID = curl.CURLOPT_SASL_AUTHZID
  * CURLOPT_MAIL_RCPT_ALLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLOWFAILS
  * CURLOPT_SSLCERT_BLOB = curl.CURLOPT_SSLCERT_BLOB             # <<<<<<<<<<<<<<
  * CURLOPT_SSLKEY_BLOB = curl.CURLOPT_SSLKEY_BLOB
  * CURLOPT_PROXY_SSLCERT_BLOB = curl.CURLOPT_PROXY_SSLCERT_BLOB
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLCERT_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 277, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLCERT_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERT_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 277, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERT_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 275, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":278
+  /* "cycurl/consts.pxi":276
  * CURLOPT_MAIL_RCPT_ALLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLOWFAILS
  * CURLOPT_SSLCERT_BLOB = curl.CURLOPT_SSLCERT_BLOB
  * CURLOPT_SSLKEY_BLOB = curl.CURLOPT_SSLKEY_BLOB             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSLCERT_BLOB = curl.CURLOPT_PROXY_SSLCERT_BLOB
  * CURLOPT_PROXY_SSLKEY_BLOB = curl.CURLOPT_PROXY_SSLKEY_BLOB
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLKEY_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 278, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLKEY_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEY_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 278, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEY_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 276, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":279
+  /* "cycurl/consts.pxi":277
  * CURLOPT_SSLCERT_BLOB = curl.CURLOPT_SSLCERT_BLOB
  * CURLOPT_SSLKEY_BLOB = curl.CURLOPT_SSLKEY_BLOB
  * CURLOPT_PROXY_SSLCERT_BLOB = curl.CURLOPT_PROXY_SSLCERT_BLOB             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_SSLKEY_BLOB = curl.CURLOPT_PROXY_SSLKEY_BLOB
  * CURLOPT_ISSUERCERT_BLOB = curl.CURLOPT_ISSUERCERT_BLOB
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLCERT_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 279, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLCERT_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLCERT_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 279, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLCERT_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 277, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":280
+  /* "cycurl/consts.pxi":278
  * CURLOPT_SSLKEY_BLOB = curl.CURLOPT_SSLKEY_BLOB
  * CURLOPT_PROXY_SSLCERT_BLOB = curl.CURLOPT_PROXY_SSLCERT_BLOB
  * CURLOPT_PROXY_SSLKEY_BLOB = curl.CURLOPT_PROXY_SSLKEY_BLOB             # <<<<<<<<<<<<<<
  * CURLOPT_ISSUERCERT_BLOB = curl.CURLOPT_ISSUERCERT_BLOB
  * CURLOPT_PROXY_ISSUERCERT = curl.CURLOPT_PROXY_ISSUERCERT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLKEY_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 280, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_SSLKEY_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLKEY_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 280, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_SSLKEY_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 278, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":281
+  /* "cycurl/consts.pxi":279
  * CURLOPT_PROXY_SSLCERT_BLOB = curl.CURLOPT_PROXY_SSLCERT_BLOB
  * CURLOPT_PROXY_SSLKEY_BLOB = curl.CURLOPT_PROXY_SSLKEY_BLOB
  * CURLOPT_ISSUERCERT_BLOB = curl.CURLOPT_ISSUERCERT_BLOB             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_ISSUERCERT = curl.CURLOPT_PROXY_ISSUERCERT
  * CURLOPT_PROXY_ISSUERCERT_BLOB = curl.CURLOPT_PROXY_ISSUERCERT_BLOB
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ISSUERCERT_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 281, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ISSUERCERT_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ISSUERCERT_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 281, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ISSUERCERT_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 279, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":282
+  /* "cycurl/consts.pxi":280
  * CURLOPT_PROXY_SSLKEY_BLOB = curl.CURLOPT_PROXY_SSLKEY_BLOB
  * CURLOPT_ISSUERCERT_BLOB = curl.CURLOPT_ISSUERCERT_BLOB
  * CURLOPT_PROXY_ISSUERCERT = curl.CURLOPT_PROXY_ISSUERCERT             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_ISSUERCERT_BLOB = curl.CURLOPT_PROXY_ISSUERCERT_BLOB
  * CURLOPT_SSL_EC_CURVES = curl.CURLOPT_SSL_EC_CURVES
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_ISSUERCERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 282, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_ISSUERCERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 280, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_ISSUERCERT, __pyx_t_5) < 0) __PYX_ERR(5, 282, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_ISSUERCERT, __pyx_t_5) < 0) __PYX_ERR(5, 280, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":283
+  /* "cycurl/consts.pxi":281
  * CURLOPT_ISSUERCERT_BLOB = curl.CURLOPT_ISSUERCERT_BLOB
  * CURLOPT_PROXY_ISSUERCERT = curl.CURLOPT_PROXY_ISSUERCERT
  * CURLOPT_PROXY_ISSUERCERT_BLOB = curl.CURLOPT_PROXY_ISSUERCERT_BLOB             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_EC_CURVES = curl.CURLOPT_SSL_EC_CURVES
  * CURLOPT_HSTS_CTRL = curl.CURLOPT_HSTS_CTRL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_ISSUERCERT_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 283, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_ISSUERCERT_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_ISSUERCERT_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 283, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_ISSUERCERT_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 281, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":284
+  /* "cycurl/consts.pxi":282
  * CURLOPT_PROXY_ISSUERCERT = curl.CURLOPT_PROXY_ISSUERCERT
  * CURLOPT_PROXY_ISSUERCERT_BLOB = curl.CURLOPT_PROXY_ISSUERCERT_BLOB
  * CURLOPT_SSL_EC_CURVES = curl.CURLOPT_SSL_EC_CURVES             # <<<<<<<<<<<<<<
  * CURLOPT_HSTS_CTRL = curl.CURLOPT_HSTS_CTRL
  * CURLOPT_HSTS = curl.CURLOPT_HSTS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_EC_CURVES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 284, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_EC_CURVES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_EC_CURVES, __pyx_t_5) < 0) __PYX_ERR(5, 284, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_EC_CURVES, __pyx_t_5) < 0) __PYX_ERR(5, 282, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":285
+  /* "cycurl/consts.pxi":283
  * CURLOPT_PROXY_ISSUERCERT_BLOB = curl.CURLOPT_PROXY_ISSUERCERT_BLOB
  * CURLOPT_SSL_EC_CURVES = curl.CURLOPT_SSL_EC_CURVES
  * CURLOPT_HSTS_CTRL = curl.CURLOPT_HSTS_CTRL             # <<<<<<<<<<<<<<
  * CURLOPT_HSTS = curl.CURLOPT_HSTS
  * CURLOPT_HSTSREADFUNCTION = curl.CURLOPT_HSTSREADFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTS_CTRL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 285, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTS_CTRL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 283, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTS_CTRL, __pyx_t_5) < 0) __PYX_ERR(5, 285, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTS_CTRL, __pyx_t_5) < 0) __PYX_ERR(5, 283, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":286
+  /* "cycurl/consts.pxi":284
  * CURLOPT_SSL_EC_CURVES = curl.CURLOPT_SSL_EC_CURVES
  * CURLOPT_HSTS_CTRL = curl.CURLOPT_HSTS_CTRL
  * CURLOPT_HSTS = curl.CURLOPT_HSTS             # <<<<<<<<<<<<<<
  * CURLOPT_HSTSREADFUNCTION = curl.CURLOPT_HSTSREADFUNCTION
  * CURLOPT_HSTSREADDATA = curl.CURLOPT_HSTSREADDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 286, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTS, __pyx_t_5) < 0) __PYX_ERR(5, 286, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTS, __pyx_t_5) < 0) __PYX_ERR(5, 284, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":287
+  /* "cycurl/consts.pxi":285
  * CURLOPT_HSTS_CTRL = curl.CURLOPT_HSTS_CTRL
  * CURLOPT_HSTS = curl.CURLOPT_HSTS
  * CURLOPT_HSTSREADFUNCTION = curl.CURLOPT_HSTSREADFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_HSTSREADDATA = curl.CURLOPT_HSTSREADDATA
  * CURLOPT_HSTSWRITEFUNCTION = curl.CURLOPT_HSTSWRITEFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTSREADFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 287, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTSREADFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTSREADFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 287, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTSREADFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 285, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":288
+  /* "cycurl/consts.pxi":286
  * CURLOPT_HSTS = curl.CURLOPT_HSTS
  * CURLOPT_HSTSREADFUNCTION = curl.CURLOPT_HSTSREADFUNCTION
  * CURLOPT_HSTSREADDATA = curl.CURLOPT_HSTSREADDATA             # <<<<<<<<<<<<<<
  * CURLOPT_HSTSWRITEFUNCTION = curl.CURLOPT_HSTSWRITEFUNCTION
  * CURLOPT_HSTSWRITEDATA = curl.CURLOPT_HSTSWRITEDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTSREADDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 288, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTSREADDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTSREADDATA, __pyx_t_5) < 0) __PYX_ERR(5, 288, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTSREADDATA, __pyx_t_5) < 0) __PYX_ERR(5, 286, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":289
+  /* "cycurl/consts.pxi":287
  * CURLOPT_HSTSREADFUNCTION = curl.CURLOPT_HSTSREADFUNCTION
  * CURLOPT_HSTSREADDATA = curl.CURLOPT_HSTSREADDATA
  * CURLOPT_HSTSWRITEFUNCTION = curl.CURLOPT_HSTSWRITEFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_HSTSWRITEDATA = curl.CURLOPT_HSTSWRITEDATA
  * CURLOPT_AWS_SIGV4 = curl.CURLOPT_AWS_SIGV4
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTSWRITEFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 289, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTSWRITEFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTSWRITEFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 289, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTSWRITEFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 287, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":290
+  /* "cycurl/consts.pxi":288
  * CURLOPT_HSTSREADDATA = curl.CURLOPT_HSTSREADDATA
  * CURLOPT_HSTSWRITEFUNCTION = curl.CURLOPT_HSTSWRITEFUNCTION
  * CURLOPT_HSTSWRITEDATA = curl.CURLOPT_HSTSWRITEDATA             # <<<<<<<<<<<<<<
  * CURLOPT_AWS_SIGV4 = curl.CURLOPT_AWS_SIGV4
  * CURLOPT_DOH_SSL_VERIFYPEER = curl.CURLOPT_DOH_SSL_VERIFYPEER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTSWRITEDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 290, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HSTSWRITEDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTSWRITEDATA, __pyx_t_5) < 0) __PYX_ERR(5, 290, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HSTSWRITEDATA, __pyx_t_5) < 0) __PYX_ERR(5, 288, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":291
+  /* "cycurl/consts.pxi":289
  * CURLOPT_HSTSWRITEFUNCTION = curl.CURLOPT_HSTSWRITEFUNCTION
  * CURLOPT_HSTSWRITEDATA = curl.CURLOPT_HSTSWRITEDATA
  * CURLOPT_AWS_SIGV4 = curl.CURLOPT_AWS_SIGV4             # <<<<<<<<<<<<<<
  * CURLOPT_DOH_SSL_VERIFYPEER = curl.CURLOPT_DOH_SSL_VERIFYPEER
  * CURLOPT_DOH_SSL_VERIFYHOST = curl.CURLOPT_DOH_SSL_VERIFYHOST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_AWS_SIGV4); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 291, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_AWS_SIGV4); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 289, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_AWS_SIGV4, __pyx_t_5) < 0) __PYX_ERR(5, 291, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_AWS_SIGV4, __pyx_t_5) < 0) __PYX_ERR(5, 289, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":292
+  /* "cycurl/consts.pxi":290
  * CURLOPT_HSTSWRITEDATA = curl.CURLOPT_HSTSWRITEDATA
  * CURLOPT_AWS_SIGV4 = curl.CURLOPT_AWS_SIGV4
  * CURLOPT_DOH_SSL_VERIFYPEER = curl.CURLOPT_DOH_SSL_VERIFYPEER             # <<<<<<<<<<<<<<
  * CURLOPT_DOH_SSL_VERIFYHOST = curl.CURLOPT_DOH_SSL_VERIFYHOST
  * CURLOPT_DOH_SSL_VERIFYSTATUS = curl.CURLOPT_DOH_SSL_VERIFYSTATUS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DOH_SSL_VERIFYPEER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 292, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DOH_SSL_VERIFYPEER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 290, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DOH_SSL_VERIFYPEER, __pyx_t_5) < 0) __PYX_ERR(5, 292, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DOH_SSL_VERIFYPEER, __pyx_t_5) < 0) __PYX_ERR(5, 290, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":293
+  /* "cycurl/consts.pxi":291
  * CURLOPT_AWS_SIGV4 = curl.CURLOPT_AWS_SIGV4
  * CURLOPT_DOH_SSL_VERIFYPEER = curl.CURLOPT_DOH_SSL_VERIFYPEER
  * CURLOPT_DOH_SSL_VERIFYHOST = curl.CURLOPT_DOH_SSL_VERIFYHOST             # <<<<<<<<<<<<<<
  * CURLOPT_DOH_SSL_VERIFYSTATUS = curl.CURLOPT_DOH_SSL_VERIFYSTATUS
  * CURLOPT_CAINFO_BLOB = curl.CURLOPT_CAINFO_BLOB
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DOH_SSL_VERIFYHOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 293, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DOH_SSL_VERIFYHOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DOH_SSL_VERIFYHOST, __pyx_t_5) < 0) __PYX_ERR(5, 293, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DOH_SSL_VERIFYHOST, __pyx_t_5) < 0) __PYX_ERR(5, 291, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":294
+  /* "cycurl/consts.pxi":292
  * CURLOPT_DOH_SSL_VERIFYPEER = curl.CURLOPT_DOH_SSL_VERIFYPEER
  * CURLOPT_DOH_SSL_VERIFYHOST = curl.CURLOPT_DOH_SSL_VERIFYHOST
  * CURLOPT_DOH_SSL_VERIFYSTATUS = curl.CURLOPT_DOH_SSL_VERIFYSTATUS             # <<<<<<<<<<<<<<
  * CURLOPT_CAINFO_BLOB = curl.CURLOPT_CAINFO_BLOB
  * CURLOPT_PROXY_CAINFO_BLOB = curl.CURLOPT_PROXY_CAINFO_BLOB
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DOH_SSL_VERIFYSTATUS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 294, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_DOH_SSL_VERIFYSTATUS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DOH_SSL_VERIFYSTATUS, __pyx_t_5) < 0) __PYX_ERR(5, 294, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_DOH_SSL_VERIFYSTATUS, __pyx_t_5) < 0) __PYX_ERR(5, 292, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":295
+  /* "cycurl/consts.pxi":293
  * CURLOPT_DOH_SSL_VERIFYHOST = curl.CURLOPT_DOH_SSL_VERIFYHOST
  * CURLOPT_DOH_SSL_VERIFYSTATUS = curl.CURLOPT_DOH_SSL_VERIFYSTATUS
  * CURLOPT_CAINFO_BLOB = curl.CURLOPT_CAINFO_BLOB             # <<<<<<<<<<<<<<
  * CURLOPT_PROXY_CAINFO_BLOB = curl.CURLOPT_PROXY_CAINFO_BLOB
  * CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CAINFO_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 295, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CAINFO_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAINFO_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 295, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAINFO_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 293, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":296
+  /* "cycurl/consts.pxi":294
  * CURLOPT_DOH_SSL_VERIFYSTATUS = curl.CURLOPT_DOH_SSL_VERIFYSTATUS
  * CURLOPT_CAINFO_BLOB = curl.CURLOPT_CAINFO_BLOB
  * CURLOPT_PROXY_CAINFO_BLOB = curl.CURLOPT_PROXY_CAINFO_BLOB             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256
  * CURLOPT_PREREQFUNCTION = curl.CURLOPT_PREREQFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_CAINFO_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 296, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROXY_CAINFO_BLOB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAINFO_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 296, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAINFO_BLOB, __pyx_t_5) < 0) __PYX_ERR(5, 294, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":297
+  /* "cycurl/consts.pxi":295
  * CURLOPT_CAINFO_BLOB = curl.CURLOPT_CAINFO_BLOB
  * CURLOPT_PROXY_CAINFO_BLOB = curl.CURLOPT_PROXY_CAINFO_BLOB
  * CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256             # <<<<<<<<<<<<<<
  * CURLOPT_PREREQFUNCTION = curl.CURLOPT_PREREQFUNCTION
  * CURLOPT_PREREQDATA = curl.CURLOPT_PREREQDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 297, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_SHA2, __pyx_t_5) < 0) __PYX_ERR(5, 297, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_SHA2, __pyx_t_5) < 0) __PYX_ERR(5, 295, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":298
+  /* "cycurl/consts.pxi":296
  * CURLOPT_PROXY_CAINFO_BLOB = curl.CURLOPT_PROXY_CAINFO_BLOB
  * CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256
  * CURLOPT_PREREQFUNCTION = curl.CURLOPT_PREREQFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_PREREQDATA = curl.CURLOPT_PREREQDATA
  * CURLOPT_MAXLIFETIME_CONN = curl.CURLOPT_MAXLIFETIME_CONN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PREREQFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 298, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PREREQFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 296, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PREREQFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 298, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PREREQFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 296, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":299
+  /* "cycurl/consts.pxi":297
  * CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256 = curl.CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256
  * CURLOPT_PREREQFUNCTION = curl.CURLOPT_PREREQFUNCTION
  * CURLOPT_PREREQDATA = curl.CURLOPT_PREREQDATA             # <<<<<<<<<<<<<<
  * CURLOPT_MAXLIFETIME_CONN = curl.CURLOPT_MAXLIFETIME_CONN
  * CURLOPT_MIME_OPTIONS = curl.CURLOPT_MIME_OPTIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PREREQDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 299, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PREREQDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PREREQDATA, __pyx_t_5) < 0) __PYX_ERR(5, 299, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PREREQDATA, __pyx_t_5) < 0) __PYX_ERR(5, 297, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":300
+  /* "cycurl/consts.pxi":298
  * CURLOPT_PREREQFUNCTION = curl.CURLOPT_PREREQFUNCTION
  * CURLOPT_PREREQDATA = curl.CURLOPT_PREREQDATA
  * CURLOPT_MAXLIFETIME_CONN = curl.CURLOPT_MAXLIFETIME_CONN             # <<<<<<<<<<<<<<
  * CURLOPT_MIME_OPTIONS = curl.CURLOPT_MIME_OPTIONS
  * CURLOPT_SSH_HOSTKEYFUNCTION = curl.CURLOPT_SSH_HOSTKEYFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXLIFETIME_CONN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 300, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAXLIFETIME_CONN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 298, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXLIFETIME_CONN, __pyx_t_5) < 0) __PYX_ERR(5, 300, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAXLIFETIME_CONN, __pyx_t_5) < 0) __PYX_ERR(5, 298, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":301
+  /* "cycurl/consts.pxi":299
  * CURLOPT_PREREQDATA = curl.CURLOPT_PREREQDATA
  * CURLOPT_MAXLIFETIME_CONN = curl.CURLOPT_MAXLIFETIME_CONN
  * CURLOPT_MIME_OPTIONS = curl.CURLOPT_MIME_OPTIONS             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_HOSTKEYFUNCTION = curl.CURLOPT_SSH_HOSTKEYFUNCTION
  * CURLOPT_SSH_HOSTKEYDATA = curl.CURLOPT_SSH_HOSTKEYDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MIME_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 301, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MIME_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MIME_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 301, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MIME_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 299, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":302
+  /* "cycurl/consts.pxi":300
  * CURLOPT_MAXLIFETIME_CONN = curl.CURLOPT_MAXLIFETIME_CONN
  * CURLOPT_MIME_OPTIONS = curl.CURLOPT_MIME_OPTIONS
  * CURLOPT_SSH_HOSTKEYFUNCTION = curl.CURLOPT_SSH_HOSTKEYFUNCTION             # <<<<<<<<<<<<<<
  * CURLOPT_SSH_HOSTKEYDATA = curl.CURLOPT_SSH_HOSTKEYDATA
  * CURLOPT_PROTOCOLS_STR = curl.CURLOPT_PROTOCOLS_STR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_HOSTKEYFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 302, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_HOSTKEYFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_HOSTKEYFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 302, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_HOSTKEYFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 300, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":303
+  /* "cycurl/consts.pxi":301
  * CURLOPT_MIME_OPTIONS = curl.CURLOPT_MIME_OPTIONS
  * CURLOPT_SSH_HOSTKEYFUNCTION = curl.CURLOPT_SSH_HOSTKEYFUNCTION
  * CURLOPT_SSH_HOSTKEYDATA = curl.CURLOPT_SSH_HOSTKEYDATA             # <<<<<<<<<<<<<<
  * CURLOPT_PROTOCOLS_STR = curl.CURLOPT_PROTOCOLS_STR
  * CURLOPT_REDIR_PROTOCOLS_STR = curl.CURLOPT_REDIR_PROTOCOLS_STR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_HOSTKEYDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 303, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSH_HOSTKEYDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_HOSTKEYDATA, __pyx_t_5) < 0) __PYX_ERR(5, 303, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_HOSTKEYDATA, __pyx_t_5) < 0) __PYX_ERR(5, 301, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":304
+  /* "cycurl/consts.pxi":302
  * CURLOPT_SSH_HOSTKEYFUNCTION = curl.CURLOPT_SSH_HOSTKEYFUNCTION
  * CURLOPT_SSH_HOSTKEYDATA = curl.CURLOPT_SSH_HOSTKEYDATA
  * CURLOPT_PROTOCOLS_STR = curl.CURLOPT_PROTOCOLS_STR             # <<<<<<<<<<<<<<
  * CURLOPT_REDIR_PROTOCOLS_STR = curl.CURLOPT_REDIR_PROTOCOLS_STR
  * CURLOPT_WS_OPTIONS = curl.CURLOPT_WS_OPTIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROTOCOLS_STR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 304, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROTOCOLS_STR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROTOCOLS_STR, __pyx_t_5) < 0) __PYX_ERR(5, 304, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROTOCOLS_STR, __pyx_t_5) < 0) __PYX_ERR(5, 302, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":305
+  /* "cycurl/consts.pxi":303
  * CURLOPT_SSH_HOSTKEYDATA = curl.CURLOPT_SSH_HOSTKEYDATA
  * CURLOPT_PROTOCOLS_STR = curl.CURLOPT_PROTOCOLS_STR
  * CURLOPT_REDIR_PROTOCOLS_STR = curl.CURLOPT_REDIR_PROTOCOLS_STR             # <<<<<<<<<<<<<<
  * CURLOPT_WS_OPTIONS = curl.CURLOPT_WS_OPTIONS
  * CURLOPT_CA_CACHE_TIMEOUT = curl.CURLOPT_CA_CACHE_TIMEOUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_REDIR_PROTOCOLS_STR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 305, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_REDIR_PROTOCOLS_STR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_REDIR_PROTOCOLS_STR, __pyx_t_5) < 0) __PYX_ERR(5, 305, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_REDIR_PROTOCOLS_STR, __pyx_t_5) < 0) __PYX_ERR(5, 303, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":306
+  /* "cycurl/consts.pxi":304
  * CURLOPT_PROTOCOLS_STR = curl.CURLOPT_PROTOCOLS_STR
  * CURLOPT_REDIR_PROTOCOLS_STR = curl.CURLOPT_REDIR_PROTOCOLS_STR
  * CURLOPT_WS_OPTIONS = curl.CURLOPT_WS_OPTIONS             # <<<<<<<<<<<<<<
  * CURLOPT_CA_CACHE_TIMEOUT = curl.CURLOPT_CA_CACHE_TIMEOUT
  * CURLOPT_QUICK_EXIT = curl.CURLOPT_QUICK_EXIT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_WS_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 306, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_WS_OPTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WS_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 306, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WS_OPTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 304, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":307
+  /* "cycurl/consts.pxi":305
  * CURLOPT_REDIR_PROTOCOLS_STR = curl.CURLOPT_REDIR_PROTOCOLS_STR
  * CURLOPT_WS_OPTIONS = curl.CURLOPT_WS_OPTIONS
  * CURLOPT_CA_CACHE_TIMEOUT = curl.CURLOPT_CA_CACHE_TIMEOUT             # <<<<<<<<<<<<<<
  * CURLOPT_QUICK_EXIT = curl.CURLOPT_QUICK_EXIT
  * CURLOPT_HAPROXY_CLIENT_IP = curl.CURLOPT_HAPROXY_CLIENT_IP
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CA_CACHE_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 307, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CA_CACHE_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 305, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CA_CACHE_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 307, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CA_CACHE_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 305, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":308
+  /* "cycurl/consts.pxi":306
  * CURLOPT_WS_OPTIONS = curl.CURLOPT_WS_OPTIONS
  * CURLOPT_CA_CACHE_TIMEOUT = curl.CURLOPT_CA_CACHE_TIMEOUT
  * CURLOPT_QUICK_EXIT = curl.CURLOPT_QUICK_EXIT             # <<<<<<<<<<<<<<
  * CURLOPT_HAPROXY_CLIENT_IP = curl.CURLOPT_HAPROXY_CLIENT_IP
  * CURLOPT_SERVER_RESPONSE_TIMEOUT_MS = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT_MS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_QUICK_EXIT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 308, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_QUICK_EXIT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 306, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_QUICK_EXIT, __pyx_t_5) < 0) __PYX_ERR(5, 308, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_QUICK_EXIT, __pyx_t_5) < 0) __PYX_ERR(5, 306, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":309
+  /* "cycurl/consts.pxi":307
  * CURLOPT_CA_CACHE_TIMEOUT = curl.CURLOPT_CA_CACHE_TIMEOUT
  * CURLOPT_QUICK_EXIT = curl.CURLOPT_QUICK_EXIT
  * CURLOPT_HAPROXY_CLIENT_IP = curl.CURLOPT_HAPROXY_CLIENT_IP             # <<<<<<<<<<<<<<
  * CURLOPT_SERVER_RESPONSE_TIMEOUT_MS = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT_MS
- * CURLOPT_HTTPBASEHEADER = curl.CURLOPT_HTTPBASEHEADER
+ * CURLOPT_ECH = curl.CURLOPT_ECH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HAPROXY_CLIENT_IP); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 309, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HAPROXY_CLIENT_IP); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 307, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HAPROXY_CLIENT_IP, __pyx_t_5) < 0) __PYX_ERR(5, 309, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HAPROXY_CLIENT_IP, __pyx_t_5) < 0) __PYX_ERR(5, 307, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":310
+  /* "cycurl/consts.pxi":308
  * CURLOPT_QUICK_EXIT = curl.CURLOPT_QUICK_EXIT
  * CURLOPT_HAPROXY_CLIENT_IP = curl.CURLOPT_HAPROXY_CLIENT_IP
  * CURLOPT_SERVER_RESPONSE_TIMEOUT_MS = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT_MS             # <<<<<<<<<<<<<<
- * CURLOPT_HTTPBASEHEADER = curl.CURLOPT_HTTPBASEHEADER
- * CURLOPT_SSL_SIG_HASH_ALGS = curl.CURLOPT_SSL_SIG_HASH_ALGS
+ * CURLOPT_ECH = curl.CURLOPT_ECH
+ * CURLOPT_TCP_KEEPCNT = curl.CURLOPT_TCP_KEEPCNT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SERVER_RESPONSE_TIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 310, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SERVER_RESPONSE_TIMEOUT_MS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT_2, __pyx_t_5) < 0) __PYX_ERR(5, 310, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT_2, __pyx_t_5) < 0) __PYX_ERR(5, 308, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":309
+ * CURLOPT_HAPROXY_CLIENT_IP = curl.CURLOPT_HAPROXY_CLIENT_IP
+ * CURLOPT_SERVER_RESPONSE_TIMEOUT_MS = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT_MS
+ * CURLOPT_ECH = curl.CURLOPT_ECH             # <<<<<<<<<<<<<<
+ * CURLOPT_TCP_KEEPCNT = curl.CURLOPT_TCP_KEEPCNT
+ * CURLOPT_UPLOAD_FLAGS = curl.CURLOPT_UPLOAD_FLAGS
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ECH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 309, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ECH, __pyx_t_5) < 0) __PYX_ERR(5, 309, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":310
+ * CURLOPT_SERVER_RESPONSE_TIMEOUT_MS = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT_MS
+ * CURLOPT_ECH = curl.CURLOPT_ECH
+ * CURLOPT_TCP_KEEPCNT = curl.CURLOPT_TCP_KEEPCNT             # <<<<<<<<<<<<<<
+ * CURLOPT_UPLOAD_FLAGS = curl.CURLOPT_UPLOAD_FLAGS
+ * CURLOPT_HTTPBASEHEADER = curl.CURLOPT_HTTPBASEHEADER
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TCP_KEEPCNT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 310, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TCP_KEEPCNT, __pyx_t_5) < 0) __PYX_ERR(5, 310, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/consts.pxi":311
- * CURLOPT_HAPROXY_CLIENT_IP = curl.CURLOPT_HAPROXY_CLIENT_IP
- * CURLOPT_SERVER_RESPONSE_TIMEOUT_MS = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT_MS
+ * CURLOPT_ECH = curl.CURLOPT_ECH
+ * CURLOPT_TCP_KEEPCNT = curl.CURLOPT_TCP_KEEPCNT
+ * CURLOPT_UPLOAD_FLAGS = curl.CURLOPT_UPLOAD_FLAGS             # <<<<<<<<<<<<<<
+ * CURLOPT_HTTPBASEHEADER = curl.CURLOPT_HTTPBASEHEADER
+ * CURLOPT_SSL_SIG_HASH_ALGS = curl.CURLOPT_SSL_SIG_HASH_ALGS
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_UPLOAD_FLAGS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 311, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_UPLOAD_FLAGS, __pyx_t_5) < 0) __PYX_ERR(5, 311, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":312
+ * CURLOPT_TCP_KEEPCNT = curl.CURLOPT_TCP_KEEPCNT
+ * CURLOPT_UPLOAD_FLAGS = curl.CURLOPT_UPLOAD_FLAGS
  * CURLOPT_HTTPBASEHEADER = curl.CURLOPT_HTTPBASEHEADER             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_SIG_HASH_ALGS = curl.CURLOPT_SSL_SIG_HASH_ALGS
  * CURLOPT_SSL_ENABLE_ALPS = curl.CURLOPT_SSL_ENABLE_ALPS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTPBASEHEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 311, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTPBASEHEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTPBASEHEADER, __pyx_t_5) < 0) __PYX_ERR(5, 311, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTPBASEHEADER, __pyx_t_5) < 0) __PYX_ERR(5, 312, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":312
- * CURLOPT_SERVER_RESPONSE_TIMEOUT_MS = curl.CURLOPT_SERVER_RESPONSE_TIMEOUT_MS
+  /* "cycurl/consts.pxi":313
+ * CURLOPT_UPLOAD_FLAGS = curl.CURLOPT_UPLOAD_FLAGS
  * CURLOPT_HTTPBASEHEADER = curl.CURLOPT_HTTPBASEHEADER
  * CURLOPT_SSL_SIG_HASH_ALGS = curl.CURLOPT_SSL_SIG_HASH_ALGS             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_ENABLE_ALPS = curl.CURLOPT_SSL_ENABLE_ALPS
  * CURLOPT_SSL_CERT_COMPRESSION = curl.CURLOPT_SSL_CERT_COMPRESSION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_SIG_HASH_ALGS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 312, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_SIG_HASH_ALGS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_SIG_HASH_ALGS, __pyx_t_5) < 0) __PYX_ERR(5, 312, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_SIG_HASH_ALGS, __pyx_t_5) < 0) __PYX_ERR(5, 313, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":313
+  /* "cycurl/consts.pxi":314
  * CURLOPT_HTTPBASEHEADER = curl.CURLOPT_HTTPBASEHEADER
  * CURLOPT_SSL_SIG_HASH_ALGS = curl.CURLOPT_SSL_SIG_HASH_ALGS
  * CURLOPT_SSL_ENABLE_ALPS = curl.CURLOPT_SSL_ENABLE_ALPS             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_CERT_COMPRESSION = curl.CURLOPT_SSL_CERT_COMPRESSION
  * CURLOPT_SSL_ENABLE_TICKET = curl.CURLOPT_SSL_ENABLE_TICKET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_ENABLE_ALPS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 313, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_ENABLE_ALPS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_ENABLE_ALPS, __pyx_t_5) < 0) __PYX_ERR(5, 313, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_ENABLE_ALPS, __pyx_t_5) < 0) __PYX_ERR(5, 314, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":314
+  /* "cycurl/consts.pxi":315
  * CURLOPT_SSL_SIG_HASH_ALGS = curl.CURLOPT_SSL_SIG_HASH_ALGS
  * CURLOPT_SSL_ENABLE_ALPS = curl.CURLOPT_SSL_ENABLE_ALPS
  * CURLOPT_SSL_CERT_COMPRESSION = curl.CURLOPT_SSL_CERT_COMPRESSION             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_ENABLE_TICKET = curl.CURLOPT_SSL_ENABLE_TICKET
  * CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER = curl.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_CERT_COMPRESSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 314, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_CERT_COMPRESSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_CERT_COMPRESSION, __pyx_t_5) < 0) __PYX_ERR(5, 314, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_CERT_COMPRESSION, __pyx_t_5) < 0) __PYX_ERR(5, 315, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":315
+  /* "cycurl/consts.pxi":316
  * CURLOPT_SSL_ENABLE_ALPS = curl.CURLOPT_SSL_ENABLE_ALPS
  * CURLOPT_SSL_CERT_COMPRESSION = curl.CURLOPT_SSL_CERT_COMPRESSION
  * CURLOPT_SSL_ENABLE_TICKET = curl.CURLOPT_SSL_ENABLE_TICKET             # <<<<<<<<<<<<<<
  * CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER = curl.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER
  * CURLOPT_HTTP2_SETTINGS = curl.CURLOPT_HTTP2_SETTINGS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_ENABLE_TICKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 315, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_ENABLE_TICKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_ENABLE_TICKET, __pyx_t_5) < 0) __PYX_ERR(5, 315, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_ENABLE_TICKET, __pyx_t_5) < 0) __PYX_ERR(5, 316, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":316
+  /* "cycurl/consts.pxi":317
  * CURLOPT_SSL_CERT_COMPRESSION = curl.CURLOPT_SSL_CERT_COMPRESSION
  * CURLOPT_SSL_ENABLE_TICKET = curl.CURLOPT_SSL_ENABLE_TICKET
  * CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER = curl.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER             # <<<<<<<<<<<<<<
  * CURLOPT_HTTP2_SETTINGS = curl.CURLOPT_HTTP2_SETTINGS
  * CURLOPT_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_SSL_PERMUTE_EXTENSIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 316, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP2_PSEUDO_HEADERS_ORD, __pyx_t_5) < 0) __PYX_ERR(5, 316, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP2_PSEUDO_HEADERS_ORD, __pyx_t_5) < 0) __PYX_ERR(5, 317, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":317
+  /* "cycurl/consts.pxi":318
  * CURLOPT_SSL_ENABLE_TICKET = curl.CURLOPT_SSL_ENABLE_TICKET
  * CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER = curl.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER
  * CURLOPT_HTTP2_SETTINGS = curl.CURLOPT_HTTP2_SETTINGS             # <<<<<<<<<<<<<<
  * CURLOPT_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_SSL_PERMUTE_EXTENSIONS
  * CURLOPT_HTTP2_WINDOW_UPDATE = curl.CURLOPT_HTTP2_WINDOW_UPDATE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP2_SETTINGS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 317, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP2_SETTINGS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP2_SETTINGS, __pyx_t_5) < 0) __PYX_ERR(5, 317, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP2_SETTINGS, __pyx_t_5) < 0) __PYX_ERR(5, 318, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":318
+  /* "cycurl/consts.pxi":319
  * CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER = curl.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER
  * CURLOPT_HTTP2_SETTINGS = curl.CURLOPT_HTTP2_SETTINGS
  * CURLOPT_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_SSL_PERMUTE_EXTENSIONS             # <<<<<<<<<<<<<<
  * CURLOPT_HTTP2_WINDOW_UPDATE = curl.CURLOPT_HTTP2_WINDOW_UPDATE
- * CURLOPT_ECH = curl.CURLOPT_ECH
-*/
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_PERMUTE_EXTENSIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 318, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_PERMUTE_EXTENSIONS, __pyx_t_5) < 0) __PYX_ERR(5, 318, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "cycurl/consts.pxi":319
- * CURLOPT_HTTP2_SETTINGS = curl.CURLOPT_HTTP2_SETTINGS
- * CURLOPT_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_SSL_PERMUTE_EXTENSIONS
- * CURLOPT_HTTP2_WINDOW_UPDATE = curl.CURLOPT_HTTP2_WINDOW_UPDATE             # <<<<<<<<<<<<<<
- * CURLOPT_ECH = curl.CURLOPT_ECH
  * CURLOPT_HTTP2_STREAMS = curl.CURLOPT_HTTP2_STREAMS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP2_WINDOW_UPDATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 319, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSL_PERMUTE_EXTENSIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP2_WINDOW_UPDATE, __pyx_t_5) < 0) __PYX_ERR(5, 319, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSL_PERMUTE_EXTENSIONS, __pyx_t_5) < 0) __PYX_ERR(5, 319, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/consts.pxi":320
+ * CURLOPT_HTTP2_SETTINGS = curl.CURLOPT_HTTP2_SETTINGS
  * CURLOPT_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_SSL_PERMUTE_EXTENSIONS
- * CURLOPT_HTTP2_WINDOW_UPDATE = curl.CURLOPT_HTTP2_WINDOW_UPDATE
- * CURLOPT_ECH = curl.CURLOPT_ECH             # <<<<<<<<<<<<<<
+ * CURLOPT_HTTP2_WINDOW_UPDATE = curl.CURLOPT_HTTP2_WINDOW_UPDATE             # <<<<<<<<<<<<<<
  * CURLOPT_HTTP2_STREAMS = curl.CURLOPT_HTTP2_STREAMS
  * CURLOPT_TLS_GREASE = curl.CURLOPT_TLS_GREASE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ECH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 320, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_HTTP2_WINDOW_UPDATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 320, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ECH, __pyx_t_5) < 0) __PYX_ERR(5, 320, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP2_WINDOW_UPDATE, __pyx_t_5) < 0) __PYX_ERR(5, 320, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/consts.pxi":321
+ * CURLOPT_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_SSL_PERMUTE_EXTENSIONS
  * CURLOPT_HTTP2_WINDOW_UPDATE = curl.CURLOPT_HTTP2_WINDOW_UPDATE
- * CURLOPT_ECH = curl.CURLOPT_ECH
  * CURLOPT_HTTP2_STREAMS = curl.CURLOPT_HTTP2_STREAMS             # <<<<<<<<<<<<<<
  * CURLOPT_TLS_GREASE = curl.CURLOPT_TLS_GREASE
  * CURLOPT_TLS_EXTENSION_ORDER = curl.CURLOPT_TLS_EXTENSION_ORDER
@@ -52268,7 +52311,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/consts.pxi":322
- * CURLOPT_ECH = curl.CURLOPT_ECH
+ * CURLOPT_HTTP2_WINDOW_UPDATE = curl.CURLOPT_HTTP2_WINDOW_UPDATE
  * CURLOPT_HTTP2_STREAMS = curl.CURLOPT_HTTP2_STREAMS
  * CURLOPT_TLS_GREASE = curl.CURLOPT_TLS_GREASE             # <<<<<<<<<<<<<<
  * CURLOPT_TLS_EXTENSION_ORDER = curl.CURLOPT_TLS_EXTENSION_ORDER
@@ -52368,7 +52411,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * CURLOPT_TLS_RECORD_SIZE_LIMIT = curl.CURLOPT_TLS_RECORD_SIZE_LIMIT
  * CURLOPT_TLS_KEY_SHARES_LIMIT = curl.CURLOPT_TLS_KEY_SHARES_LIMIT             # <<<<<<<<<<<<<<
  * CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT = curl.CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT
- * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
+ * CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS = curl.CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS
 */
   __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLS_KEY_SHARES_LIMIT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
@@ -52379,8 +52422,8 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * CURLOPT_TLS_RECORD_SIZE_LIMIT = curl.CURLOPT_TLS_RECORD_SIZE_LIMIT
  * CURLOPT_TLS_KEY_SHARES_LIMIT = curl.CURLOPT_TLS_KEY_SHARES_LIMIT
  * CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT = curl.CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT             # <<<<<<<<<<<<<<
+ * CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS = curl.CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS
  * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
- * CURLOPT_FILE = curl.CURLOPT_FILE
 */
   __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
@@ -52390,4078 +52433,4342 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   /* "cycurl/consts.pxi":332
  * CURLOPT_TLS_KEY_SHARES_LIMIT = curl.CURLOPT_TLS_KEY_SHARES_LIMIT
  * CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT = curl.CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT
- * CURLOPT_ENCODING = curl.CURLOPT_ENCODING             # <<<<<<<<<<<<<<
+ * CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS = curl.CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS             # <<<<<<<<<<<<<<
+ * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
  * CURLOPT_FILE = curl.CURLOPT_FILE
- * CURLOPT_INFILE = curl.CURLOPT_INFILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 332, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ENCODING, __pyx_t_5) < 0) __PYX_ERR(5, 332, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLS_USE_FIREFOX_TLS13_CI, __pyx_t_5) < 0) __PYX_ERR(5, 332, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/consts.pxi":333
  * CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT = curl.CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT
+ * CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS = curl.CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS
+ * CURLOPT_ENCODING = curl.CURLOPT_ENCODING             # <<<<<<<<<<<<<<
+ * CURLOPT_FILE = curl.CURLOPT_FILE
+ * CURLOPT_INFILE = curl.CURLOPT_INFILE
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 333, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ENCODING, __pyx_t_5) < 0) __PYX_ERR(5, 333, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":334
+ * CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS = curl.CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS
  * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
  * CURLOPT_FILE = curl.CURLOPT_FILE             # <<<<<<<<<<<<<<
  * CURLOPT_INFILE = curl.CURLOPT_INFILE
  * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 333, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 333, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 334, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":334
+  /* "cycurl/consts.pxi":335
  * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
  * CURLOPT_FILE = curl.CURLOPT_FILE
  * CURLOPT_INFILE = curl.CURLOPT_INFILE             # <<<<<<<<<<<<<<
  * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER
  * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 334, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_INFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 335, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INFILE, __pyx_t_5) < 0) __PYX_ERR(5, 334, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INFILE, __pyx_t_5) < 0) __PYX_ERR(5, 335, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":335
+  /* "cycurl/consts.pxi":336
  * CURLOPT_FILE = curl.CURLOPT_FILE
  * CURLOPT_INFILE = curl.CURLOPT_INFILE
  * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER             # <<<<<<<<<<<<<<
  * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO
  * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_WRITEHEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 335, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_WRITEHEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WRITEHEADER, __pyx_t_5) < 0) __PYX_ERR(5, 335, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WRITEHEADER, __pyx_t_5) < 0) __PYX_ERR(5, 336, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":336
+  /* "cycurl/consts.pxi":337
  * CURLOPT_INFILE = curl.CURLOPT_INFILE
  * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER
  * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO             # <<<<<<<<<<<<<<
  * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY
- * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
+ * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_WRITEINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 336, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_WRITEINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WRITEINFO, __pyx_t_5) < 0) __PYX_ERR(5, 336, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "cycurl/consts.pxi":337
- * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER
- * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO
- * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY             # <<<<<<<<<<<<<<
- * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
- * CURLOPT_POST301 = curl.CURLOPT_POST301
-*/
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CLOSEPOLICY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 337, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CLOSEPOLICY, __pyx_t_5) < 0) __PYX_ERR(5, 337, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WRITEINFO, __pyx_t_5) < 0) __PYX_ERR(5, 337, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/consts.pxi":338
+ * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER
+ * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO
+ * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY             # <<<<<<<<<<<<<<
+ * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
+ * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_CLOSEPOLICY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 338, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CLOSEPOLICY, __pyx_t_5) < 0) __PYX_ERR(5, 338, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":339
  * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO
  * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY
+ * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72             # <<<<<<<<<<<<<<
+ * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
+ * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_OBSOLETE72); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 339, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OBSOLETE72, __pyx_t_5) < 0) __PYX_ERR(5, 339, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":340
+ * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY
+ * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
+ * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40             # <<<<<<<<<<<<<<
+ * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
+ * CURLOPT_POST301 = curl.CURLOPT_POST301
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_OBSOLETE40); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OBSOLETE40, __pyx_t_5) < 0) __PYX_ERR(5, 340, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":341
+ * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
+ * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
  * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA             # <<<<<<<<<<<<<<
  * CURLOPT_POST301 = curl.CURLOPT_POST301
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROGRESSDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 338, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_PROGRESSDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROGRESSDATA, __pyx_t_5) < 0) __PYX_ERR(5, 338, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROGRESSDATA, __pyx_t_5) < 0) __PYX_ERR(5, 341, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":339
- * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY
+  /* "cycurl/consts.pxi":342
+ * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
  * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
  * CURLOPT_POST301 = curl.CURLOPT_POST301             # <<<<<<<<<<<<<<
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POST301); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 339, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_POST301); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POST301, __pyx_t_5) < 0) __PYX_ERR(5, 339, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POST301, __pyx_t_5) < 0) __PYX_ERR(5, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":340
+  /* "cycurl/consts.pxi":343
  * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
  * CURLOPT_POST301 = curl.CURLOPT_POST301
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD             # <<<<<<<<<<<<<<
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLKEYPASSWD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 340, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLKEYPASSWD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEYPASSWD, __pyx_t_5) < 0) __PYX_ERR(5, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEYPASSWD, __pyx_t_5) < 0) __PYX_ERR(5, 343, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":341
+  /* "cycurl/consts.pxi":344
  * CURLOPT_POST301 = curl.CURLOPT_POST301
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND             # <<<<<<<<<<<<<<
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTPAPPEND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 341, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTPAPPEND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPAPPEND, __pyx_t_5) < 0) __PYX_ERR(5, 341, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPAPPEND, __pyx_t_5) < 0) __PYX_ERR(5, 344, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":342
+  /* "cycurl/consts.pxi":345
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTPLISTONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 342, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTPLISTONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPLISTONLY, __pyx_t_5) < 0) __PYX_ERR(5, 342, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPLISTONLY, __pyx_t_5) < 0) __PYX_ERR(5, 345, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":343
+  /* "cycurl/consts.pxi":346
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL             # <<<<<<<<<<<<<<
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_SSL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 343, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_SSL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_SSL, __pyx_t_5) < 0) __PYX_ERR(5, 343, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_SSL, __pyx_t_5) < 0) __PYX_ERR(5, 346, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":344
+  /* "cycurl/consts.pxi":347
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD             # <<<<<<<<<<<<<<
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLCERTPASSWD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 344, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_SSLCERTPASSWD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERTPASSWD, __pyx_t_5) < 0) __PYX_ERR(5, 344, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERTPASSWD, __pyx_t_5) < 0) __PYX_ERR(5, 347, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":345
+  /* "cycurl/consts.pxi":348
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT
  * CURLOPT_MAIL_RCPT_ALLLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLLOWFAILS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_KRB4LEVEL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 345, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_KRB4LEVEL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_KRB4LEVEL, __pyx_t_5) < 0) __PYX_ERR(5, 345, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_KRB4LEVEL, __pyx_t_5) < 0) __PYX_ERR(5, 348, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":346
+  /* "cycurl/consts.pxi":349
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT             # <<<<<<<<<<<<<<
  * CURLOPT_MAIL_RCPT_ALLLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLLOWFAILS
  * CURLOPT_RTSPHEADER = curl.CURLOPT_RTSPHEADER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_RESPONSE_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 346, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_FTP_RESPONSE_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_RESPONSE_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 346, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_RESPONSE_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 349, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":347
+  /* "cycurl/consts.pxi":350
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT
  * CURLOPT_MAIL_RCPT_ALLLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLLOWFAILS             # <<<<<<<<<<<<<<
  * CURLOPT_RTSPHEADER = curl.CURLOPT_RTSPHEADER
  * #CURLINFO_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_RCPT_ALLLOWFAILS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 347, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_MAIL_RCPT_ALLLOWFAILS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_RCPT_ALLLOWFAILS, __pyx_t_5) < 0) __PYX_ERR(5, 347, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_RCPT_ALLLOWFAILS, __pyx_t_5) < 0) __PYX_ERR(5, 350, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":348
+  /* "cycurl/consts.pxi":351
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT
  * CURLOPT_MAIL_RCPT_ALLLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLLOWFAILS
  * CURLOPT_RTSPHEADER = curl.CURLOPT_RTSPHEADER             # <<<<<<<<<<<<<<
  * #CURLINFO_
  * CURLINFO_TEXT = curl.CURLINFO_TEXT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSPHEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 348, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLOPT_RTSPHEADER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 351, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSPHEADER, __pyx_t_5) < 0) __PYX_ERR(5, 348, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSPHEADER, __pyx_t_5) < 0) __PYX_ERR(5, 351, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":350
+  /* "cycurl/consts.pxi":353
  * CURLOPT_RTSPHEADER = curl.CURLOPT_RTSPHEADER
  * #CURLINFO_
  * CURLINFO_TEXT = curl.CURLINFO_TEXT             # <<<<<<<<<<<<<<
  * CURLINFO_HEADER_IN = curl.CURLINFO_HEADER_IN
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TEXT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 350, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TEXT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 353, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TEXT, __pyx_t_5) < 0) __PYX_ERR(5, 350, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TEXT, __pyx_t_5) < 0) __PYX_ERR(5, 353, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":351
+  /* "cycurl/consts.pxi":354
  * #CURLINFO_
  * CURLINFO_TEXT = curl.CURLINFO_TEXT
  * CURLINFO_HEADER_IN = curl.CURLINFO_HEADER_IN             # <<<<<<<<<<<<<<
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HEADER_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 351, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HEADER_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 354, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_IN, __pyx_t_5) < 0) __PYX_ERR(5, 351, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_IN, __pyx_t_5) < 0) __PYX_ERR(5, 354, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":352
+  /* "cycurl/consts.pxi":355
  * CURLINFO_TEXT = curl.CURLINFO_TEXT
  * CURLINFO_HEADER_IN = curl.CURLINFO_HEADER_IN
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT             # <<<<<<<<<<<<<<
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HEADER_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 352, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HEADER_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 355, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 352, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 355, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":353
+  /* "cycurl/consts.pxi":356
  * CURLINFO_HEADER_IN = curl.CURLINFO_HEADER_IN
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN             # <<<<<<<<<<<<<<
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_DATA_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 353, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_DATA_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 356, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_DATA_IN, __pyx_t_5) < 0) __PYX_ERR(5, 353, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_DATA_IN, __pyx_t_5) < 0) __PYX_ERR(5, 356, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":354
+  /* "cycurl/consts.pxi":357
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT             # <<<<<<<<<<<<<<
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_DATA_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 354, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_DATA_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 357, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_DATA_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 354, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_DATA_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 357, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":355
+  /* "cycurl/consts.pxi":358
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN             # <<<<<<<<<<<<<<
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT
  * CURLINFO_END = curl.CURLINFO_END
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SSL_DATA_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 355, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SSL_DATA_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 358, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_DATA_IN, __pyx_t_5) < 0) __PYX_ERR(5, 355, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_DATA_IN, __pyx_t_5) < 0) __PYX_ERR(5, 358, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":356
+  /* "cycurl/consts.pxi":359
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT             # <<<<<<<<<<<<<<
  * CURLINFO_END = curl.CURLINFO_END
  * CURLINFO_NONE = curl.CURLINFO_NONE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SSL_DATA_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 356, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SSL_DATA_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 359, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_DATA_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 356, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_DATA_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 359, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":357
+  /* "cycurl/consts.pxi":360
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT
  * CURLINFO_END = curl.CURLINFO_END             # <<<<<<<<<<<<<<
  * CURLINFO_NONE = curl.CURLINFO_NONE
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_END); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 357, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_END); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 360, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_END, __pyx_t_5) < 0) __PYX_ERR(5, 357, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_END, __pyx_t_5) < 0) __PYX_ERR(5, 360, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":358
+  /* "cycurl/consts.pxi":361
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT
  * CURLINFO_END = curl.CURLINFO_END
  * CURLINFO_NONE = curl.CURLINFO_NONE             # <<<<<<<<<<<<<<
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 358, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 358, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 361, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":359
+  /* "cycurl/consts.pxi":362
  * CURLINFO_END = curl.CURLINFO_END
  * CURLINFO_NONE = curl.CURLINFO_NONE
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL             # <<<<<<<<<<<<<<
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_EFFECTIVE_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 359, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_EFFECTIVE_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 362, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EFFECTIVE_URL, __pyx_t_5) < 0) __PYX_ERR(5, 359, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EFFECTIVE_URL, __pyx_t_5) < 0) __PYX_ERR(5, 362, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":360
+  /* "cycurl/consts.pxi":363
  * CURLINFO_NONE = curl.CURLINFO_NONE
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE             # <<<<<<<<<<<<<<
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RESPONSE_CODE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 360, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RESPONSE_CODE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 363, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RESPONSE_CODE, __pyx_t_5) < 0) __PYX_ERR(5, 360, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RESPONSE_CODE, __pyx_t_5) < 0) __PYX_ERR(5, 363, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":361
+  /* "cycurl/consts.pxi":364
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TOTAL_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 361, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TOTAL_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 364, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TOTAL_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 361, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TOTAL_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 364, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":362
+  /* "cycurl/consts.pxi":365
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_NAMELOOKUP_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 362, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_NAMELOOKUP_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 365, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NAMELOOKUP_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 362, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NAMELOOKUP_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 365, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":363
+  /* "cycurl/consts.pxi":366
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONNECT_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 363, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONNECT_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 366, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONNECT_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 363, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONNECT_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 366, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":364
+  /* "cycurl/consts.pxi":367
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRETRANSFER_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 364, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRETRANSFER_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 367, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRETRANSFER_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 364, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRETRANSFER_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 367, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":365
+  /* "cycurl/consts.pxi":368
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SIZE_UPLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 365, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SIZE_UPLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_UPLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 365, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_UPLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 368, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":366
+  /* "cycurl/consts.pxi":369
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SIZE_UPLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 366, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SIZE_UPLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_UPLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 366, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_UPLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 369, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":367
+  /* "cycurl/consts.pxi":370
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DOWNLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 367, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DOWNLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DOWNLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 367, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DOWNLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 370, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":368
+  /* "cycurl/consts.pxi":371
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DOWNLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 368, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DOWNLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DOWNLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 368, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DOWNLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 371, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":369
+  /* "cycurl/consts.pxi":372
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SPEED_DOWNLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 369, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SPEED_DOWNLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 372, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_DOWNLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 369, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_DOWNLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 372, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":370
+  /* "cycurl/consts.pxi":373
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SPEED_DOWNLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 370, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SPEED_DOWNLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 373, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_DOWNLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 370, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_DOWNLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 373, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":371
+  /* "cycurl/consts.pxi":374
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SPEED_UPLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 371, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SPEED_UPLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 374, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_UPLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 371, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_UPLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 374, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":372
+  /* "cycurl/consts.pxi":375
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SPEED_UPLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 372, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SPEED_UPLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 375, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_UPLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 372, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_UPLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 375, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":373
+  /* "cycurl/consts.pxi":376
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE             # <<<<<<<<<<<<<<
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HEADER_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 373, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HEADER_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_SIZE, __pyx_t_5) < 0) __PYX_ERR(5, 373, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_SIZE, __pyx_t_5) < 0) __PYX_ERR(5, 376, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":374
+  /* "cycurl/consts.pxi":377
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE             # <<<<<<<<<<<<<<
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REQUEST_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 374, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REQUEST_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 377, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REQUEST_SIZE, __pyx_t_5) < 0) __PYX_ERR(5, 374, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REQUEST_SIZE, __pyx_t_5) < 0) __PYX_ERR(5, 377, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":375
+  /* "cycurl/consts.pxi":378
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT             # <<<<<<<<<<<<<<
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SSL_VERIFYRESULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 375, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SSL_VERIFYRESULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_VERIFYRESULT, __pyx_t_5) < 0) __PYX_ERR(5, 375, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_VERIFYRESULT, __pyx_t_5) < 0) __PYX_ERR(5, 378, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":376
+  /* "cycurl/consts.pxi":379
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME             # <<<<<<<<<<<<<<
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_FILETIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 376, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_FILETIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 379, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FILETIME, __pyx_t_5) < 0) __PYX_ERR(5, 376, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FILETIME, __pyx_t_5) < 0) __PYX_ERR(5, 379, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":377
+  /* "cycurl/consts.pxi":380
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_FILETIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 377, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_FILETIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 380, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FILETIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 377, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FILETIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 380, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":378
+  /* "cycurl/consts.pxi":381
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_DOWNLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 378, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_DOWNLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 378, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 381, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":379
+  /* "cycurl/consts.pxi":382
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_DOWNLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 379, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_DOWNLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD_2, __pyx_t_5) < 0) __PYX_ERR(5, 379, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD_2, __pyx_t_5) < 0) __PYX_ERR(5, 382, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":380
+  /* "cycurl/consts.pxi":383
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_UPLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 380, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_UPLOAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 380, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD, __pyx_t_5) < 0) __PYX_ERR(5, 383, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":381
+  /* "cycurl/consts.pxi":384
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_UPLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 381, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_UPLOAD_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 384, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 381, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD_T, __pyx_t_5) < 0) __PYX_ERR(5, 384, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":382
+  /* "cycurl/consts.pxi":385
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_STARTTRANSFER_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 382, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_STARTTRANSFER_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_STARTTRANSFER_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 382, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_STARTTRANSFER_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 385, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":383
+  /* "cycurl/consts.pxi":386
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE             # <<<<<<<<<<<<<<
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_TYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 383, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_TYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_TYPE, __pyx_t_5) < 0) __PYX_ERR(5, 383, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_TYPE, __pyx_t_5) < 0) __PYX_ERR(5, 386, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":384
+  /* "cycurl/consts.pxi":387
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 384, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 387, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 384, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 387, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":385
+  /* "cycurl/consts.pxi":388
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT             # <<<<<<<<<<<<<<
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_COUNT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 385, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_COUNT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 388, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_COUNT, __pyx_t_5) < 0) __PYX_ERR(5, 385, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_COUNT, __pyx_t_5) < 0) __PYX_ERR(5, 388, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":386
+  /* "cycurl/consts.pxi":389
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE             # <<<<<<<<<<<<<<
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRIVATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 386, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRIVATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIVATE, __pyx_t_5) < 0) __PYX_ERR(5, 386, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIVATE, __pyx_t_5) < 0) __PYX_ERR(5, 389, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":387
+  /* "cycurl/consts.pxi":390
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE             # <<<<<<<<<<<<<<
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HTTP_CONNECTCODE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 387, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HTTP_CONNECTCODE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTP_CONNECTCODE, __pyx_t_5) < 0) __PYX_ERR(5, 387, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTP_CONNECTCODE, __pyx_t_5) < 0) __PYX_ERR(5, 390, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":388
+  /* "cycurl/consts.pxi":391
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL             # <<<<<<<<<<<<<<
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HTTPAUTH_AVAIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 388, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HTTPAUTH_AVAIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTPAUTH_AVAIL, __pyx_t_5) < 0) __PYX_ERR(5, 388, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTPAUTH_AVAIL, __pyx_t_5) < 0) __PYX_ERR(5, 391, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":389
+  /* "cycurl/consts.pxi":392
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL             # <<<<<<<<<<<<<<
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PROXYAUTH_AVAIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 389, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PROXYAUTH_AVAIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 392, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXYAUTH_AVAIL, __pyx_t_5) < 0) __PYX_ERR(5, 389, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXYAUTH_AVAIL, __pyx_t_5) < 0) __PYX_ERR(5, 392, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":390
+  /* "cycurl/consts.pxi":393
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO             # <<<<<<<<<<<<<<
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_OS_ERRNO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 390, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_OS_ERRNO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 393, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_OS_ERRNO, __pyx_t_5) < 0) __PYX_ERR(5, 390, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_OS_ERRNO, __pyx_t_5) < 0) __PYX_ERR(5, 393, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":391
+  /* "cycurl/consts.pxi":394
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS             # <<<<<<<<<<<<<<
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_NUM_CONNECTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 391, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_NUM_CONNECTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 394, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NUM_CONNECTS, __pyx_t_5) < 0) __PYX_ERR(5, 391, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NUM_CONNECTS, __pyx_t_5) < 0) __PYX_ERR(5, 394, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":392
+  /* "cycurl/consts.pxi":395
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES             # <<<<<<<<<<<<<<
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SSL_ENGINES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 392, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SSL_ENGINES); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_ENGINES, __pyx_t_5) < 0) __PYX_ERR(5, 392, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_ENGINES, __pyx_t_5) < 0) __PYX_ERR(5, 395, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":393
+  /* "cycurl/consts.pxi":396
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST             # <<<<<<<<<<<<<<
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_COOKIELIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 393, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_COOKIELIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_COOKIELIST, __pyx_t_5) < 0) __PYX_ERR(5, 393, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_COOKIELIST, __pyx_t_5) < 0) __PYX_ERR(5, 396, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":394
+  /* "cycurl/consts.pxi":397
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET             # <<<<<<<<<<<<<<
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_LASTSOCKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 394, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_LASTSOCKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LASTSOCKET, __pyx_t_5) < 0) __PYX_ERR(5, 394, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LASTSOCKET, __pyx_t_5) < 0) __PYX_ERR(5, 397, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":395
+  /* "cycurl/consts.pxi":398
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH             # <<<<<<<<<<<<<<
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_FTP_ENTRY_PATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 395, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_FTP_ENTRY_PATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 398, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FTP_ENTRY_PATH, __pyx_t_5) < 0) __PYX_ERR(5, 395, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FTP_ENTRY_PATH, __pyx_t_5) < 0) __PYX_ERR(5, 398, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":396
+  /* "cycurl/consts.pxi":399
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL             # <<<<<<<<<<<<<<
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 396, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_URL, __pyx_t_5) < 0) __PYX_ERR(5, 396, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_URL, __pyx_t_5) < 0) __PYX_ERR(5, 399, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":397
+  /* "cycurl/consts.pxi":400
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP             # <<<<<<<<<<<<<<
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRIMARY_IP); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 397, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRIMARY_IP); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 400, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIMARY_IP, __pyx_t_5) < 0) __PYX_ERR(5, 397, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIMARY_IP, __pyx_t_5) < 0) __PYX_ERR(5, 400, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":398
+  /* "cycurl/consts.pxi":401
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_APPCONNECT_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 398, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_APPCONNECT_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_APPCONNECT_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 398, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_APPCONNECT_TIME, __pyx_t_5) < 0) __PYX_ERR(5, 401, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":399
+  /* "cycurl/consts.pxi":402
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO             # <<<<<<<<<<<<<<
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CERTINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 399, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CERTINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 402, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CERTINFO, __pyx_t_5) < 0) __PYX_ERR(5, 399, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CERTINFO, __pyx_t_5) < 0) __PYX_ERR(5, 402, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":400
+  /* "cycurl/consts.pxi":403
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET             # <<<<<<<<<<<<<<
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONDITION_UNMET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 400, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONDITION_UNMET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONDITION_UNMET, __pyx_t_5) < 0) __PYX_ERR(5, 400, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONDITION_UNMET, __pyx_t_5) < 0) __PYX_ERR(5, 403, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":401
+  /* "cycurl/consts.pxi":404
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID             # <<<<<<<<<<<<<<
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RTSP_SESSION_ID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 401, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RTSP_SESSION_ID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 404, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_SESSION_ID, __pyx_t_5) < 0) __PYX_ERR(5, 401, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_SESSION_ID, __pyx_t_5) < 0) __PYX_ERR(5, 404, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":402
+  /* "cycurl/consts.pxi":405
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ             # <<<<<<<<<<<<<<
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RTSP_CLIENT_CSEQ); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 402, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RTSP_CLIENT_CSEQ); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 405, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_CLIENT_CSEQ, __pyx_t_5) < 0) __PYX_ERR(5, 402, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_CLIENT_CSEQ, __pyx_t_5) < 0) __PYX_ERR(5, 405, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":403
+  /* "cycurl/consts.pxi":406
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ             # <<<<<<<<<<<<<<
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RTSP_SERVER_CSEQ); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 403, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RTSP_SERVER_CSEQ); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 406, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_SERVER_CSEQ, __pyx_t_5) < 0) __PYX_ERR(5, 403, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_SERVER_CSEQ, __pyx_t_5) < 0) __PYX_ERR(5, 406, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":404
+  /* "cycurl/consts.pxi":407
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV             # <<<<<<<<<<<<<<
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RTSP_CSEQ_RECV); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 404, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RTSP_CSEQ_RECV); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 407, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_CSEQ_RECV, __pyx_t_5) < 0) __PYX_ERR(5, 404, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_CSEQ_RECV, __pyx_t_5) < 0) __PYX_ERR(5, 407, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":405
+  /* "cycurl/consts.pxi":408
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT             # <<<<<<<<<<<<<<
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRIMARY_PORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 405, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRIMARY_PORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIMARY_PORT, __pyx_t_5) < 0) __PYX_ERR(5, 405, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIMARY_PORT, __pyx_t_5) < 0) __PYX_ERR(5, 408, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":406
+  /* "cycurl/consts.pxi":409
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP             # <<<<<<<<<<<<<<
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_LOCAL_IP); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 406, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_LOCAL_IP); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 409, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LOCAL_IP, __pyx_t_5) < 0) __PYX_ERR(5, 406, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LOCAL_IP, __pyx_t_5) < 0) __PYX_ERR(5, 409, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":407
+  /* "cycurl/consts.pxi":410
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT             # <<<<<<<<<<<<<<
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_LOCAL_PORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 407, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_LOCAL_PORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 410, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LOCAL_PORT, __pyx_t_5) < 0) __PYX_ERR(5, 407, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LOCAL_PORT, __pyx_t_5) < 0) __PYX_ERR(5, 410, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":408
+  /* "cycurl/consts.pxi":411
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION             # <<<<<<<<<<<<<<
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TLS_SESSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 408, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TLS_SESSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 411, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TLS_SESSION, __pyx_t_5) < 0) __PYX_ERR(5, 408, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TLS_SESSION, __pyx_t_5) < 0) __PYX_ERR(5, 411, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":409
+  /* "cycurl/consts.pxi":412
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET             # <<<<<<<<<<<<<<
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_ACTIVESOCKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 409, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_ACTIVESOCKET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_ACTIVESOCKET, __pyx_t_5) < 0) __PYX_ERR(5, 409, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_ACTIVESOCKET, __pyx_t_5) < 0) __PYX_ERR(5, 412, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":410
+  /* "cycurl/consts.pxi":413
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR             # <<<<<<<<<<<<<<
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TLS_SSL_PTR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 410, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TLS_SSL_PTR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 413, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TLS_SSL_PTR, __pyx_t_5) < 0) __PYX_ERR(5, 410, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TLS_SSL_PTR, __pyx_t_5) < 0) __PYX_ERR(5, 413, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":411
+  /* "cycurl/consts.pxi":414
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION             # <<<<<<<<<<<<<<
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HTTP_VERSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 411, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HTTP_VERSION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTP_VERSION, __pyx_t_5) < 0) __PYX_ERR(5, 411, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTP_VERSION, __pyx_t_5) < 0) __PYX_ERR(5, 414, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":412
+  /* "cycurl/consts.pxi":415
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT             # <<<<<<<<<<<<<<
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PROXY_SSL_VERIFYRESULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 412, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PROXY_SSL_VERIFYRESULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 415, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXY_SSL_VERIFYRESULT, __pyx_t_5) < 0) __PYX_ERR(5, 412, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXY_SSL_VERIFYRESULT, __pyx_t_5) < 0) __PYX_ERR(5, 415, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":413
+  /* "cycurl/consts.pxi":416
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL             # <<<<<<<<<<<<<<
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PROTOCOL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 413, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PROTOCOL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROTOCOL, __pyx_t_5) < 0) __PYX_ERR(5, 413, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROTOCOL, __pyx_t_5) < 0) __PYX_ERR(5, 416, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":414
+  /* "cycurl/consts.pxi":417
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME             # <<<<<<<<<<<<<<
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SCHEME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 414, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_SCHEME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 417, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SCHEME, __pyx_t_5) < 0) __PYX_ERR(5, 414, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SCHEME, __pyx_t_5) < 0) __PYX_ERR(5, 417, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":415
+  /* "cycurl/consts.pxi":418
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TOTAL_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 415, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_TOTAL_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 418, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TOTAL_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 415, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TOTAL_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 418, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":416
+  /* "cycurl/consts.pxi":419
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_NAMELOOKUP_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 416, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_NAMELOOKUP_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 419, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NAMELOOKUP_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 416, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NAMELOOKUP_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 419, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":417
+  /* "cycurl/consts.pxi":420
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONNECT_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 417, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONNECT_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONNECT_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 417, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONNECT_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 420, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":418
+  /* "cycurl/consts.pxi":421
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRETRANSFER_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 418, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PRETRANSFER_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 421, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRETRANSFER_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 418, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRETRANSFER_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 421, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":419
+  /* "cycurl/consts.pxi":422
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_STARTTRANSFER_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 419, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_STARTTRANSFER_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 422, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_STARTTRANSFER_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 419, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_STARTTRANSFER_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 422, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":420
+  /* "cycurl/consts.pxi":423
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 420, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 420, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 423, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":421
+  /* "cycurl/consts.pxi":424
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_APPCONNECT_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 421, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_APPCONNECT_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_APPCONNECT_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 421, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_APPCONNECT_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 424, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":422
+  /* "cycurl/consts.pxi":425
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER             # <<<<<<<<<<<<<<
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RETRY_AFTER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 422, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_RETRY_AFTER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 425, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RETRY_AFTER, __pyx_t_5) < 0) __PYX_ERR(5, 422, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RETRY_AFTER, __pyx_t_5) < 0) __PYX_ERR(5, 425, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":423
+  /* "cycurl/consts.pxi":426
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD             # <<<<<<<<<<<<<<
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR
  * CURLINFO_REFERER = curl.CURLINFO_REFERER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_EFFECTIVE_METHOD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 423, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_EFFECTIVE_METHOD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 426, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EFFECTIVE_METHOD, __pyx_t_5) < 0) __PYX_ERR(5, 423, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EFFECTIVE_METHOD, __pyx_t_5) < 0) __PYX_ERR(5, 426, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":424
+  /* "cycurl/consts.pxi":427
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR             # <<<<<<<<<<<<<<
  * CURLINFO_REFERER = curl.CURLINFO_REFERER
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PROXY_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 424, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PROXY_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 427, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXY_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 424, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXY_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 427, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":425
+  /* "cycurl/consts.pxi":428
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR
  * CURLINFO_REFERER = curl.CURLINFO_REFERER             # <<<<<<<<<<<<<<
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REFERER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 425, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_REFERER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 428, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REFERER, __pyx_t_5) < 0) __PYX_ERR(5, 425, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REFERER, __pyx_t_5) < 0) __PYX_ERR(5, 428, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":426
+  /* "cycurl/consts.pxi":429
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR
  * CURLINFO_REFERER = curl.CURLINFO_REFERER
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO             # <<<<<<<<<<<<<<
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CAINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 426, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CAINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 429, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CAINFO, __pyx_t_5) < 0) __PYX_ERR(5, 426, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CAINFO, __pyx_t_5) < 0) __PYX_ERR(5, 429, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":427
+  /* "cycurl/consts.pxi":430
  * CURLINFO_REFERER = curl.CURLINFO_REFERER
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH             # <<<<<<<<<<<<<<
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CAPATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 427, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CAPATH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 430, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CAPATH, __pyx_t_5) < 0) __PYX_ERR(5, 427, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CAPATH, __pyx_t_5) < 0) __PYX_ERR(5, 430, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":428
+  /* "cycurl/consts.pxi":431
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID             # <<<<<<<<<<<<<<
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID
  * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_XFER_ID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 428, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_XFER_ID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 431, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_XFER_ID, __pyx_t_5) < 0) __PYX_ERR(5, 428, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_XFER_ID, __pyx_t_5) < 0) __PYX_ERR(5, 431, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":429
+  /* "cycurl/consts.pxi":432
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID             # <<<<<<<<<<<<<<
  * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T
  * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONN_ID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 429, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_CONN_ID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 432, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONN_ID, __pyx_t_5) < 0) __PYX_ERR(5, 429, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONN_ID, __pyx_t_5) < 0) __PYX_ERR(5, 432, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":430
+  /* "cycurl/consts.pxi":433
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID
  * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY
- * CURLINFO_LASTONE = curl.CURLINFO_LASTONE
+ * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_QUEUE_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 430, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_QUEUE_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 433, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_QUEUE_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 430, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_QUEUE_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 433, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":431
+  /* "cycurl/consts.pxi":434
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID
  * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T
  * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY             # <<<<<<<<<<<<<<
+ * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T
+ * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_USED_PROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 434, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_USED_PROXY, __pyx_t_5) < 0) __PYX_ERR(5, 434, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":435
+ * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T
+ * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY
+ * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T             # <<<<<<<<<<<<<<
+ * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T
+ * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_POSTTRANSFER_TIME_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 435, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_POSTTRANSFER_TIME_T, __pyx_t_5) < 0) __PYX_ERR(5, 435, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":436
+ * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY
+ * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T
+ * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T             # <<<<<<<<<<<<<<
+ * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED
+ * CURLINFO_PROXYAUTH_USED = curl.CURLINFO_PROXYAUTH_USED
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_EARLYDATA_SENT_T); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 436, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EARLYDATA_SENT_T, __pyx_t_5) < 0) __PYX_ERR(5, 436, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":437
+ * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T
+ * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T
+ * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED             # <<<<<<<<<<<<<<
+ * CURLINFO_PROXYAUTH_USED = curl.CURLINFO_PROXYAUTH_USED
+ * CURLINFO_LASTONE = curl.CURLINFO_LASTONE
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_HTTPAUTH_USED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 437, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTPAUTH_USED, __pyx_t_5) < 0) __PYX_ERR(5, 437, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":438
+ * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T
+ * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED
+ * CURLINFO_PROXYAUTH_USED = curl.CURLINFO_PROXYAUTH_USED             # <<<<<<<<<<<<<<
  * CURLINFO_LASTONE = curl.CURLINFO_LASTONE
  * #CURLMOPT_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_USED_PROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 431, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_PROXYAUTH_USED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_USED_PROXY, __pyx_t_5) < 0) __PYX_ERR(5, 431, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXYAUTH_USED, __pyx_t_5) < 0) __PYX_ERR(5, 438, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":432
- * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T
- * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY
+  /* "cycurl/consts.pxi":439
+ * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED
+ * CURLINFO_PROXYAUTH_USED = curl.CURLINFO_PROXYAUTH_USED
  * CURLINFO_LASTONE = curl.CURLINFO_LASTONE             # <<<<<<<<<<<<<<
  * #CURLMOPT_
  * CURLMOPT_SOCKETFUNCTION = curl.CURLMOPT_SOCKETFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_LASTONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 432, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLINFO_LASTONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 439, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LASTONE, __pyx_t_5) < 0) __PYX_ERR(5, 432, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LASTONE, __pyx_t_5) < 0) __PYX_ERR(5, 439, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":434
+  /* "cycurl/consts.pxi":441
  * CURLINFO_LASTONE = curl.CURLINFO_LASTONE
  * #CURLMOPT_
  * CURLMOPT_SOCKETFUNCTION = curl.CURLMOPT_SOCKETFUNCTION             # <<<<<<<<<<<<<<
  * CURLMOPT_SOCKETDATA = curl.CURLMOPT_SOCKETDATA
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_SOCKETFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 434, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_SOCKETFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 441, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_SOCKETFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 434, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_SOCKETFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 441, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":435
+  /* "cycurl/consts.pxi":442
  * #CURLMOPT_
  * CURLMOPT_SOCKETFUNCTION = curl.CURLMOPT_SOCKETFUNCTION
  * CURLMOPT_SOCKETDATA = curl.CURLMOPT_SOCKETDATA             # <<<<<<<<<<<<<<
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_SOCKETDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 435, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_SOCKETDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_SOCKETDATA, __pyx_t_5) < 0) __PYX_ERR(5, 435, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_SOCKETDATA, __pyx_t_5) < 0) __PYX_ERR(5, 442, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":436
+  /* "cycurl/consts.pxi":443
  * CURLMOPT_SOCKETFUNCTION = curl.CURLMOPT_SOCKETFUNCTION
  * CURLMOPT_SOCKETDATA = curl.CURLMOPT_SOCKETDATA
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING             # <<<<<<<<<<<<<<
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 436, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 443, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING, __pyx_t_5) < 0) __PYX_ERR(5, 436, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING, __pyx_t_5) < 0) __PYX_ERR(5, 443, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":437
+  /* "cycurl/consts.pxi":444
  * CURLMOPT_SOCKETDATA = curl.CURLMOPT_SOCKETDATA
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION             # <<<<<<<<<<<<<<
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_TIMERFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 437, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_TIMERFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 444, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_TIMERFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 437, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_TIMERFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 444, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":438
+  /* "cycurl/consts.pxi":445
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA             # <<<<<<<<<<<<<<
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_TIMERDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 438, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_TIMERDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 445, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_TIMERDATA, __pyx_t_5) < 0) __PYX_ERR(5, 438, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_TIMERDATA, __pyx_t_5) < 0) __PYX_ERR(5, 445, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":439
+  /* "cycurl/consts.pxi":446
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS             # <<<<<<<<<<<<<<
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAXCONNECTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 439, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAXCONNECTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 446, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAXCONNECTS, __pyx_t_5) < 0) __PYX_ERR(5, 439, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAXCONNECTS, __pyx_t_5) < 0) __PYX_ERR(5, 446, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":440
+  /* "cycurl/consts.pxi":447
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS             # <<<<<<<<<<<<<<
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAX_HOST_CONNECTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 440, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAX_HOST_CONNECTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 447, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_HOST_CONNECTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 440, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_HOST_CONNECTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 447, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":441
+  /* "cycurl/consts.pxi":448
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH             # <<<<<<<<<<<<<<
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAX_PIPELINE_LENGTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 441, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAX_PIPELINE_LENGTH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 448, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_PIPELINE_LENGTH, __pyx_t_5) < 0) __PYX_ERR(5, 441, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_PIPELINE_LENGTH, __pyx_t_5) < 0) __PYX_ERR(5, 448, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":442
+  /* "cycurl/consts.pxi":449
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE             # <<<<<<<<<<<<<<
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 442, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 449, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_CONTENT_LENGTH_PENALTY, __pyx_t_5) < 0) __PYX_ERR(5, 442, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_CONTENT_LENGTH_PENALTY, __pyx_t_5) < 0) __PYX_ERR(5, 449, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":443
+  /* "cycurl/consts.pxi":450
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE             # <<<<<<<<<<<<<<
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 443, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 450, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_CHUNK_LENGTH_PENALTY_SI, __pyx_t_5) < 0) __PYX_ERR(5, 443, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_CHUNK_LENGTH_PENALTY_SI, __pyx_t_5) < 0) __PYX_ERR(5, 450, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":444
+  /* "cycurl/consts.pxi":451
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL             # <<<<<<<<<<<<<<
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING_SITE_BL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 444, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING_SITE_BL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING_SITE_BL, __pyx_t_5) < 0) __PYX_ERR(5, 444, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING_SITE_BL, __pyx_t_5) < 0) __PYX_ERR(5, 451, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":445
+  /* "cycurl/consts.pxi":452
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL             # <<<<<<<<<<<<<<
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING_SERVER_BL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 445, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING_SERVER_BL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 452, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING_SERVER_BL, __pyx_t_5) < 0) __PYX_ERR(5, 445, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING_SERVER_BL, __pyx_t_5) < 0) __PYX_ERR(5, 452, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":446
+  /* "cycurl/consts.pxi":453
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS             # <<<<<<<<<<<<<<
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION
  * CURLMOPT_PUSHDATA = curl.CURLMOPT_PUSHDATA
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAX_TOTAL_CONNECTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 446, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAX_TOTAL_CONNECTIONS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 453, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_TOTAL_CONNECTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 446, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_TOTAL_CONNECTIONS, __pyx_t_5) < 0) __PYX_ERR(5, 453, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":447
+  /* "cycurl/consts.pxi":454
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION             # <<<<<<<<<<<<<<
  * CURLMOPT_PUSHDATA = curl.CURLMOPT_PUSHDATA
  * CURLMOPT_MAX_CONCURRENT_STREAMS = curl.CURLMOPT_MAX_CONCURRENT_STREAMS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PUSHFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 447, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PUSHFUNCTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PUSHFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 447, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PUSHFUNCTION, __pyx_t_5) < 0) __PYX_ERR(5, 454, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":448
+  /* "cycurl/consts.pxi":455
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION
  * CURLMOPT_PUSHDATA = curl.CURLMOPT_PUSHDATA             # <<<<<<<<<<<<<<
  * CURLMOPT_MAX_CONCURRENT_STREAMS = curl.CURLMOPT_MAX_CONCURRENT_STREAMS
  * #CURLE_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PUSHDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 448, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_PUSHDATA); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 455, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PUSHDATA, __pyx_t_5) < 0) __PYX_ERR(5, 448, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PUSHDATA, __pyx_t_5) < 0) __PYX_ERR(5, 455, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":449
+  /* "cycurl/consts.pxi":456
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION
  * CURLMOPT_PUSHDATA = curl.CURLMOPT_PUSHDATA
  * CURLMOPT_MAX_CONCURRENT_STREAMS = curl.CURLMOPT_MAX_CONCURRENT_STREAMS             # <<<<<<<<<<<<<<
  * #CURLE_
  * CURLE_OK = curl.CURLE_OK
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAX_CONCURRENT_STREAMS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 449, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMOPT_MAX_CONCURRENT_STREAMS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 456, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_CONCURRENT_STREAMS, __pyx_t_5) < 0) __PYX_ERR(5, 449, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_CONCURRENT_STREAMS, __pyx_t_5) < 0) __PYX_ERR(5, 456, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":451
+  /* "cycurl/consts.pxi":458
  * CURLMOPT_MAX_CONCURRENT_STREAMS = curl.CURLMOPT_MAX_CONCURRENT_STREAMS
  * #CURLE_
  * CURLE_OK = curl.CURLE_OK             # <<<<<<<<<<<<<<
  * CURLE_UNSUPPORTED_PROTOCOL = curl.CURLE_UNSUPPORTED_PROTOCOL
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 451, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 458, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OK, __pyx_t_5) < 0) __PYX_ERR(5, 451, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OK, __pyx_t_5) < 0) __PYX_ERR(5, 458, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":452
+  /* "cycurl/consts.pxi":459
  * #CURLE_
  * CURLE_OK = curl.CURLE_OK
  * CURLE_UNSUPPORTED_PROTOCOL = curl.CURLE_UNSUPPORTED_PROTOCOL             # <<<<<<<<<<<<<<
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UNSUPPORTED_PROTOCOL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 452, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UNSUPPORTED_PROTOCOL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 459, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNSUPPORTED_PROTOCOL, __pyx_t_5) < 0) __PYX_ERR(5, 452, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNSUPPORTED_PROTOCOL, __pyx_t_5) < 0) __PYX_ERR(5, 459, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":453
+  /* "cycurl/consts.pxi":460
  * CURLE_OK = curl.CURLE_OK
  * CURLE_UNSUPPORTED_PROTOCOL = curl.CURLE_UNSUPPORTED_PROTOCOL
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT             # <<<<<<<<<<<<<<
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FAILED_INIT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 453, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FAILED_INIT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 460, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FAILED_INIT, __pyx_t_5) < 0) __PYX_ERR(5, 453, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FAILED_INIT, __pyx_t_5) < 0) __PYX_ERR(5, 460, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":454
+  /* "cycurl/consts.pxi":461
  * CURLE_UNSUPPORTED_PROTOCOL = curl.CURLE_UNSUPPORTED_PROTOCOL
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT             # <<<<<<<<<<<<<<
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_URL_MALFORMAT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 454, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_URL_MALFORMAT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 461, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_URL_MALFORMAT, __pyx_t_5) < 0) __PYX_ERR(5, 454, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_URL_MALFORMAT, __pyx_t_5) < 0) __PYX_ERR(5, 461, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":455
+  /* "cycurl/consts.pxi":462
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN             # <<<<<<<<<<<<<<
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_NOT_BUILT_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 455, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_NOT_BUILT_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 462, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_NOT_BUILT_IN, __pyx_t_5) < 0) __PYX_ERR(5, 455, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_NOT_BUILT_IN, __pyx_t_5) < 0) __PYX_ERR(5, 462, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":456
+  /* "cycurl/consts.pxi":463
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY             # <<<<<<<<<<<<<<
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_COULDNT_RESOLVE_PROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 456, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_COULDNT_RESOLVE_PROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 463, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_RESOLVE_PROXY, __pyx_t_5) < 0) __PYX_ERR(5, 456, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_RESOLVE_PROXY, __pyx_t_5) < 0) __PYX_ERR(5, 463, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":457
+  /* "cycurl/consts.pxi":464
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST             # <<<<<<<<<<<<<<
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_COULDNT_RESOLVE_HOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 457, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_COULDNT_RESOLVE_HOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 464, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_RESOLVE_HOST, __pyx_t_5) < 0) __PYX_ERR(5, 457, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_RESOLVE_HOST, __pyx_t_5) < 0) __PYX_ERR(5, 464, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":458
+  /* "cycurl/consts.pxi":465
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT             # <<<<<<<<<<<<<<
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_COULDNT_CONNECT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 458, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_COULDNT_CONNECT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_CONNECT, __pyx_t_5) < 0) __PYX_ERR(5, 458, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_CONNECT, __pyx_t_5) < 0) __PYX_ERR(5, 465, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":459
+  /* "cycurl/consts.pxi":466
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY             # <<<<<<<<<<<<<<
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_WEIRD_SERVER_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 459, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_WEIRD_SERVER_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 466, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_WEIRD_SERVER_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 459, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_WEIRD_SERVER_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 466, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":460
+  /* "cycurl/consts.pxi":467
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED             # <<<<<<<<<<<<<<
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_REMOTE_ACCESS_DENIED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 460, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_REMOTE_ACCESS_DENIED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 467, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_ACCESS_DENIED, __pyx_t_5) < 0) __PYX_ERR(5, 460, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_ACCESS_DENIED, __pyx_t_5) < 0) __PYX_ERR(5, 467, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":461
+  /* "cycurl/consts.pxi":468
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_ACCEPT_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 461, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_ACCEPT_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 468, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCEPT_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 461, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCEPT_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 468, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":462
+  /* "cycurl/consts.pxi":469
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY             # <<<<<<<<<<<<<<
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_PASS_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 462, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_PASS_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 469, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_PASS_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 462, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_PASS_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 469, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":463
+  /* "cycurl/consts.pxi":470
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_ACCEPT_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 463, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_ACCEPT_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 470, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCEPT_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 463, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCEPT_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 470, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":464
+  /* "cycurl/consts.pxi":471
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_PASV_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 464, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_PASV_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 471, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_PASV_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 464, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_PASV_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 471, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":465
+  /* "cycurl/consts.pxi":472
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT             # <<<<<<<<<<<<<<
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST
  * CURLE_HTTP2 = curl.CURLE_HTTP2
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_227_FORMAT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 465, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_227_FORMAT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 472, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_227_FORMAT, __pyx_t_5) < 0) __PYX_ERR(5, 465, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_227_FORMAT, __pyx_t_5) < 0) __PYX_ERR(5, 472, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":466
+  /* "cycurl/consts.pxi":473
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST             # <<<<<<<<<<<<<<
  * CURLE_HTTP2 = curl.CURLE_HTTP2
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_CANT_GET_HOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 466, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_CANT_GET_HOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 473, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_CANT_GET_HOST, __pyx_t_5) < 0) __PYX_ERR(5, 466, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_CANT_GET_HOST, __pyx_t_5) < 0) __PYX_ERR(5, 473, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":467
+  /* "cycurl/consts.pxi":474
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST
  * CURLE_HTTP2 = curl.CURLE_HTTP2             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP2); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 467, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP2); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP2, __pyx_t_5) < 0) __PYX_ERR(5, 467, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP2, __pyx_t_5) < 0) __PYX_ERR(5, 474, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":468
+  /* "cycurl/consts.pxi":475
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST
  * CURLE_HTTP2 = curl.CURLE_HTTP2
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE             # <<<<<<<<<<<<<<
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_TYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 468, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_TYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 475, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_TYPE, __pyx_t_5) < 0) __PYX_ERR(5, 468, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_TYPE, __pyx_t_5) < 0) __PYX_ERR(5, 475, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":469
+  /* "cycurl/consts.pxi":476
  * CURLE_HTTP2 = curl.CURLE_HTTP2
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_PARTIAL_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 469, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_PARTIAL_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 476, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PARTIAL_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 469, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PARTIAL_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 476, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":470
+  /* "cycurl/consts.pxi":477
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_RETR_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 470, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_RETR_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 477, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_RETR_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 470, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_RETR_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 477, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":471
+  /* "cycurl/consts.pxi":478
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20             # <<<<<<<<<<<<<<
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE20); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 471, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE20); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 478, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE20, __pyx_t_5) < 0) __PYX_ERR(5, 471, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE20, __pyx_t_5) < 0) __PYX_ERR(5, 478, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":472
+  /* "cycurl/consts.pxi":479
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_QUOTE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 472, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_QUOTE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_QUOTE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 472, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_QUOTE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 479, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":473
+  /* "cycurl/consts.pxi":480
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR             # <<<<<<<<<<<<<<
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_RETURNED_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 473, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_RETURNED_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 480, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_RETURNED_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 473, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_RETURNED_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 480, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":474
+  /* "cycurl/consts.pxi":481
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_WRITE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 474, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_WRITE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 481, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_WRITE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 474, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_WRITE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 481, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":475
+  /* "cycurl/consts.pxi":482
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24             # <<<<<<<<<<<<<<
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE24); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 475, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE24); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 482, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE24, __pyx_t_5) < 0) __PYX_ERR(5, 475, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE24, __pyx_t_5) < 0) __PYX_ERR(5, 482, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":476
+  /* "cycurl/consts.pxi":483
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED             # <<<<<<<<<<<<<<
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UPLOAD_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 476, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UPLOAD_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 483, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UPLOAD_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 476, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UPLOAD_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 483, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":477
+  /* "cycurl/consts.pxi":484
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR             # <<<<<<<<<<<<<<
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_READ_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 477, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_READ_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 484, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_READ_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 477, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_READ_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 484, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":478
+  /* "cycurl/consts.pxi":485
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY             # <<<<<<<<<<<<<<
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OUT_OF_MEMORY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 478, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OUT_OF_MEMORY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 485, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OUT_OF_MEMORY, __pyx_t_5) < 0) __PYX_ERR(5, 478, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OUT_OF_MEMORY, __pyx_t_5) < 0) __PYX_ERR(5, 485, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":479
+  /* "cycurl/consts.pxi":486
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OPERATION_TIMEDOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 479, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OPERATION_TIMEDOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 486, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OPERATION_TIMEDOUT, __pyx_t_5) < 0) __PYX_ERR(5, 479, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OPERATION_TIMEDOUT, __pyx_t_5) < 0) __PYX_ERR(5, 486, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":480
+  /* "cycurl/consts.pxi":487
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29             # <<<<<<<<<<<<<<
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE29); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 480, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE29); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 487, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE29, __pyx_t_5) < 0) __PYX_ERR(5, 480, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE29, __pyx_t_5) < 0) __PYX_ERR(5, 487, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":481
+  /* "cycurl/consts.pxi":488
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_PORT_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 481, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_PORT_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 488, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PORT_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 481, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PORT_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 488, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":482
+  /* "cycurl/consts.pxi":489
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_USE_REST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 482, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_USE_REST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 489, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_USE_REST, __pyx_t_5) < 0) __PYX_ERR(5, 482, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_USE_REST, __pyx_t_5) < 0) __PYX_ERR(5, 489, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":483
+  /* "cycurl/consts.pxi":490
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32             # <<<<<<<<<<<<<<
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR
- * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
+ * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE32); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 483, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE32); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE32, __pyx_t_5) < 0) __PYX_ERR(5, 483, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE32, __pyx_t_5) < 0) __PYX_ERR(5, 490, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":484
+  /* "cycurl/consts.pxi":491
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR             # <<<<<<<<<<<<<<
- * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
+ * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RANGE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 484, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RANGE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 491, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RANGE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 484, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RANGE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 491, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":485
+  /* "cycurl/consts.pxi":492
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR
- * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR             # <<<<<<<<<<<<<<
+ * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34             # <<<<<<<<<<<<<<
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_POST_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 485, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE34); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 492, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_POST_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 485, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE34, __pyx_t_5) < 0) __PYX_ERR(5, 492, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":486
+  /* "cycurl/consts.pxi":493
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR
- * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
+ * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR             # <<<<<<<<<<<<<<
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CONNECT_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 486, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CONNECT_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 493, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CONNECT_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 486, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CONNECT_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 493, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":487
- * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
+  /* "cycurl/consts.pxi":494
+ * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME             # <<<<<<<<<<<<<<
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_DOWNLOAD_RESUME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 487, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_DOWNLOAD_RESUME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 494, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_DOWNLOAD_RESUME, __pyx_t_5) < 0) __PYX_ERR(5, 487, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_DOWNLOAD_RESUME, __pyx_t_5) < 0) __PYX_ERR(5, 494, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":488
+  /* "cycurl/consts.pxi":495
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE             # <<<<<<<<<<<<<<
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FILE_COULDNT_READ_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 488, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FILE_COULDNT_READ_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 495, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FILE_COULDNT_READ_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 488, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FILE_COULDNT_READ_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 495, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":489
+  /* "cycurl/consts.pxi":496
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND             # <<<<<<<<<<<<<<
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LDAP_CANNOT_BIND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 489, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LDAP_CANNOT_BIND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 496, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_CANNOT_BIND, __pyx_t_5) < 0) __PYX_ERR(5, 489, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_CANNOT_BIND, __pyx_t_5) < 0) __PYX_ERR(5, 496, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":490
+  /* "cycurl/consts.pxi":497
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40
- * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
+ * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LDAP_SEARCH_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 490, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LDAP_SEARCH_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 497, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_SEARCH_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 490, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_SEARCH_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 497, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":491
+  /* "cycurl/consts.pxi":498
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40             # <<<<<<<<<<<<<<
- * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
+ * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE40); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 491, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE40); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE40, __pyx_t_5) < 0) __PYX_ERR(5, 491, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE40, __pyx_t_5) < 0) __PYX_ERR(5, 498, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":492
+  /* "cycurl/consts.pxi":499
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40
- * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND             # <<<<<<<<<<<<<<
+ * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41             # <<<<<<<<<<<<<<
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FUNCTION_NOT_FOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 492, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE41); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 499, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FUNCTION_NOT_FOUND, __pyx_t_5) < 0) __PYX_ERR(5, 492, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE41, __pyx_t_5) < 0) __PYX_ERR(5, 499, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":493
+  /* "cycurl/consts.pxi":500
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40
- * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
+ * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK             # <<<<<<<<<<<<<<
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_ABORTED_BY_CALLBACK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 493, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_ABORTED_BY_CALLBACK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 500, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ABORTED_BY_CALLBACK, __pyx_t_5) < 0) __PYX_ERR(5, 493, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ABORTED_BY_CALLBACK, __pyx_t_5) < 0) __PYX_ERR(5, 500, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":494
- * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
+  /* "cycurl/consts.pxi":501
+ * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_FUNCTION_ARGUMENT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 494, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_FUNCTION_ARGUMENT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 501, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_FUNCTION_ARGUMENT, __pyx_t_5) < 0) __PYX_ERR(5, 494, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_FUNCTION_ARGUMENT, __pyx_t_5) < 0) __PYX_ERR(5, 501, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":495
+  /* "cycurl/consts.pxi":502
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44             # <<<<<<<<<<<<<<
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE44); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 495, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE44); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE44, __pyx_t_5) < 0) __PYX_ERR(5, 495, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE44, __pyx_t_5) < 0) __PYX_ERR(5, 502, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":496
+  /* "cycurl/consts.pxi":503
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_INTERFACE_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 496, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_INTERFACE_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_INTERFACE_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 496, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_INTERFACE_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 503, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":497
+  /* "cycurl/consts.pxi":504
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46             # <<<<<<<<<<<<<<
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE46); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 497, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE46); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 504, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE46, __pyx_t_5) < 0) __PYX_ERR(5, 497, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE46, __pyx_t_5) < 0) __PYX_ERR(5, 504, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":498
+  /* "cycurl/consts.pxi":505
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS             # <<<<<<<<<<<<<<
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TOO_MANY_REDIRECTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 498, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TOO_MANY_REDIRECTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 505, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TOO_MANY_REDIRECTS, __pyx_t_5) < 0) __PYX_ERR(5, 498, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TOO_MANY_REDIRECTS, __pyx_t_5) < 0) __PYX_ERR(5, 505, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":499
+  /* "cycurl/consts.pxi":506
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION             # <<<<<<<<<<<<<<
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UNKNOWN_OPTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 499, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UNKNOWN_OPTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 506, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNKNOWN_OPTION, __pyx_t_5) < 0) __PYX_ERR(5, 499, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNKNOWN_OPTION, __pyx_t_5) < 0) __PYX_ERR(5, 506, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":500
+  /* "cycurl/consts.pxi":507
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SETOPT_OPTION_SYNTAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 500, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SETOPT_OPTION_SYNTAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SETOPT_OPTION_SYNTAX, __pyx_t_5) < 0) __PYX_ERR(5, 500, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SETOPT_OPTION_SYNTAX, __pyx_t_5) < 0) __PYX_ERR(5, 507, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":501
+  /* "cycurl/consts.pxi":508
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE50); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 501, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE50); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 508, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE50, __pyx_t_5) < 0) __PYX_ERR(5, 501, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE50, __pyx_t_5) < 0) __PYX_ERR(5, 508, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":502
+  /* "cycurl/consts.pxi":509
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51             # <<<<<<<<<<<<<<
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE51); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 502, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE51); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 509, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE51, __pyx_t_5) < 0) __PYX_ERR(5, 502, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE51, __pyx_t_5) < 0) __PYX_ERR(5, 509, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":503
+  /* "cycurl/consts.pxi":510
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING             # <<<<<<<<<<<<<<
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_GOT_NOTHING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 503, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_GOT_NOTHING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 510, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_GOT_NOTHING, __pyx_t_5) < 0) __PYX_ERR(5, 503, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_GOT_NOTHING, __pyx_t_5) < 0) __PYX_ERR(5, 510, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":504
+  /* "cycurl/consts.pxi":511
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND             # <<<<<<<<<<<<<<
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_NOTFOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 504, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_NOTFOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 511, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_NOTFOUND, __pyx_t_5) < 0) __PYX_ERR(5, 504, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_NOTFOUND, __pyx_t_5) < 0) __PYX_ERR(5, 511, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":505
+  /* "cycurl/consts.pxi":512
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED             # <<<<<<<<<<<<<<
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_SETFAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 505, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_SETFAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 512, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_SETFAILED, __pyx_t_5) < 0) __PYX_ERR(5, 505, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_SETFAILED, __pyx_t_5) < 0) __PYX_ERR(5, 512, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":506
+  /* "cycurl/consts.pxi":513
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR             # <<<<<<<<<<<<<<
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SEND_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 506, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SEND_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SEND_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 506, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SEND_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 513, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":507
+  /* "cycurl/consts.pxi":514
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RECV_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 507, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RECV_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RECV_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 507, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RECV_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 514, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":508
+  /* "cycurl/consts.pxi":515
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57             # <<<<<<<<<<<<<<
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE57); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 508, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE57); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 515, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE57, __pyx_t_5) < 0) __PYX_ERR(5, 508, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE57, __pyx_t_5) < 0) __PYX_ERR(5, 515, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":509
+  /* "cycurl/consts.pxi":516
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM             # <<<<<<<<<<<<<<
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CERTPROBLEM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 509, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CERTPROBLEM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 516, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CERTPROBLEM, __pyx_t_5) < 0) __PYX_ERR(5, 509, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CERTPROBLEM, __pyx_t_5) < 0) __PYX_ERR(5, 516, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":510
+  /* "cycurl/consts.pxi":517
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER             # <<<<<<<<<<<<<<
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CIPHER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 510, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CIPHER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CIPHER, __pyx_t_5) < 0) __PYX_ERR(5, 510, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CIPHER, __pyx_t_5) < 0) __PYX_ERR(5, 517, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":511
+  /* "cycurl/consts.pxi":518
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION             # <<<<<<<<<<<<<<
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_PEER_FAILED_VERIFICATION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 511, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_PEER_FAILED_VERIFICATION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 518, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PEER_FAILED_VERIFICATION, __pyx_t_5) < 0) __PYX_ERR(5, 511, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PEER_FAILED_VERIFICATION, __pyx_t_5) < 0) __PYX_ERR(5, 518, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":512
+  /* "cycurl/consts.pxi":519
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_CONTENT_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 512, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_CONTENT_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 519, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_CONTENT_ENCODING, __pyx_t_5) < 0) __PYX_ERR(5, 512, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_CONTENT_ENCODING, __pyx_t_5) < 0) __PYX_ERR(5, 519, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":513
+  /* "cycurl/consts.pxi":520
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62             # <<<<<<<<<<<<<<
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE62); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 513, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE62); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 520, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE62, __pyx_t_5) < 0) __PYX_ERR(5, 513, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE62, __pyx_t_5) < 0) __PYX_ERR(5, 520, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":514
+  /* "cycurl/consts.pxi":521
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED             # <<<<<<<<<<<<<<
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FILESIZE_EXCEEDED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 514, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FILESIZE_EXCEEDED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 521, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FILESIZE_EXCEEDED, __pyx_t_5) < 0) __PYX_ERR(5, 514, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FILESIZE_EXCEEDED, __pyx_t_5) < 0) __PYX_ERR(5, 521, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":515
+  /* "cycurl/consts.pxi":522
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED             # <<<<<<<<<<<<<<
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_USE_SSL_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 515, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_USE_SSL_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 522, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_USE_SSL_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 515, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_USE_SSL_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 522, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":516
+  /* "cycurl/consts.pxi":523
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND             # <<<<<<<<<<<<<<
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SEND_FAIL_REWIND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 516, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SEND_FAIL_REWIND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SEND_FAIL_REWIND, __pyx_t_5) < 0) __PYX_ERR(5, 516, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SEND_FAIL_REWIND, __pyx_t_5) < 0) __PYX_ERR(5, 523, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":517
+  /* "cycurl/consts.pxi":524
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED             # <<<<<<<<<<<<<<
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_INITFAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 517, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_INITFAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 524, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_INITFAILED, __pyx_t_5) < 0) __PYX_ERR(5, 517, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_INITFAILED, __pyx_t_5) < 0) __PYX_ERR(5, 524, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":518
+  /* "cycurl/consts.pxi":525
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED             # <<<<<<<<<<<<<<
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LOGIN_DENIED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 518, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LOGIN_DENIED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 525, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LOGIN_DENIED, __pyx_t_5) < 0) __PYX_ERR(5, 518, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LOGIN_DENIED, __pyx_t_5) < 0) __PYX_ERR(5, 525, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":519
+  /* "cycurl/consts.pxi":526
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND             # <<<<<<<<<<<<<<
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_NOTFOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 519, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_NOTFOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 526, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_NOTFOUND, __pyx_t_5) < 0) __PYX_ERR(5, 519, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_NOTFOUND, __pyx_t_5) < 0) __PYX_ERR(5, 526, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":520
+  /* "cycurl/consts.pxi":527
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM             # <<<<<<<<<<<<<<
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_PERM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 520, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_PERM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 527, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_PERM, __pyx_t_5) < 0) __PYX_ERR(5, 520, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_PERM, __pyx_t_5) < 0) __PYX_ERR(5, 527, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":521
+  /* "cycurl/consts.pxi":528
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL             # <<<<<<<<<<<<<<
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_REMOTE_DISK_FULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 521, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_REMOTE_DISK_FULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 528, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_DISK_FULL, __pyx_t_5) < 0) __PYX_ERR(5, 521, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_DISK_FULL, __pyx_t_5) < 0) __PYX_ERR(5, 528, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":522
+  /* "cycurl/consts.pxi":529
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL             # <<<<<<<<<<<<<<
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_ILLEGAL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 522, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_ILLEGAL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 529, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_ILLEGAL, __pyx_t_5) < 0) __PYX_ERR(5, 522, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_ILLEGAL, __pyx_t_5) < 0) __PYX_ERR(5, 529, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":523
+  /* "cycurl/consts.pxi":530
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID             # <<<<<<<<<<<<<<
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_UNKNOWNID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 523, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_UNKNOWNID); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_UNKNOWNID, __pyx_t_5) < 0) __PYX_ERR(5, 523, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_UNKNOWNID, __pyx_t_5) < 0) __PYX_ERR(5, 530, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":524
+  /* "cycurl/consts.pxi":531
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS             # <<<<<<<<<<<<<<
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_REMOTE_FILE_EXISTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 524, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_REMOTE_FILE_EXISTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 531, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_FILE_EXISTS, __pyx_t_5) < 0) __PYX_ERR(5, 524, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_FILE_EXISTS, __pyx_t_5) < 0) __PYX_ERR(5, 531, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":525
+  /* "cycurl/consts.pxi":532
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_NOSUCHUSER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 525, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_NOSUCHUSER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 532, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_NOSUCHUSER, __pyx_t_5) < 0) __PYX_ERR(5, 525, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_NOSUCHUSER, __pyx_t_5) < 0) __PYX_ERR(5, 532, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":526
+  /* "cycurl/consts.pxi":533
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE75); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 526, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE75); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 533, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE75, __pyx_t_5) < 0) __PYX_ERR(5, 526, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE75, __pyx_t_5) < 0) __PYX_ERR(5, 533, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":527
+  /* "cycurl/consts.pxi":534
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76             # <<<<<<<<<<<<<<
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE76); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 527, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE76); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 534, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE76, __pyx_t_5) < 0) __PYX_ERR(5, 527, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE76, __pyx_t_5) < 0) __PYX_ERR(5, 534, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":528
+  /* "cycurl/consts.pxi":535
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE             # <<<<<<<<<<<<<<
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND
  * CURLE_SSH = curl.CURLE_SSH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CACERT_BADFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 528, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CACERT_BADFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 535, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CACERT_BADFILE, __pyx_t_5) < 0) __PYX_ERR(5, 528, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CACERT_BADFILE, __pyx_t_5) < 0) __PYX_ERR(5, 535, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":529
+  /* "cycurl/consts.pxi":536
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND             # <<<<<<<<<<<<<<
  * CURLE_SSH = curl.CURLE_SSH
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_REMOTE_FILE_NOT_FOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 529, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_REMOTE_FILE_NOT_FOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 536, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_FILE_NOT_FOUND, __pyx_t_5) < 0) __PYX_ERR(5, 529, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_FILE_NOT_FOUND, __pyx_t_5) < 0) __PYX_ERR(5, 536, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":530
+  /* "cycurl/consts.pxi":537
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND
  * CURLE_SSH = curl.CURLE_SSH             # <<<<<<<<<<<<<<
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED
  * CURLE_AGAIN = curl.CURLE_AGAIN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 530, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 537, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSH, __pyx_t_5) < 0) __PYX_ERR(5, 530, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSH, __pyx_t_5) < 0) __PYX_ERR(5, 537, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":531
+  /* "cycurl/consts.pxi":538
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND
  * CURLE_SSH = curl.CURLE_SSH
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED             # <<<<<<<<<<<<<<
  * CURLE_AGAIN = curl.CURLE_AGAIN
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_SHUTDOWN_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 531, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_SHUTDOWN_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 538, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_SHUTDOWN_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 531, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_SHUTDOWN_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 538, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":532
+  /* "cycurl/consts.pxi":539
  * CURLE_SSH = curl.CURLE_SSH
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED
  * CURLE_AGAIN = curl.CURLE_AGAIN             # <<<<<<<<<<<<<<
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_AGAIN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 532, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_AGAIN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 539, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_AGAIN, __pyx_t_5) < 0) __PYX_ERR(5, 532, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_AGAIN, __pyx_t_5) < 0) __PYX_ERR(5, 539, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":533
+  /* "cycurl/consts.pxi":540
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED
  * CURLE_AGAIN = curl.CURLE_AGAIN
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE             # <<<<<<<<<<<<<<
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CRL_BADFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 533, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CRL_BADFILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 540, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CRL_BADFILE, __pyx_t_5) < 0) __PYX_ERR(5, 533, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CRL_BADFILE, __pyx_t_5) < 0) __PYX_ERR(5, 540, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":534
+  /* "cycurl/consts.pxi":541
  * CURLE_AGAIN = curl.CURLE_AGAIN
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR             # <<<<<<<<<<<<<<
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_ISSUER_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 534, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_ISSUER_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 541, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ISSUER_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 534, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ISSUER_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 541, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":535
+  /* "cycurl/consts.pxi":542
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED             # <<<<<<<<<<<<<<
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_PRET_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 535, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_PRET_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 542, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PRET_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 535, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PRET_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 542, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":536
+  /* "cycurl/consts.pxi":543
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR             # <<<<<<<<<<<<<<
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RTSP_CSEQ_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 536, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RTSP_CSEQ_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 543, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RTSP_CSEQ_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 536, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RTSP_CSEQ_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 543, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":537
+  /* "cycurl/consts.pxi":544
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR             # <<<<<<<<<<<<<<
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RTSP_SESSION_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 537, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RTSP_SESSION_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RTSP_SESSION_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 537, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RTSP_SESSION_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 544, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":538
+  /* "cycurl/consts.pxi":545
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST             # <<<<<<<<<<<<<<
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_BAD_FILE_LIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 538, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_BAD_FILE_LIST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_BAD_FILE_LIST, __pyx_t_5) < 0) __PYX_ERR(5, 538, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_BAD_FILE_LIST, __pyx_t_5) < 0) __PYX_ERR(5, 545, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":539
+  /* "cycurl/consts.pxi":546
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED             # <<<<<<<<<<<<<<
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_CHUNK_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 539, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_CHUNK_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 546, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CHUNK_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 539, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CHUNK_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 546, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":540
+  /* "cycurl/consts.pxi":547
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE             # <<<<<<<<<<<<<<
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_NO_CONNECTION_AVAILABLE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 540, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_NO_CONNECTION_AVAILABLE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 547, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_NO_CONNECTION_AVAILABLE, __pyx_t_5) < 0) __PYX_ERR(5, 540, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_NO_CONNECTION_AVAILABLE, __pyx_t_5) < 0) __PYX_ERR(5, 547, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":541
+  /* "cycurl/consts.pxi":548
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH             # <<<<<<<<<<<<<<
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_PINNEDPUBKEYNOTMATCH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 541, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_PINNEDPUBKEYNOTMATCH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_PINNEDPUBKEYNOTMATCH, __pyx_t_5) < 0) __PYX_ERR(5, 541, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_PINNEDPUBKEYNOTMATCH, __pyx_t_5) < 0) __PYX_ERR(5, 548, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":542
+  /* "cycurl/consts.pxi":549
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS             # <<<<<<<<<<<<<<
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_INVALIDCERTSTATUS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 542, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_INVALIDCERTSTATUS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 549, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_INVALIDCERTSTATUS, __pyx_t_5) < 0) __PYX_ERR(5, 542, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_INVALIDCERTSTATUS, __pyx_t_5) < 0) __PYX_ERR(5, 549, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":543
+  /* "cycurl/consts.pxi":550
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM             # <<<<<<<<<<<<<<
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP2_STREAM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 543, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP2_STREAM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 550, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP2_STREAM, __pyx_t_5) < 0) __PYX_ERR(5, 543, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP2_STREAM, __pyx_t_5) < 0) __PYX_ERR(5, 550, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":544
+  /* "cycurl/consts.pxi":551
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL             # <<<<<<<<<<<<<<
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR
  * CURLE_HTTP3 = curl.CURLE_HTTP3
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RECURSIVE_API_CALL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 544, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RECURSIVE_API_CALL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RECURSIVE_API_CALL, __pyx_t_5) < 0) __PYX_ERR(5, 544, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RECURSIVE_API_CALL, __pyx_t_5) < 0) __PYX_ERR(5, 551, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":545
+  /* "cycurl/consts.pxi":552
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR             # <<<<<<<<<<<<<<
  * CURLE_HTTP3 = curl.CURLE_HTTP3
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_AUTH_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 545, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_AUTH_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 552, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_AUTH_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 545, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_AUTH_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 552, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":546
+  /* "cycurl/consts.pxi":553
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR
  * CURLE_HTTP3 = curl.CURLE_HTTP3             # <<<<<<<<<<<<<<
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR
  * CURLE_PROXY = curl.CURLE_PROXY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 546, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 553, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP3, __pyx_t_5) < 0) __PYX_ERR(5, 546, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP3, __pyx_t_5) < 0) __PYX_ERR(5, 553, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":547
+  /* "cycurl/consts.pxi":554
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR
  * CURLE_HTTP3 = curl.CURLE_HTTP3
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR             # <<<<<<<<<<<<<<
  * CURLE_PROXY = curl.CURLE_PROXY
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_QUIC_CONNECT_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 547, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_QUIC_CONNECT_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_QUIC_CONNECT_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 547, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_QUIC_CONNECT_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 554, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":548
+  /* "cycurl/consts.pxi":555
  * CURLE_HTTP3 = curl.CURLE_HTTP3
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR
  * CURLE_PROXY = curl.CURLE_PROXY             # <<<<<<<<<<<<<<
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_PROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 548, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_PROXY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 555, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PROXY, __pyx_t_5) < 0) __PYX_ERR(5, 548, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PROXY, __pyx_t_5) < 0) __PYX_ERR(5, 555, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":549
+  /* "cycurl/consts.pxi":556
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR
  * CURLE_PROXY = curl.CURLE_PROXY
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT             # <<<<<<<<<<<<<<
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL
  * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CLIENTCERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 549, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CLIENTCERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 556, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CLIENTCERT, __pyx_t_5) < 0) __PYX_ERR(5, 549, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CLIENTCERT, __pyx_t_5) < 0) __PYX_ERR(5, 556, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":550
+  /* "cycurl/consts.pxi":557
  * CURLE_PROXY = curl.CURLE_PROXY
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL             # <<<<<<<<<<<<<<
  * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE
  * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UNRECOVERABLE_POLL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 550, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UNRECOVERABLE_POLL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 557, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNRECOVERABLE_POLL, __pyx_t_5) < 0) __PYX_ERR(5, 550, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNRECOVERABLE_POLL, __pyx_t_5) < 0) __PYX_ERR(5, 557, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":551
+  /* "cycurl/consts.pxi":558
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL
  * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE             # <<<<<<<<<<<<<<
  * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
- * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16
+ * CURLE_RESERVED115 = curl.CURLE_RESERVED115
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TOO_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 551, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TOO_LARGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 558, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TOO_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 551, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TOO_LARGE, __pyx_t_5) < 0) __PYX_ERR(5, 558, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":552
+  /* "cycurl/consts.pxi":559
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL
  * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE
  * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED115 = curl.CURLE_RESERVED115
+ * CURLE_RESERVED116 = curl.CURLE_RESERVED116
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_ECH_REQUIRED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 559, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ECH_REQUIRED, __pyx_t_5) < 0) __PYX_ERR(5, 559, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":560
+ * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE
+ * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
+ * CURLE_RESERVED115 = curl.CURLE_RESERVED115             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED116 = curl.CURLE_RESERVED116
+ * CURLE_RESERVED117 = curl.CURLE_RESERVED117
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED115); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 560, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED115, __pyx_t_5) < 0) __PYX_ERR(5, 560, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":561
+ * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
+ * CURLE_RESERVED115 = curl.CURLE_RESERVED115
+ * CURLE_RESERVED116 = curl.CURLE_RESERVED116             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED117 = curl.CURLE_RESERVED117
+ * CURLE_RESERVED118 = curl.CURLE_RESERVED118
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED116); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 561, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED116, __pyx_t_5) < 0) __PYX_ERR(5, 561, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":562
+ * CURLE_RESERVED115 = curl.CURLE_RESERVED115
+ * CURLE_RESERVED116 = curl.CURLE_RESERVED116
+ * CURLE_RESERVED117 = curl.CURLE_RESERVED117             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED118 = curl.CURLE_RESERVED118
+ * CURLE_RESERVED119 = curl.CURLE_RESERVED119
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED117); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 562, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED117, __pyx_t_5) < 0) __PYX_ERR(5, 562, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":563
+ * CURLE_RESERVED116 = curl.CURLE_RESERVED116
+ * CURLE_RESERVED117 = curl.CURLE_RESERVED117
+ * CURLE_RESERVED118 = curl.CURLE_RESERVED118             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED119 = curl.CURLE_RESERVED119
+ * CURLE_RESERVED120 = curl.CURLE_RESERVED120
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED118); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 563, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED118, __pyx_t_5) < 0) __PYX_ERR(5, 563, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":564
+ * CURLE_RESERVED117 = curl.CURLE_RESERVED117
+ * CURLE_RESERVED118 = curl.CURLE_RESERVED118
+ * CURLE_RESERVED119 = curl.CURLE_RESERVED119             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED120 = curl.CURLE_RESERVED120
+ * CURLE_RESERVED121 = curl.CURLE_RESERVED121
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED119); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 564, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED119, __pyx_t_5) < 0) __PYX_ERR(5, 564, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":565
+ * CURLE_RESERVED118 = curl.CURLE_RESERVED118
+ * CURLE_RESERVED119 = curl.CURLE_RESERVED119
+ * CURLE_RESERVED120 = curl.CURLE_RESERVED120             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED121 = curl.CURLE_RESERVED121
+ * CURLE_RESERVED122 = curl.CURLE_RESERVED122
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED120); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 565, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED120, __pyx_t_5) < 0) __PYX_ERR(5, 565, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":566
+ * CURLE_RESERVED119 = curl.CURLE_RESERVED119
+ * CURLE_RESERVED120 = curl.CURLE_RESERVED120
+ * CURLE_RESERVED121 = curl.CURLE_RESERVED121             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED122 = curl.CURLE_RESERVED122
+ * CURLE_RESERVED123 = curl.CURLE_RESERVED123
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED121); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 566, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED121, __pyx_t_5) < 0) __PYX_ERR(5, 566, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":567
+ * CURLE_RESERVED120 = curl.CURLE_RESERVED120
+ * CURLE_RESERVED121 = curl.CURLE_RESERVED121
+ * CURLE_RESERVED122 = curl.CURLE_RESERVED122             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED123 = curl.CURLE_RESERVED123
+ * CURLE_RESERVED124 = curl.CURLE_RESERVED124
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED122); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 567, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED122, __pyx_t_5) < 0) __PYX_ERR(5, 567, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":568
+ * CURLE_RESERVED121 = curl.CURLE_RESERVED121
+ * CURLE_RESERVED122 = curl.CURLE_RESERVED122
+ * CURLE_RESERVED123 = curl.CURLE_RESERVED123             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED124 = curl.CURLE_RESERVED124
+ * CURLE_RESERVED125 = curl.CURLE_RESERVED125
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED123); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 568, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED123, __pyx_t_5) < 0) __PYX_ERR(5, 568, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":569
+ * CURLE_RESERVED122 = curl.CURLE_RESERVED122
+ * CURLE_RESERVED123 = curl.CURLE_RESERVED123
+ * CURLE_RESERVED124 = curl.CURLE_RESERVED124             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED125 = curl.CURLE_RESERVED125
+ * CURLE_RESERVED126 = curl.CURLE_RESERVED126
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED124); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 569, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED124, __pyx_t_5) < 0) __PYX_ERR(5, 569, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":570
+ * CURLE_RESERVED123 = curl.CURLE_RESERVED123
+ * CURLE_RESERVED124 = curl.CURLE_RESERVED124
+ * CURLE_RESERVED125 = curl.CURLE_RESERVED125             # <<<<<<<<<<<<<<
+ * CURLE_RESERVED126 = curl.CURLE_RESERVED126
+ * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED125); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 570, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED125, __pyx_t_5) < 0) __PYX_ERR(5, 570, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":571
+ * CURLE_RESERVED124 = curl.CURLE_RESERVED124
+ * CURLE_RESERVED125 = curl.CURLE_RESERVED125
+ * CURLE_RESERVED126 = curl.CURLE_RESERVED126             # <<<<<<<<<<<<<<
+ * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
+ * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_RESERVED126); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 571, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RESERVED126, __pyx_t_5) < 0) __PYX_ERR(5, 571, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":572
+ * CURLE_RESERVED125 = curl.CURLE_RESERVED125
+ * CURLE_RESERVED126 = curl.CURLE_RESERVED126
+ * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND             # <<<<<<<<<<<<<<
+ * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
+ * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FUNCTION_NOT_FOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 572, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FUNCTION_NOT_FOUND, __pyx_t_5) < 0) __PYX_ERR(5, 572, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":573
+ * CURLE_RESERVED126 = curl.CURLE_RESERVED126
+ * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
+ * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_ECH_REQUIRED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 552, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_POST_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 573, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ECH_REQUIRED, __pyx_t_5) < 0) __PYX_ERR(5, 552, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_POST_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 573, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":553
- * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE
- * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
+  /* "cycurl/consts.pxi":574
+ * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
+ * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
  * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE16); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 553, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE16); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 574, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE16, __pyx_t_5) < 0) __PYX_ERR(5, 553, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE16, __pyx_t_5) < 0) __PYX_ERR(5, 574, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":554
- * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
+  /* "cycurl/consts.pxi":575
+ * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
  * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE10); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 554, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE10); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 575, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE10, __pyx_t_5) < 0) __PYX_ERR(5, 554, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE10, __pyx_t_5) < 0) __PYX_ERR(5, 575, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":555
+  /* "cycurl/consts.pxi":576
  * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE12); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 555, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE12); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 576, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE12, __pyx_t_5) < 0) __PYX_ERR(5, 555, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE12, __pyx_t_5) < 0) __PYX_ERR(5, 576, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":556
+  /* "cycurl/consts.pxi":577
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY             # <<<<<<<<<<<<<<
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_SERVER_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 556, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_SERVER_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 577, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_SERVER_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 556, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_SERVER_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 577, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":557
+  /* "cycurl/consts.pxi":578
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT             # <<<<<<<<<<<<<<
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CACERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 557, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_CACERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 578, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CACERT, __pyx_t_5) < 0) __PYX_ERR(5, 557, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CACERT, __pyx_t_5) < 0) __PYX_ERR(5, 578, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":558
+  /* "cycurl/consts.pxi":579
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION             # <<<<<<<<<<<<<<
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UNKNOWN_TELNET_OPTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 558, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_UNKNOWN_TELNET_OPTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 579, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNKNOWN_TELNET_OPTION, __pyx_t_5) < 0) __PYX_ERR(5, 558, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNKNOWN_TELNET_OPTION, __pyx_t_5) < 0) __PYX_ERR(5, 579, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":559
+  /* "cycurl/consts.pxi":580
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX             # <<<<<<<<<<<<<<
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TELNET_OPTION_SYNTAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 559, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TELNET_OPTION_SYNTAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 580, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TELNET_OPTION_SYNTAX, __pyx_t_5) < 0) __PYX_ERR(5, 559, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TELNET_OPTION_SYNTAX, __pyx_t_5) < 0) __PYX_ERR(5, 580, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":560
+  /* "cycurl/consts.pxi":581
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_PEER_CERTIFICATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 560, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SSL_PEER_CERTIFICATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 581, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_PEER_CERTIFICATE, __pyx_t_5) < 0) __PYX_ERR(5, 560, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_PEER_CERTIFICATE, __pyx_t_5) < 0) __PYX_ERR(5, 581, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":561
+  /* "cycurl/consts.pxi":582
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE             # <<<<<<<<<<<<<<
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 561, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OBSOLETE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 582, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE, __pyx_t_5) < 0) __PYX_ERR(5, 561, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE, __pyx_t_5) < 0) __PYX_ERR(5, 582, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":562
+  /* "cycurl/consts.pxi":583
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED             # <<<<<<<<<<<<<<
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_PASSWORD_ENTERED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 562, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_PASSWORD_ENTERED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 583, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_PASSWORD_ENTERED, __pyx_t_5) < 0) __PYX_ERR(5, 562, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_PASSWORD_ENTERED, __pyx_t_5) < 0) __PYX_ERR(5, 583, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":563
+  /* "cycurl/consts.pxi":584
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER             # <<<<<<<<<<<<<<
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_CALLING_ORDER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 563, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_BAD_CALLING_ORDER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 584, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_CALLING_ORDER, __pyx_t_5) < 0) __PYX_ERR(5, 563, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_CALLING_ORDER, __pyx_t_5) < 0) __PYX_ERR(5, 584, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":564
+  /* "cycurl/consts.pxi":585
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT             # <<<<<<<<<<<<<<
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_USER_PASSWORD_INCORRECT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 564, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_USER_PASSWORD_INCORRECT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 585, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_USER_PASSWORD_INCORREC, __pyx_t_5) < 0) __PYX_ERR(5, 564, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_USER_PASSWORD_INCORREC, __pyx_t_5) < 0) __PYX_ERR(5, 585, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":565
+  /* "cycurl/consts.pxi":586
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_CANT_RECONNECT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 565, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_CANT_RECONNECT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 586, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_CANT_RECONNECT, __pyx_t_5) < 0) __PYX_ERR(5, 565, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_CANT_RECONNECT, __pyx_t_5) < 0) __PYX_ERR(5, 586, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":566
+  /* "cycurl/consts.pxi":587
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_GET_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 566, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_GET_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 587, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_GET_SIZE, __pyx_t_5) < 0) __PYX_ERR(5, 566, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_GET_SIZE, __pyx_t_5) < 0) __PYX_ERR(5, 587, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":567
+  /* "cycurl/consts.pxi":588
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_ASCII); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 567, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_ASCII); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 588, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_ASCII, __pyx_t_5) < 0) __PYX_ERR(5, 567, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_ASCII, __pyx_t_5) < 0) __PYX_ERR(5, 588, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":568
+  /* "cycurl/consts.pxi":589
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY             # <<<<<<<<<<<<<<
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_USER_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 568, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_USER_REPLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 589, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_USER_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 568, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_USER_REPLY, __pyx_t_5) < 0) __PYX_ERR(5, 589, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":569
+  /* "cycurl/consts.pxi":590
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WRITE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 569, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_WRITE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 590, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WRITE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 569, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WRITE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 590, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":570
+  /* "cycurl/consts.pxi":591
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND             # <<<<<<<<<<<<<<
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LIBRARY_NOT_FOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 570, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LIBRARY_NOT_FOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 591, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LIBRARY_NOT_FOUND, __pyx_t_5) < 0) __PYX_ERR(5, 570, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LIBRARY_NOT_FOUND, __pyx_t_5) < 0) __PYX_ERR(5, 591, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":571
+  /* "cycurl/consts.pxi":592
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER             # <<<<<<<<<<<<<<
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_MALFORMAT_USER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 571, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_MALFORMAT_USER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 592, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_MALFORMAT_USER, __pyx_t_5) < 0) __PYX_ERR(5, 571, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_MALFORMAT_USER, __pyx_t_5) < 0) __PYX_ERR(5, 592, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":572
+  /* "cycurl/consts.pxi":593
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE             # <<<<<<<<<<<<<<
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SHARE_IN_USE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 572, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_SHARE_IN_USE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 593, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SHARE_IN_USE, __pyx_t_5) < 0) __PYX_ERR(5, 572, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SHARE_IN_USE, __pyx_t_5) < 0) __PYX_ERR(5, 593, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":573
+  /* "cycurl/consts.pxi":594
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER             # <<<<<<<<<<<<<<
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_URL_MALFORMAT_USER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 573, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_URL_MALFORMAT_USER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 594, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_URL_MALFORMAT_USER, __pyx_t_5) < 0) __PYX_ERR(5, 573, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_URL_MALFORMAT_USER, __pyx_t_5) < 0) __PYX_ERR(5, 594, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":574
+  /* "cycurl/consts.pxi":595
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_ACCESS_DENIED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 574, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_ACCESS_DENIED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 595, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCESS_DENIED, __pyx_t_5) < 0) __PYX_ERR(5, 574, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCESS_DENIED, __pyx_t_5) < 0) __PYX_ERR(5, 595, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":575
+  /* "cycurl/consts.pxi":596
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY             # <<<<<<<<<<<<<<
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_BINARY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 575, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_BINARY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 596, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_BINARY, __pyx_t_5) < 0) __PYX_ERR(5, 575, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_BINARY, __pyx_t_5) < 0) __PYX_ERR(5, 596, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":576
+  /* "cycurl/consts.pxi":597
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_QUOTE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 576, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_QUOTE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 597, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_QUOTE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 576, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_QUOTE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 597, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":577
+  /* "cycurl/consts.pxi":598
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL             # <<<<<<<<<<<<<<
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_DISKFULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 577, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_DISKFULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 598, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_DISKFULL, __pyx_t_5) < 0) __PYX_ERR(5, 577, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_DISKFULL, __pyx_t_5) < 0) __PYX_ERR(5, 598, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":578
+  /* "cycurl/consts.pxi":599
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS             # <<<<<<<<<<<<<<
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_EXISTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 578, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_TFTP_EXISTS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 599, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_EXISTS, __pyx_t_5) < 0) __PYX_ERR(5, 578, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_EXISTS, __pyx_t_5) < 0) __PYX_ERR(5, 599, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":579
+  /* "cycurl/consts.pxi":600
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_RANGE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 579, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_RANGE_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 600, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_RANGE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 579, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_RANGE_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 600, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":580
+  /* "cycurl/consts.pxi":601
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED             # <<<<<<<<<<<<<<
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_SSL_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 580, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_SSL_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_SSL_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 580, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_SSL_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 601, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":581
+  /* "cycurl/consts.pxi":602
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED             # <<<<<<<<<<<<<<
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OPERATION_TIMEOUTED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 581, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_OPERATION_TIMEOUTED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 602, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OPERATION_TIMEOUTED, __pyx_t_5) < 0) __PYX_ERR(5, 581, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OPERATION_TIMEOUTED, __pyx_t_5) < 0) __PYX_ERR(5, 602, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":582
+  /* "cycurl/consts.pxi":603
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND             # <<<<<<<<<<<<<<
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_NOT_FOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 582, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_NOT_FOUND); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 603, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_NOT_FOUND, __pyx_t_5) < 0) __PYX_ERR(5, 582, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_NOT_FOUND, __pyx_t_5) < 0) __PYX_ERR(5, 603, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":583
+  /* "cycurl/consts.pxi":604
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_PORT_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 583, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_HTTP_PORT_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 604, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_PORT_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 583, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_PORT_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 604, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":584
+  /* "cycurl/consts.pxi":605
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE             # <<<<<<<<<<<<<<
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_STOR_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 584, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_STOR_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 605, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_STOR_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 584, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_STOR_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 605, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":585
+  /* "cycurl/consts.pxi":606
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE             # <<<<<<<<<<<<<<
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_PARTIAL_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 585, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_PARTIAL_FILE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 606, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PARTIAL_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 585, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PARTIAL_FILE, __pyx_t_5) < 0) __PYX_ERR(5, 606, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":586
+  /* "cycurl/consts.pxi":607
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME             # <<<<<<<<<<<<<<
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_BAD_DOWNLOAD_RESUME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 586, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_FTP_BAD_DOWNLOAD_RESUME); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 607, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_BAD_DOWNLOAD_RESUME, __pyx_t_5) < 0) __PYX_ERR(5, 586, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_BAD_DOWNLOAD_RESUME, __pyx_t_5) < 0) __PYX_ERR(5, 607, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":587
+  /* "cycurl/consts.pxi":608
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL             # <<<<<<<<<<<<<<
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD
  * CURLE_CONV_FAILED = curl.CURLE_CONV_FAILED
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LDAP_INVALID_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 587, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_LDAP_INVALID_URL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 608, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_INVALID_URL, __pyx_t_5) < 0) __PYX_ERR(5, 587, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_INVALID_URL, __pyx_t_5) < 0) __PYX_ERR(5, 608, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":588
+  /* "cycurl/consts.pxi":609
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD             # <<<<<<<<<<<<<<
  * CURLE_CONV_FAILED = curl.CURLE_CONV_FAILED
  * CURLE_ALREADY_COMPLETE = curl.CURLE_ALREADY_COMPLETE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_CONV_REQD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 588, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_CONV_REQD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 609, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CONV_REQD, __pyx_t_5) < 0) __PYX_ERR(5, 588, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CONV_REQD, __pyx_t_5) < 0) __PYX_ERR(5, 609, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":589
+  /* "cycurl/consts.pxi":610
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD
  * CURLE_CONV_FAILED = curl.CURLE_CONV_FAILED             # <<<<<<<<<<<<<<
  * CURLE_ALREADY_COMPLETE = curl.CURLE_ALREADY_COMPLETE
  * #CURL_HTTP_VERSION_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_CONV_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 589, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_CONV_FAILED); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 610, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CONV_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 589, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CONV_FAILED, __pyx_t_5) < 0) __PYX_ERR(5, 610, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":590
+  /* "cycurl/consts.pxi":611
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD
  * CURLE_CONV_FAILED = curl.CURLE_CONV_FAILED
  * CURLE_ALREADY_COMPLETE = curl.CURLE_ALREADY_COMPLETE             # <<<<<<<<<<<<<<
  * #CURL_HTTP_VERSION_
  * CURL_HTTP_VERSION_NONE = curl.CURL_HTTP_VERSION_NONE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_ALREADY_COMPLETE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 590, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLE_ALREADY_COMPLETE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 611, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ALREADY_COMPLETE, __pyx_t_5) < 0) __PYX_ERR(5, 590, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ALREADY_COMPLETE, __pyx_t_5) < 0) __PYX_ERR(5, 611, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":592
+  /* "cycurl/consts.pxi":613
  * CURLE_ALREADY_COMPLETE = curl.CURLE_ALREADY_COMPLETE
  * #CURL_HTTP_VERSION_
  * CURL_HTTP_VERSION_NONE = curl.CURL_HTTP_VERSION_NONE             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_1_0 = curl.CURL_HTTP_VERSION_1_0
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 592, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 613, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 592, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 613, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":593
+  /* "cycurl/consts.pxi":614
  * #CURL_HTTP_VERSION_
  * CURL_HTTP_VERSION_NONE = curl.CURL_HTTP_VERSION_NONE
  * CURL_HTTP_VERSION_1_0 = curl.CURL_HTTP_VERSION_1_0             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_1_0); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 593, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_1_0); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_0, __pyx_t_5) < 0) __PYX_ERR(5, 593, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_0, __pyx_t_5) < 0) __PYX_ERR(5, 614, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":594
+  /* "cycurl/consts.pxi":615
  * CURL_HTTP_VERSION_NONE = curl.CURL_HTTP_VERSION_NONE
  * CURL_HTTP_VERSION_1_0 = curl.CURL_HTTP_VERSION_1_0
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_1_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 594, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_1_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 615, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_1, __pyx_t_5) < 0) __PYX_ERR(5, 594, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_1, __pyx_t_5) < 0) __PYX_ERR(5, 615, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":595
+  /* "cycurl/consts.pxi":616
  * CURL_HTTP_VERSION_1_0 = curl.CURL_HTTP_VERSION_1_0
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2_0); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 595, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2_0); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_0, __pyx_t_5) < 0) __PYX_ERR(5, 595, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_0, __pyx_t_5) < 0) __PYX_ERR(5, 616, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":596
+  /* "cycurl/consts.pxi":617
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2TLS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 596, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2TLS); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 617, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2TLS, __pyx_t_5) < 0) __PYX_ERR(5, 596, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2TLS, __pyx_t_5) < 0) __PYX_ERR(5, 617, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":597
+  /* "cycurl/consts.pxi":618
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3
  * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 597, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 618, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_PRIOR_KNOWLE, __pyx_t_5) < 0) __PYX_ERR(5, 597, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_PRIOR_KNOWLE, __pyx_t_5) < 0) __PYX_ERR(5, 618, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":598
+  /* "cycurl/consts.pxi":619
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY
  * CURL_HTTP_VERSION_LAST = curl.CURL_HTTP_VERSION_LAST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 598, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 619, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_3, __pyx_t_5) < 0) __PYX_ERR(5, 598, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_3, __pyx_t_5) < 0) __PYX_ERR(5, 619, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":599
+  /* "cycurl/consts.pxi":620
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3
  * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_LAST = curl.CURL_HTTP_VERSION_LAST
- * #CURLWS_
+ * CURL_HTTP_VERSION_2 = curl.CURL_HTTP_VERSION_2
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_3ONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 599, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_3ONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 620, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_3ONLY, __pyx_t_5) < 0) __PYX_ERR(5, 599, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_3ONLY, __pyx_t_5) < 0) __PYX_ERR(5, 620, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":600
+  /* "cycurl/consts.pxi":621
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3
  * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY
  * CURL_HTTP_VERSION_LAST = curl.CURL_HTTP_VERSION_LAST             # <<<<<<<<<<<<<<
+ * CURL_HTTP_VERSION_2 = curl.CURL_HTTP_VERSION_2
+ * #CURLWS_
+*/
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_LAST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 621, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_LAST, __pyx_t_5) < 0) __PYX_ERR(5, 621, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "cycurl/consts.pxi":622
+ * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY
+ * CURL_HTTP_VERSION_LAST = curl.CURL_HTTP_VERSION_LAST
+ * CURL_HTTP_VERSION_2 = curl.CURL_HTTP_VERSION_2             # <<<<<<<<<<<<<<
  * #CURLWS_
  * CURLWS_TEXT = curl.CURLWS_TEXT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_LAST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 600, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_LAST, __pyx_t_5) < 0) __PYX_ERR(5, 600, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2, __pyx_t_5) < 0) __PYX_ERR(5, 622, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":602
- * CURL_HTTP_VERSION_LAST = curl.CURL_HTTP_VERSION_LAST
+  /* "cycurl/consts.pxi":624
+ * CURL_HTTP_VERSION_2 = curl.CURL_HTTP_VERSION_2
  * #CURLWS_
  * CURLWS_TEXT = curl.CURLWS_TEXT             # <<<<<<<<<<<<<<
  * CURLWS_BINARY = curl.CURLWS_BINARY
  * CURLWS_CONT = curl.CURLWS_CONT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_TEXT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 602, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_TEXT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 624, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_TEXT, __pyx_t_5) < 0) __PYX_ERR(5, 602, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_TEXT, __pyx_t_5) < 0) __PYX_ERR(5, 624, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":603
+  /* "cycurl/consts.pxi":625
  * #CURLWS_
  * CURLWS_TEXT = curl.CURLWS_TEXT
  * CURLWS_BINARY = curl.CURLWS_BINARY             # <<<<<<<<<<<<<<
  * CURLWS_CONT = curl.CURLWS_CONT
  * CURLWS_CLOSE = curl.CURLWS_CLOSE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_BINARY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 603, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_BINARY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 625, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_BINARY, __pyx_t_5) < 0) __PYX_ERR(5, 603, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_BINARY, __pyx_t_5) < 0) __PYX_ERR(5, 625, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":604
+  /* "cycurl/consts.pxi":626
  * CURLWS_TEXT = curl.CURLWS_TEXT
  * CURLWS_BINARY = curl.CURLWS_BINARY
  * CURLWS_CONT = curl.CURLWS_CONT             # <<<<<<<<<<<<<<
  * CURLWS_CLOSE = curl.CURLWS_CLOSE
  * CURLWS_PING = curl.CURLWS_PING
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_CONT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 604, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_CONT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 626, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_CONT, __pyx_t_5) < 0) __PYX_ERR(5, 604, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_CONT, __pyx_t_5) < 0) __PYX_ERR(5, 626, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":605
+  /* "cycurl/consts.pxi":627
  * CURLWS_BINARY = curl.CURLWS_BINARY
  * CURLWS_CONT = curl.CURLWS_CONT
  * CURLWS_CLOSE = curl.CURLWS_CLOSE             # <<<<<<<<<<<<<<
  * CURLWS_PING = curl.CURLWS_PING
  * CURLWS_OFFSET = curl.CURLWS_OFFSET
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_CLOSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 605, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_CLOSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 627, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_CLOSE, __pyx_t_5) < 0) __PYX_ERR(5, 605, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_CLOSE, __pyx_t_5) < 0) __PYX_ERR(5, 627, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":606
+  /* "cycurl/consts.pxi":628
  * CURLWS_CONT = curl.CURLWS_CONT
  * CURLWS_CLOSE = curl.CURLWS_CLOSE
  * CURLWS_PING = curl.CURLWS_PING             # <<<<<<<<<<<<<<
  * CURLWS_OFFSET = curl.CURLWS_OFFSET
  * CURLWS_PONG = curl.CURLWS_PONG
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_PING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 606, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_PING); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 628, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_PING, __pyx_t_5) < 0) __PYX_ERR(5, 606, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_PING, __pyx_t_5) < 0) __PYX_ERR(5, 628, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":607
+  /* "cycurl/consts.pxi":629
  * CURLWS_CLOSE = curl.CURLWS_CLOSE
  * CURLWS_PING = curl.CURLWS_PING
  * CURLWS_OFFSET = curl.CURLWS_OFFSET             # <<<<<<<<<<<<<<
  * CURLWS_PONG = curl.CURLWS_PONG
  * CURLWS_RAW_MODE = curl.CURLWS_RAW_MODE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_OFFSET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 607, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_OFFSET); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 629, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_OFFSET, __pyx_t_5) < 0) __PYX_ERR(5, 607, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_OFFSET, __pyx_t_5) < 0) __PYX_ERR(5, 629, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":608
+  /* "cycurl/consts.pxi":630
  * CURLWS_PING = curl.CURLWS_PING
  * CURLWS_OFFSET = curl.CURLWS_OFFSET
  * CURLWS_PONG = curl.CURLWS_PONG             # <<<<<<<<<<<<<<
  * CURLWS_RAW_MODE = curl.CURLWS_RAW_MODE
  * #CURL_SSLVERSION_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_PONG); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 608, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_PONG); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 630, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_PONG, __pyx_t_5) < 0) __PYX_ERR(5, 608, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_PONG, __pyx_t_5) < 0) __PYX_ERR(5, 630, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":609
+  /* "cycurl/consts.pxi":631
  * CURLWS_OFFSET = curl.CURLWS_OFFSET
  * CURLWS_PONG = curl.CURLWS_PONG
  * CURLWS_RAW_MODE = curl.CURLWS_RAW_MODE             # <<<<<<<<<<<<<<
  * #CURL_SSLVERSION_
  * CURL_SSLVERSION_DEFAULT = curl.CURL_SSLVERSION_DEFAULT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_RAW_MODE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 609, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_RAW_MODE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 631, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_RAW_MODE, __pyx_t_5) < 0) __PYX_ERR(5, 609, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_RAW_MODE, __pyx_t_5) < 0) __PYX_ERR(5, 631, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":611
+  /* "cycurl/consts.pxi":633
  * CURLWS_RAW_MODE = curl.CURLWS_RAW_MODE
  * #CURL_SSLVERSION_
  * CURL_SSLVERSION_DEFAULT = curl.CURL_SSLVERSION_DEFAULT             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1 = curl.CURL_SSLVERSION_TLSv1
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_DEFAULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 611, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_DEFAULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 633, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_DEFAULT, __pyx_t_5) < 0) __PYX_ERR(5, 611, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_DEFAULT, __pyx_t_5) < 0) __PYX_ERR(5, 633, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":612
+  /* "cycurl/consts.pxi":634
  * #CURL_SSLVERSION_
  * CURL_SSLVERSION_DEFAULT = curl.CURL_SSLVERSION_DEFAULT
  * CURL_SSLVERSION_TLSv1 = curl.CURL_SSLVERSION_TLSv1             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 612, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 634, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1, __pyx_t_5) < 0) __PYX_ERR(5, 612, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1, __pyx_t_5) < 0) __PYX_ERR(5, 634, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":613
+  /* "cycurl/consts.pxi":635
  * CURL_SSLVERSION_DEFAULT = curl.CURL_SSLVERSION_DEFAULT
  * CURL_SSLVERSION_TLSv1 = curl.CURL_SSLVERSION_TLSv1
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_SSLv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 613, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_SSLv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 635, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_SSLv2, __pyx_t_5) < 0) __PYX_ERR(5, 613, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_SSLv2, __pyx_t_5) < 0) __PYX_ERR(5, 635, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":614
+  /* "cycurl/consts.pxi":636
  * CURL_SSLVERSION_TLSv1 = curl.CURL_SSLVERSION_TLSv1
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_SSLv3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 614, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_SSLv3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 636, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_SSLv3, __pyx_t_5) < 0) __PYX_ERR(5, 614, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_SSLv3, __pyx_t_5) < 0) __PYX_ERR(5, 636, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":615
+  /* "cycurl/consts.pxi":637
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_0); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 615, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_0); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 637, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_0, __pyx_t_5) < 0) __PYX_ERR(5, 615, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_0, __pyx_t_5) < 0) __PYX_ERR(5, 637, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":616
+  /* "cycurl/consts.pxi":638
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 616, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 638, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_1, __pyx_t_5) < 0) __PYX_ERR(5, 616, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_1, __pyx_t_5) < 0) __PYX_ERR(5, 638, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":617
+  /* "cycurl/consts.pxi":639
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 617, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 639, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_2, __pyx_t_5) < 0) __PYX_ERR(5, 617, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_2, __pyx_t_5) < 0) __PYX_ERR(5, 639, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":618
+  /* "cycurl/consts.pxi":640
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 618, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 640, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_3, __pyx_t_5) < 0) __PYX_ERR(5, 618, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_3, __pyx_t_5) < 0) __PYX_ERR(5, 640, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":619
+  /* "cycurl/consts.pxi":641
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_LAST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 619, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_LAST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 641, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_LAST, __pyx_t_5) < 0) __PYX_ERR(5, 619, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_LAST, __pyx_t_5) < 0) __PYX_ERR(5, 641, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":620
+  /* "cycurl/consts.pxi":642
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 620, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 642, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 620, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 642, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":621
+  /* "cycurl/consts.pxi":643
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_DEFAULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 621, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_DEFAULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 643, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_DEFAULT, __pyx_t_5) < 0) __PYX_ERR(5, 621, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_DEFAULT, __pyx_t_5) < 0) __PYX_ERR(5, 643, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":622
+  /* "cycurl/consts.pxi":644
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_0); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 622, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_0); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 644, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_0, __pyx_t_5) < 0) __PYX_ERR(5, 622, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_0, __pyx_t_5) < 0) __PYX_ERR(5, 644, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":623
+  /* "cycurl/consts.pxi":645
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2
  * CURL_SSLVERSION_MAX_TLSv1_3 = curl.CURL_SSLVERSION_MAX_TLSv1_3
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 623, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 645, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_1, __pyx_t_5) < 0) __PYX_ERR(5, 623, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_1, __pyx_t_5) < 0) __PYX_ERR(5, 645, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":624
+  /* "cycurl/consts.pxi":646
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_TLSv1_3 = curl.CURL_SSLVERSION_MAX_TLSv1_3
  * CURL_SSLVERSION_MAX_LAST = curl.CURL_SSLVERSION_MAX_LAST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 624, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_2, __pyx_t_5) < 0) __PYX_ERR(5, 624, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_2, __pyx_t_5) < 0) __PYX_ERR(5, 646, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":625
+  /* "cycurl/consts.pxi":647
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2
  * CURL_SSLVERSION_MAX_TLSv1_3 = curl.CURL_SSLVERSION_MAX_TLSv1_3             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_LAST = curl.CURL_SSLVERSION_MAX_LAST
  * #CURLAUTH_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 625, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 647, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_3, __pyx_t_5) < 0) __PYX_ERR(5, 625, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_3, __pyx_t_5) < 0) __PYX_ERR(5, 647, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":626
+  /* "cycurl/consts.pxi":648
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2
  * CURL_SSLVERSION_MAX_TLSv1_3 = curl.CURL_SSLVERSION_MAX_TLSv1_3
  * CURL_SSLVERSION_MAX_LAST = curl.CURL_SSLVERSION_MAX_LAST             # <<<<<<<<<<<<<<
  * #CURLAUTH_
  * CURLAUTH_NONE = curl.CURLAUTH_NONE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_LAST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 626, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_LAST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 648, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_LAST, __pyx_t_5) < 0) __PYX_ERR(5, 626, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_LAST, __pyx_t_5) < 0) __PYX_ERR(5, 648, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":628
+  /* "cycurl/consts.pxi":650
  * CURL_SSLVERSION_MAX_LAST = curl.CURL_SSLVERSION_MAX_LAST
  * #CURLAUTH_
  * CURLAUTH_NONE = curl.CURLAUTH_NONE             # <<<<<<<<<<<<<<
  * CURLAUTH_BASIC = curl.CURLAUTH_BASIC
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 628, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 650, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 628, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 650, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":629
+  /* "cycurl/consts.pxi":651
  * #CURLAUTH_
  * CURLAUTH_NONE = curl.CURLAUTH_NONE
  * CURLAUTH_BASIC = curl.CURLAUTH_BASIC             # <<<<<<<<<<<<<<
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_BASIC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 629, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_BASIC); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 651, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_BASIC, __pyx_t_5) < 0) __PYX_ERR(5, 629, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_BASIC, __pyx_t_5) < 0) __PYX_ERR(5, 651, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":630
+  /* "cycurl/consts.pxi":652
  * CURLAUTH_NONE = curl.CURLAUTH_NONE
  * CURLAUTH_BASIC = curl.CURLAUTH_BASIC
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST             # <<<<<<<<<<<<<<
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_DIGEST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 630, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_DIGEST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 652, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_DIGEST, __pyx_t_5) < 0) __PYX_ERR(5, 630, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_DIGEST, __pyx_t_5) < 0) __PYX_ERR(5, 652, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":631
+  /* "cycurl/consts.pxi":653
  * CURLAUTH_BASIC = curl.CURLAUTH_BASIC
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE             # <<<<<<<<<<<<<<
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_NEGOTIATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 631, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_NEGOTIATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 653, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NEGOTIATE, __pyx_t_5) < 0) __PYX_ERR(5, 631, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NEGOTIATE, __pyx_t_5) < 0) __PYX_ERR(5, 653, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":632
+  /* "cycurl/consts.pxi":654
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE             # <<<<<<<<<<<<<<
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_GSSNEGOTIATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 632, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_GSSNEGOTIATE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 654, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_GSSNEGOTIATE, __pyx_t_5) < 0) __PYX_ERR(5, 632, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_GSSNEGOTIATE, __pyx_t_5) < 0) __PYX_ERR(5, 654, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":633
+  /* "cycurl/consts.pxi":655
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI             # <<<<<<<<<<<<<<
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_GSSAPI); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 633, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_GSSAPI); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 655, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_GSSAPI, __pyx_t_5) < 0) __PYX_ERR(5, 633, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_GSSAPI, __pyx_t_5) < 0) __PYX_ERR(5, 655, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":634
+  /* "cycurl/consts.pxi":656
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM             # <<<<<<<<<<<<<<
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_NTLM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 634, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_NTLM); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 656, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NTLM, __pyx_t_5) < 0) __PYX_ERR(5, 634, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NTLM, __pyx_t_5) < 0) __PYX_ERR(5, 656, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":635
+  /* "cycurl/consts.pxi":657
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE             # <<<<<<<<<<<<<<
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_DIGEST_IE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 635, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_DIGEST_IE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 657, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_DIGEST_IE, __pyx_t_5) < 0) __PYX_ERR(5, 635, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_DIGEST_IE, __pyx_t_5) < 0) __PYX_ERR(5, 657, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":636
+  /* "cycurl/consts.pxi":658
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB             # <<<<<<<<<<<<<<
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_NTLM_WB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 636, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_NTLM_WB); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 658, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NTLM_WB, __pyx_t_5) < 0) __PYX_ERR(5, 636, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NTLM_WB, __pyx_t_5) < 0) __PYX_ERR(5, 658, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":637
+  /* "cycurl/consts.pxi":659
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER             # <<<<<<<<<<<<<<
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_BEARER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 637, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_BEARER); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 659, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_BEARER, __pyx_t_5) < 0) __PYX_ERR(5, 637, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_BEARER, __pyx_t_5) < 0) __PYX_ERR(5, 659, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":638
+  /* "cycurl/consts.pxi":660
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4             # <<<<<<<<<<<<<<
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY
  * CURLAUTH_ANY = curl.CURLAUTH_ANY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_AWS_SIGV4); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 638, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_AWS_SIGV4); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 660, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_AWS_SIGV4, __pyx_t_5) < 0) __PYX_ERR(5, 638, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_AWS_SIGV4, __pyx_t_5) < 0) __PYX_ERR(5, 660, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":639
+  /* "cycurl/consts.pxi":661
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY             # <<<<<<<<<<<<<<
  * CURLAUTH_ANY = curl.CURLAUTH_ANY
  * CURLAUTH_ANYSAFE = curl.CURLAUTH_ANYSAFE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_ONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 639, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_ONLY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 661, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ONLY, __pyx_t_5) < 0) __PYX_ERR(5, 639, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ONLY, __pyx_t_5) < 0) __PYX_ERR(5, 661, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":640
+  /* "cycurl/consts.pxi":662
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY
  * CURLAUTH_ANY = curl.CURLAUTH_ANY             # <<<<<<<<<<<<<<
  * CURLAUTH_ANYSAFE = curl.CURLAUTH_ANYSAFE
  * #CURLSSH_AUTH_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_ANY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 640, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_ANY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 662, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ANY, __pyx_t_5) < 0) __PYX_ERR(5, 640, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ANY, __pyx_t_5) < 0) __PYX_ERR(5, 662, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":641
+  /* "cycurl/consts.pxi":663
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY
  * CURLAUTH_ANY = curl.CURLAUTH_ANY
  * CURLAUTH_ANYSAFE = curl.CURLAUTH_ANYSAFE             # <<<<<<<<<<<<<<
  * #CURLSSH_AUTH_
  * CURLSSH_AUTH_ANY = curl.CURLSSH_AUTH_ANY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_ANYSAFE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 641, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLAUTH_ANYSAFE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 663, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ANYSAFE, __pyx_t_5) < 0) __PYX_ERR(5, 641, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ANYSAFE, __pyx_t_5) < 0) __PYX_ERR(5, 663, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":643
+  /* "cycurl/consts.pxi":665
  * CURLAUTH_ANYSAFE = curl.CURLAUTH_ANYSAFE
  * #CURLSSH_AUTH_
  * CURLSSH_AUTH_ANY = curl.CURLSSH_AUTH_ANY             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_NONE = curl.CURLSSH_AUTH_NONE
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_ANY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 643, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_ANY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 665, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_ANY, __pyx_t_5) < 0) __PYX_ERR(5, 643, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_ANY, __pyx_t_5) < 0) __PYX_ERR(5, 665, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":644
+  /* "cycurl/consts.pxi":666
  * #CURLSSH_AUTH_
  * CURLSSH_AUTH_ANY = curl.CURLSSH_AUTH_ANY
  * CURLSSH_AUTH_NONE = curl.CURLSSH_AUTH_NONE             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 644, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 666, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 644, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 666, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":645
+  /* "cycurl/consts.pxi":667
  * CURLSSH_AUTH_ANY = curl.CURLSSH_AUTH_ANY
  * CURLSSH_AUTH_NONE = curl.CURLSSH_AUTH_NONE
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_PUBLICKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 645, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_PUBLICKEY); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 667, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_PUBLICKEY, __pyx_t_5) < 0) __PYX_ERR(5, 645, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_PUBLICKEY, __pyx_t_5) < 0) __PYX_ERR(5, 667, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":646
+  /* "cycurl/consts.pxi":668
  * CURLSSH_AUTH_NONE = curl.CURLSSH_AUTH_NONE
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 646, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 668, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_PASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 646, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_PASSWORD, __pyx_t_5) < 0) __PYX_ERR(5, 668, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":647
+  /* "cycurl/consts.pxi":669
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_HOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 647, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_HOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 669, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_HOST, __pyx_t_5) < 0) __PYX_ERR(5, 647, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_HOST, __pyx_t_5) < 0) __PYX_ERR(5, 669, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":648
+  /* "cycurl/consts.pxi":670
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_KEYBOARD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 648, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_KEYBOARD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_KEYBOARD, __pyx_t_5) < 0) __PYX_ERR(5, 648, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_KEYBOARD, __pyx_t_5) < 0) __PYX_ERR(5, 670, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":649
+  /* "cycurl/consts.pxi":671
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI
  * CURLSSH_AUTH_DEFAULT = curl.CURLSSH_AUTH_DEFAULT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_AGENT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 649, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_AGENT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 671, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_AGENT, __pyx_t_5) < 0) __PYX_ERR(5, 649, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_AGENT, __pyx_t_5) < 0) __PYX_ERR(5, 671, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":650
+  /* "cycurl/consts.pxi":672
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_DEFAULT = curl.CURLSSH_AUTH_DEFAULT
  * CURL_ERROR_SIZE = curl.CURL_ERROR_SIZE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_GSSAPI); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 650, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_GSSAPI); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 672, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_GSSAPI, __pyx_t_5) < 0) __PYX_ERR(5, 650, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_GSSAPI, __pyx_t_5) < 0) __PYX_ERR(5, 672, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":651
+  /* "cycurl/consts.pxi":673
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI
  * CURLSSH_AUTH_DEFAULT = curl.CURLSSH_AUTH_DEFAULT             # <<<<<<<<<<<<<<
  * CURL_ERROR_SIZE = curl.CURL_ERROR_SIZE
  * #CURL_WRITEFUNC_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_DEFAULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 651, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLSSH_AUTH_DEFAULT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 673, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_DEFAULT, __pyx_t_5) < 0) __PYX_ERR(5, 651, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_DEFAULT, __pyx_t_5) < 0) __PYX_ERR(5, 673, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":652
+  /* "cycurl/consts.pxi":674
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI
  * CURLSSH_AUTH_DEFAULT = curl.CURLSSH_AUTH_DEFAULT
  * CURL_ERROR_SIZE = curl.CURL_ERROR_SIZE             # <<<<<<<<<<<<<<
  * #CURL_WRITEFUNC_
  * CURL_WRITEFUNC_PAUSE = curl.CURL_WRITEFUNC_PAUSE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_ERROR_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 652, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_ERROR_SIZE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 674, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_ERROR_SIZE, __pyx_t_5) < 0) __PYX_ERR(5, 652, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_ERROR_SIZE, __pyx_t_5) < 0) __PYX_ERR(5, 674, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":654
+  /* "cycurl/consts.pxi":676
  * CURL_ERROR_SIZE = curl.CURL_ERROR_SIZE
  * #CURL_WRITEFUNC_
  * CURL_WRITEFUNC_PAUSE = curl.CURL_WRITEFUNC_PAUSE             # <<<<<<<<<<<<<<
  * CURL_WRITEFUNC_ERROR = curl.CURL_WRITEFUNC_ERROR
  * #CURL_POLL_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_WRITEFUNC_PAUSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 654, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_WRITEFUNC_PAUSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 676, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_WRITEFUNC_PAUSE, __pyx_t_5) < 0) __PYX_ERR(5, 654, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_WRITEFUNC_PAUSE, __pyx_t_5) < 0) __PYX_ERR(5, 676, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":655
+  /* "cycurl/consts.pxi":677
  * #CURL_WRITEFUNC_
  * CURL_WRITEFUNC_PAUSE = curl.CURL_WRITEFUNC_PAUSE
  * CURL_WRITEFUNC_ERROR = curl.CURL_WRITEFUNC_ERROR             # <<<<<<<<<<<<<<
  * #CURL_POLL_
  * CURL_POLL_NONE = curl.CURL_POLL_NONE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_WRITEFUNC_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 655, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_WRITEFUNC_ERROR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 677, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_WRITEFUNC_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 655, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_WRITEFUNC_ERROR, __pyx_t_5) < 0) __PYX_ERR(5, 677, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":657
+  /* "cycurl/consts.pxi":679
  * CURL_WRITEFUNC_ERROR = curl.CURL_WRITEFUNC_ERROR
  * #CURL_POLL_
  * CURL_POLL_NONE = curl.CURL_POLL_NONE             # <<<<<<<<<<<<<<
  * CURL_POLL_IN = curl.CURL_POLL_IN
  * CURL_POLL_OUT = curl.CURL_POLL_OUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 657, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 679, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 657, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 679, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":658
+  /* "cycurl/consts.pxi":680
  * #CURL_POLL_
  * CURL_POLL_NONE = curl.CURL_POLL_NONE
  * CURL_POLL_IN = curl.CURL_POLL_IN             # <<<<<<<<<<<<<<
  * CURL_POLL_OUT = curl.CURL_POLL_OUT
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 658, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 680, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_IN, __pyx_t_5) < 0) __PYX_ERR(5, 658, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_IN, __pyx_t_5) < 0) __PYX_ERR(5, 680, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":659
+  /* "cycurl/consts.pxi":681
  * CURL_POLL_NONE = curl.CURL_POLL_NONE
  * CURL_POLL_IN = curl.CURL_POLL_IN
  * CURL_POLL_OUT = curl.CURL_POLL_OUT             # <<<<<<<<<<<<<<
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 659, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 681, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 659, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 681, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":660
+  /* "cycurl/consts.pxi":682
  * CURL_POLL_IN = curl.CURL_POLL_IN
  * CURL_POLL_OUT = curl.CURL_POLL_OUT
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT             # <<<<<<<<<<<<<<
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_INOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 660, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_INOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 682, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_INOUT, __pyx_t_5) < 0) __PYX_ERR(5, 660, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_INOUT, __pyx_t_5) < 0) __PYX_ERR(5, 682, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":661
+  /* "cycurl/consts.pxi":683
  * CURL_POLL_OUT = curl.CURL_POLL_OUT
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE             # <<<<<<<<<<<<<<
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_REMOVE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 661, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_POLL_REMOVE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 683, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_REMOVE, __pyx_t_5) < 0) __PYX_ERR(5, 661, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_REMOVE, __pyx_t_5) < 0) __PYX_ERR(5, 683, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":662
+  /* "cycurl/consts.pxi":684
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN             # <<<<<<<<<<<<<<
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_CSELECT_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 662, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_CSELECT_IN); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 684, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_IN, __pyx_t_5) < 0) __PYX_ERR(5, 662, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_IN, __pyx_t_5) < 0) __PYX_ERR(5, 684, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":663
+  /* "cycurl/consts.pxi":685
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT             # <<<<<<<<<<<<<<
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_CSELECT_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 663, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_CSELECT_OUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 685, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 663, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_OUT, __pyx_t_5) < 0) __PYX_ERR(5, 685, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":664
+  /* "cycurl/consts.pxi":686
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR             # <<<<<<<<<<<<<<
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_CSELECT_ERR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 664, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_CSELECT_ERR); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 686, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_ERR, __pyx_t_5) < 0) __PYX_ERR(5, 664, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_ERR, __pyx_t_5) < 0) __PYX_ERR(5, 686, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":665
+  /* "cycurl/consts.pxi":687
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT             # <<<<<<<<<<<<<<
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SOCKET_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 665, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SOCKET_TIMEOUT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 687, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SOCKET_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 665, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SOCKET_TIMEOUT, __pyx_t_5) < 0) __PYX_ERR(5, 687, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":666
+  /* "cycurl/consts.pxi":688
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD             # <<<<<<<<<<<<<<
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SOCKET_BAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 666, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SOCKET_BAD); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 688, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SOCKET_BAD, __pyx_t_5) < 0) __PYX_ERR(5, 666, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SOCKET_BAD, __pyx_t_5) < 0) __PYX_ERR(5, 688, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":667
+  /* "cycurl/consts.pxi":689
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT             # <<<<<<<<<<<<<<
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_READFUNC_ABORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 667, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_READFUNC_ABORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 689, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_READFUNC_ABORT, __pyx_t_5) < 0) __PYX_ERR(5, 667, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_READFUNC_ABORT, __pyx_t_5) < 0) __PYX_ERR(5, 689, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":668
+  /* "cycurl/consts.pxi":690
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE             # <<<<<<<<<<<<<<
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_READFUNC_PAUSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 668, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_READFUNC_PAUSE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 690, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_READFUNC_PAUSE, __pyx_t_5) < 0) __PYX_ERR(5, 668, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_READFUNC_PAUSE, __pyx_t_5) < 0) __PYX_ERR(5, 690, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":669
+  /* "cycurl/consts.pxi":691
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK             # <<<<<<<<<<<<<<
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_TRAILERFUNC_OK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 669, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_TRAILERFUNC_OK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 691, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_TRAILERFUNC_OK, __pyx_t_5) < 0) __PYX_ERR(5, 669, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_TRAILERFUNC_OK, __pyx_t_5) < 0) __PYX_ERR(5, 691, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":670
+  /* "cycurl/consts.pxi":692
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT             # <<<<<<<<<<<<<<
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_TRAILERFUNC_ABORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 670, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_TRAILERFUNC_ABORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 692, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_TRAILERFUNC_ABORT, __pyx_t_5) < 0) __PYX_ERR(5, 670, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_TRAILERFUNC_ABORT, __pyx_t_5) < 0) __PYX_ERR(5, 692, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":671
+  /* "cycurl/consts.pxi":693
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK             # <<<<<<<<<<<<<<
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_PREREQFUNC_OK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 671, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_PREREQFUNC_OK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 693, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_PREREQFUNC_OK, __pyx_t_5) < 0) __PYX_ERR(5, 671, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_PREREQFUNC_OK, __pyx_t_5) < 0) __PYX_ERR(5, 693, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":672
+  /* "cycurl/consts.pxi":694
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT             # <<<<<<<<<<<<<<
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_PREREQFUNC_ABORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 672, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_PREREQFUNC_ABORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 694, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_PREREQFUNC_ABORT, __pyx_t_5) < 0) __PYX_ERR(5, 672, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_PREREQFUNC_ABORT, __pyx_t_5) < 0) __PYX_ERR(5, 694, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":673
+  /* "cycurl/consts.pxi":695
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH             # <<<<<<<<<<<<<<
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_MATCH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 673, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_MATCH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 695, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_MATCH, __pyx_t_5) < 0) __PYX_ERR(5, 673, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_MATCH, __pyx_t_5) < 0) __PYX_ERR(5, 695, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":674
+  /* "cycurl/consts.pxi":696
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH             # <<<<<<<<<<<<<<
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_NOMATCH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 674, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_NOMATCH); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 696, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_NOMATCH, __pyx_t_5) < 0) __PYX_ERR(5, 674, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_NOMATCH, __pyx_t_5) < 0) __PYX_ERR(5, 696, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":675
+  /* "cycurl/consts.pxi":697
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL             # <<<<<<<<<<<<<<
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK
  * CURL_SEEKFUNC_FAIL = curl.CURL_SEEKFUNC_FAIL
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_FAIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 675, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_FAIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 697, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_FAIL, __pyx_t_5) < 0) __PYX_ERR(5, 675, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_FAIL, __pyx_t_5) < 0) __PYX_ERR(5, 697, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":676
+  /* "cycurl/consts.pxi":698
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK             # <<<<<<<<<<<<<<
  * CURL_SEEKFUNC_FAIL = curl.CURL_SEEKFUNC_FAIL
  * CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_OK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 676, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_OK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 698, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_OK, __pyx_t_5) < 0) __PYX_ERR(5, 676, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_OK, __pyx_t_5) < 0) __PYX_ERR(5, 698, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":677
+  /* "cycurl/consts.pxi":699
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK
  * CURL_SEEKFUNC_FAIL = curl.CURL_SEEKFUNC_FAIL             # <<<<<<<<<<<<<<
  * CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK
  * #CURLMSG_
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_FAIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 677, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_FAIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 699, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_FAIL, __pyx_t_5) < 0) __PYX_ERR(5, 677, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_FAIL, __pyx_t_5) < 0) __PYX_ERR(5, 699, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":678
+  /* "cycurl/consts.pxi":700
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK
  * CURL_SEEKFUNC_FAIL = curl.CURL_SEEKFUNC_FAIL
  * CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK             # <<<<<<<<<<<<<<
  * #CURLMSG_
  * CURLMSG_NONE = curl.CURLMSG_NONE
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_CANTSEEK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 678, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_CANTSEEK); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 700, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_CANTSEEK, __pyx_t_5) < 0) __PYX_ERR(5, 678, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_CANTSEEK, __pyx_t_5) < 0) __PYX_ERR(5, 700, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":680
+  /* "cycurl/consts.pxi":702
  * CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK
  * #CURLMSG_
  * CURLMSG_NONE = curl.CURLMSG_NONE             # <<<<<<<<<<<<<<
  * CURLMSG_DONE = curl.CURLMSG_DONE
  * CURLMSG_LAST = curl.CURLMSG_LAST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMSG_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 680, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMSG_NONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 702, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 680, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_NONE, __pyx_t_5) < 0) __PYX_ERR(5, 702, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":681
+  /* "cycurl/consts.pxi":703
  * #CURLMSG_
  * CURLMSG_NONE = curl.CURLMSG_NONE
  * CURLMSG_DONE = curl.CURLMSG_DONE             # <<<<<<<<<<<<<<
  * CURLMSG_LAST = curl.CURLMSG_LAST
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMSG_DONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 681, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMSG_DONE); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 703, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_DONE, __pyx_t_5) < 0) __PYX_ERR(5, 681, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_DONE, __pyx_t_5) < 0) __PYX_ERR(5, 703, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/consts.pxi":682
+  /* "cycurl/consts.pxi":704
  * CURLMSG_NONE = curl.CURLMSG_NONE
  * CURLMSG_DONE = curl.CURLMSG_DONE
  * CURLMSG_LAST = curl.CURLMSG_LAST             # <<<<<<<<<<<<<<
 */
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMSG_LAST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 682, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLMSG_LAST); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 704, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_LAST, __pyx_t_5) < 0) __PYX_ERR(5, 682, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_LAST, __pyx_t_5) < 0) __PYX_ERR(5, 704, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cycurl/utils.pxi":1
@@ -58258,7 +58565,9 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURLE_OBSOLETE24, sizeof(__pyx_k_CURLE_OBSOLETE24), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_OBSOLETE24 */
   {__pyx_k_CURLE_OBSOLETE29, sizeof(__pyx_k_CURLE_OBSOLETE29), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_OBSOLETE29 */
   {__pyx_k_CURLE_OBSOLETE32, sizeof(__pyx_k_CURLE_OBSOLETE32), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_OBSOLETE32 */
+  {__pyx_k_CURLE_OBSOLETE34, sizeof(__pyx_k_CURLE_OBSOLETE34), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_OBSOLETE34 */
   {__pyx_k_CURLE_OBSOLETE40, sizeof(__pyx_k_CURLE_OBSOLETE40), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_OBSOLETE40 */
+  {__pyx_k_CURLE_OBSOLETE41, sizeof(__pyx_k_CURLE_OBSOLETE41), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_OBSOLETE41 */
   {__pyx_k_CURLE_OBSOLETE44, sizeof(__pyx_k_CURLE_OBSOLETE44), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_OBSOLETE44 */
   {__pyx_k_CURLE_OBSOLETE46, sizeof(__pyx_k_CURLE_OBSOLETE46), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_OBSOLETE46 */
   {__pyx_k_CURLE_OBSOLETE50, sizeof(__pyx_k_CURLE_OBSOLETE50), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_OBSOLETE50 */
@@ -58284,6 +58593,18 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURLE_REMOTE_DISK_FULL, sizeof(__pyx_k_CURLE_REMOTE_DISK_FULL), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_REMOTE_DISK_FULL */
   {__pyx_k_CURLE_REMOTE_FILE_EXISTS, sizeof(__pyx_k_CURLE_REMOTE_FILE_EXISTS), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_REMOTE_FILE_EXISTS */
   {__pyx_k_CURLE_REMOTE_FILE_NOT_FOUND, sizeof(__pyx_k_CURLE_REMOTE_FILE_NOT_FOUND), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_REMOTE_FILE_NOT_FOUND */
+  {__pyx_k_CURLE_RESERVED115, sizeof(__pyx_k_CURLE_RESERVED115), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED115 */
+  {__pyx_k_CURLE_RESERVED116, sizeof(__pyx_k_CURLE_RESERVED116), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED116 */
+  {__pyx_k_CURLE_RESERVED117, sizeof(__pyx_k_CURLE_RESERVED117), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED117 */
+  {__pyx_k_CURLE_RESERVED118, sizeof(__pyx_k_CURLE_RESERVED118), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED118 */
+  {__pyx_k_CURLE_RESERVED119, sizeof(__pyx_k_CURLE_RESERVED119), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED119 */
+  {__pyx_k_CURLE_RESERVED120, sizeof(__pyx_k_CURLE_RESERVED120), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED120 */
+  {__pyx_k_CURLE_RESERVED121, sizeof(__pyx_k_CURLE_RESERVED121), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED121 */
+  {__pyx_k_CURLE_RESERVED122, sizeof(__pyx_k_CURLE_RESERVED122), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED122 */
+  {__pyx_k_CURLE_RESERVED123, sizeof(__pyx_k_CURLE_RESERVED123), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED123 */
+  {__pyx_k_CURLE_RESERVED124, sizeof(__pyx_k_CURLE_RESERVED124), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED124 */
+  {__pyx_k_CURLE_RESERVED125, sizeof(__pyx_k_CURLE_RESERVED125), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED125 */
+  {__pyx_k_CURLE_RESERVED126, sizeof(__pyx_k_CURLE_RESERVED126), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RESERVED126 */
   {__pyx_k_CURLE_RTSP_CSEQ_ERROR, sizeof(__pyx_k_CURLE_RTSP_CSEQ_ERROR), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RTSP_CSEQ_ERROR */
   {__pyx_k_CURLE_RTSP_SESSION_ERROR, sizeof(__pyx_k_CURLE_RTSP_SESSION_ERROR), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_RTSP_SESSION_ERROR */
   {__pyx_k_CURLE_SEND_ERROR, sizeof(__pyx_k_CURLE_SEND_ERROR), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLE_SEND_ERROR */
@@ -58344,6 +58665,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURLINFO_COOKIELIST, sizeof(__pyx_k_CURLINFO_COOKIELIST), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_COOKIELIST */
   {__pyx_k_CURLINFO_DATA_IN, sizeof(__pyx_k_CURLINFO_DATA_IN), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_DATA_IN */
   {__pyx_k_CURLINFO_DATA_OUT, sizeof(__pyx_k_CURLINFO_DATA_OUT), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_DATA_OUT */
+  {__pyx_k_CURLINFO_EARLYDATA_SENT_T, sizeof(__pyx_k_CURLINFO_EARLYDATA_SENT_T), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_EARLYDATA_SENT_T */
   {__pyx_k_CURLINFO_EFFECTIVE_METHOD, sizeof(__pyx_k_CURLINFO_EFFECTIVE_METHOD), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_EFFECTIVE_METHOD */
   {__pyx_k_CURLINFO_EFFECTIVE_URL, sizeof(__pyx_k_CURLINFO_EFFECTIVE_URL), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_EFFECTIVE_URL */
   {__pyx_k_CURLINFO_END, sizeof(__pyx_k_CURLINFO_END), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_END */
@@ -58354,6 +58676,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURLINFO_HEADER_OUT, sizeof(__pyx_k_CURLINFO_HEADER_OUT), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_HEADER_OUT */
   {__pyx_k_CURLINFO_HEADER_SIZE, sizeof(__pyx_k_CURLINFO_HEADER_SIZE), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_HEADER_SIZE */
   {__pyx_k_CURLINFO_HTTPAUTH_AVAIL, sizeof(__pyx_k_CURLINFO_HTTPAUTH_AVAIL), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_HTTPAUTH_AVAIL */
+  {__pyx_k_CURLINFO_HTTPAUTH_USED, sizeof(__pyx_k_CURLINFO_HTTPAUTH_USED), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_HTTPAUTH_USED */
   {__pyx_k_CURLINFO_HTTP_CONNECTCODE, sizeof(__pyx_k_CURLINFO_HTTP_CONNECTCODE), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_HTTP_CONNECTCODE */
   {__pyx_k_CURLINFO_HTTP_VERSION, sizeof(__pyx_k_CURLINFO_HTTP_VERSION), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_HTTP_VERSION */
   {__pyx_k_CURLINFO_LASTONE, sizeof(__pyx_k_CURLINFO_LASTONE), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_LASTONE */
@@ -58365,6 +58688,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURLINFO_NONE, sizeof(__pyx_k_CURLINFO_NONE), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_NONE */
   {__pyx_k_CURLINFO_NUM_CONNECTS, sizeof(__pyx_k_CURLINFO_NUM_CONNECTS), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_NUM_CONNECTS */
   {__pyx_k_CURLINFO_OS_ERRNO, sizeof(__pyx_k_CURLINFO_OS_ERRNO), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_OS_ERRNO */
+  {__pyx_k_CURLINFO_POSTTRANSFER_TIME_T, sizeof(__pyx_k_CURLINFO_POSTTRANSFER_TIME_T), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_POSTTRANSFER_TIME_T */
   {__pyx_k_CURLINFO_PRETRANSFER_TIME, sizeof(__pyx_k_CURLINFO_PRETRANSFER_TIME), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_PRETRANSFER_TIME */
   {__pyx_k_CURLINFO_PRETRANSFER_TIME_T, sizeof(__pyx_k_CURLINFO_PRETRANSFER_TIME_T), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_PRETRANSFER_TIME_T */
   {__pyx_k_CURLINFO_PRIMARY_IP, sizeof(__pyx_k_CURLINFO_PRIMARY_IP), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_PRIMARY_IP */
@@ -58372,6 +58696,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURLINFO_PRIVATE, sizeof(__pyx_k_CURLINFO_PRIVATE), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_PRIVATE */
   {__pyx_k_CURLINFO_PROTOCOL, sizeof(__pyx_k_CURLINFO_PROTOCOL), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_PROTOCOL */
   {__pyx_k_CURLINFO_PROXYAUTH_AVAIL, sizeof(__pyx_k_CURLINFO_PROXYAUTH_AVAIL), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_PROXYAUTH_AVAIL */
+  {__pyx_k_CURLINFO_PROXYAUTH_USED, sizeof(__pyx_k_CURLINFO_PROXYAUTH_USED), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_PROXYAUTH_USED */
   {__pyx_k_CURLINFO_PROXY_ERROR, sizeof(__pyx_k_CURLINFO_PROXY_ERROR), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_PROXY_ERROR */
   {__pyx_k_CURLINFO_PROXY_SSL_VERIFYRESULT, sizeof(__pyx_k_CURLINFO_PROXY_SSL_VERIFYRESULT), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_PROXY_SSL_VERIFYRESULT */
   {__pyx_k_CURLINFO_QUEUE_TIME_T, sizeof(__pyx_k_CURLINFO_QUEUE_TIME_T), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLINFO_QUEUE_TIME_T */
@@ -58724,6 +59049,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURLOPT_SUPPRESS_CONNECT_HEADERS, sizeof(__pyx_k_CURLOPT_SUPPRESS_CONNECT_HEADERS), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_SUPPRESS_CONNECT_HEADERS */
   {__pyx_k_CURLOPT_TCP_FASTOPEN, sizeof(__pyx_k_CURLOPT_TCP_FASTOPEN), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TCP_FASTOPEN */
   {__pyx_k_CURLOPT_TCP_KEEPALIVE, sizeof(__pyx_k_CURLOPT_TCP_KEEPALIVE), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TCP_KEEPALIVE */
+  {__pyx_k_CURLOPT_TCP_KEEPCNT, sizeof(__pyx_k_CURLOPT_TCP_KEEPCNT), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TCP_KEEPCNT */
   {__pyx_k_CURLOPT_TCP_KEEPIDLE, sizeof(__pyx_k_CURLOPT_TCP_KEEPIDLE), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TCP_KEEPIDLE */
   {__pyx_k_CURLOPT_TCP_KEEPINTVL, sizeof(__pyx_k_CURLOPT_TCP_KEEPINTVL), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TCP_KEEPINTVL */
   {__pyx_k_CURLOPT_TCP_NODELAY, sizeof(__pyx_k_CURLOPT_TCP_NODELAY), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TCP_NODELAY */
@@ -58747,6 +59073,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURLOPT_TLS_RECORD_SIZE_LIMIT, sizeof(__pyx_k_CURLOPT_TLS_RECORD_SIZE_LIMIT), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TLS_RECORD_SIZE_LIMIT */
   {__pyx_k_CURLOPT_TLS_SIGNED_CERT_TIMESTAM, sizeof(__pyx_k_CURLOPT_TLS_SIGNED_CERT_TIMESTAM), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TLS_SIGNED_CERT_TIMESTAM */
   {__pyx_k_CURLOPT_TLS_STATUS_REQUEST, sizeof(__pyx_k_CURLOPT_TLS_STATUS_REQUEST), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TLS_STATUS_REQUEST */
+  {__pyx_k_CURLOPT_TLS_USE_FIREFOX_TLS13_CI, sizeof(__pyx_k_CURLOPT_TLS_USE_FIREFOX_TLS13_CI), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TLS_USE_FIREFOX_TLS13_CI */
   {__pyx_k_CURLOPT_TLS_USE_NEW_ALPS_CODEPOI, sizeof(__pyx_k_CURLOPT_TLS_USE_NEW_ALPS_CODEPOI), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TLS_USE_NEW_ALPS_CODEPOI */
   {__pyx_k_CURLOPT_TRAILERDATA, sizeof(__pyx_k_CURLOPT_TRAILERDATA), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TRAILERDATA */
   {__pyx_k_CURLOPT_TRAILERFUNCTION, sizeof(__pyx_k_CURLOPT_TRAILERFUNCTION), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_TRAILERFUNCTION */
@@ -58757,6 +59084,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURLOPT_UPKEEP_INTERVAL_MS, sizeof(__pyx_k_CURLOPT_UPKEEP_INTERVAL_MS), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_UPKEEP_INTERVAL_MS */
   {__pyx_k_CURLOPT_UPLOAD, sizeof(__pyx_k_CURLOPT_UPLOAD), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_UPLOAD */
   {__pyx_k_CURLOPT_UPLOAD_BUFFERSIZE, sizeof(__pyx_k_CURLOPT_UPLOAD_BUFFERSIZE), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_UPLOAD_BUFFERSIZE */
+  {__pyx_k_CURLOPT_UPLOAD_FLAGS, sizeof(__pyx_k_CURLOPT_UPLOAD_FLAGS), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_UPLOAD_FLAGS */
   {__pyx_k_CURLOPT_URL, sizeof(__pyx_k_CURLOPT_URL), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_URL */
   {__pyx_k_CURLOPT_USERAGENT, sizeof(__pyx_k_CURLOPT_USERAGENT), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_USERAGENT */
   {__pyx_k_CURLOPT_USERNAME, sizeof(__pyx_k_CURLOPT_USERNAME), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURLOPT_USERNAME */
@@ -58798,6 +59126,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CURL_FNMATCHFUNC_NOMATCH, sizeof(__pyx_k_CURL_FNMATCHFUNC_NOMATCH), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURL_FNMATCHFUNC_NOMATCH */
   {__pyx_k_CURL_HTTP_VERSION_1_0, sizeof(__pyx_k_CURL_HTTP_VERSION_1_0), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURL_HTTP_VERSION_1_0 */
   {__pyx_k_CURL_HTTP_VERSION_1_1, sizeof(__pyx_k_CURL_HTTP_VERSION_1_1), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURL_HTTP_VERSION_1_1 */
+  {__pyx_k_CURL_HTTP_VERSION_2, sizeof(__pyx_k_CURL_HTTP_VERSION_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURL_HTTP_VERSION_2 */
   {__pyx_k_CURL_HTTP_VERSION_2TLS, sizeof(__pyx_k_CURL_HTTP_VERSION_2TLS), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURL_HTTP_VERSION_2TLS */
   {__pyx_k_CURL_HTTP_VERSION_2_0, sizeof(__pyx_k_CURL_HTTP_VERSION_2_0), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURL_HTTP_VERSION_2_0 */
   {__pyx_k_CURL_HTTP_VERSION_2_PRIOR_KNOWLE, sizeof(__pyx_k_CURL_HTTP_VERSION_2_PRIOR_KNOWLE), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CURL_HTTP_VERSION_2_PRIOR_KNOWLE */

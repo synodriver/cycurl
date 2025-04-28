@@ -95,6 +95,12 @@ async def main():
                 name = line.strip()
             fconsts.write(name + b" = curl." + name + b"\n")
 
+        with open("curl/curl.h", "rb") as f1:
+            for l in f1.readlines():
+                if l.startswith(b"#define CURL_HTTP_VERSION_"):
+                    name = l.split()[1].strip()
+                    fconsts.write(name + b" = curl." + name + b"\n")
+
         fconsts.write(b"#CURLWS_\n")
         with open("curl/websockets.h", "rb") as f1:
             for l in f1.readlines():
@@ -115,6 +121,11 @@ async def main():
             except ValueError:
                 name = line.strip()
             fconsts.write(name + b" = curl." + name + b"\n")
+        with open("curl/curl.h", "rb") as f1:
+            for l in f1.readlines():
+                if l.startswith(b"#define CURL_SSLVERSION_"):
+                    name = l.split()[1].strip()
+                    fconsts.write(name + b" = curl." + name + b"\n")
 
         fconsts.write(b"#CURLAUTH_\n")
         with open("curl/curl.h", "rb") as f1:
