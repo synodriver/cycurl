@@ -59,7 +59,7 @@ elif uname.system == "Darwin":
     if platform.machine() == "x86_64":
         library_dirs = ["./dep/libcurl-impersonate-v1.0.0rc2.x86_64-macos"]
         extra_objects = [
-            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-macos/libcurl-impersonate-chrome.4.dylib"
+            "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-macos/libcurl-impersonate.4.dylib"
         ]
         for file in glob.glob(
             "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-macos/*.dylib"
@@ -68,7 +68,7 @@ elif uname.system == "Darwin":
     else:
         library_dirs = ["./dep/libcurl-impersonate-v1.0.0rc2.arm64-macos"]
         extra_objects = [
-            "./dep/libcurl-impersonate-v1.0.0rc2.arm64-macos/libcurl-impersonate-chrome.4.dylib"
+            "./dep/libcurl-impersonate-v1.0.0rc2.arm64-macos/libcurl-impersonate.4.dylib"
         ]
         for file in glob.glob(
             "./dep/libcurl-impersonate-v1.0.0rc2.arm64-macos/*.dylib"
@@ -77,13 +77,13 @@ elif uname.system == "Darwin":
 else:
     library_dirs = ["./dep/libcurl-impersonate-v1.0.0rc2.x86_64-linux-gnu"]
     extra_objects = [
-        "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-linux-gnu/libcurl-impersonate-chrome.so.4.8.0"
+        "./dep/libcurl-impersonate-v1.0.0rc2.x86_64-linux-gnu/libcurl-impersonate.so.4.8.0"
     ]
     for file in glob.glob("./dep/libcurl-impersonate-v1.0.0rc2.x86_64-linux-gnu/*.so"):
         shutil.copy(file, "./cycurl")
     # library_diexit(rs = ["./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu"]
     # extra_objects = [
-    #     "./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu/libcurl-impersonate-chrome.so.4.8.0"
+    #     "./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu/libcurl-impersonate.so.4.8.0"
     # ]
 
 if sysconfig.get_config_var("Py_GIL_DISABLED"):
