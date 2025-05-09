@@ -185,6 +185,12 @@ async def main():
             except ValueError:
                 name = line.strip()
             fconsts.write(name + b" = curl." + name + b"\n")
+        fconsts.write(b"#CURL_IPRESOLVE\n")
+        with open("curl/curl.h", "rb") as f1:
+            for l in f1.readlines():
+                if l.startswith(b"#define CURL_IPRESOLVE"):
+                    name = l.split()[1].strip()
+                    fconsts.write(name + b" = curl." + name + b"\n")
 
 
 if __name__ == "__main__":

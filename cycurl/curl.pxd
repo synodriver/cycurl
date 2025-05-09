@@ -47,6 +47,16 @@ cdef extern from "curl/curl.h" nogil:
     int curl_multi_setopt(CURLM *curlm, int option, void* param)
     int curl_multi_assign(CURLM *curlm, int sockfd, void *sockptr)
     int curl_multi_perform(CURLM *curlm, int *running_handle)
+    int curl_multi_timeout(CURLM *curlm, long *timeout_ms);
+    ctypedef int curl_socket_t
+    cdef struct curl_waitfd:
+        curl_socket_t fd
+        short events
+        short revents
+    int curl_multi_wait(CURLM *curlm, curl_waitfd *extra_fds, unsigned int extra_nfds, int timeout_ms, int *numfds);
+    int curl_multi_poll(CURLM *curlm, curl_waitfd *extra_fds, unsigned int extra_nfds, int timeout_ms, int *numfds);
+    int curl_multi_wakeup(CURLM *curlm);
+    const char *curl_multi_strerror(int code);
     CURLMsg *curl_multi_info_read(CURLM* curlm, int *msg_in_queue)
 
     # multi callbacks
@@ -783,6 +793,10 @@ cdef extern from "curl/curl.h" nogil:
     int CURLMSG_NONE
     int CURLMSG_DONE
     int CURLMSG_LAST
+    #CURL_IPRESOLVE
+    int CURL_IPRESOLVE_WHATEVER
+    int CURL_IPRESOLVE_V4
+    int CURL_IPRESOLVE_V6
 
 cdef extern from "shim.h" nogil:
     int _curl_easy_setopt(CURL * curl, int option, void * param)
