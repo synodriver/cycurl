@@ -1,9 +1,9 @@
 [project]
 name = "cycurl"
-version = "0.11.0b1"
+version = "0.11.1"
 authors = [{ name = "Lyonnet", email = "infinitesheldon@gmail.com" }]
 description = "Ultra fast python binding for curl-impersonate via cython, with impersonation support."
-license = { file = "LICENSE" }
+license = { text = "MIT License" }
 dependencies = [
     "cython >= 3.0.9",
     "certifi>=2024.2.2",
@@ -14,7 +14,6 @@ urls = { "repository" = "https://github.com/synodriver/cycurl" }
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",

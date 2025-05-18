@@ -14,6 +14,7 @@ cdef extern from "curl/curl.h" nogil:
     void curl_easy_reset(CURL *curl)
     int curl_easy_impersonate(CURL *curl, const char *target, int default_headers)
     CURL *curl_easy_duphandle(CURL *curl)
+    int curl_easy_upkeep(CURL *curl)
 
     char *curl_version()
 

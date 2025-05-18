@@ -602,6 +602,12 @@ cdef class Curl:
             # cleaning
             self.clean_after_perform(clear_headers)
 
+    cpdef inline int upkeep(self):
+        cdef int ret
+        with nogil:
+            ret = curl.curl_easy_upkeep(self._curl)
+        return ret
+
     cpdef inline clean_after_perform(self, clear_headers: bool = True):
         """Clean up handles and buffers after perform, called at the end of `perform`."""
         self._write_handle = None

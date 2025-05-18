@@ -8,7 +8,7 @@ Alternatively, you can use the low-level curl-like API:
 
 .. code-block:: python
 
-    from curl_cffi import Curl, CurlOpt
+    from cycurl import Curl, CurlOpt
     from io import BytesIO
 
     buffer = BytesIO()
@@ -40,7 +40,7 @@ Just set ``thread`` to eventlet or gevent.
 
 .. code-block:: python
 
-   from curl_cffi import requests
+   from cycurl import requests
 
    s = requests.Session(thread="eventlet")
    s.get(url)
@@ -85,3 +85,19 @@ With this, you get the full functionality of httpx.
        # required for parallel requests, see curl_cffi issues below
        curl_options={CurlOpt.FRESH_CONNECT: True}
    ))
+
+
+Keeping session alive in http/2
+------
+
+With http/2, you can optionally send a ping frame to keep the connection alive when not actively using it.
+
+
+.. code-block:: python
+
+   from cycurl import requests
+
+   s = requests.Session()
+   s.get("https://example.com")
+   s.upkeep()
+
