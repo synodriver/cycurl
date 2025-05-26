@@ -50,7 +50,7 @@ cdef extern from "curl/curl.h" nogil:
     int curl_multi_perform(CURLM *curlm, int *running_handle)
     int curl_multi_timeout(CURLM *curlm, long *timeout_ms);
     ctypedef int curl_socket_t
-    cdef struct curl_waitfd:
+    struct curl_waitfd:
         curl_socket_t fd
         short events
         short revents

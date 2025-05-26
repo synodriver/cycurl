@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-__all__ = ["set_curl_options", "not_set"]
+__all__ = ["HttpVersionLiteral", "set_curl_options", "not_set"]
 
 
 import asyncio
@@ -39,9 +39,30 @@ HttpMethod = Literal[
     "GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "PATCH", "QUERY"
 ]
 
+HttpVersionLiteral = Literal["v1", "v2", "v2tls", "v2_prior_knowledge", "v3", "v3only"]
+
 SAFE_CHARS = set("!#$%&'()*+,/:;=?@[]~")
 
 not_set: Final[Any] = object()
+
+
+def normalize_http_version(
+    version: Union[int, HttpVersionLiteral],
+) -> int:
+    if version == "v1":
+        return m.CURL_HTTP_VERSION_1_1
+    elif version == "v3":
+        return m.CURL_HTTP_VERSION_3
+    elif version == "v3only":
+        return m.CURL_HTTP_VERSION_3ONLY
+    elif version == "v2":
+        return m.CURL_HTTP_VERSION_2_0
+    elif version == "v2tls":
+        return m.CURL_HTTP_VERSION_2TLS
+    elif version == "v2_prior_knowledge":
+        return m.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE
+
+    return version  # type: ignore
 
 
 def is_absolute_url(url: str) -> bool:
@@ -329,7 +350,7 @@ def set_curl_options(
     extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
     default_headers: bool = True,
     quote: Union[str, Literal[False]] = "",
-    http_version: Optional[int] = None,
+    http_version: Optional[Union[int, HttpVersionLiteral]] = None,
     interface: Optional[str] = None,
     cert: Optional[Union[str, tuple[str, str]]] = None,
     stream: Optional[bool] = None,
@@ -623,6 +644,7 @@ def set_curl_options(
 
     # http_version, after impersonate, which will change this to http2
     if http_version:
+        http_version = normalize_http_version(http_version)
         c.setopt(m.CURLOPT_HTTP_VERSION, http_version)
 
     # set extra curl options, must come after impersonate, because it will alter some
