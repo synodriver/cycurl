@@ -264,7 +264,7 @@ def set_ja3_options(curl: Curl, ja3: str, permute: bool = False):
         "TLS_CHACHA20_POLY1305_SHA256",
         "TLS_AES_256_GCM_SHA384",
     ]:
-        curl.setopt(CurlOpt.TLS_USE_FIREFOX_TLS13_CIPHERS, 1)
+        curl.setopt(m.CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS, 1)
 
     if extensions.endswith("-21"):
         extensions = extensions[:-3]
@@ -621,7 +621,7 @@ def set_curl_options(
         if impersonate:
             warnings.warn(
                 "Extra fingerprints was altered after impersonated browser version was set.",
-                CurlCffiWarning,
+                m.CurlWarning,
                 stacklevel=1,
             )
         set_extra_fp(c, extra_fp)
@@ -630,13 +630,8 @@ def set_curl_options(
     if ja3:
         if impersonate:
             warnings.warn(
-<<<<<<< HEAD:cycurl/requests/utils.py
-                "JA3 was altered after browser version was set.",
-                m.CurlWarning,
-=======
                 "JA3 fingerprint was altered after impersonated browser version was set.",
-                CurlCffiWarning,
->>>>>>> temp:curl_cffi/requests/utils.py
+                m.CurlWarning,
                 stacklevel=1,
             )
         permute = False
@@ -650,32 +645,12 @@ def set_curl_options(
     if akamai:
         if impersonate:
             warnings.warn(
-<<<<<<< HEAD:cycurl/requests/utils.py
-                "Akamai was altered after browser version was set.",
-                m.CurlWarning,
-=======
                 "Akamai fingerprint was altered after impersonated browser version was set.",
-                CurlCffiWarning,
->>>>>>> temp:curl_cffi/requests/utils.py
+                m.CurlWarning,
                 stacklevel=1,
             )
         set_akamai_options(c, akamai)
 
-<<<<<<< HEAD:cycurl/requests/utils.py
-    # extra_fp options
-    if extra_fp:
-        if isinstance(extra_fp, dict):
-            extra_fp = ExtraFingerprints(**extra_fp)
-        if impersonate:
-            warnings.warn(
-                "Extra fingerprints was altered after browser version was set.",
-                m.CurlWarning,
-                stacklevel=1,
-            )
-        set_extra_fp(c, extra_fp)
-
-=======
->>>>>>> temp:curl_cffi/requests/utils.py
     # http_version, after impersonate, which will change this to http2
     if http_version:
         http_version = normalize_http_version(http_version)

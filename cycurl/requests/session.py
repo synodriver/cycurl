@@ -391,19 +391,13 @@ class BaseSession(Generic[R]):
         rsp.local_ip = cast(bytes, c.getinfo(m.CURLINFO_LOCAL_IP)).decode()
         rsp.local_port = cast(int, c.getinfo(m.CURLINFO_LOCAL_PORT))
         rsp.default_encoding = default_encoding
-<<<<<<< HEAD:cycurl/requests/session.py
         rsp.elapsed = cast(float, c.getinfo(m.CURLINFO_TOTAL_TIME))
         rsp.redirect_count = cast(int, c.getinfo(m.CURLINFO_REDIRECT_COUNT))
-        rsp.redirect_url = cast(bytes, c.getinfo(m.CURLINFO_REDIRECT_URL)).decode()
-=======
-        rsp.elapsed = cast(float, c.getinfo(CurlInfo.TOTAL_TIME))
-        rsp.redirect_count = cast(int, c.getinfo(CurlInfo.REDIRECT_COUNT))
-        redirect_url_bytes = cast(bytes, c.getinfo(CurlInfo.REDIRECT_URL))
+        redirect_url_bytes = cast(bytes, c.getinfo(m.CURLINFO_REDIRECT_URL))
         try:
             rsp.redirect_url = redirect_url_bytes.decode()
         except UnicodeDecodeError:
             rsp.redirect_url = redirect_url_bytes.decode("latin-1")
->>>>>>> temp:curl_cffi/requests/session.py
 
         # custom info options
         for info in self.curl_infos:
