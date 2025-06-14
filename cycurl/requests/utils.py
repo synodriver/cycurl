@@ -656,12 +656,6 @@ def set_curl_options(
         http_version = normalize_http_version(http_version)
         c.setopt(m.CURLOPT_HTTP_VERSION, http_version)
 
-    # set extra curl options, must come after impersonate, because it will alter some
-    # options
-    if curl_options:
-        for option, setting in curl_options.items():
-            c.setopt(option, setting)
-
     buffer = None
     q = None
     header_recved = None
@@ -695,5 +689,10 @@ def set_curl_options(
     # max_recv_speed
     # do not check, since 0 is a valid value to disable it
     c.setopt(m.CURLOPT_MAX_RECV_SPEED_LARGE, max_recv_speed)
+
+    # set extra options, after all others, because it will alter some options
+    if curl_options:
+        for option, setting in curl_options.items():
+            c.setopt(option, setting)
 
     return req, buffer, header_buffer, q, header_recved, quit_now
