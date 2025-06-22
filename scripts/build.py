@@ -11,7 +11,7 @@ from urllib.request import urlretrieve
 from cffi import FFI
 
 # this is the upstream libcurl-impersonate version
-__version__ = "1.0.1"
+__version__ = "1.0.3"
 
 
 def detect_arch():
@@ -119,6 +119,9 @@ def get_curl_libraries():
             "zlib",
             "ssl",
             "nghttp2",
+            "nghttp3",
+            "ngtcp2",
+            "ngtcp2_crypto_boringssl",
             "crypto",
             "brotlienc",
             "brotlidec",

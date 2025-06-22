@@ -1,6 +1,6 @@
 [project]
 name = "cycurl"
-version = "0.11.3"
+version = "0.11.4"
 authors = [{ name = "Lyonnet", email = "infinitesheldon@gmail.com" }]
 description = "Ultra fast python binding for curl-impersonate via cython, with impersonation support."
 license = { text = "MIT License" }
