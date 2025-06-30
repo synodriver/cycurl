@@ -259,13 +259,6 @@ def set_ja3_options(curl: Curl, ja3: str, permute: bool = False):
 
     curl.setopt(m.CURLOPT_SSL_CIPHER_LIST, ":".join(cipher_names))
 
-    if cipher_names[:3] == [
-        "TLS_AES_128_GCM_SHA256",
-        "TLS_CHACHA20_POLY1305_SHA256",
-        "TLS_AES_256_GCM_SHA384",
-    ]:
-        curl.setopt(m.CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS, 1)
-
     if extensions.endswith("-21"):
         extensions = extensions[:-3]
         warnings.warn(
@@ -328,6 +321,8 @@ def set_extra_fp(curl: Curl, fp: ExtraFingerprints):
         curl.setopt(m.CURLOPT_TLS_DELEGATED_CREDENTIALS, fp.tls_delegated_credential)
     if fp.tls_record_size_limit:
         curl.setopt(m.CURLOPT_TLS_RECORD_SIZE_LIMIT, fp.tls_record_size_limit)
+    if fp.http2_no_priority:
+        curl.setopt(m.CURLOPT_HTTP2_NO_PRIORITY, fp.http2_no_priority)
 
 
 def set_curl_options(

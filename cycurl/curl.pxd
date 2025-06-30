@@ -401,6 +401,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURLOPT_ECH
     int CURLOPT_TCP_KEEPCNT
     int CURLOPT_UPLOAD_FLAGS
+    int CURLOPT_SSL_SIGNATURE_ALGORITHMS
     int CURLOPT_HTTPBASEHEADER
     int CURLOPT_SSL_SIG_HASH_ALGS
     int CURLOPT_SSL_ENABLE_ALPS
@@ -421,7 +422,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURLOPT_TLS_RECORD_SIZE_LIMIT
     int CURLOPT_TLS_KEY_SHARES_LIMIT
     int CURLOPT_TLS_USE_NEW_ALPS_CODEPOINT
-    int CURLOPT_TLS_USE_FIREFOX_TLS13_CIPHERS
+    int CURLOPT_HTTP2_NO_PRIORITY
     int CURLOPT_ENCODING
     int CURLOPT_FILE
     int CURLOPT_INFILE
@@ -721,6 +722,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURLWS_OFFSET
     int CURLWS_PONG
     int CURLWS_RAW_MODE
+    int CURLWS_NOAUTOPONG
     #CURL_SSLVERSION_
     int CURL_SSLVERSION_DEFAULT
     int CURL_SSLVERSION_TLSv1
@@ -798,6 +800,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURL_IPRESOLVE_WHATEVER
     int CURL_IPRESOLVE_V4
     int CURL_IPRESOLVE_V6
+
 
 cdef extern from "shim.h" nogil:
     int _curl_easy_setopt(CURL * curl, int option, void * param)
