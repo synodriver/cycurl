@@ -723,3 +723,7 @@ class WSFrame:
     flags: int
     len: int
     offset: int
+
+
+class CurlWarning(UserWarning, RuntimeWarning):
+    pass

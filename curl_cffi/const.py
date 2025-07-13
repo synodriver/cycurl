@@ -336,6 +336,7 @@ class CurlOpt(IntEnum):
     TLS_KEY_SHARES_LIMIT = 0 + 1019
     TLS_USE_NEW_ALPS_CODEPOINT = 0 + 1020
     HTTP2_NO_PRIORITY = 0 + 1021
+    PROXY_CREDENTIAL_NO_REUSE = 0 + 1022
 
     if locals().get("WRITEDATA"):
         FILE = locals().get("WRITEDATA")
@@ -610,4 +611,3 @@ class CurlIpResolve(IntEnum):
     WHATEVER = 0  # default, uses addresses to all IP versions that your system allows
     V4 = 1  # uses only IPv4 addresses/connections
     V6 = 2  # uses only IPv6 addresses/connections
-

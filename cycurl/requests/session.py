@@ -312,7 +312,7 @@ class BaseSession(Generic[R]):
         if response_class is not None and issubclass(response_class, Response) is False:
             raise TypeError(
                 "`response_class` must be a subclass of "
-                "`curl_cffi.requests.models.Response`, "
+                "`cycurl.requests.models.Response`, "
                 f"not of type `{response_class}`"
             )
         self.response_class = response_class or Response
@@ -1060,7 +1060,7 @@ class AsyncSession(BaseSession[R]):
         multipart: Optional[CurlMime] = None,
         discard_cookies: bool = False,
     ):
-        """Send the request, see ``curl_cffi.requests.request`` for details on args."""
+        """Send the request, see ``cycurl.requests.request`` for details on args."""
 
         self._check_session_closed()
 
