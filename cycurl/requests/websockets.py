@@ -429,7 +429,7 @@ class WebSocket(BaseWebSocket):
                 "Invalid active socket", m.CURLE_NO_CONNECTION_AVAILABLE
             )
 
-        # Loop checks for CurlECode.Again
+        # Loop checks for CURLE_AGAIN
         # https://curl.se/libcurl/c/curl_ws_send.html
         offset = 0
         while offset < len(payload):
@@ -521,9 +521,16 @@ class WebSocket(BaseWebSocket):
 
                 # Avoid unnecessary computation
                 if "message" in self._emitters:
+                    # Concatenate collected chunks with the final message
+                    if chunks:
+                        full_message = b"".join(chunks) + msg
+                        chunks.clear()  # Reset chunks for next message
+                    else:
+                        full_message = msg
+                    
                     if (flags & m.CURLWS_TEXT) and not self.skip_utf8_validation:
                         try:
-                            msg = msg.decode()  # type: ignore
+                            full_message = full_message.decode()  # type: ignore
                         except UnicodeDecodeError as e:
                             self._close_code = WsCloseCode.INVALID_DATA
                             self.close(WsCloseCode.INVALID_DATA)
@@ -531,7 +538,7 @@ class WebSocket(BaseWebSocket):
                                 "Invalid UTF-8", WsCloseCode.INVALID_DATA
                             ) from e
                     if (flags & m.CURLWS_BINARY) or (flags & m.CURLWS_TEXT):
-                        self._emit("message", msg)
+                        self._emit("message", full_message)
                 if flags & m.CURLWS_CLOSE:
                     keep_running = False
                     self._emit("close", self._close_code or 0, self._close_reason or "")
@@ -716,29 +723,30 @@ class AsyncWebSocket(BaseWebSocket):
                 "Invalid active socket", m.CURLE_NO_CONNECTION_AVAILABLE
             )
 
-        # Loop checks for CurlECode.Again
-        # https://curl.se/libcurl/c/curl_ws_send.html
-        offset = 0
-        while offset < len(payload):
-            current_buffer = payload[offset:]
+        # TODO: Why does concurrently sending fail
+        async with self._send_lock:
+            offset = 0
 
-            try:
-                # TODO: Why does concurrently sending fail
-                async with self._send_lock:
+            # Loop checks for CURLE_AGAIN
+            # https://curl.se/libcurl/c/curl_ws_send.html
+            while offset < len(payload):
+                current_buffer = payload[offset:]
+
+                try:
                     n_sent = await self.loop.run_in_executor(
                         None, self.curl.ws_send, current_buffer, flags
                     )
-            except CurlError as e:
-                if e.code == m.CURLE_AGAIN:
-                    writeable = await aselect(
-                        sock_fd, mode="write", loop=self.loop, timeout=0.5
-                    )
-                    if not writeable:
-                        raise WebSocketError("Socket write timeout") from e
-                    continue
-                raise
+                except CurlError as e:
+                    if e.code == m.CURLE_AGAIN:
+                        writeable = await aselect(
+                            sock_fd, mode="write", loop=self.loop, timeout=0.5
+                        )
+                        if not writeable:
+                            raise WebSocketError("Socket write timeout") from e
+                        continue
+                    raise
 
-            offset += n_sent
+                offset += n_sent
 
         return offset
 

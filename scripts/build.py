@@ -11,7 +11,7 @@ from urllib.request import urlretrieve
 from cffi import FFI
 
 # this is the upstream libcurl-impersonate version
-__version__ = "1.1.1"
+__version__ = "1.1.2"
 
 
 def detect_arch():
@@ -154,6 +154,7 @@ ffibuilder.set_source(
     include_dirs=[
         str(root_dir / "include"),
         str(root_dir / "ffi"),
+        str(Path(arch["libdir"]) / "include"),
     ],
     sources=[
         str(root_dir / "ffi/shim.c"),
