@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import http.cookies
+import os
 import queue
 import sys
 import threading
@@ -329,6 +330,14 @@ class BaseSession(Generic[R]):
             raise ValueError("You need to provide an absolute url for 'base_url'")
 
         self._closed = False
+        # Look for requests environment configuration
+        # and be compatible with cURL.
+        if self.verify is True or self.verify is None:
+            self.verify = (
+                os.environ.get("REQUESTS_CA_BUNDLE")
+                or os.environ.get("CURL_CA_BUNDLE")
+                or self.verify
+            )
 
     def _parse_response(
         self, curl, buffer, header_buffer, default_encoding, discard_cookies
@@ -857,9 +866,6 @@ class AsyncSession(BaseSession[R]):
         curl = await self.pool.get()
         if curl is None:
             curl = Curl(debug=self.debug)
-        # XXX: This may be related to proxy rotation
-        # curl.setopt(CURLOPT_FRESH_CONNECT, 1)
-        # curl.setopt(CURLOPT_FORBID_REUSE, 1)
         return curl
 
     def push_curl(self, curl):
@@ -890,7 +896,6 @@ class AsyncSession(BaseSession[R]):
         if not self._closed:
             self.acurl.remove_handle(curl)
             curl.reset()
-            # curl.setopt(CurlOpt.PIPEWAIT, 1)
             self.push_curl(curl)
         else:
             curl.close()

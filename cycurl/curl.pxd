@@ -651,18 +651,6 @@ cdef extern from "curl/curl.h" nogil:
     int CURLE_UNRECOVERABLE_POLL
     int CURLE_TOO_LARGE
     int CURLE_ECH_REQUIRED
-    int CURLE_RESERVED115
-    int CURLE_RESERVED116
-    int CURLE_RESERVED117
-    int CURLE_RESERVED118
-    int CURLE_RESERVED119
-    int CURLE_RESERVED120
-    int CURLE_RESERVED121
-    int CURLE_RESERVED122
-    int CURLE_RESERVED123
-    int CURLE_RESERVED124
-    int CURLE_RESERVED125
-    int CURLE_RESERVED126
     int CURLE_FUNCTION_NOT_FOUND
     int CURLE_HTTP_POST_ERROR
     int CURLE_OBSOLETE16
@@ -801,6 +789,11 @@ cdef extern from "curl/curl.h" nogil:
     int CURL_IPRESOLVE_WHATEVER
     int CURL_IPRESOLVE_V4
     int CURL_IPRESOLVE_V6
+    #CURLPIPE_
+    int CURLPIPE_NOTHING
+    int CURLPIPE_HTTP1
+    int CURLPIPE_MULTIPLEX
+
 
 
 cdef extern from "shim.h" nogil:

@@ -3,6 +3,7 @@
 from pathlib import Path
 
 cimport cython
+from Cython.Includes.cpython.time import nogil
 from cpython.bytes cimport PyBytes_GET_SIZE, PyBytes_AS_STRING
 from cpython.float cimport PyFloat_FromDouble
 from cpython.long cimport PyLong_FromLong
@@ -45,18 +46,44 @@ cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, vo
     cdef bytes text = <bytes>data[:size]
     return callback(type_, text)
 
-def debug_function_default(int type_, bytes text):
+cdef inline str bytes_to_hex(bytes b, bint uppercase = False):
+    """
+    Convert a bytes object to a space-separated hex string, e.g. "0a ff 3c".
+    If uppercase=True, letters will be A–F instead of a–f.
+    """
+    fmt = "{:02X}" if uppercase else "{:02x}"
+    return " ".join(fmt.format(byte) for byte in b)
+
+
+def debug_function_default(type_: int, data: bytes) -> None:
+    PREFIXES = {
+        curl.CURLINFO_TEXT:          "*",
+        curl.CURLINFO_HEADER_IN:     "<",
+        curl.CURLINFO_HEADER_OUT:    ">",
+        curl.CURLINFO_DATA_IN:       "< DATA",
+        curl.CURLINFO_DATA_OUT:      "> DATA",
+        curl.CURLINFO_SSL_DATA_IN:   "< SSL",
+        curl.CURLINFO_SSL_DATA_OUT:  "> SSL",
+    }
+    MAX_SHOW_BYTES = 40
+    prefix = PREFIXES.get(type_, "*")
+
+    # always show ssl data in binary format
     if type_ == curl.CURLINFO_SSL_DATA_IN or type_ == curl.CURLINFO_SSL_DATA_OUT:
-        fprintf(stderr, "SSL OUT:")
-        fwrite(PyBytes_AS_STRING(text), sizeof(char), PyBytes_GET_SIZE(text), stderr)
-    elif type_ == curl.CURLINFO_DATA_IN or type_ == curl.CURLINFO_DATA_OUT:
-        fprintf(stderr, "DATA OUT:")
-        fwrite(PyBytes_AS_STRING(text), sizeof(char), PyBytes_GET_SIZE(text), stderr)
+        hex_str = bytes_to_hex(data[:MAX_SHOW_BYTES])
+        postfix = "" if len(data) <= MAX_SHOW_BYTES else "..."
+        sys.stderr.write(f"{prefix} [{len(data)} bytes]: {hex_str}{postfix}\n")
     else:
-        fwrite(PyBytes_AS_STRING(text), sizeof(char), PyBytes_GET_SIZE(text), stderr)
-    fprintf(stderr, "\n")
-    fflush(stderr)
-    return 0
+        try:
+            text = data.decode("utf-8")
+            sys.stderr.write(f"{prefix} {text}")
+            if type_ != curl.CURLINFO_TEXT and type_ != curl.CURLINFO_HEADER_IN and type_ != curl.CURLINFO_HEADER_OUT:
+                sys.stderr.write("\n")
+        except UnicodeDecodeError:
+            # Fallback to hex representation of first MAX_SHOW_BYTES bytes
+            hex_str = bytes_to_hex(data[:MAX_SHOW_BYTES])
+            postfix = "" if len(data) <= MAX_SHOW_BYTES else "..."
+            sys.stderr.write(f"{prefix} [{len(data)} bytes]: {hex_str}{postfix}\n")
 
 
 cdef size_t buffer_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:
@@ -370,7 +397,7 @@ cdef class Curl:
     cpdef inline int setopt(self, int option, object value) except -1:
         """Wrapper for ``curl_easy_setopt``.
     
-        Parameters:
+        Args:
             option: option to set, using constants from CURLOPT_
             value: value to set, strings will be handled automatically
 
@@ -746,40 +773,61 @@ cdef int timer_function(curl.CURLM *curlm, long timeout_ms, void *clientp) with 
     """
     see: https://curl.se/libcurl/c/CURLMOPT_TIMERFUNCTION.html
     """
-    cdef AsyncCurl async_curl = <AsyncCurl><object>clientp
-    # print("time out in %sms" % timeout_ms)
-    # A timeout_ms value of -1 means you should delete the timer.
-    if timeout_ms == -1:
-        for timer in async_curl._timers:
-            timer.cancel()
-        async_curl._timers = WeakSet()
-    else:
-        timer = async_curl.loop.call_later(
-            timeout_ms / 1000,
-            async_curl.process_data,
-            curl.CURL_SOCKET_TIMEOUT,  # -1
-            curl.CURL_POLL_NONE,  # 0
-        )
-        async_curl._timers.add(timer)
+    cdef AsyncCurl async_curl = <AsyncCurl>clientp
+    # Cancel the timer anyway, if it's -1, yes, libcurl says it should be cancelled.
+    # If not, to add a new timer, we need to cancel the old timer.
+    if async_curl._timer:
+        async_curl._timer.cancel()  # If already called, cancel does nothing.
+        async_curl._timer = None
+
+    # libcurl says to install a timer which calls socket_action on fire.
+    async_curl._timer = async_curl.loop.call_later(
+        (<double>timeout_ms) / 1000,
+        async_curl.process_data,
+        curl.CURL_SOCKET_TIMEOUT,  # -1
+        curl.CURL_POLL_NONE,  # 0
+    )
     return 0
 
 cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, void *socketp) with gil:
+    """This callback is called when libcurl decides it's time to interact with certain
+    sockets"""
     cdef AsyncCurl async_curl = <AsyncCurl>clientp
     cdef object loop = async_curl.loop
 
-    # Always remove and re-add fd
+    # Always remove and re-add fds
     if sockfd in async_curl._sockfds:
         loop.remove_reader(sockfd)
         loop.remove_writer(sockfd)
+    # Need to read from the socket
     if what & curl.CURL_POLL_IN:
         loop.add_reader(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_IN)
         async_curl._sockfds.add(sockfd)
+    # Need to write to the socket
     if what & curl.CURL_POLL_OUT:
         loop.add_writer(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_OUT)
         async_curl._sockfds.add(sockfd)
+    # Need to remove the socket
     if what & curl.CURL_POLL_REMOVE:
         async_curl._sockfds.remove(sockfd)
     return 0
+
+# """
+# libcurl provides an event-based system for multiple handles with the following API:
+# - curl_multi_socket_action, for detecting events
+# - curl_multi_info_read, for reading the transfer status
+# There are 2 callbacks:
+# - socket_function, set by CURLMOPT_SOCKETFUNCTION, will be called for socket events.
+# - timer_function, set by CURLMOPT_TIMERFUNCTION, will be called when timeouts happen.
+# And it works like the following:
+# Set up handles, callbacks first.
+# When started, curl_multi_socket_action should be called to start everything.
+# If there are data in/out, libcurl calls the socket_function callback, and it sets up
+# `process_data` as asyncio loop reader/writer function. `process_data` will call
+# curl_multi_info_read to determine whether a certain `await perform` has finished.
+# When idle, libcurl will call the timer_function callback, which sets up a later call
+# for socket_action to detect events.
+# """
 
 @cython.final
 @cython.no_gc
@@ -791,8 +839,8 @@ cdef class AsyncCurl:
         dict _curl2curl  #  c curl to Curl
         set _sockfds   # sockfds
         object loop
-        object _checker  # asyncio.Task
-        object _timers   # WeakSet todo should this be public? a unittest use this
+        object _timeout_checker  # asyncio.Task
+        object _timer   # Optional[asyncio.TimerHandle]
 
     def __cinit__(self, str cacert = "", object loop=None):
         self._curlm = curl.curl_multi_init()
@@ -805,8 +853,8 @@ cdef class AsyncCurl:
         self.loop = get_selector(
             loop if loop is not None else asyncio.get_running_loop()
         )
-        self._checker = self.loop.create_task(self._force_timeout())
-        self._timers = WeakSet()
+        self._timeout_checker = self.loop.create_task(self._force_timeout())
+        self._timer: Optional[asyncio.TimerHandle] = None
         self._setup()
 
     def __dealloc__(self):
@@ -819,14 +867,14 @@ cdef class AsyncCurl:
         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETFUNCTION, <void *>socket_function)
         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETDATA, <void*>self)
         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)
-        # curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_PIPELINING, 0)
+        # curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_PIPELINING, curl.CURLPIPE_NOTHING)
 
     async def close(self):
         """Close and cleanup running timers, readers, writers and handles."""
         # Close and wait for the force timeout checker to complete
-        self._checker.cancel()
+        self._timeout_checker.cancel()
         with suppress(asyncio.CancelledError):
-            await self._checker
+            await self._timeout_checker
         # Close all pending futures
         for curl_, future in self._curl2future.items():
             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
@@ -840,37 +888,40 @@ cdef class AsyncCurl:
             self.loop.remove_reader(sockfd)
             self.loop.remove_writer(sockfd)
         # Cancel all time functions
-        for timer in self._timers:
-            timer.cancel()
+        if self._timer:
+            self._timer.cancel()
 
     async def _force_timeout(self):
+        """This coroutine is used to safeguard from any missing signals from curl, and
+        put everything back on track"""
         while True:
             if not self._curlm:
                 break
-            await asyncio.sleep(1)
-            # print("force timeout")
             self.socket_action(curl.CURL_SOCKET_TIMEOUT, curl.CURL_POLL_NONE)
+            await asyncio.sleep(0.1)
 
     cpdef inline add_handle(self, Curl curl_):
         """Add a curl handle to be managed by curl_multi. This is the equivalent of
         `perform` in the async world."""
 
-        # import pdb; pdb.set_trace()
         curl_._ensure_cacert()
-        curl.curl_multi_add_handle(self._curlm, curl_._curl)
+        cdef int errcode
+        with nogil:
+            errcode = curl.curl_multi_add_handle(self._curlm, curl_._curl)
+        self._check_error(errcode)
         future = self.loop.create_future()
         self._curl2future[curl_] = future
         self._curl2curl[<long long><void*>curl_._curl] = curl_
         return future
 
     cpdef inline int socket_action(self, int sockfd, int ev_bitmask) except -1:
-        """Call libcurl socket_action function"""
+        """wrapper for curl_multi_socket_action, 
+        returns the number of running curl handles."""
         cdef int running_handle
-        cdef int code
+        cdef int errcode
         with nogil:
-            code = curl.curl_multi_socket_action(self._curlm, sockfd, ev_bitmask, &running_handle)
-        if code != curl.CURLE_OK:
-            raise CurlError("failed to call curl_multi_socket_action", code)
+            errcode = curl.curl_multi_socket_action(self._curlm, sockfd, ev_bitmask, &running_handle)
+        self._check_error(errcode)
         return running_handle
 
     cpdef inline process_data(self, int sockfd, int ev_bitmask):
@@ -889,44 +940,64 @@ cdef class AsyncCurl:
             curl.CURLMsg *curl_msg
             Curl curl_
         while True:
-            curl_msg = curl.curl_multi_info_read(self._curlm, &msg_in_queue)
-            # print("message in queue", msg_in_queue, curl_msg)
-            if curl_msg == NULL:
-                break
-            if curl_msg.msg == curl.CURLMSG_DONE:
-                # print("curl_message", curl_msg.msg, curl_msg.data.result)
-                curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]
-                retcode = curl_msg.data.result
-                if retcode == 0:
-                    self.set_result(curl_)
+            try:
+                curl_msg = curl.curl_multi_info_read(self._curlm, &msg_in_queue)
+                # NULL is returned as a signal that no more to be get at this point
+                if curl_msg == NULL:
+                    break
+                if curl_msg.msg == curl.CURLMSG_DONE:
+                    curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]
+                    retcode = curl_msg.data.result
+                    if retcode == 0:
+                        self.set_result(curl_)
+                    else:
+                        self.set_exception(curl_, curl_._get_error(retcode, "perform"))
                 else:
-                    # import pdb; pdb.set_trace()
-                    self.set_exception(curl_, curl_._get_error(retcode, "perform"))
-            else:
-                print("NOT DONE")  # Will not reach, for no other code being defined.
+                    print("NOT DONE")  # Will not reach, for nothing else being defined.
+            except Exception:
+                warnings.warn(
+                    "Unexpected curl multi state in process_data, "
+                    "please open an issue on GitHub\n",
+                    CurlWarning,
+                    stacklevel=2,
+                )
 
     cdef inline object _pop_future(self, Curl curl_):
-        curl.curl_multi_remove_handle(self._curlm, curl_._curl)
+        cdef int errcode
+        with nogil:
+            errcode = curl.curl_multi_remove_handle(self._curlm, curl_._curl)
+        self._check_error(errcode)
         self._curl2curl.pop(<long long><void*>curl_._curl, None)
         return self._curl2future.pop(curl_, None)
 
-    cpdef inline remove_handle(self, Curl curl):
+    cpdef inline object remove_handle(self, Curl curl_):
         """Cancel a future for given curl handle."""
-        cdef object future = self._pop_future(curl)
+        cdef object future = self._pop_future(curl_)
         if future and not future.done() and not future.cancelled():
             future.cancel()
 
-    cdef inline set_result(self, Curl curl):
+    cdef inline object set_result(self, Curl curl_):
         """Mark a future as done for given curl handle."""
-        cdef object future = self._pop_future(curl)
+        cdef object future = self._pop_future(curl_)
         if future and not future.done() and not future.cancelled():
             future.set_result(None)
 
-    cdef inline set_exception(self, Curl curl, object exception):
+    cdef inline set_exception(self, Curl curl_, object exception):
         """Raise exception of a future for given curl handle."""
-        cdef object future = self._pop_future(curl)
+        cdef object future = self._pop_future(curl_)
         if future and not future.done() and not future.cancelled():
             future.set_exception(exception)
+
+    def _check_error(self, int errcode, *args):
+        if errcode == curl.CURLE_OK:
+            return
+        cdef const char *errmsg = curl.curl_multi_strerror(errcode)
+        cdef str action = " ".join([str(a) for a in args])
+        raise CurlError(
+            f"Failed in {action}, multi: ({errcode}) {PyUnicode_FromString(errmsg)}. "
+            "See https://curl.se/libcurl/c/libcurl-errors.html first for more "
+            "details. Please open an issue on GitHub to help debug this error.",
+        )
 
 @cython.freelist(8)
 @cython.no_gc

@@ -191,6 +191,12 @@ async def main():
                 if l.startswith(b"#define CURL_IPRESOLVE"):
                     name = l.split()[1].strip()
                     fconsts.write(name + b" = curl." + name + b"\n")
+        fconsts.write(b"#CURLPIPE_\n")
+        with open("curl/multi.h", "rb") as f1:
+            for l in f1.readlines():
+                if l.startswith(b"#define CURLPIPE_"):
+                    name = l.split()[1].strip()
+                    fconsts.write(name + b" = curl." + name + b"\n")
 
 
 if __name__ == "__main__":
