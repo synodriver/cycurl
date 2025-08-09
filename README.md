@@ -87,6 +87,7 @@ On macOS, you may need to install the following dependencies:
 
 ### requests-like
 
+<<<<<<< HEAD
 v0.9:
 
 ```py
@@ -96,6 +97,8 @@ r = requests.get("https://tls.browserleaks.com/json", impersonate="chrome")
 ```
 
 v0.10:
+=======
+>>>>>>> temp
 
 ```python
 import cycurl
@@ -134,6 +137,7 @@ r = cycurl.get("https://tls.browserleaks.com/json", impersonate="chrome", proxie
 
 ### Sessions
 
+<<<<<<< HEAD
 v0.9:
 
 ```py
@@ -144,6 +148,8 @@ s = requests.Session()
 
 v0.10:
 
+=======
+>>>>>>> temp
 ```python
 s = cycurl.Session()
 
@@ -306,3 +312,7 @@ async def main():
 - The synchronous WebSocket API is inspired by [websocket_client](https://github.com/websocket-client/websocket-client).
 - The asynchronous WebSocket API is inspired by [aiohttp](https://github.com/aio-libs/aiohttp).
 
+## Contributing
+
+When submitting an PR, please use a different branch other than `main` and check the
+"Allow edits by maintainers" box, so I can update your PR with lint or style fixes. Thanks!

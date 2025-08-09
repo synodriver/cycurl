@@ -3,7 +3,6 @@
 from pathlib import Path
 
 cimport cython
-from Cython.Includes.cpython.time import nogil
 from cpython.bytes cimport PyBytes_GET_SIZE, PyBytes_AS_STRING
 from cpython.float cimport PyFloat_FromDouble
 from cpython.long cimport PyLong_FromLong
