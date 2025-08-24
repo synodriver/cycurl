@@ -1,6 +1,6 @@
 # cycurl
 
-![PyPI - Downloads](https://img.shields.io/pypi/dm/cycurl)
+![PyPI - Downloads](https://pepy.tech/projects/cycurl)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/cycurl)
 [![PyPI version](https://badge.fury.io/py/curl-cffi.svg)](https://badge.fury.io/py/cycurl)
 [![Generic badge](https://img.shields.io/badge/Telegram%20Group-join-blue?logo=telegram)](https://t.me/+lL9n33eZp480MGM1)
@@ -87,18 +87,6 @@ On macOS, you may need to install the following dependencies:
 
 ### requests-like
 
-<<<<<<< HEAD
-v0.9:
-
-```py
-from cycurl import requests
-
-r = requests.get("https://tls.browserleaks.com/json", impersonate="chrome")
-```
-
-v0.10:
-=======
->>>>>>> temp
 
 ```python
 import cycurl
@@ -137,19 +125,6 @@ r = cycurl.get("https://tls.browserleaks.com/json", impersonate="chrome", proxie
 
 ### Sessions
 
-<<<<<<< HEAD
-v0.9:
-
-```py
-from cycurl import requests
-
-s = requests.Session()
-```
-
-v0.10:
-
-=======
->>>>>>> temp
 ```python
 s = cycurl.Session()
 
@@ -175,7 +150,7 @@ If you don't want to look up the headers etc, by yourself, consider buying comme
 we have comprehensive browser fingerprints database for almost all the browser versions on various platforms.
 
 If you are trying to impersonate a target other than a browser, use `ja3=...` and `akamai=...`
-to specify your own customized fingerprints. See the [docs on impersonation](https://curl-cffi.readthedocs.io/en/latest/impersonate.html) for details.
+to specify your own customized fingerprints. See the [docs on impersonation](https://curl-cffi.readthedocs.io/en/latest/impersonate/_index.html) for details.
 
 |Browser|Open Source| Pro version|
 |---|---|---|

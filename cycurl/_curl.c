@@ -11,18 +11,19 @@
         ],
         "depends": [],
         "extra_objects": [
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\brotlicommon.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\brotlidec.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\brotlienc.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\crypto.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\libcurl_imp.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\nghttp2.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\nghttp3.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\ngtcp2.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\ngtcp2_crypto_boringssl.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\ssl.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\zlib.lib",
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib\\zstd.lib"
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\brotlicommon.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\brotlidec.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\brotlienc.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\cares.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\crypto.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\libcurl_imp.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\nghttp2.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\nghttp3.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\ngtcp2.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\ngtcp2_crypto_boringssl.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\ssl.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\zlib.lib",
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib\\zstd.lib"
         ],
         "include_dirs": [
             "./dep/curl-8.15.0/include",
@@ -35,7 +36,7 @@
             "Normaliz"
         ],
         "library_dirs": [
-            "./dep/libcurl-impersonate-v1.2.0.x86_64-win32/lib"
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib"
         ],
         "name": "cycurl._curl",
         "sources": [
