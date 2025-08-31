@@ -269,6 +269,7 @@ cdef class Curl:
         self._set_error_buffer()
 
     cdef inline void _close(self) noexcept nogil:
+        # self.clean_handles_and_buffers() # we could add it here just like the cffi version, but it would require gil.
         if self._curl:
             curl.curl_easy_cleanup(self._curl)
             self._curl = NULL
@@ -605,11 +606,12 @@ cdef class Curl:
             ret = self.setopt(curl.CURLOPT_PROXY_CAINFO, self._cacert)
             self._check_error(ret, "set proxy cacert")
 
-    cpdef inline int perform(self, clear_headers: bool = True) except -1:
+    cpdef inline int perform(self, bint clear_headers = True, bint clear_resolve = True) except -1:
         """Wrapper for ``curl_easy_perform``, performs a curl request.
 
         Parameters:
             clear_headers: clear header slist used in this perform
+            clear_resolve: clear resolve slist used in this perform
         
         Raises:
             CurlError: if the perform was not successful.
@@ -626,7 +628,7 @@ cdef class Curl:
             return ret
         finally:
             # cleaning
-            self.clean_after_perform(clear_headers)
+            self.clean_handles_and_buffers(clear_headers, clear_resolve)
 
     cpdef inline int upkeep(self):
         cdef int ret
@@ -634,11 +636,17 @@ cdef class Curl:
             ret = curl.curl_easy_upkeep(self._curl)
         return ret
 
-    cpdef inline clean_after_perform(self, clear_headers: bool = True):
-        """Clean up handles and buffers after perform, called at the end of `perform`."""
+    cpdef inline clean_handles_and_buffers(self, bint clear_headers = True, bint clear_resolve = True):
+        """Clean up handles and buffers after ``perform`` and ``close``, 
+        called at the end of ``perform`` and ``close``."""
         self._write_handle = None
         self._header_handle = None
+        self._debug_handle = None
         self._body_handle = None
+        if clear_resolve:
+            if self._resolve != NULL:
+                curl.curl_slist_free_all(self._resolve)
+                self._resolve = NULL
         if clear_headers:
             if self._headers != NULL:
                 curl.curl_slist_free_all(self._headers)
@@ -647,10 +655,7 @@ cdef class Curl:
             if self._proxy_headers != NULL:
                 curl.curl_slist_free_all(self._proxy_headers)
                 self._proxy_headers = NULL
-        # fixme: clean resolve
-        if self._resolve != NULL:
-            curl.curl_slist_free_all(self._resolve)
-            self._resolve = NULL
+
 
     cpdef inline Curl duphandle(self):
         """Wrapper for ``curl_easy_duphandle``.

@@ -37,11 +37,6 @@ from cycurl.requests.models import STREAM_END, Response
 from cycurl.requests.utils import not_set, set_curl_options, HttpVersionLiteral
 from cycurl.requests.websockets import AsyncWebSocket, WebSocket
 
-with suppress(ImportError):
-    import gevent
-
-with suppress(ImportError):
-    import eventlet.tpool
 
 # Added in 3.13: https://docs.python.org/3/library/typing.html#typing.TypeVar.__default__
 if sys.version_info >= (3, 13):
@@ -725,9 +720,11 @@ class Session(BaseSession[R]):
             try:
                 if self._thread == "eventlet":
                     # see: https://eventlet.net/doc/threading.html
+                    import eventlet.tpool
                     eventlet.tpool.execute(c.perform)  # type: ignore
                 elif self._thread == "gevent":
                     # see: https://www.gevent.org/api/gevent.threadpool.html
+                    import gevent
                     gevent.get_hub().threadpool.spawn(c.perform).get()  # type: ignore
                 else:
                     c.perform()
@@ -892,7 +889,7 @@ class AsyncSession(BaseSession[R]):
                 break
 
     def release_curl(self, curl):
-        curl.clean_after_perform()
+        curl.clean_handles_and_buffers()
         if not self._closed:
             self.acurl.remove_handle(curl)
             curl.reset()
@@ -1064,8 +1061,8 @@ class AsyncSession(BaseSession[R]):
         max_recv_speed: int = 0,
         multipart: Optional[CurlMime] = None,
         discard_cookies: bool = False,
-    ):
-        """Send the request, see ``cycurl.requests.request`` for details on args."""
+    ) -> R:
+        """Send the request, see ``curl_cffi.requests.request`` for details on args."""
 
         self._check_session_closed()
 
@@ -1177,29 +1174,29 @@ class AsyncSession(BaseSession[R]):
             finally:
                 self.release_curl(curl)
 
-    def head(self, url: str, **kwargs: Unpack[RequestParams]):
-        return self.request(method="HEAD", url=url, **kwargs)
+    async def head(self, url: str, **kwargs: Unpack[RequestParams]) -> R:
+        return await self.request(method="HEAD", url=url, **kwargs)
 
-    def get(self, url: str, **kwargs: Unpack[RequestParams]):
-        return self.request(method="GET", url=url, **kwargs)
+    async def get(self, url: str, **kwargs: Unpack[RequestParams]) -> R:
+        return await self.request(method="GET", url=url, **kwargs)
 
-    def post(self, url: str, **kwargs: Unpack[RequestParams]):
-        return self.request(method="POST", url=url, **kwargs)
+    async def post(self, url: str, **kwargs: Unpack[RequestParams]) -> R:
+        return await self.request(method="POST", url=url, **kwargs)
 
-    def put(self, url: str, **kwargs: Unpack[RequestParams]):
-        return self.request(method="PUT", url=url, **kwargs)
+    async def put(self, url: str, **kwargs: Unpack[RequestParams]) -> R:
+        return await self.request(method="PUT", url=url, **kwargs)
 
-    def patch(self, url: str, **kwargs: Unpack[RequestParams]):
-        return self.request(method="PATCH", url=url, **kwargs)
+    async def patch(self, url: str, **kwargs: Unpack[RequestParams]) -> R:
+        return await self.request(method="PATCH", url=url, **kwargs)
 
-    def delete(self, url: str, **kwargs: Unpack[RequestParams]):
-        return self.request(method="DELETE", url=url, **kwargs)
+    async def delete(self, url: str, **kwargs: Unpack[RequestParams]) -> R:
+        return await self.request(method="DELETE", url=url, **kwargs)
 
-    def options(self, url: str, **kwargs: Unpack[RequestParams]):
-        return self.request(method="OPTIONS", url=url, **kwargs)
+    async def options(self, url: str, **kwargs: Unpack[RequestParams]) -> R:
+        return await self.request(method="OPTIONS", url=url, **kwargs)
 
-    def trace(self, url: str, **kwargs: Unpack[RequestParams]):
-        return self.request(method="TRACE", url=url, **kwargs)
+    async def trace(self, url: str, **kwargs: Unpack[RequestParams]) -> R:
+        return await self.request(method="TRACE", url=url, **kwargs)
 
-    def query(self, url: str, **kwargs: Unpack[RequestParams]):
-        return self.request(method="QUERY", url=url, **kwargs)
+    async def query(self, url: str, **kwargs: Unpack[RequestParams]) -> R:
+        return await self.request(method="QUERY", url=url, **kwargs)
