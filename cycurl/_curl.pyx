@@ -302,6 +302,9 @@ cdef class Curl:
         Raises:
             CurlError: if failed.
         """
+        if self._curl == NULL:
+            raise CurlError("Cannot receive websocket data on closed handle.")
+        
         cdef char* buffer = <char*>PyMem_Malloc(n)
         if buffer==NULL:
             raise MemoryError
@@ -331,6 +334,9 @@ cdef class Curl:
         Raises:
             CurlError: if failed.
         """
+        if self._curl == NULL:
+            raise CurlError("Cannot send websocket data on closed handle.")
+        
         cdef size_t n_sent
         cdef int ret
         # n_sent = ffi.new("int *")
@@ -414,7 +420,8 @@ cdef class Curl:
         # }
         # print("option", option, "value", value)
 
-        # Convert value
+        if self._curl == NULL:
+            return 0
         cdef:
             void* c_value = NULL
             int value_type = option / 10000 * 10000  # "cdivision": True
@@ -556,6 +563,15 @@ cdef class Curl:
             curl.curl_slist *slistret = NULL
             int64_t int64ret
         ret_type = option & 0xF00000
+        if self._curl == NULL:
+            if ret_type == 0x100000:
+                return b""
+            elif ret_type == 0x200000 or ret_type == 0x500000 or ret_type == 0x600000:
+                return 0
+            elif ret_type == 0x300000:
+                return 0.0
+            elif ret_type == 0x400000:
+                return []
         # c_value = ffi.new(ret_option[option & 0xF00000])
         if ret_type == 0x100000:
             ret = curl.curl_easy_getinfo(self._curl, option, &charret)
@@ -596,6 +612,8 @@ cdef class Curl:
         Returns:
             0 if no error.
         """
+        if self._curl == NULL:
+            return 0
         cdef bytes data = target.encode()
         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)
 
@@ -617,6 +635,8 @@ cdef class Curl:
             CurlError: if the perform was not successful.
         """
         # make sure we set a cacert store
+        if self._curl == NULL:
+            raise CurlError("Cannot perform request on closed handle.")
         cdef int ret
         self._ensure_cacert()
 
@@ -631,13 +651,15 @@ cdef class Curl:
             self.clean_handles_and_buffers(clear_headers, clear_resolve)
 
     cpdef inline int upkeep(self):
+        if self._curl == NULL:
+            return 0
         cdef int ret
         with nogil:
             ret = curl.curl_easy_upkeep(self._curl)
         return ret
 
     cpdef inline clean_handles_and_buffers(self, bint clear_headers = True, bint clear_resolve = True):
-        """Clean up handles and buffers after ``perform`` and ``close``, 
+        """Clean up handles and buffers after ``perform`` and ``close``,
         called at the end of ``perform`` and ``close``."""
         self._write_handle = None
         self._header_handle = None
@@ -661,6 +683,8 @@ cdef class Curl:
         """Wrapper for ``curl_easy_duphandle``.
         This is not a full copy of entire curl object in python. For example, headers
         handle is not copied, you have to set them again."""
+        if self._curl == NULL:
+            raise CurlError("Cannot duplicate closed handle.")
         cdef curl.CURL *new_handle
         with nogil:
             new_handle = curl.curl_easy_duphandle(self._curl)
