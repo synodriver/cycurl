@@ -403,6 +403,12 @@ class BaseSession(Generic[R]):
         except UnicodeDecodeError:
             rsp.redirect_url = redirect_url_bytes.decode("latin-1")
 
+        rsp.download_size = cast(int, c.getinfo(m.CURLINFO_SIZE_DOWNLOAD_T))
+        rsp.upload_size = cast(int, c.getinfo(m.CURLINFO_SIZE_UPLOAD_T))
+        rsp.header_size = cast(int, c.getinfo(m.CURLINFO_HEADER_SIZE))
+        rsp.request_size = cast(int, c.getinfo(m.CURLINFO_REQUEST_SIZE))
+        rsp.response_size = rsp.download_size + rsp.header_size
+
         # custom info options
         for info in self.curl_infos:
             rsp.infos[info] = c.getinfo(info)

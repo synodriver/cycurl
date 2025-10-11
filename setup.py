@@ -157,7 +157,7 @@ def main():
         long_description=dis,
         author="synodriver",
         author_email="diguohuangjiajinweijun@gmail.com",
-        python_requires=">=3.6",
+        python_requires=">=3.8",
         setup_requires=["cython>=3.0.10"],
         install_requires=["certifi>=2024.2.2"],
         extra_requires={
@@ -173,8 +173,6 @@ def main():
             "Programming Language :: C",
             "Programming Language :: Cython",
             "Programming Language :: Python",
-            "Programming Language :: Python :: 3.6",
-            "Programming Language :: Python :: 3.7",
             "Programming Language :: Python :: 3.8",
             "Programming Language :: Python :: 3.9",
             "Programming Language :: Python :: 3.10",
