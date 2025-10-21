@@ -1,5 +1,7 @@
 from cycurl.requests import AsyncSession, WebSocket, Session
 from cycurl import _curl as m
+from cycurl.requests.websockets import wait_for_socket
+import socket
 
 
 def test_websocket(ws_server):
@@ -114,3 +116,27 @@ async def test_hello_twice_async(ws_server):
             await ws.send_str("Bar")
             reply = await ws.recv_str()
             assert reply == "Bar"
+
+
+def test_wait_for_socket():
+    """Test that wait_for_socket works with any file descriptor value.
+    
+    This is a regression test for the OverflowError that occurred when
+    select.select() was used with file descriptors >= FD_SETSIZE (1024).
+    """
+    # Create a socket to test with
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    fd = sock.fileno()
+    
+    try:
+        # Test read mode (should timeout on a non-ready socket)
+        result = wait_for_socket(fd, mode="read", timeout=0.01)
+        assert isinstance(result, bool)
+        
+        # Test write mode (socket should be writable)
+        result = wait_for_socket(fd, mode="write", timeout=0.01)
+        assert isinstance(result, bool)
+        
+    finally:
+        sock.close()
+
