@@ -1,11 +1,11 @@
 from __future__ import annotations
 
 import asyncio
+import selectors
 import struct
 from enum import IntEnum
 from functools import partial
 from json import dumps, loads
-from select import select
 from typing import (
     TYPE_CHECKING,
     Any,
@@ -84,6 +84,33 @@ class WebSocketClosed(WebSocketError, SessionClosed):
 
 class WebSocketTimeout(WebSocketError, Timeout):
     """WebSocket operation timed out."""
+
+
+def wait_for_socket(
+    fd: int,
+    mode: Literal["read", "write"] = "read",
+    timeout: Optional[float] = None,
+) -> bool:
+    """Wait for a socket to be ready using selectors module.
+    
+    This replaces select.select() to avoid FD_SETSIZE limitations.
+    
+    Args:
+        fd: File descriptor to wait on
+        mode: Either "read" or "write"
+        timeout: Timeout in seconds (None for no timeout)
+    
+    Returns:
+        True if socket is ready, False if timeout occurred
+    """
+    selector = selectors.DefaultSelector()
+    try:
+        event_mask = selectors.EVENT_READ if mode == "read" else selectors.EVENT_WRITE
+        selector.register(fd, event_mask)
+        events = selector.select(timeout)
+        return len(events) > 0
+    finally:
+        selector.close()
 
 
 async def aselect(
@@ -404,7 +431,7 @@ class WebSocket(BaseWebSocket):
                 if e.code == m.CURLE_AGAIN:
                     # According to https://curl.se/libcurl/c/curl_ws_recv.html
                     # > in real application: wait for socket here, e.g. using select()
-                    _, _, _ = select([sock_fd], [], [], 0.5)
+                    wait_for_socket(sock_fd, mode="read", timeout=0.5)
                 else:
                     raise
 
@@ -459,8 +486,7 @@ class WebSocket(BaseWebSocket):
                 n_sent = self.curl.ws_send(current_buffer, flags)
             except CurlError as e:
                 if e.code == m.CURLE_AGAIN:
-                    _, writeable, _ = select([], [sock_fd], [], 0.5)
-                    if not writeable:
+                    if not wait_for_socket(sock_fd, mode="write", timeout=0.5):
                         raise WebSocketError("Socket write timeout") from e
                     continue
                 raise
@@ -568,7 +594,7 @@ class WebSocket(BaseWebSocket):
 
             except CurlError as e:
                 if e.code == m.CURLE_AGAIN:
-                    _, _, _ = select([sock_fd], [], [], 0.5)
+                    wait_for_socket(sock_fd, mode="read", timeout=0.5)
                 else:
                     self._emit("error", e)
                     if not self.closed:
