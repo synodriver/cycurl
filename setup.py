@@ -14,22 +14,41 @@ from setuptools import Extension, setup
 from setuptools.command.build_ext import build_ext
 
 BUILD_ARGS = defaultdict(lambda: ["-O3", "-g0"])
+LINK_ARGS = defaultdict(lambda: [])
 
 for compiler, args in [
     ("msvc", ["/EHsc", "/DHUNSPELL_STATIC", "/Oi", "/O2", "/Ot"]),
-    ("gcc", ["-O3", "-g0", "-Wl,-rpath '$ORIGIN'"]),
+    ("gcc", ["-O3", "-g0"]),
+    ("unix", ["-O3", "-g0"]),
 ]:
     BUILD_ARGS[compiler] = args
 
 uname = platform.uname()
 
+# Add rpath for Linux to find shared libraries in the same directory
+if uname.system == "Linux":
+    for compiler, args in [
+        ("gcc", ["-Wl,-rpath,$ORIGIN"]),
+        ("unix", ["-Wl,-rpath,$ORIGIN"]),
+    ]:
+        LINK_ARGS[compiler] = args
+elif uname.system == "Darwin":
+    # macOS uses @loader_path instead of $ORIGIN
+    for compiler, args in [
+        ("gcc", ["-Wl,-rpath,@loader_path"]),
+        ("unix", ["-Wl,-rpath,@loader_path"]),
+    ]:
+        LINK_ARGS[compiler] = args
+
 
 class build_ext_compiler_check(build_ext):
     def build_extensions(self):
         compiler = self.compiler.compiler_type
-        args = BUILD_ARGS[compiler]
+        compile_args = BUILD_ARGS[compiler]
+        link_args = LINK_ARGS[compiler]
         for ext in self.extensions:
-            ext.extra_compile_args.extend(args)
+            ext.extra_compile_args.extend(compile_args)
+            ext.extra_link_args.extend(link_args)
         super().build_extensions()
 
 
@@ -75,16 +94,24 @@ elif uname.system == "Darwin":
         ):
             shutil.copy(file, "./cycurl")
 else:
-    library_dirs = ["./dep/libcurl-impersonate-v1.2.2.x86_64-linux-gnu"]
-    extra_objects = [
-        "./dep/libcurl-impersonate-v1.2.2.x86_64-linux-gnu/libcurl-impersonate.so.4.8.0"
-    ]
-    for file in glob.glob("./dep/libcurl-impersonate-v1.2.2.x86_64-linux-gnu/*.so"):
-        shutil.copy(file, "./cycurl")
-    # library_diexit(rs = ["./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu"]
-    # extra_objects = [
-    #     "./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu/libcurl-impersonate.so.4.8.0"
-    # ]
+    if platform.machine() == "aarch64":
+        library_dirs = ["./dep/libcurl-impersonate-v1.2.2.aarch64-linux-gnu"]
+        extra_objects = [
+            "./dep/libcurl-impersonate-v1.2.2.aarch64-linux-gnu/libcurl-impersonate.so.4.8.0"
+        ]
+        for file in glob.glob("./dep/libcurl-impersonate-v1.2.2.aarch64-linux-gnu/*.so*"):
+            shutil.copy(file, "./cycurl")
+    elif platform.machine() == "x86_64":
+        library_dirs = ["./dep/libcurl-impersonate-v1.2.2.x86_64-linux-gnu"]
+        extra_objects = [
+            "./dep/libcurl-impersonate-v1.2.2.x86_64-linux-gnu/libcurl-impersonate.so.4.8.0"
+        ]
+        for file in glob.glob("./dep/libcurl-impersonate-v1.2.2.x86_64-linux-gnu/*.so*"):
+            shutil.copy(file, "./cycurl")
+        # library_diexit(rs = ["./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu"]
+        # extra_objects = [
+        #     "./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu/libcurl-impersonate.so.4.8.0"
+        # ]
 
 if sysconfig.get_config_var("Py_GIL_DISABLED"):
     print("build nogil")
