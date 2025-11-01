@@ -310,7 +310,7 @@ cdef class Curl:
             raise MemoryError
         cdef size_t n_recv
         cdef int ret
-        cdef curl.curl_ws_frame* frame = NULL
+        cdef const curl.curl_ws_frame* frame = NULL
         # buffer = ffi.new("char[]", n)
         # n_recv = ffi.new("int *")
         # p_frame = ffi.new("struct curl_ws_frame **")

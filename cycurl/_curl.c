@@ -4933,7 +4933,7 @@ static const char __pyx_k_Curl_clean_handles_and_buffers[] = "Curl.clean_handles
 static const char __pyx_k_N_IZq_A_31_d_A_Kz_Q_Q_Kt_v_I_I[] = "\320\004\"\320\"@\300\001\330\010\014\210N\230!\340\010\014\320\014\034\230I\240Z\250q\330\010\014\210A\340\014\r\330\010\014\320\014!\240\021\330\010\014\320\0143\2601\330\010\014\320\014&\240d\320*:\270!\340\016,\250A\360\020\000\t\r\210K\220z\240\021\330\014\r\360\006\000\t\r\320\014=\270Q\330\010\014\320\014=\270Q\360\010\000\t\r\210K\220t\230<\240v\250[\270\001\330\010\014\210I\220\\\240\021\240!\330\010\014\210I\220\\\240\021\240!\330\010\027\220t\2301\230A\330\010\014\210K\220q\230\004\230K\240t\2501";
 static const char __pyx_k_SelectorThread__thread_manager[] = "SelectorThread._thread_manager";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
-static const char __pyx_k_0_4wc_1A_G_q_6_1_q_HHHCq_PQQR_Q[] = "\320\0040\260\001\360\022\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\010\034\230G\240<\250q\260\001\330\010\013\2106\220\022\2201\330\014\r\360\006\000\t*\250\021\360\010\000\t\n\330\021\022\330\020\032\230-\240q\250\004\250H\260H\270H\300C\300q\310\010\320PQ\320QR\330\014\020\220\r\230Q\230e\2401\360\006\000\r\024\2207\230&\240\003\320#3\2609\270A\270Q\340\014\026\220a\220q";
+static const char __pyx_k_0_4wc_1A_G_q_6_1_0q_q_HHHCq_PQQ[] = "\320\0040\260\001\360\022\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\010\034\230G\240<\250q\260\001\330\010\013\2106\220\022\2201\330\014\r\360\006\000\t0\250q\360\010\000\t\n\330\021\022\330\020\032\230-\240q\250\004\250H\260H\270H\300C\300q\310\010\320PQ\320QR\330\014\020\220\r\230Q\230e\2401\360\006\000\r\024\2207\230&\240\003\320#3\2609\270A\270Q\340\014\026\220a\220q";
 static const char __pyx_k_4wc_1A_m1D_awat8SZZ_aaeeffnnqqr[] = "\320\004[\320[\\\360\024\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\014\000\016\017\330\014\026\220m\2401\240D\250\010\260\016\270a\270w\300a\300t\3108\320SZ\320Z`\320`a\320ae\320ef\320fn\320nq\320qr\330\010\014\210M\230\021\230%\230q\330\010\017\210q";
 static const char __pyx_k_A_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I[] = "\320\004#\320#A\300\021\360\022\000\t\014\210=\230\003\2301\330\014\023\220:\230Q\230a\340\010\013\2104\210z\230\021\230.\250\007\250q\260\t\3209N\310d\320RS\320ST\330\014\023\2201\340\010\020\220\005\220Q\320\026(\250\r\260[\300\001\340\010\030\230\n\240!\320#3\3203M\310Q\310a\360\006\000\t\026\220\\\240\021\340\010\t\360\016\000\t\025\220I\230Q\330\010\017\210q";
 static const char __pyx_k_A_4t1_E_DMQ_N_81_4AT_1_9Cq_85_q[] = "\200A\340\010\013\2104\210t\2201\330\014\024\220E\230\021\330\020D\300M\320Q\\\320\\]\340\014\r\340\010\014\210N\230!\2308\2401\360\016\000\t\n\330\014\r\330\020\037\320\0374\260A\260T\270\031\300!\3001\340\020\023\2209\230C\230q\330\024\025\330\020\023\2208\2305\240\007\240q\330\024\034\230F\240$\240k\260\021\260+\270W\300H\310A\330\024\036\230h\240e\2501\330\024\027\220x\230s\240!\330\030\034\230K\240q\250\001\340\030\034\230N\250!\2507\260%\260{\300!\3009\310A\340\024\031\230\021\230!\330\023\024\330\020\030\230\005\230Q\330\024\025\340\024\025\330\024\037\230q";
@@ -24239,7 +24239,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
   char *__pyx_v_buffer;
   size_t __pyx_v_n_recv;
   int __pyx_v_ret;
-  struct curl_ws_frame *__pyx_v_frame;
+  struct curl_ws_frame const *__pyx_v_frame;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -24360,7 +24360,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
   /* "cycurl/_curl.pyx":313
  *         cdef size_t n_recv
  *         cdef int ret
- *         cdef curl.curl_ws_frame* frame = NULL             # <<<<<<<<<<<<<<
+ *         cdef const curl.curl_ws_frame* frame = NULL             # <<<<<<<<<<<<<<
  *         # buffer = ffi.new("char[]", n)
  *         # n_recv = ffi.new("int *")
 */
@@ -61294,7 +61294,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 296, 130};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_n};
-    __pyx_mstate_global->__pyx_codeobj_tab[13] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_ws_recv, __pyx_k_0_4wc_1A_G_q_6_1_q_HHHCq_PQQR_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[13])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[13] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_ws_recv, __pyx_k_0_4wc_1A_G_q_6_1_0q_q_HHHCq_PQQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[13])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 327, 96};
