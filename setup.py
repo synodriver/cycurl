@@ -23,13 +23,22 @@ for compiler, args in [
 ]:
     BUILD_ARGS[compiler] = args
 
-for compiler, args in [
-    ("gcc", ["-Wl,-rpath,$ORIGIN"]),
-    ("unix", ["-Wl,-rpath,$ORIGIN"]),
-]:
-    LINK_ARGS[compiler] = args
-
 uname = platform.uname()
+
+# Add rpath for Linux to find shared libraries in the same directory
+if uname.system == "Linux":
+    for compiler, args in [
+        ("gcc", ["-Wl,-rpath,$ORIGIN"]),
+        ("unix", ["-Wl,-rpath,$ORIGIN"]),
+    ]:
+        LINK_ARGS[compiler] = args
+elif uname.system == "Darwin":
+    # macOS uses @loader_path instead of $ORIGIN
+    for compiler, args in [
+        ("gcc", ["-Wl,-rpath,@loader_path"]),
+        ("unix", ["-Wl,-rpath,@loader_path"]),
+    ]:
+        LINK_ARGS[compiler] = args
 
 
 class build_ext_compiler_check(build_ext):
