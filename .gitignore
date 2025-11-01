@@ -4,6 +4,7 @@ Release
 *.pyc
 *.pyd
 *.so
+*.so.*
 *.dll
 *.o
 **/__pycache__
