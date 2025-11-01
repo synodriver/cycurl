@@ -27,3 +27,5 @@ include/
 .mypy_cache/
 .ruff_cache/
 .aider*
+curl.zip
+_codeql_detected_source_root
