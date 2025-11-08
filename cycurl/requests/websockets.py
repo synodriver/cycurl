@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import asyncio
 import struct
+import sys
 import threading
+import time
 import warnings
 from collections.abc import Callable
 from contextlib import suppress
@@ -533,6 +535,14 @@ class WebSocket(BaseWebSocket):
         # TODO: Reconnect logic
         chunks = []
         self.keep_running = True
+        message_count = 0
+        last_yield_time = time.monotonic()
+        
+        # Yield interval: allow Python interpreter to breathe periodically
+        # This is critical for free-threading builds (cp313t) where there's no GIL
+        YIELD_INTERVAL = 0.001  # 1ms
+        YIELD_MESSAGE_COUNT = 64  # Also yield every N messages
+        
         while self.keep_running:
             try:
                 chunk, frame = self.recv_fragment()
@@ -562,6 +572,16 @@ class WebSocket(BaseWebSocket):
                         self._emit("message", msg)
 
                 chunks = []  # Reset chunks for next message
+                message_count += 1
+
+                # Periodically yield control to the Python interpreter
+                # This prevents crashes in high-speed message scenarios, especially
+                # in free-threading Python (cp313t) where there's no GIL
+                current_time = time.monotonic()
+                if (message_count & (YIELD_MESSAGE_COUNT - 1)) == 0 or \
+                   (current_time - last_yield_time) > YIELD_INTERVAL:
+                    time.sleep(0)  # Minimal sleep to yield to interpreter
+                    last_yield_time = current_time
 
                 if flags & m.CURLWS_CLOSE:
                     self.keep_running = False
