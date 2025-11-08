@@ -41,3 +41,4 @@ ws = WebSocket(
     on_error=on_error,
 )
 ws.run_forever("wss://api.gemini.com/v1/marketdata/BTCUSD")
+# ws.run_forever("ws://127.0.0.1:10001/ws")

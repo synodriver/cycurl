@@ -10,7 +10,8 @@ import warnings
 from collections import Counter
 from io import BytesIO
 from json import dumps
-from typing import TYPE_CHECKING, Any, Callable, Final, Literal, Optional, Union, cast
+from collections.abc import Callable
+from typing import TYPE_CHECKING, Any, Final, Literal, Optional, Union, cast
 from urllib.parse import ParseResult, parse_qsl, quote, urlencode, urljoin, urlparse
 
 import cycurl._curl as m
@@ -452,7 +453,7 @@ def set_curl_options(
         update_header_line(
             header_lines, "Content-Type", "application/x-www-form-urlencoded"
         )
-    if isinstance(data, (str, bytes)):
+    if isinstance(data, (str, bytes)) and data:
         update_header_line(header_lines, "Content-Type", "application/octet-stream")
 
     # Never send `Expect` header.

@@ -2,9 +2,9 @@ from contextlib import suppress
 import queue
 import re
 import warnings
-from collections.abc import Awaitable
 from concurrent.futures import Future
-from typing import Any, Callable, Optional, Union
+from typing import Any, Optional, Union
+from collections.abc import Awaitable, Callable
 
 from cycurl._curl import Curl, CurlWarning
 from cycurl.requests.cookies import Cookies

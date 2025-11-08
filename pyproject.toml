@@ -1,6 +1,6 @@
 [project]
 name = "cycurl"
-version = "0.14.0b2"
+version = "0.14.0b3"
 authors = [{ name = "Lyonnet", email = "infinitesheldon@gmail.com" }]
 description = "Ultra fast python binding for curl-impersonate via cython, with impersonation support."
 license = { text = "MIT License" }
@@ -9,17 +9,17 @@ dependencies = [
     "certifi>=2024.2.2",
 ]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 urls = { "repository" = "https://github.com/synodriver/cycurl" }
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
 
 
@@ -62,7 +62,7 @@ test = [
     "trio>=0.25.0,<1.0",
     "trustme>=1.1.0,<2.0",
     "uvicorn>=0.29.0,<1.0",
-    "websockets>=12.0,<13.0",
+    "websockets>=12.0",
     "typing_extensions",
 ]
 
@@ -84,18 +84,18 @@ build-backend = "setuptools.build_meta"
 [tool.cibuildwheel]
 # Building for these platforms is enough since we are using abi3 packages
 build = [
-    "cp39-macosx_x86_64",
-    "cp39-macosx_arm64",
-    "cp39-win_amd64",
-    "cp39-win_arm64",
-    # "cp39-win32",
-    "cp39-manylinux_x86_64",
-    "cp39-manylinux_aarch64",
-    "cp39-manylinux_riscv64",
-    "cp39-manylinux_i686",
-    "cp39-manylinux_armv7l",
-    "cp39-musllinux_x86_64",
-    "cp39-musllinux_aarch64",
+    "cp310-macosx_x86_64",
+    "cp310-macosx_arm64",
+    "cp310-win_amd64",
+    "cp310-win_arm64",
+    # "cp310-win32",
+    "cp310-manylinux_x86_64",
+    "cp310-manylinux_aarch64",
+    "cp310-manylinux_riscv64",
+    "cp310-manylinux_i686",
+    "cp310-manylinux_armv7l",
+    "cp310-musllinux_x86_64",
+    "cp310-musllinux_aarch64",
 ]
 before-all = "make preprocess"
 test-requires = "pytest"
@@ -103,10 +103,10 @@ test-command = "python -bb -m pytest {project}/tests/unittest"
 test-extras = ["test"]
 # trustme not available for these images
 test-skip = [
-    "cp39-manylinux_i686",
-    "cp39-win_arm64",
-    "cp39-manylinux_armv7l",
-    "cp39-manylinux_riscv64",
+    "cp310-manylinux_i686",
+    "cp310-win_arm64",
+    "cp310-manylinux_armv7l",
+    "cp310-manylinux_riscv64",
 ]
 build-verbosity = 1
 

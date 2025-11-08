@@ -287,8 +287,10 @@ async def main():
     async with AsyncSession() as s:
         ws = await s.ws_connect("wss://echo.websocket.org")
         await asyncio.gather(*[ws.send_str("Hello, World!") for _ in range(10)])
+        await ws.flush()
         async for message in ws:
             print(message)
+        await ws.close()
 ```
 
 ## Ecosystem

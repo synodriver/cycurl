@@ -231,7 +231,7 @@ cdef class Curl:
         char* _error_buffer # char[256]
         bint _debug
 
-        size_t _WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB todo cython也许不适合放在类里面
+        size_t _WS_RECV_BUFFER_SIZE
         char* _ws_recv_buffer
         size_t _ws_recv_n_recv
         curl.curl_ws_frame* _ws_recv_p_frame
@@ -283,6 +283,7 @@ cdef class Curl:
         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
         if self._ws_recv_buffer == NULL:
             raise MemoryError
+        self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
 
     cdef inline void _close(self) noexcept nogil:
         # self.clean_handles_and_buffers() # we could add it here just like the cffi version, but it would require gil.
@@ -404,7 +405,7 @@ cdef class Curl:
 
     cdef int _check_error(self, int errcode, str args) except -1:
         if errcode == 0:
-            return
+            return 0
         error = self._get_error(errcode, args)
         if error is not None:
             raise error
