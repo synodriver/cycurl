@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import asyncio
 import struct
-import sys
 import threading
 import time
 import warnings
@@ -537,12 +536,12 @@ class WebSocket(BaseWebSocket):
         self.keep_running = True
         message_count = 0
         last_yield_time = time.monotonic()
-        
+
         # Yield interval: allow Python interpreter to breathe periodically
         # This is critical for free-threading builds (cp313t) where there's no GIL
         YIELD_INTERVAL = 0.001  # 1ms
         YIELD_MESSAGE_COUNT = 64  # Also yield every N messages
-        
+
         while self.keep_running:
             try:
                 chunk, frame = self.recv_fragment()
@@ -578,8 +577,9 @@ class WebSocket(BaseWebSocket):
                 # This prevents crashes in high-speed message scenarios, especially
                 # in free-threading Python (cp313t) where there's no GIL
                 current_time = time.monotonic()
-                if (message_count & (YIELD_MESSAGE_COUNT - 1)) == 0 or \
-                   (current_time - last_yield_time) > YIELD_INTERVAL:
+                if (message_count & (YIELD_MESSAGE_COUNT - 1)) == 0 or (
+                    current_time - last_yield_time
+                ) > YIELD_INTERVAL:
                     time.sleep(0)  # Minimal sleep to yield to interpreter
                     last_yield_time = current_time
 
@@ -848,7 +848,7 @@ class AsyncWebSocket(BaseWebSocket):
 
         except asyncio.TimeoutError as e:
             raise WebSocketTimeout(
-                "WebSocket recv() timed out",  m.CURLE_OPERATION_TIMEDOUT
+                "WebSocket recv() timed out", m.CURLE_OPERATION_TIMEDOUT
             ) from e
 
     async def recv_str(self, *, timeout: Optional[float] = None) -> str:
