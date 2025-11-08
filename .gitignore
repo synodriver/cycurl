@@ -4,6 +4,7 @@ Release
 *.pyc
 *.pyd
 *.so
+*.so.*
 *.dll
 *.o
 **/__pycache__
@@ -26,3 +27,5 @@ include/
 .mypy_cache/
 .ruff_cache/
 .aider*
+curl.zip
+_codeql_detected_source_root
