@@ -18,6 +18,7 @@ include "utils.pxi"
 
 import asyncio
 import re
+import locale
 import struct
 import sys
 from contextlib import suppress
@@ -230,6 +231,12 @@ cdef class Curl:
         char* _error_buffer # char[256]
         bint _debug
 
+        size_t _WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB todo cython也许不适合放在类里面
+        char* _ws_recv_buffer
+        size_t _ws_recv_n_recv
+        curl.curl_ws_frame* _ws_recv_p_frame
+        size_t _ws_send_n_sent
+
     def __cinit__(self, str cacert = "", bint debug = False, object handle = None):
         """
         Parameters:
@@ -268,6 +275,15 @@ cdef class Curl:
         self._debug = debug
         self._set_error_buffer()
 
+        # Pre-allocated C objects for WebSocket performance
+        # self._ws_recv_buffer = ffi.new("char[]", self._WS_RECV_BUFFER_SIZE)
+        # self._ws_recv_n_recv = ffi.new("size_t *")
+        # self._ws_recv_p_frame = ffi.new("struct curl_ws_frame **")
+        # self._ws_send_n_sent = ffi.new("size_t *")
+        self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
+        if self._ws_recv_buffer == NULL:
+            raise MemoryError
+
     cdef inline void _close(self) noexcept nogil:
         # self.clean_handles_and_buffers() # we could add it here just like the cffi version, but it would require gil.
         if self._curl:
@@ -287,16 +303,17 @@ cdef class Curl:
         if self._error_buffer:
             PyMem_Free(self._error_buffer)
             self._error_buffer = NULL
+        if self._ws_recv_buffer:
+            PyMem_Free(self._ws_recv_buffer)
+            self._ws_recv_buffer = NULL
         self._close()
 
     def close(self):
         """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
         self._close()
 
-    cpdef inline tuple ws_recv(self, size_t n = 1024):
+    cpdef inline tuple ws_recv(self):
         """Receive a frame from a websocket connection.
-        Args:
-            n: maximum data to receive.
         Returns:
             a tuple of frame content and curl frame meta struct.
         Raises:
@@ -305,24 +322,22 @@ cdef class Curl:
         if self._curl == NULL:
             raise CurlError("Cannot receive websocket data on closed handle.")
         
-        cdef char* buffer = <char*>PyMem_Malloc(n)
-        if buffer==NULL:
-            raise MemoryError
-        cdef size_t n_recv
-        cdef int ret
-        cdef const curl.curl_ws_frame* frame = NULL
-        # buffer = ffi.new("char[]", n)
-        # n_recv = ffi.new("int *")
-        # p_frame = ffi.new("struct curl_ws_frame **")
-        try:
-            with nogil:
-                ret = curl.curl_ws_recv(self._curl, <void *>buffer, n, &n_recv, &frame)
-            self._check_error(ret, "WS_RECV")
-
-            # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html
-            return <bytes>buffer[: n_recv], WSFrame.from_ptr(frame)
-        finally:
-            PyMem_Free(buffer)
+        # cdef char* buffer = <char*>PyMem_Malloc(n)
+        # if buffer==NULL:
+        #     raise MemoryError
+        # cdef size_t n_recv
+        # cdef int ret
+        # cdef const curl.curl_ws_frame* frame = NULL
+        with nogil:
+            ret = curl.curl_ws_recv(self._curl,
+                                    self._ws_recv_buffer,
+                                    self._WS_RECV_BUFFER_SIZE,
+                                    &self._ws_recv_n_recv,
+                                    &self._ws_recv_p_frame)
+        self._check_error(ret, "WS_RECV")
+        # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html
+        # return <bytes>buffer[: n_recv], WSFrame.from_ptr(frame)
+        return <bytes>self._ws_recv_buffer[:self._ws_recv_n_recv], WSFrame.from_ptr(self._ws_recv_p_frame)
 
     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):
         """Send data to a websocket connection.
@@ -337,14 +352,14 @@ cdef class Curl:
         if self._curl == NULL:
             raise CurlError("Cannot send websocket data on closed handle.")
         
-        cdef size_t n_sent
+        # cdef size_t n_sent
         cdef int ret
         # n_sent = ffi.new("int *")
         # buffer = ffi.from_buffer(payload)
         with nogil:
-            ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &n_sent, 0, flags)
+            ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &self._ws_send_n_sent, 0, flags)
         self._check_error(ret, "WS_SEND")
-        return n_sent
+        return self._ws_send_n_sent
 
     def ws_close(self, int code = 1000, bytes message = b""):
         """Close a websocket connection. Shorthand for :meth:`ws_send`
@@ -358,7 +373,8 @@ cdef class Curl:
         Raises:
             CurlError: if failed.
         """
-        return self.ws_send(struct.pack("!H", code) + message) # todo use buffer protocol
+        payload = struct.pack("!H", code) + message
+        return self.ws_send(payload, flags=CURLWS_CLOSE)
 
     def ws_meta(self):
         cdef const curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
@@ -387,6 +403,8 @@ cdef class Curl:
         self.setopt(curl.CURLOPT_DEBUGFUNCTION, True)
 
     cdef int _check_error(self, int errcode, str args) except -1:
+        if errcode == 0:
+            return
         error = self._get_error(errcode, args)
         if error is not None:
             raise error
@@ -493,7 +511,31 @@ cdef class Curl:
             option = curl.CURLOPT_FNMATCH_DATA
         elif value_type == 10000:
             if isinstance(value, str):
-                bytesval = value.encode() # keep a ref
+                # Windows/libcurl expects ANSI code page for file paths (char*).
+                # Non-ASCII paths encoded as UTF-8 can trigger ErrCode 77.
+                # Encode file-path-like options using the system encoding on Windows.
+                filepath_opts = {
+                    CURLOPT_CAINFO,
+                    CURLOPT_CAPATH,
+                    CURLOPT_PROXY_CAINFO,
+                    CURLOPT_PROXY_CAPATH,
+                    CURLOPT_SSLCERT,
+                    CURLOPT_SSLKEY,
+                    CURLOPT_CRLFILE,
+                    CURLOPT_ISSUERCERT,
+                    CURLOPT_SSH_PUBLIC_KEYFILE,
+                    CURLOPT_SSH_PRIVATE_KEYFILE,
+                    CURLOPT_COOKIEFILE,
+                    CURLOPT_COOKIEJAR,
+                    CURLOPT_NETRC_FILE,
+                    CURLOPT_UNIX_SOCKET_PATH,
+                }
+                if sys.platform.startswith("win") and option in filepath_opts:
+                    # Use the process ANSI code page to match what CRT fopen expects.
+                    enc = locale.getpreferredencoding(False)
+                    bytesval = value.encode(enc, errors="strict")
+                else:
+                    bytesval = value.encode()
                 c_value = <void *> <const char *> bytesval
                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
             elif isinstance(value, bytes):
