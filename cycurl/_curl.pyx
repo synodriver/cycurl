@@ -280,10 +280,10 @@ cdef class Curl:
         # self._ws_recv_n_recv = ffi.new("size_t *")
         # self._ws_recv_p_frame = ffi.new("struct curl_ws_frame **")
         # self._ws_send_n_sent = ffi.new("size_t *")
+        self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
         if self._ws_recv_buffer == NULL:
             raise MemoryError
-        self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
 
     cdef inline void _close(self) noexcept nogil:
         # self.clean_handles_and_buffers() # we could add it here just like the cffi version, but it would require gil.
