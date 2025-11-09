@@ -22681,48 +22681,48 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   /* "cycurl/_curl.pyx":283
  *         # self._ws_recv_p_frame = ffi.new("struct curl_ws_frame **")
  *         # self._ws_send_n_sent = ffi.new("size_t *")
+ *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB             # <<<<<<<<<<<<<<
+ *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
+ *         if self._ws_recv_buffer == NULL:
+*/
+  __pyx_v_self->_WS_RECV_BUFFER_SIZE = 0x20000;
+
+  /* "cycurl/_curl.pyx":284
+ *         # self._ws_send_n_sent = ffi.new("size_t *")
+ *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
  *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)             # <<<<<<<<<<<<<<
  *         if self._ws_recv_buffer == NULL:
  *             raise MemoryError
 */
   __pyx_v_self->_ws_recv_buffer = ((char *)PyMem_Malloc(__pyx_v_self->_WS_RECV_BUFFER_SIZE));
 
-  /* "cycurl/_curl.pyx":284
- *         # self._ws_send_n_sent = ffi.new("size_t *")
+  /* "cycurl/_curl.pyx":285
+ *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
  *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
  *         if self._ws_recv_buffer == NULL:             # <<<<<<<<<<<<<<
  *             raise MemoryError
- *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
+ * 
 */
   __pyx_t_2 = (__pyx_v_self->_ws_recv_buffer == NULL);
   if (unlikely(__pyx_t_2)) {
 
-    /* "cycurl/_curl.pyx":285
+    /* "cycurl/_curl.pyx":286
  *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
  *         if self._ws_recv_buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
- *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
- * 
-*/
-    PyErr_NoMemory(); __PYX_ERR(0, 285, __pyx_L1_error)
-
-    /* "cycurl/_curl.pyx":284
- *         # self._ws_send_n_sent = ffi.new("size_t *")
- *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
- *         if self._ws_recv_buffer == NULL:             # <<<<<<<<<<<<<<
- *             raise MemoryError
- *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
-*/
-  }
-
-  /* "cycurl/_curl.pyx":286
- *         if self._ws_recv_buffer == NULL:
- *             raise MemoryError
- *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB             # <<<<<<<<<<<<<<
  * 
  *     cdef inline void _close(self) noexcept nogil:
 */
-  __pyx_v_self->_WS_RECV_BUFFER_SIZE = 0x20000;
+    PyErr_NoMemory(); __PYX_ERR(0, 286, __pyx_L1_error)
+
+    /* "cycurl/_curl.pyx":285
+ *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
+ *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
+ *         if self._ws_recv_buffer == NULL:             # <<<<<<<<<<<<<<
+ *             raise MemoryError
+ * 
+*/
+  }
 
   /* "cycurl/_curl.pyx":240
  *         size_t _ws_send_n_sent
@@ -22747,7 +22747,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 }
 
 /* "cycurl/_curl.pyx":288
- *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
+ *             raise MemoryError
  * 
  *     cdef inline void _close(self) noexcept nogil:             # <<<<<<<<<<<<<<
  *         # self.clean_handles_and_buffers() # we could add it here just like the cffi version, but it would require gil.
@@ -22906,7 +22906,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   }
 
   /* "cycurl/_curl.pyx":288
- *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
+ *             raise MemoryError
  * 
  *     cdef inline void _close(self) noexcept nogil:             # <<<<<<<<<<<<<<
  *         # self.clean_handles_and_buffers() # we could add it here just like the cffi version, but it would require gil.
