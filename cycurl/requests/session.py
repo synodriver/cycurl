@@ -22,6 +22,7 @@ from typing import (
     cast,
 )
 from urllib.parse import urlparse
+from datetime import timedelta
 
 import cycurl._curl as m
 from cycurl._curl import AsyncCurl, Curl, CurlError, CurlMime, CurlWarning
@@ -397,7 +398,7 @@ class BaseSession(Generic[R]):
         rsp.local_ip = cast(bytes, c.getinfo(m.CURLINFO_LOCAL_IP)).decode()
         rsp.local_port = cast(int, c.getinfo(m.CURLINFO_LOCAL_PORT))
         rsp.default_encoding = default_encoding
-        rsp.elapsed = cast(float, c.getinfo(m.CURLINFO_TOTAL_TIME))
+        rsp.elapsed = timedelta(seconds=cast(float, c.getinfo(m.CURLINFO_TOTAL_TIME)))
         rsp.redirect_count = cast(int, c.getinfo(m.CURLINFO_REDIRECT_COUNT))
         redirect_url_bytes = cast(bytes, c.getinfo(m.CURLINFO_REDIRECT_URL))
         try:

@@ -65,48 +65,48 @@ def get_curl_libraries():
 
 
 if uname.system == "Windows":
-    library_dirs = ["./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib"]
+    library_dirs = ["./dep/libcurl-impersonate-v1.2.5.x86_64-win32/lib"]
     extra_objects = []
-    for obj in glob.glob("./dep/libcurl-impersonate-v1.2.2.x86_64-win32/lib/*.lib"):
+    for obj in glob.glob("./dep/libcurl-impersonate-v1.2.5.x86_64-win32/lib/*.lib"):
         extra_objects.append(obj)
     extra_objects = [
         i for i in extra_objects if "libcurl.lib" not in i
     ]  # only libcurl_imp is enough
-    for file in glob.glob("./dep/libcurl-impersonate-v1.2.2.x86_64-win32/bin/*.dll"):
+    for file in glob.glob("./dep/libcurl-impersonate-v1.2.5.x86_64-win32/bin/*.dll"):
         shutil.copy(file, "./cycurl")
 elif uname.system == "Darwin":
     if platform.machine() == "x86_64":
-        library_dirs = ["./dep/libcurl-impersonate-v1.2.2.x86_64-macos"]
+        library_dirs = ["./dep/libcurl-impersonate-v1.2.5.x86_64-macos"]
         extra_objects = [
-            "./dep/libcurl-impersonate-v1.2.2.x86_64-macos/libcurl-impersonate.4.dylib"
+            "./dep/libcurl-impersonate-v1.2.5.x86_64-macos/libcurl-impersonate.4.dylib"
         ]
         for file in glob.glob(
-            "./dep/libcurl-impersonate-v1.2.2.x86_64-macos/*.dylib"
+            "./dep/libcurl-impersonate-v1.2.5.x86_64-macos/*.dylib"
         ):
             shutil.copy(file, "./cycurl")
     else:
-        library_dirs = ["./dep/libcurl-impersonate-v1.2.2.arm64-macos"]
+        library_dirs = ["./dep/libcurl-impersonate-v1.2.5.arm64-macos"]
         extra_objects = [
-            "./dep/libcurl-impersonate-v1.2.2.arm64-macos/libcurl-impersonate.4.dylib"
+            "./dep/libcurl-impersonate-v1.2.5.arm64-macos/libcurl-impersonate.4.dylib"
         ]
         for file in glob.glob(
-            "./dep/libcurl-impersonate-v1.2.2.arm64-macos/*.dylib"
+            "./dep/libcurl-impersonate-v1.2.5.arm64-macos/*.dylib"
         ):
             shutil.copy(file, "./cycurl")
 else:
     if platform.machine() == "aarch64":
-        library_dirs = ["./dep/libcurl-impersonate-v1.2.2.aarch64-linux-gnu"]
+        library_dirs = ["./dep/libcurl-impersonate-v1.2.5.aarch64-linux-gnu"]
         extra_objects = [
-            "./dep/libcurl-impersonate-v1.2.2.aarch64-linux-gnu/libcurl-impersonate.so.4.8.0"
+            "./dep/libcurl-impersonate-v1.2.5.aarch64-linux-gnu/libcurl-impersonate.so.4.8.0"
         ]
-        for file in glob.glob("./dep/libcurl-impersonate-v1.2.2.aarch64-linux-gnu/*.so*"):
+        for file in glob.glob("./dep/libcurl-impersonate-v1.2.5.aarch64-linux-gnu/*.so*"):
             shutil.copy(file, "./cycurl")
     elif platform.machine() == "x86_64":
-        library_dirs = ["./dep/libcurl-impersonate-v1.2.2.x86_64-linux-gnu"]
+        library_dirs = ["./dep/libcurl-impersonate-v1.2.5.x86_64-linux-gnu"]
         extra_objects = [
-            "./dep/libcurl-impersonate-v1.2.2.x86_64-linux-gnu/libcurl-impersonate.so.4.8.0"
+            "./dep/libcurl-impersonate-v1.2.5.x86_64-linux-gnu/libcurl-impersonate.so.4.8.0"
         ]
-        for file in glob.glob("./dep/libcurl-impersonate-v1.2.2.x86_64-linux-gnu/*.so*"):
+        for file in glob.glob("./dep/libcurl-impersonate-v1.2.5.x86_64-linux-gnu/*.so*"):
             shutil.copy(file, "./cycurl")
         # library_diexit(rs = ["./dep/linux_v0.6.0-alpha.1.x86_64-linux-gnu"]
         # extra_objects = [
@@ -185,8 +185,8 @@ def main():
         author="synodriver",
         author_email="diguohuangjiajinweijun@gmail.com",
         python_requires=">=3.8",
-        setup_requires=["cython>=3.0.10"],
-        install_requires=["certifi>=2024.2.2"],
+        setup_requires=["cython>=3.2.2"],
+        install_requires=["certifi>=2025.11.12"],
         extra_requires={
             "readability-lxml>": ["readability-lxml>=0.8.1"],
             "markdownify": ["markdownify>=1.1.0"],
