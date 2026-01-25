@@ -218,6 +218,7 @@ cdef class Curl:
         curl.curl_slist * _resolve
         str _cacert
         bint _is_cert_set
+        public bint _skip_cacert
         object _write_handle
         object _header_handle
         object _debug_handle
@@ -262,6 +263,7 @@ cdef class Curl:
         self._resolve = NULL
         self._cacert = cacert or DEFAULT_CACERT
         self._is_cert_set = False
+        self._skip_cacert = False
         self._write_handle = None
         self._header_handle = None
         self._debug_handle = None
@@ -661,6 +663,8 @@ cdef class Curl:
         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)
 
     cdef inline int _ensure_cacert(self) except -1:
+        if self._skip_cacert:
+            return 0
         if not self._is_cert_set:
             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
             self._check_error(ret, "set cacert")
@@ -739,6 +743,7 @@ cdef class Curl:
     def reset(self):
         """Reset all curl options, wrapper for ``curl_easy_reset``."""
         self._is_cert_set = False
+        self._skip_cacert = False
         if self._curl:
             with nogil:
                 curl.curl_easy_reset(self._curl)

@@ -452,6 +452,20 @@ def test_verify_false(https_server):
     assert r.status_code == 200
 
 
+def test_verify_false_skips_cainfo(https_server, tmp_path):
+    cacert_path = tmp_path / "custom_ca.pem"
+    cacert_path.write_text("", encoding="utf-8")
+    curl = Curl(cacert=str(cacert_path))
+    with requests.Session(
+        curl=curl,
+        verify=False,
+        curl_infos=[CURLINFO_CAINFO],
+    ) as s:
+        r = s.get(str(https_server.url))
+    assert r.status_code == 200
+    assert r.infos[CURLINFO_CAINFO] != str(cacert_path).encode()
+
+
 def test_referer(server):
     r = requests.get(
         str(server.url.copy_with(path="/echo_headers")), referer="http://example.com"

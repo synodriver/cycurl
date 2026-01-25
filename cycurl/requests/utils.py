@@ -116,7 +116,7 @@ def update_url_params(url: str, params: Union[dict, list, tuple]) -> str:
     new_args_counter = Counter(x[0] for x in params)
     for key, value in params:
         # Bool and Dict values should be converted to json-friendly values
-        if isinstance(value, (bool, dict)):
+        if isinstance(value, bool | dict):
             value = dumps(value)
         # 1 to 1 mapping, we have to search and update it.
         if old_args_counter.get(key) == 1 and new_args_counter.get(key) == 1:
@@ -393,7 +393,7 @@ def set_curl_options(
     c.setopt(m.CURLOPT_URL, url.encode())
 
     # data/body/json
-    if isinstance(data, (dict, list, tuple)):
+    if isinstance(data, dict | list | tuple):
         body = urlencode(data).encode()
     elif isinstance(data, str):
         body = data.encode()
@@ -453,7 +453,7 @@ def set_curl_options(
         update_header_line(
             header_lines, "Content-Type", "application/x-www-form-urlencoded"
         )
-    if isinstance(data, (str, bytes)) and data:
+    if isinstance(data, str | bytes) and data:
         update_header_line(header_lines, "Content-Type", "application/octet-stream")
 
     # Never send `Expect` header.
@@ -516,7 +516,7 @@ def set_curl_options(
             c.setopt(m.CURLOPT_LOW_SPEED_LIMIT, 1)
             c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(all_timeout))
 
-    elif isinstance(timeout, (int, float)):
+    elif isinstance(timeout, int | float):
         if not stream:
             c.setopt(m.CURLOPT_TIMEOUT_MS, int(timeout * 1000))
         else:
@@ -581,7 +581,9 @@ def set_curl_options(
 
     # verify
     base_verify, verify = verify_list
-    if verify is False or not base_verify and verify is None:
+    disable_verify = verify is False or not base_verify and verify is None
+    c._skip_cacert = disable_verify  # type: ignore
+    if disable_verify:
         c.setopt(m.CURLOPT_SSL_VERIFYPEER, 0)
         c.setopt(m.CURLOPT_SSL_VERIFYHOST, 0)
 
@@ -617,17 +619,6 @@ def set_curl_options(
         if ret != 0:
             raise ImpersonateError(f"Impersonating {impersonate} is not supported")
 
-    # extra_fp options
-    if extra_fp:
-        if isinstance(extra_fp, dict):
-            extra_fp = ExtraFingerprints(**extra_fp)
-        if impersonate:
-            warnings.warn(
-                "Extra fingerprints was altered after impersonated version was set.",
-                m.CurlWarning,
-                stacklevel=1,
-            )
-        set_extra_fp(c, extra_fp)
 
     # ja3 string
     if ja3:
@@ -643,6 +634,18 @@ def set_curl_options(
         if isinstance(extra_fp, dict) and extra_fp.get("tls_permute_extensions"):
             permute = True
         set_ja3_options(c, ja3, permute=permute)
+
+    # extra_fp options
+    if extra_fp:
+        if isinstance(extra_fp, dict):
+            extra_fp = ExtraFingerprints(**extra_fp)
+        if impersonate:
+            warnings.warn(
+                "Extra fingerprints was altered after impersonated version was set.",
+                m.CurlWarning,
+                stacklevel=1,
+            )
+        set_extra_fp(c, extra_fp)
 
     # akamai string
     if akamai:

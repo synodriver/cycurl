@@ -1692,7 +1692,7 @@ struct __pyx_opt_args_6cycurl_5_curl_bytes_to_hex {
   int uppercase;
 };
 
-/* "cycurl/_curl.pyx":343
+/* "cycurl/_curl.pyx":345
  *         return <bytes>self._ws_recv_buffer[:self._ws_recv_n_recv], WSFrame.from_ptr(self._ws_recv_p_frame)
  * 
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):             # <<<<<<<<<<<<<<
@@ -1704,7 +1704,7 @@ struct __pyx_opt_args_6cycurl_5_curl_4Curl_ws_send {
   unsigned int flags;
 };
 
-/* "cycurl/_curl.pyx":648
+/* "cycurl/_curl.pyx":650
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
@@ -1716,7 +1716,7 @@ struct __pyx_opt_args_6cycurl_5_curl_4Curl_impersonate {
   int default_headers;
 };
 
-/* "cycurl/_curl.pyx":670
+/* "cycurl/_curl.pyx":674
  *             self._check_error(ret, "set proxy cacert")
  * 
  *     cpdef inline int perform(self, bint clear_headers = True, bint clear_resolve = True) except -1:             # <<<<<<<<<<<<<<
@@ -1729,7 +1729,7 @@ struct __pyx_opt_args_6cycurl_5_curl_4Curl_perform {
   int clear_resolve;
 };
 
-/* "cycurl/_curl.pyx":704
+/* "cycurl/_curl.pyx":708
  *         return ret
  * 
  *     cpdef inline clean_handles_and_buffers(self, bint clear_headers = True, bint clear_resolve = True):             # <<<<<<<<<<<<<<
@@ -1742,7 +1742,7 @@ struct __pyx_opt_args_6cycurl_5_curl_4Curl_clean_handles_and_buffers {
   int clear_resolve;
 };
 
-/* "cycurl/_curl.pyx":1095
+/* "cycurl/_curl.pyx":1100
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -1757,7 +1757,7 @@ struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_addpart {
   PyObject *data;
 };
 
-/* "cycurl/_curl.pyx":1163
+/* "cycurl/_curl.pyx":1168
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -1799,6 +1799,7 @@ struct __pyx_obj_6cycurl_5_curl_Curl {
   struct curl_slist *_resolve;
   PyObject *_cacert;
   int _is_cert_set;
+  int _skip_cacert;
   PyObject *_write_handle;
   PyObject *_header_handle;
   PyObject *_debug_handle;
@@ -1819,7 +1820,7 @@ struct __pyx_obj_6cycurl_5_curl_Curl {
 };
 
 
-/* "cycurl/_curl.pyx":903
+/* "cycurl/_curl.pyx":908
  * # """
  * 
  * @cython.final             # <<<<<<<<<<<<<<
@@ -1840,7 +1841,7 @@ struct __pyx_obj_6cycurl_5_curl_AsyncCurl {
 };
 
 
-/* "cycurl/_curl.pyx":1073
+/* "cycurl/_curl.pyx":1078
  *         )
  * 
  * @cython.freelist(8)             # <<<<<<<<<<<<<<
@@ -1926,7 +1927,7 @@ struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_4__thread_manager {
 };
 
 
-/* "cycurl/_curl.pyx":806
+/* "cycurl/_curl.pyx":811
  *     """
  * 
  *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -1941,7 +1942,7 @@ struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5_get_selector {
 };
 
 
-/* "cycurl/_curl.pyx":943
+/* "cycurl/_curl.pyx":948
  *         # curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_PIPELINING, curl.CURLPIPE_NOTHING)
  * 
  *     async def close(self):             # <<<<<<<<<<<<<<
@@ -1961,7 +1962,7 @@ struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_6_close {
 };
 
 
-/* "cycurl/_curl.pyx":965
+/* "cycurl/_curl.pyx":970
  *             self._timer.cancel()
  * 
  *     async def _force_timeout(self):             # <<<<<<<<<<<<<<
@@ -2109,7 +2110,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_curl_4Curl_duphandle(struct __pyx_obj_6cycurl_5_curl_Curl *, int __pyx_skip_dispatch);
 
 
-/* "cycurl/_curl.pyx":903
+/* "cycurl/_curl.pyx":908
  * # """
  * 
  * @cython.final             # <<<<<<<<<<<<<<
@@ -2138,7 +2139,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, struct __pyx_obj_6cycurl_5_curl_Curl *, PyObject *);
 
 
-/* "cycurl/_curl.pyx":1073
+/* "cycurl/_curl.pyx":1078
  *         )
  * 
  * @cython.freelist(8)             # <<<<<<<<<<<<<<
@@ -4019,6 +4020,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
 static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self, PyObject *__pyx_v_headers); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_40get_reason_phrase(PyObject *__pyx_v_status_line); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__pyx_v_status_line); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12_skip_cacert___get__(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self); /* proto */
+static int __pyx_pf_6cycurl_5_curl_4Curl_12_skip_cacert_2__set__(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_44__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_46__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_10_HasFileno_fileno(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self); /* proto */
@@ -5468,7 +5471,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_b_iso88591_A_4wc_1A_m1D_T_T_M_q_wd_D0J_STTX __pyx_string_tab[1193]
 #define __pyx_kp_b_iso88591_A_4wc_1_q_A_q __pyx_string_tab[1194]
 #define __pyx_kp_b_iso88591_A_87_1_U_1Cq_4uA_iq_Q6J_1 __pyx_string_tab[1195]
-#define __pyx_kp_b_iso88591_A_A_4q_AT_4z_A_AT_A __pyx_string_tab[1196]
+#define __pyx_kp_b_iso88591_A_A_A_4q_AT_4z_A_AT_A __pyx_string_tab[1196]
 #define __pyx_kp_b_iso88591_A_G1 __pyx_string_tab[1197]
 #define __pyx_kp_b_iso88591_A_G5_G5_0 __pyx_string_tab[1198]
 #define __pyx_kp_b_iso88591_A_S_HA_1_q __pyx_string_tab[1199]
@@ -22288,7 +22291,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_7WSFrame_2__setstate_cython__(CYTHON_UN
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":240
+/* "cycurl/_curl.pyx":241
  *         size_t _ws_send_n_sent
  * 
  *     def __cinit__(self, str cacert = "", bint debug = False, object handle = None):             # <<<<<<<<<<<<<<
@@ -22320,41 +22323,41 @@ static int __pyx_pw_6cycurl_5_curl_4Curl_1__cinit__(PyObject *__pyx_v_self, PyOb
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cacert,&__pyx_mstate_global->__pyx_n_u_debug,&__pyx_mstate_global->__pyx_n_u_handle,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_VARARGS(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 240, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 241, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_VARARGS(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 240, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 241, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_VARARGS(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 240, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 241, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_VARARGS(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 240, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 241, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__cinit__", 0) < (0)) __PYX_ERR(0, 240, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__cinit__", 0) < (0)) __PYX_ERR(0, 241, __pyx_L3_error)
       if (!values[0]) values[0] = __Pyx_NewRef(((PyObject*)__pyx_mstate_global->__pyx_kp_u__9));
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject *)Py_None));
     } else {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_VARARGS(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 240, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 241, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_VARARGS(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 240, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 241, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_VARARGS(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 240, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 241, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
@@ -22364,7 +22367,7 @@ static int __pyx_pw_6cycurl_5_curl_4Curl_1__cinit__(PyObject *__pyx_v_self, PyOb
     }
     __pyx_v_cacert = ((PyObject*)values[0]);
     if (values[1]) {
-      __pyx_v_debug = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_debug == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 240, __pyx_L3_error)
+      __pyx_v_debug = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_debug == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 241, __pyx_L3_error)
     } else {
       __pyx_v_debug = ((int)0);
     }
@@ -22372,7 +22375,7 @@ static int __pyx_pw_6cycurl_5_curl_4Curl_1__cinit__(PyObject *__pyx_v_self, PyOb
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 3, __pyx_nargs); __PYX_ERR(0, 240, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 3, __pyx_nargs); __PYX_ERR(0, 241, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -22383,7 +22386,7 @@ static int __pyx_pw_6cycurl_5_curl_4Curl_1__cinit__(PyObject *__pyx_v_self, PyOb
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cacert), (&PyUnicode_Type), 1, "cacert", 1))) __PYX_ERR(0, 240, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cacert), (&PyUnicode_Type), 1, "cacert", 1))) __PYX_ERR(0, 241, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl___cinit__(((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_self), __pyx_v_cacert, __pyx_v_debug, __pyx_v_handle);
 
   /* function exit code */
@@ -22417,7 +22420,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "cycurl/_curl.pyx":249
+  /* "cycurl/_curl.pyx":250
  *         """
  *         # assert PyCapsule_CheckExact(handle)
  *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)             # <<<<<<<<<<<<<<
@@ -22426,7 +22429,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
   __pyx_v_self->_error_buffer = ((char *)PyMem_Malloc(CURL_ERROR_SIZE));
 
-  /* "cycurl/_curl.pyx":250
+  /* "cycurl/_curl.pyx":251
  *         # assert PyCapsule_CheckExact(handle)
  *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
  *         if self._error_buffer == NULL:             # <<<<<<<<<<<<<<
@@ -22436,16 +22439,16 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __pyx_t_1 = (__pyx_v_self->_error_buffer == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":251
+    /* "cycurl/_curl.pyx":252
  *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
  *         if self._error_buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         if not handle:
  *             self._curl = curl.curl_easy_init()
 */
-    PyErr_NoMemory(); __PYX_ERR(0, 251, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 252, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":250
+    /* "cycurl/_curl.pyx":251
  *         # assert PyCapsule_CheckExact(handle)
  *         self._error_buffer = <char*>PyMem_Malloc(curl.CURL_ERROR_SIZE)
  *         if self._error_buffer == NULL:             # <<<<<<<<<<<<<<
@@ -22454,18 +22457,18 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
   }
 
-  /* "cycurl/_curl.pyx":252
+  /* "cycurl/_curl.pyx":253
  *         if self._error_buffer == NULL:
  *             raise MemoryError
  *         if not handle:             # <<<<<<<<<<<<<<
  *             self._curl = curl.curl_easy_init()
  *             if self._curl == NULL:
 */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_handle); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_handle); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 253, __pyx_L1_error)
   __pyx_t_2 = (!__pyx_t_1);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":253
+    /* "cycurl/_curl.pyx":254
  *             raise MemoryError
  *         if not handle:
  *             self._curl = curl.curl_easy_init()             # <<<<<<<<<<<<<<
@@ -22474,7 +22477,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
     __pyx_v_self->_curl = curl_easy_init();
 
-    /* "cycurl/_curl.pyx":254
+    /* "cycurl/_curl.pyx":255
  *         if not handle:
  *             self._curl = curl.curl_easy_init()
  *             if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -22484,7 +22487,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
     __pyx_t_2 = (__pyx_v_self->_curl == NULL);
     if (unlikely(__pyx_t_2)) {
 
-      /* "cycurl/_curl.pyx":255
+      /* "cycurl/_curl.pyx":256
  *             self._curl = curl.curl_easy_init()
  *             if self._curl == NULL:
  *                 PyMem_Free(self._error_buffer)             # <<<<<<<<<<<<<<
@@ -22493,7 +22496,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
       PyMem_Free(__pyx_v_self->_error_buffer);
 
-      /* "cycurl/_curl.pyx":256
+      /* "cycurl/_curl.pyx":257
  *             if self._curl == NULL:
  *                 PyMem_Free(self._error_buffer)
  *                 self._error_buffer = NULL             # <<<<<<<<<<<<<<
@@ -22502,16 +22505,16 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
       __pyx_v_self->_error_buffer = NULL;
 
-      /* "cycurl/_curl.pyx":257
+      /* "cycurl/_curl.pyx":258
  *                 PyMem_Free(self._error_buffer)
  *                 self._error_buffer = NULL
  *                 raise MemoryError             # <<<<<<<<<<<<<<
  *         else:
  *             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)
 */
-      PyErr_NoMemory(); __PYX_ERR(0, 257, __pyx_L1_error)
+      PyErr_NoMemory(); __PYX_ERR(0, 258, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":254
+      /* "cycurl/_curl.pyx":255
  *         if not handle:
  *             self._curl = curl.curl_easy_init()
  *             if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -22520,7 +22523,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
     }
 
-    /* "cycurl/_curl.pyx":252
+    /* "cycurl/_curl.pyx":253
  *         if self._error_buffer == NULL:
  *             raise MemoryError
  *         if not handle:             # <<<<<<<<<<<<<<
@@ -22530,7 +22533,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":259
+  /* "cycurl/_curl.pyx":260
  *                 raise MemoryError
  *         else:
  *             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)             # <<<<<<<<<<<<<<
@@ -22538,12 +22541,12 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
  *         self._proxy_headers = NULL
 */
   /*else*/ {
-    __pyx_t_3 = PyCapsule_GetPointer(__pyx_v_handle, NULL); if (unlikely(__pyx_t_3 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 259, __pyx_L1_error)
+    __pyx_t_3 = PyCapsule_GetPointer(__pyx_v_handle, NULL); if (unlikely(__pyx_t_3 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 260, __pyx_L1_error)
     __pyx_v_self->_curl = ((CURL *)__pyx_t_3);
   }
   __pyx_L4:;
 
-  /* "cycurl/_curl.pyx":260
+  /* "cycurl/_curl.pyx":261
  *         else:
  *             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)
  *         self._headers = NULL             # <<<<<<<<<<<<<<
@@ -22552,7 +22555,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
   __pyx_v_self->_headers = NULL;
 
-  /* "cycurl/_curl.pyx":261
+  /* "cycurl/_curl.pyx":262
  *             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)
  *         self._headers = NULL
  *         self._proxy_headers = NULL             # <<<<<<<<<<<<<<
@@ -22561,7 +22564,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
   __pyx_v_self->_proxy_headers = NULL;
 
-  /* "cycurl/_curl.pyx":262
+  /* "cycurl/_curl.pyx":263
  *         self._headers = NULL
  *         self._proxy_headers = NULL
  *         self._resolve = NULL             # <<<<<<<<<<<<<<
@@ -22570,25 +22573,25 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
   __pyx_v_self->_resolve = NULL;
 
-  /* "cycurl/_curl.pyx":263
+  /* "cycurl/_curl.pyx":264
  *         self._proxy_headers = NULL
  *         self._resolve = NULL
  *         self._cacert = cacert or DEFAULT_CACERT             # <<<<<<<<<<<<<<
  *         self._is_cert_set = False
- *         self._write_handle = None
+ *         self._skip_cacert = False
 */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_cacert); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_cacert); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 264, __pyx_L1_error)
   if (!__pyx_t_2) {
   } else {
     __Pyx_INCREF(__pyx_v_cacert);
     __pyx_t_4 = __pyx_v_cacert;
     goto __pyx_L6_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_DEFAULT_CACERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_DEFAULT_CACERT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = __pyx_t_5;
   __Pyx_INCREF(__pyx_t_6);
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_6))) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_6))) __PYX_ERR(0, 264, __pyx_L1_error)
   __pyx_t_4 = __pyx_t_6;
   __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -22599,18 +22602,27 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __pyx_v_self->_cacert = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":264
+  /* "cycurl/_curl.pyx":265
  *         self._resolve = NULL
  *         self._cacert = cacert or DEFAULT_CACERT
  *         self._is_cert_set = False             # <<<<<<<<<<<<<<
+ *         self._skip_cacert = False
  *         self._write_handle = None
- *         self._header_handle = None
 */
   __pyx_v_self->_is_cert_set = 0;
 
-  /* "cycurl/_curl.pyx":265
+  /* "cycurl/_curl.pyx":266
  *         self._cacert = cacert or DEFAULT_CACERT
  *         self._is_cert_set = False
+ *         self._skip_cacert = False             # <<<<<<<<<<<<<<
+ *         self._write_handle = None
+ *         self._header_handle = None
+*/
+  __pyx_v_self->_skip_cacert = 0;
+
+  /* "cycurl/_curl.pyx":267
+ *         self._is_cert_set = False
+ *         self._skip_cacert = False
  *         self._write_handle = None             # <<<<<<<<<<<<<<
  *         self._header_handle = None
  *         self._debug_handle = None
@@ -22621,8 +22633,8 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_write_handle);
   __pyx_v_self->_write_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":266
- *         self._is_cert_set = False
+  /* "cycurl/_curl.pyx":268
+ *         self._skip_cacert = False
  *         self._write_handle = None
  *         self._header_handle = None             # <<<<<<<<<<<<<<
  *         self._debug_handle = None
@@ -22634,7 +22646,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_header_handle);
   __pyx_v_self->_header_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":267
+  /* "cycurl/_curl.pyx":269
  *         self._write_handle = None
  *         self._header_handle = None
  *         self._debug_handle = None             # <<<<<<<<<<<<<<
@@ -22647,7 +22659,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_debug_handle);
   __pyx_v_self->_debug_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":268
+  /* "cycurl/_curl.pyx":270
  *         self._header_handle = None
  *         self._debug_handle = None
  *         self._body_handle = None             # <<<<<<<<<<<<<<
@@ -22660,7 +22672,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_body_handle);
   __pyx_v_self->_body_handle = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":269
+  /* "cycurl/_curl.pyx":271
  *         self._debug_handle = None
  *         self._body_handle = None
  *         self._read_handle = None             # <<<<<<<<<<<<<<
@@ -22673,7 +22685,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_read_handle);
   __pyx_v_self->_read_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":270
+  /* "cycurl/_curl.pyx":272
  *         self._body_handle = None
  *         self._read_handle = None
  *         self._seek_handle = None             # <<<<<<<<<<<<<<
@@ -22686,7 +22698,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_seek_handle);
   __pyx_v_self->_seek_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":271
+  /* "cycurl/_curl.pyx":273
  *         self._read_handle = None
  *         self._seek_handle = None
  *         self._trailer_handle = None             # <<<<<<<<<<<<<<
@@ -22699,7 +22711,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_trailer_handle);
   __pyx_v_self->_trailer_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":272
+  /* "cycurl/_curl.pyx":274
  *         self._seek_handle = None
  *         self._trailer_handle = None
  *         self._prereq_handle = None             # <<<<<<<<<<<<<<
@@ -22712,7 +22724,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_prereq_handle);
   __pyx_v_self->_prereq_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":273
+  /* "cycurl/_curl.pyx":275
  *         self._trailer_handle = None
  *         self._prereq_handle = None
  *         self._xferinfo_handle = None             # <<<<<<<<<<<<<<
@@ -22725,7 +22737,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_xferinfo_handle);
   __pyx_v_self->_xferinfo_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":274
+  /* "cycurl/_curl.pyx":276
  *         self._prereq_handle = None
  *         self._xferinfo_handle = None
  *         self._fnmatch_handle = None             # <<<<<<<<<<<<<<
@@ -22738,7 +22750,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __Pyx_DECREF(__pyx_v_self->_fnmatch_handle);
   __pyx_v_self->_fnmatch_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":275
+  /* "cycurl/_curl.pyx":277
  *         self._xferinfo_handle = None
  *         self._fnmatch_handle = None
  *         self._debug = debug             # <<<<<<<<<<<<<<
@@ -22747,16 +22759,16 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
   __pyx_v_self->_debug = __pyx_v_debug;
 
-  /* "cycurl/_curl.pyx":276
+  /* "cycurl/_curl.pyx":278
  *         self._fnmatch_handle = None
  *         self._debug = debug
  *         self._set_error_buffer()             # <<<<<<<<<<<<<<
  * 
  *         # Pre-allocated C objects for WebSocket performance
 */
-  __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 276, __pyx_L1_error)
+  __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 278, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":283
+  /* "cycurl/_curl.pyx":285
  *         # self._ws_recv_p_frame = ffi.new("struct curl_ws_frame **")
  *         # self._ws_send_n_sent = ffi.new("size_t *")
  *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB             # <<<<<<<<<<<<<<
@@ -22765,7 +22777,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
   __pyx_v_self->_WS_RECV_BUFFER_SIZE = 0x20000;
 
-  /* "cycurl/_curl.pyx":284
+  /* "cycurl/_curl.pyx":286
  *         # self._ws_send_n_sent = ffi.new("size_t *")
  *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
  *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)             # <<<<<<<<<<<<<<
@@ -22774,7 +22786,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
   __pyx_v_self->_ws_recv_buffer = ((char *)PyMem_Malloc(__pyx_v_self->_WS_RECV_BUFFER_SIZE));
 
-  /* "cycurl/_curl.pyx":285
+  /* "cycurl/_curl.pyx":287
  *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
  *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
  *         if self._ws_recv_buffer == NULL:             # <<<<<<<<<<<<<<
@@ -22784,16 +22796,16 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   __pyx_t_2 = (__pyx_v_self->_ws_recv_buffer == NULL);
   if (unlikely(__pyx_t_2)) {
 
-    /* "cycurl/_curl.pyx":286
+    /* "cycurl/_curl.pyx":288
  *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
  *         if self._ws_recv_buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  * 
  *     cdef inline void _close(self) noexcept nogil:
 */
-    PyErr_NoMemory(); __PYX_ERR(0, 286, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 288, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":285
+    /* "cycurl/_curl.pyx":287
  *         self._WS_RECV_BUFFER_SIZE = 128 * 1024  # 128 kB
  *         self._ws_recv_buffer = <char *> PyMem_Malloc(self._WS_RECV_BUFFER_SIZE)
  *         if self._ws_recv_buffer == NULL:             # <<<<<<<<<<<<<<
@@ -22802,7 +22814,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 */
   }
 
-  /* "cycurl/_curl.pyx":240
+  /* "cycurl/_curl.pyx":241
  *         size_t _ws_send_n_sent
  * 
  *     def __cinit__(self, str cacert = "", bint debug = False, object handle = None):             # <<<<<<<<<<<<<<
@@ -22824,7 +22836,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":288
+/* "cycurl/_curl.pyx":290
  *             raise MemoryError
  * 
  *     cdef inline void _close(self) noexcept nogil:             # <<<<<<<<<<<<<<
@@ -22835,7 +22847,7 @@ static int __pyx_pf_6cycurl_5_curl_4Curl___cinit__(struct __pyx_obj_6cycurl_5_cu
 static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self) {
   int __pyx_t_1;
 
-  /* "cycurl/_curl.pyx":290
+  /* "cycurl/_curl.pyx":292
  *     cdef inline void _close(self) noexcept nogil:
  *         # self.clean_handles_and_buffers() # we could add it here just like the cffi version, but it would require gil.
  *         if self._curl:             # <<<<<<<<<<<<<<
@@ -22845,7 +22857,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   __pyx_t_1 = (__pyx_v_self->_curl != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":291
+    /* "cycurl/_curl.pyx":293
  *         # self.clean_handles_and_buffers() # we could add it here just like the cffi version, but it would require gil.
  *         if self._curl:
  *             curl.curl_easy_cleanup(self._curl)             # <<<<<<<<<<<<<<
@@ -22854,7 +22866,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
     curl_easy_cleanup(__pyx_v_self->_curl);
 
-    /* "cycurl/_curl.pyx":292
+    /* "cycurl/_curl.pyx":294
  *         if self._curl:
  *             curl.curl_easy_cleanup(self._curl)
  *             self._curl = NULL             # <<<<<<<<<<<<<<
@@ -22863,7 +22875,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
     __pyx_v_self->_curl = NULL;
 
-    /* "cycurl/_curl.pyx":290
+    /* "cycurl/_curl.pyx":292
  *     cdef inline void _close(self) noexcept nogil:
  *         # self.clean_handles_and_buffers() # we could add it here just like the cffi version, but it would require gil.
  *         if self._curl:             # <<<<<<<<<<<<<<
@@ -22872,7 +22884,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
   }
 
-  /* "cycurl/_curl.pyx":293
+  /* "cycurl/_curl.pyx":295
  *             curl.curl_easy_cleanup(self._curl)
  *             self._curl = NULL
  *         if self._resolve:             # <<<<<<<<<<<<<<
@@ -22882,7 +22894,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   __pyx_t_1 = (__pyx_v_self->_resolve != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":294
+    /* "cycurl/_curl.pyx":296
  *             self._curl = NULL
  *         if self._resolve:
  *             curl.curl_slist_free_all(self._resolve)             # <<<<<<<<<<<<<<
@@ -22891,7 +22903,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
     curl_slist_free_all(__pyx_v_self->_resolve);
 
-    /* "cycurl/_curl.pyx":295
+    /* "cycurl/_curl.pyx":297
  *         if self._resolve:
  *             curl.curl_slist_free_all(self._resolve)
  *             self._resolve = NULL             # <<<<<<<<<<<<<<
@@ -22900,7 +22912,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
     __pyx_v_self->_resolve = NULL;
 
-    /* "cycurl/_curl.pyx":293
+    /* "cycurl/_curl.pyx":295
  *             curl.curl_easy_cleanup(self._curl)
  *             self._curl = NULL
  *         if self._resolve:             # <<<<<<<<<<<<<<
@@ -22909,7 +22921,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
   }
 
-  /* "cycurl/_curl.pyx":296
+  /* "cycurl/_curl.pyx":298
  *             curl.curl_slist_free_all(self._resolve)
  *             self._resolve = NULL
  *         if self._headers:             # <<<<<<<<<<<<<<
@@ -22919,7 +22931,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   __pyx_t_1 = (__pyx_v_self->_headers != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":297
+    /* "cycurl/_curl.pyx":299
  *             self._resolve = NULL
  *         if self._headers:
  *             curl.curl_slist_free_all(self._headers)             # <<<<<<<<<<<<<<
@@ -22928,7 +22940,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
     curl_slist_free_all(__pyx_v_self->_headers);
 
-    /* "cycurl/_curl.pyx":298
+    /* "cycurl/_curl.pyx":300
  *         if self._headers:
  *             curl.curl_slist_free_all(self._headers)
  *             self._headers = NULL             # <<<<<<<<<<<<<<
@@ -22937,7 +22949,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
     __pyx_v_self->_headers = NULL;
 
-    /* "cycurl/_curl.pyx":296
+    /* "cycurl/_curl.pyx":298
  *             curl.curl_slist_free_all(self._resolve)
  *             self._resolve = NULL
  *         if self._headers:             # <<<<<<<<<<<<<<
@@ -22946,7 +22958,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
   }
 
-  /* "cycurl/_curl.pyx":299
+  /* "cycurl/_curl.pyx":301
  *             curl.curl_slist_free_all(self._headers)
  *             self._headers = NULL
  *         if self._proxy_headers:             # <<<<<<<<<<<<<<
@@ -22956,7 +22968,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   __pyx_t_1 = (__pyx_v_self->_proxy_headers != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":300
+    /* "cycurl/_curl.pyx":302
  *             self._headers = NULL
  *         if self._proxy_headers:
  *             curl.curl_slist_free_all(self._proxy_headers)             # <<<<<<<<<<<<<<
@@ -22965,7 +22977,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
     curl_slist_free_all(__pyx_v_self->_proxy_headers);
 
-    /* "cycurl/_curl.pyx":301
+    /* "cycurl/_curl.pyx":303
  *         if self._proxy_headers:
  *             curl.curl_slist_free_all(self._proxy_headers)
  *             self._proxy_headers = NULL             # <<<<<<<<<<<<<<
@@ -22974,7 +22986,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
     __pyx_v_self->_proxy_headers = NULL;
 
-    /* "cycurl/_curl.pyx":299
+    /* "cycurl/_curl.pyx":301
  *             curl.curl_slist_free_all(self._headers)
  *             self._headers = NULL
  *         if self._proxy_headers:             # <<<<<<<<<<<<<<
@@ -22983,7 +22995,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
 */
   }
 
-  /* "cycurl/_curl.pyx":288
+  /* "cycurl/_curl.pyx":290
  *             raise MemoryError
  * 
  *     cdef inline void _close(self) noexcept nogil:             # <<<<<<<<<<<<<<
@@ -22994,7 +23006,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__close(struct __pyx_obj_6
   /* function exit code */
 }
 
-/* "cycurl/_curl.pyx":303
+/* "cycurl/_curl.pyx":305
  *             self._proxy_headers = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -23018,7 +23030,7 @@ static void __pyx_pw_6cycurl_5_curl_4Curl_3__dealloc__(PyObject *__pyx_v_self) {
 static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self) {
   int __pyx_t_1;
 
-  /* "cycurl/_curl.pyx":304
+  /* "cycurl/_curl.pyx":306
  * 
  *     def __dealloc__(self):
  *         if self._error_buffer:             # <<<<<<<<<<<<<<
@@ -23028,7 +23040,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
   __pyx_t_1 = (__pyx_v_self->_error_buffer != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":305
+    /* "cycurl/_curl.pyx":307
  *     def __dealloc__(self):
  *         if self._error_buffer:
  *             PyMem_Free(self._error_buffer)             # <<<<<<<<<<<<<<
@@ -23037,7 +23049,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
 */
     PyMem_Free(__pyx_v_self->_error_buffer);
 
-    /* "cycurl/_curl.pyx":306
+    /* "cycurl/_curl.pyx":308
  *         if self._error_buffer:
  *             PyMem_Free(self._error_buffer)
  *             self._error_buffer = NULL             # <<<<<<<<<<<<<<
@@ -23046,7 +23058,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
 */
     __pyx_v_self->_error_buffer = NULL;
 
-    /* "cycurl/_curl.pyx":304
+    /* "cycurl/_curl.pyx":306
  * 
  *     def __dealloc__(self):
  *         if self._error_buffer:             # <<<<<<<<<<<<<<
@@ -23055,7 +23067,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
 */
   }
 
-  /* "cycurl/_curl.pyx":307
+  /* "cycurl/_curl.pyx":309
  *             PyMem_Free(self._error_buffer)
  *             self._error_buffer = NULL
  *         if self._ws_recv_buffer:             # <<<<<<<<<<<<<<
@@ -23065,7 +23077,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
   __pyx_t_1 = (__pyx_v_self->_ws_recv_buffer != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":308
+    /* "cycurl/_curl.pyx":310
  *             self._error_buffer = NULL
  *         if self._ws_recv_buffer:
  *             PyMem_Free(self._ws_recv_buffer)             # <<<<<<<<<<<<<<
@@ -23074,7 +23086,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
 */
     PyMem_Free(__pyx_v_self->_ws_recv_buffer);
 
-    /* "cycurl/_curl.pyx":309
+    /* "cycurl/_curl.pyx":311
  *         if self._ws_recv_buffer:
  *             PyMem_Free(self._ws_recv_buffer)
  *             self._ws_recv_buffer = NULL             # <<<<<<<<<<<<<<
@@ -23083,7 +23095,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
 */
     __pyx_v_self->_ws_recv_buffer = NULL;
 
-    /* "cycurl/_curl.pyx":307
+    /* "cycurl/_curl.pyx":309
  *             PyMem_Free(self._error_buffer)
  *             self._error_buffer = NULL
  *         if self._ws_recv_buffer:             # <<<<<<<<<<<<<<
@@ -23092,7 +23104,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
 */
   }
 
-  /* "cycurl/_curl.pyx":310
+  /* "cycurl/_curl.pyx":312
  *             PyMem_Free(self._ws_recv_buffer)
  *             self._ws_recv_buffer = NULL
  *         self._close()             # <<<<<<<<<<<<<<
@@ -23101,7 +23113,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
 */
   __pyx_f_6cycurl_5_curl_4Curl__close(__pyx_v_self);
 
-  /* "cycurl/_curl.pyx":303
+  /* "cycurl/_curl.pyx":305
  *             self._proxy_headers = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -23112,7 +23124,7 @@ static void __pyx_pf_6cycurl_5_curl_4Curl_2__dealloc__(struct __pyx_obj_6cycurl_
   /* function exit code */
 }
 
-/* "cycurl/_curl.pyx":312
+/* "cycurl/_curl.pyx":314
  *         self._close()
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -23168,7 +23180,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_4close(struct __pyx_obj_6cycurl_5
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("close", 0);
 
-  /* "cycurl/_curl.pyx":314
+  /* "cycurl/_curl.pyx":316
  *     def close(self):
  *         """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
  *         self._close()             # <<<<<<<<<<<<<<
@@ -23177,7 +23189,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_4close(struct __pyx_obj_6cycurl_5
 */
   __pyx_f_6cycurl_5_curl_4Curl__close(__pyx_v_self);
 
-  /* "cycurl/_curl.pyx":312
+  /* "cycurl/_curl.pyx":314
  *         self._close()
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -23192,7 +23204,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_4close(struct __pyx_obj_6cycurl_5
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":316
+/* "cycurl/_curl.pyx":318
  *         self._close()
  * 
  *     cpdef inline tuple ws_recv(self):             # <<<<<<<<<<<<<<
@@ -23222,7 +23234,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_recv", 0);
 
-  /* "cycurl/_curl.pyx":323
+  /* "cycurl/_curl.pyx":325
  *             CurlError: if failed.
  *         """
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -23232,7 +23244,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
   __pyx_t_1 = (__pyx_v_self->_curl == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":324
+    /* "cycurl/_curl.pyx":326
  *         """
  *         if self._curl == NULL:
  *             raise CurlError("Cannot receive websocket data on closed handle.")             # <<<<<<<<<<<<<<
@@ -23240,7 +23252,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
  *         # cdef char* buffer = <char*>PyMem_Malloc(n)
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 324, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -23259,14 +23271,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 324, __pyx_L1_error)
+    __PYX_ERR(0, 326, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":323
+    /* "cycurl/_curl.pyx":325
  *             CurlError: if failed.
  *         """
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -23275,7 +23287,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
 */
   }
 
-  /* "cycurl/_curl.pyx":332
+  /* "cycurl/_curl.pyx":334
  *         # cdef int ret
  *         # cdef const curl.curl_ws_frame* frame = NULL
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -23288,7 +23300,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":333
+        /* "cycurl/_curl.pyx":335
  *         # cdef const curl.curl_ws_frame* frame = NULL
  *         with nogil:
  *             ret = curl.curl_ws_recv(self._curl,             # <<<<<<<<<<<<<<
@@ -23298,7 +23310,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
         __pyx_v_ret = curl_ws_recv(__pyx_v_self->_curl, __pyx_v_self->_ws_recv_buffer, __pyx_v_self->_WS_RECV_BUFFER_SIZE, (&__pyx_v_self->_ws_recv_n_recv), (&__pyx_v_self->_ws_recv_p_frame));
       }
 
-      /* "cycurl/_curl.pyx":332
+      /* "cycurl/_curl.pyx":334
  *         # cdef int ret
  *         # cdef const curl.curl_ws_frame* frame = NULL
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -23315,16 +23327,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
       }
   }
 
-  /* "cycurl/_curl.pyx":338
+  /* "cycurl/_curl.pyx":340
  *                                     &self._ws_recv_n_recv,
  *                                     &self._ws_recv_p_frame)
  *         self._check_error(ret, "WS_RECV")             # <<<<<<<<<<<<<<
  *         # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html
  *         # return <bytes>buffer[: n_recv], WSFrame.from_ptr(frame)
 */
-  __pyx_t_6 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_n_u_WS_RECV); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 338, __pyx_L1_error)
+  __pyx_t_6 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_n_u_WS_RECV); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 340, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":341
+  /* "cycurl/_curl.pyx":343
  *         # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html
  *         # return <bytes>buffer[: n_recv], WSFrame.from_ptr(frame)
  *         return <bytes>self._ws_recv_buffer[:self._ws_recv_n_recv], WSFrame.from_ptr(self._ws_recv_p_frame)             # <<<<<<<<<<<<<<
@@ -23332,24 +23344,24 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_ws_recv(struct __pyx
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_self->_ws_recv_buffer + 0, __pyx_v_self->_ws_recv_n_recv - 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_self->_ws_recv_buffer + 0, __pyx_v_self->_ws_recv_n_recv - 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = ((PyObject *)__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr(__pyx_v_self->_ws_recv_p_frame)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_4 = ((PyObject *)__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr(__pyx_v_self->_ws_recv_p_frame)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(((PyObject*)__pyx_t_2));
   __Pyx_GIVEREF(((PyObject*)__pyx_t_2));
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 341, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 343, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4) != (0)) __PYX_ERR(0, 341, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4) != (0)) __PYX_ERR(0, 343, __pyx_L1_error);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_4 = 0;
   __pyx_r = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":316
+  /* "cycurl/_curl.pyx":318
  *         self._close()
  * 
  *     cpdef inline tuple ws_recv(self):             # <<<<<<<<<<<<<<
@@ -23422,7 +23434,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_6ws_recv(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_recv", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_ws_recv(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_ws_recv(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -23439,7 +23451,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_6ws_recv(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":343
+/* "cycurl/_curl.pyx":345
  *         return <bytes>self._ws_recv_buffer[:self._ws_recv_n_recv], WSFrame.from_ptr(self._ws_recv_p_frame)
  * 
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):             # <<<<<<<<<<<<<<
@@ -23476,7 +23488,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
     }
   }
 
-  /* "cycurl/_curl.pyx":353
+  /* "cycurl/_curl.pyx":355
  *             CurlError: if failed.
  *         """
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -23486,7 +23498,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
   __pyx_t_1 = (__pyx_v_self->_curl == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":354
+    /* "cycurl/_curl.pyx":356
  *         """
  *         if self._curl == NULL:
  *             raise CurlError("Cannot send websocket data on closed handle.")             # <<<<<<<<<<<<<<
@@ -23494,7 +23506,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
  *         # cdef size_t n_sent
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 354, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 356, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -23513,14 +23525,14 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 356, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 354, __pyx_L1_error)
+    __PYX_ERR(0, 356, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":353
+    /* "cycurl/_curl.pyx":355
  *             CurlError: if failed.
  *         """
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -23529,7 +23541,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
 */
   }
 
-  /* "cycurl/_curl.pyx":360
+  /* "cycurl/_curl.pyx":362
  *         # n_sent = ffi.new("int *")
  *         # buffer = ffi.from_buffer(payload)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -23542,7 +23554,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":361
+        /* "cycurl/_curl.pyx":363
  *         # buffer = ffi.from_buffer(payload)
  *         with nogil:
  *             ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &self._ws_send_n_sent, 0, flags)             # <<<<<<<<<<<<<<
@@ -23553,7 +23565,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
         __pyx_v_ret = curl_ws_send(__pyx_v_self->_curl, ((void const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_payload.data) + __pyx_t_6)) ))))), ((size_t)(__pyx_v_payload.shape[0])), (&__pyx_v_self->_ws_send_n_sent), 0, __pyx_v_flags);
       }
 
-      /* "cycurl/_curl.pyx":360
+      /* "cycurl/_curl.pyx":362
  *         # n_sent = ffi.new("int *")
  *         # buffer = ffi.from_buffer(payload)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -23570,16 +23582,16 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
       }
   }
 
-  /* "cycurl/_curl.pyx":362
+  /* "cycurl/_curl.pyx":364
  *         with nogil:
  *             ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &self._ws_send_n_sent, 0, flags)
  *         self._check_error(ret, "WS_SEND")             # <<<<<<<<<<<<<<
  *         return self._ws_send_n_sent
  * 
 */
-  __pyx_t_7 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_n_u_WS_SEND); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 362, __pyx_L1_error)
+  __pyx_t_7 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_n_u_WS_SEND); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 364, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":363
+  /* "cycurl/_curl.pyx":365
  *             ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &self._ws_send_n_sent, 0, flags)
  *         self._check_error(ret, "WS_SEND")
  *         return self._ws_send_n_sent             # <<<<<<<<<<<<<<
@@ -23589,7 +23601,7 @@ static CYTHON_INLINE size_t __pyx_f_6cycurl_5_curl_4Curl_ws_send(struct __pyx_ob
   __pyx_r = __pyx_v_self->_ws_send_n_sent;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":343
+  /* "cycurl/_curl.pyx":345
  *         return <bytes>self._ws_recv_buffer[:self._ws_recv_n_recv], WSFrame.from_ptr(self._ws_recv_p_frame)
  * 
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):             # <<<<<<<<<<<<<<
@@ -23650,48 +23662,48 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_payload,&__pyx_mstate_global->__pyx_n_u_flags,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 343, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 345, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 343, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 345, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 343, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 345, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "ws_send", 0) < (0)) __PYX_ERR(0, 343, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "ws_send", 0) < (0)) __PYX_ERR(0, 345, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("ws_send", 0, 1, 2, i); __PYX_ERR(0, 343, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("ws_send", 0, 1, 2, i); __PYX_ERR(0, 345, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 343, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 345, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 343, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 345, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_payload = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_payload.memview)) __PYX_ERR(0, 343, __pyx_L3_error)
+    __pyx_v_payload = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_payload.memview)) __PYX_ERR(0, 345, __pyx_L3_error)
     if (values[1]) {
-      __pyx_v_flags = __Pyx_PyLong_As_unsigned_int(values[1]); if (unlikely((__pyx_v_flags == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 343, __pyx_L3_error)
+      __pyx_v_flags = __Pyx_PyLong_As_unsigned_int(values[1]); if (unlikely((__pyx_v_flags == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 345, __pyx_L3_error)
     } else {
       __pyx_v_flags = __pyx_mstate_global->__pyx_k__13;
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ws_send", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 343, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ws_send", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 345, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -23725,11 +23737,11 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_8ws_send(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_send", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_payload.memview)) { __Pyx_RaiseUnboundLocalError("payload"); __PYX_ERR(0, 343, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_payload.memview)) { __Pyx_RaiseUnboundLocalError("payload"); __PYX_ERR(0, 345, __pyx_L1_error) }
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.flags = __pyx_v_flags;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->ws_send(__pyx_v_self, __pyx_v_payload, 1, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 343, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyLong_FromSize_t(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->ws_send(__pyx_v_self, __pyx_v_payload, 1, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_FromSize_t(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -23746,7 +23758,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_8ws_send(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":365
+/* "cycurl/_curl.pyx":367
  *         return self._ws_send_n_sent
  * 
  *     def ws_close(self, int code = 1000, bytes message = b""):             # <<<<<<<<<<<<<<
@@ -23795,32 +23807,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_code,&__pyx_mstate_global->__pyx_n_u_message,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 365, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 367, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 365, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 367, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 365, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 367, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "ws_close", 0) < (0)) __PYX_ERR(0, 365, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "ws_close", 0) < (0)) __PYX_ERR(0, 367, __pyx_L3_error)
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)__pyx_mstate_global->__pyx_kp_b__9));
     } else {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 365, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 367, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 365, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 367, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
@@ -23828,7 +23840,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)__pyx_mstate_global->__pyx_kp_b__9));
     }
     if (values[0]) {
-      __pyx_v_code = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_code == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 365, __pyx_L3_error)
+      __pyx_v_code = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_code == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 367, __pyx_L3_error)
     } else {
       __pyx_v_code = ((int)0x3E8);
     }
@@ -23836,7 +23848,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ws_close", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 365, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ws_close", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 367, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -23847,7 +23859,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), (&PyBytes_Type), 1, "message", 1))) __PYX_ERR(0, 365, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), (&PyBytes_Type), 1, "message", 1))) __PYX_ERR(0, 367, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_10ws_close(((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_self), __pyx_v_code, __pyx_v_message);
 
   /* function exit code */
@@ -23884,7 +23896,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_10ws_close(struct __pyx_obj_6cycu
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_close", 0);
 
-  /* "cycurl/_curl.pyx":377
+  /* "cycurl/_curl.pyx":379
  *             CurlError: if failed.
  *         """
  *         payload = struct.pack("!H", code) + message             # <<<<<<<<<<<<<<
@@ -23892,12 +23904,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_10ws_close(struct __pyx_obj_6cycu
  * 
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_struct); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 377, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_struct); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 379, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_pack); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 377, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_pack); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 379, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_code); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 377, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_code); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 379, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -23917,16 +23929,16 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_10ws_close(struct __pyx_obj_6cycu
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 377, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 379, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_v_message); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 377, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_v_message); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 379, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_payload = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":378
+  /* "cycurl/_curl.pyx":380
  *         """
  *         payload = struct.pack("!H", code) + message
  *         return self.ws_send(payload, flags=CURLWS_CLOSE)             # <<<<<<<<<<<<<<
@@ -23934,23 +23946,23 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_10ws_close(struct __pyx_obj_6cycu
  *     def ws_meta(self):
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_v_payload, 0); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 378, __pyx_L1_error)
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURLWS_CLOSE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 378, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_v_payload, 0); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURLWS_CLOSE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 380, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_7 = __Pyx_PyLong_As_unsigned_int(__pyx_t_4); if (unlikely((__pyx_t_7 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 378, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyLong_As_unsigned_int(__pyx_t_4); if (unlikely((__pyx_t_7 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 380, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_8.__pyx_n = 1;
   __pyx_t_8.flags = __pyx_t_7;
-  __pyx_t_5 = __pyx_f_6cycurl_5_curl_4Curl_ws_send(__pyx_v_self, __pyx_t_6, 0, &__pyx_t_8); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 378, __pyx_L1_error)
+  __pyx_t_5 = __pyx_f_6cycurl_5_curl_4Curl_ws_send(__pyx_v_self, __pyx_t_6, 0, &__pyx_t_8); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 380, __pyx_L1_error)
   __PYX_XCLEAR_MEMVIEW(&__pyx_t_6, 1);
   __pyx_t_6.memview = NULL; __pyx_t_6.data = NULL;
-  __pyx_t_4 = __Pyx_PyLong_FromSize_t(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 378, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_FromSize_t(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 380, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":365
+  /* "cycurl/_curl.pyx":367
  *         return self._ws_send_n_sent
  * 
  *     def ws_close(self, int code = 1000, bytes message = b""):             # <<<<<<<<<<<<<<
@@ -23974,7 +23986,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_10ws_close(struct __pyx_obj_6cycu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":380
+/* "cycurl/_curl.pyx":382
  *         return self.ws_send(payload, flags=CURLWS_CLOSE)
  * 
  *     def ws_meta(self):             # <<<<<<<<<<<<<<
@@ -24035,7 +24047,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12ws_meta(struct __pyx_obj_6cycur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_meta", 0);
 
-  /* "cycurl/_curl.pyx":381
+  /* "cycurl/_curl.pyx":383
  * 
  *     def ws_meta(self):
  *         cdef const curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)             # <<<<<<<<<<<<<<
@@ -24044,7 +24056,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12ws_meta(struct __pyx_obj_6cycur
 */
   __pyx_v_frame = curl_ws_meta(__pyx_v_self->_curl);
 
-  /* "cycurl/_curl.pyx":382
+  /* "cycurl/_curl.pyx":384
  *     def ws_meta(self):
  *         cdef const curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
  *         return WSFrame.from_ptr(frame)             # <<<<<<<<<<<<<<
@@ -24052,13 +24064,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12ws_meta(struct __pyx_obj_6cycur
  *     cdef inline void _set_error_buffer(self) nogil:
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr(__pyx_v_frame)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 382, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_6cycurl_5_curl_7WSFrame_from_ptr(__pyx_v_frame)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":380
+  /* "cycurl/_curl.pyx":382
  *         return self.ws_send(payload, flags=CURLWS_CLOSE)
  * 
  *     def ws_meta(self):             # <<<<<<<<<<<<<<
@@ -24077,7 +24089,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12ws_meta(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":384
+/* "cycurl/_curl.pyx":386
  *         return WSFrame.from_ptr(frame)
  * 
  *     cdef inline void _set_error_buffer(self) nogil:             # <<<<<<<<<<<<<<
@@ -24101,7 +24113,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
   PyGILState_STATE __pyx_gilstate_save;
   __Pyx_RefNannySetupContext("_set_error_buffer", 1);
 
-  /* "cycurl/_curl.pyx":385
+  /* "cycurl/_curl.pyx":387
  * 
  *     cdef inline void _set_error_buffer(self) nogil:
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)             # <<<<<<<<<<<<<<
@@ -24110,7 +24122,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
 */
   __pyx_v_ret = _curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_ERRORBUFFER, __pyx_v_self->_error_buffer);
 
-  /* "cycurl/_curl.pyx":386
+  /* "cycurl/_curl.pyx":388
  *     cdef inline void _set_error_buffer(self) nogil:
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -24120,7 +24132,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
   __pyx_t_1 = (__pyx_v_ret != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":387
+    /* "cycurl/_curl.pyx":389
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
  *         if ret != 0:
  *             with gil:             # <<<<<<<<<<<<<<
@@ -24131,7 +24143,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
         PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
         /*try:*/ {
 
-          /* "cycurl/_curl.pyx":388
+          /* "cycurl/_curl.pyx":390
  *         if ret != 0:
  *             with gil:
  *                 warnings.warn("Failed to set error buffer", CurlWarning, stacklevel=2)             # <<<<<<<<<<<<<<
@@ -24139,12 +24151,12 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
  *             with gil:
 */
           __pyx_t_3 = NULL;
-          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_warnings); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 388, __pyx_L5_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_warnings); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 390, __pyx_L5_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_warn); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 388, __pyx_L5_error)
+          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_warn); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 390, __pyx_L5_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlWarning); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 388, __pyx_L5_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlWarning); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 390, __pyx_L5_error)
           __Pyx_GOTREF(__pyx_t_4);
           __pyx_t_6 = 1;
           #if CYTHON_UNPACK_METHODS
@@ -24160,21 +24172,21 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
           #endif
           {
             PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_Failed_to_set_error_buffer, __pyx_t_4};
-            __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 388, __pyx_L5_error)
+            __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 390, __pyx_L5_error)
             __Pyx_GOTREF(__pyx_t_7);
-            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_stacklevel, __pyx_mstate_global->__pyx_int_2, __pyx_t_7, __pyx_callargs+3, 0) < (0)) __PYX_ERR(0, 388, __pyx_L5_error)
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_stacklevel, __pyx_mstate_global->__pyx_int_2, __pyx_t_7, __pyx_callargs+3, 0) < (0)) __PYX_ERR(0, 390, __pyx_L5_error)
             __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_5, __pyx_callargs+__pyx_t_6, (3-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
             __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 388, __pyx_L5_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 390, __pyx_L5_error)
             __Pyx_GOTREF(__pyx_t_2);
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         }
 
-        /* "cycurl/_curl.pyx":387
+        /* "cycurl/_curl.pyx":389
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
  *         if ret != 0:
  *             with gil:             # <<<<<<<<<<<<<<
@@ -24194,7 +24206,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
         }
     }
 
-    /* "cycurl/_curl.pyx":386
+    /* "cycurl/_curl.pyx":388
  *     cdef inline void _set_error_buffer(self) nogil:
  *         cdef int ret = curl._curl_easy_setopt(self._curl, curl.CURLOPT_ERRORBUFFER, self._error_buffer)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -24203,7 +24215,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
 */
   }
 
-  /* "cycurl/_curl.pyx":389
+  /* "cycurl/_curl.pyx":391
  *             with gil:
  *                 warnings.warn("Failed to set error buffer", CurlWarning, stacklevel=2)
  *         if self._debug:             # <<<<<<<<<<<<<<
@@ -24212,7 +24224,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
 */
   if (__pyx_v_self->_debug) {
 
-    /* "cycurl/_curl.pyx":390
+    /* "cycurl/_curl.pyx":392
  *                 warnings.warn("Failed to set error buffer", CurlWarning, stacklevel=2)
  *         if self._debug:
  *             with gil:             # <<<<<<<<<<<<<<
@@ -24223,7 +24235,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
         PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
         /*try:*/ {
 
-          /* "cycurl/_curl.pyx":391
+          /* "cycurl/_curl.pyx":393
  *         if self._debug:
  *             with gil:
  *                 self.debug()             # <<<<<<<<<<<<<<
@@ -24237,13 +24249,13 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
             PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
             __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_debug, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 391, __pyx_L9_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 393, __pyx_L9_error)
             __Pyx_GOTREF(__pyx_t_2);
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         }
 
-        /* "cycurl/_curl.pyx":390
+        /* "cycurl/_curl.pyx":392
  *                 warnings.warn("Failed to set error buffer", CurlWarning, stacklevel=2)
  *         if self._debug:
  *             with gil:             # <<<<<<<<<<<<<<
@@ -24263,7 +24275,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
         }
     }
 
-    /* "cycurl/_curl.pyx":389
+    /* "cycurl/_curl.pyx":391
  *             with gil:
  *                 warnings.warn("Failed to set error buffer", CurlWarning, stacklevel=2)
  *         if self._debug:             # <<<<<<<<<<<<<<
@@ -24272,7 +24284,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
 */
   }
 
-  /* "cycurl/_curl.pyx":384
+  /* "cycurl/_curl.pyx":386
  *         return WSFrame.from_ptr(frame)
  * 
  *     cdef inline void _set_error_buffer(self) nogil:             # <<<<<<<<<<<<<<
@@ -24295,7 +24307,7 @@ static CYTHON_INLINE void __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(struct 
   __Pyx_RefNannyFinishContextNogil()
 }
 
-/* "cycurl/_curl.pyx":393
+/* "cycurl/_curl.pyx":395
  *                 self.debug()
  * 
  *     def __eq__(self, other):             # <<<<<<<<<<<<<<
@@ -24329,7 +24341,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_14__eq__(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__eq__", 0);
 
-  /* "cycurl/_curl.pyx":394
+  /* "cycurl/_curl.pyx":396
  * 
  *     def __eq__(self, other):
  *         if not isinstance(other, Curl):             # <<<<<<<<<<<<<<
@@ -24340,7 +24352,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_14__eq__(struct __pyx_obj_6cycurl
   __pyx_t_2 = (!__pyx_t_1);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":395
+    /* "cycurl/_curl.pyx":397
  *     def __eq__(self, other):
  *         if not isinstance(other, Curl):
  *             return False             # <<<<<<<<<<<<<<
@@ -24352,7 +24364,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_14__eq__(struct __pyx_obj_6cycurl
     __pyx_r = Py_False;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":394
+    /* "cycurl/_curl.pyx":396
  * 
  *     def __eq__(self, other):
  *         if not isinstance(other, Curl):             # <<<<<<<<<<<<<<
@@ -24361,7 +24373,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_14__eq__(struct __pyx_obj_6cycurl
 */
   }
 
-  /* "cycurl/_curl.pyx":396
+  /* "cycurl/_curl.pyx":398
  *         if not isinstance(other, Curl):
  *             return False
  *         return self._curl == (<Curl>other)._curl             # <<<<<<<<<<<<<<
@@ -24369,13 +24381,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_14__eq__(struct __pyx_obj_6cycurl
  *     def __hash__(self):
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyBool_FromLong((__pyx_v_self->_curl == ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_other)->_curl)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBool_FromLong((__pyx_v_self->_curl == ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_other)->_curl)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 398, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":393
+  /* "cycurl/_curl.pyx":395
  *                 self.debug()
  * 
  *     def __eq__(self, other):             # <<<<<<<<<<<<<<
@@ -24394,7 +24406,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_14__eq__(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":398
+/* "cycurl/_curl.pyx":400
  *         return self._curl == (<Curl>other)._curl
  * 
  *     def __hash__(self):             # <<<<<<<<<<<<<<
@@ -24420,7 +24432,7 @@ static Py_hash_t __pyx_pw_6cycurl_5_curl_4Curl_17__hash__(PyObject *__pyx_v_self
 static Py_hash_t __pyx_pf_6cycurl_5_curl_4Curl_16__hash__(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self) {
   Py_hash_t __pyx_r;
 
-  /* "cycurl/_curl.pyx":399
+  /* "cycurl/_curl.pyx":401
  * 
  *     def __hash__(self):
  *         return <Py_hash_t>(self._curl)             # <<<<<<<<<<<<<<
@@ -24430,7 +24442,7 @@ static Py_hash_t __pyx_pf_6cycurl_5_curl_4Curl_16__hash__(struct __pyx_obj_6cycu
   __pyx_r = ((Py_hash_t)__pyx_v_self->_curl);
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":398
+  /* "cycurl/_curl.pyx":400
  *         return self._curl == (<Curl>other)._curl
  * 
  *     def __hash__(self):             # <<<<<<<<<<<<<<
@@ -24444,7 +24456,7 @@ static Py_hash_t __pyx_pf_6cycurl_5_curl_4Curl_16__hash__(struct __pyx_obj_6cycu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":401
+/* "cycurl/_curl.pyx":403
  *         return <Py_hash_t>(self._curl)
  * 
  *     def debug(self):             # <<<<<<<<<<<<<<
@@ -24504,25 +24516,25 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_18debug(struct __pyx_obj_6cycurl_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("debug", 0);
 
-  /* "cycurl/_curl.pyx":403
+  /* "cycurl/_curl.pyx":405
  *     def debug(self):
  *         """Set debug to True"""
  *         self.setopt(curl.CURLOPT_VERBOSE, 1)             # <<<<<<<<<<<<<<
  *         self.setopt(curl.CURLOPT_DEBUGFUNCTION, True)
  * 
 */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_VERBOSE, __pyx_mstate_global->__pyx_int_1, 0); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 403, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_VERBOSE, __pyx_mstate_global->__pyx_int_1, 0); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 405, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":404
+  /* "cycurl/_curl.pyx":406
  *         """Set debug to True"""
  *         self.setopt(curl.CURLOPT_VERBOSE, 1)
  *         self.setopt(curl.CURLOPT_DEBUGFUNCTION, True)             # <<<<<<<<<<<<<<
  * 
  *     cdef int _check_error(self, int errcode, str args) except -1:
 */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_DEBUGFUNCTION, Py_True, 0); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 404, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_DEBUGFUNCTION, Py_True, 0); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 406, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":401
+  /* "cycurl/_curl.pyx":403
  *         return <Py_hash_t>(self._curl)
  * 
  *     def debug(self):             # <<<<<<<<<<<<<<
@@ -24542,7 +24554,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_18debug(struct __pyx_obj_6cycurl_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":406
+/* "cycurl/_curl.pyx":408
  *         self.setopt(curl.CURLOPT_DEBUGFUNCTION, True)
  * 
  *     cdef int _check_error(self, int errcode, str args) except -1:             # <<<<<<<<<<<<<<
@@ -24561,7 +24573,7 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_check_error", 0);
 
-  /* "cycurl/_curl.pyx":407
+  /* "cycurl/_curl.pyx":409
  * 
  *     cdef int _check_error(self, int errcode, str args) except -1:
  *         if errcode == 0:             # <<<<<<<<<<<<<<
@@ -24571,7 +24583,7 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
   __pyx_t_1 = (__pyx_v_errcode == 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":408
+    /* "cycurl/_curl.pyx":410
  *     cdef int _check_error(self, int errcode, str args) except -1:
  *         if errcode == 0:
  *             return 0             # <<<<<<<<<<<<<<
@@ -24581,7 +24593,7 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":407
+    /* "cycurl/_curl.pyx":409
  * 
  *     cdef int _check_error(self, int errcode, str args) except -1:
  *         if errcode == 0:             # <<<<<<<<<<<<<<
@@ -24590,19 +24602,19 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
 */
   }
 
-  /* "cycurl/_curl.pyx":409
+  /* "cycurl/_curl.pyx":411
  *         if errcode == 0:
  *             return 0
  *         error = self._get_error(errcode, args)             # <<<<<<<<<<<<<<
  *         if error is not None:
  *             raise error
 */
-  __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__get_error(__pyx_v_self, __pyx_v_errcode, __pyx_v_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 409, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__get_error(__pyx_v_self, __pyx_v_errcode, __pyx_v_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 411, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_error = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":410
+  /* "cycurl/_curl.pyx":412
  *             return 0
  *         error = self._get_error(errcode, args)
  *         if error is not None:             # <<<<<<<<<<<<<<
@@ -24612,7 +24624,7 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
   __pyx_t_1 = (__pyx_v_error != Py_None);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":411
+    /* "cycurl/_curl.pyx":413
  *         error = self._get_error(errcode, args)
  *         if error is not None:
  *             raise error             # <<<<<<<<<<<<<<
@@ -24620,9 +24632,9 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
  *     cdef _get_error(self, int errcode, str args):
 */
     __Pyx_Raise(__pyx_v_error, 0, 0, 0);
-    __PYX_ERR(0, 411, __pyx_L1_error)
+    __PYX_ERR(0, 413, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":410
+    /* "cycurl/_curl.pyx":412
  *             return 0
  *         error = self._get_error(errcode, args)
  *         if error is not None:             # <<<<<<<<<<<<<<
@@ -24631,7 +24643,7 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
 */
   }
 
-  /* "cycurl/_curl.pyx":406
+  /* "cycurl/_curl.pyx":408
  *         self.setopt(curl.CURLOPT_DEBUGFUNCTION, True)
  * 
  *     cdef int _check_error(self, int errcode, str args) except -1:             # <<<<<<<<<<<<<<
@@ -24652,7 +24664,7 @@ static int __pyx_f_6cycurl_5_curl_4Curl__check_error(struct __pyx_obj_6cycurl_5_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":413
+/* "cycurl/_curl.pyx":415
  *             raise error
  * 
  *     cdef _get_error(self, int errcode, str args):             # <<<<<<<<<<<<<<
@@ -24678,7 +24690,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_get_error", 0);
 
-  /* "cycurl/_curl.pyx":414
+  /* "cycurl/_curl.pyx":416
  * 
  *     cdef _get_error(self, int errcode, str args):
  *         if errcode != 0:             # <<<<<<<<<<<<<<
@@ -24688,34 +24700,34 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
   __pyx_t_1 = (__pyx_v_errcode != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":415
+    /* "cycurl/_curl.pyx":417
  *     cdef _get_error(self, int errcode, str args):
  *         if errcode != 0:
  *             errmsg = (<bytes>self._error_buffer).decode(errors="backslashreplace")             # <<<<<<<<<<<<<<
  *             return CurlError(
  *                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "
 */
-    __pyx_t_4 = __Pyx_PyBytes_FromString(__pyx_v_self->_error_buffer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 415, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyBytes_FromString(__pyx_v_self->_error_buffer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 417, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_3 = __pyx_t_4;
     __Pyx_INCREF(__pyx_t_3);
     __pyx_t_5 = 0;
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_3, NULL};
-      __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 415, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 417, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_errors, __pyx_mstate_global->__pyx_n_u_backslashreplace, __pyx_t_6, __pyx_callargs+1, 0) < (0)) __PYX_ERR(0, 415, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_errors, __pyx_mstate_global->__pyx_n_u_backslashreplace, __pyx_t_6, __pyx_callargs+1, 0) < (0)) __PYX_ERR(0, 417, __pyx_L1_error)
       __pyx_t_2 = __Pyx_Object_VectorcallMethod_CallFromBuilder((PyObject*)__pyx_mstate_global->__pyx_n_u_decode, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 415, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_v_errmsg = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":416
+    /* "cycurl/_curl.pyx":418
  *         if errcode != 0:
  *             errmsg = (<bytes>self._error_buffer).decode(errors="backslashreplace")
  *             return CurlError(             # <<<<<<<<<<<<<<
@@ -24724,19 +24736,19 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 416, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 418, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
 
-    /* "cycurl/_curl.pyx":417
+    /* "cycurl/_curl.pyx":419
  *             errmsg = (<bytes>self._error_buffer).decode(errors="backslashreplace")
  *             return CurlError(
  *                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "             # <<<<<<<<<<<<<<
  *                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
  *                 code=errcode,
 */
-    __pyx_t_3 = __Pyx_PyUnicode_Unicode(__pyx_v_args); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 417, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyUnicode_Unicode(__pyx_v_args); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 419, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_7 = __Pyx_PyUnicode_From_int(__pyx_v_errcode, 0, ' ', 'd'); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 417, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyUnicode_From_int(__pyx_v_errcode, 0, ' ', 'd'); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 419, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_8[0] = __pyx_mstate_global->__pyx_kp_u_Failed_to;
     __pyx_t_8[1] = __pyx_t_3;
@@ -24746,19 +24758,19 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
     __pyx_t_8[5] = __pyx_v_errmsg;
     __pyx_t_8[6] = __pyx_mstate_global->__pyx_kp_u_See_https_curl_se_libcurl_c_lib;
     __pyx_t_9 = __Pyx_PyUnicode_Join(__pyx_t_8, 7, 10 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_3) + 9 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7) + 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_v_errmsg) + 75, 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_errmsg));
-    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 417, __pyx_L1_error)
+    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 419, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "cycurl/_curl.pyx":419
+    /* "cycurl/_curl.pyx":421
  *                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "
  *                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
  *                 code=errcode,             # <<<<<<<<<<<<<<
  *             )
  * 
 */
-    __pyx_t_7 = __Pyx_PyLong_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 419, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyLong_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 421, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_5 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -24774,23 +24786,23 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
     #endif
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_4, __pyx_t_9};
-      __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 416, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 418, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_code, __pyx_t_7, __pyx_t_3, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 416, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_code, __pyx_t_7, __pyx_t_3, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 418, __pyx_L1_error)
       __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_6, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 416, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 418, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":414
+    /* "cycurl/_curl.pyx":416
  * 
  *     cdef _get_error(self, int errcode, str args):
  *         if errcode != 0:             # <<<<<<<<<<<<<<
@@ -24799,7 +24811,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
 */
   }
 
-  /* "cycurl/_curl.pyx":413
+  /* "cycurl/_curl.pyx":415
  *             raise error
  * 
  *     cdef _get_error(self, int errcode, str args):             # <<<<<<<<<<<<<<
@@ -24826,7 +24838,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_4Curl__get_error(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":422
+/* "cycurl/_curl.pyx":424
  *             )
  * 
  *     cpdef inline int setopt(self, int option, object value) except -1:             # <<<<<<<<<<<<<<
@@ -24889,7 +24901,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __Pyx_RefNannySetupContext("setopt", 0);
   __Pyx_INCREF(__pyx_v_value);
 
-  /* "cycurl/_curl.pyx":442
+  /* "cycurl/_curl.pyx":444
  *         # print("option", option, "value", value)
  * 
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -24899,7 +24911,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_self->_curl == NULL);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":443
+    /* "cycurl/_curl.pyx":445
  * 
  *         if self._curl == NULL:
  *             return 0             # <<<<<<<<<<<<<<
@@ -24909,7 +24921,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":442
+    /* "cycurl/_curl.pyx":444
  *         # print("option", option, "value", value)
  * 
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -24918,7 +24930,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
   }
 
-  /* "cycurl/_curl.pyx":445
+  /* "cycurl/_curl.pyx":447
  *             return 0
  *         cdef:
  *             void* c_value = NULL             # <<<<<<<<<<<<<<
@@ -24927,7 +24939,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
   __pyx_v_c_value = NULL;
 
-  /* "cycurl/_curl.pyx":446
+  /* "cycurl/_curl.pyx":448
  *         cdef:
  *             void* c_value = NULL
  *             int value_type = option / 10000 * 10000  # "cdivision": True             # <<<<<<<<<<<<<<
@@ -24936,7 +24948,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
   __pyx_v_value_type = ((((long)__pyx_v_option) / 0x2710) * 0x2710);
 
-  /* "cycurl/_curl.pyx":450
+  /* "cycurl/_curl.pyx":452
  *             bytes bytesval
  *             int ret
  *         if value_type == 30000 or value_type == 0:             # <<<<<<<<<<<<<<
@@ -24954,17 +24966,17 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   }
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":452
+    /* "cycurl/_curl.pyx":454
  *         if value_type == 30000 or value_type == 0:
  *             # c_value = ffi.new("long*", value)
  *             intval = <int64_t>value             # <<<<<<<<<<<<<<
  *             c_value = <void*>&intval
  *         elif option == curl.CURLOPT_WRITEDATA:
 */
-    __pyx_t_2 = __Pyx_PyLong_As_int64_t(__pyx_v_value); if (unlikely((__pyx_t_2 == ((int64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 452, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyLong_As_int64_t(__pyx_v_value); if (unlikely((__pyx_t_2 == ((int64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 454, __pyx_L1_error)
     __pyx_v_intval = ((int64_t)__pyx_t_2);
 
-    /* "cycurl/_curl.pyx":453
+    /* "cycurl/_curl.pyx":455
  *             # c_value = ffi.new("long*", value)
  *             intval = <int64_t>value
  *             c_value = <void*>&intval             # <<<<<<<<<<<<<<
@@ -24973,7 +24985,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)(&__pyx_v_intval));
 
-    /* "cycurl/_curl.pyx":450
+    /* "cycurl/_curl.pyx":452
  *             bytes bytesval
  *             int ret
  *         if value_type == 30000 or value_type == 0:             # <<<<<<<<<<<<<<
@@ -24983,7 +24995,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":454
+  /* "cycurl/_curl.pyx":456
  *             intval = <int64_t>value
  *             c_value = <void*>&intval
  *         elif option == curl.CURLOPT_WRITEDATA:             # <<<<<<<<<<<<<<
@@ -24993,7 +25005,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_WRITEDATA);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":455
+    /* "cycurl/_curl.pyx":457
  *             c_value = <void*>&intval
  *         elif option == curl.CURLOPT_WRITEDATA:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -25002,7 +25014,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":456
+    /* "cycurl/_curl.pyx":458
  *         elif option == curl.CURLOPT_WRITEDATA:
  *             c_value = <void*>value
  *             self._write_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -25015,7 +25027,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_write_handle);
     __pyx_v_self->_write_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":457
+    /* "cycurl/_curl.pyx":459
  *             c_value = <void*>value
  *             self._write_handle = value # store a ref
  *             curl._curl_easy_setopt(             # <<<<<<<<<<<<<<
@@ -25024,7 +25036,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_WRITEFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_buffer_callback)));
 
-    /* "cycurl/_curl.pyx":454
+    /* "cycurl/_curl.pyx":456
  *             intval = <int64_t>value
  *             c_value = <void*>&intval
  *         elif option == curl.CURLOPT_WRITEDATA:             # <<<<<<<<<<<<<<
@@ -25034,7 +25046,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":460
+  /* "cycurl/_curl.pyx":462
  *                 self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>buffer_callback
  *             )
  *         elif option == curl.CURLOPT_HEADERDATA:             # <<<<<<<<<<<<<<
@@ -25044,7 +25056,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_HEADERDATA);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":461
+    /* "cycurl/_curl.pyx":463
  *             )
  *         elif option == curl.CURLOPT_HEADERDATA:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -25053,7 +25065,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":462
+    /* "cycurl/_curl.pyx":464
  *         elif option == curl.CURLOPT_HEADERDATA:
  *             c_value = <void*>value
  *             self._header_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -25066,7 +25078,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_header_handle);
     __pyx_v_self->_header_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":463
+    /* "cycurl/_curl.pyx":465
  *             c_value = <void*>value
  *             self._header_handle = value # store a ref
  *             curl._curl_easy_setopt(             # <<<<<<<<<<<<<<
@@ -25075,7 +25087,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_HEADERFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_buffer_callback)));
 
-    /* "cycurl/_curl.pyx":460
+    /* "cycurl/_curl.pyx":462
  *                 self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>buffer_callback
  *             )
  *         elif option == curl.CURLOPT_HEADERDATA:             # <<<<<<<<<<<<<<
@@ -25085,7 +25097,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":466
+  /* "cycurl/_curl.pyx":468
  *                 self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>buffer_callback
  *             )
  *         elif option == curl.CURLOPT_WRITEFUNCTION:             # <<<<<<<<<<<<<<
@@ -25095,7 +25107,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_WRITEFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":467
+    /* "cycurl/_curl.pyx":469
  *             )
  *         elif option == curl.CURLOPT_WRITEFUNCTION:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -25104,7 +25116,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":468
+    /* "cycurl/_curl.pyx":470
  *         elif option == curl.CURLOPT_WRITEFUNCTION:
  *             c_value = <void*>value
  *             self._write_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -25117,7 +25129,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_write_handle);
     __pyx_v_self->_write_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":469
+    /* "cycurl/_curl.pyx":471
  *             c_value = <void*>value
  *             self._write_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>write_callback)             # <<<<<<<<<<<<<<
@@ -25126,7 +25138,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_WRITEFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_write_callback)));
 
-    /* "cycurl/_curl.pyx":470
+    /* "cycurl/_curl.pyx":472
  *             self._write_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_WRITEDATA             # <<<<<<<<<<<<<<
@@ -25135,7 +25147,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_option = CURLOPT_WRITEDATA;
 
-    /* "cycurl/_curl.pyx":466
+    /* "cycurl/_curl.pyx":468
  *                 self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>buffer_callback
  *             )
  *         elif option == curl.CURLOPT_WRITEFUNCTION:             # <<<<<<<<<<<<<<
@@ -25145,7 +25157,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":471
+  /* "cycurl/_curl.pyx":473
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_WRITEDATA
  *         elif option == curl.CURLOPT_HEADERFUNCTION:             # <<<<<<<<<<<<<<
@@ -25155,7 +25167,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_HEADERFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":472
+    /* "cycurl/_curl.pyx":474
  *             option = curl.CURLOPT_WRITEDATA
  *         elif option == curl.CURLOPT_HEADERFUNCTION:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -25164,7 +25176,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":473
+    /* "cycurl/_curl.pyx":475
  *         elif option == curl.CURLOPT_HEADERFUNCTION:
  *             c_value = <void*>value
  *             self._header_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -25177,7 +25189,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_header_handle);
     __pyx_v_self->_header_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":474
+    /* "cycurl/_curl.pyx":476
  *             c_value = <void*>value
  *             self._header_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)             # <<<<<<<<<<<<<<
@@ -25186,7 +25198,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_HEADERFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_write_callback)));
 
-    /* "cycurl/_curl.pyx":475
+    /* "cycurl/_curl.pyx":477
  *             self._header_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_HEADERDATA             # <<<<<<<<<<<<<<
@@ -25195,7 +25207,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_option = CURLOPT_HEADERDATA;
 
-    /* "cycurl/_curl.pyx":471
+    /* "cycurl/_curl.pyx":473
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_WRITEDATA
  *         elif option == curl.CURLOPT_HEADERFUNCTION:             # <<<<<<<<<<<<<<
@@ -25205,7 +25217,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":476
+  /* "cycurl/_curl.pyx":478
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_HEADERDATA
  *         elif option == curl.CURLOPT_DEBUGFUNCTION:             # <<<<<<<<<<<<<<
@@ -25215,7 +25227,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_DEBUGFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":477
+    /* "cycurl/_curl.pyx":479
  *             option = curl.CURLOPT_HEADERDATA
  *         elif option == curl.CURLOPT_DEBUGFUNCTION:
  *             if value is True:             # <<<<<<<<<<<<<<
@@ -25225,19 +25237,19 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_t_1 = (__pyx_v_value == Py_True);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":478
+      /* "cycurl/_curl.pyx":480
  *         elif option == curl.CURLOPT_DEBUGFUNCTION:
  *             if value is True:
  *                 value = debug_function_default             # <<<<<<<<<<<<<<
  *             c_value = <void*>value
  *             self._debug_handle = value # store a ref
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug_function_default); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 478, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug_function_default); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 480, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF_SET(__pyx_v_value, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "cycurl/_curl.pyx":477
+      /* "cycurl/_curl.pyx":479
  *             option = curl.CURLOPT_HEADERDATA
  *         elif option == curl.CURLOPT_DEBUGFUNCTION:
  *             if value is True:             # <<<<<<<<<<<<<<
@@ -25246,7 +25258,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     }
 
-    /* "cycurl/_curl.pyx":479
+    /* "cycurl/_curl.pyx":481
  *             if value is True:
  *                 value = debug_function_default
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -25255,7 +25267,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":480
+    /* "cycurl/_curl.pyx":482
  *                 value = debug_function_default
  *             c_value = <void*>value
  *             self._debug_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -25268,7 +25280,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_debug_handle);
     __pyx_v_self->_debug_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":481
+    /* "cycurl/_curl.pyx":483
  *             c_value = <void*>value
  *             self._debug_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)             # <<<<<<<<<<<<<<
@@ -25277,7 +25289,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_DEBUGFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_debug_function)));
 
-    /* "cycurl/_curl.pyx":482
+    /* "cycurl/_curl.pyx":484
  *             self._debug_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  *             option = curl.CURLOPT_DEBUGDATA             # <<<<<<<<<<<<<<
@@ -25286,7 +25298,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_option = CURLOPT_DEBUGDATA;
 
-    /* "cycurl/_curl.pyx":476
+    /* "cycurl/_curl.pyx":478
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)
  *             option = curl.CURLOPT_HEADERDATA
  *         elif option == curl.CURLOPT_DEBUGFUNCTION:             # <<<<<<<<<<<<<<
@@ -25296,7 +25308,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":483
+  /* "cycurl/_curl.pyx":485
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  *             option = curl.CURLOPT_DEBUGDATA
  *         elif option == curl.CURLOPT_READFUNCTION:             # <<<<<<<<<<<<<<
@@ -25306,7 +25318,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_READFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":484
+    /* "cycurl/_curl.pyx":486
  *             option = curl.CURLOPT_DEBUGDATA
  *         elif option == curl.CURLOPT_READFUNCTION:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -25315,7 +25327,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":485
+    /* "cycurl/_curl.pyx":487
  *         elif option == curl.CURLOPT_READFUNCTION:
  *             c_value = <void*>value
  *             self._read_handle = value # store a ref             # <<<<<<<<<<<<<<
@@ -25328,7 +25340,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_read_handle);
     __pyx_v_self->_read_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":486
+    /* "cycurl/_curl.pyx":488
  *             c_value = <void*>value
  *             self._read_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_READFUNCTION, <void*>read_callback)             # <<<<<<<<<<<<<<
@@ -25337,7 +25349,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_READFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_read_callback)));
 
-    /* "cycurl/_curl.pyx":487
+    /* "cycurl/_curl.pyx":489
  *             self._read_handle = value # store a ref
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_READFUNCTION, <void*>read_callback)
  *             option = curl.CURLOPT_READDATA             # <<<<<<<<<<<<<<
@@ -25346,7 +25358,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_option = CURLOPT_READDATA;
 
-    /* "cycurl/_curl.pyx":483
+    /* "cycurl/_curl.pyx":485
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
  *             option = curl.CURLOPT_DEBUGDATA
  *         elif option == curl.CURLOPT_READFUNCTION:             # <<<<<<<<<<<<<<
@@ -25356,7 +25368,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":488
+  /* "cycurl/_curl.pyx":490
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_READFUNCTION, <void*>read_callback)
  *             option = curl.CURLOPT_READDATA
  *         elif option == curl.CURLOPT_SEEKFUNCTION:             # <<<<<<<<<<<<<<
@@ -25366,7 +25378,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_SEEKFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":489
+    /* "cycurl/_curl.pyx":491
  *             option = curl.CURLOPT_READDATA
  *         elif option == curl.CURLOPT_SEEKFUNCTION:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -25375,7 +25387,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":490
+    /* "cycurl/_curl.pyx":492
  *         elif option == curl.CURLOPT_SEEKFUNCTION:
  *             c_value = <void*>value
  *             self._seek_handle = value             # <<<<<<<<<<<<<<
@@ -25388,7 +25400,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_seek_handle);
     __pyx_v_self->_seek_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":491
+    /* "cycurl/_curl.pyx":493
  *             c_value = <void*>value
  *             self._seek_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_SEEKFUNCTION, <void*>seek_callback)             # <<<<<<<<<<<<<<
@@ -25397,7 +25409,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_SEEKFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_seek_callback)));
 
-    /* "cycurl/_curl.pyx":492
+    /* "cycurl/_curl.pyx":494
  *             self._seek_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_SEEKFUNCTION, <void*>seek_callback)
  *             option = curl.CURLOPT_SEEKDATA             # <<<<<<<<<<<<<<
@@ -25406,7 +25418,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_option = CURLOPT_SEEKDATA;
 
-    /* "cycurl/_curl.pyx":488
+    /* "cycurl/_curl.pyx":490
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_READFUNCTION, <void*>read_callback)
  *             option = curl.CURLOPT_READDATA
  *         elif option == curl.CURLOPT_SEEKFUNCTION:             # <<<<<<<<<<<<<<
@@ -25416,7 +25428,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":493
+  /* "cycurl/_curl.pyx":495
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_SEEKFUNCTION, <void*>seek_callback)
  *             option = curl.CURLOPT_SEEKDATA
  *         elif option == curl.CURLOPT_TRAILERFUNCTION:             # <<<<<<<<<<<<<<
@@ -25426,7 +25438,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_TRAILERFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":494
+    /* "cycurl/_curl.pyx":496
  *             option = curl.CURLOPT_SEEKDATA
  *         elif option == curl.CURLOPT_TRAILERFUNCTION:
  *             c_value = <void*>value             # <<<<<<<<<<<<<<
@@ -25435,7 +25447,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":495
+    /* "cycurl/_curl.pyx":497
  *         elif option == curl.CURLOPT_TRAILERFUNCTION:
  *             c_value = <void*>value
  *             self._trailer_handle = value             # <<<<<<<<<<<<<<
@@ -25448,7 +25460,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_trailer_handle);
     __pyx_v_self->_trailer_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":496
+    /* "cycurl/_curl.pyx":498
  *             c_value = <void*>value
  *             self._trailer_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_TRAILERFUNCTION, <void*>trailer_callback)             # <<<<<<<<<<<<<<
@@ -25457,7 +25469,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_TRAILERFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_trailer_callback)));
 
-    /* "cycurl/_curl.pyx":497
+    /* "cycurl/_curl.pyx":499
  *             self._trailer_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_TRAILERFUNCTION, <void*>trailer_callback)
  *             option = curl.CURLOPT_TRAILERDATA             # <<<<<<<<<<<<<<
@@ -25466,7 +25478,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_option = CURLOPT_TRAILERDATA;
 
-    /* "cycurl/_curl.pyx":493
+    /* "cycurl/_curl.pyx":495
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_SEEKFUNCTION, <void*>seek_callback)
  *             option = curl.CURLOPT_SEEKDATA
  *         elif option == curl.CURLOPT_TRAILERFUNCTION:             # <<<<<<<<<<<<<<
@@ -25476,7 +25488,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":498
+  /* "cycurl/_curl.pyx":500
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_TRAILERFUNCTION, <void*>trailer_callback)
  *             option = curl.CURLOPT_TRAILERDATA
  *         elif option == curl.CURLOPT_PREREQFUNCTION:             # <<<<<<<<<<<<<<
@@ -25486,7 +25498,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_PREREQFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":499
+    /* "cycurl/_curl.pyx":501
  *             option = curl.CURLOPT_TRAILERDATA
  *         elif option == curl.CURLOPT_PREREQFUNCTION:
  *             c_value = <void *> value             # <<<<<<<<<<<<<<
@@ -25495,7 +25507,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":500
+    /* "cycurl/_curl.pyx":502
  *         elif option == curl.CURLOPT_PREREQFUNCTION:
  *             c_value = <void *> value
  *             self._prereq_handle = value             # <<<<<<<<<<<<<<
@@ -25508,7 +25520,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_prereq_handle);
     __pyx_v_self->_prereq_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":501
+    /* "cycurl/_curl.pyx":503
  *             c_value = <void *> value
  *             self._prereq_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_PREREQFUNCTION, <void *> prereq_callback)             # <<<<<<<<<<<<<<
@@ -25517,7 +25529,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_PREREQFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_prereq_callback)));
 
-    /* "cycurl/_curl.pyx":502
+    /* "cycurl/_curl.pyx":504
  *             self._prereq_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_PREREQFUNCTION, <void *> prereq_callback)
  *             option = curl.CURLOPT_PREREQDATA             # <<<<<<<<<<<<<<
@@ -25526,7 +25538,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_option = CURLOPT_PREREQDATA;
 
-    /* "cycurl/_curl.pyx":498
+    /* "cycurl/_curl.pyx":500
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_TRAILERFUNCTION, <void*>trailer_callback)
  *             option = curl.CURLOPT_TRAILERDATA
  *         elif option == curl.CURLOPT_PREREQFUNCTION:             # <<<<<<<<<<<<<<
@@ -25536,7 +25548,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":503
+  /* "cycurl/_curl.pyx":505
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_PREREQFUNCTION, <void *> prereq_callback)
  *             option = curl.CURLOPT_PREREQDATA
  *         elif option == curl.CURLOPT_XFERINFOFUNCTION:             # <<<<<<<<<<<<<<
@@ -25546,7 +25558,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_XFERINFOFUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":504
+    /* "cycurl/_curl.pyx":506
  *             option = curl.CURLOPT_PREREQDATA
  *         elif option == curl.CURLOPT_XFERINFOFUNCTION:
  *             c_value = <void *> value             # <<<<<<<<<<<<<<
@@ -25555,7 +25567,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":505
+    /* "cycurl/_curl.pyx":507
  *         elif option == curl.CURLOPT_XFERINFOFUNCTION:
  *             c_value = <void *> value
  *             self._xferinfo_handle = value             # <<<<<<<<<<<<<<
@@ -25568,7 +25580,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_xferinfo_handle);
     __pyx_v_self->_xferinfo_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":506
+    /* "cycurl/_curl.pyx":508
  *             c_value = <void *> value
  *             self._xferinfo_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_XFERINFOFUNCTION, <void *> xferinfo_callback)             # <<<<<<<<<<<<<<
@@ -25577,7 +25589,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_XFERINFOFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_xferinfo_callback)));
 
-    /* "cycurl/_curl.pyx":507
+    /* "cycurl/_curl.pyx":509
  *             self._xferinfo_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_XFERINFOFUNCTION, <void *> xferinfo_callback)
  *             option = curl.CURLOPT_XFERINFODATA             # <<<<<<<<<<<<<<
@@ -25586,7 +25598,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_option = CURLOPT_XFERINFODATA;
 
-    /* "cycurl/_curl.pyx":503
+    /* "cycurl/_curl.pyx":505
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_PREREQFUNCTION, <void *> prereq_callback)
  *             option = curl.CURLOPT_PREREQDATA
  *         elif option == curl.CURLOPT_XFERINFOFUNCTION:             # <<<<<<<<<<<<<<
@@ -25596,7 +25608,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":508
+  /* "cycurl/_curl.pyx":510
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_XFERINFOFUNCTION, <void *> xferinfo_callback)
  *             option = curl.CURLOPT_XFERINFODATA
  *         elif option == curl.CURLOPT_FNMATCH_FUNCTION:             # <<<<<<<<<<<<<<
@@ -25606,7 +25618,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_FNMATCH_FUNCTION);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":509
+    /* "cycurl/_curl.pyx":511
  *             option = curl.CURLOPT_XFERINFODATA
  *         elif option == curl.CURLOPT_FNMATCH_FUNCTION:
  *             c_value = <void *> value             # <<<<<<<<<<<<<<
@@ -25615,7 +25627,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_c_value = ((void *)__pyx_v_value);
 
-    /* "cycurl/_curl.pyx":510
+    /* "cycurl/_curl.pyx":512
  *         elif option == curl.CURLOPT_FNMATCH_FUNCTION:
  *             c_value = <void *> value
  *             self._fnmatch_handle = value             # <<<<<<<<<<<<<<
@@ -25628,7 +25640,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __Pyx_DECREF(__pyx_v_self->_fnmatch_handle);
     __pyx_v_self->_fnmatch_handle = __pyx_v_value;
 
-    /* "cycurl/_curl.pyx":511
+    /* "cycurl/_curl.pyx":513
  *             c_value = <void *> value
  *             self._fnmatch_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_FNMATCH_FUNCTION, <void *> fnmatch_callback)             # <<<<<<<<<<<<<<
@@ -25637,7 +25649,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     (void)(_curl_easy_setopt(__pyx_v_self->_curl, CURLOPT_FNMATCH_FUNCTION, ((void *)__pyx_f_6cycurl_5_curl_fnmatch_callback)));
 
-    /* "cycurl/_curl.pyx":512
+    /* "cycurl/_curl.pyx":514
  *             self._fnmatch_handle = value
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_FNMATCH_FUNCTION, <void *> fnmatch_callback)
  *             option = curl.CURLOPT_FNMATCH_DATA             # <<<<<<<<<<<<<<
@@ -25646,7 +25658,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_option = CURLOPT_FNMATCH_DATA;
 
-    /* "cycurl/_curl.pyx":508
+    /* "cycurl/_curl.pyx":510
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_XFERINFOFUNCTION, <void *> xferinfo_callback)
  *             option = curl.CURLOPT_XFERINFODATA
  *         elif option == curl.CURLOPT_FNMATCH_FUNCTION:             # <<<<<<<<<<<<<<
@@ -25656,7 +25668,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":513
+  /* "cycurl/_curl.pyx":515
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_FNMATCH_FUNCTION, <void *> fnmatch_callback)
  *             option = curl.CURLOPT_FNMATCH_DATA
  *         elif value_type == 10000:             # <<<<<<<<<<<<<<
@@ -25666,7 +25678,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_value_type == 0x2710);
   if (likely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":514
+    /* "cycurl/_curl.pyx":516
  *             option = curl.CURLOPT_FNMATCH_DATA
  *         elif value_type == 10000:
  *             if isinstance(value, str):             # <<<<<<<<<<<<<<
@@ -25676,188 +25688,188 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_t_1 = PyUnicode_Check(__pyx_v_value); 
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":519
+      /* "cycurl/_curl.pyx":521
  *                 # Encode file-path-like options using the system encoding on Windows.
  *                 filepath_opts = {
  *                     CURLOPT_CAINFO,             # <<<<<<<<<<<<<<
  *                     CURLOPT_CAPATH,
  *                     CURLOPT_PROXY_CAINFO,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAINFO); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 519, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAINFO); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
 
-      /* "cycurl/_curl.pyx":520
+      /* "cycurl/_curl.pyx":522
  *                 filepath_opts = {
  *                     CURLOPT_CAINFO,
  *                     CURLOPT_CAPATH,             # <<<<<<<<<<<<<<
  *                     CURLOPT_PROXY_CAINFO,
  *                     CURLOPT_PROXY_CAPATH,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAPATH); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 520, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURLOPT_CAPATH); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 522, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
 
-      /* "cycurl/_curl.pyx":521
+      /* "cycurl/_curl.pyx":523
  *                     CURLOPT_CAINFO,
  *                     CURLOPT_CAPATH,
  *                     CURLOPT_PROXY_CAINFO,             # <<<<<<<<<<<<<<
  *                     CURLOPT_PROXY_CAPATH,
  *                     CURLOPT_SSLCERT,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 521, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAINFO); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 523, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
 
-      /* "cycurl/_curl.pyx":522
+      /* "cycurl/_curl.pyx":524
  *                     CURLOPT_CAPATH,
  *                     CURLOPT_PROXY_CAINFO,
  *                     CURLOPT_PROXY_CAPATH,             # <<<<<<<<<<<<<<
  *                     CURLOPT_SSLCERT,
  *                     CURLOPT_SSLKEY,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAPATH); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 522, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROXY_CAPATH); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 524, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
 
-      /* "cycurl/_curl.pyx":523
+      /* "cycurl/_curl.pyx":525
  *                     CURLOPT_PROXY_CAINFO,
  *                     CURLOPT_PROXY_CAPATH,
  *                     CURLOPT_SSLCERT,             # <<<<<<<<<<<<<<
  *                     CURLOPT_SSLKEY,
  *                     CURLOPT_CRLFILE,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERT); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 523, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERT); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 525, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "cycurl/_curl.pyx":524
+      /* "cycurl/_curl.pyx":526
  *                     CURLOPT_PROXY_CAPATH,
  *                     CURLOPT_SSLCERT,
  *                     CURLOPT_SSLKEY,             # <<<<<<<<<<<<<<
  *                     CURLOPT_CRLFILE,
  *                     CURLOPT_ISSUERCERT,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEY); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 524, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEY); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 526, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
 
-      /* "cycurl/_curl.pyx":525
+      /* "cycurl/_curl.pyx":527
  *                     CURLOPT_SSLCERT,
  *                     CURLOPT_SSLKEY,
  *                     CURLOPT_CRLFILE,             # <<<<<<<<<<<<<<
  *                     CURLOPT_ISSUERCERT,
  *                     CURLOPT_SSH_PUBLIC_KEYFILE,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_CURLOPT_CRLFILE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 525, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_CURLOPT_CRLFILE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 527, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
 
-      /* "cycurl/_curl.pyx":526
+      /* "cycurl/_curl.pyx":528
  *                     CURLOPT_SSLKEY,
  *                     CURLOPT_CRLFILE,
  *                     CURLOPT_ISSUERCERT,             # <<<<<<<<<<<<<<
  *                     CURLOPT_SSH_PUBLIC_KEYFILE,
  *                     CURLOPT_SSH_PRIVATE_KEYFILE,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_CURLOPT_ISSUERCERT); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 526, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_CURLOPT_ISSUERCERT); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 528, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
 
-      /* "cycurl/_curl.pyx":527
+      /* "cycurl/_curl.pyx":529
  *                     CURLOPT_CRLFILE,
  *                     CURLOPT_ISSUERCERT,
  *                     CURLOPT_SSH_PUBLIC_KEYFILE,             # <<<<<<<<<<<<<<
  *                     CURLOPT_SSH_PRIVATE_KEYFILE,
  *                     CURLOPT_COOKIEFILE,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_PUBLIC_KEYFILE); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 527, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_PUBLIC_KEYFILE); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 529, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
 
-      /* "cycurl/_curl.pyx":528
+      /* "cycurl/_curl.pyx":530
  *                     CURLOPT_ISSUERCERT,
  *                     CURLOPT_SSH_PUBLIC_KEYFILE,
  *                     CURLOPT_SSH_PRIVATE_KEYFILE,             # <<<<<<<<<<<<<<
  *                     CURLOPT_COOKIEFILE,
  *                     CURLOPT_COOKIEJAR,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_PRIVATE_KEYFILE); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 528, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSH_PRIVATE_KEYFILE); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 530, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
 
-      /* "cycurl/_curl.pyx":529
+      /* "cycurl/_curl.pyx":531
  *                     CURLOPT_SSH_PUBLIC_KEYFILE,
  *                     CURLOPT_SSH_PRIVATE_KEYFILE,
  *                     CURLOPT_COOKIEFILE,             # <<<<<<<<<<<<<<
  *                     CURLOPT_COOKIEJAR,
  *                     CURLOPT_NETRC_FILE,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIEFILE); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 529, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIEFILE); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 531, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
 
-      /* "cycurl/_curl.pyx":530
+      /* "cycurl/_curl.pyx":532
  *                     CURLOPT_SSH_PRIVATE_KEYFILE,
  *                     CURLOPT_COOKIEFILE,
  *                     CURLOPT_COOKIEJAR,             # <<<<<<<<<<<<<<
  *                     CURLOPT_NETRC_FILE,
  *                     CURLOPT_UNIX_SOCKET_PATH,
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIEJAR); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 530, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_CURLOPT_COOKIEJAR); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 532, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_14);
 
-      /* "cycurl/_curl.pyx":531
+      /* "cycurl/_curl.pyx":533
  *                     CURLOPT_COOKIEFILE,
  *                     CURLOPT_COOKIEJAR,
  *                     CURLOPT_NETRC_FILE,             # <<<<<<<<<<<<<<
  *                     CURLOPT_UNIX_SOCKET_PATH,
  *                 }
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_CURLOPT_NETRC_FILE); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 531, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_CURLOPT_NETRC_FILE); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 533, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
 
-      /* "cycurl/_curl.pyx":532
+      /* "cycurl/_curl.pyx":534
  *                     CURLOPT_COOKIEJAR,
  *                     CURLOPT_NETRC_FILE,
  *                     CURLOPT_UNIX_SOCKET_PATH,             # <<<<<<<<<<<<<<
  *                 }
  *                 if sys.platform.startswith("win") and option in filepath_opts:
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_16, __pyx_mstate_global->__pyx_n_u_CURLOPT_UNIX_SOCKET_PATH); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 532, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_16, __pyx_mstate_global->__pyx_n_u_CURLOPT_UNIX_SOCKET_PATH); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 534, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_16);
-      __pyx_t_17 = PySet_New(0); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 519, __pyx_L1_error)
+      __pyx_t_17 = PySet_New(0); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      if (PySet_Add(__pyx_t_17, __pyx_t_3) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_3) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_4) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_4) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_5) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_5) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_6) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_6) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_7) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_7) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_8) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_8) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_9) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_9) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_10) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_10) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_11) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_11) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_12) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_12) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_13) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_13) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_14) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_14) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_15) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_15) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-      if (PySet_Add(__pyx_t_17, __pyx_t_16) < (0)) __PYX_ERR(0, 519, __pyx_L1_error)
+      if (PySet_Add(__pyx_t_17, __pyx_t_16) < (0)) __PYX_ERR(0, 521, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
       __pyx_v_filepath_opts = ((PyObject*)__pyx_t_17);
       __pyx_t_17 = 0;
 
-      /* "cycurl/_curl.pyx":534
+      /* "cycurl/_curl.pyx":536
  *                     CURLOPT_UNIX_SOCKET_PATH,
  *                 }
  *                 if sys.platform.startswith("win") and option in filepath_opts:             # <<<<<<<<<<<<<<
  *                     # Use the process ANSI code page to match what CRT fopen expects.
  *                     enc = locale.getpreferredencoding(False)
 */
-      __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_sys); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 534, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_sys); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
-      __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_platform); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 534, __pyx_L1_error)
+      __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_platform); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_14);
       __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
       __pyx_t_16 = __pyx_t_14;
@@ -25868,25 +25880,25 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
         __pyx_t_17 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_startswith, __pyx_callargs+__pyx_t_18, (2-__pyx_t_18) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
         __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-        if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 534, __pyx_L1_error)
+        if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 536, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_17);
       }
-      __pyx_t_19 = __Pyx_PyObject_IsTrue(__pyx_t_17); if (unlikely((__pyx_t_19 < 0))) __PYX_ERR(0, 534, __pyx_L1_error)
+      __pyx_t_19 = __Pyx_PyObject_IsTrue(__pyx_t_17); if (unlikely((__pyx_t_19 < 0))) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
       if (__pyx_t_19) {
       } else {
         __pyx_t_1 = __pyx_t_19;
         goto __pyx_L8_bool_binop_done;
       }
-      __pyx_t_17 = __Pyx_PyLong_From_int(__pyx_v_option); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 534, __pyx_L1_error)
+      __pyx_t_17 = __Pyx_PyLong_From_int(__pyx_v_option); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      __pyx_t_19 = (__Pyx_PySet_ContainsTF(__pyx_t_17, __pyx_v_filepath_opts, Py_EQ)); if (unlikely((__pyx_t_19 < 0))) __PYX_ERR(0, 534, __pyx_L1_error)
+      __pyx_t_19 = (__Pyx_PySet_ContainsTF(__pyx_t_17, __pyx_v_filepath_opts, Py_EQ)); if (unlikely((__pyx_t_19 < 0))) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
       __pyx_t_1 = __pyx_t_19;
       __pyx_L8_bool_binop_done:;
       if (__pyx_t_1) {
 
-        /* "cycurl/_curl.pyx":536
+        /* "cycurl/_curl.pyx":538
  *                 if sys.platform.startswith("win") and option in filepath_opts:
  *                     # Use the process ANSI code page to match what CRT fopen expects.
  *                     enc = locale.getpreferredencoding(False)             # <<<<<<<<<<<<<<
@@ -25894,9 +25906,9 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
  *                 else:
 */
         __pyx_t_14 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_16, __pyx_mstate_global->__pyx_n_u_locale); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 536, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_16, __pyx_mstate_global->__pyx_n_u_locale); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 538, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_16);
-        __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_16, __pyx_mstate_global->__pyx_n_u_getpreferredencoding); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 536, __pyx_L1_error)
+        __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_16, __pyx_mstate_global->__pyx_n_u_getpreferredencoding); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 538, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_15);
         __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
         __pyx_t_18 = 1;
@@ -25916,13 +25928,13 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           __pyx_t_17 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_15, __pyx_callargs+__pyx_t_18, (2-__pyx_t_18) | (__pyx_t_18*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
           __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-          if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 536, __pyx_L1_error)
+          if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 538, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_17);
         }
         __pyx_v_enc = __pyx_t_17;
         __pyx_t_17 = 0;
 
-        /* "cycurl/_curl.pyx":537
+        /* "cycurl/_curl.pyx":539
  *                     # Use the process ANSI code page to match what CRT fopen expects.
  *                     enc = locale.getpreferredencoding(False)
  *                     bytesval = value.encode(enc, errors="strict")             # <<<<<<<<<<<<<<
@@ -25934,20 +25946,20 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
         __pyx_t_18 = 0;
         {
           PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_15, __pyx_v_enc};
-          __pyx_t_14 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 537, __pyx_L1_error)
+          __pyx_t_14 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 539, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_14);
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_errors, __pyx_mstate_global->__pyx_n_u_strict, __pyx_t_14, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 537, __pyx_L1_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_errors, __pyx_mstate_global->__pyx_n_u_strict, __pyx_t_14, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 539, __pyx_L1_error)
           __pyx_t_17 = __Pyx_Object_VectorcallMethod_CallFromBuilder((PyObject*)__pyx_mstate_global->__pyx_n_u_encode, __pyx_callargs+__pyx_t_18, (2-__pyx_t_18) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_14);
           __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
           __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-          if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 537, __pyx_L1_error)
+          if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 539, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_17);
         }
-        if (!(likely(PyBytes_CheckExact(__pyx_t_17))||((__pyx_t_17) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_17))) __PYX_ERR(0, 537, __pyx_L1_error)
+        if (!(likely(PyBytes_CheckExact(__pyx_t_17))||((__pyx_t_17) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_17))) __PYX_ERR(0, 539, __pyx_L1_error)
         __pyx_v_bytesval = ((PyObject*)__pyx_t_17);
         __pyx_t_17 = 0;
 
-        /* "cycurl/_curl.pyx":534
+        /* "cycurl/_curl.pyx":536
  *                     CURLOPT_UNIX_SOCKET_PATH,
  *                 }
  *                 if sys.platform.startswith("win") and option in filepath_opts:             # <<<<<<<<<<<<<<
@@ -25957,7 +25969,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
         goto __pyx_L7;
       }
 
-      /* "cycurl/_curl.pyx":539
+      /* "cycurl/_curl.pyx":541
  *                     bytesval = value.encode(enc, errors="strict")
  *                 else:
  *                     bytesval = value.encode()             # <<<<<<<<<<<<<<
@@ -25972,16 +25984,16 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           PyObject *__pyx_callargs[2] = {__pyx_t_14, NULL};
           __pyx_t_17 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_encode, __pyx_callargs+__pyx_t_18, (1-__pyx_t_18) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
-          if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 539, __pyx_L1_error)
+          if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 541, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_17);
         }
-        if (!(likely(PyBytes_CheckExact(__pyx_t_17))||((__pyx_t_17) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_17))) __PYX_ERR(0, 539, __pyx_L1_error)
+        if (!(likely(PyBytes_CheckExact(__pyx_t_17))||((__pyx_t_17) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_17))) __PYX_ERR(0, 541, __pyx_L1_error)
         __pyx_v_bytesval = ((PyObject*)__pyx_t_17);
         __pyx_t_17 = 0;
       }
       __pyx_L7:;
 
-      /* "cycurl/_curl.pyx":540
+      /* "cycurl/_curl.pyx":542
  *                 else:
  *                     bytesval = value.encode()
  *                 c_value = <void *> <const char *> bytesval             # <<<<<<<<<<<<<<
@@ -25990,12 +26002,12 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
       if (unlikely(__pyx_v_bytesval == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-        __PYX_ERR(0, 540, __pyx_L1_error)
+        __PYX_ERR(0, 542, __pyx_L1_error)
       }
-      __pyx_t_20 = __Pyx_PyBytes_AsString(__pyx_v_bytesval); if (unlikely((!__pyx_t_20) && PyErr_Occurred())) __PYX_ERR(0, 540, __pyx_L1_error)
+      __pyx_t_20 = __Pyx_PyBytes_AsString(__pyx_v_bytesval); if (unlikely((!__pyx_t_20) && PyErr_Occurred())) __PYX_ERR(0, 542, __pyx_L1_error)
       __pyx_v_c_value = ((void *)((char const *)__pyx_t_20));
 
-      /* "cycurl/_curl.pyx":514
+      /* "cycurl/_curl.pyx":516
  *             option = curl.CURLOPT_FNMATCH_DATA
  *         elif value_type == 10000:
  *             if isinstance(value, str):             # <<<<<<<<<<<<<<
@@ -26005,7 +26017,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       goto __pyx_L6;
     }
 
-    /* "cycurl/_curl.pyx":542
+    /* "cycurl/_curl.pyx":544
  *                 c_value = <void *> <const char *> bytesval
  *                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
  *             elif isinstance(value, bytes):             # <<<<<<<<<<<<<<
@@ -26015,7 +26027,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_t_1 = PyBytes_Check(__pyx_v_value); 
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":543
+      /* "cycurl/_curl.pyx":545
  *                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
  *             elif isinstance(value, bytes):
  *                 bytesval = value             # <<<<<<<<<<<<<<
@@ -26024,11 +26036,11 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
       __pyx_t_17 = __pyx_v_value;
       __Pyx_INCREF(__pyx_t_17);
-      if (!(likely(PyBytes_CheckExact(__pyx_t_17))||((__pyx_t_17) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_17))) __PYX_ERR(0, 543, __pyx_L1_error)
+      if (!(likely(PyBytes_CheckExact(__pyx_t_17))||((__pyx_t_17) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_17))) __PYX_ERR(0, 545, __pyx_L1_error)
       __pyx_v_bytesval = ((PyObject*)__pyx_t_17);
       __pyx_t_17 = 0;
 
-      /* "cycurl/_curl.pyx":545
+      /* "cycurl/_curl.pyx":547
  *                 bytesval = value
  *                 # c_value = <void*><const char*>value
  *                 c_value = <void*><const char *> bytesval             # <<<<<<<<<<<<<<
@@ -26037,12 +26049,12 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
       if (unlikely(__pyx_v_bytesval == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-        __PYX_ERR(0, 545, __pyx_L1_error)
+        __PYX_ERR(0, 547, __pyx_L1_error)
       }
-      __pyx_t_21 = __Pyx_PyBytes_AsString(__pyx_v_bytesval); if (unlikely((!__pyx_t_21) && PyErr_Occurred())) __PYX_ERR(0, 545, __pyx_L1_error)
+      __pyx_t_21 = __Pyx_PyBytes_AsString(__pyx_v_bytesval); if (unlikely((!__pyx_t_21) && PyErr_Occurred())) __PYX_ERR(0, 547, __pyx_L1_error)
       __pyx_v_c_value = ((void *)((char const *)__pyx_t_21));
 
-      /* "cycurl/_curl.pyx":542
+      /* "cycurl/_curl.pyx":544
  *                 c_value = <void *> <const char *> bytesval
  *                 # c_value = <void*>PyUnicode_AsUTF8AndSize(value, NULL)
  *             elif isinstance(value, bytes):             # <<<<<<<<<<<<<<
@@ -26052,7 +26064,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       goto __pyx_L6;
     }
 
-    /* "cycurl/_curl.pyx":546
+    /* "cycurl/_curl.pyx":548
  *                 # c_value = <void*><const char*>value
  *                 c_value = <void*><const char *> bytesval
  *             elif PyCapsule_CheckExact(value):             # <<<<<<<<<<<<<<
@@ -26062,17 +26074,17 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_t_1 = PyCapsule_CheckExact(__pyx_v_value);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":547
+      /* "cycurl/_curl.pyx":549
  *                 c_value = <void*><const char *> bytesval
  *             elif PyCapsule_CheckExact(value):
  *                 c_value = PyCapsule_GetPointer(value, NULL)             # <<<<<<<<<<<<<<
  *             # Must keep a reference, otherwise may be GCed.
  *             if option == curl.CURLOPT_POSTFIELDS:
 */
-      __pyx_t_22 = PyCapsule_GetPointer(__pyx_v_value, NULL); if (unlikely(__pyx_t_22 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 547, __pyx_L1_error)
+      __pyx_t_22 = PyCapsule_GetPointer(__pyx_v_value, NULL); if (unlikely(__pyx_t_22 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 549, __pyx_L1_error)
       __pyx_v_c_value = __pyx_t_22;
 
-      /* "cycurl/_curl.pyx":546
+      /* "cycurl/_curl.pyx":548
  *                 # c_value = <void*><const char*>value
  *                 c_value = <void*><const char *> bytesval
  *             elif PyCapsule_CheckExact(value):             # <<<<<<<<<<<<<<
@@ -26082,7 +26094,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     }
     __pyx_L6:;
 
-    /* "cycurl/_curl.pyx":549
+    /* "cycurl/_curl.pyx":551
  *                 c_value = PyCapsule_GetPointer(value, NULL)
  *             # Must keep a reference, otherwise may be GCed.
  *             if option == curl.CURLOPT_POSTFIELDS:             # <<<<<<<<<<<<<<
@@ -26092,21 +26104,21 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     __pyx_t_1 = (__pyx_v_option == CURLOPT_POSTFIELDS);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":550
+      /* "cycurl/_curl.pyx":552
  *             # Must keep a reference, otherwise may be GCed.
  *             if option == curl.CURLOPT_POSTFIELDS:
  *                 self._body_handle = bytesval             # <<<<<<<<<<<<<<
  *         else:
  *             raise NotImplementedError("Option unsupported: %s" % option)
 */
-      if (unlikely(!__pyx_v_bytesval)) { __Pyx_RaiseUnboundLocalError("bytesval"); __PYX_ERR(0, 550, __pyx_L1_error) }
+      if (unlikely(!__pyx_v_bytesval)) { __Pyx_RaiseUnboundLocalError("bytesval"); __PYX_ERR(0, 552, __pyx_L1_error) }
       __Pyx_INCREF(__pyx_v_bytesval);
       __Pyx_GIVEREF(__pyx_v_bytesval);
       __Pyx_GOTREF(__pyx_v_self->_body_handle);
       __Pyx_DECREF(__pyx_v_self->_body_handle);
       __pyx_v_self->_body_handle = __pyx_v_bytesval;
 
-      /* "cycurl/_curl.pyx":549
+      /* "cycurl/_curl.pyx":551
  *                 c_value = PyCapsule_GetPointer(value, NULL)
  *             # Must keep a reference, otherwise may be GCed.
  *             if option == curl.CURLOPT_POSTFIELDS:             # <<<<<<<<<<<<<<
@@ -26115,7 +26127,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     }
 
-    /* "cycurl/_curl.pyx":513
+    /* "cycurl/_curl.pyx":515
  *             curl._curl_easy_setopt(self._curl, curl.CURLOPT_FNMATCH_FUNCTION, <void *> fnmatch_callback)
  *             option = curl.CURLOPT_FNMATCH_DATA
  *         elif value_type == 10000:             # <<<<<<<<<<<<<<
@@ -26125,7 +26137,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":552
+  /* "cycurl/_curl.pyx":554
  *                 self._body_handle = bytesval
  *         else:
  *             raise NotImplementedError("Option unsupported: %s" % option)             # <<<<<<<<<<<<<<
@@ -26134,9 +26146,9 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
   /*else*/ {
     __pyx_t_14 = NULL;
-    __pyx_t_15 = __Pyx_PyLong_From_int(__pyx_v_option); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 552, __pyx_L1_error)
+    __pyx_t_15 = __Pyx_PyLong_From_int(__pyx_v_option); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 554, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_15);
-    __pyx_t_16 = PyUnicode_Format(__pyx_mstate_global->__pyx_kp_u_Option_unsupported_s, __pyx_t_15); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 552, __pyx_L1_error)
+    __pyx_t_16 = PyUnicode_Format(__pyx_mstate_global->__pyx_kp_u_Option_unsupported_s, __pyx_t_15); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 554, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_16);
     __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
     __pyx_t_18 = 1;
@@ -26145,16 +26157,16 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __pyx_t_17 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_NotImplementedError)), __pyx_callargs+__pyx_t_18, (2-__pyx_t_18) | (__pyx_t_18*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
       __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
-      if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 552, __pyx_L1_error)
+      if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 554, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
     }
     __Pyx_Raise(__pyx_t_17, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-    __PYX_ERR(0, 552, __pyx_L1_error)
+    __PYX_ERR(0, 554, __pyx_L1_error)
   }
   __pyx_L4:;
 
-  /* "cycurl/_curl.pyx":554
+  /* "cycurl/_curl.pyx":556
  *             raise NotImplementedError("Option unsupported: %s" % option)
  * 
  *         if option == curl.CURLOPT_HTTPHEADER:             # <<<<<<<<<<<<<<
@@ -26164,7 +26176,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_HTTPHEADER);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":555
+    /* "cycurl/_curl.pyx":557
  * 
  *         if option == curl.CURLOPT_HTTPHEADER:
  *             for header in value:             # <<<<<<<<<<<<<<
@@ -26176,9 +26188,9 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __pyx_t_23 = 0;
       __pyx_t_24 = NULL;
     } else {
-      __pyx_t_23 = -1; __pyx_t_17 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 555, __pyx_L1_error)
+      __pyx_t_23 = -1; __pyx_t_17 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 557, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      __pyx_t_24 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_17); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 555, __pyx_L1_error)
+      __pyx_t_24 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_17); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 557, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_24)) {
@@ -26186,7 +26198,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_17);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 555, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 557, __pyx_L1_error)
             #endif
             if (__pyx_t_23 >= __pyx_temp) break;
           }
@@ -26196,7 +26208,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_17);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 555, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 557, __pyx_L1_error)
             #endif
             if (__pyx_t_23 >= __pyx_temp) break;
           }
@@ -26207,13 +26219,13 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           #endif
           ++__pyx_t_23;
         }
-        if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 555, __pyx_L1_error)
+        if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 557, __pyx_L1_error)
       } else {
         __pyx_t_16 = __pyx_t_24(__pyx_t_17);
         if (unlikely(!__pyx_t_16)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 555, __pyx_L1_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 557, __pyx_L1_error)
             PyErr_Clear();
           }
           break;
@@ -26223,17 +26235,17 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __Pyx_XDECREF_SET(__pyx_v_header, __pyx_t_16);
       __pyx_t_16 = 0;
 
-      /* "cycurl/_curl.pyx":556
+      /* "cycurl/_curl.pyx":558
  *         if option == curl.CURLOPT_HTTPHEADER:
  *             for header in value:
  *                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)             # <<<<<<<<<<<<<<
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_PROXYHEADER:
 */
-      __pyx_t_25 = __Pyx_PyObject_AsString(__pyx_v_header); if (unlikely((!__pyx_t_25) && PyErr_Occurred())) __PYX_ERR(0, 556, __pyx_L1_error)
+      __pyx_t_25 = __Pyx_PyObject_AsString(__pyx_v_header); if (unlikely((!__pyx_t_25) && PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L1_error)
       __pyx_v_self->_headers = curl_slist_append(__pyx_v_self->_headers, ((char const *)__pyx_t_25));
 
-      /* "cycurl/_curl.pyx":555
+      /* "cycurl/_curl.pyx":557
  * 
  *         if option == curl.CURLOPT_HTTPHEADER:
  *             for header in value:             # <<<<<<<<<<<<<<
@@ -26243,7 +26255,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     }
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
 
-    /* "cycurl/_curl.pyx":557
+    /* "cycurl/_curl.pyx":559
  *             for header in value:
  *                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)             # <<<<<<<<<<<<<<
@@ -26252,7 +26264,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_ret = _curl_easy_setopt(__pyx_v_self->_curl, __pyx_v_option, __pyx_v_self->_headers);
 
-    /* "cycurl/_curl.pyx":554
+    /* "cycurl/_curl.pyx":556
  *             raise NotImplementedError("Option unsupported: %s" % option)
  * 
  *         if option == curl.CURLOPT_HTTPHEADER:             # <<<<<<<<<<<<<<
@@ -26262,7 +26274,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L11;
   }
 
-  /* "cycurl/_curl.pyx":558
+  /* "cycurl/_curl.pyx":560
  *                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_PROXYHEADER:             # <<<<<<<<<<<<<<
@@ -26272,7 +26284,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_PROXYHEADER);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":559
+    /* "cycurl/_curl.pyx":561
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_PROXYHEADER:
  *             for proxy_header in value:             # <<<<<<<<<<<<<<
@@ -26284,9 +26296,9 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __pyx_t_23 = 0;
       __pyx_t_24 = NULL;
     } else {
-      __pyx_t_23 = -1; __pyx_t_17 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 559, __pyx_L1_error)
+      __pyx_t_23 = -1; __pyx_t_17 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 561, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      __pyx_t_24 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_17); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 559, __pyx_L1_error)
+      __pyx_t_24 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_17); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 561, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_24)) {
@@ -26294,7 +26306,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_17);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 561, __pyx_L1_error)
             #endif
             if (__pyx_t_23 >= __pyx_temp) break;
           }
@@ -26304,7 +26316,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_17);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 561, __pyx_L1_error)
             #endif
             if (__pyx_t_23 >= __pyx_temp) break;
           }
@@ -26315,13 +26327,13 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           #endif
           ++__pyx_t_23;
         }
-        if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 559, __pyx_L1_error)
+        if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 561, __pyx_L1_error)
       } else {
         __pyx_t_16 = __pyx_t_24(__pyx_t_17);
         if (unlikely(!__pyx_t_16)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 559, __pyx_L1_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 561, __pyx_L1_error)
             PyErr_Clear();
           }
           break;
@@ -26331,17 +26343,17 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __Pyx_XDECREF_SET(__pyx_v_proxy_header, __pyx_t_16);
       __pyx_t_16 = 0;
 
-      /* "cycurl/_curl.pyx":560
+      /* "cycurl/_curl.pyx":562
  *         elif option == curl.CURLOPT_PROXYHEADER:
  *             for proxy_header in value:
  *                 self._proxy_headers = curl.curl_slist_append(self._proxy_headers, <const char*>proxy_header)             # <<<<<<<<<<<<<<
  *             ret = curl._curl_easy_setopt(self._curl, option, self._proxy_headers)
  *         elif option == curl.CURLOPT_RESOLVE:
 */
-      __pyx_t_26 = __Pyx_PyObject_AsString(__pyx_v_proxy_header); if (unlikely((!__pyx_t_26) && PyErr_Occurred())) __PYX_ERR(0, 560, __pyx_L1_error)
+      __pyx_t_26 = __Pyx_PyObject_AsString(__pyx_v_proxy_header); if (unlikely((!__pyx_t_26) && PyErr_Occurred())) __PYX_ERR(0, 562, __pyx_L1_error)
       __pyx_v_self->_proxy_headers = curl_slist_append(__pyx_v_self->_proxy_headers, ((char const *)__pyx_t_26));
 
-      /* "cycurl/_curl.pyx":559
+      /* "cycurl/_curl.pyx":561
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_PROXYHEADER:
  *             for proxy_header in value:             # <<<<<<<<<<<<<<
@@ -26351,7 +26363,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     }
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
 
-    /* "cycurl/_curl.pyx":561
+    /* "cycurl/_curl.pyx":563
  *             for proxy_header in value:
  *                 self._proxy_headers = curl.curl_slist_append(self._proxy_headers, <const char*>proxy_header)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._proxy_headers)             # <<<<<<<<<<<<<<
@@ -26360,7 +26372,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_ret = _curl_easy_setopt(__pyx_v_self->_curl, __pyx_v_option, __pyx_v_self->_proxy_headers);
 
-    /* "cycurl/_curl.pyx":558
+    /* "cycurl/_curl.pyx":560
  *                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
  *         elif option == curl.CURLOPT_PROXYHEADER:             # <<<<<<<<<<<<<<
@@ -26370,7 +26382,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L11;
   }
 
-  /* "cycurl/_curl.pyx":562
+  /* "cycurl/_curl.pyx":564
  *                 self._proxy_headers = curl.curl_slist_append(self._proxy_headers, <const char*>proxy_header)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._proxy_headers)
  *         elif option == curl.CURLOPT_RESOLVE:             # <<<<<<<<<<<<<<
@@ -26380,7 +26392,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_RESOLVE);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":563
+    /* "cycurl/_curl.pyx":565
  *             ret = curl._curl_easy_setopt(self._curl, option, self._proxy_headers)
  *         elif option == curl.CURLOPT_RESOLVE:
  *             for resolve in value:             # <<<<<<<<<<<<<<
@@ -26392,9 +26404,9 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __pyx_t_23 = 0;
       __pyx_t_24 = NULL;
     } else {
-      __pyx_t_23 = -1; __pyx_t_17 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 563, __pyx_L1_error)
+      __pyx_t_23 = -1; __pyx_t_17 = PyObject_GetIter(__pyx_v_value); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 565, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      __pyx_t_24 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_17); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 563, __pyx_L1_error)
+      __pyx_t_24 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_17); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 565, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_24)) {
@@ -26402,7 +26414,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_17);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 563, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 565, __pyx_L1_error)
             #endif
             if (__pyx_t_23 >= __pyx_temp) break;
           }
@@ -26412,7 +26424,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_17);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 563, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 565, __pyx_L1_error)
             #endif
             if (__pyx_t_23 >= __pyx_temp) break;
           }
@@ -26423,13 +26435,13 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           #endif
           ++__pyx_t_23;
         }
-        if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 563, __pyx_L1_error)
+        if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 565, __pyx_L1_error)
       } else {
         __pyx_t_16 = __pyx_t_24(__pyx_t_17);
         if (unlikely(!__pyx_t_16)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 563, __pyx_L1_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 565, __pyx_L1_error)
             PyErr_Clear();
           }
           break;
@@ -26439,7 +26451,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __Pyx_XDECREF_SET(__pyx_v_resolve, __pyx_t_16);
       __pyx_t_16 = 0;
 
-      /* "cycurl/_curl.pyx":564
+      /* "cycurl/_curl.pyx":566
  *         elif option == curl.CURLOPT_RESOLVE:
  *             for resolve in value:
  *                 if isinstance(resolve, str):             # <<<<<<<<<<<<<<
@@ -26449,7 +26461,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
       __pyx_t_1 = PyUnicode_Check(__pyx_v_resolve); 
       if (__pyx_t_1) {
 
-        /* "cycurl/_curl.pyx":565
+        /* "cycurl/_curl.pyx":567
  *             for resolve in value:
  *                 if isinstance(resolve, str):
  *                     resolve = resolve.encode()             # <<<<<<<<<<<<<<
@@ -26463,13 +26475,13 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
           PyObject *__pyx_callargs[2] = {__pyx_t_14, NULL};
           __pyx_t_16 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_encode, __pyx_callargs+__pyx_t_18, (1-__pyx_t_18) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
-          if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 565, __pyx_L1_error)
+          if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 567, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_16);
         }
         __Pyx_DECREF_SET(__pyx_v_resolve, __pyx_t_16);
         __pyx_t_16 = 0;
 
-        /* "cycurl/_curl.pyx":564
+        /* "cycurl/_curl.pyx":566
  *         elif option == curl.CURLOPT_RESOLVE:
  *             for resolve in value:
  *                 if isinstance(resolve, str):             # <<<<<<<<<<<<<<
@@ -26478,17 +26490,17 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
       }
 
-      /* "cycurl/_curl.pyx":566
+      /* "cycurl/_curl.pyx":568
  *                 if isinstance(resolve, str):
  *                     resolve = resolve.encode()
  *                 self._resolve = curl.curl_slist_append(self._resolve, resolve)             # <<<<<<<<<<<<<<
  *             ret = curl._curl_easy_setopt(self._curl, option, self._resolve)
  *         else:
 */
-      __pyx_t_27 = __Pyx_PyObject_AsString(__pyx_v_resolve); if (unlikely((!__pyx_t_27) && PyErr_Occurred())) __PYX_ERR(0, 566, __pyx_L1_error)
+      __pyx_t_27 = __Pyx_PyObject_AsString(__pyx_v_resolve); if (unlikely((!__pyx_t_27) && PyErr_Occurred())) __PYX_ERR(0, 568, __pyx_L1_error)
       __pyx_v_self->_resolve = curl_slist_append(__pyx_v_self->_resolve, __pyx_t_27);
 
-      /* "cycurl/_curl.pyx":563
+      /* "cycurl/_curl.pyx":565
  *             ret = curl._curl_easy_setopt(self._curl, option, self._proxy_headers)
  *         elif option == curl.CURLOPT_RESOLVE:
  *             for resolve in value:             # <<<<<<<<<<<<<<
@@ -26498,7 +26510,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     }
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
 
-    /* "cycurl/_curl.pyx":567
+    /* "cycurl/_curl.pyx":569
  *                     resolve = resolve.encode()
  *                 self._resolve = curl.curl_slist_append(self._resolve, resolve)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._resolve)             # <<<<<<<<<<<<<<
@@ -26507,7 +26519,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_ret = _curl_easy_setopt(__pyx_v_self->_curl, __pyx_v_option, __pyx_v_self->_resolve);
 
-    /* "cycurl/_curl.pyx":562
+    /* "cycurl/_curl.pyx":564
  *                 self._proxy_headers = curl.curl_slist_append(self._proxy_headers, <const char*>proxy_header)
  *             ret = curl._curl_easy_setopt(self._curl, option, self._proxy_headers)
  *         elif option == curl.CURLOPT_RESOLVE:             # <<<<<<<<<<<<<<
@@ -26517,7 +26529,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
     goto __pyx_L11;
   }
 
-  /* "cycurl/_curl.pyx":569
+  /* "cycurl/_curl.pyx":571
  *             ret = curl._curl_easy_setopt(self._curl, option, self._resolve)
  *         else:
  *             ret = curl._curl_easy_setopt(self._curl, option, c_value)             # <<<<<<<<<<<<<<
@@ -26529,30 +26541,30 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   }
   __pyx_L11:;
 
-  /* "cycurl/_curl.pyx":570
+  /* "cycurl/_curl.pyx":572
  *         else:
  *             ret = curl._curl_easy_setopt(self._curl, option, c_value)
  *         self._check_error(ret, f"setopt {option} {value}")             # <<<<<<<<<<<<<<
  * 
  *         if option == curl.CURLOPT_CAINFO:
 */
-  __pyx_t_17 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 570, __pyx_L1_error)
+  __pyx_t_17 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 572, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_17);
-  __pyx_t_16 = __Pyx_PyObject_FormatSimple(__pyx_v_value, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 570, __pyx_L1_error)
+  __pyx_t_16 = __Pyx_PyObject_FormatSimple(__pyx_v_value, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 572, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_16);
   __pyx_t_28[0] = __pyx_mstate_global->__pyx_kp_u_setopt;
   __pyx_t_28[1] = __pyx_t_17;
   __pyx_t_28[2] = __pyx_mstate_global->__pyx_kp_u__6;
   __pyx_t_28[3] = __pyx_t_16;
   __pyx_t_14 = __Pyx_PyUnicode_Join(__pyx_t_28, 4, 7 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_17) + 1 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_16), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_16));
-  if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 570, __pyx_L1_error)
+  if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 572, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_14);
   __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
   __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
-  __pyx_t_29 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_14)); if (unlikely(__pyx_t_29 == ((int)-1))) __PYX_ERR(0, 570, __pyx_L1_error)
+  __pyx_t_29 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_14)); if (unlikely(__pyx_t_29 == ((int)-1))) __PYX_ERR(0, 572, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
 
-  /* "cycurl/_curl.pyx":572
+  /* "cycurl/_curl.pyx":574
  *         self._check_error(ret, f"setopt {option} {value}")
  * 
  *         if option == curl.CURLOPT_CAINFO:             # <<<<<<<<<<<<<<
@@ -26562,7 +26574,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_option == CURLOPT_CAINFO);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":573
+    /* "cycurl/_curl.pyx":575
  * 
  *         if option == curl.CURLOPT_CAINFO:
  *             self._is_cert_set = True             # <<<<<<<<<<<<<<
@@ -26571,7 +26583,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
     __pyx_v_self->_is_cert_set = 1;
 
-    /* "cycurl/_curl.pyx":572
+    /* "cycurl/_curl.pyx":574
  *         self._check_error(ret, f"setopt {option} {value}")
  * 
  *         if option == curl.CURLOPT_CAINFO:             # <<<<<<<<<<<<<<
@@ -26580,7 +26592,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
 */
   }
 
-  /* "cycurl/_curl.pyx":575
+  /* "cycurl/_curl.pyx":577
  *             self._is_cert_set = True
  * 
  *         return ret             # <<<<<<<<<<<<<<
@@ -26590,7 +26602,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_setopt(struct __pyx_obj_6c
   __pyx_r = __pyx_v_ret;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":422
+  /* "cycurl/_curl.pyx":424
  *             )
  * 
  *     cpdef inline int setopt(self, int option, object value) except -1:             # <<<<<<<<<<<<<<
@@ -26670,39 +26682,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_option,&__pyx_mstate_global->__pyx_n_u_value,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 422, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 424, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 422, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 424, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 422, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 424, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "setopt", 0) < (0)) __PYX_ERR(0, 422, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "setopt", 0) < (0)) __PYX_ERR(0, 424, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("setopt", 1, 2, 2, i); __PYX_ERR(0, 422, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("setopt", 1, 2, 2, i); __PYX_ERR(0, 424, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 422, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 424, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 422, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 424, __pyx_L3_error)
     }
-    __pyx_v_option = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 422, __pyx_L3_error)
+    __pyx_v_option = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 424, __pyx_L3_error)
     __pyx_v_value = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("setopt", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 422, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("setopt", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 424, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -26733,8 +26745,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_20setopt(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("setopt", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, __pyx_v_option, __pyx_v_value, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 422, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 422, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, __pyx_v_option, __pyx_v_value, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -26751,7 +26763,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_20setopt(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":577
+/* "cycurl/_curl.pyx":579
  *         return ret
  * 
  *     cpdef inline object getinfo(self, int option):             # <<<<<<<<<<<<<<
@@ -26785,7 +26797,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("getinfo", 0);
 
-  /* "cycurl/_curl.pyx":603
+  /* "cycurl/_curl.pyx":605
  *             int ret_type
  *             int ret
  *             char* charret = NULL             # <<<<<<<<<<<<<<
@@ -26794,7 +26806,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
   __pyx_v_charret = NULL;
 
-  /* "cycurl/_curl.pyx":606
+  /* "cycurl/_curl.pyx":608
  *             long longret
  *             double doubleret
  *             curl.curl_slist *slistret = NULL             # <<<<<<<<<<<<<<
@@ -26803,7 +26815,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
   __pyx_v_slistret = NULL;
 
-  /* "cycurl/_curl.pyx":608
+  /* "cycurl/_curl.pyx":610
  *             curl.curl_slist *slistret = NULL
  *             int64_t int64ret
  *         ret_type = option & 0xF00000             # <<<<<<<<<<<<<<
@@ -26812,7 +26824,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
   __pyx_v_ret_type = (__pyx_v_option & 0xF00000);
 
-  /* "cycurl/_curl.pyx":609
+  /* "cycurl/_curl.pyx":611
  *             int64_t int64ret
  *         ret_type = option & 0xF00000
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -26822,7 +26834,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
   __pyx_t_1 = (__pyx_v_self->_curl == NULL);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":610
+    /* "cycurl/_curl.pyx":612
  *         ret_type = option & 0xF00000
  *         if self._curl == NULL:
  *             if ret_type == 0x100000:             # <<<<<<<<<<<<<<
@@ -26832,7 +26844,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     switch (__pyx_v_ret_type) {
       case 0x100000:
 
-      /* "cycurl/_curl.pyx":611
+      /* "cycurl/_curl.pyx":613
  *         if self._curl == NULL:
  *             if ret_type == 0x100000:
  *                 return b""             # <<<<<<<<<<<<<<
@@ -26844,7 +26856,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
       __pyx_r = __pyx_mstate_global->__pyx_kp_b__9;
       goto __pyx_L0;
 
-      /* "cycurl/_curl.pyx":610
+      /* "cycurl/_curl.pyx":612
  *         ret_type = option & 0xF00000
  *         if self._curl == NULL:
  *             if ret_type == 0x100000:             # <<<<<<<<<<<<<<
@@ -26854,7 +26866,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
       break;
       case 0x200000:
 
-      /* "cycurl/_curl.pyx":612
+      /* "cycurl/_curl.pyx":614
  *             if ret_type == 0x100000:
  *                 return b""
  *             elif ret_type == 0x200000 or ret_type == 0x500000 or ret_type == 0x600000:             # <<<<<<<<<<<<<<
@@ -26864,7 +26876,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
       case 0x500000:
       case 0x600000:
 
-      /* "cycurl/_curl.pyx":613
+      /* "cycurl/_curl.pyx":615
  *                 return b""
  *             elif ret_type == 0x200000 or ret_type == 0x500000 or ret_type == 0x600000:
  *                 return 0             # <<<<<<<<<<<<<<
@@ -26876,7 +26888,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
       __pyx_r = __pyx_mstate_global->__pyx_int_0;
       goto __pyx_L0;
 
-      /* "cycurl/_curl.pyx":612
+      /* "cycurl/_curl.pyx":614
  *             if ret_type == 0x100000:
  *                 return b""
  *             elif ret_type == 0x200000 or ret_type == 0x500000 or ret_type == 0x600000:             # <<<<<<<<<<<<<<
@@ -26886,7 +26898,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
       break;
       case 0x300000:
 
-      /* "cycurl/_curl.pyx":615
+      /* "cycurl/_curl.pyx":617
  *                 return 0
  *             elif ret_type == 0x300000:
  *                 return 0.0             # <<<<<<<<<<<<<<
@@ -26898,7 +26910,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
       __pyx_r = __pyx_mstate_global->__pyx_float_0_0;
       goto __pyx_L0;
 
-      /* "cycurl/_curl.pyx":614
+      /* "cycurl/_curl.pyx":616
  *             elif ret_type == 0x200000 or ret_type == 0x500000 or ret_type == 0x600000:
  *                 return 0
  *             elif ret_type == 0x300000:             # <<<<<<<<<<<<<<
@@ -26908,7 +26920,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
       break;
       case 0x400000:
 
-      /* "cycurl/_curl.pyx":617
+      /* "cycurl/_curl.pyx":619
  *                 return 0.0
  *             elif ret_type == 0x400000:
  *                 return []             # <<<<<<<<<<<<<<
@@ -26916,13 +26928,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *         if ret_type == 0x100000:
 */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 617, __pyx_L1_error)
+      __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 619, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_r = __pyx_t_2;
       __pyx_t_2 = 0;
       goto __pyx_L0;
 
-      /* "cycurl/_curl.pyx":616
+      /* "cycurl/_curl.pyx":618
  *             elif ret_type == 0x300000:
  *                 return 0.0
  *             elif ret_type == 0x400000:             # <<<<<<<<<<<<<<
@@ -26933,7 +26945,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
       default: break;
     }
 
-    /* "cycurl/_curl.pyx":609
+    /* "cycurl/_curl.pyx":611
  *             int64_t int64ret
  *         ret_type = option & 0xF00000
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -26942,7 +26954,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
   }
 
-  /* "cycurl/_curl.pyx":619
+  /* "cycurl/_curl.pyx":621
  *                 return []
  *         # c_value = ffi.new(ret_option[option & 0xF00000])
  *         if ret_type == 0x100000:             # <<<<<<<<<<<<<<
@@ -26952,7 +26964,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
   switch (__pyx_v_ret_type) {
     case 0x100000:
 
-    /* "cycurl/_curl.pyx":620
+    /* "cycurl/_curl.pyx":622
  *         # c_value = ffi.new(ret_option[option & 0xF00000])
  *         if ret_type == 0x100000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &charret)             # <<<<<<<<<<<<<<
@@ -26961,22 +26973,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
     __pyx_v_ret = curl_easy_getinfo(__pyx_v_self->_curl, __pyx_v_option, (&__pyx_v_charret));
 
-    /* "cycurl/_curl.pyx":621
+    /* "cycurl/_curl.pyx":623
  *         if ret_type == 0x100000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &charret)
  *             self._check_error(ret, f"getinfo {option}")             # <<<<<<<<<<<<<<
  *             if charret == NULL:
  *                 return b""
 */
-    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 621, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 623, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 621, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 623, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_3)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 621, __pyx_L1_error)
+    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_3)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 623, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":622
+    /* "cycurl/_curl.pyx":624
  *             ret = curl.curl_easy_getinfo(self._curl, option, &charret)
  *             self._check_error(ret, f"getinfo {option}")
  *             if charret == NULL:             # <<<<<<<<<<<<<<
@@ -26986,7 +26998,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     __pyx_t_1 = (__pyx_v_charret == NULL);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":623
+      /* "cycurl/_curl.pyx":625
  *             self._check_error(ret, f"getinfo {option}")
  *             if charret == NULL:
  *                 return b""             # <<<<<<<<<<<<<<
@@ -26998,7 +27010,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
       __pyx_r = __pyx_mstate_global->__pyx_kp_b__9;
       goto __pyx_L0;
 
-      /* "cycurl/_curl.pyx":622
+      /* "cycurl/_curl.pyx":624
  *             ret = curl.curl_easy_getinfo(self._curl, option, &charret)
  *             self._check_error(ret, f"getinfo {option}")
  *             if charret == NULL:             # <<<<<<<<<<<<<<
@@ -27007,7 +27019,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
     }
 
-    /* "cycurl/_curl.pyx":624
+    /* "cycurl/_curl.pyx":626
  *             if charret == NULL:
  *                 return b""
  *             return <bytes>charret             # <<<<<<<<<<<<<<
@@ -27015,14 +27027,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *             ret = curl.curl_easy_getinfo(self._curl, option, &longret)
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_charret); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 624, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_charret); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 626, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(((PyObject*)__pyx_t_3));
     __pyx_r = __pyx_t_3;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":619
+    /* "cycurl/_curl.pyx":621
  *                 return []
  *         # c_value = ffi.new(ret_option[option & 0xF00000])
  *         if ret_type == 0x100000:             # <<<<<<<<<<<<<<
@@ -27032,7 +27044,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     break;
     case 0x200000:
 
-    /* "cycurl/_curl.pyx":625
+    /* "cycurl/_curl.pyx":627
  *                 return b""
  *             return <bytes>charret
  *         elif ret_type == 0x200000 or ret_type == 0x500000:             # <<<<<<<<<<<<<<
@@ -27041,7 +27053,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
     case 0x500000:
 
-    /* "cycurl/_curl.pyx":626
+    /* "cycurl/_curl.pyx":628
  *             return <bytes>charret
  *         elif ret_type == 0x200000 or ret_type == 0x500000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &longret)             # <<<<<<<<<<<<<<
@@ -27050,22 +27062,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
     __pyx_v_ret = curl_easy_getinfo(__pyx_v_self->_curl, __pyx_v_option, (&__pyx_v_longret));
 
-    /* "cycurl/_curl.pyx":627
+    /* "cycurl/_curl.pyx":629
  *         elif ret_type == 0x200000 or ret_type == 0x500000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &longret)
  *             self._check_error(ret, f"getinfo {option}")             # <<<<<<<<<<<<<<
  *             return PyLong_FromLong(longret)
  *         elif ret_type == 0x300000:
 */
-    __pyx_t_3 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 627, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 629, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 627, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 629, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_2)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 627, __pyx_L1_error)
+    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_2)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 629, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":628
+    /* "cycurl/_curl.pyx":630
  *             ret = curl.curl_easy_getinfo(self._curl, option, &longret)
  *             self._check_error(ret, f"getinfo {option}")
  *             return PyLong_FromLong(longret)             # <<<<<<<<<<<<<<
@@ -27073,13 +27085,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *             ret = curl.curl_easy_getinfo(self._curl, option, &doubleret)
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = PyLong_FromLong(__pyx_v_longret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 628, __pyx_L1_error)
+    __pyx_t_2 = PyLong_FromLong(__pyx_v_longret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 630, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":625
+    /* "cycurl/_curl.pyx":627
  *                 return b""
  *             return <bytes>charret
  *         elif ret_type == 0x200000 or ret_type == 0x500000:             # <<<<<<<<<<<<<<
@@ -27089,7 +27101,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     break;
     case 0x300000:
 
-    /* "cycurl/_curl.pyx":630
+    /* "cycurl/_curl.pyx":632
  *             return PyLong_FromLong(longret)
  *         elif ret_type == 0x300000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &doubleret)             # <<<<<<<<<<<<<<
@@ -27098,22 +27110,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
     __pyx_v_ret = curl_easy_getinfo(__pyx_v_self->_curl, __pyx_v_option, (&__pyx_v_doubleret));
 
-    /* "cycurl/_curl.pyx":631
+    /* "cycurl/_curl.pyx":633
  *         elif ret_type == 0x300000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &doubleret)
  *             self._check_error(ret, f"getinfo {option}")             # <<<<<<<<<<<<<<
  *             return PyFloat_FromDouble(doubleret)
  *         elif ret_type == 0x400000:
 */
-    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 631, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 633, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 631, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 633, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_3)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 631, __pyx_L1_error)
+    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_3)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 633, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":632
+    /* "cycurl/_curl.pyx":634
  *             ret = curl.curl_easy_getinfo(self._curl, option, &doubleret)
  *             self._check_error(ret, f"getinfo {option}")
  *             return PyFloat_FromDouble(doubleret)             # <<<<<<<<<<<<<<
@@ -27121,13 +27133,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyFloat_FromDouble(__pyx_v_doubleret); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 632, __pyx_L1_error)
+    __pyx_t_3 = PyFloat_FromDouble(__pyx_v_doubleret); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 634, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":629
+    /* "cycurl/_curl.pyx":631
  *             self._check_error(ret, f"getinfo {option}")
  *             return PyLong_FromLong(longret)
  *         elif ret_type == 0x300000:             # <<<<<<<<<<<<<<
@@ -27137,7 +27149,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     break;
     case 0x400000:
 
-    /* "cycurl/_curl.pyx":634
+    /* "cycurl/_curl.pyx":636
  *             return PyFloat_FromDouble(doubleret)
  *         elif ret_type == 0x400000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)             # <<<<<<<<<<<<<<
@@ -27146,22 +27158,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
     __pyx_v_ret = curl_easy_getinfo(__pyx_v_self->_curl, __pyx_v_option, (&__pyx_v_slistret));
 
-    /* "cycurl/_curl.pyx":635
+    /* "cycurl/_curl.pyx":637
  *         elif ret_type == 0x400000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)
  *             self._check_error(ret, f"getinfo {option}")             # <<<<<<<<<<<<<<
  *             if slistret == NULL:
  *                 return []
 */
-    __pyx_t_3 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 635, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 637, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 635, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 637, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_2)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 635, __pyx_L1_error)
+    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_2)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 637, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":636
+    /* "cycurl/_curl.pyx":638
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)
  *             self._check_error(ret, f"getinfo {option}")
  *             if slistret == NULL:             # <<<<<<<<<<<<<<
@@ -27171,7 +27183,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     __pyx_t_1 = (__pyx_v_slistret == NULL);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":637
+      /* "cycurl/_curl.pyx":639
  *             self._check_error(ret, f"getinfo {option}")
  *             if slistret == NULL:
  *                 return []             # <<<<<<<<<<<<<<
@@ -27179,13 +27191,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *         elif ret_type == 0x600000:
 */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 637, __pyx_L1_error)
+      __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 639, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_r = __pyx_t_2;
       __pyx_t_2 = 0;
       goto __pyx_L0;
 
-      /* "cycurl/_curl.pyx":636
+      /* "cycurl/_curl.pyx":638
  *             ret = curl.curl_easy_getinfo(self._curl, option, &slistret)
  *             self._check_error(ret, f"getinfo {option}")
  *             if slistret == NULL:             # <<<<<<<<<<<<<<
@@ -27194,7 +27206,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
     }
 
-    /* "cycurl/_curl.pyx":638
+    /* "cycurl/_curl.pyx":640
  *             if slistret == NULL:
  *                 return []
  *             return slist_to_list(slistret)             # <<<<<<<<<<<<<<
@@ -27202,13 +27214,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *             ret = curl.curl_easy_getinfo(self._curl, option, &int64ret)
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = __pyx_f_6cycurl_5_curl_slist_to_list(__pyx_v_slistret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 638, __pyx_L1_error)
+    __pyx_t_2 = __pyx_f_6cycurl_5_curl_slist_to_list(__pyx_v_slistret); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 640, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":633
+    /* "cycurl/_curl.pyx":635
  *             self._check_error(ret, f"getinfo {option}")
  *             return PyFloat_FromDouble(doubleret)
  *         elif ret_type == 0x400000:             # <<<<<<<<<<<<<<
@@ -27218,7 +27230,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     break;
     case 0x600000:
 
-    /* "cycurl/_curl.pyx":640
+    /* "cycurl/_curl.pyx":642
  *             return slist_to_list(slistret)
  *         elif ret_type == 0x600000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &int64ret)             # <<<<<<<<<<<<<<
@@ -27227,22 +27239,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
 */
     __pyx_v_ret = curl_easy_getinfo(__pyx_v_self->_curl, __pyx_v_option, (&__pyx_v_int64ret));
 
-    /* "cycurl/_curl.pyx":641
+    /* "cycurl/_curl.pyx":643
  *         elif ret_type == 0x600000:
  *             ret = curl.curl_easy_getinfo(self._curl, option, &int64ret)
  *             self._check_error(ret, f"getinfo {option}")             # <<<<<<<<<<<<<<
  *             return int64ret
  * 
 */
-    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 641, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 643, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 641, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_getinfo, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 643, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_3)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 641, __pyx_L1_error)
+    __pyx_t_4 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, ((PyObject*)__pyx_t_3)); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 643, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":642
+    /* "cycurl/_curl.pyx":644
  *             ret = curl.curl_easy_getinfo(self._curl, option, &int64ret)
  *             self._check_error(ret, f"getinfo {option}")
  *             return int64ret             # <<<<<<<<<<<<<<
@@ -27250,13 +27262,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
  *     cpdef inline bytes version(self):
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __Pyx_PyLong_From_int64_t(__pyx_v_int64ret); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 642, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyLong_From_int64_t(__pyx_v_int64ret); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 644, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":639
+    /* "cycurl/_curl.pyx":641
  *                 return []
  *             return slist_to_list(slistret)
  *         elif ret_type == 0x600000:             # <<<<<<<<<<<<<<
@@ -27267,7 +27279,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_getinfo(struct __pyx
     default: break;
   }
 
-  /* "cycurl/_curl.pyx":577
+  /* "cycurl/_curl.pyx":579
  *         return ret
  * 
  *     cpdef inline object getinfo(self, int option):             # <<<<<<<<<<<<<<
@@ -27329,32 +27341,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_option,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 577, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 579, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 577, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 579, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "getinfo", 0) < (0)) __PYX_ERR(0, 577, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "getinfo", 0) < (0)) __PYX_ERR(0, 579, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("getinfo", 1, 1, 1, i); __PYX_ERR(0, 577, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("getinfo", 1, 1, 1, i); __PYX_ERR(0, 579, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 577, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 579, __pyx_L3_error)
     }
-    __pyx_v_option = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 577, __pyx_L3_error)
+    __pyx_v_option = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("getinfo", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 577, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("getinfo", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 579, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -27384,7 +27396,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_22getinfo(struct __pyx_obj_6cycur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("getinfo", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_getinfo(__pyx_v_self, __pyx_v_option, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 577, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_getinfo(__pyx_v_self, __pyx_v_option, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -27401,7 +27413,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_22getinfo(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":644
+/* "cycurl/_curl.pyx":646
  *             return int64ret
  * 
  *     cpdef inline bytes version(self):             # <<<<<<<<<<<<<<
@@ -27425,7 +27437,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_version(CYTHON_UNUSE
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("version", 0);
 
-  /* "cycurl/_curl.pyx":646
+  /* "cycurl/_curl.pyx":648
  *     cpdef inline bytes version(self):
  *         """Get the underlying libcurl version."""
  *         return <bytes>curl.curl_version()             # <<<<<<<<<<<<<<
@@ -27433,14 +27445,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_version(CYTHON_UNUSE
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBytes_FromString(curl_version()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 646, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBytes_FromString(curl_version()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 648, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject*)__pyx_t_1));
   __pyx_r = ((PyObject*)__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":644
+  /* "cycurl/_curl.pyx":646
  *             return int64ret
  * 
  *     cpdef inline bytes version(self):             # <<<<<<<<<<<<<<
@@ -27511,7 +27523,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_24version(struct __pyx_obj_6cycur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("version", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_version(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 644, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_version(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -27528,7 +27540,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_24version(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":648
+/* "cycurl/_curl.pyx":650
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
@@ -27561,7 +27573,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_impersonate(struct __pyx_o
     }
   }
 
-  /* "cycurl/_curl.pyx":658
+  /* "cycurl/_curl.pyx":660
  *             0 if no error.
  *         """
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -27571,7 +27583,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_impersonate(struct __pyx_o
   __pyx_t_1 = (__pyx_v_self->_curl == NULL);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":659
+    /* "cycurl/_curl.pyx":661
  *         """
  *         if self._curl == NULL:
  *             return 0             # <<<<<<<<<<<<<<
@@ -27581,7 +27593,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_impersonate(struct __pyx_o
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":658
+    /* "cycurl/_curl.pyx":660
  *             0 if no error.
  *         """
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -27590,30 +27602,30 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_impersonate(struct __pyx_o
 */
   }
 
-  /* "cycurl/_curl.pyx":660
+  /* "cycurl/_curl.pyx":662
  *         if self._curl == NULL:
  *             return 0
  *         cdef bytes data = target.encode()             # <<<<<<<<<<<<<<
  *         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)
  * 
 */
-  __pyx_t_2 = PyUnicode_AsEncodedString(__pyx_v_target, NULL, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 660, __pyx_L1_error)
+  __pyx_t_2 = PyUnicode_AsEncodedString(__pyx_v_target, NULL, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 662, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_data = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":661
+  /* "cycurl/_curl.pyx":663
  *             return 0
  *         cdef bytes data = target.encode()
  *         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)             # <<<<<<<<<<<<<<
  * 
  *     cdef inline int _ensure_cacert(self) except -1:
 */
-  __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_data); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 661, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_data); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 663, __pyx_L1_error)
   __pyx_r = curl_easy_impersonate(__pyx_v_self->_curl, ((char const *)__pyx_t_3), __pyx_v_default_headers);
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":648
+  /* "cycurl/_curl.pyx":650
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
@@ -27673,48 +27685,48 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_target,&__pyx_mstate_global->__pyx_n_u_default_headers,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 648, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 650, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 648, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 650, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 648, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 650, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "impersonate", 0) < (0)) __PYX_ERR(0, 648, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "impersonate", 0) < (0)) __PYX_ERR(0, 650, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("impersonate", 0, 1, 2, i); __PYX_ERR(0, 648, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("impersonate", 0, 1, 2, i); __PYX_ERR(0, 650, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 648, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 650, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 648, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 650, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
     __pyx_v_target = ((PyObject*)values[0]);
     if (values[1]) {
-      __pyx_v_default_headers = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_default_headers == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 648, __pyx_L3_error)
+      __pyx_v_default_headers = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_default_headers == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 650, __pyx_L3_error)
     } else {
       __pyx_v_default_headers = ((int)1);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("impersonate", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 648, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("impersonate", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 650, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -27725,7 +27737,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_target), (&PyUnicode_Type), 0, "target", 2))) __PYX_ERR(0, 648, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_target), (&PyUnicode_Type), 0, "target", 2))) __PYX_ERR(0, 650, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_26impersonate(((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_self), __pyx_v_target, __pyx_v_default_headers);
 
   /* function exit code */
@@ -27758,12 +27770,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_26impersonate(struct __pyx_obj_6c
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_target == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "cannot pass None into a C function argument that is declared 'not None'");
-    __PYX_ERR(0, 648, __pyx_L1_error)
+    __PYX_ERR(0, 650, __pyx_L1_error)
   }
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.default_headers = __pyx_v_default_headers;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->impersonate(__pyx_v_self, __pyx_v_target, 1, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 648, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 648, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->impersonate(__pyx_v_self, __pyx_v_target, 1, &__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 650, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 650, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -27780,12 +27792,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_26impersonate(struct __pyx_obj_6c
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":663
+/* "cycurl/_curl.pyx":665
  *         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)
  * 
  *     cdef inline int _ensure_cacert(self) except -1:             # <<<<<<<<<<<<<<
- *         if not self._is_cert_set:
- *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
+ *         if self._skip_cacert:
+ *             return 0
 */
 
 static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self) {
@@ -27800,9 +27812,37 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_ensure_cacert", 0);
 
-  /* "cycurl/_curl.pyx":664
+  /* "cycurl/_curl.pyx":666
  * 
  *     cdef inline int _ensure_cacert(self) except -1:
+ *         if self._skip_cacert:             # <<<<<<<<<<<<<<
+ *             return 0
+ *         if not self._is_cert_set:
+*/
+  if (__pyx_v_self->_skip_cacert) {
+
+    /* "cycurl/_curl.pyx":667
+ *     cdef inline int _ensure_cacert(self) except -1:
+ *         if self._skip_cacert:
+ *             return 0             # <<<<<<<<<<<<<<
+ *         if not self._is_cert_set:
+ *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
+*/
+    __pyx_r = 0;
+    goto __pyx_L0;
+
+    /* "cycurl/_curl.pyx":666
+ * 
+ *     cdef inline int _ensure_cacert(self) except -1:
+ *         if self._skip_cacert:             # <<<<<<<<<<<<<<
+ *             return 0
+ *         if not self._is_cert_set:
+*/
+  }
+
+  /* "cycurl/_curl.pyx":668
+ *         if self._skip_cacert:
+ *             return 0
  *         if not self._is_cert_set:             # <<<<<<<<<<<<<<
  *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
  *             self._check_error(ret, "set cacert")
@@ -27810,8 +27850,8 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
   __pyx_t_1 = (!__pyx_v_self->_is_cert_set);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":665
- *     cdef inline int _ensure_cacert(self) except -1:
+    /* "cycurl/_curl.pyx":669
+ *             return 0
  *         if not self._is_cert_set:
  *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)             # <<<<<<<<<<<<<<
  *             self._check_error(ret, "set cacert")
@@ -27819,20 +27859,20 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
 */
     __pyx_t_2 = __pyx_v_self->_cacert;
     __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_CAINFO, __pyx_t_2, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 665, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_CAINFO, __pyx_t_2, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 669, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_ret = __pyx_t_3;
 
-    /* "cycurl/_curl.pyx":666
+    /* "cycurl/_curl.pyx":670
  *         if not self._is_cert_set:
  *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
  *             self._check_error(ret, "set cacert")             # <<<<<<<<<<<<<<
  *             ret = self.setopt(curl.CURLOPT_PROXY_CAINFO, self._cacert)
  *             self._check_error(ret, "set proxy cacert")
 */
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_kp_u_set_cacert); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 666, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_kp_u_set_cacert); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 670, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":667
+    /* "cycurl/_curl.pyx":671
  *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
  *             self._check_error(ret, "set cacert")
  *             ret = self.setopt(curl.CURLOPT_PROXY_CAINFO, self._cacert)             # <<<<<<<<<<<<<<
@@ -27841,34 +27881,34 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
 */
     __pyx_t_2 = __pyx_v_self->_cacert;
     __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_PROXY_CAINFO, __pyx_t_2, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 667, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_self, CURLOPT_PROXY_CAINFO, __pyx_t_2, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 671, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_ret = __pyx_t_3;
 
-    /* "cycurl/_curl.pyx":668
+    /* "cycurl/_curl.pyx":672
  *             self._check_error(ret, "set cacert")
  *             ret = self.setopt(curl.CURLOPT_PROXY_CAINFO, self._cacert)
  *             self._check_error(ret, "set proxy cacert")             # <<<<<<<<<<<<<<
  * 
  *     cpdef inline int perform(self, bint clear_headers = True, bint clear_resolve = True) except -1:
 */
-    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_kp_u_set_proxy_cacert); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 668, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_kp_u_set_proxy_cacert); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 672, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":664
- * 
- *     cdef inline int _ensure_cacert(self) except -1:
+    /* "cycurl/_curl.pyx":668
+ *         if self._skip_cacert:
+ *             return 0
  *         if not self._is_cert_set:             # <<<<<<<<<<<<<<
  *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
  *             self._check_error(ret, "set cacert")
 */
   }
 
-  /* "cycurl/_curl.pyx":663
+  /* "cycurl/_curl.pyx":665
  *         return curl.curl_easy_impersonate(self._curl, <const char *>data, default_headers)
  * 
  *     cdef inline int _ensure_cacert(self) except -1:             # <<<<<<<<<<<<<<
- *         if not self._is_cert_set:
- *             ret = self.setopt(curl.CURLOPT_CAINFO, self._cacert)
+ *         if self._skip_cacert:
+ *             return 0
 */
 
   /* function exit code */
@@ -27883,7 +27923,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(struct __py
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":670
+/* "cycurl/_curl.pyx":674
  *             self._check_error(ret, "set proxy cacert")
  * 
  *     cpdef inline int perform(self, bint clear_headers = True, bint clear_resolve = True) except -1:             # <<<<<<<<<<<<<<
@@ -27932,7 +27972,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
     }
   }
 
-  /* "cycurl/_curl.pyx":681
+  /* "cycurl/_curl.pyx":685
  *         """
  *         # make sure we set a cacert store
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -27942,7 +27982,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
   __pyx_t_1 = (__pyx_v_self->_curl == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":682
+    /* "cycurl/_curl.pyx":686
  *         # make sure we set a cacert store
  *         if self._curl == NULL:
  *             raise CurlError("Cannot perform request on closed handle.")             # <<<<<<<<<<<<<<
@@ -27950,7 +27990,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
  *         self._ensure_cacert()
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 682, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 686, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -27969,14 +28009,14 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 682, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 686, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 682, __pyx_L1_error)
+    __PYX_ERR(0, 686, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":681
+    /* "cycurl/_curl.pyx":685
  *         """
  *         # make sure we set a cacert store
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -27985,16 +28025,16 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
 */
   }
 
-  /* "cycurl/_curl.pyx":684
+  /* "cycurl/_curl.pyx":688
  *             raise CurlError("Cannot perform request on closed handle.")
  *         cdef int ret
  *         self._ensure_cacert()             # <<<<<<<<<<<<<<
  * 
  *         # here we go
 */
-  __pyx_t_6 = __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(__pyx_v_self); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 684, __pyx_L1_error)
+  __pyx_t_6 = __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(__pyx_v_self); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 688, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":687
+  /* "cycurl/_curl.pyx":691
  * 
  *         # here we go
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -28007,7 +28047,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":688
+        /* "cycurl/_curl.pyx":692
  *         # here we go
  *         with nogil:
  *             ret = curl.curl_easy_perform(self._curl)             # <<<<<<<<<<<<<<
@@ -28017,7 +28057,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
         __pyx_v_ret = curl_easy_perform(__pyx_v_self->_curl);
       }
 
-      /* "cycurl/_curl.pyx":687
+      /* "cycurl/_curl.pyx":691
  * 
  *         # here we go
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -28034,7 +28074,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
       }
   }
 
-  /* "cycurl/_curl.pyx":689
+  /* "cycurl/_curl.pyx":693
  *         with nogil:
  *             ret = curl.curl_easy_perform(self._curl)
  *         try:             # <<<<<<<<<<<<<<
@@ -28043,16 +28083,16 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
 */
   /*try:*/ {
 
-    /* "cycurl/_curl.pyx":690
+    /* "cycurl/_curl.pyx":694
  *             ret = curl.curl_easy_perform(self._curl)
  *         try:
  *             self._check_error(ret, "perform")             # <<<<<<<<<<<<<<
  *             return ret
  *         finally:
 */
-    __pyx_t_6 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_n_u_perform); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 690, __pyx_L8_error)
+    __pyx_t_6 = __pyx_f_6cycurl_5_curl_4Curl__check_error(__pyx_v_self, __pyx_v_ret, __pyx_mstate_global->__pyx_n_u_perform); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 694, __pyx_L8_error)
 
-    /* "cycurl/_curl.pyx":691
+    /* "cycurl/_curl.pyx":695
  *         try:
  *             self._check_error(ret, "perform")
  *             return ret             # <<<<<<<<<<<<<<
@@ -28063,7 +28103,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
     goto __pyx_L7_return;
   }
 
-  /* "cycurl/_curl.pyx":694
+  /* "cycurl/_curl.pyx":698
  *         finally:
  *             # cleaning
  *             self.clean_handles_and_buffers(clear_headers, clear_resolve)             # <<<<<<<<<<<<<<
@@ -28092,7 +28132,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
         __pyx_t_15.__pyx_n = 2;
         __pyx_t_15.clear_headers = __pyx_v_clear_headers;
         __pyx_t_15.clear_resolve = __pyx_v_clear_resolve;
-        __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_buffers(__pyx_v_self, 0, &__pyx_t_15); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 694, __pyx_L11_error)
+        __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_buffers(__pyx_v_self, 0, &__pyx_t_15); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 698, __pyx_L11_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       }
@@ -28123,7 +28163,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
       __pyx_t_15.__pyx_n = 2;
       __pyx_t_15.clear_headers = __pyx_v_clear_headers;
       __pyx_t_15.clear_resolve = __pyx_v_clear_resolve;
-      __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_buffers(__pyx_v_self, 0, &__pyx_t_15); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 694, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_buffers(__pyx_v_self, 0, &__pyx_t_15); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 698, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_r = __pyx_t_7;
@@ -28131,7 +28171,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_perform(struct __pyx_obj_6
     }
   }
 
-  /* "cycurl/_curl.pyx":670
+  /* "cycurl/_curl.pyx":674
  *             self._check_error(ret, "set proxy cacert")
  * 
  *     cpdef inline int perform(self, bint clear_headers = True, bint clear_resolve = True) except -1:             # <<<<<<<<<<<<<<
@@ -28192,50 +28232,50 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_clear_headers,&__pyx_mstate_global->__pyx_n_u_clear_resolve,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 670, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 674, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 670, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 674, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 670, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 674, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "perform", 0) < (0)) __PYX_ERR(0, 670, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "perform", 0) < (0)) __PYX_ERR(0, 674, __pyx_L3_error)
     } else {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 670, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 674, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 670, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 674, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
     if (values[0]) {
-      __pyx_v_clear_headers = __Pyx_PyObject_IsTrue(values[0]); if (unlikely((__pyx_v_clear_headers == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 670, __pyx_L3_error)
+      __pyx_v_clear_headers = __Pyx_PyObject_IsTrue(values[0]); if (unlikely((__pyx_v_clear_headers == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 674, __pyx_L3_error)
     } else {
       __pyx_v_clear_headers = ((int)1);
     }
     if (values[1]) {
-      __pyx_v_clear_resolve = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_clear_resolve == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 670, __pyx_L3_error)
+      __pyx_v_clear_resolve = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_clear_resolve == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 674, __pyx_L3_error)
     } else {
       __pyx_v_clear_resolve = ((int)1);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("perform", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 670, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("perform", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 674, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -28270,8 +28310,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_28perform(struct __pyx_obj_6cycur
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.clear_headers = __pyx_v_clear_headers;
   __pyx_t_2.clear_resolve = __pyx_v_clear_resolve;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->perform(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 670, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 670, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->perform(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 674, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 674, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -28288,7 +28328,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_28perform(struct __pyx_obj_6cycur
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":696
+/* "cycurl/_curl.pyx":700
  *             self.clean_handles_and_buffers(clear_headers, clear_resolve)
  * 
  *     cpdef inline int upkeep(self):             # <<<<<<<<<<<<<<
@@ -28308,7 +28348,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_upkeep(struct __pyx_obj_6c
   int __pyx_r;
   int __pyx_t_1;
 
-  /* "cycurl/_curl.pyx":697
+  /* "cycurl/_curl.pyx":701
  * 
  *     cpdef inline int upkeep(self):
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -28318,7 +28358,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_upkeep(struct __pyx_obj_6c
   __pyx_t_1 = (__pyx_v_self->_curl == NULL);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":698
+    /* "cycurl/_curl.pyx":702
  *     cpdef inline int upkeep(self):
  *         if self._curl == NULL:
  *             return 0             # <<<<<<<<<<<<<<
@@ -28328,7 +28368,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_upkeep(struct __pyx_obj_6c
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":697
+    /* "cycurl/_curl.pyx":701
  * 
  *     cpdef inline int upkeep(self):
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -28337,7 +28377,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_upkeep(struct __pyx_obj_6c
 */
   }
 
-  /* "cycurl/_curl.pyx":700
+  /* "cycurl/_curl.pyx":704
  *             return 0
  *         cdef int ret
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -28350,7 +28390,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_upkeep(struct __pyx_obj_6c
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":701
+        /* "cycurl/_curl.pyx":705
  *         cdef int ret
  *         with nogil:
  *             ret = curl.curl_easy_upkeep(self._curl)             # <<<<<<<<<<<<<<
@@ -28360,7 +28400,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_upkeep(struct __pyx_obj_6c
         __pyx_v_ret = curl_easy_upkeep(__pyx_v_self->_curl);
       }
 
-      /* "cycurl/_curl.pyx":700
+      /* "cycurl/_curl.pyx":704
  *             return 0
  *         cdef int ret
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -28377,7 +28417,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_upkeep(struct __pyx_obj_6c
       }
   }
 
-  /* "cycurl/_curl.pyx":702
+  /* "cycurl/_curl.pyx":706
  *         with nogil:
  *             ret = curl.curl_easy_upkeep(self._curl)
  *         return ret             # <<<<<<<<<<<<<<
@@ -28387,7 +28427,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_4Curl_upkeep(struct __pyx_obj_6c
   __pyx_r = __pyx_v_ret;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":696
+  /* "cycurl/_curl.pyx":700
  *             self.clean_handles_and_buffers(clear_headers, clear_resolve)
  * 
  *     cpdef inline int upkeep(self):             # <<<<<<<<<<<<<<
@@ -28453,8 +28493,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30upkeep(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("upkeep", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_upkeep(__pyx_v_self, 1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 696, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 696, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl_upkeep(__pyx_v_self, 1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 700, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 700, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -28471,7 +28511,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_30upkeep(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":704
+/* "cycurl/_curl.pyx":708
  *         return ret
  * 
  *     cpdef inline clean_handles_and_buffers(self, bint clear_headers = True, bint clear_resolve = True):             # <<<<<<<<<<<<<<
@@ -28502,7 +28542,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
     }
   }
 
-  /* "cycurl/_curl.pyx":707
+  /* "cycurl/_curl.pyx":711
  *         """Clean up handles and buffers after ``perform`` and ``close``,
  *         called at the end of ``perform`` and ``close``."""
  *         self._write_handle = None             # <<<<<<<<<<<<<<
@@ -28515,7 +28555,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
   __Pyx_DECREF(__pyx_v_self->_write_handle);
   __pyx_v_self->_write_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":708
+  /* "cycurl/_curl.pyx":712
  *         called at the end of ``perform`` and ``close``."""
  *         self._write_handle = None
  *         self._header_handle = None             # <<<<<<<<<<<<<<
@@ -28528,7 +28568,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
   __Pyx_DECREF(__pyx_v_self->_header_handle);
   __pyx_v_self->_header_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":709
+  /* "cycurl/_curl.pyx":713
  *         self._write_handle = None
  *         self._header_handle = None
  *         self._debug_handle = None             # <<<<<<<<<<<<<<
@@ -28541,7 +28581,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
   __Pyx_DECREF(__pyx_v_self->_debug_handle);
   __pyx_v_self->_debug_handle = Py_None;
 
-  /* "cycurl/_curl.pyx":710
+  /* "cycurl/_curl.pyx":714
  *         self._header_handle = None
  *         self._debug_handle = None
  *         self._body_handle = None             # <<<<<<<<<<<<<<
@@ -28554,7 +28594,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
   __Pyx_DECREF(__pyx_v_self->_body_handle);
   __pyx_v_self->_body_handle = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":711
+  /* "cycurl/_curl.pyx":715
  *         self._debug_handle = None
  *         self._body_handle = None
  *         if clear_resolve:             # <<<<<<<<<<<<<<
@@ -28563,7 +28603,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
   if (__pyx_v_clear_resolve) {
 
-    /* "cycurl/_curl.pyx":712
+    /* "cycurl/_curl.pyx":716
  *         self._body_handle = None
  *         if clear_resolve:
  *             if self._resolve != NULL:             # <<<<<<<<<<<<<<
@@ -28573,7 +28613,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
     __pyx_t_1 = (__pyx_v_self->_resolve != NULL);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":713
+      /* "cycurl/_curl.pyx":717
  *         if clear_resolve:
  *             if self._resolve != NULL:
  *                 curl.curl_slist_free_all(self._resolve)             # <<<<<<<<<<<<<<
@@ -28582,7 +28622,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
       curl_slist_free_all(__pyx_v_self->_resolve);
 
-      /* "cycurl/_curl.pyx":714
+      /* "cycurl/_curl.pyx":718
  *             if self._resolve != NULL:
  *                 curl.curl_slist_free_all(self._resolve)
  *                 self._resolve = NULL             # <<<<<<<<<<<<<<
@@ -28591,7 +28631,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
       __pyx_v_self->_resolve = NULL;
 
-      /* "cycurl/_curl.pyx":712
+      /* "cycurl/_curl.pyx":716
  *         self._body_handle = None
  *         if clear_resolve:
  *             if self._resolve != NULL:             # <<<<<<<<<<<<<<
@@ -28600,7 +28640,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
     }
 
-    /* "cycurl/_curl.pyx":711
+    /* "cycurl/_curl.pyx":715
  *         self._debug_handle = None
  *         self._body_handle = None
  *         if clear_resolve:             # <<<<<<<<<<<<<<
@@ -28609,7 +28649,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
   }
 
-  /* "cycurl/_curl.pyx":715
+  /* "cycurl/_curl.pyx":719
  *                 curl.curl_slist_free_all(self._resolve)
  *                 self._resolve = NULL
  *         if clear_headers:             # <<<<<<<<<<<<<<
@@ -28618,7 +28658,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
   if (__pyx_v_clear_headers) {
 
-    /* "cycurl/_curl.pyx":716
+    /* "cycurl/_curl.pyx":720
  *                 self._resolve = NULL
  *         if clear_headers:
  *             if self._headers != NULL:             # <<<<<<<<<<<<<<
@@ -28628,7 +28668,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
     __pyx_t_1 = (__pyx_v_self->_headers != NULL);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":717
+      /* "cycurl/_curl.pyx":721
  *         if clear_headers:
  *             if self._headers != NULL:
  *                 curl.curl_slist_free_all(self._headers)             # <<<<<<<<<<<<<<
@@ -28637,7 +28677,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
       curl_slist_free_all(__pyx_v_self->_headers);
 
-      /* "cycurl/_curl.pyx":718
+      /* "cycurl/_curl.pyx":722
  *             if self._headers != NULL:
  *                 curl.curl_slist_free_all(self._headers)
  *                 self._headers = NULL             # <<<<<<<<<<<<<<
@@ -28646,7 +28686,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
       __pyx_v_self->_headers = NULL;
 
-      /* "cycurl/_curl.pyx":716
+      /* "cycurl/_curl.pyx":720
  *                 self._resolve = NULL
  *         if clear_headers:
  *             if self._headers != NULL:             # <<<<<<<<<<<<<<
@@ -28655,7 +28695,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
     }
 
-    /* "cycurl/_curl.pyx":720
+    /* "cycurl/_curl.pyx":724
  *                 self._headers = NULL
  * 
  *             if self._proxy_headers != NULL:             # <<<<<<<<<<<<<<
@@ -28665,7 +28705,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
     __pyx_t_1 = (__pyx_v_self->_proxy_headers != NULL);
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":721
+      /* "cycurl/_curl.pyx":725
  * 
  *             if self._proxy_headers != NULL:
  *                 curl.curl_slist_free_all(self._proxy_headers)             # <<<<<<<<<<<<<<
@@ -28674,7 +28714,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
       curl_slist_free_all(__pyx_v_self->_proxy_headers);
 
-      /* "cycurl/_curl.pyx":722
+      /* "cycurl/_curl.pyx":726
  *             if self._proxy_headers != NULL:
  *                 curl.curl_slist_free_all(self._proxy_headers)
  *                 self._proxy_headers = NULL             # <<<<<<<<<<<<<<
@@ -28683,7 +28723,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
       __pyx_v_self->_proxy_headers = NULL;
 
-      /* "cycurl/_curl.pyx":720
+      /* "cycurl/_curl.pyx":724
  *                 self._headers = NULL
  * 
  *             if self._proxy_headers != NULL:             # <<<<<<<<<<<<<<
@@ -28692,7 +28732,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
     }
 
-    /* "cycurl/_curl.pyx":715
+    /* "cycurl/_curl.pyx":719
  *                 curl.curl_slist_free_all(self._resolve)
  *                 self._resolve = NULL
  *         if clear_headers:             # <<<<<<<<<<<<<<
@@ -28701,7 +28741,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_4Curl_clean_handles_and_bu
 */
   }
 
-  /* "cycurl/_curl.pyx":704
+  /* "cycurl/_curl.pyx":708
  *         return ret
  * 
  *     cpdef inline clean_handles_and_buffers(self, bint clear_headers = True, bint clear_resolve = True):             # <<<<<<<<<<<<<<
@@ -28757,50 +28797,50 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_clear_headers,&__pyx_mstate_global->__pyx_n_u_clear_resolve,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 704, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 708, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 704, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 708, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 704, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 708, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "clean_handles_and_buffers", 0) < (0)) __PYX_ERR(0, 704, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "clean_handles_and_buffers", 0) < (0)) __PYX_ERR(0, 708, __pyx_L3_error)
     } else {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 704, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 708, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 704, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 708, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
     if (values[0]) {
-      __pyx_v_clear_headers = __Pyx_PyObject_IsTrue(values[0]); if (unlikely((__pyx_v_clear_headers == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 704, __pyx_L3_error)
+      __pyx_v_clear_headers = __Pyx_PyObject_IsTrue(values[0]); if (unlikely((__pyx_v_clear_headers == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 708, __pyx_L3_error)
     } else {
       __pyx_v_clear_headers = ((int)1);
     }
     if (values[1]) {
-      __pyx_v_clear_resolve = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_clear_resolve == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 704, __pyx_L3_error)
+      __pyx_v_clear_resolve = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_clear_resolve == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 708, __pyx_L3_error)
     } else {
       __pyx_v_clear_resolve = ((int)1);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("clean_handles_and_buffers", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 704, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("clean_handles_and_buffers", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 708, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -28834,7 +28874,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32clean_handles_and_buffers(struc
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.clear_headers = __pyx_v_clear_headers;
   __pyx_t_2.clear_resolve = __pyx_v_clear_resolve;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->clean_handles_and_buffers(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 704, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_Curl->clean_handles_and_buffers(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 708, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -28851,7 +28891,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_32clean_handles_and_buffers(struc
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":725
+/* "cycurl/_curl.pyx":729
  * 
  * 
  *     cpdef inline Curl duphandle(self):             # <<<<<<<<<<<<<<
@@ -28882,7 +28922,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("duphandle", 0);
 
-  /* "cycurl/_curl.pyx":729
+  /* "cycurl/_curl.pyx":733
  *         This is not a full copy of entire curl object in python. For example, headers
  *         handle is not copied, you have to set them again."""
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -28892,7 +28932,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
   __pyx_t_1 = (__pyx_v_self->_curl == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":730
+    /* "cycurl/_curl.pyx":734
  *         handle is not copied, you have to set them again."""
  *         if self._curl == NULL:
  *             raise CurlError("Cannot duplicate closed handle.")             # <<<<<<<<<<<<<<
@@ -28900,7 +28940,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
  *         with nogil:
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 730, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 734, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -28919,14 +28959,14 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 730, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 734, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 730, __pyx_L1_error)
+    __PYX_ERR(0, 734, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":729
+    /* "cycurl/_curl.pyx":733
  *         This is not a full copy of entire curl object in python. For example, headers
  *         handle is not copied, you have to set them again."""
  *         if self._curl == NULL:             # <<<<<<<<<<<<<<
@@ -28935,7 +28975,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
 */
   }
 
-  /* "cycurl/_curl.pyx":732
+  /* "cycurl/_curl.pyx":736
  *             raise CurlError("Cannot duplicate closed handle.")
  *         cdef curl.CURL *new_handle
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -28948,7 +28988,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":733
+        /* "cycurl/_curl.pyx":737
  *         cdef curl.CURL *new_handle
  *         with nogil:
  *             new_handle = curl.curl_easy_duphandle(self._curl)             # <<<<<<<<<<<<<<
@@ -28958,7 +28998,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
         __pyx_v_new_handle = curl_easy_duphandle(__pyx_v_self->_curl);
       }
 
-      /* "cycurl/_curl.pyx":732
+      /* "cycurl/_curl.pyx":736
  *             raise CurlError("Cannot duplicate closed handle.")
  *         cdef curl.CURL *new_handle
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -28975,7 +29015,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
       }
   }
 
-  /* "cycurl/_curl.pyx":734
+  /* "cycurl/_curl.pyx":738
  *         with nogil:
  *             new_handle = curl.curl_easy_duphandle(self._curl)
  *         if new_handle == NULL:             # <<<<<<<<<<<<<<
@@ -28985,16 +29025,16 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
   __pyx_t_1 = (__pyx_v_new_handle == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":735
+    /* "cycurl/_curl.pyx":739
  *             new_handle = curl.curl_easy_duphandle(self._curl)
  *         if new_handle == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         c = Curl(self._cacert, self._debug, PyCapsule_New(<void*>new_handle, NULL, NULL))
  *         return c
 */
-    PyErr_NoMemory(); __PYX_ERR(0, 735, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 739, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":734
+    /* "cycurl/_curl.pyx":738
  *         with nogil:
  *             new_handle = curl.curl_easy_duphandle(self._curl)
  *         if new_handle == NULL:             # <<<<<<<<<<<<<<
@@ -29003,7 +29043,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
 */
   }
 
-  /* "cycurl/_curl.pyx":736
+  /* "cycurl/_curl.pyx":740
  *         if new_handle == NULL:
  *             raise MemoryError
  *         c = Curl(self._cacert, self._debug, PyCapsule_New(<void*>new_handle, NULL, NULL))             # <<<<<<<<<<<<<<
@@ -29011,9 +29051,9 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
  * 
 */
   __pyx_t_4 = NULL;
-  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_v_self->_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 736, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_v_self->_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 740, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = PyCapsule_New(((void *)__pyx_v_new_handle), NULL, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 736, __pyx_L1_error)
+  __pyx_t_6 = PyCapsule_New(((void *)__pyx_v_new_handle), NULL, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 740, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_5 = 1;
   {
@@ -29022,13 +29062,13 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 736, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 740, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_2);
   }
   __pyx_v_c = ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":737
+  /* "cycurl/_curl.pyx":741
  *             raise MemoryError
  *         c = Curl(self._cacert, self._debug, PyCapsule_New(<void*>new_handle, NULL, NULL))
  *         return c             # <<<<<<<<<<<<<<
@@ -29040,7 +29080,7 @@ static CYTHON_INLINE struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_f_6cycurl_5_cur
   __pyx_r = __pyx_v_c;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":725
+  /* "cycurl/_curl.pyx":729
  * 
  * 
  *     cpdef inline Curl duphandle(self):             # <<<<<<<<<<<<<<
@@ -29115,7 +29155,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_34duphandle(struct __pyx_obj_6cyc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("duphandle", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_6cycurl_5_curl_4Curl_duphandle(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 725, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_6cycurl_5_curl_4Curl_duphandle(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 729, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -29132,7 +29172,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_34duphandle(struct __pyx_obj_6cyc
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":739
+/* "cycurl/_curl.pyx":743
  *         return c
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -29192,18 +29232,27 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
 
-  /* "cycurl/_curl.pyx":741
+  /* "cycurl/_curl.pyx":745
  *     def reset(self):
  *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False             # <<<<<<<<<<<<<<
+ *         self._skip_cacert = False
  *         if self._curl:
- *             with nogil:
 */
   __pyx_v_self->_is_cert_set = 0;
 
-  /* "cycurl/_curl.pyx":742
+  /* "cycurl/_curl.pyx":746
  *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False
+ *         self._skip_cacert = False             # <<<<<<<<<<<<<<
+ *         if self._curl:
+ *             with nogil:
+*/
+  __pyx_v_self->_skip_cacert = 0;
+
+  /* "cycurl/_curl.pyx":747
+ *         self._is_cert_set = False
+ *         self._skip_cacert = False
  *         if self._curl:             # <<<<<<<<<<<<<<
  *             with nogil:
  *                 curl.curl_easy_reset(self._curl)
@@ -29211,8 +29260,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
   __pyx_t_1 = (__pyx_v_self->_curl != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":743
- *         self._is_cert_set = False
+    /* "cycurl/_curl.pyx":748
+ *         self._skip_cacert = False
  *         if self._curl:
  *             with nogil:             # <<<<<<<<<<<<<<
  *                 curl.curl_easy_reset(self._curl)
@@ -29224,7 +29273,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
         __Pyx_FastGIL_Remember();
         /*try:*/ {
 
-          /* "cycurl/_curl.pyx":744
+          /* "cycurl/_curl.pyx":749
  *         if self._curl:
  *             with nogil:
  *                 curl.curl_easy_reset(self._curl)             # <<<<<<<<<<<<<<
@@ -29234,8 +29283,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
           curl_easy_reset(__pyx_v_self->_curl);
         }
 
-        /* "cycurl/_curl.pyx":743
- *         self._is_cert_set = False
+        /* "cycurl/_curl.pyx":748
+ *         self._skip_cacert = False
  *         if self._curl:
  *             with nogil:             # <<<<<<<<<<<<<<
  *                 curl.curl_easy_reset(self._curl)
@@ -29251,25 +29300,25 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
         }
     }
 
-    /* "cycurl/_curl.pyx":745
+    /* "cycurl/_curl.pyx":750
  *             with nogil:
  *                 curl.curl_easy_reset(self._curl)
  *             self._set_error_buffer()             # <<<<<<<<<<<<<<
  *         if self._resolve != NULL:
  *             curl.curl_slist_free_all(self._resolve)
 */
-    __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 745, __pyx_L1_error)
+    __pyx_f_6cycurl_5_curl_4Curl__set_error_buffer(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 750, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":742
- *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
+    /* "cycurl/_curl.pyx":747
  *         self._is_cert_set = False
+ *         self._skip_cacert = False
  *         if self._curl:             # <<<<<<<<<<<<<<
  *             with nogil:
  *                 curl.curl_easy_reset(self._curl)
 */
   }
 
-  /* "cycurl/_curl.pyx":746
+  /* "cycurl/_curl.pyx":751
  *                 curl.curl_easy_reset(self._curl)
  *             self._set_error_buffer()
  *         if self._resolve != NULL:             # <<<<<<<<<<<<<<
@@ -29279,7 +29328,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
   __pyx_t_1 = (__pyx_v_self->_resolve != NULL);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":747
+    /* "cycurl/_curl.pyx":752
  *             self._set_error_buffer()
  *         if self._resolve != NULL:
  *             curl.curl_slist_free_all(self._resolve)             # <<<<<<<<<<<<<<
@@ -29288,7 +29337,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
 */
     curl_slist_free_all(__pyx_v_self->_resolve);
 
-    /* "cycurl/_curl.pyx":748
+    /* "cycurl/_curl.pyx":753
  *         if self._resolve != NULL:
  *             curl.curl_slist_free_all(self._resolve)
  *             self._resolve = NULL             # <<<<<<<<<<<<<<
@@ -29297,7 +29346,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
 */
     __pyx_v_self->_resolve = NULL;
 
-    /* "cycurl/_curl.pyx":746
+    /* "cycurl/_curl.pyx":751
  *                 curl.curl_easy_reset(self._curl)
  *             self._set_error_buffer()
  *         if self._resolve != NULL:             # <<<<<<<<<<<<<<
@@ -29306,7 +29355,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
 */
   }
 
-  /* "cycurl/_curl.pyx":739
+  /* "cycurl/_curl.pyx":743
  *         return c
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -29326,7 +29375,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_36reset(struct __pyx_obj_6cycurl_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":750
+/* "cycurl/_curl.pyx":755
  *             self._resolve = NULL
  * 
  *     def parse_cookie_headers(self, list headers) -> SimpleCookie:             # <<<<<<<<<<<<<<
@@ -29374,32 +29423,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_headers,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 750, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 755, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 750, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 755, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "parse_cookie_headers", 0) < (0)) __PYX_ERR(0, 750, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "parse_cookie_headers", 0) < (0)) __PYX_ERR(0, 755, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("parse_cookie_headers", 1, 1, 1, i); __PYX_ERR(0, 750, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("parse_cookie_headers", 1, 1, 1, i); __PYX_ERR(0, 755, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 750, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 755, __pyx_L3_error)
     }
     __pyx_v_headers = ((PyObject*)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("parse_cookie_headers", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 750, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("parse_cookie_headers", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 755, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -29410,7 +29459,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_headers), (&PyList_Type), 1, "headers", 1))) __PYX_ERR(0, 750, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_headers), (&PyList_Type), 1, "headers", 1))) __PYX_ERR(0, 755, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_self), __pyx_v_headers);
 
   /* function exit code */
@@ -29449,7 +29498,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("parse_cookie_headers", 0);
 
-  /* "cycurl/_curl.pyx":759
+  /* "cycurl/_curl.pyx":764
  *             A parsed cookies.SimpleCookie instance.
  *         """
  *         cookie = SimpleCookie()             # <<<<<<<<<<<<<<
@@ -29457,7 +29506,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
  *             if header.lower().startswith(b"set-cookie: "):
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_SimpleCookie); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 759, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_SimpleCookie); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 764, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -29476,13 +29525,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 759, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 764, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_cookie = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":760
+  /* "cycurl/_curl.pyx":765
  *         """
  *         cookie = SimpleCookie()
  *         for header in headers:             # <<<<<<<<<<<<<<
@@ -29491,7 +29540,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
 */
   if (unlikely(__pyx_v_headers == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 760, __pyx_L1_error)
+    __PYX_ERR(0, 765, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_headers; __Pyx_INCREF(__pyx_t_1);
   __pyx_t_5 = 0;
@@ -29499,18 +29548,18 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
     {
       Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
       #if !CYTHON_ASSUME_SAFE_SIZE
-      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 760, __pyx_L1_error)
+      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 765, __pyx_L1_error)
       #endif
       if (__pyx_t_5 >= __pyx_temp) break;
     }
     __pyx_t_3 = __Pyx_PyList_GetItemRefFast(__pyx_t_1, __pyx_t_5, __Pyx_ReferenceSharing_OwnStrongReference);
     ++__pyx_t_5;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 760, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 765, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_XDECREF_SET(__pyx_v_header, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "cycurl/_curl.pyx":761
+    /* "cycurl/_curl.pyx":766
  *         cookie = SimpleCookie()
  *         for header in headers:
  *             if header.lower().startswith(b"set-cookie: "):             # <<<<<<<<<<<<<<
@@ -29524,7 +29573,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
       PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
       __pyx_t_6 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 761, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 766, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
     }
     __pyx_t_2 = __pyx_t_6;
@@ -29535,14 +29584,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
       __pyx_t_3 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_startswith, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 761, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 766, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 761, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 766, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_8) {
 
-      /* "cycurl/_curl.pyx":762
+      /* "cycurl/_curl.pyx":767
  *         for header in headers:
  *             if header.lower().startswith(b"set-cookie: "):
  *                 cookie.load(header[12:].decode())  # len("set-cookie: ") == 12             # <<<<<<<<<<<<<<
@@ -29551,7 +29600,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
 */
       __pyx_t_6 = __pyx_v_cookie;
       __Pyx_INCREF(__pyx_t_6);
-      __pyx_t_9 = __Pyx_PyObject_GetSlice(__pyx_v_header, 12, 0, NULL, NULL, &__pyx_mstate_global->__pyx_slice[1], 1, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 762, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetSlice(__pyx_v_header, 12, 0, NULL, NULL, &__pyx_mstate_global->__pyx_slice[1], 1, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 767, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __pyx_t_7 = __pyx_t_9;
       __Pyx_INCREF(__pyx_t_7);
@@ -29561,7 +29610,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
         __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_decode, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 762, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 767, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
       __pyx_t_4 = 0;
@@ -29570,12 +29619,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
         __pyx_t_3 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_load, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 762, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 767, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "cycurl/_curl.pyx":761
+      /* "cycurl/_curl.pyx":766
  *         cookie = SimpleCookie()
  *         for header in headers:
  *             if header.lower().startswith(b"set-cookie: "):             # <<<<<<<<<<<<<<
@@ -29584,7 +29633,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
 */
     }
 
-    /* "cycurl/_curl.pyx":760
+    /* "cycurl/_curl.pyx":765
  *         """
  *         cookie = SimpleCookie()
  *         for header in headers:             # <<<<<<<<<<<<<<
@@ -29594,7 +29643,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":763
+  /* "cycurl/_curl.pyx":768
  *             if header.lower().startswith(b"set-cookie: "):
  *                 cookie.load(header[12:].decode())  # len("set-cookie: ") == 12
  *         return cookie             # <<<<<<<<<<<<<<
@@ -29606,7 +29655,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
   __pyx_r = __pyx_v_cookie;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":750
+  /* "cycurl/_curl.pyx":755
  *             self._resolve = NULL
  * 
  *     def parse_cookie_headers(self, list headers) -> SimpleCookie:             # <<<<<<<<<<<<<<
@@ -29632,7 +29681,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_38parse_cookie_headers(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":765
+/* "cycurl/_curl.pyx":770
  *         return cookie
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -29680,32 +29729,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_status_line,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 765, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 770, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 765, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 770, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_reason_phrase", 0) < (0)) __PYX_ERR(0, 765, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_reason_phrase", 0) < (0)) __PYX_ERR(0, 770, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_reason_phrase", 1, 1, 1, i); __PYX_ERR(0, 765, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_reason_phrase", 1, 1, 1, i); __PYX_ERR(0, 770, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 765, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 770, __pyx_L3_error)
     }
     __pyx_v_status_line = ((PyObject*)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_reason_phrase", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 765, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_reason_phrase", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 770, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -29716,7 +29765,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 1, "status_line", 1))) __PYX_ERR(0, 766, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 1, "status_line", 1))) __PYX_ERR(0, 771, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_40get_reason_phrase(__pyx_v_status_line);
 
   /* function exit code */
@@ -29751,7 +29800,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_40get_reason_phrase(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_reason_phrase", 0);
 
-  /* "cycurl/_curl.pyx":768
+  /* "cycurl/_curl.pyx":773
  *     def get_reason_phrase(bytes status_line) -> bytes:
  *         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
  *         m = re.match(rb"HTTP/\d\.\d [0-9]{3} (.*)", status_line)             # <<<<<<<<<<<<<<
@@ -29759,9 +29808,9 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_40get_reason_phrase(PyObject *__p
  * 
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 768, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 773, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_match); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 768, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_match); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 773, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -29781,13 +29830,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_40get_reason_phrase(PyObject *__p
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 768, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 773, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_m = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":769
+  /* "cycurl/_curl.pyx":774
  *         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
  *         m = re.match(rb"HTTP/\d\.\d [0-9]{3} (.*)", status_line)
  *         return m.group(1) if m else b""             # <<<<<<<<<<<<<<
@@ -29795,7 +29844,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_40get_reason_phrase(PyObject *__p
  *     @staticmethod
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_m); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 769, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_m); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 774, __pyx_L1_error)
   if (__pyx_t_6) {
     __pyx_t_2 = __pyx_v_m;
     __Pyx_INCREF(__pyx_t_2);
@@ -29804,10 +29853,10 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_40get_reason_phrase(PyObject *__p
       PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_int_1};
       __pyx_t_4 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_group, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 769, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 774, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
-    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_4))) __PYX_ERR(0, 769, __pyx_L1_error)
+    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_4))) __PYX_ERR(0, 774, __pyx_L1_error)
     __pyx_t_1 = __pyx_t_4;
     __pyx_t_4 = 0;
   } else {
@@ -29818,7 +29867,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_40get_reason_phrase(PyObject *__p
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":765
+  /* "cycurl/_curl.pyx":770
  *         return cookie
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -29841,7 +29890,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_40get_reason_phrase(PyObject *__p
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":771
+/* "cycurl/_curl.pyx":776
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -29889,32 +29938,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_status_line,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 771, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 776, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 771, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 776, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "parse_status_line", 0) < (0)) __PYX_ERR(0, 771, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "parse_status_line", 0) < (0)) __PYX_ERR(0, 776, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("parse_status_line", 1, 1, 1, i); __PYX_ERR(0, 771, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("parse_status_line", 1, 1, 1, i); __PYX_ERR(0, 776, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 771, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 776, __pyx_L3_error)
     }
     __pyx_v_status_line = ((PyObject*)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("parse_status_line", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 771, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("parse_status_line", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 776, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -29925,7 +29974,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 1, "status_line", 1))) __PYX_ERR(0, 772, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_status_line), (&PyBytes_Type), 1, "status_line", 1))) __PYX_ERR(0, 777, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(__pyx_v_status_line);
 
   /* function exit code */
@@ -29964,7 +30013,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("parse_status_line", 0);
 
-  /* "cycurl/_curl.pyx":777
+  /* "cycurl/_curl.pyx":782
  *             http_version, status_code, and reason phrase
  *         """
  *         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)             # <<<<<<<<<<<<<<
@@ -29972,9 +30021,9 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
  *             return CURL_HTTP_VERSION_1_0, 0, b""
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 777, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 782, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_match); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 777, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_match); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 782, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -29994,24 +30043,24 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 777, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 782, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_m = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":778
+  /* "cycurl/_curl.pyx":783
  *         """
  *         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
  *         if not m:             # <<<<<<<<<<<<<<
  *             return CURL_HTTP_VERSION_1_0, 0, b""
  *         if m.group(1) == "2.0":
 */
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_m); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 778, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_m); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 783, __pyx_L1_error)
   __pyx_t_7 = (!__pyx_t_6);
   if (__pyx_t_7) {
 
-    /* "cycurl/_curl.pyx":779
+    /* "cycurl/_curl.pyx":784
  *         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
  *         if not m:
  *             return CURL_HTTP_VERSION_1_0, 0, b""             # <<<<<<<<<<<<<<
@@ -30019,24 +30068,24 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
  *             http_version = CURL_HTTP_VERSION_2_0
 */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 779, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 784, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 779, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 784, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_1);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1) != (0)) __PYX_ERR(0, 779, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1) != (0)) __PYX_ERR(0, 784, __pyx_L1_error);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_int_0);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_0);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_mstate_global->__pyx_int_0) != (0)) __PYX_ERR(0, 779, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_mstate_global->__pyx_int_0) != (0)) __PYX_ERR(0, 784, __pyx_L1_error);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_b__9);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_b__9);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_mstate_global->__pyx_kp_b__9) != (0)) __PYX_ERR(0, 779, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_mstate_global->__pyx_kp_b__9) != (0)) __PYX_ERR(0, 784, __pyx_L1_error);
     __pyx_t_1 = 0;
     __pyx_r = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":778
+    /* "cycurl/_curl.pyx":783
  *         """
  *         m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
  *         if not m:             # <<<<<<<<<<<<<<
@@ -30045,7 +30094,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
 */
   }
 
-  /* "cycurl/_curl.pyx":780
+  /* "cycurl/_curl.pyx":785
  *         if not m:
  *             return CURL_HTTP_VERSION_1_0, 0, b""
  *         if m.group(1) == "2.0":             # <<<<<<<<<<<<<<
@@ -30059,26 +30108,26 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_int_1};
     __pyx_t_4 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_group, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 780, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 785, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_2_0, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 780, __pyx_L1_error)
+  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_2_0, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 785, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_7) {
 
-    /* "cycurl/_curl.pyx":781
+    /* "cycurl/_curl.pyx":786
  *             return CURL_HTTP_VERSION_1_0, 0, b""
  *         if m.group(1) == "2.0":
  *             http_version = CURL_HTTP_VERSION_2_0             # <<<<<<<<<<<<<<
  *         elif m.group(1) == "1.1":
  *             http_version = CURL_HTTP_VERSION_1_1
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 781, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 786, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_v_http_version = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "cycurl/_curl.pyx":780
+    /* "cycurl/_curl.pyx":785
  *         if not m:
  *             return CURL_HTTP_VERSION_1_0, 0, b""
  *         if m.group(1) == "2.0":             # <<<<<<<<<<<<<<
@@ -30088,7 +30137,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":782
+  /* "cycurl/_curl.pyx":787
  *         if m.group(1) == "2.0":
  *             http_version = CURL_HTTP_VERSION_2_0
  *         elif m.group(1) == "1.1":             # <<<<<<<<<<<<<<
@@ -30102,26 +30151,26 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_int_1};
     __pyx_t_4 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_group, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 782, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 787, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_1_1, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 782, __pyx_L1_error)
+  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_1_1, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 787, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_7) {
 
-    /* "cycurl/_curl.pyx":783
+    /* "cycurl/_curl.pyx":788
  *             http_version = CURL_HTTP_VERSION_2_0
  *         elif m.group(1) == "1.1":
  *             http_version = CURL_HTTP_VERSION_1_1             # <<<<<<<<<<<<<<
  *         elif m.group(1) == "1.0":
  *             http_version = CURL_HTTP_VERSION_1_0
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 783, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 788, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_v_http_version = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "cycurl/_curl.pyx":782
+    /* "cycurl/_curl.pyx":787
  *         if m.group(1) == "2.0":
  *             http_version = CURL_HTTP_VERSION_2_0
  *         elif m.group(1) == "1.1":             # <<<<<<<<<<<<<<
@@ -30131,7 +30180,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":784
+  /* "cycurl/_curl.pyx":789
  *         elif m.group(1) == "1.1":
  *             http_version = CURL_HTTP_VERSION_1_1
  *         elif m.group(1) == "1.0":             # <<<<<<<<<<<<<<
@@ -30145,26 +30194,26 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_int_1};
     __pyx_t_4 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_group, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 784, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 789, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_1_0, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 784, __pyx_L1_error)
+  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_1_0, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 789, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_7) {
 
-    /* "cycurl/_curl.pyx":785
+    /* "cycurl/_curl.pyx":790
  *             http_version = CURL_HTTP_VERSION_1_1
  *         elif m.group(1) == "1.0":
  *             http_version = CURL_HTTP_VERSION_1_0             # <<<<<<<<<<<<<<
  *         else:
  *             http_version = CURL_HTTP_VERSION_NONE
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 785, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 790, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_v_http_version = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "cycurl/_curl.pyx":784
+    /* "cycurl/_curl.pyx":789
  *         elif m.group(1) == "1.1":
  *             http_version = CURL_HTTP_VERSION_1_1
  *         elif m.group(1) == "1.0":             # <<<<<<<<<<<<<<
@@ -30174,7 +30223,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
     goto __pyx_L4;
   }
 
-  /* "cycurl/_curl.pyx":787
+  /* "cycurl/_curl.pyx":792
  *             http_version = CURL_HTTP_VERSION_1_0
  *         else:
  *             http_version = CURL_HTTP_VERSION_NONE             # <<<<<<<<<<<<<<
@@ -30182,14 +30231,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
  *         reason = m.group(3)
 */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 787, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_v_http_version = __pyx_t_4;
     __pyx_t_4 = 0;
   }
   __pyx_L4:;
 
-  /* "cycurl/_curl.pyx":788
+  /* "cycurl/_curl.pyx":793
  *         else:
  *             http_version = CURL_HTTP_VERSION_NONE
  *         status_code = int(m.group(2))             # <<<<<<<<<<<<<<
@@ -30203,16 +30252,16 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_int_2};
     __pyx_t_4 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_group, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 788, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 793, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 788, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 793, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_status_code = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":789
+  /* "cycurl/_curl.pyx":794
  *             http_version = CURL_HTTP_VERSION_NONE
  *         status_code = int(m.group(2))
  *         reason = m.group(3)             # <<<<<<<<<<<<<<
@@ -30226,13 +30275,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
     PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_int_3};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_group, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 789, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 794, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_reason = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":791
+  /* "cycurl/_curl.pyx":796
  *         reason = m.group(3)
  * 
  *         return http_version, status_code, reason             # <<<<<<<<<<<<<<
@@ -30240,22 +30289,22 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
  * ### The asyncio ###
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 791, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 796, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_http_version);
   __Pyx_GIVEREF(__pyx_v_http_version);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_http_version) != (0)) __PYX_ERR(0, 791, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_http_version) != (0)) __PYX_ERR(0, 796, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_status_code);
   __Pyx_GIVEREF(__pyx_v_status_code);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_status_code) != (0)) __PYX_ERR(0, 791, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_status_code) != (0)) __PYX_ERR(0, 796, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_reason);
   __Pyx_GIVEREF(__pyx_v_reason);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_v_reason) != (0)) __PYX_ERR(0, 791, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_v_reason) != (0)) __PYX_ERR(0, 796, __pyx_L1_error);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":771
+  /* "cycurl/_curl.pyx":776
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -30278,6 +30327,89 @@ static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_42parse_status_line(PyObject *__p
   __Pyx_XDECREF(__pyx_v_reason);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "cycurl/_curl.pyx":221
+ *         str _cacert
+ *         bint _is_cert_set
+ *         public bint _skip_cacert             # <<<<<<<<<<<<<<
+ *         object _write_handle
+ *         object _header_handle
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_12_skip_cacert_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_12_skip_cacert_1__get__(PyObject *__pyx_v_self) {
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_12_skip_cacert___get__(((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6cycurl_5_curl_4Curl_12_skip_cacert___get__(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->_skip_cacert); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("cycurl._curl.Curl._skip_cacert.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_6cycurl_5_curl_4Curl_12_skip_cacert_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6cycurl_5_curl_4Curl_12_skip_cacert_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_4Curl_12_skip_cacert_2__set__(((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_6cycurl_5_curl_4Curl_12_skip_cacert_2__set__(struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  int __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_v_self->_skip_cacert = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("cycurl._curl.Curl._skip_cacert.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
   return __pyx_r;
 }
 
@@ -37725,7 +37857,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_26AddThreadSelectorEventLoop_12remove_w
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":806
+/* "cycurl/_curl.pyx":811
  *     """
  * 
  *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -37773,32 +37905,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_asyncio_loop,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 806, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 811, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 806, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 811, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_selector", 0) < (0)) __PYX_ERR(0, 806, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_selector", 0) < (0)) __PYX_ERR(0, 811, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, i); __PYX_ERR(0, 806, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, i); __PYX_ERR(0, 811, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 806, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 811, __pyx_L3_error)
     }
     __pyx_v_asyncio_loop = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 806, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 811, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -37819,7 +37951,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":828
+/* "cycurl/_curl.pyx":833
  *         loop_close = asyncio_loop.close
  * 
  *         def _close_selector_and_loop():             # <<<<<<<<<<<<<<
@@ -37860,18 +37992,18 @@ static PyObject *__pyx_pf_6cycurl_5_curl_12get_selector__close_selector_and_loop
   __pyx_outer_scope = (struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5_get_selector *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "cycurl/_curl.pyx":831
+  /* "cycurl/_curl.pyx":836
  *             # restore original before calling selector.close,
  *             # which in turn calls eventloop.close!
  *             asyncio_loop.close = loop_close             # <<<<<<<<<<<<<<
  *             _selectors.pop(asyncio_loop, None)
  *             selector_loop.close()
 */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_loop_close)) { __Pyx_RaiseClosureNameError("loop_close"); __PYX_ERR(0, 831, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_asyncio_loop)) { __Pyx_RaiseClosureNameError("asyncio_loop"); __PYX_ERR(0, 831, __pyx_L1_error) }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_mstate_global->__pyx_n_u_close, __pyx_cur_scope->__pyx_v_loop_close) < (0)) __PYX_ERR(0, 831, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_loop_close)) { __Pyx_RaiseClosureNameError("loop_close"); __PYX_ERR(0, 836, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_asyncio_loop)) { __Pyx_RaiseClosureNameError("asyncio_loop"); __PYX_ERR(0, 836, __pyx_L1_error) }
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_mstate_global->__pyx_n_u_close, __pyx_cur_scope->__pyx_v_loop_close) < (0)) __PYX_ERR(0, 836, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":832
+  /* "cycurl/_curl.pyx":837
  *             # which in turn calls eventloop.close!
  *             asyncio_loop.close = loop_close
  *             _selectors.pop(asyncio_loop, None)             # <<<<<<<<<<<<<<
@@ -37879,12 +38011,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_12get_selector__close_selector_and_loop
  * 
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_selectors); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 832, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_selectors); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 837, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_pop); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 832, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_pop); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 837, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_v_asyncio_loop)) { __Pyx_RaiseClosureNameError("asyncio_loop"); __PYX_ERR(0, 832, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_asyncio_loop)) { __Pyx_RaiseClosureNameError("asyncio_loop"); __PYX_ERR(0, 837, __pyx_L1_error) }
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -37902,19 +38034,19 @@ static PyObject *__pyx_pf_6cycurl_5_curl_12get_selector__close_selector_and_loop
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 832, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 837, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":833
+  /* "cycurl/_curl.pyx":838
  *             asyncio_loop.close = loop_close
  *             _selectors.pop(asyncio_loop, None)
  *             selector_loop.close()             # <<<<<<<<<<<<<<
  * 
  *         asyncio_loop.close = _close_selector_and_loop  # type: ignore # mypy bug - assign a function to method
 */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_selector_loop)) { __Pyx_RaiseClosureNameError("selector_loop"); __PYX_ERR(0, 833, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_selector_loop)) { __Pyx_RaiseClosureNameError("selector_loop"); __PYX_ERR(0, 838, __pyx_L1_error) }
   __pyx_t_4 = __pyx_cur_scope->__pyx_v_selector_loop;
   __Pyx_INCREF(__pyx_t_4);
   __pyx_t_5 = 0;
@@ -37922,12 +38054,12 @@ static PyObject *__pyx_pf_6cycurl_5_curl_12get_selector__close_selector_and_loop
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_close, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 833, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 838, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":828
+  /* "cycurl/_curl.pyx":833
  *         loop_close = asyncio_loop.close
  * 
  *         def _close_selector_and_loop():             # <<<<<<<<<<<<<<
@@ -37951,7 +38083,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_12get_selector__close_selector_and_loop
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":806
+/* "cycurl/_curl.pyx":811
  *     """
  * 
  *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -37981,7 +38113,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_5_get_selector *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 806, __pyx_L1_error)
+    __PYX_ERR(0, 811, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -37989,20 +38121,20 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_asyncio_loop);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_asyncio_loop);
 
-  /* "cycurl/_curl.pyx":815
+  /* "cycurl/_curl.pyx":820
  *         """
  * 
  *         if asyncio_loop in _selectors:             # <<<<<<<<<<<<<<
  *             return _selectors[asyncio_loop]
  * 
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 815, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 820, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_t_1, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 815, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_t_1, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 820, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":816
+    /* "cycurl/_curl.pyx":821
  * 
  *         if asyncio_loop in _selectors:
  *             return _selectors[asyncio_loop]             # <<<<<<<<<<<<<<
@@ -38010,16 +38142,16 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
  *         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
 */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 816, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_selectors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 821, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_cur_scope->__pyx_v_asyncio_loop); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 816, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_cur_scope->__pyx_v_asyncio_loop); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 821, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":815
+    /* "cycurl/_curl.pyx":820
  *         """
  * 
  *         if asyncio_loop in _selectors:             # <<<<<<<<<<<<<<
@@ -38028,7 +38160,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
 */
   }
 
-  /* "cycurl/_curl.pyx":818
+  /* "cycurl/_curl.pyx":823
  *             return _selectors[asyncio_loop]
  * 
  *         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):             # <<<<<<<<<<<<<<
@@ -38037,18 +38169,18 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
 */
   __pyx_t_3 = __pyx_cur_scope->__pyx_v_asyncio_loop;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 818, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 823, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_GetAttr3(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_ProactorEventLoop, ((PyObject *)Py_TYPE(Py_None))); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 818, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetAttr3(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_ProactorEventLoop, ((PyObject *)Py_TYPE(Py_None))); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 823, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_4); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 818, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_4); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 823, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = (!__pyx_t_2);
   if (__pyx_t_5) {
 
-    /* "cycurl/_curl.pyx":819
+    /* "cycurl/_curl.pyx":824
  * 
  *         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):
  *             return asyncio_loop             # <<<<<<<<<<<<<<
@@ -38060,7 +38192,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
     __pyx_r = __pyx_cur_scope->__pyx_v_asyncio_loop;
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":818
+    /* "cycurl/_curl.pyx":823
  *             return _selectors[asyncio_loop]
  * 
  *         if not isinstance(asyncio_loop, getattr(asyncio, "ProactorEventLoop", type(None))):             # <<<<<<<<<<<<<<
@@ -38069,7 +38201,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
 */
   }
 
-  /* "cycurl/_curl.pyx":821
+  /* "cycurl/_curl.pyx":826
  *             return asyncio_loop
  * 
  *         warnings.warn(PROACTOR_WARNING, CurlWarning, stacklevel=2)             # <<<<<<<<<<<<<<
@@ -38077,14 +38209,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
  *         selector_loop = _selectors[asyncio_loop] = AddThreadSelectorEventLoop(asyncio_loop)  # type: ignore
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_warnings); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 821, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_warnings); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 826, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_warn); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 821, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_warn); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 826, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_PROACTOR_WARNING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 821, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_PROACTOR_WARNING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 826, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_CurlWarning); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 821, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_CurlWarning); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 826, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_8 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -38100,21 +38232,21 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
   #endif
   {
     PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_3, __pyx_t_1, __pyx_t_7};
-    __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 821, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 826, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_stacklevel, __pyx_mstate_global->__pyx_int_2, __pyx_t_9, __pyx_callargs+3, 0) < (0)) __PYX_ERR(0, 821, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_stacklevel, __pyx_mstate_global->__pyx_int_2, __pyx_t_9, __pyx_callargs+3, 0) < (0)) __PYX_ERR(0, 826, __pyx_L1_error)
     __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_6, __pyx_callargs+__pyx_t_8, (3-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 821, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 826, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":823
+  /* "cycurl/_curl.pyx":828
  *         warnings.warn(PROACTOR_WARNING, CurlWarning, stacklevel=2)
  * 
  *         selector_loop = _selectors[asyncio_loop] = AddThreadSelectorEventLoop(asyncio_loop)  # type: ignore             # <<<<<<<<<<<<<<
@@ -38122,7 +38254,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
  *         # patch loop.close to also close the selector thread
 */
   __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_AddThreadSelectorEventLoop); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 823, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_AddThreadSelectorEventLoop); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 828, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_8 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -38141,53 +38273,53 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
     __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_9, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 823, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 828, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_INCREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_4);
   __pyx_cur_scope->__pyx_v_selector_loop = __pyx_t_4;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_selectors); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 823, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_selectors); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 828, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (unlikely((PyObject_SetItem(__pyx_t_9, __pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_t_4) < 0))) __PYX_ERR(0, 823, __pyx_L1_error)
+  if (unlikely((PyObject_SetItem(__pyx_t_9, __pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_t_4) < 0))) __PYX_ERR(0, 828, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":826
+  /* "cycurl/_curl.pyx":831
  * 
  *         # patch loop.close to also close the selector thread
  *         loop_close = asyncio_loop.close             # <<<<<<<<<<<<<<
  * 
  *         def _close_selector_and_loop():
 */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_mstate_global->__pyx_n_u_close); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 826, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_mstate_global->__pyx_n_u_close); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 831, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_4);
   __pyx_cur_scope->__pyx_v_loop_close = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":828
+  /* "cycurl/_curl.pyx":833
  *         loop_close = asyncio_loop.close
  * 
  *         def _close_selector_and_loop():             # <<<<<<<<<<<<<<
  *             # restore original before calling selector.close,
  *             # which in turn calls eventloop.close!
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_12get_selector_1_close_selector_and_loop, 0, __pyx_mstate_global->__pyx_n_u_get_selector_locals__close_selec, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 828, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_12get_selector_1_close_selector_and_loop, 0, __pyx_mstate_global->__pyx_n_u_get_selector_locals__close_selec, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 833, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_v__close_selector_and_loop = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":835
+  /* "cycurl/_curl.pyx":840
  *             selector_loop.close()
  * 
  *         asyncio_loop.close = _close_selector_and_loop  # type: ignore # mypy bug - assign a function to method             # <<<<<<<<<<<<<<
  *         return selector_loop
  * 
 */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_mstate_global->__pyx_n_u_close, __pyx_v__close_selector_and_loop) < (0)) __PYX_ERR(0, 835, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_asyncio_loop, __pyx_mstate_global->__pyx_n_u_close, __pyx_v__close_selector_and_loop) < (0)) __PYX_ERR(0, 840, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":836
+  /* "cycurl/_curl.pyx":841
  * 
  *         asyncio_loop.close = _close_selector_and_loop  # type: ignore # mypy bug - assign a function to method
  *         return selector_loop             # <<<<<<<<<<<<<<
@@ -38199,7 +38331,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
   __pyx_r = __pyx_cur_scope->__pyx_v_selector_loop;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":806
+  /* "cycurl/_curl.pyx":811
  *     """
  * 
  *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -38225,7 +38357,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_6get_selector(CYTHON_UNUSED PyObject *_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":839
+/* "cycurl/_curl.pyx":844
  * 
  * else:
  *     def get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -38273,32 +38405,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_loop,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 839, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 844, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 839, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 844, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_selector", 0) < (0)) __PYX_ERR(0, 839, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_selector", 0) < (0)) __PYX_ERR(0, 844, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, i); __PYX_ERR(0, 839, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, i); __PYX_ERR(0, 844, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 839, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 844, __pyx_L3_error)
     }
     __pyx_v_loop = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 839, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_selector", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 844, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -38324,7 +38456,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8get_selector(CYTHON_UNUSED PyObject *_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("get_selector", 0);
 
-  /* "cycurl/_curl.pyx":840
+  /* "cycurl/_curl.pyx":845
  * else:
  *     def get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:
  *         return loop             # <<<<<<<<<<<<<<
@@ -38336,7 +38468,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8get_selector(CYTHON_UNUSED PyObject *_
   __pyx_r = __pyx_v_loop;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":839
+  /* "cycurl/_curl.pyx":844
  * 
  * else:
  *     def get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -38351,7 +38483,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8get_selector(CYTHON_UNUSED PyObject *_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":843
+/* "cycurl/_curl.pyx":848
  * 
  * 
  * cdef int timer_function(curl.CURLM *curlm, long timeout_ms, void *clientp) with gil:             # <<<<<<<<<<<<<<
@@ -38377,7 +38509,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
   __Pyx_RefNannySetupContext("timer_function", 0);
 
-  /* "cycurl/_curl.pyx":847
+  /* "cycurl/_curl.pyx":852
  *     see: https://curl.se/libcurl/c/CURLMOPT_TIMERFUNCTION.html
  *     """
  *     cdef AsyncCurl async_curl = <AsyncCurl>clientp             # <<<<<<<<<<<<<<
@@ -38389,17 +38521,17 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   __pyx_v_async_curl = ((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":850
+  /* "cycurl/_curl.pyx":855
  *     # Cancel the timer anyway, if it's -1, yes, libcurl says it should be cancelled.
  *     # If not, to add a new timer, we need to cancel the old timer.
  *     if async_curl._timer:             # <<<<<<<<<<<<<<
  *         async_curl._timer.cancel()  # If already called, cancel does nothing.
  *         async_curl._timer = None
 */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_async_curl->_timer); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 850, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_async_curl->_timer); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 855, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":851
+    /* "cycurl/_curl.pyx":856
  *     # If not, to add a new timer, we need to cancel the old timer.
  *     if async_curl._timer:
  *         async_curl._timer.cancel()  # If already called, cancel does nothing.             # <<<<<<<<<<<<<<
@@ -38413,12 +38545,12 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
       PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_cancel, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 851, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 856, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":852
+    /* "cycurl/_curl.pyx":857
  *     if async_curl._timer:
  *         async_curl._timer.cancel()  # If already called, cancel does nothing.
  *         async_curl._timer = None             # <<<<<<<<<<<<<<
@@ -38431,7 +38563,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
     __Pyx_DECREF(__pyx_v_async_curl->_timer);
     __pyx_v_async_curl->_timer = Py_None;
 
-    /* "cycurl/_curl.pyx":850
+    /* "cycurl/_curl.pyx":855
  *     # Cancel the timer anyway, if it's -1, yes, libcurl says it should be cancelled.
  *     # If not, to add a new timer, we need to cancel the old timer.
  *     if async_curl._timer:             # <<<<<<<<<<<<<<
@@ -38440,7 +38572,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
 */
   }
 
-  /* "cycurl/_curl.pyx":855
+  /* "cycurl/_curl.pyx":860
  * 
  *     # libcurl says to install a timer which calls socket_action on fire.
  *     async_curl._timer = async_curl.loop.call_later(             # <<<<<<<<<<<<<<
@@ -38450,44 +38582,44 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   __pyx_t_3 = __pyx_v_async_curl->loop;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "cycurl/_curl.pyx":856
+  /* "cycurl/_curl.pyx":861
  *     # libcurl says to install a timer which calls socket_action on fire.
  *     async_curl._timer = async_curl.loop.call_later(
  *         (<double>timeout_ms) / 1000,             # <<<<<<<<<<<<<<
  *         async_curl.process_data,
  *         curl.CURL_SOCKET_TIMEOUT,  # -1
 */
-  __pyx_t_5 = PyFloat_FromDouble((((double)__pyx_v_timeout_ms) / 1000.0)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 856, __pyx_L1_error)
+  __pyx_t_5 = PyFloat_FromDouble((((double)__pyx_v_timeout_ms) / 1000.0)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 861, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
 
-  /* "cycurl/_curl.pyx":857
+  /* "cycurl/_curl.pyx":862
  *     async_curl._timer = async_curl.loop.call_later(
  *         (<double>timeout_ms) / 1000,
  *         async_curl.process_data,             # <<<<<<<<<<<<<<
  *         curl.CURL_SOCKET_TIMEOUT,  # -1
  *         curl.CURL_POLL_NONE,  # 0
 */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_mstate_global->__pyx_n_u_process_data); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 857, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_mstate_global->__pyx_n_u_process_data); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 862, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
 
-  /* "cycurl/_curl.pyx":858
+  /* "cycurl/_curl.pyx":863
  *         (<double>timeout_ms) / 1000,
  *         async_curl.process_data,
  *         curl.CURL_SOCKET_TIMEOUT,  # -1             # <<<<<<<<<<<<<<
  *         curl.CURL_POLL_NONE,  # 0
  *     )
 */
-  __pyx_t_7 = __Pyx_PyLong_From_int(CURL_SOCKET_TIMEOUT); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyLong_From_int(CURL_SOCKET_TIMEOUT); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
 
-  /* "cycurl/_curl.pyx":859
+  /* "cycurl/_curl.pyx":864
  *         async_curl.process_data,
  *         curl.CURL_SOCKET_TIMEOUT,  # -1
  *         curl.CURL_POLL_NONE,  # 0             # <<<<<<<<<<<<<<
  *     )
  *     return 0
 */
-  __pyx_t_8 = __Pyx_PyLong_From_int(CURL_POLL_NONE); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyLong_From_int(CURL_POLL_NONE); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 864, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_t_4 = 0;
   {
@@ -38498,11 +38630,11 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 855, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
 
-  /* "cycurl/_curl.pyx":855
+  /* "cycurl/_curl.pyx":860
  * 
  *     # libcurl says to install a timer which calls socket_action on fire.
  *     async_curl._timer = async_curl.loop.call_later(             # <<<<<<<<<<<<<<
@@ -38515,7 +38647,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   __pyx_v_async_curl->_timer = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":861
+  /* "cycurl/_curl.pyx":866
  *         curl.CURL_POLL_NONE,  # 0
  *     )
  *     return 0             # <<<<<<<<<<<<<<
@@ -38525,7 +38657,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":843
+  /* "cycurl/_curl.pyx":848
  * 
  * 
  * cdef int timer_function(curl.CURLM *curlm, long timeout_ms, void *clientp) with gil:             # <<<<<<<<<<<<<<
@@ -38550,7 +38682,7 @@ static int __pyx_f_6cycurl_5_curl_timer_function(CYTHON_UNUSED CURLM *__pyx_v_cu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":863
+/* "cycurl/_curl.pyx":868
  *     return 0
  * 
  * cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, void *socketp) with gil:             # <<<<<<<<<<<<<<
@@ -38578,7 +38710,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
   __Pyx_RefNannySetupContext("socket_function", 0);
 
-  /* "cycurl/_curl.pyx":866
+  /* "cycurl/_curl.pyx":871
  *     """This callback is called when libcurl decides it's time to interact with certain
  *     sockets"""
  *     cdef AsyncCurl async_curl = <AsyncCurl>clientp             # <<<<<<<<<<<<<<
@@ -38590,7 +38722,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_v_async_curl = ((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":867
+  /* "cycurl/_curl.pyx":872
  *     sockets"""
  *     cdef AsyncCurl async_curl = <AsyncCurl>clientp
  *     cdef object loop = async_curl.loop             # <<<<<<<<<<<<<<
@@ -38602,24 +38734,24 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_v_loop = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":870
+  /* "cycurl/_curl.pyx":875
  * 
  *     # Always remove and re-add fds
  *     if sockfd in async_curl._sockfds:             # <<<<<<<<<<<<<<
  *         loop.remove_reader(sockfd)
  *         loop.remove_writer(sockfd)
 */
-  __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 870, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 875, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (unlikely(__pyx_v_async_curl->_sockfds == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 870, __pyx_L1_error)
+    __PYX_ERR(0, 875, __pyx_L1_error)
   }
-  __pyx_t_2 = (__Pyx_PySet_ContainsTF(__pyx_t_1, __pyx_v_async_curl->_sockfds, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 870, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySet_ContainsTF(__pyx_t_1, __pyx_v_async_curl->_sockfds, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 875, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":871
+    /* "cycurl/_curl.pyx":876
  *     # Always remove and re-add fds
  *     if sockfd in async_curl._sockfds:
  *         loop.remove_reader(sockfd)             # <<<<<<<<<<<<<<
@@ -38628,7 +38760,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
     __pyx_t_3 = __pyx_v_loop;
     __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 871, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 876, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = 0;
     {
@@ -38636,12 +38768,12 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_remove_reader, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 871, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 876, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":872
+    /* "cycurl/_curl.pyx":877
  *     if sockfd in async_curl._sockfds:
  *         loop.remove_reader(sockfd)
  *         loop.remove_writer(sockfd)             # <<<<<<<<<<<<<<
@@ -38650,7 +38782,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
     __pyx_t_4 = __pyx_v_loop;
     __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 872, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 877, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = 0;
     {
@@ -38658,12 +38790,12 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_remove_writer, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 872, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 877, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":870
+    /* "cycurl/_curl.pyx":875
  * 
  *     # Always remove and re-add fds
  *     if sockfd in async_curl._sockfds:             # <<<<<<<<<<<<<<
@@ -38672,7 +38804,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
   }
 
-  /* "cycurl/_curl.pyx":874
+  /* "cycurl/_curl.pyx":879
  *         loop.remove_writer(sockfd)
  *     # Need to read from the socket
  *     if what & curl.CURL_POLL_IN:             # <<<<<<<<<<<<<<
@@ -38682,7 +38814,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_t_2 = ((__pyx_v_what & CURL_POLL_IN) != 0);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":875
+    /* "cycurl/_curl.pyx":880
  *     # Need to read from the socket
  *     if what & curl.CURL_POLL_IN:
  *         loop.add_reader(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_IN)             # <<<<<<<<<<<<<<
@@ -38691,13 +38823,13 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
     __pyx_t_3 = __pyx_v_loop;
     __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 875, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_mstate_global->__pyx_n_u_process_data); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 875, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_mstate_global->__pyx_n_u_process_data); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 875, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyLong_From_int(CURL_CSELECT_IN); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 875, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyLong_From_int(CURL_CSELECT_IN); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_5 = 0;
     {
@@ -38708,12 +38840,12 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 875, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 880, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":876
+    /* "cycurl/_curl.pyx":881
  *     if what & curl.CURL_POLL_IN:
  *         loop.add_reader(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_IN)
  *         async_curl._sockfds.add(sockfd)             # <<<<<<<<<<<<<<
@@ -38722,14 +38854,14 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
     if (unlikely(__pyx_v_async_curl->_sockfds == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-      __PYX_ERR(0, 876, __pyx_L1_error)
+      __PYX_ERR(0, 881, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 876, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 881, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_9 = PySet_Add(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 876, __pyx_L1_error)
+    __pyx_t_9 = PySet_Add(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 881, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":874
+    /* "cycurl/_curl.pyx":879
  *         loop.remove_writer(sockfd)
  *     # Need to read from the socket
  *     if what & curl.CURL_POLL_IN:             # <<<<<<<<<<<<<<
@@ -38738,7 +38870,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
   }
 
-  /* "cycurl/_curl.pyx":878
+  /* "cycurl/_curl.pyx":883
  *         async_curl._sockfds.add(sockfd)
  *     # Need to write to the socket
  *     if what & curl.CURL_POLL_OUT:             # <<<<<<<<<<<<<<
@@ -38748,7 +38880,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_t_2 = ((__pyx_v_what & CURL_POLL_OUT) != 0);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":879
+    /* "cycurl/_curl.pyx":884
  *     # Need to write to the socket
  *     if what & curl.CURL_POLL_OUT:
  *         loop.add_writer(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_OUT)             # <<<<<<<<<<<<<<
@@ -38757,13 +38889,13 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
     __pyx_t_8 = __pyx_v_loop;
     __Pyx_INCREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 879, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 884, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_mstate_global->__pyx_n_u_process_data); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 879, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_async_curl), __pyx_mstate_global->__pyx_n_u_process_data); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 884, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 879, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 884, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyLong_From_int(CURL_CSELECT_OUT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 879, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyLong_From_int(CURL_CSELECT_OUT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 884, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = 0;
     {
@@ -38774,12 +38906,12 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 879, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 884, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":880
+    /* "cycurl/_curl.pyx":885
  *     if what & curl.CURL_POLL_OUT:
  *         loop.add_writer(sockfd, async_curl.process_data, sockfd, curl.CURL_CSELECT_OUT)
  *         async_curl._sockfds.add(sockfd)             # <<<<<<<<<<<<<<
@@ -38788,14 +38920,14 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
     if (unlikely(__pyx_v_async_curl->_sockfds == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-      __PYX_ERR(0, 880, __pyx_L1_error)
+      __PYX_ERR(0, 885, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 880, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 885, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_9 = PySet_Add(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 880, __pyx_L1_error)
+    __pyx_t_9 = PySet_Add(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 885, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":878
+    /* "cycurl/_curl.pyx":883
  *         async_curl._sockfds.add(sockfd)
  *     # Need to write to the socket
  *     if what & curl.CURL_POLL_OUT:             # <<<<<<<<<<<<<<
@@ -38804,7 +38936,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
   }
 
-  /* "cycurl/_curl.pyx":882
+  /* "cycurl/_curl.pyx":887
  *         async_curl._sockfds.add(sockfd)
  *     # Need to remove the socket
  *     if what & curl.CURL_POLL_REMOVE:             # <<<<<<<<<<<<<<
@@ -38814,7 +38946,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_t_2 = ((__pyx_v_what & CURL_POLL_REMOVE) != 0);
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":883
+    /* "cycurl/_curl.pyx":888
  *     # Need to remove the socket
  *     if what & curl.CURL_POLL_REMOVE:
  *         async_curl._sockfds.remove(sockfd)             # <<<<<<<<<<<<<<
@@ -38823,14 +38955,14 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
     if (unlikely(__pyx_v_async_curl->_sockfds == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "remove");
-      __PYX_ERR(0, 883, __pyx_L1_error)
+      __PYX_ERR(0, 888, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 883, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_9 = __Pyx_PySet_Remove(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 883, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PySet_Remove(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":882
+    /* "cycurl/_curl.pyx":887
  *         async_curl._sockfds.add(sockfd)
  *     # Need to remove the socket
  *     if what & curl.CURL_POLL_REMOVE:             # <<<<<<<<<<<<<<
@@ -38839,7 +38971,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
 */
   }
 
-  /* "cycurl/_curl.pyx":884
+  /* "cycurl/_curl.pyx":889
  *     if what & curl.CURL_POLL_REMOVE:
  *         async_curl._sockfds.remove(sockfd)
  *     return 0             # <<<<<<<<<<<<<<
@@ -38849,7 +38981,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":863
+  /* "cycurl/_curl.pyx":868
  *     return 0
  * 
  * cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, void *socketp) with gil:             # <<<<<<<<<<<<<<
@@ -38875,7 +39007,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":916
+/* "cycurl/_curl.pyx":921
  *         object _timer   # Optional[asyncio.TimerHandle]
  * 
  *     def __cinit__(self, str cacert = "", object loop=None):             # <<<<<<<<<<<<<<
@@ -38906,33 +39038,33 @@ static int __pyx_pw_6cycurl_5_curl_9AsyncCurl_1__cinit__(PyObject *__pyx_v_self,
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cacert,&__pyx_mstate_global->__pyx_n_u_loop,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_VARARGS(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 916, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 921, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_VARARGS(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 916, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 921, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_VARARGS(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 916, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 921, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__cinit__", 0) < (0)) __PYX_ERR(0, 916, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__cinit__", 0) < (0)) __PYX_ERR(0, 921, __pyx_L3_error)
       if (!values[0]) values[0] = __Pyx_NewRef(((PyObject*)__pyx_mstate_global->__pyx_kp_u__9));
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject *)Py_None));
     } else {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_VARARGS(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 916, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 921, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_VARARGS(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 916, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 921, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
@@ -38945,7 +39077,7 @@ static int __pyx_pw_6cycurl_5_curl_9AsyncCurl_1__cinit__(PyObject *__pyx_v_self,
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 916, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 921, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -38956,7 +39088,7 @@ static int __pyx_pw_6cycurl_5_curl_9AsyncCurl_1__cinit__(PyObject *__pyx_v_self,
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cacert), (&PyUnicode_Type), 1, "cacert", 1))) __PYX_ERR(0, 916, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cacert), (&PyUnicode_Type), 1, "cacert", 1))) __PYX_ERR(0, 921, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_cacert, __pyx_v_loop);
 
   /* function exit code */
@@ -38994,7 +39126,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "cycurl/_curl.pyx":917
+  /* "cycurl/_curl.pyx":922
  * 
  *     def __cinit__(self, str cacert = "", object loop=None):
  *         self._curlm = curl.curl_multi_init()             # <<<<<<<<<<<<<<
@@ -39003,7 +39135,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
 */
   __pyx_v_self->_curlm = curl_multi_init();
 
-  /* "cycurl/_curl.pyx":918
+  /* "cycurl/_curl.pyx":923
  *     def __cinit__(self, str cacert = "", object loop=None):
  *         self._curlm = curl.curl_multi_init()
  *         if self._curlm == NULL:             # <<<<<<<<<<<<<<
@@ -39013,16 +39145,16 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_t_1 = (__pyx_v_self->_curlm == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "cycurl/_curl.pyx":919
+    /* "cycurl/_curl.pyx":924
  *         self._curlm = curl.curl_multi_init()
  *         if self._curlm == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         self._cacert = cacert or DEFAULT_CACERT
  *         self._curl2future = {}  # curl to future map
 */
-    PyErr_NoMemory(); __PYX_ERR(0, 919, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 924, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":918
+    /* "cycurl/_curl.pyx":923
  *     def __cinit__(self, str cacert = "", object loop=None):
  *         self._curlm = curl.curl_multi_init()
  *         if self._curlm == NULL:             # <<<<<<<<<<<<<<
@@ -39031,25 +39163,25 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
 */
   }
 
-  /* "cycurl/_curl.pyx":920
+  /* "cycurl/_curl.pyx":925
  *         if self._curlm == NULL:
  *             raise MemoryError
  *         self._cacert = cacert or DEFAULT_CACERT             # <<<<<<<<<<<<<<
  *         self._curl2future = {}  # curl to future map
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
 */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_cacert); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 920, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_cacert); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 925, __pyx_L1_error)
   if (!__pyx_t_1) {
   } else {
     __Pyx_INCREF(__pyx_v_cacert);
     __pyx_t_2 = __pyx_v_cacert;
     goto __pyx_L4_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DEFAULT_CACERT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 920, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DEFAULT_CACERT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 925, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = __pyx_t_3;
   __Pyx_INCREF(__pyx_t_4);
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_4))) __PYX_ERR(0, 920, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_4))) __PYX_ERR(0, 925, __pyx_L1_error)
   __pyx_t_2 = __pyx_t_4;
   __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -39060,14 +39192,14 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_cacert = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":921
+  /* "cycurl/_curl.pyx":926
  *             raise MemoryError
  *         self._cacert = cacert or DEFAULT_CACERT
  *         self._curl2future = {}  # curl to future map             # <<<<<<<<<<<<<<
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 921, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 926, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_curl2future);
@@ -39075,14 +39207,14 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_curl2future = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":922
+  /* "cycurl/_curl.pyx":927
  *         self._cacert = cacert or DEFAULT_CACERT
  *         self._curl2future = {}  # curl to future map
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]             # <<<<<<<<<<<<<<
  *         self._sockfds = set()  # sockfds
  *         self.loop = get_selector(
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 922, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 927, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_curl2curl);
@@ -39090,14 +39222,14 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_curl2curl = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":923
+  /* "cycurl/_curl.pyx":928
  *         self._curl2future = {}  # curl to future map
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds             # <<<<<<<<<<<<<<
  *         self.loop = get_selector(
  *             loop if loop is not None else asyncio.get_running_loop()
 */
-  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 923, __pyx_L1_error)
+  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 928, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_sockfds);
@@ -39105,7 +39237,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_sockfds = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":924
+  /* "cycurl/_curl.pyx":929
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds
  *         self.loop = get_selector(             # <<<<<<<<<<<<<<
@@ -39113,10 +39245,10 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
  *         )
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_get_selector); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 924, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_get_selector); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 929, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "cycurl/_curl.pyx":925
+  /* "cycurl/_curl.pyx":930
  *         self._sockfds = set()  # sockfds
  *         self.loop = get_selector(
  *             loop if loop is not None else asyncio.get_running_loop()             # <<<<<<<<<<<<<<
@@ -39129,9 +39261,9 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
     __pyx_t_5 = __pyx_v_loop;
   } else {
     __pyx_t_7 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_asyncio); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 925, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_asyncio); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 930, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_get_running_loop); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 925, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_get_running_loop); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 930, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_10 = 1;
@@ -39151,7 +39283,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
       __pyx_t_6 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_9, __pyx_callargs+__pyx_t_10, (1-__pyx_t_10) | (__pyx_t_10*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 925, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 930, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
     }
     __pyx_t_5 = __pyx_t_6;
@@ -39175,11 +39307,11 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 924, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 929, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
 
-  /* "cycurl/_curl.pyx":924
+  /* "cycurl/_curl.pyx":929
  *         self._curl2curl = {}  # c curl to Curl Dict[int, Curl]
  *         self._sockfds = set()  # sockfds
  *         self.loop = get_selector(             # <<<<<<<<<<<<<<
@@ -39192,7 +39324,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->loop = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":927
+  /* "cycurl/_curl.pyx":932
  *             loop if loop is not None else asyncio.get_running_loop()
  *         )
  *         self._timeout_checker = self.loop.create_task(self._force_timeout())             # <<<<<<<<<<<<<<
@@ -39208,7 +39340,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
     PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
     __pyx_t_5 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_force_timeout, __pyx_callargs+__pyx_t_10, (1-__pyx_t_10) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 927, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 932, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
   }
   __pyx_t_10 = 0;
@@ -39217,7 +39349,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
     __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_create_task, __pyx_callargs+__pyx_t_10, (2-__pyx_t_10) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 927, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 932, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __Pyx_GIVEREF(__pyx_t_2);
@@ -39226,7 +39358,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __pyx_v_self->_timeout_checker = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":928
+  /* "cycurl/_curl.pyx":933
  *         )
  *         self._timeout_checker = self.loop.create_task(self._force_timeout())
  *         self._timer: Optional[asyncio.TimerHandle] = None             # <<<<<<<<<<<<<<
@@ -39239,18 +39371,18 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   __Pyx_DECREF(__pyx_v_self->_timer);
   __pyx_v_self->_timer = Py_None;
 
-  /* "cycurl/_curl.pyx":929
+  /* "cycurl/_curl.pyx":934
  *         self._timeout_checker = self.loop.create_task(self._force_timeout())
  *         self._timer: Optional[asyncio.TimerHandle] = None
  *         self._setup()             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
 */
-  __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl__setup(__pyx_v_self); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 929, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl__setup(__pyx_v_self); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 934, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":916
+  /* "cycurl/_curl.pyx":921
  *         object _timer   # Optional[asyncio.TimerHandle]
  * 
  *     def __cinit__(self, str cacert = "", object loop=None):             # <<<<<<<<<<<<<<
@@ -39277,7 +39409,7 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl___cinit__(struct __pyx_obj_6cycurl
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":931
+/* "cycurl/_curl.pyx":936
  *         self._setup()
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -39301,7 +39433,7 @@ static void __pyx_pw_6cycurl_5_curl_9AsyncCurl_3__dealloc__(PyObject *__pyx_v_se
 static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self) {
   int __pyx_t_1;
 
-  /* "cycurl/_curl.pyx":932
+  /* "cycurl/_curl.pyx":937
  * 
  *     def __dealloc__(self):
  *         if self._curlm:             # <<<<<<<<<<<<<<
@@ -39311,7 +39443,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
   __pyx_t_1 = (__pyx_v_self->_curlm != 0);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":933
+    /* "cycurl/_curl.pyx":938
  *     def __dealloc__(self):
  *         if self._curlm:
  *             curl.curl_multi_cleanup(self._curlm)             # <<<<<<<<<<<<<<
@@ -39320,7 +39452,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
 */
     (void)(curl_multi_cleanup(__pyx_v_self->_curlm));
 
-    /* "cycurl/_curl.pyx":934
+    /* "cycurl/_curl.pyx":939
  *         if self._curlm:
  *             curl.curl_multi_cleanup(self._curlm)
  *             self._curlm = NULL             # <<<<<<<<<<<<<<
@@ -39329,7 +39461,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
 */
     __pyx_v_self->_curlm = NULL;
 
-    /* "cycurl/_curl.pyx":932
+    /* "cycurl/_curl.pyx":937
  * 
  *     def __dealloc__(self):
  *         if self._curlm:             # <<<<<<<<<<<<<<
@@ -39338,7 +39470,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
 */
   }
 
-  /* "cycurl/_curl.pyx":931
+  /* "cycurl/_curl.pyx":936
  *         self._setup()
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -39349,7 +39481,7 @@ static void __pyx_pf_6cycurl_5_curl_9AsyncCurl_2__dealloc__(struct __pyx_obj_6cy
   /* function exit code */
 }
 
-/* "cycurl/_curl.pyx":936
+/* "cycurl/_curl.pyx":941
  *             self._curlm = NULL
  * 
  *     cdef _setup(self):             # <<<<<<<<<<<<<<
@@ -39362,7 +39494,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_setup", 0);
 
-  /* "cycurl/_curl.pyx":937
+  /* "cycurl/_curl.pyx":942
  * 
  *     cdef _setup(self):
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERFUNCTION, <void *>timer_function)             # <<<<<<<<<<<<<<
@@ -39371,7 +39503,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
 */
   (void)(curl_multi_setopt(__pyx_v_self->_curlm, CURLMOPT_TIMERFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_timer_function)));
 
-  /* "cycurl/_curl.pyx":938
+  /* "cycurl/_curl.pyx":943
  *     cdef _setup(self):
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERFUNCTION, <void *>timer_function)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETFUNCTION, <void *>socket_function)             # <<<<<<<<<<<<<<
@@ -39380,7 +39512,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
 */
   (void)(curl_multi_setopt(__pyx_v_self->_curlm, CURLMOPT_SOCKETFUNCTION, ((void *)__pyx_f_6cycurl_5_curl_socket_function)));
 
-  /* "cycurl/_curl.pyx":939
+  /* "cycurl/_curl.pyx":944
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERFUNCTION, <void *>timer_function)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETFUNCTION, <void *>socket_function)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETDATA, <void*>self)             # <<<<<<<<<<<<<<
@@ -39389,7 +39521,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
 */
   (void)(curl_multi_setopt(__pyx_v_self->_curlm, CURLMOPT_SOCKETDATA, ((void *)__pyx_v_self)));
 
-  /* "cycurl/_curl.pyx":940
+  /* "cycurl/_curl.pyx":945
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETFUNCTION, <void *>socket_function)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_SOCKETDATA, <void*>self)
  *         curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_TIMERDATA, <void*>self)             # <<<<<<<<<<<<<<
@@ -39398,7 +39530,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
 */
   (void)(curl_multi_setopt(__pyx_v_self->_curlm, CURLMOPT_TIMERDATA, ((void *)__pyx_v_self)));
 
-  /* "cycurl/_curl.pyx":936
+  /* "cycurl/_curl.pyx":941
  *             self._curlm = NULL
  * 
  *     cdef _setup(self):             # <<<<<<<<<<<<<<
@@ -39414,7 +39546,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__setup(struct __pyx_obj_6cycu
 }
 static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "cycurl/_curl.pyx":943
+/* "cycurl/_curl.pyx":948
  *         # curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_PIPELINING, curl.CURLPIPE_NOTHING)
  * 
  *     async def close(self):             # <<<<<<<<<<<<<<
@@ -39477,7 +39609,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_4close(struct __pyx_obj_6cyc
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_6_close *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 943, __pyx_L1_error)
+    __PYX_ERR(0, 948, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -39485,7 +39617,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_4close(struct __pyx_obj_6cyc
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_close, __pyx_mstate_global->__pyx_n_u_AsyncCurl_close, __pyx_mstate_global->__pyx_n_u_cycurl__curl); if (unlikely(!gen)) __PYX_ERR(0, 943, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_close, __pyx_mstate_global->__pyx_n_u_AsyncCurl_close, __pyx_mstate_global->__pyx_n_u_cycurl__curl); if (unlikely(!gen)) __PYX_ERR(0, 948, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -39539,10 +39671,10 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 943, __pyx_L1_error)
+    __PYX_ERR(0, 948, __pyx_L1_error)
   }
 
-  /* "cycurl/_curl.pyx":946
+  /* "cycurl/_curl.pyx":951
  *         """Close and cleanup running timers, readers, writers and handles."""
  *         # Close and wait for the force timeout checker to complete
  *         self._timeout_checker.cancel()             # <<<<<<<<<<<<<<
@@ -39556,12 +39688,12 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_cancel, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 946, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 951, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":947
+  /* "cycurl/_curl.pyx":952
  *         # Close and wait for the force timeout checker to complete
  *         self._timeout_checker.cancel()
  *         with suppress(asyncio.CancelledError):             # <<<<<<<<<<<<<<
@@ -39570,11 +39702,11 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
 */
   /*with:*/ {
     __pyx_t_2 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_suppress); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 947, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_suppress); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 952, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_asyncio); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 947, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_asyncio); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 952, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CancelledError); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 947, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CancelledError); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 952, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_3 = 1;
@@ -39595,13 +39727,13 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 947, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 952, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
-    __pyx_t_7 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_exit); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 947, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_exit); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 952, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_6 = NULL;
-    __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 947, __pyx_L4_error)
+    __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 952, __pyx_L4_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -39620,7 +39752,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
       __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 947, __pyx_L4_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 952, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -39633,7 +39765,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
         __Pyx_XGOTREF(__pyx_t_10);
         /*try:*/ {
 
-          /* "cycurl/_curl.pyx":948
+          /* "cycurl/_curl.pyx":953
  *         self._timeout_checker.cancel()
  *         with suppress(asyncio.CancelledError):
  *             await self._timeout_checker             # <<<<<<<<<<<<<<
@@ -39670,16 +39802,16 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
             __pyx_t_10 = __pyx_cur_scope->__pyx_t_3;
             __pyx_cur_scope->__pyx_t_3 = 0;
             __Pyx_XGOTREF(__pyx_t_10);
-            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 948, __pyx_L8_error)
+            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 953, __pyx_L8_error)
           } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
             __Pyx_GOTREF(__pyx_r);
             __Pyx_DECREF(__pyx_r); __pyx_r = 0;
           } else {
             __Pyx_XGOTREF(__pyx_r);
-            __PYX_ERR(0, 948, __pyx_L8_error)
+            __PYX_ERR(0, 953, __pyx_L8_error)
           }
 
-          /* "cycurl/_curl.pyx":947
+          /* "cycurl/_curl.pyx":952
  *         # Close and wait for the force timeout checker to complete
  *         self._timeout_checker.cancel()
  *         with suppress(asyncio.CancelledError):             # <<<<<<<<<<<<<<
@@ -39699,20 +39831,20 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("cycurl._curl.AsyncCurl.close", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_4, &__pyx_t_2) < 0) __PYX_ERR(0, 947, __pyx_L10_except_error)
+          if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_4, &__pyx_t_2) < 0) __PYX_ERR(0, 952, __pyx_L10_except_error)
           __Pyx_XGOTREF(__pyx_t_1);
           __Pyx_XGOTREF(__pyx_t_4);
           __Pyx_XGOTREF(__pyx_t_2);
-          __pyx_t_6 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 947, __pyx_L10_except_error)
+          __pyx_t_6 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 952, __pyx_L10_except_error)
           __Pyx_GOTREF(__pyx_t_6);
           __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_6, NULL);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 947, __pyx_L10_except_error)
+          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 952, __pyx_L10_except_error)
           __Pyx_GOTREF(__pyx_t_12);
           __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_12);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (__pyx_t_13 < (0)) __PYX_ERR(0, 947, __pyx_L10_except_error)
+          if (__pyx_t_13 < (0)) __PYX_ERR(0, 952, __pyx_L10_except_error)
           __pyx_t_14 = (!__pyx_t_13);
           if (unlikely(__pyx_t_14)) {
             __Pyx_GIVEREF(__pyx_t_1);
@@ -39720,7 +39852,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
             __Pyx_XGIVEREF(__pyx_t_2);
             __Pyx_ErrRestoreWithState(__pyx_t_1, __pyx_t_4, __pyx_t_2);
             __pyx_t_1 = 0;  __pyx_t_4 = 0;  __pyx_t_2 = 0; 
-            __PYX_ERR(0, 947, __pyx_L10_except_error)
+            __PYX_ERR(0, 952, __pyx_L10_except_error)
           }
           __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -39746,7 +39878,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
         if (__pyx_t_7) {
           __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_mstate_global->__pyx_tuple[1], NULL);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 947, __pyx_L1_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 952, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         }
@@ -39761,7 +39893,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
     __pyx_L18:;
   }
 
-  /* "cycurl/_curl.pyx":950
+  /* "cycurl/_curl.pyx":955
  *             await self._timeout_checker
  *         # Close all pending futures
  *         for curl_, future in self._curl2future.items():             # <<<<<<<<<<<<<<
@@ -39771,9 +39903,9 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
   __pyx_t_15 = 0;
   if (unlikely(__pyx_cur_scope->__pyx_v_self->_curl2future == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-    __PYX_ERR(0, 950, __pyx_L1_error)
+    __PYX_ERR(0, 955, __pyx_L1_error)
   }
-  __pyx_t_4 = __Pyx_dict_iterator(__pyx_cur_scope->__pyx_v_self->_curl2future, 1, __pyx_mstate_global->__pyx_n_u_items, (&__pyx_t_16), (&__pyx_t_17)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 950, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_dict_iterator(__pyx_cur_scope->__pyx_v_self->_curl2future, 1, __pyx_mstate_global->__pyx_n_u_items, (&__pyx_t_16), (&__pyx_t_17)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 955, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_2);
   __pyx_t_2 = __pyx_t_4;
@@ -39781,7 +39913,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
   while (1) {
     __pyx_t_18 = __Pyx_dict_iter_next(__pyx_t_2, __pyx_t_16, &__pyx_t_15, &__pyx_t_4, &__pyx_t_1, NULL, __pyx_t_17);
     if (unlikely(__pyx_t_18 == 0)) break;
-    if (unlikely(__pyx_t_18 == -1)) __PYX_ERR(0, 950, __pyx_L1_error)
+    if (unlikely(__pyx_t_18 == -1)) __PYX_ERR(0, 955, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_curl_);
@@ -39793,7 +39925,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":951
+    /* "cycurl/_curl.pyx":956
  *         # Close all pending futures
  *         for curl_, future in self._curl2future.items():
  *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)             # <<<<<<<<<<<<<<
@@ -39802,7 +39934,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
 */
     (void)(curl_multi_remove_handle(__pyx_cur_scope->__pyx_v_self->_curlm, ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_cur_scope->__pyx_v_curl_)->_curl));
 
-    /* "cycurl/_curl.pyx":952
+    /* "cycurl/_curl.pyx":957
  *         for curl_, future in self._curl2future.items():
  *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
  *             if not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
@@ -39816,10 +39948,10 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
       PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_done, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 952, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 957, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
-    __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_13 < 0))) __PYX_ERR(0, 952, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_13 < 0))) __PYX_ERR(0, 957, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_19 = (!__pyx_t_13);
     if (__pyx_t_19) {
@@ -39834,17 +39966,17 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
       PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_cancelled, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 952, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 957, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
-    __pyx_t_19 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_19 < 0))) __PYX_ERR(0, 952, __pyx_L1_error)
+    __pyx_t_19 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_19 < 0))) __PYX_ERR(0, 957, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_13 = (!__pyx_t_19);
     __pyx_t_14 = __pyx_t_13;
     __pyx_L22_bool_binop_done:;
     if (__pyx_t_14) {
 
-      /* "cycurl/_curl.pyx":953
+      /* "cycurl/_curl.pyx":958
  *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
  *             if not future.done() and not future.cancelled():
  *                 future.set_result(None)             # <<<<<<<<<<<<<<
@@ -39858,12 +39990,12 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
         PyObject *__pyx_callargs[2] = {__pyx_t_4, Py_None};
         __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_set_result, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 953, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 958, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "cycurl/_curl.pyx":952
+      /* "cycurl/_curl.pyx":957
  *         for curl_, future in self._curl2future.items():
  *             curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
  *             if not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
@@ -39874,7 +40006,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":955
+  /* "cycurl/_curl.pyx":960
  *                 future.set_result(None)
  *         # Cleanup curl_multi handle
  *         curl.curl_multi_cleanup(self._curlm)             # <<<<<<<<<<<<<<
@@ -39883,7 +40015,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
 */
   (void)(curl_multi_cleanup(__pyx_cur_scope->__pyx_v_self->_curlm));
 
-  /* "cycurl/_curl.pyx":956
+  /* "cycurl/_curl.pyx":961
  *         # Cleanup curl_multi handle
  *         curl.curl_multi_cleanup(self._curlm)
  *         self._curlm = NULL             # <<<<<<<<<<<<<<
@@ -39892,7 +40024,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
 */
   __pyx_cur_scope->__pyx_v_self->_curlm = NULL;
 
-  /* "cycurl/_curl.pyx":958
+  /* "cycurl/_curl.pyx":963
  *         self._curlm = NULL
  *         # Remove add readers and writers
  *         for sockfd in self._sockfds:             # <<<<<<<<<<<<<<
@@ -39900,7 +40032,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
  *             self.loop.remove_writer(sockfd)
 */
   __pyx_t_16 = 0;
-  __pyx_t_1 = __Pyx_set_iterator(__pyx_cur_scope->__pyx_v_self->_sockfds, 1, (&__pyx_t_15), (&__pyx_t_17)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 958, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_set_iterator(__pyx_cur_scope->__pyx_v_self->_sockfds, 1, (&__pyx_t_15), (&__pyx_t_17)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 963, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __pyx_t_2 = __pyx_t_1;
@@ -39908,14 +40040,14 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
   while (1) {
     __pyx_t_18 = __Pyx_set_iter_next(__pyx_t_2, __pyx_t_15, &__pyx_t_16, &__pyx_t_1, __pyx_t_17);
     if (unlikely(__pyx_t_18 == 0)) break;
-    if (unlikely(__pyx_t_18 == -1)) __PYX_ERR(0, 958, __pyx_L1_error)
+    if (unlikely(__pyx_t_18 == -1)) __PYX_ERR(0, 963, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_sockfd);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_sockfd, __pyx_t_1);
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":959
+    /* "cycurl/_curl.pyx":964
  *         # Remove add readers and writers
  *         for sockfd in self._sockfds:
  *             self.loop.remove_reader(sockfd)             # <<<<<<<<<<<<<<
@@ -39929,12 +40061,12 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
       PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_sockfd};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_remove_reader, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 959, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 964, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":960
+    /* "cycurl/_curl.pyx":965
  *         for sockfd in self._sockfds:
  *             self.loop.remove_reader(sockfd)
  *             self.loop.remove_writer(sockfd)             # <<<<<<<<<<<<<<
@@ -39948,24 +40080,24 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
       PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_sockfd};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_remove_writer, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 960, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 965, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":962
+  /* "cycurl/_curl.pyx":967
  *             self.loop.remove_writer(sockfd)
  *         # Cancel all time functions
  *         if self._timer:             # <<<<<<<<<<<<<<
  *             self._timer.cancel()
  * 
 */
-  __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_self->_timer); if (unlikely((__pyx_t_14 < 0))) __PYX_ERR(0, 962, __pyx_L1_error)
+  __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_self->_timer); if (unlikely((__pyx_t_14 < 0))) __PYX_ERR(0, 967, __pyx_L1_error)
   if (__pyx_t_14) {
 
-    /* "cycurl/_curl.pyx":963
+    /* "cycurl/_curl.pyx":968
  *         # Cancel all time functions
  *         if self._timer:
  *             self._timer.cancel()             # <<<<<<<<<<<<<<
@@ -39979,12 +40111,12 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
       PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
       __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_cancel, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 963, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 968, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":962
+    /* "cycurl/_curl.pyx":967
  *             self.loop.remove_writer(sockfd)
  *         # Cancel all time functions
  *         if self._timer:             # <<<<<<<<<<<<<<
@@ -39994,7 +40126,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "cycurl/_curl.pyx":943
+  /* "cycurl/_curl.pyx":948
  *         # curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_PIPELINING, curl.CURLPIPE_NOTHING)
  * 
  *     async def close(self):             # <<<<<<<<<<<<<<
@@ -40027,7 +40159,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_6generator1(__pyx_CoroutineO
 }
 static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "cycurl/_curl.pyx":965
+/* "cycurl/_curl.pyx":970
  *             self._timer.cancel()
  * 
  *     async def _force_timeout(self):             # <<<<<<<<<<<<<<
@@ -40090,7 +40222,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_7_force_timeout(struct __pyx
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_6cycurl_5_curl___pyx_scope_struct_7__force_timeout *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 965, __pyx_L1_error)
+    __PYX_ERR(0, 970, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -40098,7 +40230,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_7_force_timeout(struct __pyx
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_force_timeout, __pyx_mstate_global->__pyx_n_u_AsyncCurl__force_timeout, __pyx_mstate_global->__pyx_n_u_cycurl__curl); if (unlikely(!gen)) __PYX_ERR(0, 965, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_force_timeout, __pyx_mstate_global->__pyx_n_u_AsyncCurl__force_timeout, __pyx_mstate_global->__pyx_n_u_cycurl__curl); if (unlikely(!gen)) __PYX_ERR(0, 970, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -40141,10 +40273,10 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineO
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 965, __pyx_L1_error)
+    __PYX_ERR(0, 970, __pyx_L1_error)
   }
 
-  /* "cycurl/_curl.pyx":968
+  /* "cycurl/_curl.pyx":973
  *         """This coroutine is used to safeguard from any missing signals from curl, and
  *         put everything back on track"""
  *         while True:             # <<<<<<<<<<<<<<
@@ -40153,7 +40285,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineO
 */
   while (1) {
 
-    /* "cycurl/_curl.pyx":969
+    /* "cycurl/_curl.pyx":974
  *         put everything back on track"""
  *         while True:
  *             if not self._curlm:             # <<<<<<<<<<<<<<
@@ -40163,7 +40295,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineO
     __pyx_t_1 = (!(__pyx_cur_scope->__pyx_v_self->_curlm != 0));
     if (__pyx_t_1) {
 
-      /* "cycurl/_curl.pyx":970
+      /* "cycurl/_curl.pyx":975
  *         while True:
  *             if not self._curlm:
  *                 break             # <<<<<<<<<<<<<<
@@ -40172,7 +40304,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineO
 */
       goto __pyx_L5_break;
 
-      /* "cycurl/_curl.pyx":969
+      /* "cycurl/_curl.pyx":974
  *         put everything back on track"""
  *         while True:
  *             if not self._curlm:             # <<<<<<<<<<<<<<
@@ -40181,16 +40313,16 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineO
 */
     }
 
-    /* "cycurl/_curl.pyx":971
+    /* "cycurl/_curl.pyx":976
  *             if not self._curlm:
  *                 break
  *             self.socket_action(curl.CURL_SOCKET_TIMEOUT, curl.CURL_POLL_NONE)             # <<<<<<<<<<<<<<
  *             await asyncio.sleep(0.1)
  * 
 */
-    __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_cur_scope->__pyx_v_self, CURL_SOCKET_TIMEOUT, CURL_POLL_NONE, 0); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 971, __pyx_L1_error)
+    __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_cur_scope->__pyx_v_self, CURL_SOCKET_TIMEOUT, CURL_POLL_NONE, 0); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 976, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":972
+    /* "cycurl/_curl.pyx":977
  *                 break
  *             self.socket_action(curl.CURL_SOCKET_TIMEOUT, curl.CURL_POLL_NONE)
  *             await asyncio.sleep(0.1)             # <<<<<<<<<<<<<<
@@ -40198,9 +40330,9 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineO
  *     cpdef inline add_handle(self, Curl curl_):
 */
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_asyncio); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 972, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_asyncio); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 977, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_sleep); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 972, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_sleep); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 977, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_7 = 1;
@@ -40220,7 +40352,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineO
       __pyx_t_3 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_6, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 972, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 977, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
     __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_3, &__pyx_r);
@@ -40234,19 +40366,19 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineO
       __pyx_generator->resume_label = 1;
       return __pyx_r;
       __pyx_L7_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 972, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 977, __pyx_L1_error)
     } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __Pyx_DECREF(__pyx_r); __pyx_r = 0;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 972, __pyx_L1_error)
+      __PYX_ERR(0, 977, __pyx_L1_error)
     }
   }
   __pyx_L5_break:;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "cycurl/_curl.pyx":965
+  /* "cycurl/_curl.pyx":970
  *             self._timer.cancel()
  * 
  *     async def _force_timeout(self):             # <<<<<<<<<<<<<<
@@ -40277,7 +40409,7 @@ static PyObject *__pyx_gb_6cycurl_5_curl_9AsyncCurl_9generator2(__pyx_CoroutineO
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":974
+/* "cycurl/_curl.pyx":979
  *             await asyncio.sleep(0.1)
  * 
  *     cpdef inline add_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -40307,16 +40439,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_handle", 0);
 
-  /* "cycurl/_curl.pyx":978
+  /* "cycurl/_curl.pyx":983
  *         `perform` in the async world."""
  * 
  *         curl_._ensure_cacert()             # <<<<<<<<<<<<<<
  *         cdef int errcode
  *         with nogil:
 */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(__pyx_v_curl_); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 978, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_4Curl__ensure_cacert(__pyx_v_curl_); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 983, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":980
+  /* "cycurl/_curl.pyx":985
  *         curl_._ensure_cacert()
  *         cdef int errcode
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -40329,7 +40461,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":981
+        /* "cycurl/_curl.pyx":986
  *         cdef int errcode
  *         with nogil:
  *             errcode = curl.curl_multi_add_handle(self._curlm, curl_._curl)             # <<<<<<<<<<<<<<
@@ -40339,7 +40471,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
         __pyx_v_errcode = curl_multi_add_handle(__pyx_v_self->_curlm, __pyx_v_curl_->_curl);
       }
 
-      /* "cycurl/_curl.pyx":980
+      /* "cycurl/_curl.pyx":985
  *         curl_._ensure_cacert()
  *         cdef int errcode
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -40356,7 +40488,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
       }
   }
 
-  /* "cycurl/_curl.pyx":982
+  /* "cycurl/_curl.pyx":987
  *         with nogil:
  *             errcode = curl.curl_multi_add_handle(self._curlm, curl_._curl)
  *         self._check_error(errcode)             # <<<<<<<<<<<<<<
@@ -40365,7 +40497,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
 */
   __pyx_t_3 = ((PyObject *)__pyx_v_self);
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 982, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 987, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = 0;
   {
@@ -40373,12 +40505,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
     __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_check_error, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 982, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 987, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":983
+  /* "cycurl/_curl.pyx":988
  *             errcode = curl.curl_multi_add_handle(self._curlm, curl_._curl)
  *         self._check_error(errcode)
  *         future = self.loop.create_future()             # <<<<<<<<<<<<<<
@@ -40392,13 +40524,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_create_future, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 983, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 988, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __pyx_v_future = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":984
+  /* "cycurl/_curl.pyx":989
  *         self._check_error(errcode)
  *         future = self.loop.create_future()
  *         self._curl2future[curl_] = future             # <<<<<<<<<<<<<<
@@ -40407,11 +40539,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
 */
   if (unlikely(__pyx_v_self->_curl2future == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 984, __pyx_L1_error)
+    __PYX_ERR(0, 989, __pyx_L1_error)
   }
-  if (unlikely((PyDict_SetItem(__pyx_v_self->_curl2future, ((PyObject *)__pyx_v_curl_), __pyx_v_future) < 0))) __PYX_ERR(0, 984, __pyx_L1_error)
+  if (unlikely((PyDict_SetItem(__pyx_v_self->_curl2future, ((PyObject *)__pyx_v_curl_), __pyx_v_future) < 0))) __PYX_ERR(0, 989, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":985
+  /* "cycurl/_curl.pyx":990
  *         future = self.loop.create_future()
  *         self._curl2future[curl_] = future
  *         self._curl2curl[<long long><void*>curl_._curl] = curl_             # <<<<<<<<<<<<<<
@@ -40420,14 +40552,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
 */
   if (unlikely(__pyx_v_self->_curl2curl == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 985, __pyx_L1_error)
+    __PYX_ERR(0, 990, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyLong_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_->_curl))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 985, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_->_curl))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 990, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely((PyDict_SetItem(__pyx_v_self->_curl2curl, __pyx_t_2, ((PyObject *)__pyx_v_curl_)) < 0))) __PYX_ERR(0, 985, __pyx_L1_error)
+  if (unlikely((PyDict_SetItem(__pyx_v_self->_curl2curl, __pyx_t_2, ((PyObject *)__pyx_v_curl_)) < 0))) __PYX_ERR(0, 990, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":986
+  /* "cycurl/_curl.pyx":991
  *         self._curl2future[curl_] = future
  *         self._curl2curl[<long long><void*>curl_._curl] = curl_
  *         return future             # <<<<<<<<<<<<<<
@@ -40439,7 +40571,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(stru
   __pyx_r = __pyx_v_future;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":974
+  /* "cycurl/_curl.pyx":979
  *             await asyncio.sleep(0.1)
  * 
  *     cpdef inline add_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -40501,32 +40633,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_curl_2,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 974, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 979, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 974, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 979, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "add_handle", 0) < (0)) __PYX_ERR(0, 974, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "add_handle", 0) < (0)) __PYX_ERR(0, 979, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("add_handle", 1, 1, 1, i); __PYX_ERR(0, 974, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("add_handle", 1, 1, 1, i); __PYX_ERR(0, 979, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 974, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 979, __pyx_L3_error)
     }
     __pyx_v_curl_ = ((struct __pyx_obj_6cycurl_5_curl_Curl *)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_handle", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 974, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_handle", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 979, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -40537,7 +40669,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 974, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 979, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_10add_handle(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_curl_);
 
   /* function exit code */
@@ -40566,7 +40698,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_10add_handle(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_handle", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(__pyx_v_self, __pyx_v_curl_, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 974, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_add_handle(__pyx_v_self, __pyx_v_curl_, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 979, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -40583,7 +40715,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_10add_handle(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":988
+/* "cycurl/_curl.pyx":993
  *         return future
  * 
  *     cpdef inline int socket_action(self, int sockfd, int ev_bitmask) except -1:             # <<<<<<<<<<<<<<
@@ -40612,7 +40744,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("socket_action", 0);
 
-  /* "cycurl/_curl.pyx":993
+  /* "cycurl/_curl.pyx":998
  *         cdef int running_handle
  *         cdef int errcode
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -40625,7 +40757,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":994
+        /* "cycurl/_curl.pyx":999
  *         cdef int errcode
  *         with nogil:
  *             errcode = curl.curl_multi_socket_action(self._curlm, sockfd, ev_bitmask, &running_handle)             # <<<<<<<<<<<<<<
@@ -40635,7 +40767,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
         __pyx_v_errcode = curl_multi_socket_action(__pyx_v_self->_curlm, __pyx_v_sockfd, __pyx_v_ev_bitmask, (&__pyx_v_running_handle));
       }
 
-      /* "cycurl/_curl.pyx":993
+      /* "cycurl/_curl.pyx":998
  *         cdef int running_handle
  *         cdef int errcode
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -40652,7 +40784,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
       }
   }
 
-  /* "cycurl/_curl.pyx":995
+  /* "cycurl/_curl.pyx":1000
  *         with nogil:
  *             errcode = curl.curl_multi_socket_action(self._curlm, sockfd, ev_bitmask, &running_handle)
  *         self._check_error(errcode)             # <<<<<<<<<<<<<<
@@ -40661,7 +40793,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
 */
   __pyx_t_2 = ((PyObject *)__pyx_v_self);
   __Pyx_INCREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 995, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1000, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 0;
   {
@@ -40669,12 +40801,12 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_check_error, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 995, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1000, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":996
+  /* "cycurl/_curl.pyx":1001
  *             errcode = curl.curl_multi_socket_action(self._curlm, sockfd, ev_bitmask, &running_handle)
  *         self._check_error(errcode)
  *         return running_handle             # <<<<<<<<<<<<<<
@@ -40684,7 +40816,7 @@ static CYTHON_INLINE int __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(struct 
   __pyx_r = __pyx_v_running_handle;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":988
+  /* "cycurl/_curl.pyx":993
  *         return future
  * 
  *     cpdef inline int socket_action(self, int sockfd, int ev_bitmask) except -1:             # <<<<<<<<<<<<<<
@@ -40745,39 +40877,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_sockfd,&__pyx_mstate_global->__pyx_n_u_ev_bitmask,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 988, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 993, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 988, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 993, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 988, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 993, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "socket_action", 0) < (0)) __PYX_ERR(0, 988, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "socket_action", 0) < (0)) __PYX_ERR(0, 993, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("socket_action", 1, 2, 2, i); __PYX_ERR(0, 988, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("socket_action", 1, 2, 2, i); __PYX_ERR(0, 993, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 988, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 993, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 988, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 993, __pyx_L3_error)
     }
-    __pyx_v_sockfd = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_sockfd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 988, __pyx_L3_error)
-    __pyx_v_ev_bitmask = __Pyx_PyLong_As_int(values[1]); if (unlikely((__pyx_v_ev_bitmask == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 988, __pyx_L3_error)
+    __pyx_v_sockfd = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_sockfd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 993, __pyx_L3_error)
+    __pyx_v_ev_bitmask = __Pyx_PyLong_As_int(values[1]); if (unlikely((__pyx_v_ev_bitmask == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 993, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("socket_action", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 988, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("socket_action", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 993, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -40808,8 +40940,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_12socket_action(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("socket_action", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 988, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 988, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 993, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 993, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -40826,7 +40958,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_12socket_action(struct __pyx
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":998
+/* "cycurl/_curl.pyx":1003
  *         return running_handle
  * 
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):             # <<<<<<<<<<<<<<
@@ -40867,7 +40999,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("process_data", 0);
 
-  /* "cycurl/_curl.pyx":1000
+  /* "cycurl/_curl.pyx":1005
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:             # <<<<<<<<<<<<<<
@@ -40877,7 +41009,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
   __pyx_t_1 = (!(__pyx_v_self->_curlm != 0));
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":1001
+    /* "cycurl/_curl.pyx":1006
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:
  *             warnings.warn(             # <<<<<<<<<<<<<<
@@ -40885,20 +41017,20 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  *             )
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_warnings); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_warnings); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1006, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_warn); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_warn); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1006, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "cycurl/_curl.pyx":1002
+    /* "cycurl/_curl.pyx":1007
  *         if not self._curlm:
  *             warnings.warn(
  *                 "Curlm already closed! quitting from process_data", CurlWarning, stacklevel=2             # <<<<<<<<<<<<<<
  *             )
  *             return
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlWarning); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1002, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlWarning); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1007, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_6 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -40914,20 +41046,20 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
     #endif
     {
       PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_Curlm_already_closed_quitting_fr, __pyx_t_4};
-      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1001, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1006, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_stacklevel, __pyx_mstate_global->__pyx_int_2, __pyx_t_7, __pyx_callargs+3, 0) < (0)) __PYX_ERR(0, 1001, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_stacklevel, __pyx_mstate_global->__pyx_int_2, __pyx_t_7, __pyx_callargs+3, 0) < (0)) __PYX_ERR(0, 1006, __pyx_L1_error)
       __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_5, __pyx_callargs+__pyx_t_6, (3-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1001, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1006, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":1004
+    /* "cycurl/_curl.pyx":1009
  *                 "Curlm already closed! quitting from process_data", CurlWarning, stacklevel=2
  *             )
  *             return             # <<<<<<<<<<<<<<
@@ -40938,7 +41070,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":1000
+    /* "cycurl/_curl.pyx":1005
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:             # <<<<<<<<<<<<<<
@@ -40947,16 +41079,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
 */
   }
 
-  /* "cycurl/_curl.pyx":1006
+  /* "cycurl/_curl.pyx":1011
  *             return
  * 
  *         self.socket_action(sockfd, ev_bitmask)             # <<<<<<<<<<<<<<
  * 
  *         cdef:
 */
-  __pyx_t_8 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 0); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1006, __pyx_L1_error)
+  __pyx_t_8 = __pyx_f_6cycurl_5_curl_9AsyncCurl_socket_action(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 0); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1011, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":1013
+  /* "cycurl/_curl.pyx":1018
  *             curl.CURLMsg *curl_msg
  *             Curl curl_
  *         while True:             # <<<<<<<<<<<<<<
@@ -40965,7 +41097,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
 */
   while (1) {
 
-    /* "cycurl/_curl.pyx":1014
+    /* "cycurl/_curl.pyx":1019
  *             Curl curl_
  *         while True:
  *             try:             # <<<<<<<<<<<<<<
@@ -40981,7 +41113,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
       __Pyx_XGOTREF(__pyx_t_11);
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":1015
+        /* "cycurl/_curl.pyx":1020
  *         while True:
  *             try:
  *                 curl_msg = curl.curl_multi_info_read(self._curlm, &msg_in_queue)             # <<<<<<<<<<<<<<
@@ -40990,7 +41122,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
 */
         __pyx_v_curl_msg = curl_multi_info_read(__pyx_v_self->_curlm, (&__pyx_v_msg_in_queue));
 
-        /* "cycurl/_curl.pyx":1017
+        /* "cycurl/_curl.pyx":1022
  *                 curl_msg = curl.curl_multi_info_read(self._curlm, &msg_in_queue)
  *                 # NULL is returned as a signal that no more to be get at this point
  *                 if curl_msg == NULL:             # <<<<<<<<<<<<<<
@@ -41000,7 +41132,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
         __pyx_t_1 = (__pyx_v_curl_msg == NULL);
         if (__pyx_t_1) {
 
-          /* "cycurl/_curl.pyx":1018
+          /* "cycurl/_curl.pyx":1023
  *                 # NULL is returned as a signal that no more to be get at this point
  *                 if curl_msg == NULL:
  *                     break             # <<<<<<<<<<<<<<
@@ -41009,7 +41141,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
 */
           goto __pyx_L11_try_break;
 
-          /* "cycurl/_curl.pyx":1017
+          /* "cycurl/_curl.pyx":1022
  *                 curl_msg = curl.curl_multi_info_read(self._curlm, &msg_in_queue)
  *                 # NULL is returned as a signal that no more to be get at this point
  *                 if curl_msg == NULL:             # <<<<<<<<<<<<<<
@@ -41018,7 +41150,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
 */
         }
 
-        /* "cycurl/_curl.pyx":1019
+        /* "cycurl/_curl.pyx":1024
  *                 if curl_msg == NULL:
  *                     break
  *                 if curl_msg.msg == curl.CURLMSG_DONE:             # <<<<<<<<<<<<<<
@@ -41028,7 +41160,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
         __pyx_t_1 = (__pyx_v_curl_msg->msg == CURLMSG_DONE);
         if (__pyx_t_1) {
 
-          /* "cycurl/_curl.pyx":1020
+          /* "cycurl/_curl.pyx":1025
  *                     break
  *                 if curl_msg.msg == curl.CURLMSG_DONE:
  *                     curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]             # <<<<<<<<<<<<<<
@@ -41037,11 +41169,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
 */
           if (unlikely(__pyx_v_self->_curl2curl == Py_None)) {
             PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-            __PYX_ERR(0, 1020, __pyx_L6_error)
+            __PYX_ERR(0, 1025, __pyx_L6_error)
           }
-          __pyx_t_2 = __Pyx_PyLong_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_msg->easy_handle))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1020, __pyx_L6_error)
+          __pyx_t_2 = __Pyx_PyLong_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_msg->easy_handle))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1025, __pyx_L6_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_5 = __Pyx_PyDict_GetItem(__pyx_v_self->_curl2curl, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1020, __pyx_L6_error)
+          __pyx_t_5 = __Pyx_PyDict_GetItem(__pyx_v_self->_curl2curl, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1025, __pyx_L6_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __pyx_t_2 = __pyx_t_5;
@@ -41050,7 +41182,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
           __Pyx_XDECREF_SET(__pyx_v_curl_, ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_2));
           __pyx_t_2 = 0;
 
-          /* "cycurl/_curl.pyx":1021
+          /* "cycurl/_curl.pyx":1026
  *                 if curl_msg.msg == curl.CURLMSG_DONE:
  *                     curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]
  *                     retcode = curl_msg.data.result             # <<<<<<<<<<<<<<
@@ -41060,7 +41192,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
           __pyx_t_8 = __pyx_v_curl_msg->data.result;
           __pyx_v_retcode = __pyx_t_8;
 
-          /* "cycurl/_curl.pyx":1022
+          /* "cycurl/_curl.pyx":1027
  *                     curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]
  *                     retcode = curl_msg.data.result
  *                     if retcode == 0:             # <<<<<<<<<<<<<<
@@ -41070,18 +41202,18 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
           __pyx_t_1 = (__pyx_v_retcode == 0);
           if (__pyx_t_1) {
 
-            /* "cycurl/_curl.pyx":1023
+            /* "cycurl/_curl.pyx":1028
  *                     retcode = curl_msg.data.result
  *                     if retcode == 0:
  *                         self.set_result(curl_)             # <<<<<<<<<<<<<<
  *                     else:
  *                         self.set_exception(curl_, curl_._get_error(retcode, "perform"))
 */
-            __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1023, __pyx_L6_error)
+            __pyx_t_2 = __pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1028, __pyx_L6_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "cycurl/_curl.pyx":1022
+            /* "cycurl/_curl.pyx":1027
  *                     curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]
  *                     retcode = curl_msg.data.result
  *                     if retcode == 0:             # <<<<<<<<<<<<<<
@@ -41091,7 +41223,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
             goto __pyx_L16;
           }
 
-          /* "cycurl/_curl.pyx":1025
+          /* "cycurl/_curl.pyx":1030
  *                         self.set_result(curl_)
  *                     else:
  *                         self.set_exception(curl_, curl_._get_error(retcode, "perform"))             # <<<<<<<<<<<<<<
@@ -41099,16 +41231,16 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  *                     print("NOT DONE")  # Will not reach, for nothing else being defined.
 */
           /*else*/ {
-            __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__get_error(__pyx_v_curl_, __pyx_v_retcode, __pyx_mstate_global->__pyx_n_u_perform); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1025, __pyx_L6_error)
+            __pyx_t_2 = __pyx_f_6cycurl_5_curl_4Curl__get_error(__pyx_v_curl_, __pyx_v_retcode, __pyx_mstate_global->__pyx_n_u_perform); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1030, __pyx_L6_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_5 = __pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(__pyx_v_self, __pyx_v_curl_, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1025, __pyx_L6_error)
+            __pyx_t_5 = __pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(__pyx_v_self, __pyx_v_curl_, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1030, __pyx_L6_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           }
           __pyx_L16:;
 
-          /* "cycurl/_curl.pyx":1019
+          /* "cycurl/_curl.pyx":1024
  *                 if curl_msg == NULL:
  *                     break
  *                 if curl_msg.msg == curl.CURLMSG_DONE:             # <<<<<<<<<<<<<<
@@ -41118,7 +41250,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
           goto __pyx_L15;
         }
 
-        /* "cycurl/_curl.pyx":1027
+        /* "cycurl/_curl.pyx":1032
  *                         self.set_exception(curl_, curl_._get_error(retcode, "perform"))
  *                 else:
  *                     print("NOT DONE")  # Will not reach, for nothing else being defined.             # <<<<<<<<<<<<<<
@@ -41132,14 +41264,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
             PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_NOT_DONE};
             __pyx_t_5 = __Pyx_PyObject_FastCall((PyObject*)__pyx_builtin_print, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-            if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1027, __pyx_L6_error)
+            if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1032, __pyx_L6_error)
             __Pyx_GOTREF(__pyx_t_5);
           }
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         }
         __pyx_L15:;
 
-        /* "cycurl/_curl.pyx":1014
+        /* "cycurl/_curl.pyx":1019
  *             Curl curl_
  *         while True:
  *             try:             # <<<<<<<<<<<<<<
@@ -41158,7 +41290,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "cycurl/_curl.pyx":1028
+      /* "cycurl/_curl.pyx":1033
  *                 else:
  *                     print("NOT DONE")  # Will not reach, for nothing else being defined.
  *             except Exception:             # <<<<<<<<<<<<<<
@@ -41168,12 +41300,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
       __pyx_t_8 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
       if (__pyx_t_8) {
         __Pyx_AddTraceback("cycurl._curl.AsyncCurl.process_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_2, &__pyx_t_7) < 0) __PYX_ERR(0, 1028, __pyx_L8_except_error)
+        if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_2, &__pyx_t_7) < 0) __PYX_ERR(0, 1033, __pyx_L8_except_error)
         __Pyx_XGOTREF(__pyx_t_5);
         __Pyx_XGOTREF(__pyx_t_2);
         __Pyx_XGOTREF(__pyx_t_7);
 
-        /* "cycurl/_curl.pyx":1029
+        /* "cycurl/_curl.pyx":1034
  *                     print("NOT DONE")  # Will not reach, for nothing else being defined.
  *             except Exception:
  *                 warnings.warn(             # <<<<<<<<<<<<<<
@@ -41181,20 +41313,20 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
  *                     "please open an issue on GitHub\n",
 */
         __pyx_t_3 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_warnings); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1029, __pyx_L8_except_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_warnings); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1034, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_warn); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 1029, __pyx_L8_except_error)
+        __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_warn); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 1034, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_13);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-        /* "cycurl/_curl.pyx":1032
+        /* "cycurl/_curl.pyx":1037
  *                     "Unexpected curl multi state in process_data, "
  *                     "please open an issue on GitHub\n",
  *                     CurlWarning,             # <<<<<<<<<<<<<<
  *                     stacklevel=2,
  *                 )
 */
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CurlWarning); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1032, __pyx_L8_except_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CurlWarning); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1037, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_12);
         __pyx_t_6 = 1;
         #if CYTHON_UNPACK_METHODS
@@ -41210,15 +41342,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
         #endif
         {
           PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_Unexpected_curl_multi_state_in_p, __pyx_t_12};
-          __pyx_t_14 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 1029, __pyx_L8_except_error)
+          __pyx_t_14 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 1034, __pyx_L8_except_error)
           __Pyx_GOTREF(__pyx_t_14);
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_stacklevel, __pyx_mstate_global->__pyx_int_2, __pyx_t_14, __pyx_callargs+3, 0) < (0)) __PYX_ERR(0, 1029, __pyx_L8_except_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_stacklevel, __pyx_mstate_global->__pyx_int_2, __pyx_t_14, __pyx_callargs+3, 0) < (0)) __PYX_ERR(0, 1034, __pyx_L8_except_error)
           __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_13, __pyx_callargs+__pyx_t_6, (3-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_14);
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
           __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1029, __pyx_L8_except_error)
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1034, __pyx_L8_except_error)
           __Pyx_GOTREF(__pyx_t_4);
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -41229,7 +41361,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
       }
       goto __pyx_L8_except_error;
 
-      /* "cycurl/_curl.pyx":1014
+      /* "cycurl/_curl.pyx":1019
  *             Curl curl_
  *         while True:
  *             try:             # <<<<<<<<<<<<<<
@@ -41258,7 +41390,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(st
   }
   __pyx_L5_break:;
 
-  /* "cycurl/_curl.pyx":998
+  /* "cycurl/_curl.pyx":1003
  *         return running_handle
  * 
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):             # <<<<<<<<<<<<<<
@@ -41328,39 +41460,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_sockfd,&__pyx_mstate_global->__pyx_n_u_ev_bitmask,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 998, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1003, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 998, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1003, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 998, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1003, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "process_data", 0) < (0)) __PYX_ERR(0, 998, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "process_data", 0) < (0)) __PYX_ERR(0, 1003, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("process_data", 1, 2, 2, i); __PYX_ERR(0, 998, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("process_data", 1, 2, 2, i); __PYX_ERR(0, 1003, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 998, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1003, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 998, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1003, __pyx_L3_error)
     }
-    __pyx_v_sockfd = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_sockfd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 998, __pyx_L3_error)
-    __pyx_v_ev_bitmask = __Pyx_PyLong_As_int(values[1]); if (unlikely((__pyx_v_ev_bitmask == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 998, __pyx_L3_error)
+    __pyx_v_sockfd = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_sockfd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1003, __pyx_L3_error)
+    __pyx_v_ev_bitmask = __Pyx_PyLong_As_int(values[1]); if (unlikely((__pyx_v_ev_bitmask == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1003, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("process_data", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 998, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("process_data", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 1003, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -41390,7 +41522,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_14process_data(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("process_data", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 998, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_process_data(__pyx_v_self, __pyx_v_sockfd, __pyx_v_ev_bitmask, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1003, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -41407,7 +41539,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_14process_data(struct __pyx_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1036
+/* "cycurl/_curl.pyx":1041
  *                 )
  * 
  *     cdef inline object _pop_future(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -41429,7 +41561,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_pop_future", 0);
 
-  /* "cycurl/_curl.pyx":1038
+  /* "cycurl/_curl.pyx":1043
  *     cdef inline object _pop_future(self, Curl curl_):
  *         cdef int errcode
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -41442,7 +41574,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":1039
+        /* "cycurl/_curl.pyx":1044
  *         cdef int errcode
  *         with nogil:
  *             errcode = curl.curl_multi_remove_handle(self._curlm, curl_._curl)             # <<<<<<<<<<<<<<
@@ -41452,7 +41584,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
         __pyx_v_errcode = curl_multi_remove_handle(__pyx_v_self->_curlm, __pyx_v_curl_->_curl);
       }
 
-      /* "cycurl/_curl.pyx":1038
+      /* "cycurl/_curl.pyx":1043
  *     cdef inline object _pop_future(self, Curl curl_):
  *         cdef int errcode
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -41469,7 +41601,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
       }
   }
 
-  /* "cycurl/_curl.pyx":1040
+  /* "cycurl/_curl.pyx":1045
  *         with nogil:
  *             errcode = curl.curl_multi_remove_handle(self._curlm, curl_._curl)
  *         self._check_error(errcode)             # <<<<<<<<<<<<<<
@@ -41478,7 +41610,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
 */
   __pyx_t_2 = ((PyObject *)__pyx_v_self);
   __Pyx_INCREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1040, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_errcode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1045, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 0;
   {
@@ -41486,12 +41618,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_check_error, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1040, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1045, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1041
+  /* "cycurl/_curl.pyx":1046
  *             errcode = curl.curl_multi_remove_handle(self._curlm, curl_._curl)
  *         self._check_error(errcode)
  *         self._curl2curl.pop(<long long><void*>curl_._curl, None)             # <<<<<<<<<<<<<<
@@ -41500,14 +41632,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
 */
   if (unlikely(__pyx_v_self->_curl2curl == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "pop");
-    __PYX_ERR(0, 1041, __pyx_L1_error)
+    __PYX_ERR(0, 1046, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyLong_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_->_curl))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1041, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyLong_From_PY_LONG_LONG(((PY_LONG_LONG)((void *)__pyx_v_curl_->_curl))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyDict_Pop_ignore(__pyx_v_self->_curl2curl, __pyx_t_1, Py_None); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 1041, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_Pop_ignore(__pyx_v_self->_curl2curl, __pyx_t_1, Py_None); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1042
+  /* "cycurl/_curl.pyx":1047
  *         self._check_error(errcode)
  *         self._curl2curl.pop(<long long><void*>curl_._curl, None)
  *         return self._curl2future.pop(curl_, None)             # <<<<<<<<<<<<<<
@@ -41517,15 +41649,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_self->_curl2future == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "pop");
-    __PYX_ERR(0, 1042, __pyx_L1_error)
+    __PYX_ERR(0, 1047, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyDict_Pop(__pyx_v_self->_curl2future, ((PyObject *)__pyx_v_curl_), Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1042, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_Pop(__pyx_v_self->_curl2future, ((PyObject *)__pyx_v_curl_), Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1047, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":1036
+  /* "cycurl/_curl.pyx":1041
  *                 )
  * 
  *     cdef inline object _pop_future(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -41546,7 +41678,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(str
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1044
+/* "cycurl/_curl.pyx":1049
  *         return self._curl2future.pop(curl_, None)
  * 
  *     cpdef inline object remove_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -41576,26 +41708,26 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("remove_handle", 0);
 
-  /* "cycurl/_curl.pyx":1046
+  /* "cycurl/_curl.pyx":1051
  *     cpdef inline object remove_handle(self, Curl curl_):
  *         """Cancel a future for given curl handle."""
  *         cdef object future = self._pop_future(curl_)             # <<<<<<<<<<<<<<
  *         if future and not future.done() and not future.cancelled():
  *             future.cancel()
 */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1051, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_future = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1047
+  /* "cycurl/_curl.pyx":1052
  *         """Cancel a future for given curl handle."""
  *         cdef object future = self._pop_future(curl_)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
  *             future.cancel()
  * 
 */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1047, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1052, __pyx_L1_error)
   if (__pyx_t_3) {
   } else {
     __pyx_t_2 = __pyx_t_3;
@@ -41608,10 +41740,10 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_done, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1047, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1047, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1052, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = (!__pyx_t_3);
   if (__pyx_t_6) {
@@ -41626,17 +41758,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_cancelled, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1047, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 1047, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 1052, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (!__pyx_t_6);
   __pyx_t_2 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":1048
+    /* "cycurl/_curl.pyx":1053
  *         cdef object future = self._pop_future(curl_)
  *         if future and not future.done() and not future.cancelled():
  *             future.cancel()             # <<<<<<<<<<<<<<
@@ -41650,12 +41782,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
       PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_cancel, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1048, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1053, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":1047
+    /* "cycurl/_curl.pyx":1052
  *         """Cancel a future for given curl handle."""
  *         cdef object future = self._pop_future(curl_)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
@@ -41664,7 +41796,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(s
 */
   }
 
-  /* "cycurl/_curl.pyx":1044
+  /* "cycurl/_curl.pyx":1049
  *         return self._curl2future.pop(curl_, None)
  * 
  *     cpdef inline object remove_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -41727,32 +41859,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_curl_2,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1044, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1049, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1044, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1049, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "remove_handle", 0) < (0)) __PYX_ERR(0, 1044, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "remove_handle", 0) < (0)) __PYX_ERR(0, 1049, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("remove_handle", 1, 1, 1, i); __PYX_ERR(0, 1044, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("remove_handle", 1, 1, 1, i); __PYX_ERR(0, 1049, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1044, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1049, __pyx_L3_error)
     }
     __pyx_v_curl_ = ((struct __pyx_obj_6cycurl_5_curl_Curl *)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("remove_handle", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1044, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("remove_handle", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1049, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -41763,7 +41895,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1044, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1049, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_9AsyncCurl_16remove_handle(((struct __pyx_obj_6cycurl_5_curl_AsyncCurl *)__pyx_v_self), __pyx_v_curl_);
 
   /* function exit code */
@@ -41792,7 +41924,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_16remove_handle(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("remove_handle", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(__pyx_v_self, __pyx_v_curl_, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1044, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl_remove_handle(__pyx_v_self, __pyx_v_curl_, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1049, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -41809,7 +41941,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_16remove_handle(struct __pyx
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1050
+/* "cycurl/_curl.pyx":1055
  *             future.cancel()
  * 
  *     cdef inline object set_result(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -41832,26 +41964,26 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_result", 0);
 
-  /* "cycurl/_curl.pyx":1052
+  /* "cycurl/_curl.pyx":1057
  *     cdef inline object set_result(self, Curl curl_):
  *         """Mark a future as done for given curl handle."""
  *         cdef object future = self._pop_future(curl_)             # <<<<<<<<<<<<<<
  *         if future and not future.done() and not future.cancelled():
  *             future.set_result(None)
 */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1057, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_future = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1053
+  /* "cycurl/_curl.pyx":1058
  *         """Mark a future as done for given curl handle."""
  *         cdef object future = self._pop_future(curl_)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
  *             future.set_result(None)
  * 
 */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1053, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1058, __pyx_L1_error)
   if (__pyx_t_3) {
   } else {
     __pyx_t_2 = __pyx_t_3;
@@ -41864,10 +41996,10 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_done, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1053, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1058, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1053, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1058, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = (!__pyx_t_3);
   if (__pyx_t_6) {
@@ -41882,17 +42014,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_cancelled, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1053, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1058, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 1053, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 1058, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (!__pyx_t_6);
   __pyx_t_2 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":1054
+    /* "cycurl/_curl.pyx":1059
  *         cdef object future = self._pop_future(curl_)
  *         if future and not future.done() and not future.cancelled():
  *             future.set_result(None)             # <<<<<<<<<<<<<<
@@ -41906,12 +42038,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
       PyObject *__pyx_callargs[2] = {__pyx_t_4, Py_None};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_set_result, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1054, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1059, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":1053
+    /* "cycurl/_curl.pyx":1058
  *         """Mark a future as done for given curl handle."""
  *         cdef object future = self._pop_future(curl_)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
@@ -41920,7 +42052,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
 */
   }
 
-  /* "cycurl/_curl.pyx":1050
+  /* "cycurl/_curl.pyx":1055
  *             future.cancel()
  * 
  *     cdef inline object set_result(self, Curl curl_):             # <<<<<<<<<<<<<<
@@ -41943,7 +42075,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result(stru
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1056
+/* "cycurl/_curl.pyx":1061
  *             future.set_result(None)
  * 
  *     cdef inline set_exception(self, Curl curl_, object exception):             # <<<<<<<<<<<<<<
@@ -41966,26 +42098,26 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_exception", 0);
 
-  /* "cycurl/_curl.pyx":1058
+  /* "cycurl/_curl.pyx":1063
  *     cdef inline set_exception(self, Curl curl_, object exception):
  *         """Raise exception of a future for given curl handle."""
  *         cdef object future = self._pop_future(curl_)             # <<<<<<<<<<<<<<
  *         if future and not future.done() and not future.cancelled():
  *             future.set_exception(exception)
 */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1058, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9AsyncCurl__pop_future(__pyx_v_self, __pyx_v_curl_); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1063, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_future = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1059
+  /* "cycurl/_curl.pyx":1064
  *         """Raise exception of a future for given curl handle."""
  *         cdef object future = self._pop_future(curl_)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
  *             future.set_exception(exception)
  * 
 */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1059, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_future); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1064, __pyx_L1_error)
   if (__pyx_t_3) {
   } else {
     __pyx_t_2 = __pyx_t_3;
@@ -41998,10 +42130,10 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_done, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1059, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1064, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1059, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1064, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = (!__pyx_t_3);
   if (__pyx_t_6) {
@@ -42016,17 +42148,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
     PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_cancelled, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1059, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1064, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 1059, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 1064, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (!__pyx_t_6);
   __pyx_t_2 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "cycurl/_curl.pyx":1060
+    /* "cycurl/_curl.pyx":1065
  *         cdef object future = self._pop_future(curl_)
  *         if future and not future.done() and not future.cancelled():
  *             future.set_exception(exception)             # <<<<<<<<<<<<<<
@@ -42040,12 +42172,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
       PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_v_exception};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_set_exception, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1060, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1065, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":1059
+    /* "cycurl/_curl.pyx":1064
  *         """Raise exception of a future for given curl handle."""
  *         cdef object future = self._pop_future(curl_)
  *         if future and not future.done() and not future.cancelled():             # <<<<<<<<<<<<<<
@@ -42054,7 +42186,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
 */
   }
 
-  /* "cycurl/_curl.pyx":1056
+  /* "cycurl/_curl.pyx":1061
  *             future.set_result(None)
  * 
  *     cdef inline set_exception(self, Curl curl_, object exception):             # <<<<<<<<<<<<<<
@@ -42077,7 +42209,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception(s
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1062
+/* "cycurl/_curl.pyx":1067
  *             future.set_exception(exception)
  * 
  *     def _check_error(self, int errcode, *args):             # <<<<<<<<<<<<<<
@@ -42132,33 +42264,33 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_errcode,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1062, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1067, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         default:
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1062, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1067, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
       const Py_ssize_t used_pos_args = (kwd_pos_args < 1) ? kwd_pos_args : 1;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, used_pos_args, __pyx_kwds_len, "_check_error", 0) < (0)) __PYX_ERR(0, 1062, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, used_pos_args, __pyx_kwds_len, "_check_error", 0) < (0)) __PYX_ERR(0, 1067, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_check_error", 0, 1, 1, i); __PYX_ERR(0, 1062, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_check_error", 0, 1, 1, i); __PYX_ERR(0, 1067, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs < 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1062, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1067, __pyx_L3_error)
     }
-    __pyx_v_errcode = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_errcode == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1062, __pyx_L3_error)
+    __pyx_v_errcode = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_errcode == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1067, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_check_error", 0, 1, 1, __pyx_nargs); __PYX_ERR(0, 1062, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_check_error", 0, 1, 1, __pyx_nargs); __PYX_ERR(0, 1067, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -42203,7 +42335,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_check_error", 0);
 
-  /* "cycurl/_curl.pyx":1063
+  /* "cycurl/_curl.pyx":1068
  * 
  *     def _check_error(self, int errcode, *args):
  *         if errcode == curl.CURLE_OK:             # <<<<<<<<<<<<<<
@@ -42213,7 +42345,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
   __pyx_t_1 = (__pyx_v_errcode == CURLE_OK);
   if (__pyx_t_1) {
 
-    /* "cycurl/_curl.pyx":1064
+    /* "cycurl/_curl.pyx":1069
  *     def _check_error(self, int errcode, *args):
  *         if errcode == curl.CURLE_OK:
  *             return             # <<<<<<<<<<<<<<
@@ -42224,7 +42356,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "cycurl/_curl.pyx":1063
+    /* "cycurl/_curl.pyx":1068
  * 
  *     def _check_error(self, int errcode, *args):
  *         if errcode == curl.CURLE_OK:             # <<<<<<<<<<<<<<
@@ -42233,7 +42365,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
 */
   }
 
-  /* "cycurl/_curl.pyx":1065
+  /* "cycurl/_curl.pyx":1070
  *         if errcode == curl.CURLE_OK:
  *             return
  *         cdef const char *errmsg = curl.curl_multi_strerror(errcode)             # <<<<<<<<<<<<<<
@@ -42242,7 +42374,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
 */
   __pyx_v_errmsg = curl_multi_strerror(__pyx_v_errcode);
 
-  /* "cycurl/_curl.pyx":1066
+  /* "cycurl/_curl.pyx":1071
  *             return
  *         cdef const char *errmsg = curl.curl_multi_strerror(errcode)
  *         cdef str action = " ".join([str(a) for a in args])             # <<<<<<<<<<<<<<
@@ -42250,7 +42382,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
  *             f"Failed in {action}, multi: ({errcode}) {PyUnicode_FromString(errmsg)}. "
 */
   { /* enter inner scope */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1066, __pyx_L6_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1071, __pyx_L6_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = __pyx_v_args; __Pyx_INCREF(__pyx_t_3);
     __pyx_t_4 = 0;
@@ -42258,7 +42390,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
       {
         Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
         #if !CYTHON_ASSUME_SAFE_SIZE
-        if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1066, __pyx_L6_error)
+        if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1071, __pyx_L6_error)
         #endif
         if (__pyx_t_4 >= __pyx_temp) break;
       }
@@ -42268,13 +42400,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
       __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_4);
       #endif
       ++__pyx_t_4;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1066, __pyx_L6_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1071, __pyx_L6_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_XDECREF_SET(__pyx_8genexpr1__pyx_v_a, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyObject_Unicode(__pyx_8genexpr1__pyx_v_a); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1066, __pyx_L6_error)
+      __pyx_t_5 = __Pyx_PyObject_Unicode(__pyx_8genexpr1__pyx_v_a); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1071, __pyx_L6_error)
       __Pyx_GOTREF(__pyx_t_5);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_5))) __PYX_ERR(0, 1066, __pyx_L6_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_5))) __PYX_ERR(0, 1071, __pyx_L6_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -42285,13 +42417,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
     goto __pyx_L1_error;
     __pyx_L10_exit_scope:;
   } /* exit inner scope */
-  __pyx_t_3 = PyUnicode_Join(__pyx_mstate_global->__pyx_kp_u__6, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1066, __pyx_L1_error)
+  __pyx_t_3 = PyUnicode_Join(__pyx_mstate_global->__pyx_kp_u__6, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1071, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_action = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "cycurl/_curl.pyx":1067
+  /* "cycurl/_curl.pyx":1072
  *         cdef const char *errmsg = curl.curl_multi_strerror(errcode)
  *         cdef str action = " ".join([str(a) for a in args])
  *         raise CurlError(             # <<<<<<<<<<<<<<
@@ -42299,23 +42431,23 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
  *             "See https://curl.se/libcurl/c/libcurl-errors.html first for more "
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1067, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1072, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
 
-  /* "cycurl/_curl.pyx":1068
+  /* "cycurl/_curl.pyx":1073
  *         cdef str action = " ".join([str(a) for a in args])
  *         raise CurlError(
  *             f"Failed in {action}, multi: ({errcode}) {PyUnicode_FromString(errmsg)}. "             # <<<<<<<<<<<<<<
  *             "See https://curl.se/libcurl/c/libcurl-errors.html first for more "
  *             "details. Please open an issue on GitHub to help debug this error.",
 */
-  __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_action); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_action); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1073, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyUnicode_From_int(__pyx_v_errcode, 0, ' ', 'd'); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyUnicode_From_int(__pyx_v_errcode, 0, ' ', 'd'); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1073, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = PyUnicode_FromString(__pyx_v_errmsg); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_8 = PyUnicode_FromString(__pyx_v_errmsg); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1073, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_9 = __Pyx_PyUnicode_Unicode(__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyUnicode_Unicode(__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1073, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_10[0] = __pyx_mstate_global->__pyx_kp_u_Failed_in;
@@ -42326,7 +42458,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
   __pyx_t_10[5] = __pyx_t_9;
   __pyx_t_10[6] = __pyx_mstate_global->__pyx_kp_u_See_https_curl_se_libcurl_c_lib_2;
   __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_10, 7, 10 * 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7) + 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_9) + 132, 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9));
-  if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1073, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -42349,14 +42481,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_18_check_error(CYTHON_UNUSED
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1067, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1072, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __PYX_ERR(0, 1067, __pyx_L1_error)
+  __PYX_ERR(0, 1072, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":1062
+  /* "cycurl/_curl.pyx":1067
  *             future.set_exception(exception)
  * 
  *     def _check_error(self, int errcode, *args):             # <<<<<<<<<<<<<<
@@ -42589,7 +42721,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_22__setstate_cython__(CYTHON
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1083
+/* "cycurl/_curl.pyx":1088
  *         curl.curl_mime *form
  * 
  *     def __init__(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -42623,24 +42755,24 @@ static int __pyx_pw_6cycurl_5_curl_8CurlMime_1__init__(PyObject *__pyx_v_self, P
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_curl_2,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_VARARGS(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1083, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1088, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_VARARGS(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1083, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1088, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__init__", 0) < (0)) __PYX_ERR(0, 1083, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__init__", 0) < (0)) __PYX_ERR(0, 1088, __pyx_L3_error)
       if (!values[0]) values[0] = __Pyx_NewRef((PyObject *)((struct __pyx_obj_6cycurl_5_curl_Curl *)Py_None));
     } else {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_VARARGS(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1083, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1088, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
@@ -42651,7 +42783,7 @@ static int __pyx_pw_6cycurl_5_curl_8CurlMime_1__init__(PyObject *__pyx_v_self, P
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 1083, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 1088, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -42662,7 +42794,7 @@ static int __pyx_pw_6cycurl_5_curl_8CurlMime_1__init__(PyObject *__pyx_v_self, P
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1083, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1088, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime___init__(((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_v_self), __pyx_v_curl_);
 
   /* function exit code */
@@ -42695,14 +42827,14 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "cycurl/_curl.pyx":1088
+  /* "cycurl/_curl.pyx":1093
  *             curl: Curl instance to use.
  *         """
  *         self._curl = curl_ if curl_ else Curl()             # <<<<<<<<<<<<<<
  *         self.form = curl.curl_mime_init(self._curl._curl)
  * 
 */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_curl_)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 1088, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_curl_)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 1093, __pyx_L1_error)
   if (__pyx_t_2) {
     __Pyx_INCREF((PyObject *)__pyx_v_curl_);
     __pyx_t_1 = ((PyObject *)__pyx_v_curl_);
@@ -42713,7 +42845,7 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
       PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
       __pyx_t_3 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1088, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1093, __pyx_L1_error)
       __Pyx_GOTREF((PyObject *)__pyx_t_3);
     }
     __pyx_t_1 = ((PyObject *)__pyx_t_3);
@@ -42725,7 +42857,7 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
   __pyx_v_self->_curl = ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1089
+  /* "cycurl/_curl.pyx":1094
  *         """
  *         self._curl = curl_ if curl_ else Curl()
  *         self.form = curl.curl_mime_init(self._curl._curl)             # <<<<<<<<<<<<<<
@@ -42734,7 +42866,7 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
 */
   __pyx_v_self->form = curl_mime_init(__pyx_v_self->_curl->_curl);
 
-  /* "cycurl/_curl.pyx":1083
+  /* "cycurl/_curl.pyx":1088
  *         curl.curl_mime *form
  * 
  *     def __init__(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -42756,7 +42888,7 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1091
+/* "cycurl/_curl.pyx":1096
  *         self.form = curl.curl_mime_init(self._curl._curl)
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -42788,7 +42920,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "cycurl/_curl.pyx":1093
+  /* "cycurl/_curl.pyx":1098
  *     @property
  *     def _form(self):
  *         return PyCapsule_New(self.form, NULL, NULL)             # <<<<<<<<<<<<<<
@@ -42796,13 +42928,13 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_o
  *     cpdef inline addpart(
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1093, __pyx_L1_error)
+  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1098, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":1091
+  /* "cycurl/_curl.pyx":1096
  *         self.form = curl.curl_mime_init(self._curl._curl)
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -42821,7 +42953,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1095
+/* "cycurl/_curl.pyx":1100
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -42838,7 +42970,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct __pyx_obj_6cycurl_5_curl_CurlMime *__pyx_v_self, PyObject *__pyx_v_name, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_addpart *__pyx_optional_args) {
 
-  /* "cycurl/_curl.pyx":1098
+  /* "cycurl/_curl.pyx":1103
  *         self,
  *         str name,
  *         str content_type = None,             # <<<<<<<<<<<<<<
@@ -42847,7 +42979,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   PyObject *__pyx_v_content_type = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":1099
+  /* "cycurl/_curl.pyx":1104
  *         str name,
  *         str content_type = None,
  *         str filename = None,             # <<<<<<<<<<<<<<
@@ -42856,7 +42988,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   PyObject *__pyx_v_filename = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":1100
+  /* "cycurl/_curl.pyx":1105
  *         str content_type = None,
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]             # <<<<<<<<<<<<<<
@@ -42865,7 +42997,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   PyObject *__pyx_v_local_path = ((PyObject *)Py_None);
 
-  /* "cycurl/_curl.pyx":1101
+  /* "cycurl/_curl.pyx":1106
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]
  *         object data = None,             # <<<<<<<<<<<<<<
@@ -42916,7 +43048,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __Pyx_INCREF(__pyx_v_local_path);
   __Pyx_INCREF(__pyx_v_data);
 
-  /* "cycurl/_curl.pyx":1112
+  /* "cycurl/_curl.pyx":1117
  *             data: file content to upload.
  *         """
  *         cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)             # <<<<<<<<<<<<<<
@@ -42925,7 +43057,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   __pyx_v_part = curl_mime_addpart(__pyx_v_self->form);
 
-  /* "cycurl/_curl.pyx":1114
+  /* "cycurl/_curl.pyx":1119
  *         cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)
  *         cdef int ret
  *         cdef bytes bytesname = name.encode()             # <<<<<<<<<<<<<<
@@ -42934,24 +43066,24 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   if (unlikely(__pyx_v_name == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
-    __PYX_ERR(0, 1114, __pyx_L1_error)
+    __PYX_ERR(0, 1119, __pyx_L1_error)
   }
-  __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_name, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1114, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_name, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_bytesname = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1115
+  /* "cycurl/_curl.pyx":1120
  *         cdef int ret
  *         cdef bytes bytesname = name.encode()
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)             # <<<<<<<<<<<<<<
  *         if ret != 0:
  *             raise CurlError("Add field failed.")
 */
-  __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_bytesname); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 1115, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_bytesname); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 1120, __pyx_L1_error)
   __pyx_v_ret = curl_mime_name(__pyx_v_part, ((char const *)__pyx_t_2));
 
-  /* "cycurl/_curl.pyx":1116
+  /* "cycurl/_curl.pyx":1121
  *         cdef bytes bytesname = name.encode()
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -42961,7 +43093,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_ret != 0);
   if (unlikely(__pyx_t_3)) {
 
-    /* "cycurl/_curl.pyx":1117
+    /* "cycurl/_curl.pyx":1122
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)
  *         if ret != 0:
  *             raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
@@ -42969,7 +43101,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         # mime type
 */
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1117, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1122, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -42988,14 +43120,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1117, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1122, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 1117, __pyx_L1_error)
+    __PYX_ERR(0, 1122, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":1116
+    /* "cycurl/_curl.pyx":1121
  *         cdef bytes bytesname = name.encode()
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -43004,7 +43136,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1121
+  /* "cycurl/_curl.pyx":1126
  *         # mime type
  *         cdef bytes bytescontent_type
  *         if content_type is not None:             # <<<<<<<<<<<<<<
@@ -43014,7 +43146,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_content_type != ((PyObject*)Py_None));
   if (__pyx_t_3) {
 
-    /* "cycurl/_curl.pyx":1122
+    /* "cycurl/_curl.pyx":1127
  *         cdef bytes bytescontent_type
  *         if content_type is not None:
  *             bytescontent_type = content_type.encode()             # <<<<<<<<<<<<<<
@@ -43023,24 +43155,24 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     if (unlikely(__pyx_v_content_type == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
-      __PYX_ERR(0, 1122, __pyx_L1_error)
+      __PYX_ERR(0, 1127, __pyx_L1_error)
     }
-    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_content_type, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1122, __pyx_L1_error)
+    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_content_type, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1127, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_bytescontent_type = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":1123
+    /* "cycurl/_curl.pyx":1128
  *         if content_type is not None:
  *             bytescontent_type = content_type.encode()
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")
 */
-    __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_bytescontent_type); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 1123, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_bytescontent_type); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 1128, __pyx_L1_error)
     __pyx_v_ret = curl_mime_type(__pyx_v_part, ((char const *)__pyx_t_7));
 
-    /* "cycurl/_curl.pyx":1124
+    /* "cycurl/_curl.pyx":1129
  *             bytescontent_type = content_type.encode()
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -43050,7 +43182,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_3 = (__pyx_v_ret != 0);
     if (unlikely(__pyx_t_3)) {
 
-      /* "cycurl/_curl.pyx":1125
+      /* "cycurl/_curl.pyx":1130
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
@@ -43058,7 +43190,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         # remote file name
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1125, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1130, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -43077,14 +43209,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1125, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1130, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 1125, __pyx_L1_error)
+      __PYX_ERR(0, 1130, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1124
+      /* "cycurl/_curl.pyx":1129
  *             bytescontent_type = content_type.encode()
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -43093,7 +43225,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1121
+    /* "cycurl/_curl.pyx":1126
  *         # mime type
  *         cdef bytes bytescontent_type
  *         if content_type is not None:             # <<<<<<<<<<<<<<
@@ -43102,7 +43234,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1129
+  /* "cycurl/_curl.pyx":1134
  *         # remote file name
  *         cdef bytes bytesfilename
  *         if filename is not None:             # <<<<<<<<<<<<<<
@@ -43112,7 +43244,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_filename != ((PyObject*)Py_None));
   if (__pyx_t_3) {
 
-    /* "cycurl/_curl.pyx":1130
+    /* "cycurl/_curl.pyx":1135
  *         cdef bytes bytesfilename
  *         if filename is not None:
  *             bytesfilename = filename.encode()             # <<<<<<<<<<<<<<
@@ -43121,24 +43253,24 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     if (unlikely(__pyx_v_filename == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
-      __PYX_ERR(0, 1130, __pyx_L1_error)
+      __PYX_ERR(0, 1135, __pyx_L1_error)
     }
-    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_filename, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1130, __pyx_L1_error)
+    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_filename, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1135, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_bytesfilename = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":1131
+    /* "cycurl/_curl.pyx":1136
  *         if filename is not None:
  *             bytesfilename = filename.encode()
  *             ret = curl.curl_mime_filename(part, <const char *>bytesfilename)             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")
 */
-    __pyx_t_8 = __Pyx_PyBytes_AsString(__pyx_v_bytesfilename); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) __PYX_ERR(0, 1131, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyBytes_AsString(__pyx_v_bytesfilename); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) __PYX_ERR(0, 1136, __pyx_L1_error)
     __pyx_v_ret = curl_mime_filename(__pyx_v_part, ((char const *)__pyx_t_8));
 
-    /* "cycurl/_curl.pyx":1132
+    /* "cycurl/_curl.pyx":1137
  *             bytesfilename = filename.encode()
  *             ret = curl.curl_mime_filename(part, <const char *>bytesfilename)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -43148,7 +43280,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_3 = (__pyx_v_ret != 0);
     if (unlikely(__pyx_t_3)) {
 
-      /* "cycurl/_curl.pyx":1133
+      /* "cycurl/_curl.pyx":1138
  *             ret = curl.curl_mime_filename(part, <const char *>bytesfilename)
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
@@ -43156,7 +43288,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         if local_path is not None and data is not None:
 */
       __pyx_t_4 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1133, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1138, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -43175,14 +43307,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1133, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1138, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 1133, __pyx_L1_error)
+      __PYX_ERR(0, 1138, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1132
+      /* "cycurl/_curl.pyx":1137
  *             bytesfilename = filename.encode()
  *             ret = curl.curl_mime_filename(part, <const char *>bytesfilename)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -43191,7 +43323,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1129
+    /* "cycurl/_curl.pyx":1134
  *         # remote file name
  *         cdef bytes bytesfilename
  *         if filename is not None:             # <<<<<<<<<<<<<<
@@ -43200,7 +43332,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1135
+  /* "cycurl/_curl.pyx":1140
  *                 raise CurlError("Add field failed.")
  * 
  *         if local_path is not None and data is not None:             # <<<<<<<<<<<<<<
@@ -43218,7 +43350,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_L9_bool_binop_done:;
   if (unlikely(__pyx_t_3)) {
 
-    /* "cycurl/_curl.pyx":1136
+    /* "cycurl/_curl.pyx":1141
  * 
  *         if local_path is not None and data is not None:
  *             raise CurlError("Can not use local_path and data at the same time.")             # <<<<<<<<<<<<<<
@@ -43226,7 +43358,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         # this is a filename
 */
     __pyx_t_5 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1136, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_6 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -43245,14 +43377,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1136, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1141, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 1136, __pyx_L1_error)
+    __PYX_ERR(0, 1141, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":1135
+    /* "cycurl/_curl.pyx":1140
  *                 raise CurlError("Add field failed.")
  * 
  *         if local_path is not None and data is not None:             # <<<<<<<<<<<<<<
@@ -43261,7 +43393,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1139
+  /* "cycurl/_curl.pyx":1144
  * 
  *         # this is a filename
  *         if local_path is not None:             # <<<<<<<<<<<<<<
@@ -43271,7 +43403,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_local_path != Py_None);
   if (__pyx_t_3) {
 
-    /* "cycurl/_curl.pyx":1140
+    /* "cycurl/_curl.pyx":1145
  *         # this is a filename
  *         if local_path is not None:
  *             if not isinstance(local_path, bytes):             # <<<<<<<<<<<<<<
@@ -43282,22 +43414,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_9 = (!__pyx_t_3);
     if (__pyx_t_9) {
 
-      /* "cycurl/_curl.pyx":1141
+      /* "cycurl/_curl.pyx":1146
  *         if local_path is not None:
  *             if not isinstance(local_path, bytes):
  *                 local_path = str(local_path).encode()             # <<<<<<<<<<<<<<
  *             if not Path(local_path.decode()).exists():
  *                 raise FileNotFoundError(f"File not found at {local_path}")
 */
-      __pyx_t_1 = __Pyx_PyObject_Unicode(__pyx_v_local_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1141, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Unicode(__pyx_v_local_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1146, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = PyUnicode_AsEncodedString(((PyObject*)__pyx_t_1), NULL, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1141, __pyx_L1_error)
+      __pyx_t_4 = PyUnicode_AsEncodedString(((PyObject*)__pyx_t_1), NULL, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1146, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF_SET(__pyx_v_local_path, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "cycurl/_curl.pyx":1140
+      /* "cycurl/_curl.pyx":1145
  *         # this is a filename
  *         if local_path is not None:
  *             if not isinstance(local_path, bytes):             # <<<<<<<<<<<<<<
@@ -43306,7 +43438,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1142
+    /* "cycurl/_curl.pyx":1147
  *             if not isinstance(local_path, bytes):
  *                 local_path = str(local_path).encode()
  *             if not Path(local_path.decode()).exists():             # <<<<<<<<<<<<<<
@@ -43314,7 +43446,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)
 */
     __pyx_t_10 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1142, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1147, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __pyx_t_13 = __pyx_v_local_path;
     __Pyx_INCREF(__pyx_t_13);
@@ -43323,7 +43455,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       PyObject *__pyx_callargs[2] = {__pyx_t_13, NULL};
       __pyx_t_12 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_decode, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
-      if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1142, __pyx_L1_error)
+      if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1147, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
     }
     __pyx_t_6 = 1;
@@ -43344,7 +43476,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1142, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1147, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
     }
     __pyx_t_1 = __pyx_t_5;
@@ -43355,15 +43487,15 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       __pyx_t_4 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_exists, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1142, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1147, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1142, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1147, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_3 = (!__pyx_t_9);
     if (unlikely(__pyx_t_3)) {
 
-      /* "cycurl/_curl.pyx":1143
+      /* "cycurl/_curl.pyx":1148
  *                 local_path = str(local_path).encode()
  *             if not Path(local_path.decode()).exists():
  *                 raise FileNotFoundError(f"File not found at {local_path}")             # <<<<<<<<<<<<<<
@@ -43371,9 +43503,9 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *             if ret != 0:
 */
       __pyx_t_5 = NULL;
-      __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_local_path, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1143, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_local_path, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1148, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_11 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_File_not_found_at, __pyx_t_1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1143, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_File_not_found_at, __pyx_t_1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1148, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_6 = 1;
@@ -43382,14 +43514,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_FileNotFoundError)), __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1143, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1148, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __Pyx_Raise(__pyx_t_4, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __PYX_ERR(0, 1143, __pyx_L1_error)
+      __PYX_ERR(0, 1148, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1142
+      /* "cycurl/_curl.pyx":1147
  *             if not isinstance(local_path, bytes):
  *                 local_path = str(local_path).encode()
  *             if not Path(local_path.decode()).exists():             # <<<<<<<<<<<<<<
@@ -43398,17 +43530,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1144
+    /* "cycurl/_curl.pyx":1149
  *             if not Path(local_path.decode()).exists():
  *                 raise FileNotFoundError(f"File not found at {local_path}")
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")
 */
-    __pyx_t_14 = __Pyx_PyObject_AsString(__pyx_v_local_path); if (unlikely((!__pyx_t_14) && PyErr_Occurred())) __PYX_ERR(0, 1144, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyObject_AsString(__pyx_v_local_path); if (unlikely((!__pyx_t_14) && PyErr_Occurred())) __PYX_ERR(0, 1149, __pyx_L1_error)
     __pyx_v_ret = curl_mime_filedata(__pyx_v_part, ((char const *)__pyx_t_14));
 
-    /* "cycurl/_curl.pyx":1145
+    /* "cycurl/_curl.pyx":1150
  *                 raise FileNotFoundError(f"File not found at {local_path}")
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -43418,7 +43550,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_3 = (__pyx_v_ret != 0);
     if (unlikely(__pyx_t_3)) {
 
-      /* "cycurl/_curl.pyx":1146
+      /* "cycurl/_curl.pyx":1151
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
@@ -43426,7 +43558,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         if data is not None:
 */
       __pyx_t_11 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1146, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1151, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -43445,14 +43577,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1146, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1151, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __Pyx_Raise(__pyx_t_4, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __PYX_ERR(0, 1146, __pyx_L1_error)
+      __PYX_ERR(0, 1151, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1145
+      /* "cycurl/_curl.pyx":1150
  *                 raise FileNotFoundError(f"File not found at {local_path}")
  *             ret = curl.curl_mime_filedata(part, <const char *>local_path)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -43461,7 +43593,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1139
+    /* "cycurl/_curl.pyx":1144
  * 
  *         # this is a filename
  *         if local_path is not None:             # <<<<<<<<<<<<<<
@@ -43470,7 +43602,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1148
+  /* "cycurl/_curl.pyx":1153
  *                 raise CurlError("Add field failed.")
  * 
  *         if data is not None:             # <<<<<<<<<<<<<<
@@ -43480,7 +43612,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   __pyx_t_3 = (__pyx_v_data != Py_None);
   if (__pyx_t_3) {
 
-    /* "cycurl/_curl.pyx":1149
+    /* "cycurl/_curl.pyx":1154
  * 
  *         if data is not None:
  *             if not isinstance(data, bytes):             # <<<<<<<<<<<<<<
@@ -43491,22 +43623,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_9 = (!__pyx_t_3);
     if (__pyx_t_9) {
 
-      /* "cycurl/_curl.pyx":1150
+      /* "cycurl/_curl.pyx":1155
  *         if data is not None:
  *             if not isinstance(data, bytes):
  *                 data = str(data).encode()             # <<<<<<<<<<<<<<
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:
 */
-      __pyx_t_4 = __Pyx_PyObject_Unicode(__pyx_v_data); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1150, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Unicode(__pyx_v_data); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1155, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_5 = PyUnicode_AsEncodedString(((PyObject*)__pyx_t_4), NULL, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1150, __pyx_L1_error)
+      __pyx_t_5 = PyUnicode_AsEncodedString(((PyObject*)__pyx_t_4), NULL, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1155, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF_SET(__pyx_v_data, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "cycurl/_curl.pyx":1149
+      /* "cycurl/_curl.pyx":1154
  * 
  *         if data is not None:
  *             if not isinstance(data, bytes):             # <<<<<<<<<<<<<<
@@ -43515,17 +43647,17 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1151
+    /* "cycurl/_curl.pyx":1156
  *             if not isinstance(data, bytes):
  *                 data = str(data).encode()
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add data failed.")
 */
-    __pyx_t_15 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_15) && PyErr_Occurred())) __PYX_ERR(0, 1151, __pyx_L1_error)
+    __pyx_t_15 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_15) && PyErr_Occurred())) __PYX_ERR(0, 1156, __pyx_L1_error)
     __pyx_v_ret = curl_mime_data(__pyx_v_part, ((char const *)__pyx_t_15), PyBytes_GET_SIZE(__pyx_v_data));
 
-    /* "cycurl/_curl.pyx":1152
+    /* "cycurl/_curl.pyx":1157
  *                 data = str(data).encode()
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -43535,7 +43667,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     __pyx_t_9 = (__pyx_v_ret != 0);
     if (unlikely(__pyx_t_9)) {
 
-      /* "cycurl/_curl.pyx":1153
+      /* "cycurl/_curl.pyx":1158
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:
  *                 raise CurlError("Add data failed.")             # <<<<<<<<<<<<<<
@@ -43543,7 +43675,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *     @classmethod
 */
       __pyx_t_4 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1153, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1158, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -43562,14 +43694,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_5 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_11, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1153, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1158, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
       }
       __Pyx_Raise(__pyx_t_5, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __PYX_ERR(0, 1153, __pyx_L1_error)
+      __PYX_ERR(0, 1158, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1152
+      /* "cycurl/_curl.pyx":1157
  *                 data = str(data).encode()
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -43578,7 +43710,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1148
+    /* "cycurl/_curl.pyx":1153
  *                 raise CurlError("Add field failed.")
  * 
  *         if data is not None:             # <<<<<<<<<<<<<<
@@ -43587,7 +43719,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1095
+  /* "cycurl/_curl.pyx":1100
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -43663,36 +43795,36 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_name,&__pyx_mstate_global->__pyx_n_u_content_type,&__pyx_mstate_global->__pyx_n_u_filename,&__pyx_mstate_global->__pyx_n_u_local_path,&__pyx_mstate_global->__pyx_n_u_data,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1095, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1100, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1100, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1100, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1100, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1100, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1100, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "addpart", 0) < (0)) __PYX_ERR(0, 1095, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "addpart", 0) < (0)) __PYX_ERR(0, 1100, __pyx_L3_error)
 
-      /* "cycurl/_curl.pyx":1098
+      /* "cycurl/_curl.pyx":1103
  *         self,
  *         str name,
  *         str content_type = None,             # <<<<<<<<<<<<<<
@@ -43701,7 +43833,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)Py_None));
 
-      /* "cycurl/_curl.pyx":1099
+      /* "cycurl/_curl.pyx":1104
  *         str name,
  *         str content_type = None,
  *         str filename = None,             # <<<<<<<<<<<<<<
@@ -43710,7 +43842,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
 
-      /* "cycurl/_curl.pyx":1100
+      /* "cycurl/_curl.pyx":1105
  *         str content_type = None,
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]             # <<<<<<<<<<<<<<
@@ -43719,7 +43851,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)Py_None));
 
-      /* "cycurl/_curl.pyx":1101
+      /* "cycurl/_curl.pyx":1106
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]
  *         object data = None,             # <<<<<<<<<<<<<<
@@ -43728,34 +43860,34 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[4]) values[4] = __Pyx_NewRef(((PyObject *)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, i); __PYX_ERR(0, 1095, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, i); __PYX_ERR(0, 1100, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1100, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1100, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1100, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1100, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1095, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1100, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
 
-      /* "cycurl/_curl.pyx":1098
+      /* "cycurl/_curl.pyx":1103
  *         self,
  *         str name,
  *         str content_type = None,             # <<<<<<<<<<<<<<
@@ -43764,7 +43896,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)Py_None));
 
-      /* "cycurl/_curl.pyx":1099
+      /* "cycurl/_curl.pyx":1104
  *         str name,
  *         str content_type = None,
  *         str filename = None,             # <<<<<<<<<<<<<<
@@ -43773,7 +43905,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
 
-      /* "cycurl/_curl.pyx":1100
+      /* "cycurl/_curl.pyx":1105
  *         str content_type = None,
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]             # <<<<<<<<<<<<<<
@@ -43782,7 +43914,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)Py_None));
 
-      /* "cycurl/_curl.pyx":1101
+      /* "cycurl/_curl.pyx":1106
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]
  *         object data = None,             # <<<<<<<<<<<<<<
@@ -43799,7 +43931,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, __pyx_nargs); __PYX_ERR(0, 1095, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, __pyx_nargs); __PYX_ERR(0, 1100, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -43810,12 +43942,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 1097, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_content_type), (&PyUnicode_Type), 1, "content_type", 1))) __PYX_ERR(0, 1098, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_filename), (&PyUnicode_Type), 1, "filename", 1))) __PYX_ERR(0, 1099, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 1102, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_content_type), (&PyUnicode_Type), 1, "content_type", 1))) __PYX_ERR(0, 1103, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_filename), (&PyUnicode_Type), 1, "filename", 1))) __PYX_ERR(0, 1104, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_v_self), __pyx_v_name, __pyx_v_content_type, __pyx_v_filename, __pyx_v_local_path, __pyx_v_data);
 
-  /* "cycurl/_curl.pyx":1095
+  /* "cycurl/_curl.pyx":1100
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -43855,7 +43987,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(struct __pyx_obj_6cy
   __pyx_t_2.filename = __pyx_v_filename;
   __pyx_t_2.local_path = __pyx_v_local_path;
   __pyx_t_2.data = __pyx_v_data;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->addpart(__pyx_v_self, __pyx_v_name, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1095, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->addpart(__pyx_v_self, __pyx_v_name, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -43872,7 +44004,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(struct __pyx_obj_6cy
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1155
+/* "cycurl/_curl.pyx":1160
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -43920,32 +44052,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_files,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1155, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1160, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1155, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1160, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "from_list", 0) < (0)) __PYX_ERR(0, 1155, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "from_list", 0) < (0)) __PYX_ERR(0, 1160, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, i); __PYX_ERR(0, 1155, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, i); __PYX_ERR(0, 1160, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1155, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1160, __pyx_L3_error)
     }
     __pyx_v_files = ((PyObject*)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1155, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1160, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -43956,7 +44088,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_files), (&PyList_Type), 1, "files", 1))) __PYX_ERR(0, 1156, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_files), (&PyList_Type), 1, "files", 1))) __PYX_ERR(0, 1161, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(((PyTypeObject*)__pyx_v_cls), __pyx_v_files);
 
   /* function exit code */
@@ -43992,7 +44124,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("from_list", 0);
 
-  /* "cycurl/_curl.pyx":1158
+  /* "cycurl/_curl.pyx":1163
  *     def from_list(cls, list files):  # files: List[dict]
  *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  *         cdef CurlMime form = cls()             # <<<<<<<<<<<<<<
@@ -44005,14 +44137,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_v_cls, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1158, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1163, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime))))) __PYX_ERR(0, 1158, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime))))) __PYX_ERR(0, 1163, __pyx_L1_error)
   __pyx_v_form = ((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1159
+  /* "cycurl/_curl.pyx":1164
  *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  *         cdef CurlMime form = cls()
  *         for file in files:             # <<<<<<<<<<<<<<
@@ -44021,7 +44153,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
 */
   if (unlikely(__pyx_v_files == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 1159, __pyx_L1_error)
+    __PYX_ERR(0, 1164, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_files; __Pyx_INCREF(__pyx_t_1);
   __pyx_t_4 = 0;
@@ -44029,44 +44161,44 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
     {
       Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
       #if !CYTHON_ASSUME_SAFE_SIZE
-      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1159, __pyx_L1_error)
+      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1164, __pyx_L1_error)
       #endif
       if (__pyx_t_4 >= __pyx_temp) break;
     }
     __pyx_t_2 = __Pyx_PyList_GetItemRefFast(__pyx_t_1, __pyx_t_4, __Pyx_ReferenceSharing_OwnStrongReference);
     ++__pyx_t_4;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1159, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1164, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XDECREF_SET(__pyx_v_file, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":1160
+    /* "cycurl/_curl.pyx":1165
  *         cdef CurlMime form = cls()
  *         for file in files:
  *             form.addpart(**file)             # <<<<<<<<<<<<<<
  *         return form
  * 
 */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_form), __pyx_mstate_global->__pyx_n_u_addpart); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1160, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_form), __pyx_mstate_global->__pyx_n_u_addpart); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1165, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (unlikely(__pyx_v_file == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-      __PYX_ERR(0, 1160, __pyx_L1_error)
+      __PYX_ERR(0, 1165, __pyx_L1_error)
     }
     if (likely(PyDict_CheckExact(__pyx_v_file))) {
-      __pyx_t_5 = PyDict_Copy(__pyx_v_file); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1160, __pyx_L1_error)
+      __pyx_t_5 = PyDict_Copy(__pyx_v_file); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
     } else {
-      __pyx_t_5 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_v_file); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1160, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_v_file); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
     }
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1160, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1165, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "cycurl/_curl.pyx":1159
+    /* "cycurl/_curl.pyx":1164
  *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  *         cdef CurlMime form = cls()
  *         for file in files:             # <<<<<<<<<<<<<<
@@ -44076,7 +44208,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1161
+  /* "cycurl/_curl.pyx":1166
  *         for file in files:
  *             form.addpart(**file)
  *         return form             # <<<<<<<<<<<<<<
@@ -44088,7 +44220,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   __pyx_r = ((PyObject *)__pyx_v_form);
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":1155
+  /* "cycurl/_curl.pyx":1160
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -44112,7 +44244,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1163
+/* "cycurl/_curl.pyx":1168
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -44145,7 +44277,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_attach(struct __
     }
   }
 
-  /* "cycurl/_curl.pyx":1165
+  /* "cycurl/_curl.pyx":1170
  *     cpdef inline attach(self, Curl curl_ = None):
  *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl             # <<<<<<<<<<<<<<
@@ -44163,19 +44295,19 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_attach(struct __
   __pyx_v_c = ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1166
+  /* "cycurl/_curl.pyx":1171
  *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))             # <<<<<<<<<<<<<<
  * 
  *     def close(self):
 */
-  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1166, __pyx_L1_error)
+  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_c, CURLOPT_MIMEPOST, __pyx_t_1, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 1166, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_c, CURLOPT_MIMEPOST, __pyx_t_1, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 1171, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1163
+  /* "cycurl/_curl.pyx":1168
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -44237,24 +44369,24 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_curl_2,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1163, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 1168, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1163, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1168, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "attach", 0) < (0)) __PYX_ERR(0, 1163, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "attach", 0) < (0)) __PYX_ERR(0, 1168, __pyx_L3_error)
       if (!values[0]) values[0] = __Pyx_NewRef((PyObject *)((struct __pyx_obj_6cycurl_5_curl_Curl *)Py_None));
     } else {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1163, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1168, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
@@ -44265,7 +44397,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("attach", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 1163, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("attach", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 1168, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -44276,7 +44408,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1163, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1168, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime_6attach(((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_v_self), __pyx_v_curl_);
 
   /* function exit code */
@@ -44308,7 +44440,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_6attach(struct __pyx_obj_6cyc
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.curl_ = __pyx_v_curl_;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->attach(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1163, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->attach(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -44325,7 +44457,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_6attach(struct __pyx_obj_6cyc
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1168
+/* "cycurl/_curl.pyx":1173
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -44381,7 +44513,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_8close(struct __pyx_obj_6cycu
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("close", 0);
 
-  /* "cycurl/_curl.pyx":1171
+  /* "cycurl/_curl.pyx":1176
  *         """Close the mime instance and underlying files. This method must be called after
  *         ``perform`` or ``request``."""
  *         curl.curl_mime_free(self.form)             # <<<<<<<<<<<<<<
@@ -44390,7 +44522,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_8close(struct __pyx_obj_6cycu
 */
   curl_mime_free(__pyx_v_self->form);
 
-  /* "cycurl/_curl.pyx":1172
+  /* "cycurl/_curl.pyx":1177
  *         ``perform`` or ``request``."""
  *         curl.curl_mime_free(self.form)
  *         self.form = NULL             # <<<<<<<<<<<<<<
@@ -44399,7 +44531,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_8close(struct __pyx_obj_6cycu
 */
   __pyx_v_self->form = NULL;
 
-  /* "cycurl/_curl.pyx":1168
+  /* "cycurl/_curl.pyx":1173
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -44414,7 +44546,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_8close(struct __pyx_obj_6cycu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1174
+/* "cycurl/_curl.pyx":1179
  *         self.form = NULL
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -44444,7 +44576,7 @@ static void __pyx_pf_6cycurl_5_curl_8CurlMime_10__del__(struct __pyx_obj_6cycurl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__del__", 0);
 
-  /* "cycurl/_curl.pyx":1175
+  /* "cycurl/_curl.pyx":1180
  * 
  *     def __del__(self):
  *         self.close()             # <<<<<<<<<<<<<<
@@ -44456,12 +44588,12 @@ static void __pyx_pf_6cycurl_5_curl_8CurlMime_10__del__(struct __pyx_obj_6cycurl
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_close, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1175, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1180, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1174
+  /* "cycurl/_curl.pyx":1179
  *         self.form = NULL
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -44969,6 +45101,20 @@ static PyObject *__pyx_tp_richcompare_6cycurl_5_curl_Curl(PyObject *o1, PyObject
   }
 }
 
+static PyObject *__pyx_getprop_6cycurl_5_curl_4Curl__skip_cacert(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6cycurl_5_curl_4Curl_12_skip_cacert_1__get__(o);
+}
+
+static int __pyx_setprop_6cycurl_5_curl_4Curl__skip_cacert(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_6cycurl_5_curl_4Curl_12_skip_cacert_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
 static PyMethodDef __pyx_methods_6cycurl_5_curl_Curl[] = {
   {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_5close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_4close},
   {"ws_close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_11ws_close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_10ws_close},
@@ -44982,6 +45128,11 @@ static PyMethodDef __pyx_methods_6cycurl_5_curl_Curl[] = {
   {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_47__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_46__setstate_cython__},
   {0, 0, 0, 0}
 };
+
+static struct PyGetSetDef __pyx_getsets_6cycurl_5_curl_Curl[] = {
+  {"_skip_cacert", __pyx_getprop_6cycurl_5_curl_4Curl__skip_cacert, __pyx_setprop_6cycurl_5_curl_4Curl__skip_cacert, PyDoc_STR("_skip_cacert: 'bool'"), 0},
+  {0, 0, 0, 0, 0}
+};
 #if CYTHON_USE_TYPE_SPECS
 static PyType_Slot __pyx_type_6cycurl_5_curl_Curl_slots[] = {
   {Py_tp_dealloc, (void *)__pyx_tp_dealloc_6cycurl_5_curl_Curl},
@@ -44989,6 +45140,7 @@ static PyType_Slot __pyx_type_6cycurl_5_curl_Curl_slots[] = {
   {Py_tp_doc, (void *)PyDoc_STR("\n    Wrapper for `curl_easy_*` functions of libcurl.\n    ")},
   {Py_tp_richcompare, (void *)__pyx_tp_richcompare_6cycurl_5_curl_Curl},
   {Py_tp_methods, (void *)__pyx_methods_6cycurl_5_curl_Curl},
+  {Py_tp_getset, (void *)__pyx_getsets_6cycurl_5_curl_Curl},
   {Py_tp_new, (void *)__pyx_tp_new_6cycurl_5_curl_Curl},
   {0, 0},
 };
@@ -45031,7 +45183,7 @@ static PyTypeObject __pyx_type_6cycurl_5_curl_Curl = {
   0, /*tp_iternext*/
   __pyx_methods_6cycurl_5_curl_Curl, /*tp_methods*/
   0, /*tp_members*/
-  0, /*tp_getset*/
+  __pyx_getsets_6cycurl_5_curl_Curl, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -47725,15 +47877,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __pyx_vtable_6cycurl_5_curl_AsyncCurl.set_result = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, struct __pyx_obj_6cycurl_5_curl_Curl *))__pyx_f_6cycurl_5_curl_9AsyncCurl_set_result;
   __pyx_vtable_6cycurl_5_curl_AsyncCurl.set_exception = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_AsyncCurl *, struct __pyx_obj_6cycurl_5_curl_Curl *, PyObject *))__pyx_f_6cycurl_5_curl_9AsyncCurl_set_exception;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_AsyncCurl_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl)) __PYX_ERR(0, 903, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_AsyncCurl_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 903, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_AsyncCurl_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl)) __PYX_ERR(0, 908, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_AsyncCurl_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 908, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl = &__pyx_type_6cycurl_5_curl_AsyncCurl;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 903, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 908, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl);
@@ -47743,23 +47895,23 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_vtabptr_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 903, __pyx_L1_error)
-  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 903, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_AsyncCurl, (PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 903, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 903, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_vtabptr_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 908, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 908, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_AsyncCurl, (PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 908, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_AsyncCurl) < (0)) __PYX_ERR(0, 908, __pyx_L1_error)
   __pyx_vtabptr_6cycurl_5_curl_CurlMime = &__pyx_vtable_6cycurl_5_curl_CurlMime;
   __pyx_vtable_6cycurl_5_curl_CurlMime.addpart = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_CurlMime *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_addpart *__pyx_optional_args))__pyx_f_6cycurl_5_curl_8CurlMime_addpart;
   __pyx_vtable_6cycurl_5_curl_CurlMime.attach = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_CurlMime *, int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_attach *__pyx_optional_args))__pyx_f_6cycurl_5_curl_8CurlMime_attach;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_CurlMime_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime)) __PYX_ERR(0, 1073, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_CurlMime_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1073, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_CurlMime_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime)) __PYX_ERR(0, 1078, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl_CurlMime_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1078, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime = &__pyx_type_6cycurl_5_curl_CurlMime;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1073, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1078, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime);
@@ -47771,7 +47923,7 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   #endif
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 1073, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 1078, __pyx_L1_error)
     if (__Pyx_IS_TYPE(wrapper, &PyWrapperDescr_Type)) {
       __pyx_wrapperbase_6cycurl_5_curl_8CurlMime___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
       __pyx_wrapperbase_6cycurl_5_curl_8CurlMime___init__.doc = __pyx_doc_6cycurl_5_curl_8CurlMime___init__;
@@ -47779,10 +47931,10 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
     }
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_vtabptr_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1073, __pyx_L1_error)
-  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1073, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_CurlMime, (PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1073, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1073, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_vtabptr_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1078, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1078, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_CurlMime, (PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1078, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1078, __pyx_L1_error)
   #if CYTHON_USE_TYPE_SPECS
   __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct____pyx_f_6cycurl_5_curl_bytes_to_hex = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct____pyx_f_6cycurl_5_curl_bytes_to_hex_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct____pyx_f_6cycurl_5_curl_bytes_to_hex)) __PYX_ERR(0, 49, __pyx_L1_error)
   if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct____pyx_f_6cycurl_5_curl_bytes_to_hex_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct____pyx_f_6cycurl_5_curl_bytes_to_hex) < (0)) __PYX_ERR(0, 49, __pyx_L1_error)
@@ -47879,15 +48031,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_5_get_selector_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector)) __PYX_ERR(0, 806, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_5_get_selector_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector) < (0)) __PYX_ERR(0, 806, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_5_get_selector_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector)) __PYX_ERR(0, 811, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_5_get_selector_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector) < (0)) __PYX_ERR(0, 811, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector = &__pyx_type_6cycurl_5_curl___pyx_scope_struct_5_get_selector;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector) < (0)) __PYX_ERR(0, 806, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector) < (0)) __PYX_ERR(0, 811, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_5_get_selector);
@@ -47898,15 +48050,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_6_close_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close)) __PYX_ERR(0, 943, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_6_close_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close) < (0)) __PYX_ERR(0, 943, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_6_close_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close)) __PYX_ERR(0, 948, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_6_close_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close) < (0)) __PYX_ERR(0, 948, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close = &__pyx_type_6cycurl_5_curl___pyx_scope_struct_6_close;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close) < (0)) __PYX_ERR(0, 943, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close) < (0)) __PYX_ERR(0, 948, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_6_close);
@@ -47917,15 +48069,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_7__force_timeout_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout)) __PYX_ERR(0, 965, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_7__force_timeout_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout) < (0)) __PYX_ERR(0, 965, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl___pyx_scope_struct_7__force_timeout_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout)) __PYX_ERR(0, 970, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_6cycurl_5_curl___pyx_scope_struct_7__force_timeout_spec, __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout) < (0)) __PYX_ERR(0, 970, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout = &__pyx_type_6cycurl_5_curl___pyx_scope_struct_7__force_timeout;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout) < (0)) __PYX_ERR(0, 965, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout) < (0)) __PYX_ERR(0, 970, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_6cycurl_5_curl___pyx_scope_struct_7__force_timeout);
@@ -57493,37 +57645,37 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_5) < (0)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":312
+  /* "cycurl/_curl.pyx":314
  *         self._close()
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
  *         """Close and cleanup curl handle, wrapper for ``curl_easy_cleanup``."""
  *         self._close()
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_5close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[12])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_5close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[12])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_5) < (0)) __PYX_ERR(0, 312, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_5) < (0)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":316
+  /* "cycurl/_curl.pyx":318
  *         self._close()
  * 
  *     cpdef inline tuple ws_recv(self):             # <<<<<<<<<<<<<<
  *         """Receive a frame from a websocket connection.
  *         Returns:
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_7ws_recv, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_ws_recv, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[13])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_7ws_recv, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_ws_recv, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[13])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_ws_recv, __pyx_t_5) < (0)) __PYX_ERR(0, 316, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_ws_recv, __pyx_t_5) < (0)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":343
+  /* "cycurl/_curl.pyx":345
  *         return <bytes>self._ws_recv_buffer[:self._ws_recv_n_recv], WSFrame.from_ptr(self._ws_recv_p_frame)
  * 
  *     cpdef inline size_t ws_send(self, const uint8_t[::1] payload, unsigned int flags = curl.CURLWS_BINARY):             # <<<<<<<<<<<<<<
@@ -57531,123 +57683,123 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  *         Args:
 */
   __pyx_mstate_global->__pyx_k__13 = CURLWS_BINARY;
-  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_BINARY); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(CURLWS_BINARY); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = PyTuple_Pack(1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_Pack(1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_9ws_send, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_ws_send, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[14])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_9ws_send, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_ws_send, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[14])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_ws_send, __pyx_t_5) < (0)) __PYX_ERR(0, 343, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_ws_send, __pyx_t_5) < (0)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":365
+  /* "cycurl/_curl.pyx":367
  *         return self._ws_send_n_sent
  * 
  *     def ws_close(self, int code = 1000, bytes message = b""):             # <<<<<<<<<<<<<<
  *         """Close a websocket connection. Shorthand for :meth:`ws_send`
  *         with close code and message. Note that to completely close the connection,
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_11ws_close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_ws_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[15])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 365, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_11ws_close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_ws_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[15])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 367, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[3]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_ws_close, __pyx_t_5) < (0)) __PYX_ERR(0, 365, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_ws_close, __pyx_t_5) < (0)) __PYX_ERR(0, 367, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":380
+  /* "cycurl/_curl.pyx":382
  *         return self.ws_send(payload, flags=CURLWS_CLOSE)
  * 
  *     def ws_meta(self):             # <<<<<<<<<<<<<<
  *         cdef const curl.curl_ws_frame* frame = curl.curl_ws_meta(self._curl)
  *         return WSFrame.from_ptr(frame)
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_13ws_meta, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_ws_meta, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[16])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_13ws_meta, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_ws_meta, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[16])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_ws_meta, __pyx_t_5) < (0)) __PYX_ERR(0, 380, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_ws_meta, __pyx_t_5) < (0)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":401
+  /* "cycurl/_curl.pyx":403
  *         return <Py_hash_t>(self._curl)
  * 
  *     def debug(self):             # <<<<<<<<<<<<<<
  *         """Set debug to True"""
  *         self.setopt(curl.CURLOPT_VERBOSE, 1)
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_19debug, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_debug, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[17])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_19debug, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_debug, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[17])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_debug, __pyx_t_5) < (0)) __PYX_ERR(0, 401, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_debug, __pyx_t_5) < (0)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":422
+  /* "cycurl/_curl.pyx":424
  *             )
  * 
  *     cpdef inline int setopt(self, int option, object value) except -1:             # <<<<<<<<<<<<<<
  *         """Wrapper for ``curl_easy_setopt``.
  * 
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_21setopt, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_setopt, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[18])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 422, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_21setopt, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_setopt, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[18])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_setopt_2, __pyx_t_5) < (0)) __PYX_ERR(0, 422, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_setopt_2, __pyx_t_5) < (0)) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":577
+  /* "cycurl/_curl.pyx":579
  *         return ret
  * 
  *     cpdef inline object getinfo(self, int option):             # <<<<<<<<<<<<<<
  *         """Wrapper for ``curl_easy_getinfo``. Gets information in response after curl perform.
  *         Parameters:
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_23getinfo, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_getinfo, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[19])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 577, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_23getinfo, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_getinfo, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[19])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_getinfo_2, __pyx_t_5) < (0)) __PYX_ERR(0, 577, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_getinfo_2, __pyx_t_5) < (0)) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":644
+  /* "cycurl/_curl.pyx":646
  *             return int64ret
  * 
  *     cpdef inline bytes version(self):             # <<<<<<<<<<<<<<
  *         """Get the underlying libcurl version."""
  *         return <bytes>curl.curl_version()
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_25version, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_version, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[20])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 644, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_25version, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_version, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[20])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_version, __pyx_t_5) < (0)) __PYX_ERR(0, 644, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_version, __pyx_t_5) < (0)) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":648
+  /* "cycurl/_curl.pyx":650
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
  *         """Set the browser type to impersonate.
  * 
 */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 648, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 650, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_target, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 648, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_27impersonate, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_impersonate, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[21])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 648, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_target, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 650, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_27impersonate, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_impersonate, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[21])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 650, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
@@ -57655,127 +57807,127 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_mstate_global->__pyx_tuple[4]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_impersonate, __pyx_t_4) < (0)) __PYX_ERR(0, 648, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_impersonate, __pyx_t_4) < (0)) __PYX_ERR(0, 650, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":670
+  /* "cycurl/_curl.pyx":674
  *             self._check_error(ret, "set proxy cacert")
  * 
  *     cpdef inline int perform(self, bint clear_headers = True, bint clear_resolve = True) except -1:             # <<<<<<<<<<<<<<
  *         """Wrapper for ``curl_easy_perform``, performs a curl request.
  * 
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_29perform, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_perform, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[22])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 670, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_29perform, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_perform, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[22])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 674, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_mstate_global->__pyx_tuple[5]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_perform, __pyx_t_4) < (0)) __PYX_ERR(0, 670, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_perform, __pyx_t_4) < (0)) __PYX_ERR(0, 674, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":696
+  /* "cycurl/_curl.pyx":700
  *             self.clean_handles_and_buffers(clear_headers, clear_resolve)
  * 
  *     cpdef inline int upkeep(self):             # <<<<<<<<<<<<<<
  *         if self._curl == NULL:
  *             return 0
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_31upkeep, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_upkeep, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[23])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 696, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_31upkeep, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_upkeep, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[23])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 700, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_upkeep, __pyx_t_4) < (0)) __PYX_ERR(0, 696, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_upkeep, __pyx_t_4) < (0)) __PYX_ERR(0, 700, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":704
+  /* "cycurl/_curl.pyx":708
  *         return ret
  * 
  *     cpdef inline clean_handles_and_buffers(self, bint clear_headers = True, bint clear_resolve = True):             # <<<<<<<<<<<<<<
  *         """Clean up handles and buffers after ``perform`` and ``close``,
  *         called at the end of ``perform`` and ``close``."""
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_33clean_handles_and_buffers, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_clean_handles_and_buffers, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[24])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 704, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_33clean_handles_and_buffers, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_clean_handles_and_buffers, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[24])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 708, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_mstate_global->__pyx_tuple[5]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_clean_handles_and_buffers, __pyx_t_4) < (0)) __PYX_ERR(0, 704, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_clean_handles_and_buffers, __pyx_t_4) < (0)) __PYX_ERR(0, 708, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":725
+  /* "cycurl/_curl.pyx":729
  * 
  * 
  *     cpdef inline Curl duphandle(self):             # <<<<<<<<<<<<<<
  *         """Wrapper for ``curl_easy_duphandle``.
  *         This is not a full copy of entire curl object in python. For example, headers
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_35duphandle, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_duphandle, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[25])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 725, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_35duphandle, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_duphandle, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[25])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 729, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_duphandle, __pyx_t_4) < (0)) __PYX_ERR(0, 725, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_duphandle, __pyx_t_4) < (0)) __PYX_ERR(0, 729, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":739
+  /* "cycurl/_curl.pyx":743
  *         return c
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         """Reset all curl options, wrapper for ``curl_easy_reset``."""
  *         self._is_cert_set = False
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_37reset, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_reset, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[26])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 739, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_37reset, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_reset, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[26])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 743, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_reset, __pyx_t_4) < (0)) __PYX_ERR(0, 739, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_reset, __pyx_t_4) < (0)) __PYX_ERR(0, 743, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":750
+  /* "cycurl/_curl.pyx":755
  *             self._resolve = NULL
  * 
  *     def parse_cookie_headers(self, list headers) -> SimpleCookie:             # <<<<<<<<<<<<<<
  *         """Extract ``cookies.SimpleCookie`` from header lines.
  * 
 */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 750, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 755, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_SimpleCookie) < (0)) __PYX_ERR(0, 750, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_39parse_cookie_headers, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_parse_cookie_headers, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[27])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 750, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_SimpleCookie) < (0)) __PYX_ERR(0, 755, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_39parse_cookie_headers, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_parse_cookie_headers, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[27])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 755, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_parse_cookie_headers, __pyx_t_5) < (0)) __PYX_ERR(0, 750, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_parse_cookie_headers, __pyx_t_5) < (0)) __PYX_ERR(0, 755, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":765
+  /* "cycurl/_curl.pyx":770
  *         return cookie
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def get_reason_phrase(bytes status_line) -> bytes:
  *         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
 */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 765, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 770, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bytes_2) < (0)) __PYX_ERR(0, 765, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_41get_reason_phrase, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_get_reason_phrase, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[28])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 765, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bytes_2) < (0)) __PYX_ERR(0, 770, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_41get_reason_phrase, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_get_reason_phrase, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[28])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 770, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_get_reason_phrase, __pyx_t_4) < (0)) __PYX_ERR(0, 765, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_get_reason_phrase, __pyx_t_4) < (0)) __PYX_ERR(0, 770, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = NULL;
-  __Pyx_GetNameInClass(__pyx_t_10, (PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_get_reason_phrase); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 765, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_10, (PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_get_reason_phrase); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 770, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_t_6 = 1;
   {
@@ -57783,33 +57935,33 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
     __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)__pyx_builtin_staticmethod, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 765, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 770, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_get_reason_phrase, __pyx_t_4) < (0)) __PYX_ERR(0, 765, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_get_reason_phrase, __pyx_t_4) < (0)) __PYX_ERR(0, 770, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":771
+  /* "cycurl/_curl.pyx":776
  *         return m.group(1) if m else b""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def parse_status_line(bytes status_line) -> tuple:
  *         """Parse status line.
 */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 771, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 776, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_tuple) < (0)) __PYX_ERR(0, 771, __pyx_L1_error)
-  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_43parse_status_line, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_parse_status_line, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[29])); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 771, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_tuple) < (0)) __PYX_ERR(0, 776, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_4Curl_43parse_status_line, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Curl_parse_status_line, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[29])); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 776, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_10);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_10, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_parse_status_line, __pyx_t_10) < (0)) __PYX_ERR(0, 771, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_parse_status_line, __pyx_t_10) < (0)) __PYX_ERR(0, 776, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __pyx_t_4 = NULL;
-  __Pyx_GetNameInClass(__pyx_t_5, (PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_parse_status_line); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 771, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_5, (PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_parse_status_line); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 776, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = 1;
   {
@@ -57817,10 +57969,10 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
     __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_builtin_staticmethod, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 771, __pyx_L1_error)
+    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 776, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
   }
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_parse_status_line, __pyx_t_10) < (0)) __PYX_ERR(0, 771, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_mstate_global->__pyx_n_u_parse_status_line, __pyx_t_10) < (0)) __PYX_ERR(0, 776, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
   /* "(tree fragment)":1
@@ -58714,23 +58866,23 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "cycurl/_curl.pyx":796
+  /* "cycurl/_curl.pyx":801
  * 
  * include "_asyncio_selector.pxi"
  * if sys.platform == "win32":             # <<<<<<<<<<<<<<
  *     # registry of asyncio loop : selector thread
  *     _selectors: WeakKeyDictionary = WeakKeyDictionary()
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_sys); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_sys); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 801, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_platform); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_platform); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 801, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_win32, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_win32, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 801, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   if (__pyx_t_8) {
 
-    /* "cycurl/_curl.pyx":798
+    /* "cycurl/_curl.pyx":803
  * if sys.platform == "win32":
  *     # registry of asyncio loop : selector thread
  *     _selectors: WeakKeyDictionary = WeakKeyDictionary()             # <<<<<<<<<<<<<<
@@ -58738,7 +58890,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  *     Proactor event loop does not implement add_reader family of methods required.
 */
     __pyx_t_10 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_WeakKeyDictionary); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 798, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_WeakKeyDictionary); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 803, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = 1;
     {
@@ -58746,43 +58898,43 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
       __pyx_t_11 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_5, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 798, __pyx_L1_error)
+      if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 803, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
     }
-    if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_selectors, __pyx_t_11) < (0)) __PYX_ERR(0, 798, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_selectors, __pyx_t_11) < (0)) __PYX_ERR(0, 803, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-    /* "cycurl/_curl.pyx":799
+    /* "cycurl/_curl.pyx":804
  *     # registry of asyncio loop : selector thread
  *     _selectors: WeakKeyDictionary = WeakKeyDictionary()
  *     PROACTOR_WARNING = """             # <<<<<<<<<<<<<<
  *     Proactor event loop does not implement add_reader family of methods required.
  *     Registering an additional selector thread for add_reader support.
 */
-    if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PROACTOR_WARNING, __pyx_mstate_global->__pyx_kp_u_Proactor_event_loop_does_not_im) < (0)) __PYX_ERR(0, 799, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PROACTOR_WARNING, __pyx_mstate_global->__pyx_kp_u_Proactor_event_loop_does_not_im) < (0)) __PYX_ERR(0, 804, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":806
+    /* "cycurl/_curl.pyx":811
  *     """
  * 
  *     def get_selector(asyncio_loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
  *         """Get selector-compatible loop
  * 
 */
-    __pyx_t_11 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 806, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 811, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    if (PyDict_SetItem(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_asyncio_loop, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < (0)) __PYX_ERR(0, 806, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < (0)) __PYX_ERR(0, 806, __pyx_L1_error)
-    __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_7get_selector, 0, __pyx_mstate_global->__pyx_n_u_get_selector, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[53])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 806, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_asyncio_loop, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < (0)) __PYX_ERR(0, 811, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < (0)) __PYX_ERR(0, 811, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_7get_selector, 0, __pyx_mstate_global->__pyx_n_u_get_selector, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[53])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 811, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
     PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
     #endif
     __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_11);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_selector, __pyx_t_5) < (0)) __PYX_ERR(0, 806, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_selector, __pyx_t_5) < (0)) __PYX_ERR(0, 811, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "cycurl/_curl.pyx":796
+    /* "cycurl/_curl.pyx":801
  * 
  * include "_asyncio_selector.pxi"
  * if sys.platform == "win32":             # <<<<<<<<<<<<<<
@@ -58792,7 +58944,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
     goto __pyx_L35;
   }
 
-  /* "cycurl/_curl.pyx":839
+  /* "cycurl/_curl.pyx":844
  * 
  * else:
  *     def get_selector(loop: asyncio.AbstractEventLoop) -> asyncio.AbstractEventLoop:             # <<<<<<<<<<<<<<
@@ -58800,125 +58952,125 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * 
 */
   /*else*/ {
-    __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 839, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 844, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_loop, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < (0)) __PYX_ERR(0, 839, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < (0)) __PYX_ERR(0, 839, __pyx_L1_error)
-    __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9get_selector, 0, __pyx_mstate_global->__pyx_n_u_get_selector, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[54])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 839, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_loop, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < (0)) __PYX_ERR(0, 844, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_asyncio_AbstractEventLoop) < (0)) __PYX_ERR(0, 844, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9get_selector, 0, __pyx_mstate_global->__pyx_n_u_get_selector, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[54])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 844, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
     PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
     #endif
     __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_5);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_selector, __pyx_t_11) < (0)) __PYX_ERR(0, 839, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_selector, __pyx_t_11) < (0)) __PYX_ERR(0, 844, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   }
   __pyx_L35:;
 
-  /* "cycurl/_curl.pyx":943
+  /* "cycurl/_curl.pyx":948
  *         # curl.curl_multi_setopt(self._curlm, curl.CURLMOPT_PIPELINING, curl.CURLPIPE_NOTHING)
  * 
  *     async def close(self):             # <<<<<<<<<<<<<<
  *         """Close and cleanup running timers, readers, writers and handles."""
  *         # Close and wait for the force timeout checker to complete
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_5close, __Pyx_CYFUNCTION_CCLASS | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AsyncCurl_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 943, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_5close, __Pyx_CYFUNCTION_CCLASS | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AsyncCurl_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 948, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_11) < (0)) __PYX_ERR(0, 943, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_11) < (0)) __PYX_ERR(0, 948, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":965
+  /* "cycurl/_curl.pyx":970
  *             self._timer.cancel()
  * 
  *     async def _force_timeout(self):             # <<<<<<<<<<<<<<
  *         """This coroutine is used to safeguard from any missing signals from curl, and
  *         put everything back on track"""
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_8_force_timeout, __Pyx_CYFUNCTION_CCLASS | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AsyncCurl__force_timeout, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 965, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_8_force_timeout, __Pyx_CYFUNCTION_CCLASS | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AsyncCurl__force_timeout, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 970, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_force_timeout, __pyx_t_11) < (0)) __PYX_ERR(0, 965, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_force_timeout, __pyx_t_11) < (0)) __PYX_ERR(0, 970, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":974
+  /* "cycurl/_curl.pyx":979
  *             await asyncio.sleep(0.1)
  * 
  *     cpdef inline add_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
  *         """Add a curl handle to be managed by curl_multi. This is the equivalent of
  *         `perform` in the async world."""
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_11add_handle, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl_add_handle, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[55])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 974, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_11add_handle, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl_add_handle, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[55])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 979, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_add_handle, __pyx_t_11) < (0)) __PYX_ERR(0, 974, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_add_handle, __pyx_t_11) < (0)) __PYX_ERR(0, 979, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":988
+  /* "cycurl/_curl.pyx":993
  *         return future
  * 
  *     cpdef inline int socket_action(self, int sockfd, int ev_bitmask) except -1:             # <<<<<<<<<<<<<<
  *         """wrapper for curl_multi_socket_action,
  *         returns the number of running curl handles."""
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_13socket_action, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl_socket_action, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[56])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 988, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_13socket_action, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl_socket_action, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[56])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 993, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_socket_action, __pyx_t_11) < (0)) __PYX_ERR(0, 988, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_socket_action, __pyx_t_11) < (0)) __PYX_ERR(0, 993, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":998
+  /* "cycurl/_curl.pyx":1003
  *         return running_handle
  * 
  *     cpdef inline process_data(self, int sockfd, int ev_bitmask):             # <<<<<<<<<<<<<<
  *         """Call curl_multi_info_read to read data for given socket."""
  *         if not self._curlm:
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_15process_data, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl_process_data, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[57])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 998, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_15process_data, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl_process_data, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[57])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1003, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_process_data, __pyx_t_11) < (0)) __PYX_ERR(0, 998, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_process_data, __pyx_t_11) < (0)) __PYX_ERR(0, 1003, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1044
+  /* "cycurl/_curl.pyx":1049
  *         return self._curl2future.pop(curl_, None)
  * 
  *     cpdef inline object remove_handle(self, Curl curl_):             # <<<<<<<<<<<<<<
  *         """Cancel a future for given curl handle."""
  *         cdef object future = self._pop_future(curl_)
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_17remove_handle, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl_remove_handle, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[58])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1044, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_17remove_handle, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl_remove_handle, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[58])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1049, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_remove_handle, __pyx_t_11) < (0)) __PYX_ERR(0, 1044, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_remove_handle, __pyx_t_11) < (0)) __PYX_ERR(0, 1049, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1062
+  /* "cycurl/_curl.pyx":1067
  *             future.set_exception(exception)
  * 
  *     def _check_error(self, int errcode, *args):             # <<<<<<<<<<<<<<
  *         if errcode == curl.CURLE_OK:
  *             return
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_19_check_error, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl__check_error, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[59])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1062, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9AsyncCurl_19_check_error, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_AsyncCurl__check_error, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[59])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1067, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_check_error, __pyx_t_11) < (0)) __PYX_ERR(0, 1062, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_AsyncCurl, __pyx_mstate_global->__pyx_n_u_check_error, __pyx_t_11) < (0)) __PYX_ERR(0, 1067, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
   /* "(tree fragment)":1
@@ -58948,73 +59100,73 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_11) < (0)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1095
+  /* "cycurl/_curl.pyx":1100
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
  *         self,
  *         str name,
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_3addpart, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_addpart, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[62])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1095, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_3addpart, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_addpart, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[62])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_11, __pyx_mstate_global->__pyx_tuple[6]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_addpart, __pyx_t_11) < (0)) __PYX_ERR(0, 1095, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_addpart, __pyx_t_11) < (0)) __PYX_ERR(0, 1100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1155
+  /* "cycurl/_curl.pyx":1160
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def from_list(cls, list files):  # files: List[dict]
  *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_5from_list, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_from_list, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[63])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1155, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_5from_list, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_from_list, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[63])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list, __pyx_t_11) < (0)) __PYX_ERR(0, 1155, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list, __pyx_t_11) < (0)) __PYX_ERR(0, 1160, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  __Pyx_GetNameInClass(__pyx_t_11, (PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1155, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_11, (PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_5 = __Pyx_Method_ClassMethod(__pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1155, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_Method_ClassMethod(__pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list, __pyx_t_5) < (0)) __PYX_ERR(0, 1155, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list, __pyx_t_5) < (0)) __PYX_ERR(0, 1160, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":1163
+  /* "cycurl/_curl.pyx":1168
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
  *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_7attach, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_attach, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[64])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1163, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_7attach, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_attach, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[64])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[7]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_attach, __pyx_t_5) < (0)) __PYX_ERR(0, 1163, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_attach, __pyx_t_5) < (0)) __PYX_ERR(0, 1168, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cycurl/_curl.pyx":1168
+  /* "cycurl/_curl.pyx":1173
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
  *         """Close the mime instance and underlying files. This method must be called after
  *         ``perform`` or ``request``."""
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_9close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[65])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1168, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_9close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[65])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_5) < (0)) __PYX_ERR(0, 1168, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_5) < (0)) __PYX_ERR(0, 1173, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
@@ -59095,9 +59247,9 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 765, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 770, __pyx_L1_error)
   __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_super); if (!__pyx_builtin_super) __PYX_ERR(0, 39, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_print); if (!__pyx_builtin_print) __PYX_ERR(0, 1027, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_print); if (!__pyx_builtin_print) __PYX_ERR(0, 1032, __pyx_L1_error)
   __pyx_builtin___import__ = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_import); if (!__pyx_builtin___import__) __PYX_ERR(1, 101, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 157, __pyx_L1_error)
   __pyx_builtin_Ellipsis = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_Ellipsis); if (!__pyx_builtin_Ellipsis) __PYX_ERR(1, 409, __pyx_L1_error)
@@ -59150,14 +59302,14 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_slice[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[0]);
 
-  /* "cycurl/_curl.pyx":762
+  /* "cycurl/_curl.pyx":767
  *         for header in headers:
  *             if header.lower().startswith(b"set-cookie: "):
  *                 cookie.load(header[12:].decode())  # len("set-cookie: ") == 12             # <<<<<<<<<<<<<<
  *         return cookie
  * 
 */
-  __pyx_mstate_global->__pyx_slice[1] = PySlice_New(__pyx_mstate_global->__pyx_int_12, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[1])) __PYX_ERR(0, 762, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_slice[1] = PySlice_New(__pyx_mstate_global->__pyx_int_12, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[1])) __PYX_ERR(0, 767, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_slice[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[1]);
 
@@ -59183,58 +59335,58 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[2]);
 
-  /* "cycurl/_curl.pyx":365
+  /* "cycurl/_curl.pyx":367
  *         return self._ws_send_n_sent
  * 
  *     def ws_close(self, int code = 1000, bytes message = b""):             # <<<<<<<<<<<<<<
  *         """Close a websocket connection. Shorthand for :meth:`ws_send`
  *         with close code and message. Note that to completely close the connection,
 */
-  __pyx_mstate_global->__pyx_tuple[3] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_int_1000, __pyx_mstate_global->__pyx_kp_b__9); if (unlikely(!__pyx_mstate_global->__pyx_tuple[3])) __PYX_ERR(0, 365, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[3] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_int_1000, __pyx_mstate_global->__pyx_kp_b__9); if (unlikely(!__pyx_mstate_global->__pyx_tuple[3])) __PYX_ERR(0, 367, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[3]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[3]);
 
-  /* "cycurl/_curl.pyx":648
+  /* "cycurl/_curl.pyx":650
  *         return <bytes>curl.curl_version()
  * 
  *     cpdef inline int impersonate(self, target: str, bint default_headers = True):             # <<<<<<<<<<<<<<
  *         """Set the browser type to impersonate.
  * 
 */
-  __pyx_mstate_global->__pyx_tuple[4] = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_mstate_global->__pyx_tuple[4])) __PYX_ERR(0, 648, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[4] = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_mstate_global->__pyx_tuple[4])) __PYX_ERR(0, 650, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[4]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[4]);
 
-  /* "cycurl/_curl.pyx":670
+  /* "cycurl/_curl.pyx":674
  *             self._check_error(ret, "set proxy cacert")
  * 
  *     cpdef inline int perform(self, bint clear_headers = True, bint clear_resolve = True) except -1:             # <<<<<<<<<<<<<<
  *         """Wrapper for ``curl_easy_perform``, performs a curl request.
  * 
 */
-  __pyx_mstate_global->__pyx_tuple[5] = PyTuple_Pack(2, Py_True, Py_True); if (unlikely(!__pyx_mstate_global->__pyx_tuple[5])) __PYX_ERR(0, 670, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[5] = PyTuple_Pack(2, Py_True, Py_True); if (unlikely(!__pyx_mstate_global->__pyx_tuple[5])) __PYX_ERR(0, 674, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[5]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[5]);
 
-  /* "cycurl/_curl.pyx":1095
+  /* "cycurl/_curl.pyx":1100
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
  *         self,
  *         str name,
 */
-  __pyx_mstate_global->__pyx_tuple[6] = PyTuple_Pack(4, Py_None, Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[6])) __PYX_ERR(0, 1095, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[6] = PyTuple_Pack(4, Py_None, Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[6])) __PYX_ERR(0, 1100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[6]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[6]);
 
-  /* "cycurl/_curl.pyx":1163
+  /* "cycurl/_curl.pyx":1168
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
  *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
 */
-  __pyx_mstate_global->__pyx_tuple[7] = PyTuple_Pack(1, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[7])) __PYX_ERR(0, 1163, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[7] = PyTuple_Pack(1, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[7])) __PYX_ERR(0, 1168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[7]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[7]);
   #if CYTHON_IMMORTAL_CONSTANTS
@@ -59286,33 +59438,33 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 10; } index[] = {{2},{6},{6},{3},{3},{3},{16},{17},{68},{33},{35},{19},{49},{54},{37},{60},{31},{24},{40},{47},{44},{52},{48},{6},{6},{369},{26},{34},{10},{10},{26},{21},{18},{2},{29},{33},{45},{22},{15},{8},{4},{179},{22},{37},{260},{5},{5},{75},{132},{30},{16},{32},{76},{675},{30},{3},{2},{1},{2},{1},{1},{1},{1},{1},{1},{1},{1},{0},{8},{5},{25},{6},{9},{15},{23},{25},{9},{28},{16},{16},{35},{7},{6},{2},{8},{6},{35},{9},{30},{25},{10},{50},{8},{61},{62},{10},{16},{7},{20},{32},{22},{14},{33},{30},{37},{5},{17},{26},{43},{35},{37},{37},{32},{40},{40},{3},{9},{27},{29},{22},{24},{20},{15},{22},{23},{23},{12},{16},{18},{14},{15},{15},{18},{15},{21},{18},{13},{13},{16},{13},{25},{11},{22},{16},{23},{26},{25},{27},{26},{18},{17},{15},{21},{26},{27},{18},{17},{23},{28},{23},{24},{23},{29},{23},{23},{24},{26},{27},{27},{28},{26},{27},{26},{22},{21},{21},{21},{20},{33},{26},{26},{26},{28},{26},{21},{24},{17},{11},{18},{11},{20},{22},{21},{22},{25},{22},{22},{22},{24},{23},{18},{20},{18},{29},{14},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{8},{24},{25},{19},{18},{30},{11},{24},{17},{17},{16},{24},{16},{26},{22},{24},{27},{21},{24},{16},{22},{26},{18},{9},{16},{24},{21},{16},{20},{23},{21},{27},{25},{26},{27},{22},{26},{30},{25},{26},{19},{17},{18},{21},{19},{15},{20},{15},{24},{20},{27},{24},{26},{19},{19},{24},{20},{24},{17},{21},{24},{26},{15},{15},{17},{24},{21},{23},{16},{32},{34},{30},{32},{21},{19},{16},{17},{25},{25},{22},{12},{17},{19},{23},{18},{19},{20},{23},{22},{25},{21},{16},{19},{17},{19},{24},{26},{13},{21},{17},{28},{25},{27},{19},{21},{16},{17},{24},{23},{20},{31},{21},{23},{22},{24},{21},{16},{21},{22},{20},{25},{23},{25},{24},{15},{22},{24},{20},{22},{23},{25},{21},{23},{20},{21},{20},{25},{27},{29},{13},{20},{20},{19},{21},{19},{16},{34},{36},{20},{31},{29},{28},{30},{19},{29},{27},{17},{21},{19},{23},{18},{22},{12},{12},{12},{28},{24},{23},{21},{14},{19},{14},{19},{17},{18},{14},{19},{14},{24},{16},{26},{18},{26},{19},{23},{27},{22},{25},{20},{18},{34},{31},{32},{14},{18},{17},{18},{21},{22},{12},{15},{13},{21},{17},{21},{24},{19},{32},{25},{21},{21},{21},{19},{29},{28},{26},{26},{28},{15},{11},{17},{16},{19},{29},{19},{12},{16},{20},{24},{22},{20},{21},{17},{19},{15},{18},{19},{31},{31},{22},{28},{24},{15},{19},{20},{20},{20},{25},{33},{23},{25},{14},{18},{22},{17},{12},{20},{24},{21},{25},{17},{22},{22},{25},{34},{22},{21},{27},{16},{22},{15},{18},{16},{23},{29},{30},{20},{29},{14},{18},{24},{17},{22},{26},{17},{21},{17},{18},{23},{29},{17},{17},{16},{17},{22},{21},{23},{22},{17},{17},{17},{29},{28},{19},{19},{19},{25},{24},{17},{28},{28},{16},{20},{13},{18},{27},{22},{14},{18},{15},{16},{18},{18},{22},{26},{16},{18},{23},{16},{12},{12},{15},{18},{21},{27},{17},{17},{16},{18},{22},{17},{15},{20},{24},{17},{21},{13},{17},{19},{21},{17},{17},{21},{20},{20},{25},{20},{33},{21},{24},{29},{23},{29},{26},{21},{25},{26},{20},{24},{25},{24},{29},{25},{28},{28},{27},{30},{26},{30},{27},{11},{18},{13},{19},{13},{16},{20},{23},{27},{15},{22},{15},{27},{31},{19},{25},{18},{24},{20},{24},{23},{23},{22},{20},{15},{16},{20},{31},{34},{20},{13},{19},{23},{19},{25},{29},{22},{23},{23},{27},{31},{34},{19},{23},{22},{27},{26},{15},{21},{19},{20},{17},{25},{14},{20},{18},{19},{18},{28},{23},{20},{24},{21},{23},{23},{22},{25},{22},{19},{30},{27},{32},{25},{22},{22},{24},{14},{22},{24},{24},{21},{32},{20},{21},{19},{20},{21},{19},{21},{20},{23},{21},{15},{18},{17},{23},{21},{24},{20},{24},{33},{27},{18},{28},{30},{29},{34},{26},{34},{19},{23},{20},{25},{24},{25},{26},{14},{25},{20},{11},{17},{16},{15},{15},{15},{21},{17},{21},{19},{17},{18},{20},{24},{22},{14},{18},{16},{18},{16},{20},{19},{17},{21},{17},{21},{22},{13},{12},{11},{17},{13},{11},{11},{15},{11},{16},{15},{16},{15},{21},{22},{24},{21},{21},{19},{22},{21},{35},{19},{23},{22},{22},{17},{17},{23},{12},{15},{14},{13},{16},{21},{18},{19},{19},{22},{18},{16},{15},{19},{23},{20},{27},{24},{24},{27},{27},{27},{27},{21},{21},{21},{23},{23},{23},{23},{22},{19},{20},{20},{8},{14},{9},{4},{9},{18},{8},{26},{28},{16},{15},{14},{18},{11},{22},{24},{30},{10},{10},{14},{22},{12},{16},{25},{22},{12},{10},{11},{11},{12},{13},{12},{12},{12},{14},{5},{8},{19},{10},{17},{14},{13},{4},{8},{8},{16},{4},{17},{8},{20},{14},{23},{41},{53},{29},{28},{29},{26},{28},{30},{29},{25},{25},{20},{28},{28},{8},{12},{2},{6},{7},{5},{15},{11},{7},{25},{27},{7},{7},{17},{7},{1},{1},{3},{6},{3},{10},{10},{10},{7},{15},{9},{4},{7},{18},{12},{6},{16},{6},{9},{16},{4},{4},{4},{5},{29},{1},{6},{10},{9},{20},{8},{6},{9},{8},{6},{7},{12},{9},{17},{25},{5},{13},{13},{18},{5},{24},{7},{17},{3},{4},{15},{15},{14},{12},{10},{6},{5},{13},{11},{5},{12},{6},{4},{5},{22},{6},{7},{15},{8},{7},{7},{4},{15},{9},{1},{6},{9},{9},{7},{6},{5},{5},{6},{10},{6},{8},{2},{4},{8},{6},{5},{5},{14},{4},{6},{7},{5},{9},{8},{9},{6},{7},{3},{17},{16},{12},{46},{16},{7},{20},{12},{5},{6},{13},{14},{6},{7},{7},{12},{12},{2},{6},{11},{10},{5},{8},{3},{13},{5},{8},{4},{4},{6},{8},{4},{10},{6},{4},{10},{5},{1},{8},{5},{7},{7},{13},{4},{10},{15},{3},{4},{8},{4},{7},{4},{6},{3},{2},{6},{4},{20},{17},{7},{7},{7},{7},{8},{3},{7},{6},{11},{5},{12},{14},{11},{10},{19},{14},{12},{1},{2},{8},{9},{10},{6},{4},{10},{17},{13},{8},{13},{13},{13},{5},{6},{2},{11},{6},{12},{12},{9},{13},{15},{10},{4},{4},{13},{12},{10},{11},{10},{6},{12},{19},{5},{12},{4},{5},{6},{13},{10},{6},{10},{5},{13},{10},{12},{11},{11},{6},{4},{4},{3},{6},{6},{5},{8},{3},{6},{8},{4},{7},{15},{20},{22},{9},{5},{7},{8},{5},{5},{6},{6},{6},{6},{5},{6},{7},{1},{4},{14},{8},{8},{4},{8},{7},{5},{3},{5},{5},{8},{2},{8},{7},{7},{7},{1},{2},{25},{29},{0},{42},{58},{33},{105},{91},{42},{40},{13},{5},{34},{134},{380},{20},{57},{36},{120},{22},{183},{84},{105},{38},{75},{64},{9},{26},{32},{45},{83},{377},{11},{28},{34},{1004},{38},{136},{29},{15},{53},{46},{164},{26},{9},{219},{81},{23},{46},{284},{2},{2},{29},{5},{10},{63},{109},{23},{21},{12},{1},{1}};
-    #if (CYTHON_COMPRESS_STRINGS) == 3 && __PYX_LIMITED_VERSION_HEX >= 0x030e0000 /* compression: zstd (9882 bytes) */
-const char* const cstring = "(\265/\375`\230i\2054\001\n\007A7G\340\260\352\0010\314\3634\326b6Nc-\326b-f\363<\317\363<N\261\234\251\343\232\204\304\366\350H\324\254)\331\034<\267?Yrrt,j\326\236\234\345,,sF\236i\177c\351\335\\\030+K\353\377\037\267#@\003\034\003i\003{\014E\230\347\017\014E*~\3726\030n\354\355\260\224AO\304Z\227<\276u.y\335\230G\234G\236\306\242\226T\311\323\\\2532\t\353\025\210\271i\243\3607\242F\235\363\031\026Hv\372\032\364\345S\265s\016\362\274\221\306 \220\331c,z\352O_\302\240\023\236\225\306P\262\004\247\302P\331\r\313\277zj\316\210\240\326\t\316\325\362,Y&\207\023=c$\307\271g\3058\347z\313\223\034znp\361KS\2053Q\202\3632\312O\376R\275\361%\211\302qh\313\273X\256\323\377\222t\301\202Tc72Xy\003\343\274\003\n7b\303\211\022\254\230\0162G\270\270QI\325\037\203\317\022\031\270\224\223\023 \024\\J\001\026\034\310\204\211\352U4U}\364\177\324\034\245\200<\250\3645/\224\374-?\323e\\\352\006\231M\253\377\322\214\2412\037\306\311b\324\376B\325XW\025\200q\033\324\023\025\203\276\274\232\372\232\023\205\222\375L\321\215\246^\206\254\2778\230W5\310\025\213\201\231^&&fR\313\222\217}\017C\275)r\240\257z\365\247\346K\225\001}\016\254\016\035:t\030\361a\252*\303y\2579\320\211Ok\256DJ\212\370mP\025\212\014\205q\316A#\322nC\226h\215\331\313\363\227.?\2222\263|\275\312\216\246\"\253\207\377\0027\342\214\205 \377\315\023\336O\316\337a\376\344b\250\214ky\034\350\233e\314\217\341\323\226\020-\034\304,rgO}Lizr\344U\024\314`\330q;\004S\247\022.n\303\311\tw\302:\331\340I\2644{\315\351\221^MQ\030,\346\245\374\362\246\243p?F\215\241\236\311\244u\342g\312\017V\246\254\357;\022?I\3214\365\037U\313N\222\3654\355\240\323\303\272\314\347d*\354\225\313\016-Y\247\354\367\263{\031VW\325~\252\033`\300\370\262\336\235\224\2250\331\376'0T=}\215\207\301\372\211\372\264s\237Dzz\222,e\274\352M\330k\203R4F\246\234\331B\271\263\253\377\364\270\002\005@,o\222g\014M]\237DeT\0300R\317I\262\303\200\301\371\263l\371\356\004\336\270\343J\360\377=\013U\3252F\303\231\310\314\316\275Fj\371\317\236\252\344\351\277\352gX\350""\217\3615\245\372}\214&\365\260\023\316\303dji\303yS\346\243&\013\026#_h\332R\313\324\206\003\311\241*w\272\312\377\273,E_\376\305\375\030\032s\225\352\211\262\270_\306p\235\363j\367)\213\223\231'\nR9\377\3522*\247v\031\265\303\270\331Y\250\031;\373\310\205?Q\220\333\000\002\201Xx3\246\233f\037}O\226\251\372Q\330\367(\311\331\370\262\206K}\253\025\023yW\237au\030g\2461\226\214\305\245hK\205y\326\215\347\374\357\242\322\374\234\212\236\034yv\216\3647\236<K\316\307p\352\217\2758\362\002\347:K\322\263|\n\343\376\211\226\377\364\257\222\344L\2234}\331\002\221\336,{\213\353j'9\222\304*\240\225\020(\244\002\n\325\270\251\001\263\2422b\0067\"Z\025\212V L\376D\357\024Z\tu7\342Q\367y\252P\204?\222\210\302\343\347\341\321\013E\3614f\227\\\302\032\245K]\316\250\017\247\\V\370\003\277\324\006\363\327y\033\034}xkq\264E\224\251\224\3624\352\033\301\344\314u\356\2666il\342\372d*\215\250\335y:oT\326\037&m\020\004uN\361Q\206\331\037<\254x\350N\234\217\332\203v\311Yw\336\n\215\2657\216x\237\302\316\245\013O\232%\244\277\315\363\310\013A0\253D\315\363\030Ra\301\252,\352\025\020X\303\224V](\n5W\215F\222\367\2250\214\336\342h<m\357\344}*\355\225\276\234\312_\213h\354Vb\316.\342\267G\241\227\302\371\003\363\030\202%/w\250\275sI\324\211{g\255\303\016\225\265\270\nA\256\263\306\336\207UTV\272\314E\250\214Z\224W\246R\376Rz\217b\036\361O\213\236\350\271h\255\265\267G\373\023\267\311\013A0\344**!\021\246+\231\302R\316\237I\177h\321\340\250\n\277\017\353\321\303\244\022J\224\273\023\212\364\215\035i%\216XE\010\322F\271\214\241jg\220\237\302q\257F^\326\341\307\301\222H\024\222P\242p\243D\361\033\367\210\217Rz\177b8v\235>q\030\017\324\"\334\361\222\036M\032\365\211\276,z\342\010\203O\253\375a0\213'\230\017\357p\334\372\203\311{\324\237\336<\233Fz\2230\030\212Z\217\031\314\250\214z\371V\033\247N\336\230Iz\203:\324'\224\210\372\362\t\203\"\036\205\337\326\271\013;\234M`\027\232x&\221\364\352\313\236Kh\332_\347\361\223\327\2316\026\361\210\213\342\316.\243P\357\220\004zb8\n\267(\242\264\307W >\345""\217\207\241\007\236L#\224\306\245\374}\336\316\340\227\367F\255\262\213\010%v^\0363Jk\215\332x\353\2543\230\277q\203\331\373\306l\022\275\323\036\363\3503\351\021\233`\360\006W:\334\252\016\324/Y\353=j\027\355u\247\224\247G#\217\344\2159\207\247|\342\244\220wx\314\242\213\007\020\037@\204T<\204TZVXD\264\250\254|XQ\t\205Z\024\212pj\177\036\352\303'\320+\205\243\310\323\274\363>\234\302\335\227G\230\344u\031\034Q;\347\022\210\307\255YN+\342\336&\023\210\332!\350\215cN\245D|\032C\022\007\261\262\342e\3258zc\336!\352%\217\342\030\212\337\2305*\334\342j\257F\014z\"=\356\235Kx\244\275\317\003s\307\265\336\2500\237\274\275\305<\032a.n\257\313y\004\263\302\323\333\003=\356\241L\243\014\023\216\242\016M<\247\276po\260\373P/yL}\036&q\027\020e\032uy\314\\\2455\0267X\0321\007Co\217@\024)\237P:\217\341\007\252\302\256\013G`\346\033\314\033\014s7\206\274\004z\335\030\216c\316;\177\342)\354p\036?\320\303%\227\021\026}\037\036\361\225\210w9\"&\354_o\334\027wD\247\275\320`f0\243U\304\355%\247BN\203\032\213\266\232U\2305pY\355\212\255\300:\360\330hV\006#2\314R`A\254$\037\267\216\233\202\331\010\"\035-90\016\023\327\005k\343\346a;\236\325\323z\332\017\254\t{\013\300\352\365\200\310\003\226\325d%\341\204*\270\031H^\022\021\220\216\0029Z\025[\263\366u\300\252\340\305k\013G\024R\261a\034\330\335p\300C\023\361\340}\340\206!\260K\301%\265-\001,\206\225\004\244\243$\007\205\227\202m\004\201\255{\253G\207\026\202{Mh(\\\0237\303\310\353\021YIBl\241\326\263/\254\310\213\373AY\360\016\310\021b\303\333\202\0341\372\325!\336\020\036ohUi\330\013\254\207=\001\300\000Rtt\344\270A\343\245\021\343\215\321z[\376\365\375\3550^\030+\336\025\372\r\221\243\326z\315\206\326i\007f\037n\327\206\332\327\272 \304\206\340@GH\016\234\262&\010\261yX\326j\023\002\322\361\311\321\202\305\313\202\355\254\002\026d\035yY\025\210\330DBl48-8\006>l\235\226\303A\360a\353\256M\333\322\232\264$6\304\372u\301\210\315\343v\\\026\354\n\233Zkp\020\204\330\372\252\002'\344\303\366\302BX\023\200t$\310\201g-\036/MmA\355\344e&\342""\242(x\005\254\014p@>l&4r\246\302U\2655l\271.\370\270\205\\\r\036/\n\227\202\222\222\001\204\302\325`\231\341B\004\007\025\026\034\331\002\324\202l\321\341\337\334|\233\277\302r\22662666\337\307\314^C\302b1\033\364{\225\313\376\377\261\230\372Y\3457}\r\331J\313\0163\377\34731\274\365\311\237\236>M\315o\366\030MLWk\316\314\375\031\363\345M\331R?\n\203\241\252\254\303\314^\242'*CO\033\377*I\327\367e\212\246f\354\177\377z\371\227\014K=K\376J\275\215';j\332\314|\231\2379K4\206\312\371\351*\311\222\177P\n\373*W{7[\237l\251\377\245\2261\274\306\177\364t\375Wzz\316O\3579\351O\026J\246\235\365=\311\317\263\223,\326\314\357\252Ocj\254\305\3253\246r\365sW\331\362$\312\372dZr\226\2571\321\364\345U\316\313V\t\213a\271X\254\023E\17779+\205y\327\r\252\362o\242h\214\377=\306\263\272\t\373\335\374\335\346F\215\241)\312\002}W\312;+\246kY\352]f\272W\221\264*c\255\002\235\250\264\247<L\266\267F\317X\372S?\323m\270\177\305\376\231zW?\373\213\253':\031\363\352'~\tP\313\217\352\215\007\271\312*\273\033\231\310\271\211\262PUF\355\342\210U\034\207\243\2503\214G2;J\344\215{c\276:\351\274W\"\256\nM-\020z\376n\342\277\374\260\3224s\256au\325\277\370\267\001\325\300\274\237\201\305\316\037#\273\227\341\276\234A\321\237z\330\253\354\251\014\354w\325\273`1\320\347\374\237\335\253~ir5\3550\222\354\376U\236Nt\224G+5,+\241\232\016\213\260\23076\251>\264\2448K.u\371[\t\251\360\020\017\301\020\364>\025\036=1k\022)\024C0=\344FpP\375\177\321J\321\334\304r\312\232\205\232\000\232\207Y\212K~:6\022\034\360(\260\300c\002\3026\350\340t\326\004\207F\006uS^V;\240m\245\346\n\242\304\253\232\325\204\254\312\343\202\214,f[6(\035X^\202\013o\005\014+\255\272\201\006b\226\372\274*\234\032\034\037\002\366\n\203#\342\341q\013\261\t\360\260\321\314VP\350x;\256\211\356\340\005\300z\340@\362\006\260]\360\260\037V\022\217\017\331\352\021\261u\326\017\234\017\017\007\035\257\202O\317\261\220\243B\304\353\322\240\344V\222\323r\241\006\202\2262#q\313'\323\270\353r\261,\241\365\343\351,\t\000\nh*f\"\334Tw@\344\001\333`\306""\300=A\202jE\330\222\217\r\323<<f\036@,\351\361x_V\r8\005pH\010\271\252\007\203\0265m\tV5\321\312\270ex\311\026\203\273\242\365:\265\024\252\324\013!\247\244\006B\353f\241\031K\016\251v\316d\\\013\037\241\034\227\016o\007\217W\345\245qKt4\355Mg\304\021\361x{\213\241\267,m\005\222\367\366\tuV\302+BzI\036\257g\006\342\306h\340\316\340 \340\321\255\237\216\233I\211\354\326\261\2534\260\302\340/\037\337\021\277;\303\233\241\266_5\0224u\326g\037,\274&l\201\233\247\226\322P`x\023\274\t^\233[\237\331\270\335\005\215xl\235\331\204\366\244\364\300s3\231\241p@c0\313n\254{\340^\014\254\203\217\246\271f\260(\360\264'%0\252\267\314\001S\250\327C\355W\025j+\234\344\250\350tX]\312\371\032\204\330@\344\270\260\2744:5\0064\0217\032\032\201o\375\214\230|D\\\235]\255\nBn\235\231v5,\350\256H\204\222\003\327:\217\267\303\200\306\202\305\215$A\313\201\2351\276\274/\342+\246x1`\002\253\207\027\032\246\225@yGH\334\023\232\265\345A\033\3015_\006x\024\353\272ap=nJ\2515\225FXh\240\333BC\263\222\033\322r,\201\017\223\365\367\331\001\027C\2075\201\312N\250\251'6\274\034\030,\260\2250\260E\200 \303\275\340\202h\r\2604\253K\233\322A\255\237P\315\177f\016^\007\034\347\200\207=\351\324b\314\006\314:\335\nh1\260\344ja\005\001\241\335l\204\017\315J\230\251\330J^\017%\034\314\206\254#$\024F^\334Z\370\330\022@\010ysLrT|x_f#\032\274\035\266\244\3049\020s[\334\000\243\026E3\241\215\300\360b\010\201]\217\023\034+\230\027f\277)9*T\336.\203\203\227\034\361\270\273\275\200b\301\326\031I\345@\360\320N\256\210VeW\254\237\265\263v\"$\372\314B(\302\033!\304v@\344\203\206\235\360\271\225\214\330>$\266\006\237\033\316\0211cva\006\002\274u\\\232\326\205\205P\362\331\233\225\301\307\026r}+\303J\370\330p\216\251\246\242i\230yf3$\026BK\240\365\300\206\260)\370\214X\021+\311\310-T3\2515\240\355\331\204w\302H\201P\033\202\275\211\204\334\\\264x[\274\274\247Z\307\346\365\203qtZ\232\332\247\326\251\231\230\261|(\000\3518\220\003\244m\261.\000\3519/9'\226\227\245\302k\322\026`Kj,^V\001\353\310\036_2\007\024\361\202\314h""\\\002.H\306m\204\tO\rWx+\314\300\264\036\333\362LX\260\267\026\332\177\300\263\346\002 \241\004\253\251\203\200\303\323vZ\023\275}i/\204Pxf,w\325Vh\033\004\213\312\250\0043i\024\242\240t\212h\004 \000\000\001s@ X\210\241H*\227\321\250e\035\204G\214\345BG\321\240t\210\rq\211\003\305 D\003\000\220\000\000\010  \010\013\347\242a\262k6\t\356\221\006\013\030?\254gF%\t\356_\036N\360\364\350\314\247.\214c\225-O\275\r\r\346\206\034\262\246\314\334'\334\027\210%E\245\300\021\220\337\235y_\245\242\353\350\334#\326\025\\\204\014\316\235\204P\271>LB\272\272\260\244u\033^s\347\306\227\024\317b\024\267x\000?A&\307\256\375s\351\353\3074\254\266D@\314\211c\"\364\310\253\004\264\302\273V\313\r\370\014\342\350`\235-\202D\330a\260\221\353\370\200.`Ib\233\001\031\376s@\033/\346z\316\224\237\372qrvE|&\000\330\327'2e\224\241\260\330\236\360\310\010U\240|\235\327\024\262\363\025\0037U\216H\363\010\343b\246\014g\262C\263)\351\225A|\206\305/\213\236P@\216\204\025\340\206j\200\016\213\2711\333\200\312\017\025 1\365\376\301M\027\2212\265\337\257\003h\271\3301\323\315:k(\313B\017\321\331\224\250\302P\303\010\t/\000\010[G\226\214\375\365\037\373D\007\025{\241\266W\240\3715C\024\265\023\353a\311rX3\376\302P\332Ei\263\215\306w\240z\025\233I\353\250\261G\240\376\340\365\327\177\357\0040\003\036\240\224]\002o\017\216X\303\211\363\331\014\332\231\270\336S\013\3714\223y\3445\331\340h{\346tK/\276\021\207\006\202\226\2103\210qG\026\351'\315\322\023\253\000\037\345|\272\262\031B\204\244\370sA\210\373f\313 ^2\377\343\274T\2243-\202\212\303\013Q5#E\021t*\203\3574\376K#\320\234/\254\333\025\3112m\317A9p\003'\246\354Q8\275\243\302\377=\036L\252H\364\304\333\261\0254\271\0379\350>\232\241\226\207\263\312\211S\201C\003\336\2272\256\030\274n\276L8`\315h\372\364\344\005GK\006\334\274\340H\366\337\265\025<\\\022\032\330\245\323\025\221Z\311\t\024&\203\210\245\205 \251\237\370\3615\366\027HQ\322Xf6\2436]\001\031\243\266\007V\206\212{0\331\035\254\247~W\212H\013\223\023G\024_\2211\264\374\013c\213\222\245n\276""\271d\265\243+]!\005J\360\340}\010\311:\261\023{\376p}(\322P\274\317\007\363b\225\t\236\376^\201\337N@\200\263\177~\202\240\260\206-j|\355\263\034\274\"N\243[\010Z3+V[c\000\215W\035\352\340s\365x\243\215%\213Z\311\005\251\251\266\n\355n\304X\322\224\024=\376\267\356\334\030z\334Rv\370F\t\r\263\343B\023\252JvB\242P\267#`\301cl\243\234\214\346\200\270i\315\230\350\017\312\272\034H\030\375\354\276\320\226\367\031\217\014\244\371\304\375\234\300rt\200\nd>u]\300U\371\212\226\336\326!\322\302,\235\007\364A\231\237\246\203\243L\217\213\267b\230\223\326U\267\022-\226\202\216\375\t\277\207A\306\276{\340\321\203VH\370\351b-\351\360hz\377\317\347\022\020\026\235\010\275Y\027\244\013m\350\313w-\005\332\302\203\014\362^1\326U\262\177\354\004\245\263kc\271\230e\207v\330\240\337\016r\007\361FEb\3252\226\237\323\220\326\023\220\351G;tbz\244\300O8=\201\324\033\370\322\340\324:Z{\310\216\361\246]\251\0312<\026\357\266\222\275\316\035\214\257Zo\211\212\341\360\276\220!\325\271\347[r*>`\311\300\0070\031\312\300\344\023&\353?\276\034\3172\035\324\205\032\210\007*`e\244?\267\026Z\177 ,\207\233,\347\353\256\317z\034\247\030\032\264\366\313M\265K\330:L\261\274\272A[\325\335n[\253\255\253\200)\317D#\241(\254\216\316\020\202\226\253\352.\317\221(\367\205kXcWPO\244\355P\013\004/\"I\026\236\253\320\374\307\237\315\357p\235\000\316\350\035l\306\350K\035q\235\037\300F\350\237\313\343\240\272S\305$\234*i\362\341\202\177I&1\222\242\375[\0253\325W\370a\361\305\373\326\201\301\354\327\241\251[\\n\354\261u\241iA\225\035\303\3051\036\315\337\023\250c\344\013\307T\354\364\200T\265\\\333\332D\217\260\255\356\212\025\225@N\332\327U~\213\2202\013\317\200\277\210\301\253ad2\336\270\315)\264p\321\266.\250n\256bs\362\016=\006\217\336\226\325\334\021\203\024\266\014}\210`d\355\355\225R\335Q]\365[%\302\350\320\023\036o\371\367\323}=<u\277=<\321\313\204\370G\205\311\223#\001\3530\246P\303k\004$G\351z\222\006\000\217D\t%\365\223e\031\323G4\245\360\000\327Hi\034J\327+\256\002c\233\201\330\252\222\022\373\253\315I""PN\313\322\023\242\343\034f\323\320\254\336\221\242%\2768r{\021\362\177\327i]F\203Tv/\316F|\212\355\233\340>\362\212\260\304\362\026\177\357o_\365\004O\223\327\327\324;\232\014X\260\200\244E\375\027\243\310\330J\322\230\307Y\322\377TrY\235\260\350\326~P\260o\2767\232\312/Is\240\354\347\2535`:\006\212\301\210\005u%\225\2114\211_\2102jU+\351\360~-\"(\2107\022\376q\212\225u\034\246-\221tV1C\236\001uu\317\252\207\261nU6\021k{\020\373\317\304B!\222\367\316\026\025\036\223\205\214:\216m\320\226\031w\nY4\351\3123.\235\037~\022\315B\342|\025\307q\273\315\302\002\032\305-)\n\265\332\265r\353z\2531x\377m\030\342h\032`\376a<\315\257\262\301p\305\254Gs\033*\032+\306Fl\263x\204\255\341\200[\352\324\205\345h\217\211BA\321HG\372\254\265\"\351M\240\227\2032\200\246h=\016\346\364\344\223\010fiR\255\017\rBt\207{s\304\337\020\240U\335';\330\300\030\016SY\255$\206\212\352\010\231\027\272\001\373\210\370\003\326z\373\353\014:\215\317\177\356\026\377\214\270<\253\225\034\013\236E|\301!\346\2316c\036$\270\033\034$L\274-\001\331M\262Iv\301\233d\361\323\n\260\026q\312\2150\245K\261l\001yO\214I\220f\326\200\tydZ--\230\007O\263|\326\223\013K\023\022\247\3329\305B1,#\201\324W\350\262!\357x\036\341\"\217\004\250l6\013A\322=\334/k\343\230\002\243S\000\214O\035B\207?\001s\251\256vC\273\210\006&T\265\201\264x\235\274\213to\326X)\257r\322\226\n\033i#w\335Hs3\334e\265N\333c\305\t\001\004\356-T'8\001\227\342\217\253\270\301s\353ch\205 \370\333\363\036\327\244\335\307\262\371\204\233\315\241]\330\306d\360SY%\364\023L\252\234\231o\222\374.\366\003\0356b.\364\021\331\257J\202.u\252\305\300@\363\253\333\277\244\372\375\260\014X;d\004\360G'\270\037o\027\342\253\344\251\252\357\022v\033k4\357s\224\014\337\n8\233\341\215p\341Cn\34240\222fdD;UU\241N\275\340\010\022\302\343\020\t\006\242\313C\033f\203%\000\354\233-\222\203\244\032\036\277u\021,(L\315\2353\353\255\n9\344\260\276s\200\233l\204#\350\301\327\253\361\213\344\332:\200\027\342BB\"\"\213\024\324\335\"\233\324(\364l\330\367\004B\326K\347;\300\240\201I""\232\016\032\001\221(e\013\033\213:X\021qH*j\022\372<\021\354G\003t~\311t\345\215\347\345?\032\3750&\255\342Q\303\274m\202\252d%\233\211\222\375\203\371\234W\230\340\004\304\025\317$\300qz\200\371\335s\027\206\372a\032K \252\245@k4\325\r\205>\235\025b\375sm\207\006L\242\373\017\214R\224p\027\363h\204\2548\330\356?`\246X\217\345\226\227\246\367\325\301\0251\227\205=\201\220\257\024\233\206\250\364\n\350\310\371R\207\267\000\213G  \022\t0\002ZN\357h\344\014C\272\255\220\317\352\303\273M\363Q\316u\002&\331\007,\317\345\370\220\365\301\n\334\003\017\204\243u\000\241uk~\230\274\3577\340\346V\211$\220k\263\262>\217\204\303I\354\211\201\240F\353\023\377T\350k\342\350\202\035w?,N\034J\2142{\335\234\355 \263\312b\221\t\245\033j\022!g\360\302(\272\300\213\350=\022\217\361\"\240k\327\227Uk\034\3652\303\305NE\327\213\036\036\002\n\027\231w:\327\333'\227\301|\033_\366\350\266p\016Y\2202\3221E\242!\342'\270O\203r\354W\207\032\n\222\033\013\316W\026Grk\242\321\nF\210A\272t\271'(\233\244 \004\221\231g'\363\357n\334\277\211\344\276+\221a\352\324\031\2739\222\346U\235\005\004jv\031\241:\314CD\345U\341\345\"v,v\270\375\271n.\301B'\221\177.\200fp:)\013\311#\017\213\3225\300\337A[v\357gp\313\313\247\221\202\330\026\275v\004\022\362\357h\304\013e/\241\013\361\270\200\210q\211\363\357\202$\267_\021p\002\006~#\030\277\\\317\274\001]\224%<kY\204nSV\250\n\355\231\210\241\211R\260mr\001\264\240\361\337\371\273\205\241\223\010\334ez,\232Es'r\322S\002\316\244\006Vub\353{b\270z\224\342\003\2125\314,\273\201\247\274\000\371\314\\g\233\036\305\021\247\246\200\354b\226?\226\353!*1\352\252G\"96\007\354l\350k,\227K\022+\222\377\364\342t\262\251+\332\013*B\316\241\025Y\027\237\002x\351\333\374a\224g\205\352D\233)M5}\224t\235J\364\2550\2229\t\014\215\235\263(\001\256\274\270\240\277\250e\2372Ds\310\323\352\252\253\314\231\301U\352\312\353\217\346\305=TtP\2700\033\272\217,Vee\335\240\323\035\310\205c\014\014\214\321.\016\355)M\034>\364 k\030\2430`\277\177#Q\004\377\242\224\261\033\213`\025I\210>\362""\177F`\r\373\260\336\325\352\327M_\235jJ7\005!\025\267\344/\310\205\233\034E\367\307\254~\234\342&k\271\332\316PB/U,\226\352\254^\020\262\225$\233\275h\334\372\315\243\322t\232\363v\032\214\213]`\367\202\335\225\034\362\027\030W\240d\312\350\007\245\374\272\237\332\237\332\325;\344\017\226L\323\320\326\305\243eW\247\010\r\220\033B\324We\214k:T\010\215D\213u\341\363@\215\313}w\203\036\310i\303\0228By\034\315\024\300\240\270\345\210\376\346#\002|\343\232\343\255-s\276dj.HU\305\332\210B\227Z\035\305\370mL<\032\373\355\376G`\376\270\207\010\363Q\346\177\3175\251\0028\3723\367\362\216\034\261\250\3147\250\260\364\026Q\023\207\264\320e\202i>\221\314\245p\367*\270\326\275\211\310T\022B\323\3056E:e!\234}\001\350C\200\236\243\315:\311\216\312\335\350\374\334\325\302\200\307\320\204\003\330Tl|R\022C\214$\302\350V3\016\353\354\365_\373\t\270'\034<\314\266\201\t\033]\023\32698\235a\361\256F.\024\271\220\350\034\231\256:J*\270\036\337\352\233\005p)\013A\324\320q\201|\365\\\343\027;\375?T'\272.\336\024zP>\274\234\3071b\023(e\345!q\371\013E\202\255$B\370\030e\265j<\312K\\P(\202\027g\017\335k/\331] \353\265y\217\265\232,m\302\023t\200X\207\203;X\235\210p) \270(\177I\032q\262\212Z7Q\r\nlg\0210C\276\320\310ui\317\3608v\007_b\253j~\251\002K?\275\334rC\376\211+\256\002\363*\321N\n\306\222\266nkE\256\335\247T\211\000;\035jl|\272d%gy-\250\"\365\376\003\r\002c\356Qd+\335\000\333\024\326\254l\017\007\243\030V\003}\016\201\263&0\262\022\364\317\264\265\010\355\203[\n\371\016aO\245l\310tN\257\263\317RxN\225\371\355TT:p\241\304\"\324lx\263DM\342m\246\030\230\354\202\352\355\311 \0215\215n\246\0013\205\376\363\262\3544B\366\252\225\255\201\361d\311\324\020\237\301\034V\274\264\306\234\243\265y\271\252\036gJ\2214\226r+4\305\250k\320\262\206\006\351\370\270\245\034\"\346\250<i\311\031\241']Bt+\351[\252nNh\200\004\230\205g\267\0333\345\240\344\224\377\227\342<\330\22125\001\343\207\243\270H\346\002e\341\266\204\264,A\022\362\362\363\241#\310\024r\201J\017\253\006\340p0\250\021c\016A\003r\271z""\352]\330C\202\210\355n\031o\354\346R99\326\"\211\263\320\223\311\336Kot\331\335\233\027\347\334\262\207\216\243\201#\321)\0238\251i4\031\0040\304[\330\202\361G\243\257RNF\\A(F\031#\rp\320y\356\027\321\364d\003\022\302\327\314\201\260f\264\007\006\275&j\355\201m\322\360\351\013\001*_\261\002_th\243uC\320\232CKZYp\323V\264\255%\005DI\345\312\363\266\207\212\004\212%\004\361\236E\376\217Jb\316v#=]\314m\316\215\310\342\251\361(\255\227|(v3C\344\224\360)\004\333G\024\306\024\340N\370?\212\306\035\240<7\n`!{\315$\030\342#y\25699F\353\235\202g\321\273\002\301\231\343y\364%\206\241\207\001&\326\220\366\272\260\032\r\275\2143\250LQ\234\002\272\346w\000\003A\034\210\274\334g\343\250\232\267`\332\315\221C\366\346R:\367j\366\366\2362+\255\242q\224\036I\232\034\221}w\032gOM\331\232\216\303\253GB9\351&\300\316\2626f\302\2413\332|UL\027\305\020E\031%\006\240\026\333\317\204I\343\341>(\\\317\024N\310\310\005\201\364\226\226\034\353\032zq\216l\363\210\013\240\372\340\242\017}\362\305\003\262f\223\031\230\262\206\340\217\212\340\221X8\rn\030CC\033\310\373\227\262\t\031\272+\341\3067\034\304\023\211V\214Q\361,\351\243\357j\364Q\036R\351\256\234\221\311\246\334\265\034\254^\210mN7 \347\032i\312\020\335\036\023i\375\020\343\031\177\301\317n\301\334\031\346\353\230\224j\244A\036\002\2558}\365L\324\261\325\352nD\034e\267\335\322\363]\225.\362]\014\003\205,T\201\252^\277t\030\261&>\3703\226\276\336\034\303&\250/\255\2003;\217\226\2243\013\302\340\342\203sn\372\341\253>nd\313\003X+0N(\212\\\005\275n\023\225\204g\224\010\234\037|\263\022Q\246\340TMA\322\247\030[\005\231RZ\275%\222\326k\034\201\010i\367\236K\370C|qn\376k@ms\003K\321.\027>{\267\275m\311\026\277U\353\267\251?6\377\002NP\250b\n\316~\013\013IA\t\323b\355J\177T\277\320\001\006\016\377@\301\263\364\007op\377\275y_M\\\316}\331\232\263p\265\352\372[[\300\215\233\314z\251\020\000\344\202\2726\247s\346\001\205\343\003\347\250\205\035w\244\246\334d~\252D\222ji\010\177\273\312\310\222ef39\350p\340-,\205\352\327:\n\244vR^!+1\357\310\370P""l\010\301\351\262\003\346N\214\237}\202\352\002\016Og\n\030\0245\262Fs\205\377\362\342\261%\220L\023\352\351\271Q\230/\271\031\177H\275k\240\307\242\313p\251=\274X\032,\355i0H\031@\024\224\265\374\004\255\336\207\025|\230&\266\354\205\207\356\r\2726\253\235\265\006\274\353\357Z\020\344\n\227\301\316\336\255&\033D#>a~\025\347\360\225\\\204Z\206\221\206E3\264\004\354\353\342\331\234tA\303F\326]\261\035J\025\327\"I\262\243\226\034\031\344\013\372\014?\261\203\212\343R-G?C\221\344=\237\315\375\nV\020X\007uw\023`\374J8\216\023nB\005\330h7\014\201{\334\260v\001\210\334\241\033\317yM\231]\2739\316\375\255<8\200\341\022p\370{\201X\244\020\023\212\037\025\346\324\177\340m@\026)\351\240(\n\225\005\r4D\"4\037\231A\2009u\332!\260%\320\243 \332\004\335\306\360h%1x3\224\267z\343u\007\306\360\210\330\263\371\246\235\025\030\330!\240DE\20586\356]\0265V\336\n[\225\201&\320\325_\367c\365\257\266\367\035M\271\370\232Nz]d\225\253{c\327\022\305F\024\223\313\013Y\237t2\312\225\327\253\220C\377|\004\302\ne\337\266\364i|\310I\021\211*YO\300~J2\022\354\311,\220\334\231\226>+\222\251w\306\3426\207\3275\204Y\0309\014\373 \353\307\034D\241^J\307M\214\264#\303\211\236y<\251\325\321\rXi\216^\267\030\335\376\035\315T\277\n\364t\244\001\316\233z\"\365;\217\262\031D\205\320&\002\270\343\277N\364\266\337:\241-]\265\262\341\004(\323\034\325\307R\207\321\251\325\335Z\364\025\262!S\000g'\252\312\\\276\314\324\274!\016\276;7%z\023\332\231\355\177+\250f-\370a1\2017F\200i\352\3111Q8\025\014\355e\204\264\370%n:\213\306\272\301yY\224\025L-e\225\004>}\252d\232\362\272>\367\375M%Q\354\025GL\022 \250\003B\213\323\350\302\252\352\365Q\335T\245\377P\367\301\016\034\327$c\223{\336l\276\334 \016'\232\330\034m\024\003\216W\346\255\266W\270,u\233\207iQ\366(\212\200\333\362\252*\257\303\354~7\001\275\324\004\344\263\324{\032\260\"\247\037\225\211\324w\367\020f\262\263\356/`\247\310.\034\275\272\006\010_\205mG0\232\344\316\007%\352%\362\013IA\002\206\272\306\340\035\341\332)&<h\3354\275\210\230r\203@\201r\306\250\2208""\310f\241W\223 \3718\242J\2607?~\240i\246\347\021m\311\313\r\237\221\346\235v\022_\266\315dF\227F\341m\t\235\010Ui\007\271}A\023\030\217RPk\377X\373u$:\253X`lE\005z\334BP\324\266yfiqV\252u\016;+\014\370hB\205\360\\k<\326}!\260\372\341\321\336\263\325{-5|FlJC/^\241\374V1\233\367wzZ\305!\271\372\200xN\217\357\225 \303\005\325\373\355\255 ;\257S\273\0347\233\266\253\201\356y\016N\030\266\006\013\211\266k\032L\305\010\275^(\234\240a\036\220\000\242\275*n\362\216%\013\201\271\320\301\266{\255\365\206\331\253.Y[J\277T\375f\355X\036\220b\302\314\231\344Qw\210\t\321\342\213e\360B6\263\302\227#f\002/\r\337c\032]\263\030\311\374\252\364\225\010\267F}P\032\331\312\346\005\301\370\262\243\322\301\346\364\302\030\246T\2323\315&\200\203J\017S\334\230!\276.\252\310\274\230\221\002\321gw\324\325\2430\304\222\025\366\324\241\210\023\302\334ig_\023\010\341\335\277\272\325\254D%\303\001\237\276Z\036\010z\25237\005\215\365:\332\331U\n\273\373\235\273\212\006\252w\200\267\300\371\253\257n_|-H\t\210\321\004\213\372\223a\024`\317\276\206\rC\216\272i\257\222\251\266T\236\262\323\232\3231\026\364\252\236P\314\344\336\222\037\361\345x\232\277\022\033a\025\335\257)*\377(\335\304\233\332\020\325\340\005\236W\320\333\371\252\020\000\362\327&q\220K\232%A\273Ci\365\255\360\302B\351\242\336\222\355\361\025Q\222\322\321o\244\200m\235\221\334 w9A\215];\033\264g\305)z\310u\242\310h\023\023\213e_^M\305\323\363\203 r\203\202F\035=\345\320\250\255\3070\005\206\n\023Y\022\320\226\3363\310B\027<\025\251\251\340B\324\246\343\004?\"d1\241\356X\202\240\201\360_\353\235\207Y\023\336\334\315\030\025su\177\246\230.\033\010=_Zh\273\343\000`5\177\276\220\333\276:g=!\021B*\226?x\2011\000$\334x\014\\w\311\371\033\215\030\333\341\234\232*\231\315\316\231u^\204;\374?\0167\014\362]w\275\0219\342n\003{2O8F\356\332\266\007]\022r\017\273HX\013/\314C[\347\255.\212]\206\024\226\006l\013\325\215\245\260d\001\256\352\223\001\033\362\034\346V\225$\203\251Q\003L]\232\004#\362_\006\007\272\243\000\037K\020)\302f\250\204\327""\360\027k\033\216\022\0132\003\342k\237\322\\\013\371\250\353\007\217\213\242Q\347'\221\026\224\004gsa!u~I\025\356\246h\352\271S\211f>\234\305\305\235\215,7\002l\033\372\010o\330\233\3424\373\217/\352\276\031\324\355 \014\342\222?^l\354O\243=\354\200;\035\304n\343\372\267\273\213\237\005\006\366.\264?\354B\362\365mdM\306w\3432\356\312\342-Oowk\334/\257\010t_1\317M\222 \204\261\020\303\010\030\320\201R\266\2220i\026\274\246\354w\256\302g\243x\374\365K(F\347?\232K\2700:\312\265\300JAd\322\332\207\315\003\001\321\272`|UIRN\327|\306\024\225\313\223\265H\017\221\210\207\014\037 \034\374\351\034\036@\303\325\236\rs \342c\241\310\241\372Wf\0244d\177\214 i\022\003v}b\022$OV\226\275\221\264\3724\337 \034A)\366\010j(\037\335\311 \236\357z5\320$\362#\364\023\244\213\353\016\220\023^\202c\0057\270\240H?2\226\331y\347\243&\247]`\257.O+2\222\372\016\333\373|\277[\235\265bm\344\014\000=\300rkk\333\361\321\300\277\031\315\217\304\225w\373R\251\332\326\232\032\244\322e\310\254\214\276\020\232\377_\360E\352\211\2221\247\007\003\247\324\213N\225\221;\027m\025\373+\367m{.|!\261\3329\362\037\347\352\255\341\276|$\375\002\245\020r\242\252\377\305\242b\307\0003h\271\206\227\007\261\330/f3)\226s\357v\233\333\235ft\321\233#\252\263\211X\017|\2550M\272\272\222\324\234\254s\347\356\024\371B\361\336\244Xsy\207\266\266\236\036\3462\316Y\026\005q\352%\254s\2547CXb\014\236V\254\322&!\324e\300\307,\001n}\025\343\034A\244.\315>+)\231\311\265\202\\\216\276w}\224\255o]\243\375\361\306\244\023\242\225\255T\216i]\213j\035\034z\017M\rZ \333,\313\360\320\240hLKn\003\306dA'P\2653\363t5\344uv@s\034\013\3518S2\370\314\214\376\233\226~\213x\345\034\302c\202\2676\270\252/|QG:>zg0\267\010\372\270\017\017?[>\201|u\034\31788\322iG{\311\005\260\323UO\333|\347\240G\006\273\2777\241?f\200r\205=\013\205.\027\341A\254\347\205>\206\202D\251\321\267\367\203\305D\030G\026t\0101\354]k\334\224*\346@^\253_\351\306F\347\253\324T\202\227\255\"02\177\325\265\227G\032\3510\245\366\225H\200\2439c\337\257C\n\205\365\255\242\267""\317\006u\230\000\267V@\033_`[O\246\300\017\323D\014\"~\351\313]\364\002o\310t\236\207\343{\270\004\305?P+\007\323\340\2243\257e\362d\315\006\226\3758\215t\345\3378A\253=,.\260t\212}j/IgQx~\332\274\032v@\233\\u[Q\031\354V_\006\367\"\314\340\377\246\276H\237@e\014\375\265\377<\327\225x\010\343\340\270\020E\027\225G,\003#\260J\211M\356\0325\305'U,\320\370\242\264\212\030\003\010F+\210\363\373N\266\023\261\014\267\214\366G\352\333\373\231\353]\252\341\217\000\235\236\203\007\234\217=\257\314\001";
-    PyObject *data = __Pyx_DecompressString(cstring, 9882, 3);
+    const struct { const unsigned int length: 10; } index[] = {{2},{6},{6},{3},{3},{3},{16},{17},{68},{33},{35},{19},{49},{54},{37},{60},{31},{24},{40},{47},{44},{52},{48},{6},{6},{369},{26},{34},{10},{10},{26},{21},{18},{2},{29},{33},{45},{22},{15},{8},{4},{179},{22},{37},{260},{5},{5},{75},{132},{30},{16},{32},{76},{675},{30},{3},{2},{1},{2},{1},{1},{1},{1},{1},{1},{1},{1},{0},{8},{5},{25},{6},{9},{15},{23},{25},{9},{28},{16},{16},{35},{7},{6},{2},{8},{6},{35},{9},{30},{25},{10},{50},{8},{61},{62},{10},{16},{7},{20},{32},{22},{14},{33},{30},{37},{5},{17},{26},{43},{35},{37},{37},{32},{40},{40},{3},{9},{27},{29},{22},{24},{20},{15},{22},{23},{23},{12},{16},{18},{14},{15},{15},{18},{15},{21},{18},{13},{13},{16},{13},{25},{11},{22},{16},{23},{26},{25},{27},{26},{18},{17},{15},{21},{26},{27},{18},{17},{23},{28},{23},{24},{23},{29},{23},{23},{24},{26},{27},{27},{28},{26},{27},{26},{22},{21},{21},{21},{20},{33},{26},{26},{26},{28},{26},{21},{24},{17},{11},{18},{11},{20},{22},{21},{22},{25},{22},{22},{22},{24},{23},{18},{20},{18},{29},{14},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{8},{24},{25},{19},{18},{30},{11},{24},{17},{17},{16},{24},{16},{26},{22},{24},{27},{21},{24},{16},{22},{26},{18},{9},{16},{24},{21},{16},{20},{23},{21},{27},{25},{26},{27},{22},{26},{30},{25},{26},{19},{17},{18},{21},{19},{15},{20},{15},{24},{20},{27},{24},{26},{19},{19},{24},{20},{24},{17},{21},{24},{26},{15},{15},{17},{24},{21},{23},{16},{32},{34},{30},{32},{21},{19},{16},{17},{25},{25},{22},{12},{17},{19},{23},{18},{19},{20},{23},{22},{25},{21},{16},{19},{17},{19},{24},{26},{13},{21},{17},{28},{25},{27},{19},{21},{16},{17},{24},{23},{20},{31},{21},{23},{22},{24},{21},{16},{21},{22},{20},{25},{23},{25},{24},{15},{22},{24},{20},{22},{23},{25},{21},{23},{20},{21},{20},{25},{27},{29},{13},{20},{20},{19},{21},{19},{16},{34},{36},{20},{31},{29},{28},{30},{19},{29},{27},{17},{21},{19},{23},{18},{22},{12},{12},{12},{28},{24},{23},{21},{14},{19},{14},{19},{17},{18},{14},{19},{14},{24},{16},{26},{18},{26},{19},{23},{27},{22},{25},{20},{18},{34},{31},{32},{14},{18},{17},{18},{21},{22},{12},{15},{13},{21},{17},{21},{24},{19},{32},{25},{21},{21},{21},{19},{29},{28},{26},{26},{28},{15},{11},{17},{16},{19},{29},{19},{12},{16},{20},{24},{22},{20},{21},{17},{19},{15},{18},{19},{31},{31},{22},{28},{24},{15},{19},{20},{20},{20},{25},{33},{23},{25},{14},{18},{22},{17},{12},{20},{24},{21},{25},{17},{22},{22},{25},{34},{22},{21},{27},{16},{22},{15},{18},{16},{23},{29},{30},{20},{29},{14},{18},{24},{17},{22},{26},{17},{21},{17},{18},{23},{29},{17},{17},{16},{17},{22},{21},{23},{22},{17},{17},{17},{29},{28},{19},{19},{19},{25},{24},{17},{28},{28},{16},{20},{13},{18},{27},{22},{14},{18},{15},{16},{18},{18},{22},{26},{16},{18},{23},{16},{12},{12},{15},{18},{21},{27},{17},{17},{16},{18},{22},{17},{15},{20},{24},{17},{21},{13},{17},{19},{21},{17},{17},{21},{20},{20},{25},{20},{33},{21},{24},{29},{23},{29},{26},{21},{25},{26},{20},{24},{25},{24},{29},{25},{28},{28},{27},{30},{26},{30},{27},{11},{18},{13},{19},{13},{16},{20},{23},{27},{15},{22},{15},{27},{31},{19},{25},{18},{24},{20},{24},{23},{23},{22},{20},{15},{16},{20},{31},{34},{20},{13},{19},{23},{19},{25},{29},{22},{23},{23},{27},{31},{34},{19},{23},{22},{27},{26},{15},{21},{19},{20},{17},{25},{14},{20},{18},{19},{18},{28},{23},{20},{24},{21},{23},{23},{22},{25},{22},{19},{30},{27},{32},{25},{22},{22},{24},{14},{22},{24},{24},{21},{32},{20},{21},{19},{20},{21},{19},{21},{20},{23},{21},{15},{18},{17},{23},{21},{24},{20},{24},{33},{27},{18},{28},{30},{29},{34},{26},{34},{19},{23},{20},{25},{24},{25},{26},{14},{25},{20},{11},{17},{16},{15},{15},{15},{21},{17},{21},{19},{17},{18},{20},{24},{22},{14},{18},{16},{18},{16},{20},{19},{17},{21},{17},{21},{22},{13},{12},{11},{17},{13},{11},{11},{15},{11},{16},{15},{16},{15},{21},{22},{24},{21},{21},{19},{22},{21},{35},{19},{23},{22},{22},{17},{17},{23},{12},{15},{14},{13},{16},{21},{18},{19},{19},{22},{18},{16},{15},{19},{23},{20},{27},{24},{24},{27},{27},{27},{27},{21},{21},{21},{23},{23},{23},{23},{22},{19},{20},{20},{8},{14},{9},{4},{9},{18},{8},{26},{28},{16},{15},{14},{18},{11},{22},{24},{30},{10},{10},{14},{22},{12},{16},{25},{22},{12},{10},{11},{11},{12},{13},{12},{12},{12},{14},{5},{8},{19},{10},{17},{14},{13},{4},{8},{8},{16},{4},{17},{8},{20},{14},{23},{41},{53},{29},{28},{29},{26},{28},{30},{29},{25},{25},{20},{28},{28},{8},{12},{2},{6},{7},{5},{15},{11},{7},{25},{27},{7},{7},{17},{7},{1},{1},{3},{6},{3},{10},{10},{10},{7},{15},{9},{4},{7},{18},{12},{6},{16},{6},{9},{16},{4},{4},{4},{5},{29},{1},{6},{10},{9},{20},{8},{6},{9},{8},{6},{7},{12},{9},{17},{25},{5},{13},{13},{18},{5},{24},{7},{17},{3},{4},{15},{15},{14},{12},{10},{6},{5},{13},{11},{5},{12},{6},{4},{5},{22},{6},{7},{15},{8},{7},{7},{4},{15},{9},{1},{6},{9},{9},{7},{6},{5},{5},{6},{10},{6},{8},{2},{4},{8},{6},{5},{5},{14},{4},{6},{7},{5},{9},{8},{9},{6},{7},{3},{17},{16},{12},{46},{16},{7},{20},{12},{5},{6},{13},{14},{6},{7},{7},{12},{12},{2},{6},{11},{10},{5},{8},{3},{13},{5},{8},{4},{4},{6},{8},{4},{10},{6},{4},{10},{5},{1},{8},{5},{7},{7},{13},{4},{10},{15},{3},{4},{8},{4},{7},{4},{6},{3},{2},{6},{4},{20},{17},{7},{7},{7},{7},{8},{3},{7},{6},{11},{5},{12},{14},{11},{10},{19},{14},{12},{1},{2},{8},{9},{10},{6},{4},{10},{17},{13},{8},{13},{13},{13},{5},{6},{2},{11},{6},{12},{12},{9},{13},{15},{10},{4},{4},{13},{12},{10},{11},{10},{6},{12},{19},{5},{12},{4},{5},{6},{13},{10},{6},{10},{5},{13},{10},{12},{11},{11},{6},{4},{4},{3},{6},{6},{5},{8},{3},{6},{8},{4},{7},{15},{20},{22},{9},{5},{7},{8},{5},{5},{6},{6},{6},{6},{5},{6},{7},{1},{4},{14},{8},{8},{4},{8},{7},{5},{3},{5},{5},{8},{2},{8},{7},{7},{7},{1},{2},{25},{29},{0},{42},{58},{33},{105},{91},{42},{40},{13},{5},{34},{134},{380},{20},{57},{36},{120},{22},{183},{84},{105},{38},{75},{72},{9},{26},{32},{45},{83},{377},{11},{28},{34},{1004},{38},{136},{29},{15},{53},{46},{164},{26},{9},{219},{81},{23},{46},{284},{2},{2},{29},{5},{10},{63},{109},{23},{21},{12},{1},{1}};
+    #if (CYTHON_COMPRESS_STRINGS) == 3 && __PYX_LIMITED_VERSION_HEX >= 0x030e0000 /* compression: zstd (9884 bytes) */
+const char* const cstring = "(\265/\375`\240i\2254\001\032\007I7G\340\260\352\0010\314\3634\326b6Nc-\326b-f\363<\317\363<N\261\234\251\343\232\204\304\366\350H\324\254)\331\034<\267?Yrrt,j\326\236\234\345,,sF\236i\177c\351\335\\\030+K\353\377\037\267#A\003\035\003k\003]\336c(\302<\177`(R\361\323\267\301pco\207\245\014z\"\326\272\344\361\255s\311\353\306<\342<\3624\026\265\244J\236\346Z\225IX\257@\314M\033\205\277\0215\352\234\317\260@\262\323\327\240/\237\252\235s\220\347\2154\006\201\314\036c\321S\177\372\022\006\235\360\2544\206\222%8\025\206\312nX\376\325SsF\004\265Np\256\226g\31129\234\350\031#9\316=+\3069\327[\236\344\320s\203\213_\232*\234\211\022\234\227Q~\362\227\352\215/I\024\216C[\336\305r\371_\222.X\220j\354F\006+o`\234w@\341Fl8Q\202\025\323A\346\010\0277*\251\372c\360Y\"\003\227rr\002\204\202K)\300\202\003\2310Q\275\212\246\252\217\376\217\232\243\024\220\007\225\276\346\205\222\277\345g\272\214K\335 \263i\365_\2321T\346\3038Y\214\332_\250\032\353\252\0020n\203z\242b\320\227WS_s\242P\262\237)\272\321\324\313\220\365\027\007\363\252\006\271b10\323\313\304\304LjY\362\261\357a\2507E\016\364U\257\376\324|\2512\240\317\201\325\241C\207\016#>LUe8\3575\007:\361i\315\225HI\021\277\r\252B\221\2410\3169hD\332m\310\022\2551{y\376\322\345GRf\226\257W\331\321Td\365\360_\340F\234\261\020\344\277y\302\373\311\371;\314\237\\\014\225q-\217\003}\263\214\3711|\332\022\242\205\203\230E\356\354\251\217)MO\216\274\212\202\031\014;n\207`\352T\302\305m89\341NX'\033<\211\226f\2579=\322\253)\n\203\305\274\224_\336t\024\356\307\2501\3243\231\264N\374L\371\301\312\224\365}G\342')\232\246\376\243j\331I\262\236\246\035tzX\227\371\234L\205\275r\331\241%\353\224\375~v/\303\352\252\332Ou\003\014\030_\326\273\223\262\022&\333\377\004\206\252\247\257\3610X?Q\237v\356\223HOO\222\245\214W\275\t{mP\212\306\310\2243[(wv\365\237\036W\240\000\210\345M\362\214\241\251\353\223\250\214\n\003F\3529Iv\03008\177\226-\337\235\300\033w\\\t\376\277g\241\252Z\306h8\023\231\331\271\327H-\377\331S\225<\375W\375\014\013\3751\276\246T""\277\217\321\244\036v\302y\230L-m8o\312|\324d\301b\344\013M[j\231\332p 9T\345NW\371\177\227\245\350\313\277\270\037Cc\256R=Q\026\367\313\030\256s^\355>eq2\363DA*\347_]F\345\324.\243v\0307;\0135cg\037\271\360'\nr\033@ \020\013o\306t\323\354\243\357\3112U?\n\373\036%9\033_\326p\251o\265b\"\357\3523\254\016\343\3144\306\222\261\270\024m\2510\317\272\361\234\377]T\232\237S\321\223#\317\316\221\376\306\223g\311\371\030N\375\261\027G^\340\\gIz\226Oa\334?\321\362\237\376U\222\234i\222\246/[ \322\233eoq]\355$G\222X\005\264\022\002\205T@\241\03275`VTF\314\340F\004b\010jU(Z\2010\371\023\275Sh%\324\335\210G\335\347\251B\021\376H\"\n\217\237\207G/\024\305\323\230]r\tk\224.u9\243>\234rY\341\017\374R\033\314_\347mp\364\341\255\305\321\026Q\246R\312\323\250o\004\2233\327\271\333\332\244\261\211\353\223\2514\242v\347\351\274QY\177\230\264A\020\3249\305G\031f\177\360\260\342\241;q>j\017\332%g\335y+4\326\3368\342}\n;\227.<i\226\220\3766\317#/\004\301\254\0225\317cH\205\005\253\262\250W@`\rSZu\241(\324\\5\032I\336W\3020z\213\243\361\264\275\223\367\251\264W\372r*\177-\242\261[\2119\273\210\337\036\205^\n\347\017\314c\010\226\274\334\241\366\316%Q'\356\235\265\016;T\326\342*\004\271\316\032{\037VQY\3512\027\2412jQ^\231J\371K\351=\212y\304?-z\242\347\242\265\326\336\036\355O\334&/\004\301\220\253\250\204D\230\256d\nK9\177&\375\241E\203\243*\374>\254G\017\223J(Q\356N(\3227v\244\2258b\025!H\033\3452\206\252\235A~\n\307\275\032yY\207\037\007K\"QHB\211\302\215\022\305o\334#>J\351\375\211\341\330u\372\304a<P\213p\307Kz4i\324'\372\262\350\211#\014>\255\366\207\301,\236`>\274\303q\353\017&\357Q\177z\363l\032\351M\302`(j=f0\2432\352\345[m\234:yc&\351\r\352P\237P\"\352\313'\014\212x\024~[\347.\354p6\201]h\342\231D\322\253/{.\241i\177\235\307O^g\332X\304#.\212;\273\214B\275C\022\350\211\341(\334\242\210\322\036_\201\370\224?\036\206\036x2\215P\032\227\362\367y;\203_\336\033\265\312.\"\224\330yy\314(\2555j\343\255\263\316`\376\306\rf\357\033\263I\364N{\314\243\317\244Gl\202\301\033\\\351p\253:P""\277d\255\367\250]\264\327\235R\236\036\215<\2227\346\034\236\362\211\223B\336\3411\213.\036@|\000\021R\361\020RiYa\021\321\242\262\362aE%\024jQ(\302\251\375y\250\017\237@\257\024\216\"O\363\316\373p\nw_\036a\222\327epD\355\234K \036\267f9\255\210{\233L j\207\2407\2169\225\022\361i\014I\034\304\312\212\227U\343\350\215y\207\250\227<\212c(~c\326\250p\213\253\275\0321\350\211\364\270w.\341\221\366>\017\314\035\327z\243\302|\362\366\026\363h\204\271\270\275.\347\021\314\nOo\017\364\270\2072\2152L8\212:4\361\234\372\302\275\301\356C\275\3441\365y\230\304]@\224i\324\3451s\225\326X\334`i\304\034\014\275=\002Q\244|B\351<\206\037\250\n\273.\034\201\231o0o0\314\335\030\362\022\350uc8\2169\357\374\211\247\260\303y\374@\017\227\\FX\364}x\304W\"\036m\205\266\201\210\t\373\327\033\367\305\035\321i/4\230\031\314h\025q{\311\251\220\323\240\306\242\255f\025f\r\\V\273b+\260\016<6\232\225\301\210\014\263\024X\020+\311\307\255\343\246`6\202HGK\016\214\303\304u\301\332\270y\330\216g\365\264\236\366\003k\302\336\002\260z= \362\200e5YI8\241\nn\006\222\227D\004\244\243@\216V\305\326\254}\035\260*x\361\332\302\021\205Tl\030\007v7\034\360\320D<x\037\270a\010\354RpImK\000\213a%\001\351(\311A\341\245`\033A`\353\336\352\321\241\205\340^\023\032\n\327\304\3150\362zDV\222\020[\250\365\354\013+\362\342~P\026\274\003r\204\330\360\266 G\214~u\2107\204\307\033ZU\032\366\002\353aO\0000\200\024\035\0359n\320xi\304xc\264\336\226\177}\177;\214\027\306\212w\205~C\344\250\265^\263\241u\332\201\331\207\333\265\241\366\265.\010\261!8\320\021\222\003\247\254\tBl\036\226\265\332\204\200t|r\264`\361\262`;\253\200\005YG^V\005\"6\221\020\033\rN\013\216\201\017[\247\345p\020|\330\272k\323\266\264&-\211\r\261~]0b\363\270\035\227\005\273\302\246\326\032\034\004!\266\276\252\300\t\371\260\275\260\020\326\004 \035\tr\340Y\213\307KS[P;y\231\211\270(\n^\001+\003\034\220\017\233\t\215\234\251pUm\r[\256\013>n!W\203\307\213\302\245\240\244d\000\241p5Xf\270\020\301A\205\005G\266\000\265 [t\37077\337\346\257\260\234\245""\215\214\215\215\315\3671\263\327\220\260X\314\006\375^\345\262\377\177,\246~V\371M_C\266\322\262\303\314\377\371L\014o}\362\247\247OS\363\233=F\023\323\325\2323s\177\306|yS\266\324\217\302`\250*\3530\263\227\350\211\312\320\323\306\277J\322\365}\231\242\251\031\373\337\277^\376%\303R\317\222\277Ro\343\311\216\23263_\346g\316\022\215\241r~\272J\262\344\037\224\302\276\312\325\336\315\326'[\352\177\251e\014\257\361\037=]\377\225\236\236\363\323{N\372\223\205\222ig}O\362\363\354$\2135\363\273\352\323\230\032kq\365\214\251\\\375\334U\266<\211\262>\231\226\234\345kL4}y\225\363\262U\302bX.\026\353D\321\337M\316Ja\336u\203\252\374\233(\032\343\177\217\361\254n\302~7\177\267\271Qch\212\262@\337\225\362\316\212\351Z\226z\227\231\356U$\255\312X\253@'*\355)\017\223\355\255\3213\226\376\324\317t\033\356_\261\177\246\336\325\317\376\342\352\211N\306\274\372\211_\002\324\362\243z\343A\256\262\312\356F&rn\242,T\225Q\2738b\025\307\341(\352\014\343\221\314\216\022y\343\336\230\257N:\357\225\210\253BS\013\204\236\277\233\370/?\2544\315\234kX]\365/\376m@50\357g`\261\363\307\310\356e\270/gP\364\247\036\366*{*\003\373]\365.X\014\3649\377g\367\252_\232\\M;\214$\273\177\225\247\023\035\345\321J\r\313J\250\246\303\",\346\215M\252\017-)\316\222K]\376VB*<\304C0\004\275O\205GO\314\232D\n\003=\344FpP\375\177\321J\321\334\304r\312\232\205\232\000\232\207Y\212K~:6\022\034\360(\260\300c\002\3026\350\340t\326\004\207F\006uS^V;\240m\245\346\n\242\304\253\232\325\204\254\312\343\202\214,f[6(\035X^\202\013o\005\014+\255\272\201\006b\226\372\274*\234\032\034\037\002\366\n\203#\342\341q\013\261\t\360\260\321\314VP\350x;\256\211\356\340\005\300z\340@\362\006\260]\360\260\037V\022\217\017\331\352\021\261u\326\017\234\017\017\007\035\257\202O\317\261\220\243B\304\353\322\240\344V\222\323r\241\006\202\2262#q\313'\323\270\353r\261,\241\365\343\351,\t\000\nh*f\"\334Tw@\344\001\333`\306\300=A\202jE\330\222\217\r\323<<f\036@,\351\361x_V\r8\005pH\010\271\252\007\203\0265m\tV5\321\312\270ex\311\026\203\273\242""\365:\265\024\252\324\013!\247\244\006B\353f\241\031K\016\251v\316d\\\013\037\241\034\227\016o\007\217W\345\245qKt4\355Mg\304\021\361x{\213\241\267,m\005\222\367\366\tuV\302\313+BzI\036\257g\006\342\306h\340\316\340 \340\321\255\237\216\233I\211\354\326\261\2534\260\302\340/\037\337\021\277;\303\233\241\266_5\0224u\326g\037,\274&l\201\233\247\226\322P`x\023\274\t^\233[\237\331\270\335\005\215xl\235\331\204\366\244\364\300s3\231\241p@c0\313n\254{\340^\014\254\203\217\246\271f\260(\360\264'%0\252\267\314\001S\250\327C\355W\025j+\234\344\250\350tX]\312\371\032\204\330@\344\270\260\2744:5\0064\0217\032\032\201o\375\214\230|D\\\235]\255\nBn\235\231v5,\350\256H\204\222\003\327:\217\267\303\200\306\202\305\215$A\313\201\2351\276\274/\342+\246x1`\002\253\207\027\032\246\225@yGH\334\023\232\265\345A\033\3015_\006x\024\353\272ap=nJ\2515\225FXh\240\333BC\263\222\033\322r,\201\017\223\365\367\331\001\027C\2075\201\312N\250\251'6\274\034\030,\260\2250\260E\200 \303\275\340\202h\r\2604\253K\233\322A\255\237P\315\177f\016^\007\034\347\200\207=\351\324b\314\006\314:\335\nh1\260\344ja\005\001\241\335l\204\017\315J\230\251\330J^\017%\034\314\206\254#$\024F^\334Z\370\330\022x \204\2749&9*>\274/\263\021\r\336\016[R\342\034\210\271-n\200Q\213\242\231\320F`x1\204\300\256\307\t\216\025\314\013\263\337\224\034\025*o\227\301\301K\216x\334\335^@\261`\353\214\244r xh'WD\253\262+\326\317\332Y;\021\022}f!\024\341\215\020b; \362A\303N\370\334JFl\037\022[\203\317\r\347\210\2301\2730\003\001\336:.M\353\302B(\371\354\315\312\340c\013\271\276\225a%|l8\307TS\3214\314<\263\031\022\013\241%\320z`C\330\024|F\254\210\225d\344\026\252\231\324\032\320\366l\302;a\244@\250\r\301\336DBn.Z\274-^\336S\255c\363\372\3018:-M\355S\353\324L\314X>\024\200t\034\310\001\322\266X\027\200\364\234\227\234\023\313\313R\3415i\013\260%5\026/\253\200ud\217/\231\003\212xAf4.\001\027$\3436\302\204\247\206+\274\025f`Z\217my&,\330[\013\355?\340Ys\001\220P\202\325\324A\300\341i;\255\211\336\276\264\027B(<3\226\273\n\213\312\250""\344Ri\024\242\240\204\212h\004 \000\000\001s@ X\210\241H*\227\321\250e\035\204\007\314\305bG\321\230t\212\rq\211\003\305 D\003\000\220\000\000\010  \010\023\347\242\341\272kv\t\356\261\006\013\030\207\254gV%\025\356]\036F\010t\311\314\247.\214c\025.O\275\r\r\342\026\034\322\267LA'\3347\210-E\247\300\025\020\253\235\371Z\245\262\353\200\334\343\327\025T\304\007N\234\204`9<LN\272\342\260\244v\033\257\271\342\306\220\024\307b(\250\361hG\301;\310.\003\000\200\217H\323\024\370\222\300d\274D\023\303#\210\022\322\016\033X\215m\220\031T\302C\342m\263ND \207\271\244\343!ua\235\244+\006\327p\305\001X1\343\254\351\322\371\211\304}25\343\207\000\274\336\236\312\254N\331\003qw\325\203\277PEW\204\236R\304R_\035\2709\375b\312G \027s4\234\306\016\231N\243-\r\234\347\305\277Z\364\275\210\354\027f\340{\352\201\367x\214\204\235\0067?,\203\204\257\377'G\235`\245\325>\271\t\240\346\342\215\233:l\255\3004\363=tg\232\301\nC-d$N\200\260\214\035q2\326\"\000-O\340]\261\007j\370\01043\347E\261~\342\025\326\335\207=\342\017\304RlD`6U\036\0045w\271ao\235\031K'\212\013\336\223\350_\351\000\320\342c\227\022\246\360\354\203e1<\224\377\222B\325\211>t\002\353\007\202\314\177^\257\031\306\234\355N\325\3742\233\270\2521\243\365\274\364\214\021\310\370\037\005\261te\265\001\004\325\250\356w\003\331)\2112(\210\342\354l\225\301\005b\000\030~\252\313N\363\241b/G\324\3150K\002\034\313\342<ixS\0274\236\023\243t\205g)\374\t\264D\256\317\304\214?\312\234\247Q\370d\217\213\233\252\023=\264z\354\202\302\347g\207\347F;\224\345\201f\271u*vh\300\366\005\306\335\303\272n(\007 \031\341\221)\223a\264\014\006\034r\226L\342\235\210\311k\220~\005\253\373\372\026u[\306\2471~\204\354\373\t\220\013\212\237\277\275\237\200\025\235Y\013A\300h3\024\3200\316\366p\310\020\367\017\342\261\203\361\324\356J\027i\035\345\304\212\"+R\204\226\177!o\021P\251\233o\316e=\newH[\t<\274\217\220l\023{\242\306\237\256\017\3174\032\367sz^\3512\305\324\037+|\356\204\276p\376\317\t\020\014l\220\242F\256l\362\301\007\2034\276\nA\207n\305jk\006""\020}\252G\035L\212\037o\324\261di/\271\2407\325Z\242\305\217\330 \303I\331\307N\255\2577\"?\267\016\017\323(\2251qX\350Y\252s)T\nE\014\211)\370\217m\224\363i\316\322\233\251\033K\001\006\263.\007\222e\277\376W\3322\215\006\227\2014\240\264\177\033\230\257\216\323\201\304\250N\031P+\267\252\245\332\202\2524P\313\353\200:\250\361\323,r\024\323C\352]\020\243\342\372\366\255F\023\264\240'W\302\357iH\261{&8z\366\025\032~\302i\013\n\361\262\376\376\203)\004\270G\023J\377\026\006\351\202\223\372\346\275\014\205F\341\005\203<XXk\231\355\236;\305\351`\332X0\266W\242k:T~\247\323B,^\021M\266\314\362v\032\027\373\035ez\263\035\3461\034\251-6\334O \364\266\336\364Y5o\346N\320c\242i\nn\232H\217\004\177s\302_q'$\254\323\033\262\326t\370/u\240j\376\021\246\034\206\317\326\262\363\023N\016\266\260\372\234\223w\310\273\3457M\343\2041s\364o,\025\206\362Z?\367\024\264\366 T\300\r\243S{W\325:!\247\000\n\212\370\005&\004J\0208\340X9\335O\273\302lO\224U\205Uv)\213D\245PJI\023]x\317\216T\305\2253H\356\376\322@YK\025lA\242g\350\210\307=GIp\317-2\325#\177\362k\262NRf&\035\340\370L\364G4\363C\331\260\376my\034\236\356\324f\022\305J\021d\270\365_\322M\244I\017\334\235\213Y\202R\177\024\370\340\2615W0:%\350\335-\0327\202\263\265\320\320 }\310\260v\014r\316\217\t\0042\234\204\370T3x\240\253\252\\C\332d#,\323\r.\206\014\262\367\355\273\014ONQ\233\203e\270_`\340\365\214\344\000Omc\363V\3234\355\013\252\233\353\333\\BK\013\233\237\267\335Z\257\232#\204.\363k\"\236\322<\373\210Tw\006W\275V\0011\036\364\362#\267\377^\272\253\207\247\356\245\207\247{\231\020\377\2502y\362\222a9\214a\352\265F\206D(\005O\274\007p\222N\241\024?!\313\210xd\244\025^\340zJ\253\265t\265\342Z`\254\031\310\237*\020\331\207m\250\004=\264\004y\";\216d\206\022\315\336\034\031-\367\305\351\333S6\377~\235\210d\010De}q\204\316\247\310\276\t\356#\255\010+\2267\370{\237\366Uo\3604\245y!=\366\311\340\005\013\030-*\277\030\227\214\265\237\306(\316\302\376O\220\313\352\244E\227\364\203\237}\303{\243\252hy\032\006\332~>T\003\312c\240!""\346\265\240\226\244\n\244I\371\205\310Q+YI\257\367K!\201\200xS\202\037'\354\255cd:\213\2443\212\031\360\214\251+J\346z\230U\257gw(\337#$P\232\025\n5\274\251\266\255\270\200L\345tqv\203\350f\302\207\220\205@\227\233q\271u\332'i.$\361k!G\216U\007\254\245Q\320KQ\034mW\212\333\332\033\034c\376\317Y\210C\270\200\371'\343o\277\352\0043\262\262\036\214mV\220\254\330\0331\315\306\003\266\206!o\251\263\213-G;F\005\005D!\035\341\346\324\212\2347A\337\033\224\001\"\243\2048X\330\223A\"\264K\223\264>\024\010\321]\356\3151\376F\200Vu\237\354 \007\3060L\235j\264\030\212U#\244\275PJ\354\203\323\037\212\327\013\2533(4s\376\353\206\370C$\345\031\255d,\030\026\331\004\207\020\317dLxp\200o0\2640\301\266\006d7\311D\331\ro\372\305\227V\200X\304\3077\302\234.\005\277\005$<\261&A\232Y#\246\364\233}\325Z0\037\374\310\362S\357,4MI\234\246s&\013\303\020\215\004R_\241\333\206\242\343A\244\212<\022\240\254\031+\004I\367p\177\255\215\203\n\214N\0050\276t\310\024\376\002\374\245\272\332\r\3652\032l\320\321\006\222\341u\361.\304]Rc}\274\312M[.lK\033\310u\021\232\333p\027\320zl\017\027%D\004\300\255\202\316\344D\260\306\037Wq\202\347\244\217\241\025@\360\267\347tW\223v\214\241\371d\233\315H\243\331\206d\260S9\\\350\"\230l9\232/ \371=\354\007\372d\304\\\354\035\331\317\226\004\375\352T\305\306@\377\253\231\177I\364\3730\036\230;\310\0106\217nx\021o\267\342\253\300\233\252\323\022v\033\323x\337\347%\371\335\nT6\303\241p\371C\316\202\023`0\r\310\210b\252\250B\225r\303\001\022\247\307!N\006F\327\207\026f\363&\000t\233\255&EI5\036\027u1WP\370\314\235;\343\255\252r\310o}}\304\233l\2053\020\311\257W\313\213\344\312\032\242\027\342BB#\n\213\024\322\357\"7)R\260l`\367$\204<\227\256;4\240]IZ\016\032\006\236P\312\006#\353g\260\202\342\223T\212 \354y\"\340G\241t~\205\351\365\033\207\313'\032\367`\014\244\342\001\206\331\333\004\247da\222y%\347\007\3769\3360\301%\304n\317\304\302q\024\200\351{\330,\014\355\303\364\026\246\250\256\002\320h^\032\nM:.\304\375C\333\016%\230\363\367\337\031\303(\341\026\333hd\2548""h\335\177\317LU\217%-oJ\357\273\203#0\357\205\275-\341_\311t\032b\351\025\352\214\363e\216q\001\206\007@@N\344b\004\2648\275\362X\017C\272\261B\336\313\207\037\232\312G\205\353\016L\336\007l\236\313\341\003\355\203\010\270\267\016\000\216\246\000\240u\277\374\034\362\276\"\300\301\235\022}!\247f\325\376\334\204\303]\334\343\002\351\232\313'\364\251\020\255\211\n\000\013\356\032X\226\370\235\030\301\354\032V\266\203\314*\213E\000\224n\250\311\010\231\301\213_v\201\027\245\367H<\350\213\200\256Q_\326\255q\224\313\014\007;\025\035.z\226\010\210]d^\353\034o\237\\0\363m|\331#\332\302\025dA\312HG&\211\206\370\237\340\316\010\252\261\037\035\312(Hn:8_)\026\311\221\211F+\030!\257\264\321e\235`l\363\202\030Dd\236\234\324\277\310q\366f\222\373\366E\226\251Sg\304&W\032P\225\022\020\350\355\022\241\0020\017\321\220\207\306\313e\354\016\357\240\367g\335\214\007\013-+\177\271\000\362\301\321\244\354&O;,Zk0\276\233m\331\337\217\343\226W \006\013\nZ\364\252\211J\310\336\251\021/\246^Bw\304\343B\"\306\025\317\277\013\222\334|E\360\t\031\370\205`\352r+\203\r\350P\026\363\254%\021\272\233\262\242*\264'\"\326M]\305\266IN\320b\306\277\347\357\326\206>\"\310\227\352\261P\026\315\235\310\211\236\022=\223\032\266\352\022\333\355\211\341\352\243\211\037(&a\266\354\006\276\362\002\3103s\367m\372\010G\374\233&d\210Y&,W\206(\307\250\353\216D\324\330\234\330\331\020\177\261]>IP\221\366\263\305I\312\246\250\370)\250Yf=\255h]t\013\340M\337\346\017Q\016\025\252\037\331\314j\252\351\243\246\353\364\320a\005\213\314I`(vN\241Tp\345\305\005\255E\235}K<\032H\236Vk\2762\347N\256RT\236?\242\020\327P\202\203\302\205\331\314>T\014\224\225\005\006\336\356\004\020\2561h\036\343\2768f\177i\342x\300\203,\3008\303\200]\375\033B\005\370\003%\302n2\002Q\244@\364\221\373\031\223u\355C\340NV\337e\312\372]S\253)\210]\334\332za\027\356K\224\261?v\365\343\255\233,\341*w\310\022v)\261P\352a\365\302\310v\022\334\354Y#\321o\202J\245\323\234\265\323 \\\\\005\273\037wWs\310\255\300\270\002%S\002\037\224\346\327\374\324""\376\224V\357\010>\030d\372\016m+\236\226]4Ef\200\270\020\"Z\025Nn\323\301Bh(:\254#\237G\337\270\234\272\033r\340O\033\016\300\321\315\343gf3\006\205E\21687\237(\300\217k\036\357l\221\363\205\250Y'UP\254\026\024b\251\353(\306\357\305\304\243\261m\367\223\201\345\217\373D\364\237b\376\347\\\220*\026\321\247\271\215\367\315\021_e\036B\205\251\267\210\2228\244\005*\023\304\375\211d*\205\273W\301\275\356MI\346\322\013MPl\033\322\234\205\260\356\013A\037\014\364\0357\353tv\224\357F\333sw\027\006\020\006C8\240\276J\375\t:\014\021\222\rC\264\0329L\262\327j\355\035p\217p\3601\333\266&\254fMX\347\340f\236\305\273\032\271\340\344\302\242sD\272\356(\251\340z|\253o\026\300\245,XQ4\306=\362\365vM^\354\354\037T\235\244\272xc\350A\371\334r^\216\241m\241\224\231\277\306\345M(\002\2666\003\341c\224\225\252\341Q\336qA\022\210L\204\275x/~\321u\201\254W\346=\326j\262h\023\236\320\001j\035\016\356`\353D\302\245\200\340\242\370K\322\304\351*\332\334\224j\020\260\235H\300\014\371\204\306\332\345=\302c\261;\274\210\255A\363I\225.\375\020s\313M\371'Z\354\025x\204D+)\234\225tu\023+\220\366:EJ\244\330!\250\231\360\351\223\225l\317\257\240\222\324;\005\252\021X\270O\221\215t\363\3326X\227\022=,\215\300\260\017\366\271\027\0346\201\321\224\240?\323\326Rh\027\334r\310\025\204m*rC\226s\372\236=\227\302\013U\346m\247\303\322\201\253\022\313T\323\301\233E\352\216\267I\304\300n\227Xo_A\"\240i\3743\235\314\007\372o\227e\237\021\314\353\257l]\342I@\306\206\370\021\346\260\323\245\265w\216\302\315#*\3708)E\254Z\3123\327\024\343\256A\302\032\032\244\343\003\226\262\210\230S\345Y$\347\337\236\344\022\312\254$\276\345u\023B\013\022\300Y\010\271m\315TF#\247\366\277\021\347\306\356\312\024\002\030:\034e#\231{d\205\233y\244\265\004I\210\313\237\237\016:\223\302\025Tb\254\036\000\303AL\216\0309\004\001\270\315\325QKa\217\n\332\2662\226\261\261\220K%\310\373-\222\215\205\236O\206.\270Q\304^\336|\234\317\226\035\341\216R\234\210N\t`\244\246\246\321 \214anQ\026\217?\226>L9y\342\036\202\030e\212\244\200\203\372s_""d\323\"[\220\240_3h\302.\003<\260\354N\024\352\r\204\220\026N.\004P\301\212\325\370\324\241\001-\033\222\325\014-\373d\241\333\267\222\264\026\326\210B)%\317\334\036b\022(/\027\304[,\362:*\027s\272\215x\3513\267}nd\037Q\215\250\264.\366!\260\233;\"T\372N!l\177D8\246\004\367\334\177*\0327@\271\375Q@\005\304k\216\303\214\217\000s\361\t\030\255uR<\263\336e\010$\216\377\321W7\206\014\006X\252\241\351u\317j4\364\262d\0207\005q\n\351\212\323\001\254Gc \366r\231\r\242j}\202i7G*\331\233\013\353\334\021\331\333C\312\254\264\002\307\301E$\331s`\366m\322\266=eek1\006\202\255\010\241\244\233\017\266\312\332\210\t\307\316hk\253bZ4CTe\224\030\000,\266\315\022\010\r\254;L\341c\2463\241\";\002\371[^r<k\352\305{\304\346\221\020\000\370\300\005\034\276\223\257\014h\232M\n\260\2255\244<*\246GX\341$\270z\\\032\032\"\263P\372\022m\350x\211\030k8<{\364Ff\214f\263\344\302u\253\371\202ZEEuiI&\263\276\356\211d\370\341\207\234\336\235\232\235\347\222\206\240=\216\323\232\361\305,2\206;o\341\337\025\231\321\265(\270D\324\334\006\2559\nV;\021\232+\375n\215P\311\356\3712\343]0J\305\367\033\306:yR\205-\275\371\3221b\265\342\340`\354\367z\333'N\320\017\270\356\273\355\310\231\200\315\240\004\336\305\241\347\334\355\247\255\372\334H\227\007`-\301\270I\324\271:y\035 */\317\020\022\240\037t\263RD\231\302\211\231\212\244O1\226\neJ\261ZI(\255\237\021\201\370\244\207{\316\3612\370\"nz\257\001\265\301\0066\321\274\034\371\254m\213-\224-\352\246\326\277\242\3763\277\0138D!\301\264+{\013\253\314\202\222L\013\261\327\376H\375B\024\014\204\377\003WO\351\017\222\301\346\273\362\276\340\331\234{P+ga\334\252\2577\263@7N2\313Ra\nh%\352\342\234z\232\t\024\356\007\362\2466v\334\221V\271\311\371\223\023I\272\245%\374}\225\025'\313\214\255\344@\304A[Y\nU^\353(\231\032F\211\201\254\306\374#\243C1\000\004\323\305\016\240;9~\365\311\273\0138\3708S\360 \325H)m.\364\227\253\305\222@\"E(\247om\302_I\203\367C\345]\243\035\273\\\336\245v\343\235\322\2504\241!D\312\030b\241\\\345G\260Z>\254\362!4\351eR8u?\356\332U\355\2475""\370\016\262kA\220+9\005M\366\272\233\354 #\"\302\234*<\207\005\362 D\031\306\033x\315\320\022\336_7ks\257\007\215\036Yw\345v\250U4\213\344\322\216Yjd\020/_3\376\304\014*&\256\264\034m\014\212\304\357s6o+\273bb\025\250/\232\272\021V\300q<q\343\025`B;1D\334\353\206Q\006\200\353\016\257\261\234Wf\316\335\375q\276o\363\310\005\214F\300\314\337[\305\"E,)~^\030\246\373\003oQYD\374\203BQ\266lL\240\005\211\020}d\016\001\246\324\031\016a\213L\217\206h\t\350\032#\240\025\034`\233\341\272\025\013\257[0\306#b\317\3467\355\254\300`\207\200\034\036\025\"\260qw\"\324Xy+\330\252\214\230@S\177\272\337\252\377\320^\367g\312\234\326[\322u\221T\276\313\033\273\226\010\033AOR^(}\327\311)\037<[\205\002\375\363\021\030*4\373\326\323\2461/'\211\310P\311*\001\263\251\311\350\260%\373\"\3212\261\024\\\001S\017\033\213!\r\017\303\020ga\200a\270A6\037E\020-u,]67\322\212\0147\372\346\361\207VEo`[\363\275\246bt\314\357\034\003\375T\240\323$\315q\336\320\023\347\357|\313\206/*6\233\t\340\216\077\077\021\336\342\327\211c\351\2605\206\243\244\336\346\350:\226:\324\247\226w\213Q\257\220\206Li\034\236\250\362\346\363e[\203\2068\374\356\250)\341\033i'g\237[f\265\265\020\207\305\004\2742\002H\223'\347\213\206\250dh\227\021\246E q\323q.\376\006\347e\331\254t*9K$0\364U%\347\344\327u\334\367o\"J\261\27382I\236\240\336\013-N\033\205\265\252\320GuT\225\316C\375\203\2259^\223\217Mnys|i\2030\234hbs\264(\006lZ\031\203\372RY]\352m\256\244\305}\242,\002\316\313++\257\267\331]\337\004\224R\t\310lQ\357i\300dNqT\266s\377\335c\325d\313\272\276\220\235\322.\\\364\352\032`>\017\373\034\305h\223{\016\252\250\027\341\027\304\005#\030j<\203x\004\264\323\210\220\240}S\275\250b\314\r\002\005\352B# Y\220\325BT'A\312X\346\225x\336\334\376@\307L\353#\272%\013\032\036 \325t\240I\\\331\232\311\325.\225\337k\022^\"\324\240]\343\266\"M\320\275JA\315\376\r\373\0251:\244z\201\321>\225\364\361\025a\324r\363\317\354\305\257Wk\344`\326\030\360\021\204\005\344\271\306x\214\373T`\365C\242}\262\247\367\262\324\372<\340\364F_\264B\377-0""\227\354\307z\232\210#o\325\001qN/\3377!\207_\253\027\333ZA\206\274\006\272Ll2mO\003M\362\034Lf\310\r\366\025mW\032L\213\021~=P\270V\303\034P\007DyU\200\344\035\312\n\201\031\320\301l\263Z\353\t\333\353]\362\266\224W\251\032\316\372\261\204 \025\206[4\351\243\206\020\023\242\305\027\303`\207|f\325\2273f\006\036\031\376\307d\372\263\020\211\373Ui+\021i\r}\340\033\331\227\365\013\302|\271\243\246\003\366\351\2050LU\2163\324&8\007\225\036\262\2701#\267\256T\22191\243\002\275g\007\276\313Bat\233\225\324\212D\201'lN\261\263^\007\020\256]Q\315j\246D\025\274\2438\375,\032\010\"\252\32365\032kR\264\260k\n'\370\335\273\212\002t\357\2017\300\331\227\244\323\206|VHA\210\031\014\026\366\247\303\030\300\236v3\033\266\004\325\340^=Su\251\230\262\2535\207cX\376\325\233\247h\215\337\225\376\346\313aJ\372?\233\213\305\272\256IU\336\321\277\371\233\306\320\244A\n<\251`\201\363D!\004\362\337&1\222K\224%A\2738\322\370\243P\303\322\350\"\331\022\344\361*%$\250\303\340H!\333n\221\0249uy\302\n\273v\006hM\213r\364\317\255[\221\270\206\022\017e\361\274\252\363\271\347\027K\202\206\210\214\202=\345\320\250\256\207=5C\305\007\036\022d\266\2173l\241W<\325\325P\360\266jSr\2027\021\276\230\220utA\340\177\210\2565\311\303\334\352\356\357f<\305\\\347?U\214\313\356AO\2232\332\3141\001X\237\377X\304m_\2353OH\004\236\"\315\037\\`\230\001\025n<\006\332\235\344\374\215\356\305v>g\233*{\263}f\324\026a\004\177\215\303\035\006\t\315Yo\210\206\270\265\201t\315\033\216\242\271v\333C\227$\334\343.\022\336\302\027\346\241\257\363V\027cW \205E\001\253\205jc/,)\203\360\372T\200\215<\207\215U\305\317\340J\326\000Q\267%\255\021\370\027\300\001\362\210\215\217\353E\n\350\231U\302j\372\213\331\206%\376\202L\2004\332\2774wC.\352\355\301\254\242\210\3259$R\004%\300\331\034[\210\364/\t\206\257)\212=\367\261\321\254\300\331_\234\2601\350FDXC\037\376\r\033S\334S\177\365EY\337lw\273\204\211\270\344\327\023\214\375b\264\317\215\000\363\205\022;\221k{\355\236\360\354m\334\352B\324H\026\202\266\277\026k\001\334\253\222q""\354\027\233\034\276\315H\235~W\005V}\205\367<O\252\026F0\030m\300F\007\020\331\266\302D_\2205e\377\340\212|f\305eW\277\304b\304\373c\\\202\363\321\305\252\005Z\212v\222\326>\366\036H\224\326\r\343\253J\262r\332\346?\246\250\\\236\254Sz\205D*dt\001\341\367O\327\360\000 \\\363l\324\003\007\037\333EN\325\3072\343\240\265\375!\002\t$1\350\353\003&\301u\262a\366f\310\253O\371\006u\204J\261\306QC\375\350M\006\341\374\215W\237#\221\216\320\233\270]\\w\200\224@\022\034\261\270\301\005E\252\225\261\314\316*\037\0259\315\002ku~Z\201\221\324w\332\336\346\373\331j\257\025k#f\000\357\241\223[W\333\226\217\006\376\311h^\244\221\274\333\205J\355\266\326\256A\262.CgE\372\205\322<\316\005\037R\017\224,;]0pz4\350T\031\271s\321T\261\233r\241\266\267\302\027\002\256\235\303\377H\256\307\031\356\303G\316/\030\n\2359\252\302_,*v\014D\203&j\030y\020\223\375b\235Ie93m\267s\273j\206\025\2358^\235\215\210u\312\327\202i\252\253+I\370d=w\256N\221/\034\357\205\213\035\227ghk\326\342aj\343\214e\221\215SR\3022\307e34K\374`Pb\325g\222\331/\003}\254\023`\317W\037\247\022\344\324%\354\263\260\2229\256=\310{\350{\240G\331\372.4\272\037\037L\272#Z\330\n\357X\326\265\350\327\301\243'hj\253\005\242\315F\014\037\003E\317\264\3446\340I\026t\242\252\215\031\244\013@\326e\033\232\355XK\307\235\222\301\213\315h\217i\351\263\210\213\317!=\023k\313\204\253\300\302\207:\216\343\303]\205\371\327\240\236\373t\370b\371\004\374\273\203t\306\315\221\213v\330K\316\202\035\241z\324\346#\205\036&\330\207\336T\376q\000JA\354m\024B.\302\003\266\036#4\035*\213\022Bo\357\177\026\243a\034Z\240\022B\r\273zs\323\267\230\002\271\244\236E7\037]\2552S\315/a\025gd\316\252\343[\2364\322`j\336\307#\361\216^\306\275_W\365\024\326[Co\227\225\352P\002\204Z\216m\274\316^OE\201\203\246\221\030\\\374\324\227\273\230\005\236!W=\257\306\227\336\t\332\177\240G\016\322`)O\254e\240\311 \r\234\373a\2154\305\177p\272VWXl`i\233}j_\222\016\240p\371\264x\225\322\200\034\271\332\255\204J\020[{\031\343E\277\301\273MA\221\336\002\0311<9\377y\256'q""\022\214\315\261!\242.P\036\271\014\022`\223\222\202\334\022k\212O\242\270\260\361ui\2431\026\020\354V\300\347\3678Y b\031n\031\355\237\324\367\3673\321\273T\307\037\271:=\007\0170\237\230^\231\003";
+    PyObject *data = __Pyx_DecompressString(cstring, 9884, 3);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (9785 bytes) */
-const char* const cstring = "BZh91AY&SYH\376(n\000\005\241\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\300@@@@@@@@@@@@\000@\000`+\326}\353\333/L\316\366\003m\2055\367\261\330\372\355\212\347\324\nx\357Z\334\326\332f\332]\231*Z4J\321\250\212'mR\212\264\313\326\365\347`\241\005u\255\267h\2655h\232\333\260X\024\325\332ZI\350\000\033\267\2404\241'=\316\350Zd\250zU^\366\261\212\243\352T\237:\000\224\324\020B`\214\232\032S\304\324\363\020\232j\237\2417\242\030'\251\350$\364\320\211\351=OA=OL\236\251\2465<F\243\0232\236\201\031\001\246\2014\020\210\0022\232zT\332\237\252\036\243\3246\246\312~\251\352\017Q\372\221\352\0004\r\003@\000\000\000\000\320\320z\203LD\204F\224\364\023G\250\001\240h\3624@\032h\003@y\244\200\315F\215\0004\032\001\352\r\r=F\302\232\004\232\210\202\004\320SSS\366\204\320\325=Oh\240\036H\323M\000\000\032\000\000\000\365\000\r\000\000h\00052T\320\0035L&&M\352\230\332\211\232a\0234z\2323D=H\033D\332\2316D\332z\2154L\032\237\252=\032&\230\0014\300H\210@\020\023CD\304\310i\031\001S\366JOi\251\246\223\332\221\345\032\000\000\003#@\003M\014@\000\007\313n;s\330\307\353XGb\362=n\024\277\232\230]\354\311\363\215u\253\334^/\377\242~\315}\316D\010\363Ls\211\000\2226\266\206\346\346\336\344LP\000N\352\252\033\227\\\t\006\225\2054\2552]\310\022\034\0304\232\026\235\332~\245\303P\300\026\030u\004\177\331\340\010\3116\261\246;\253TgI\362\360B\212]I\262\242\276\353\200\315f\306\300l\033\024EUb E\202\242H\244\021D\213\024lc=Xm\305_Ul\320.uY\346]\236\226\026\213\361\364\211\366\303[\242\032G\267\271\346=^~K_7\233\"\305\203\234\305v\006{\312\371\031\010\020\220\206\022a \010\244\005$Y\005\220\026p*\252\"\254\210k!\250\220]\325\010*Yu\2206\210c`\240,\251\215\311\030\365\225=\200\263\013\321\236U\372\214\2610\346\250\032*\241d\206\301\214\033I\236\260\315c\203\026I\026\034@`(\301A\343\246\252H\211!\365\263h \201c\276lA\335\221\007 8A\302x\217L5<\031#\325\002^\024\032*\250\251\033\2730\322l2am\225wum\017l\343\332\235\335\335;\244M\353\34245\206\230\223\240\317\007k\224\263nu""\207\341\344xq\222x\t\021Cy\241\246iK\270\241f\216\006\375\004\270p\250\276\303%\227\014W\t\266|\027\320\010\336n\305%\217\034\202\374\006\"`!CF\013H\243\005\177\253B\210\315\224e[\227.\337{\220\354\321<\3065\256Z]\227n>\013\332.\020W:\034_\336\272\016\356\261\2619\302dL(\r\236\3369c\213#\341F\207uo\362\357{\320\255\270a\361\016\365\330r\300Y\345q\211=\326\030\317C\014\\a\217\275\376\277H\343F\351w\327\373j\222\023\313E\356\207z\215v\030\354\353Er\371\237OU\232\010\342\333\364\274d\252\374\306\030\230\333\340\357\372Y\231\370\\\243 \306\225\006:\266\312\337\003\217\366\377\016\177\345\376\366\030\377N;\211#\330\363\250\r\275\354'\2246\371r\266\003\2643\362n\252\257\251O\324!\272Wp\016Ru\335\010\260\036\330\351\331\0240~-T#\226Wct?D\217\251\217\236\303\033_k\243k{m\323=\266Q\3008\277\322\272\013\361\003/`9\354.\034:.\340\261\356}\212=\325e\222\245\354B1\256o%\207\035\200\343#\226\315\217\372\325\367\031-!t\235/\312\342(\024\240[\244R+\216\245\355\337\r\300\343\027\355\217\314\2637\245\271\275\230m\273*\210\322\210\251\\Z\334D\221\364\331\341\306\362Y\225\273\217a\330`Hq\3357\250\n)E\330\224\356P\307\331+\231\311F\243\207\r\213\352E\256\316\357f\225\212\261\n\213+P\274\032\256(]5v=\2471\267,\301\316a\244cf\373_r\204\317tK%\244\233o\307\304\305PA(FQ\243\247\017\010\210\321\270gE\n\002\207\307yJ\315?\304\005\306\257\360\022 \013\334o\210\025\315\006\311\267\333\375\336\207B'\347\216{\357\276\212\241I\251\317Vb\0338\331\337\217KB\305\277e\315\234Tj-\326\352*\230\206Q\326\271@\260\347x\0234\326Y0d\236\353\250t\266\266\364zU\271*|Q,\r`\353\334\246f\347\315kp\243ewna\367\251d\232\257\322\315)\344\347\323]\r\027e~\035:\371=\203\353\300l\355\231\2477:\327\rx\351\210\346\213T\241`\223\321b\340\362\010\344w\213\306\262x(\356;\347\227v\241~\235t\033\312\207\340cJ'\273 \210\204*op\206\310Ybc\274\027r\025\333N>E\371\342o\002\340\240\302\250\253\222\251DO\222\215m\256\346`3\335\020\351\235R\240\375\016\206\246\276i\233\233\235\3750\025J\227\243$\275\237\225h\0061.'B\317R\022yi/""\270T(\311NS\375\241\t\rg\246\257\254\266\032\373d\267\213\204\331y\031\021\"\364\0358\363\033\300H\0262D\t\271@\222\310n\r\331,\3350\2223X\364*W\252\273\371N\204}\217\243\3111a\024\227\242g&%\205:}\352Z\352Y\212\0138aS?S\024j\212\205c\307\335\314m\312\003}\0265\367\t\255)\376\300\200\024\001@\242\020\025\023\204\207\366\316\203\222W\202\355\025F\232\031\374\376t0\364q\313\217\273\243\302\374\377\236b\255\273`X9-\253g\313\304\333\247\372\360\300\327\207O\372b\325\n\224\013e\332%\032\325\276\237=-[\373[\035g\366\266\267\215R\230\024\330\247\365b{\335s\006(M\230R\370&-O\326\353\355\326@\351\021\235[\2637\217\303T\253-\377\205^\335\356T\367+\002\013\002\313\240|x\330\230\266\355\344di\036\\\030+\375\315\352X\001\265\317+$\033o\364\3113\0039\232\027\310\210fs&\r\000\221H\202\000\236@\241c\262\361\361\343\030\200,\001\217\346\001\350\346\300\331Y\324\262>\334\017\324\275Qg\266$k\376\031\302\304\274\266\333\027*DI\276\310\"\022\330\2121\r^\264\205\221-5\237\005\371\225\377\361\350\276\264\031\304\014\360\247\031\304a\251\246\257\253\327\206\0347\351\033\314\301j\216.\013\370\000\031\244`n\343G\3138\323\001X\256\323\267\213\334\034\216\204\330\360\354\255\177\331\013[\272\226\212\250\213;J\021\245$\255\003A\231`\261\030\203\r%\0347\364\307\364\260>\007\255\317\354\225\237O\342\270\237m\345\345\360\315r{\232Od8\1774\351\035\230mJJ\337X\210K2D#\030\301\016\2016\007B\331\362\3236a\261E]+l\357\237\037/\177\231\200\371\3757\353\260*h\317\372\263\354\245!\024\025\020yV\201^\371B&j`:\263\362\365\3616\360\361\262K!4\276\\\t\232\0174\251\362i\245\n|\367\004\372\354q'\005\017(&\204\024,R\362\354\032\255\0176J\224p\214\035\254U\026\235\002\366\201\246'@3\350\332\317\\\324u\002\302\330,4\022h\250\023w\032PNW\306n*\000J1\262\022\201\267\224\031\016*@\230\300!\3777\224~|\262\312\231\030\341i_\263\222\257\032K\r\370\004\\\221e\024\240\214R\2032,X\220\033\267\237\217,\212\2028\006\026<\\;\375\205\237\263)\353*oZ\262\337m\356\3637yY\253 \031\306\226\202h|-\360]z\245\213JY\232^\325&^\215""\243\002C\336\313\205k\037\014\225c \222\215\344;\314\273RuJL\366\005\023\212\366\314\225p\273\t\2112\330?\337\266e\314\222I88.CY\233R\302SG\277#\332\301$\315\311\231o\033_=\361\313\307l\266\266;\252\276\357\016\2241-?\014yE\347|\027\235\273p\031\362\323\263\363\21023\220\263\313Ksj\206\352\312\365\034K\305\263\023,\304\315>,\2439k\223m\013\304\201\206%g\242\263p\361\205[\365\263\213\230\n\252\031z\231F\304\327\207\233{\352\326\302x6\023sUff\207\215\315\357A{yK\210h\263\271vU\273\334\335m(\340\246&$DDrh\356\223^\206W\252{\320w\327C\303\301\360\355fx\025\205\220\274\351saW+\211,!D,\304K\rKg}\2053T\2308 \266W\360.E\354\275\234\010\275.e\235\226*\261\323ww\352\360\326\267='}\217\224\006y$*\337\n\334p;\266\356\344\323\355\352\355\341\331\266\321\004\236\262\253\271\346\350\037;\357\261.z{\343-\n\023V\020Wx+o{F\014\346g\356m\3669\367\227\204_*m\335\230\366<J\252d\250\302\010\343OP<\373N[\272\321\333\367\344\205-\3311\t\374\357{\351cnm\027\365\364\032:Y\331\224]\246\347\334\314&\223_R2\350GP|\363\363\261 \021\347\322\271+b&k\202\022I\220\222\034\300\376\223\032P\245\001\311J}\331\214u \213D\020\214\202\301h\017\271\333\013\022\263\225\005\016\210L\344\3117\273`\214e\033\353rqHaG\255\240\014)\361\242\334\\Q\234 \313<\256\207\234Cc\034\270\253i\222{\301\316\0348\203\332\017\032\r\0109\371A\274]\352[kv\333\251\266t;\277D,\2026\036\002M%\341\370\216ru\026\360\346uX\302O\033\325Sa\367\220B<c\031\212\245\"\270\361\342a\327G\350\326\311\204\350\225\350\320\313\247\035\255tq\212\212\034B\336\207\334\354\266\316\032\331\267\302\266uHU\224\304T\253!\324<\321\215\361\002\266:\342\3426\362\315\263\274*\340\356\362\342\360\273 \313o\005\364\r\327\202\020\271T\026=^\233\2124\032d\257\033\251\025\2057B\235\333\000\240\275\202\204f,V\246\313\215\312a#C\017\271!+`\230\233\207\002\310\343 0\244\334g\240\256\3106\rD\0257FS\232X\201\274\367748o\332m\250\340\320Rc\214izK\rL\006\\\210\272\270\033\202\305\002\300\231\261\336G\000\246\025\332\303h\327S\312\006uR\026\264\334\352\000\244T\210\204""\224A\002\006@\272\005\225\036\210F\255]\235\034\t+\311\325(i+\357H\256\214\251\254\305\327\221\026\263j\031(\306\206T\331\263TfR\305\020\276\366\0201\203\324{gt\355MQRxe\225\202\262\316\004\205T\311gG\246u(Jh\255\033\327\006)\301\266M\215N]1\274\3562\206bn\002\200]\246Y\321%\234g\022\341/=a\254\030X\222\356\273\252(\240\250\201$\337J\000\271\214Z\353J\2539j\372\337\211\215\323c&\002\311\242\267\306LD\260\271\250b\033\014\220`w\0279Y\252\034\226\252\"\275\236\276\277\017\276\337\323\200\260\365\036\256\357\315\313\202\305\"\006/@\327h\265\324\3649]\204\034T1v\372*r\017\222\206a\222,[)\346\341\367\216r\210\210\002\2576\212\000\325\223\013\311@\241D\307:\220\302AU\005@Y\017k\306\373pS<\355\363\342q\223N\274e\241\032\203\347\236\263\311\346\214\322Rr\"\350F5\206&\275\246\333\367\351\006\251U\255\352\007\277\363{\272\266.`\273c\201,\0338T\340{i\260\245\207}\244\\J\310|\275\231\024\263\262\212_AH\030^F\350d\007\327\310\340\274\222\\x\257%\370w\343\242i\371G\277\000\260\031X\357\362{mX\031\013\202e\232\037=\2315\214\355f\211=\337\237\350\271 cr;\n\t\006\tTDB\201c \256:\324\241\260\241\362\034C\207}C\261\235q\317\330g\357V\252\357\267E\361\024\243\016\032\207\315Y\360\255}\224L\320\031@o,R<N{\026\rt\036(\355\310\002\000\024\030L\324\352\223s\204\204\372\224\212C\224\3545\321%nx\206R\212\266m\351\201e#\004#_\223t\"7\315\373\253j\rbY>lP\316B\033M\206\002\310\260PQ\030)\026 \"H\261\006\017\022\311\220;\241\213\016\3765\320\224N\344\226\235\325\016r|\246\312n\2304\003VU\3360\233\263\206\270\330\224#`z\270w}g\321H\356F\211\230\336\315\230\032\032\373\330wN\217\261\232\224\350Ya\212\2403$Z\025\247\262\\\304A\204\0357\005\342\211:\225\344\rZ\244Q7^d\177\347x\270\237\265\264\345y\354\364j%9\tl\331)L/K\3337\303\215\303\226Z\"\345w\234\326\343\005\302<\222/\013\rHb\301zX\227\261\232T\254\342b\004 \320\021\322\341~\265\251\226\327#!\226(H,Z`J\252\201\005\222u\235\214\337\023vI\324\036\272\255/I\010\326\024\261\223\235\332\245\204\033\214\264\225\213\2264i\202@\362]y6\332\032m\267""\347\220\032\013{3\270\301\t!\033C@\250\345h,\300\270\320\231tA\002$\254\010\324Ul\035\235\244\276\343\260\200\311\210\035\235\220B\266\315&\254\212Ta\026QR\322\034\014b\\\241*\333)\227\013J\304\243\025R\301 `J \317\210{\222Rt\235C6 \274\331\323:\350\214\202R_\250\321\256\273\353q\\{\204\231CB)\214\\\201\275\346\346\014\324\206#\023`\014\223Y\024\240\na\327Q#'\324\236F\225\222\221\335\316\266\3136k6\2167EkU\014\264T\252\222#\3348\300_Y$N\261\025\204;\304\223\312f\203\003\220\nE,,\355\305\311\276\260\206a\204*m\277~\230\311\247~\001\031D\t-w\r\311b\003\0171\213\227\272\034Hd\014\303\332\205\324H\242\213\246\362\346\221\233=\314>\274\264\224c\364\242\005\221\210\226H.\007>2n`\263\323\275\232\220h\211\260\355{X]T\2152Tq\2030\2504\210f\3153\224)\244\"\030\020[\366\260\337\260\373\372\321\355\346{\271\234\272\204\036\277f\371AH\330\204JZ$\036@n;\0132Z\361:\317\254\254%\2366x\231.a\335@\352\002\360\325\010\241{D\204\240\306\362V\230J\325\"\030\231\313\226\017\035\2158\232\035v\002`\206B\244\224\023)\tD\320\320\247\000\354o\3500L!\241\003\261\221H\022,\030\212Il\250\204\"2H\214\222D@\206\274\365$<\260\326%.\303\263*\227\205\263Kp0\317\002\354\242\271\206WoM4\301\214m\264\256n\223\3178\010\226\035\007\200\014\225\312C\231\023\307\273\204\242:4\003\266y\314\251\244\004\345e\274\t!\270\031T\201\206O\004\024\346\230H\262E\201)\361\367<\337\037\234<\347n\320\236B\253\270\364\224\322\201\340\330\302B\235%\203\247\321y\271\245\350\001\254\013\003)qy\006\326P-`\304\276\021\221}\201\264t)\014\372\255|\210\271\026\343\005\342\311\342\014m+\247wtYX(\232\003\030$\257\257\346B\r\200\334a\200MV\314\203$B\230p\322\211L\t\313\236\367\2661\257\225\204\316(,I\tLX \001\260H\323\251U.\262\231`\006L\320b\030\326,\306\222\211GFL\2463p\260z\225L\220\361\357\373\177\213\355<\267\327#\376>\276P<#\014G\223\2050{\203\264\003\361%\355A\360? \276\333Y\332\275SK\233\035\314n\3374\027e\001\213\262Qnv\271\2077\277%\016K\022\036\375\227\360y\233\254\320ys+\013\005\001DD\303\204\266\017\216,R\237;\027\024""\205\001V\016\2600o\262\346\327{.\003\267\272O,\257\0264FSb\372C\324\316O\221\206\3546Y\356T1\303\021\240\367\334A\210s=\326\345_OQA\256eE\236\256X\307\000(\207C7!\201\023\340!\241Q1\000\312.D\222\001\3262B\035\251 \004\332\350\t4\014\210\212m\275\033\021YI\022$(\013Z\020+\306\200!\256\344\312,\325D]\252R40\256P\225b\003cD4e[\305\030\211\002f\006\321x\305\r'\177\323\354\366\366\230~E\324s\\8\354\327\2327\027\t\334\036rS\231\357\355\004wvD\273\031~\366\266\004K8\316\261h\225\233\321\355\220\370\316\030T\254at\335Ze\236\013N\222\021\245\021N\265\002\254\n\240\245!\226\255Jj\302\376\270\026\231`\003\005\206\365\252\260MHYJF-\004eDN\304EM\352\005D\2052^\265Pu:\367\336&&*w.\322@\340\204\213$2\247nto\205UP\030\361\2041\002\300\272\0140%\301\020\024\336\201\244c z\315\364I\010\265Q\232E\223{YP0\337\204\346\305+\024\300E$\213\211B3\335\0033\232\204\005j\035\353\264\"\025\030\316\324F\344H\266\337\236\257\002\311\020P\277\242\347u\242\333\244\337\224\232\360\243\215\233N\366a\333\253Y\302\320\202\323\313\274\373\000=i\327\362\353\332\370\320CU|\253a\377\272\223\005\340\317\013\306\226\225\237\0022q\362Y\206s;\0250c\220a&\017{\004\306.\275>4Z\351{\025\346\331f\231\241\274\334z\326\3543u\360:\353\001A+z\250W\366\314\260\313\262\226\000\210hgs\206v_*\233\007l\221L\264\362\344P2\304\264%\332\030\004\017\240\240\246\300\234\010\324\301p\233&Fh<\330\264~\254p\273\007\226,m\326\n\2219\350\025,\202V\266\270\365\272))]\r\264.\030@\310\311\021\004C\217\001\324\336\331\253\005\017RD`R,\226^\334\016\262\0242N,.F%\227\323\005\274\304\342n\007\340!\016P\034\202<\371\216\266\342\034\241:\364\242P\225R\0242E\004EPX!\022d\300a\rr-WL\224\300\303\251|[.+o\r\241(y\2253\263\256\364\010\265^\254\313t\331\207\221\234\230\023\272\342\355\\DA\241[h\202\366>/J\013\255(%\361\347d\232\245\211\204\244\001KqE\030\325\2515\004\002\264(\014\346\211\r\035q@e\221#\002u\"\006\311X\243U\252\246\020\321\010\032\214\rFDE$c\213\240\tc\nIHf&\031\262\\a\024/\027dS\240\311i\036\345\334\222\364\210{g\364\375u\236""\356\356\340\372;\201\275\331\260i=\373\234#\336(\237\225v2\203})\035\245\307@{\331\007{:j\204\213\013\265\030\241\364\265&(\200W\036\362\263\314I\211\244\200G&\222\022\010\030\200\226\242\023\330hB1gs\006\3227\233\357\277D\024b\271\357\337~(H\242]\307o\265\363\346s\320\35211]G\003\273\301uqgA&\353\313\210\302\032F\311\240\200\250\013%H\216\205*2\247\035\373^3\210\323\357}\307\335=\353\177\237\323\3537n3\354i\360\224\230\3128IQ-\243\226\322\375\032\307\177\024Ce\265\216>\301F\212 \340\277\257\215\333\357}Z\026\2551\230\327}\255,\254Z\265\204\013:\303<{'D4p\022G\031\346\333J\303G\317\226\207r\r\020]\361>\225\237\217d\372\240\035S\352\251\257\233\032\243:m[kB\303?Q+\334\031{\300\304k\335l\331>\t,3\017\226I(\314\332\276\320\253\n\035\361&\004 !\366\366\360\336rB4\355\022F\315z<\355\025\314\323\237P\246NS\333\326$\347\233\324*\266\276\345M\204\333\205?\231]\030\355]G\221\236s\322\320\202>\364\366\263=\271O\256\257\353\353\322\267\321\263\326\353fe\352^\355/\366\377+H\242\275\245k\241F\300ej\261\031Sg\331o'\347k\265\243f\255\275\037\013\246!}\334Z,H\365M\372H\231\223};0\2632h\277\260\024\241Y\204\225\276\270\365\357\241\2562\355\237\206\316x\341y\026\265\345\276\014\262\250P\246V\030\221K\345\201\260\013\2610/x\020\307\245\007F\315\276\326%\223\033OU\243<\313\236BGL\372\317,* hn\204U]\341\257\273\207P\nn\3348\026\305\013Q\273\0050\252\027\354}\0344jz\243\253O\314\355\275\333{\370\334N\366L\032\343[\303\357.\373+\206\030\341\323Mz\345\243g\272\266\231\017\306aY9\226\025\021\220uh\020F\230\265\322\370\374oe\271V\357\343x\2366(r\274\236\342!u\264j\026\212,\231\tZ\261E\300\301j\r=H}\337\263\332{.O'mz2\326\314\307\013\354\304\262\3529$\225\317\224\222\026\21276\t\324\273\234M\244\270\312\2656\\d>o~\303}\212\005\313\245\250\277(2(Ib\222\006\310s\245\000\305\261\246\001\337\346\331\201\277\235\202]\322\343\307\234\016o\0146=\033\332z\027\214\364RV\n\250\206\345*<.\233\314~yA\203I\265\244F\212\323\243(g\01600\276\245\242\324\345\275\315\253b\330N\253\030<@\330UP\264\263\350\331""\371(\020\350 \303\310(\232U\2304\301\214T\352\326\351\306\350\344\255\032\230l%\240\013\r6\324\270?\213\312Z\307\n\241WT\216\010e\014\276J\273\357@H%\300\264\367\360\207\rklP+\310\256\004\0100\315wS\n\244\252\252\003R\302\021Z\006y\267L\013\212\035\233\254\342S\003\242\022Il\332\300\241\304\354l\027a\2423y\024\245P8\354\323\345\026r\314\207\004U\336\350\264U]\200,\303n*\242d`\324\303i\212\245\345T\235qUT\351w\354\026s5\300\235\224\263t\261\302\022\304\320\210\024\003\"\221\205\364\2246\232\273\010y\337},\014\217\317}0\006\333\027u\267;UY8*o\325UZ\324\274\035o\006\243\273K\347a\311\010i\030,y\2547\014\024\262\267yW\230V\027w\032\204*\026\216\027\263`\344\303\026Es\021P[,@Y\273oe\206R\233\345\2637\003T\310d\266\306]T\342\003f\305\236\271\361\340]\027\366\345\207?\2634\221\211\016\177\024\235\304F\014|\305\306\321rHod\267\320u\007\177\241\200&.p\3402\217YL\216\023\240\262\372\325F/\320\037\037KVL=\272\003Q\250X\007\r\326\341\003\201\275\320{\307\360\004\013\222\302\254\275f\n1\031h&Y\2569+\252\342\312@\016\271\272t\213\210z\254\263^P\177Z\334\222\005\024v\221\221\304\"T\246\211 \021\230\270\270\262%\231vv\265\3243-*Q\323\342l\312.\000\310\303\362\270&\003\275\032\201KgWl\031c\nB\243;\222H\245\r\355\316f\373\005(\262-\014\366\265\334\257\002\325G\t\223\010\314{\006\253\273\261\317\025\311Dry\254v[\320\256[z\202\"\023\212\231\325\364.I\010\303M\237\310\222N*\260a\262\2639U \302\303\205\206\315\247c\2627}\213\365\314OG\017\0031\212c\253\002\016\205\340p\374\362\276)\242L\240\377n\024\220\326\013\315\207F\346\264C\334\275W`\326\205v\033QZ=\205\204s\013\304\r_k\r/\272l\313\356\010S\365\342\257\223\243.\214\307\3645^\302\301a\264\307\267\351?\211\221\247\203\350\273uT\254\030\262]\337\255\323\271\320\342\237x\214q\342f\343t\215\313D\232\313\322\355s\234'\346c\247i\246\305\314\304\210\331,8\242\374,\371gE\014\030D\315\245\276q\035\243\213\233\241\261\247,\312By\300\306\006\241\020\247\027VR\241?\305\272+\023t\374\247OY\331\302\016S\363\253\036\344r.\024[\304VH\353\276\305""\240\374\244\253\224\204|\325#&\274\253\202\367|\017?ZF\347\235\303\272q\036\2163d\334X\005\364\360\243\207\202=\305\374Ls\335v\353\000(q;$/\211O&I\2770\370\320\336\237\010\262X\024\013$\3360\306\022\367\005\243\226\301\352~:E:9\035j.\200\202D\343UO\017\253A\004?\004K{\342\000\375|\234\371\323\246N\265\310\030N\242\035\"E\256\215\331IuD\212\261%<n\350\310yu\020H\351\276\267\253\312O\266zhPG\210\007\211\341\345\030\037\256\303\264c\347eOG\216<0\024\231,\375~\307\\KT\3142%;hb\027\031\"a*CR\016O\034\231\311FaP*\252x\016\375Ckj\335\367\372L\030\206\222\320kU\177g\205;kd\313NXD\350M\300\250\304\260\264\215\001\356\275\335]PT\331\303\222\010)\364m/\202\020\t\222!Ab\205.\221\221\030L\334\202\351\317)\272\335+\243\247\314\231\363\360\351\350\371\377\366\326Z\024}m\373b\013\213\371\360.\265\253V\374\210.\306\322\360\373nWr\306\362\255]\217\211\247WNy\206\220\000)\347\365+\223\342B\223\233\255\213\200\301gx\214\312\222\267\232p\253\222\230Z\034\337\014\027)e$\222I\240\253\303\034\rS%\340j\340\221W\026\300\244\245\351\010\275\210\330\332\032>\007\302\n$\322\300\306\206\241~\373,\0265.3\331e\377\241\346\321\016\0244\350B\221\244\"Y\013\243+\327\257\014i\202\220\276\030\307{\221\202\025\221)X\252\236\361\2008\201\006/\336\243\205\376)\201x\255\361\362\233\177u#K\242\367\226\204vG\033\220\266$6\000\322ZP\306v\357\214\221E\351\330~\250\326\200_e<L\212a\307\037DV\201\374>\322\3018%\252M\2102\217a\016\010\303N.'q\033\350vjZ\003\"e\276\275f[\253\225B\2019w\3475\331\277\202\276\270\372:\266\315*\347OY\300\366}\007\013\360i\276K\035\t\034O&e\ng\003\242\206\370.\265\343\354\340G\027\334\032\224\255\334)\222:c\236\031eJg\240\321\267\256IR6\260/ \2115&Q\020\022\253\021\016\0321\302\2618OB]\013h\032_\027fu;E\3219\306E0l\374\315L\270\375\026\363\370\013\332}\036<\320~~\007~\210h\331\225\307qF\r\234\221\320\307v\336\026\371\036\214\250\370{:oU\017\203\r\206\035gf\020\376.\325\276\0022\341\200e;?T:\321\326u\252\344.,\033l\272g\221\234\300b\366\323eg\323\251\036\026\223\223\306\343,\234o>\316w""e\263d\020\225\353x-\346\377\243\201\351g\006\336\241\231\305\215\246\303pPJ\026\216\301j\036t\265\017\341T\030\325\232\021K\310\002\211\t\201,\344a7\032}^\233\272\037\207\264\216\324\261#IMG\247\332\353\016\247\316\316\3572\210\247g\241\031\3223?+lo,\313p\231_\200}\350\360E\210m\220R<}j\352})p\224I\317\325\357\323\265w\261[\303WrP{\343\2170\261$\247gn\352\331\17780X\310\356\263D\371h'\201\236\035\023\007\025\027vJUb\274t\016\022\036N\275\017\020\363\007p(\213\276\245\345\026+\304\272O\250\324YR\031\032\025\327\2269\324\r\301'\325\272\353\213n/W\256\214hu:%\026'\026\254t\250V2\006\245\250\017-\211\210\r\013.-\214\206\202E0\367\373\253\332\275gA,\020\233\301\322A\243-?\031\226h;\353`\303\201\327\225x\357k\230\234\304\204\236\233E\005\222-\3710\003!\241#\010`\313\256zR\351\333\nQT\340\207\225\353\267\357\010\362\251\216\323\023v\306bk\037{\251\3671\027\017#\360\204q\177\316\277\325\277oHh\272*\226\246\366\215\034\275\302\017\301\320\320\344\230K\334\351\324\025\230!\220R\231w@\325\210\230\352\362\357\247E\343e\320\335\330\2244\325\213\027jS0\270m\2644\\2Q\276\202\3012\276\274\025\203f8,\212T\302\006\222\300\263FDGO\306\264\272\025\311\355=x\0303(\324\213\023\024\n\252\261(\266\214\025x\301\353\272\303)\204YBdm\243\3624/\"\310\202\354\267\273QsH\302&\344Q((K`7BH\010?K%t@M\004\020X\261\024l\033\324\202Yvr\\\246\325R\320\210\362s\024\327\000`74\220\371{\315^\032t\341-T\025\210\257\036\374\360\035\355+\322x\350AZ\010Y\265\023\014&\016\016\245\025\325\213\273\274\375V\310\017\265\371=\214\305\372X\233 \2277Iuj\333\205\310\235\341\277\226\025\021`\305(\277\267\331\332\332 #;\314\220F\237\017\323\342,\037\267\312I\327`\265\241\274\314Ocd\021\244\220\r\003n\342\370D\021e\263\313\356F\352]\211\367\233g\026\005H.\310{\3352|\317bFA#\022t\204\234D\356f\201\333\217c\275\230m\n\013\026!\001aC\334g\027\211=\223\231\203\013\270d\324<\032\223 C\234\020\3306\205w\030\216\256F\023\270\3167x-\275\345\r\200l\352$\365\036\377\003\225\235\355#\241\2040!\254w\223O\207\275\354\320\245\327""\370b\367\347\317\255P\240\371\243\275(_mu\013\325\354\311\220\374\356\025\034oJ\\\204Q\232\247bG\033.@\262X\272\3276\275\225\\o\013*\017\216\202\200~BU\200\331\354)\001\3418\303\215\032gH\350\235\010p\004\201\2412\320\023D']\325\251\312g]\330N \225t]\324\247\343\301G\316\304\355\344\310\260b\304\211\020\202(0\017\224\322\243*\212\252\353a\341\023\333\373\030\334\371\237\020})\244\365G\315\350\310\315\326\262H\311\262:F\0104\004\307\345\337\013\037X;\031w$W\304\256\024'\210\233\017r\243x\364Q\034\210Z\342\004\304ZOM\001\316\320\250\316\210\010s\2607\210\234\304%r\263\014\031xE\"\236\0372\3049\n\344\216T\366\230\233\256\305c\261\201\36561Xk\223*\022B90\2103\333B\243\2546\020\240p\340dO\023\223\304n\301V\036\216\337<\261g9\231\344s!\006\223i\251\261\266]\016fhY\356\241S\357.\202\264\355\031y\274\233\316\210\n\320G!\352\366x\t\316kut\201\306\255\000)dp\344Z6ah\353\342\352\3661C\262\303\263\263\227\205\016}\006.a\rDJ\340c\000\245\337\222\035Z\214Q$\001\360\355\275{\\U\275\242\272\026\261\247\311\367\371\361\321\2016.a\320y\371e\3729\r%\245z'sC\245$\024=wE\260\367|\325\215}x\345\313Z\315d(<\016m&!\021\203q\n9\033\272*R\211\361\270\335\264\310\333\254\262Z;\356\222\363\034N;w\226\306\337j\201\327+\350m1\343\264\265a\341^\025\347N\244\216\204\261\366\371\236aCc\341\313\003\206K\235\373\225A\372\260zn\256d@T\017\363\257tG\270\265\351\356@3wp\364\301)\262\367\204\270\272\"y\002\310\034\270G*Z\026l\345!\301Qm\021\010\272\220AyKd\005\\|8,kV_(:\230\215p\251 \312\332\232\017\032\213\022P\221\271%\020k\302\006\000q@\302\014o\361f\240\0102\341sx\243H\252\213[:\031;'\324%\217\204\nJ\243\024\226T\003.\375\220\254\371\345q\\\007\273b\327,\013\244\305o\342m\316#73\016HU|\035{\311\310\003{\014\373;\366\353\217Fj\022\rA\2105h6\0247A\225\306\363KMF\225\237\305\221|;\2707t\264\2318\256\034\002\014\255\250\3445\246\273k\022\374\237\240f\313\014\266\271\316.\353\022Z\375xLr\240\026\034:\0069p\341@L\240:6\002\361|>\306<E\370y{\226\001C\325\323\327I_.:Q\341\331\342MB\262zC\370(lI\261\214\006&""\t\216%0\304[\270S\342\340\177{8\357;\217\267\343\357A\262T+\344\013B\351H\017a\320\003\240\314\311\255eZ\235\245\26325[\037\032jw\363\332\353r=\275;\220a\363b/\rcu7\320\350\347\\(\253\020\217\321x\027\034\254\354\362\177U+\204\265\230j\325j\351q\3426:\264\234$\310K(\252\016\002\013]\001\241S\026\2352\3273/\013\343.\020\210g\251\236}\304\021_\322\331u\002\310\203\250A\333\333\217\343hm_]F\273D\240\rE\235dlV+\3311\023\333\033'H\217\2222\353n\3460m\373\245\276I\261?o\313\267\320\034\216i\022yaI%!\3215\265\320\340\235\212\346\355\210\034\361\006\004\022A \177\0061\244\346\220\265@\037\211\376\351\366\303\364B~\324\025\200 |\224\037\236\226$#\336\205_\003\217\306\263\337e\003\013xG\370Y\016\356\353\370\342\241\367\247\010\017}\376\233\356\024\020\364\325!\201\371\031lV\014\374C\347\003\373\233\177E\321%\372~L\342\003\034\315\335\246;S\301\032W\\(ScgSo\356\372\243\277\002\272v\000(m\017\330\311\"\312\306\210\002R\200,`}\035\331\035\300\343\021\311\362\324Q\217\020\333\300A)a\255\201\255\322\342\021\2568u\247=:\027\007\305\265\203\276\256=9\270R\371\365>\261c\034\257\261\035\212\026\006 \221\202\375\362M\346\204`\2357\220\330\330w\360\365\271\347O\355Xe\204a =\235+\307\211/O\323\010t\376\301\277O\177\376z\360o|\347\326E\321\353\275\t\014!8\344x\342\021\216\374T\250\244%\311\276b\036\254/\177\013\371Q\371&\217\023\211\022I=\307\022\177\331\346\340\303\371\376\361\227\032p\240\3630\"\316\341\003\372\nu\001\335\300*\265\260\305\025\\\373\272\207\201\226=/h\177\2315\365@\325 \034\220\034\037\247\031\306\233\263\3379\016\332\354\372\235\334\225\224\260\235\363\310L\241\370\242y\3433\273\007\037'kc\346\312\354\300A\005*\211\365B\023\263\224\376\275\226\256\256\250qZ\301>S\344\356\375\374\356<\001\225q=\016c\265\356A\304\316\214\220\222\227\332q\361\277\203\242o\357\272\014\307\013\375\265+\016\233{\340\023as;\257\306\210z|+L\337\360\177s\202\030\023\006\016\007p\213\203\206UB\026\235\255\212m\233\253\255\374\335\037T\234\260g\177\254>\034:\315\327\302\333\275i?\007\014m~\177""\223\014\274X}8w\344\026\244\304T]\017,\205\255\352TLa$?\235x\351\364\230B\022]\024\234z\363f\377\220L\373\362\250\262\210\023\202\023K\305\266vr\014dQl\305?\201\214\037\006\377\307\307\007\303\2021\217\017/,\337$\307\311\343c\177\315\203\215;\252\366\261\00709o\360k\356\354\022\004l\223\307 \3046\242\ro\217Hnc\032\321c7\0246\264(\2461q\233\302\203/T\215!s\316\030hgM>\241(\204\0277\326\032\020 \007\220\020\003\367\324s\006\333\307\217\277F\235\035\027\257C\331\032\240\237\035\355y\237\237\227#O\225\307\271n\365\307]\344r}\343\r\356\"\371s\373h1\341]\342\362\334\360A\241\275\335\272\332,\\\335\006\305\203\261U\336%,\263\026\250^I\372!I\207\014\345D\223qu\234\263\262\017\207Ts\205\005y\330\205\353\337\\\331\321\357\3438*\177*\310\\\267\374\207W\002\367UnoM\270<=\257.\215\307\235\214y\336g\343=\361Im\312\347\315,\260;\301\330@\223\275\014\004~\233]\366\370\264\030\270\267*\036\3105t{em\377G\241\276/D\245\244\317X\023H\263\271v\n\215K<7[\r}\\`\320\010\323$S}\230aZ\264\340\364\212H\242\375H\202\203\371l\317iD\264\243\241\210\3352\343BX\217CK\276\030\037?\304\205m\375\327\205j\014\317\210\206\022\\\020:r\021\236\323\037\034\254{.\326\274\027[\263\335\352\001\357_^f\253\n\217V\2309hkHW\1773\325E\2473\247\\;\014\020\266f*\036,\007\336M\205?\247\002/8Tyr\303\236\026*\250\2524\340t.\022)\004c5+\210!\006F\000\213\263\026B+\013{\275-\002\320\031E\310\003\373\201\217\322e\220;sX\254\332=<\211\343\307\320u\276\353\224\350|\374{\204\201\327\321H9\224\n\327w\216\225`a\276\237\337\313\334@7\2733]n\240Z\013\202f\255\3541ck\270\270`\364Y\231u\326Rm\002j\007\311\224\t\246\316i\201\213[\001~1\213~5\345.3\227k\303U4\310\321\020\3530\356\245\327\344Q\261\376x\303/\205\351\034>qx\n\277\21726?-\337\253\214\354\372\245\nB\262\334\305J\273\261\351\352Q\331e\036\251\327\350kR?\374]\311\024\341BA#\370\241\270";
-    PyObject *data = __Pyx_DecompressString(cstring, 9785, 2);
+    #elif (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (9797 bytes) */
+const char* const cstring = "BZh91AY&SY?8\264\244\000\005\243\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\300@@@@@@@@@@@@\000@\000`+\332\276\365\333*\217;\314\r\266\024\323\247\337}\346\276\330\255\300\002\371\336v\336f\264l\262\330\322\245\350\321\"J\022\204\252\3665W\226E\355\313\202\202Uu\255\267\006\327\267\035\263\013v\006\007\241\275\251\275\030\000\001\320\r\262\250\246w;\241RJ\207\256\330\276\355|2\200\035+\347@\022\232\204\020L!\223B\030\247\246d\023\023SF\365404\310\211\351\351FSj~\251\342\233i\251\350\324L\236\217!OM#d\304i\222\003M\0024!\010\010\236\220j\215=M?T~\244d{T\364\324\321\372\246\365#\365 \036\232\206\232\006\200\000\000h\000\036\241\240\320i\246\210\210L\211\037\246\251\265=#CG\205\036Q\351\352\236\223\023G\250\310\007\250\375Q\2204\332\200\000\320\310422\033(\3654\3652\t5\022\004\t\211)\350\247\3552\2324SmS@l\215&jhh\000\320d\000\006\021\352dd2h\03244\3201\006\211F\220\001\220\032=@3H\000\r\r2zj=@\000\000\364\215\r\000\003 \323A\246\200\000\t\021\010\001\002h\010\311\220&)\202\236\322\232lT\365<5#\312=M\000\000\000h\000i\240h\000\000\355W\006+\271\250\351!9\257\226p\300s\031\326!lU6\271\263\013\305\242\331\267\376\024\326~\377,\203l\246\337H\022G\273\334{\375\377\307\275\240\321\000C\340\350\242=\362H$(\235\031\023\335\351\020U\\\022\023\0262\351\305#zW\251Q\220\260\024\026\366Cv\263\000\r~-cLw\326\250\316\223\345\340\205\024\272\223eE}\327\001\232\315\215\200\3306(\212\252\304@\213\005\021$R\010\242E\213\033\030\317N\033\261W\325[4\013\262\253<\313\263\322\302\321}\275\"}\320\326\370\206\310\371\265x\317W%\332\337w\036\rJ\206{\027\254\014\367\227\2708(\020\220\206\022a \010\244\005$Y\005\220\026n\225U\021VD4\220\270H.\352\201\025,\272\310\033D1\260P\026T\306\344\214z\312\236\260Y\205\350\317*\375\006X\230v*\006\212\250Y!\260c\006\322g\2503\230\334\305\222E\206\360\030\n0Pw\347\242\222\"H|\025\245X\302\347\256W1\353)\033\203dl\274\307\215f\372U\331\236\312\226\245`z\225TT\215\335\230i5\0310\266\312\273\272\266\207\244\337\321:\365\345\325&a""\037\254X\271\026\242Z\215rw\312\206\325\372E\037\2773\226I.C\023\032\033\315\r3J]\311\0134q8h%\307\215E\365\031,\270\342\270\315\263\342\276`G\003~),yd\027\3401\023\001\n\0320ZE\030+\375:\024Fl\\\312\267.]\336~C\267D\363\030\326\271iv]\270\367\252\321A\005\371\334q^zA\337\3306'8L\211\205\001\263\335\307,q`\037\n4;\357\277\330\336\252\342\373p\303\340\036%\330r\300\351\2228\274\231a\2061\320\303\025\330c\364\177\257\3228\311\260X\365\3779\304d\311'=\320\336\235\276av\212u\037\334\347}\271y@\216\035?[\005\371\236\240\266\342\035\216\026\036\275\354\313j\355|]w\220\206jN\270\2206\372\271\237\276\345E\317\347\007pI\034\250\245\351\n\375\265\024\313\225~\354\027\250\030\202\216M\327{\375{\277X\206\352]\3009I\327|\"\300{c\253dP\301\370\265\356#\226WcH~\241\037_\037A\2066\255\251\033[\333n\251\356\262\216\001\305}ZA\\@\313\330\016{\n\016\035\027pX\367\276\305\036\225e\222\362\366!\030\337\233\311a\307h8\310\345\263c\376\265[\214\226\220\272N\247\345B.\n\\\026\352\027Eq\326\275\333\341\270\034b\273\243\351\331\233\312\334\336\3146\335\225DiD^W\026\267\021$|l\360\343y,\312\335\347\264\3540$8\357\232\274\005\027QLJw\250c\352\225\314\344\243\\\341\303b\265\"\324\317\010U\237R\224AEa\346\231A\234\342m\203;\245\362\271\215I%\014\366\03264\254\265\227(J\367\222\211N\356\222[\027\020\231\016\035\331\3149\223\254\312\326f\324\250\300\322$\010\036\232\224\276n\377\000\0245^\361\"\000\252\033\342\005\371\240\3316\373\357\301\320\350\211\372\003\236\373\320\236R\t\355Be)Hi_\343{z9\0259\\\32761E\2476\307QQ\2740\315\212\363J\216v\372f\226\253&\014#\264\351\275\035=L\236\215;\264~\250\212\203T6k\3201q\345\255\252N\252\276\232\366\373s\360\214\347\345\342\2240\261\350.\206K\260\375\235;\334.\271\371Z4\265\014S\235\215[n\366,\301\034\341g\023j\021\371\252W\036A\027]\303\341X[S\265]\367\311\255D\263B\365\006\272\233\354/\344\023\335\202D!\n\203\334 \231\013,Lx\201w!]\264\343\326\277@M@\240PaT^\211T\271\023\214\341\271Mc\022\321\216\350\203\246uJ#\362:\031\2728\246..7\331h\244Q\312\2129;""\037j\310\013\362K\316\205^\244#\374g\257\370)\263\243\241!\374!\t\rW\246\254\256[\re\260\233\207l\322y\024h\241\364T\246\363\022\264@\0240C\010\253\260\202\210I\215o\321)A\335\314L\354*7\264\227s\r\320\213\231\376|r\225\021=y\245rbHP\241\275?EI)5c\014*\007\300\276\032t\354[\267~\375\336:,q\376\2705y\257\277^\\a\202\230S)\263\030\247\340v\264>*E\025\213\346\313Z\032hg\362\373(a\346\345\227/\177G\205\371\377,\305[~\301`\346\267-\275\334\215\332\177\247\014\rx\364\362:\264\3323NQbq:\235?'$\374\353:}-\207\356\351\353\231\305\000(1C\313y\333\331-_\004\270\204\376\364\245i\233\033:\224\320:4cS\354K\341\340\244R\222\317\367YZ\337E\036\3150AP\\\271\247\327\177y8\232m\333\326\210\213\256\3329x\232\340\025\250\210F`*\312CI2\000\220D\316\350$\014\021 \230]\005ST\210\030\370\346Fo\331\275\376\354\336@\314\031\376\320\177\323\214>\315q\t\221\350\241\351\272:k\222\260)\376zT\300\270\236R,\216\252\303\244\240\n\250\234!F!\253\326\220\262%\246\263\342\277:\277\376=\027\326\2039\001\236\024\3458\21454\325\365z\260\303\217\r#\201\230-Q\311\301\177\020\0034\214\r\374\250\371\347\032`+\031s:oz\207\003\2215<]\225\247\374\241kwR\321U\021gB\204t\244\225\240h3,\026#\020a\244\243\217\016\230\376v\007\304\3659\376\321Y\364~+\211\321\260i\037~\315\013t4\323\020\341j\017\030d\217&\242\255\324\004A\255\204\210\230\230!\340k\371u\013g\302L\254\303b\212\271\326\271m\227w\223\267\312\300{\374\327\350\260*Y\257\372\263\352\245!\024\025\020yV\201^\371B&j`:\263\362u\3627q\361\262K!4\275\330\0234\036iS\344\323J\024\371n\t\365X\344N\n\036PM\010(X\245\345\3305Z\036\306J\224q\214\035\254U\026\235\002\366\201\246'@8{\355l\364M\007@,-\202\3031&j\2016q\235\004\341{\326\002\240\004\243\033!(\033yA\220\342\244\t\214\002\037\362y\307\350\313+\261t\266\236\255\233\227\346\301\252\366\341\000\212\273\224\\\273\261\027!\3020(P\200\023O\321\317\302\342\020\216\342\213\234|\253\3755\347\376\356\255\364\226\031\276\224|7\236\256\233t\215\227p80\2765d>\026\367\251z\345\213JY\232^\327\223/sh\300\220\365e\302\265\217""\206J\261\220ISr\032\345\332aZ!\\\277\220\2518\2731r\266\026\247G.\314\017\307\355\231s$\222N\016\013\220\326f\324\260\224\321\361d{8$\231\242f[\311j\317\2129y6\313kc\272\253\356\360\351q\211i\364G\271\025;\340\274\355\335\200\317\226\235\237\234A\221\234\205\236ZZ6\2747^W\254\342^-\230\231f&n\370\262\214\345\250\233hTH\030bVz_4\0360\253]\214\342\214\005U\014\275l\243bo\341\343\336\265ka<\033\t\271\275\354\314\320\361\271\252\270^\356R\342\032,\356]\225i\350\322\332Q\301LLH\210\210\344\321\337&\376\323+\336\357W\016\372\350\360\360|;\231\236\005\360\273\226\341\331\344E\226\304\226\n \205\322\222\301\225\331\217]C\030\205`iB\331_\300\271\025e\355\340E]s,\354\261{\343\252\235\337\257\303Z\334\365\035\366>\344\006y$*\326\025\270\340w\355\337\311\247\333\3257\207n\333D\022{\n\256\347\233\240|\357\276Q.\212S[\227,\314\004\r\362\000\347\244\323\014\354\313\312\330\331\307\244~@y\345\274\276<\354\360\252I\222\235\010#q=@\344\323r\326\320\213S\273\034'\353GxL\344{\337>\377WL\263\243\220\321e\343bNvc\237_\020\226=\034\330\244\310\2134|\311\231\367\220\010\2769\365\344k\304\315\\BI2\023c\230\037\316cJ\024\2409)O\2631\216\244\021h\202\021\220X-\001\361\233abVY((rBe\221\2216\273`\214e\033iro\220C\017,\350\r\261\360\361:\032\030N\3327\360\337\245<*\224F\332\222K\022\220\016\341\303\210M\01044C\256\344\016H\321\344g\266~{r6\007\213\355t#\230#c\300I\244\274?\021\331'Qo\016\303\252\306\022x\336\252\233\017\270\202\021\343[\256*\224\212\343\273y\207L\337\265Z\246\023\222W\206fN{\365\265\315\303\252(q\013W\037\177\262\3338kf\336\205\263\252B\254\246\"\362\254\207P\363s\033\342\005\366:\342\204m\356f\331\336\025pwyqP\273 \313o\005\364\r/\004!s\010\261\351\364\\Q\240\323%x\335H\254)\272\024\357\330\n\013\326(Fb\305ji\030\352\326*\271\230\323V\305~\202\306\330\024\013\225\014\202K\326\246\\\034i\016!\240\202\246\310\312r\245\210\033O[c3v\335\rt\034\031\213\0268\306\227\244\260\324\300e\310\213\253\201\274,P,\t\233;\310\342\024\3029\020\3327\353y@\316\252B\337M\316\360\005\321R\"\022Q""\004\010\031\002\220E\240z!\032\265vtp$\257'T\241\244\257\275\"\2722\246\263\027^DZ\315\250d\243\032\031Sm\265Fe,Q\013\356a\003\030=G\272w\316\344\342\010K\225Z\212\021V\261\022\"\025I5z\326\342\006C\202,\357L\030\247\006\271\032\232\0349ci\324\311\014\242l\002\200]\246L\344\204c\214\342\\%O`k\006\026$\273\256\352\212.\025\020$\232\322\200(\306-I\264$\226)x\276\006,\3222@\t\222\202.\271!\003\020,QH\202\303\"\014\016\245\316\026h\207\005\252\210\257g\243\237\300\366[\373\360\026\036\223\323\347\374\374\370\254R b\363\rw\013]O3\225\332A\311C\027w\232\2470\371(f\031\"\305\262\236\307\017\274s\224D@\025y\264P\006\254\230^J\t\n&8\324\206\022\n\250*\002\310z\235\327\323\0053\275\2769\031\2377H\266#\200\325\\\330U\342\363\245\"\025\3429\204\027\371>d\365\375\356\200\363\216I\341\360\017\207\347\367\365l\273\001wG\022X6q\251\304\366\323b\226\035\366\221r+!\356\355\310\245\235\224R\372\n@\302\3627\303 >\236g\025\344\222\345\311y/\277\277\035\023O\312>\024\006\3205\024\343\317\320\342@\250J\031V\254~\323U.Moj\311<\377\253\341r@\306\304u\024\022\014\022\250\210\205\002\306A\267\035jP\330P\371\016A\307\276\241\332\316\270\354\365\231\374\025\252\273\355\321|E(\303\216\241\370+>\025\257\256\211\232\003(\r\345\212G\211\331\262\301\256\203\305\035\331\000P\002\203\t\225Ni67HO\301H\2448N\303L\322V\307pU\224U\263oL\013)\030!\032\374\233\341\021\302o\337[Pk\022\311\3662Rp\020\326j0\026E\202\202\210\301H\261\001\022E\2100w\226L\200\353\014Xv\357\256D\242uIi\326\241\242^\343jo\2304\003VU\3360\233\263\206\271X\224#`\364\361\363\375'\315H\3461\222b76\254\014\215\035{z\307\311\314\305Jb\027,/\224\006d\212\302\254\366K\342D\020\303\246\340\274Q'R\274\201\253T\212&\353\330G\376x\013\221\373{\216w\236\2776\242S\220\226\333JS\013\320\367M\360\343x\345\226\210\271]\354\232\334`\270\307\222E\341a\251\014X/C\022\365\263J\225\234L@\204\032\002:\\/\331\2652\346\330\310d\305\t\005\213L\tUP \262Ns\261\233b`\324\235A\352\252\322\364\220\215aK\0319\335\252XA\274\313IX\271cF\230$\017%\327\223m\241\246""\333~\314\200\320\\\031\235\306\010I\010\334\032\005G+Af\005\306\204\313\242\010\021%`F\242\253`\354\355&\272\035\204\006L@\354\354\202\025\256T\2322)Q\204YEKHn1\211r\204\253l\246\\-+\022\214UK\004\201\201 C>\260\367\244\244\351:\206l\202\363n\231\327Dd\022\222\375\373F\272\360\255\305q\3401U\205\204\331JJA\204\326U\n\302E\023L\274\002\242\271U\272\003\274\217k,\234\355\205\225\311\273G\361\3777\342K\301/_/\213\371\367\007\231\233sTG\250\343\001|\344\2219\304V\020\355\022O!\225\006\007 \nE,,\351\213\223m!\014\241\204*k\267nx\310\317\267\000\212\201\002R\336\001\200\244`4w\024\22580\310E@\252;\3210\222(\242\351\274\271\244f\317{\017\247-%\030\374\350\201db%\222\013\201\276\35160Y\346\332\315\0104D\324u\275l.\252F\231*8\301TT\032D3m3\224)\244\"\030\020[\366\360\341\261\367u\243\333\330{\373\016}B\017W\257\204\240\244l\204JZ$\036@o;K2Z\361:\317\244\254%\2366x\231.\300\363\320:\200\2745B(^\321!(1\274\225\246\022\265HE\025j\352\320\362\274\266E\215\327\200\250\"\241\t(\005V\"Q33)\300:\233x\030&\020\314\201\330\310\244\t\026\014E$\266TB\021\031$FI\" CN:\022\036H\\\231K\260\355\312\245\341l\322\336\0143\300\273(\256a\225\334\023M0c\032\251\\\\\347|\334\"Xr\035\3002W\t\016$N\356\273\245\021\315\240\035r\3432S8\t\302\313w\022C`2T\201\206O\022\nqL$Y\"\300\224\367z\336_o\274;\316\232\302x\312\256\247\230\246\224\0172\210Xc\3223\017K\277S\243'x\014\330\314\023\032\032\224sJ\005\254\030\227\3022/\2606\216\205!\237U\257\221\027\"\334\240\274Y<A\232Z3\245)E\026\212\264\263\014qm\307\354zj\215\003S\031\005\235\372J7\244)\206\354\350\224\300\2348\355z\343\032y\030L\261AbHJb\320\200\006\301#N\245T\272\312e\200\0313A\210cX\263\032J.\034\2312Lep\260y\225L\220\356\355\371\036\327\343\371/\236C\366=\034 x\243\n'\223\2050{\303\270\003\361%\355A\361?\030\277^\326v\257T\322\346\307s\033\246\243\204\203\200! \316\021\233\023A\225m\342@\274K\020\303E\005\247\236UeA\344\312V\026\n\002\210\211\207\tl\036\354X\245=\354\\b\245\006H9P\202\367h\263\324M\000\362\370Y\347\337\2517b\033\3573\\C\327g""\007\306\303f\032\254\365\252\030\335\210\320{. \3048\236v\344N\276\222\002\352\250M\257Nt\246 @\215J\312E\0063\334\"\304&b\001\222.BI\000\347\031!\016\211 \004\326\350\t3\n\210\212n\275\033\"\262\222$HP\026\264 W\215\000C^t\314L\252\242.\265)\032\030W\010J\261\001\261\242\031\262\255\336\307\021 L\300\332/\030\241\244\357\371\375~\336\343\017\306\272\216\305\307\226\332\366#ypC@\363\222\234\317\213\270\021\337\333\022\354e\374Ml\010\226q\235b\321+5s\335!\361\232\250\020\265f\264>uI\267pT\033:\007\361\"\204\205\t\000#\"\002&\265)\253\013\372\340Ze\200\014\026\034\026\252\3015!e)\030\264\021\225\021}\210\212\233T\n\211\nd\275*\240\350s\355\274LLT\352\272\311\003r\022,\220\311N\231f\336\352\252\2401\335\010b\005\201t\024p%\305\020\024\340\201\244c z\216\024I\010\265Q\232E\223{\231P\303\240\211\245\234E\234HC\210\210r\251\002\3375\035)\244\010\213T\370M\241\020\250\306w\"7\242E\272\374\365x\026H\202\205\375\027;\255\026\337'\r\366i\272\215\366k;Y\207^me\205\241\005\247\207i\370\240z\023\237\355\327\251\355\240\2039}\253\244\376|\366\014\240\307\014\243/.\256\3720\2600\231\206s:\3710`\020a\264\036\272\n\224\230\360\355\202[\264\336Gu\355\253V\0075\224\367F\r\025\230\367\033Z\002\202V\257xW\366\314\260\313\262\226\000\210hgs\206v_r\363`\355\222.\313w\227\"\340\313\022\320\224\320\300 }\005\0056\004\340F\246\013\205\242\310\315\007\261\213G\351\307\013\260yb\306\335`\251\023\236\201R\310%kk\217a\242\222\225\314\3272\341\204\014\206H\210\"\033\367\016\206\326\315\030(z\351\021\201H\262Yz\3569\310P\3117\260\271\030\226_,\026\361\023y\260\037\244\2048@r\004x\361\035-\3048Bs\345D\241*\244(d\212\010\212\240\260B$\310\300a\r2\026\253\226E00\350^\366\313\212\333\273XJ\036%L\257wp@\213U\352\314\267\315\230y\031\311\201;\356.\325\304D\032\025\266\210/G{\312\202\353:\t{\370\331&\211ba)\000R\334QF4jM\001\000\254\312\003,\250\220\315\323\024\006L\211\030\023\231\0205J\305\032-U0\206h@\320`h2\")#\034]\000K\030RJC(\230f\251q\204P\274]\221NB[!\360'\204\223\325 \363\277\217\354e~\036""\036\001\370^\000\2758 \310\365\350\341\037\001D\373\227k(7\322\221\334\\t\007\301\220w\263\246\250H\260\273\221\212\037KRb\210\005q\360+=\202LM$\0029\264\220\220@\220\013eT{\016%Crx \262\035N\272\353\306\006\022h\365\353\256(H\242^s\273\332\373;\016\315\016\243\023\025\324q<\376\013\253\223:\t7\336\\F\020\3445L\304\005@Y*Ds)Q\2257\355\321\3377\215>\277\315\367\276\013\207\263\347\365\033\367\231\366\264\370\312Le\034$\250\226\341\313i~\235c\277\222\034\231i\340\017\250N\234\2108,\350\337\374\373\336\\\212\325\230\304k\037.^\035\365*b\005\215Q\236=8\210h\342$\216S\330\333J\303G\313\226\207\235\006\210.\372\317\235g\343\333>\230\006\251\365\352i\345\306\210\316Z\326\272P\260\313\360%z\303/h\030\215y\3335g\272K\014\303\335$\224fm_hU\205\016\370\223\002\020\020\373\273\270\3609\241\214\312\304qU\275\235\237\222\276,\311\231\245\002aCS@\217\3435\346\322m\035Z=$\332\245\017\271X\030\335\366S\306\316\363\314\320\202?{=L\247\253)\364U\373\225\346[\344\331\350t\263)z\023\203\245\376\337\343i\024W\264\255t(\330\031Z\254FT\333\352\267\223\366Z\355h\331\253gc\302\351\210_6-\026${\263]DL\311\255;0\2632h\277\250\024\270\276a%[\223\374\232\221g\203x\3630\331\360\320\t[j\234AEPH\nQ\\\241\010\245\362\300\330\005\330\230\025P!\217R\016\2336\373X\226Lm=v\214\363.y\t\035S\357\236XT@\320\335\021Uw\206\255\334:\200Sv\341\300\266.-sL\024\302\250_\225\355p\321\251\353\216\275?3\266\364\333\327\222\204\357d\301\277\032\336\037yw\331\\\263\033\271g\247<\2325z\326\263 \371L+#\211aQ\031\007F\201\0064\305\256\227\307\332\366\267:\335\374?\023\306\305\016w\223\347\"\027[F\241h\242\311\225%\253\024\\\014\026\240\323\314\207\346\372}\017M\310\361\364\257\014\232\325\230\334\260B\"\260PA6vj\010\n<\022\250\002\276+\234\352\210T]\231\030*2\037c\341\261\302\305\002\345\322\324_\224\031\024$\261I\003hs\245\000\305\260\241\000\357\362\354\300\327\260\301)\322\207\223\234\016o\0146=7\264\364^3\322\351|\025Q\r\311\221}\2735\306<\354\200QD%6U\331%\266!\306\224\255\n\274\tY~\336\206m}\213a:\354`\361\003a{""\334ZY\364l\374\224\010t\020a\344\024N\025S\006x1\212\234\332\3317\335\034\025\243C\r\204\264\001a\236\272\022\217\361z-7<b\010\214\357T\0310Lz\"5\326\360\260\335\002\353u\354\236-klP+\310\277\002\004\030f\247S\n\244\252\252\003ya\010\255\003<\333\252\005\013\216\335\326q)\201\322\022Il\332\300\241\304\354l\027a\2423R.\245P\301\331\237\244Y\303)\r\310\253\265\321h\252\272\200Y\206\334UD\310`\324\303i\212\245\341T\234\361UT\347w\357\2138\232`N\312Y\262fv\324\233\216%Q(\022\261[k\213\202\306i\265<5\327\031\202W\350k\214\001\256\245\335k\306\325VM\312\233sUV\264/\007;\301\240h\335}\206\034\220\206\221\202\307\232\303p\301K+x\212\274\302\260\247q\250B\242/x^\315\207&\030\262+\230\212\202\332\304\005\233\267\006Xe)\302[/\027\r\203~\304\354\006>Aq\001\2702\310\343\237@\353\256]c\036K)2#\037\245Na\022\350>\315q\264Q$7\252[\342u\007\177\213\000LQ\303\200\312=\362\231\034'B\313\357\252\214W@\370\372\272\262a\355\3205\315\341`\0347c\204\016\006\364\203\316\177\020@\242X^\313\330`\243\021\226\202e\232\207%u\\YH\001\3274\235B\204=\357\226j\224\037\326\264I\002\345\035\244dq\010\227\224\321$\0023\024(Y\022\314\273;Z\2243-\325.t\370\2332\212\000da\371P&\003\275\315\340]l\352\355\203h}\003\232RI\032\177\237\351\362\372\320\rB\021\336\021\223\277\342\350\343\277\205\005\n\006w\275\206\253\277\265\317%\315Dsy\254v\267\231\\\267u\004D'\0253\253\350\\\322\021\206\233~\324\222rU\203\r\2533\225R\014,8Xm\270\355vF\377\251~\243\023\315\307\300\314b\230\352\300\203\241x\034\177D\257\2554I\224\037\353\302\222\032\301y\261\321\275\255\020\367\257M\3305\241]\215\310\255\036\305\204v\005\342\006\257\265\206\227\3316e\367\004)\372qW\311\321\227Fc\371\232\257i`\260\332c\335\363\237\301\310\323\301\364]\276\252V\014Y/?\354\364\357t9'\336#\034y\031\270\337#r\321&\262\364\273\\\347\t\347!\323\032Yo\261/\"\033\t\207\023\237m\237$\304M\265lL\331w\016\261\272u\271\331\035,\311%V0\234\014`j\021\nque*\023\374+\242\2617O\270\351\353;x\301\316~Uc\336\216e\302\213x\212\311\035w\330\264\037\220\225r\220""\217\301R2k\312\270/\177\304\366z\2225{\360)E\265{\366\312\345\251pG\216\320mJ\263\325\037\253\035\372\306\235\000AB\332*\257\254\247\223$\341\230}t8'\306,\226\005\002\3117\2141\204\275\341e\355\340{\257\307P\273\243\221\330\242\220\020H\234j\367x}Z\010!\370\"[\346\010\017\233\221\307\2159\344s\256\000\302s\020\345\022-rn\312K\252$V\322Jy]\321\220\362\352 \221\323\205oW\224\237l\364\320\240\217\020\017\023\303\3120>J\035\006=\354\251\341\335\217\026\002\223\"\317\233\330\351\211j\231C!)\326\305\021)\244\231FBE\302\035N\332\225\251\005Q\010\"!r\036\033\203sj\335\367\372\014\030\206\222\320kU\177o\205;\253d\313NXD\350M\300\234\204\260\264\215\001\346zuuAy\263\207$\020S\352Z_\004 \023$B\202\204\010\252\004;\332\225X\n\253\327Ui\211\260\342\320\thpqa\325\336-w(A\337\223\366\252\242\302\376>\241i\230\202~\310(\266%\215z,\226\355\305\304\024\266<\243n\376\355h\r\224\000S\330\367U\311\362\020\244\346\226\305\300`\263\274FeIZ\233\270U\311L-\3077\303\005\312YI$\222n\025xc\201\253\262T\rP$^\205\260^\251zB/b6m\r\037\023\343\005\022i`cCP\277\205\226\013\032\227\031\355e\377\241\346\321\016\0244\350B\221\244\"Y\013\243+\327\253\014i\202\220\275I\225\363C\010+\254E#\032\326xH\0379\004\227\361\207\205\377cE\345y?\3132\376\312F\227E\357-\010\355\216W!l\220\330\003IiC\031\335\3022E\027\243c\362\215h\005\366S\310\310\246\034\261\363Eh\037\300\356,\023\202Z\244\330\203(\365\220\340\2144\344\342w\221\302\207n\245\2402&[\353\326e\272\271T(\023\227~s]\270qW\327\0377V\351\245\\\351\3528\236\277\230\343~\r7\315c\241#\211\346\314\241L\340tP\341\005\326\274}\274H\344\374\341\251J\335\306\231#\246;0\313*S=\006\215\335rJ\221\265\201y\004I\2512\210\200\225X\210p\321\216\025\211\302z\022\350[\200\322\370\2733\251\332.\211\3162)\203g\347je\307\351\267\263\342/i\363x\366 \375\034N\375\020\321\266W\036r\214\0339\243\241\216\355\334m\362=\031Q\361\365\364\336\252\037\026\033\030u\235\270C\372\335\253|\004e\307\000\312v\374\241\326\216\263\255W!r`\333e\323<\314\346\003\027\272\233V}\032\221\341i9""\274n2\311\307\003\352\354\273-\266\202\022\275p\005\300\341\363q=\014\342\333\324391\264\330o\n\tB\321\330-C\331KP\374\325\0065f\204R\362\000\242B`K9\230M\306\237G\242\356\207\341\355#\271,H\322SQ\350\366\272\303\251\362\263\317\354(\212v\371\221\235#3\3626\306\362\314\267\031\225\367\207\334\217\004X\206\331\005#\307\324\256\247\316\227\031D\235\236\237\206\235\313\275\212\336\032\322\215\243\365\215\273\013\233ms\351\326'*v\216\256]\216\253\246\266\364f.\347m\251&\343z\213\263%*\261]\371\206\351\017\037>GpyC\250(\215\341\251yE\212\361.\223\3505\026T\206F\205u\347\216u\003xI\364o\272\342\333\313\327\311\355\021\352\373~&H\300\177-}\330\357:\305\237\300$\356\032(*s\203\270LTh\246\037\017}{\227\250\350%\202\023x:H4e\247\332e\232\016\372\3300\342u\345^\\\032\354\023\230\220\223\321h\240\262E\277\036\000d4$a\014\031u\317J];\241J*\234\020\362\275w}\301\036U1\334bo\331\230\232\307\334\352}\214E\303\310\373\341\034\237\362\257\364\360\335\322\032.\212\245\251\301\243G/x\203\357t49\246\022\367\272u\005f\010d\024\246^x\032\261\023\035^]\364\350\274l\272\033\273\022\206\232\261b\355Jf\027\r\266\206\213\206J8PX&W\325\202\260m\215&C\300\245\005\021(IA\220\253\335\357C\331R\310y\017\221B\210\312\356\026CV\002\252\254J-\243\005^0z.\260\312a\026P\231\r\264~\305\211\310\262 \273.\016\324]\211\030D\334\212%\005\tl\006\350I\001\007\341\311]\020\023A\004\026,E\033\006\365 \226]\234\227)\265T\264B\274|E4\300\030\r\214\344>\026\323Gv|\267KU\005b+\277\215q\035\355+\322x\350AZ\010Y\265\023\014&\016.\245\025\325\213\274\376\317M\267\201\356>w\2617>\252E(\266\364\263L\262V\247\214\276\241\327\307\266D3\014R\213\373\275}\315\242\0023\274\311\004i\361\375\367!`\375\276RN\273\013Z\034\014\304\366l\2024\222\001\240m\334_\010\202,\266\362\373\021\276\227b}\306\351\305\201Q\r\336\303\327\255O\303\320\223Hbi\213T%\220\316\rX7\323\243\265\230m\n\013\026!\001aC\324\313\027\211=3\211\203\013\260T\270<\032\223 C\234\020\3306\205w(\216\256f\023\274\3167\370-\335\345\r\200\333\250\223\322|<\016vw\264""\216\206\020\300\206\261\340M>?\007\266\205.\277\303\023\323\\\373\025\n\017\226<Iq[k\254U\352\314\231\017\316\202\243\215\356\245\310E\031\275\335\211\034l\271\002\311b\353~mVUq\274,\250>M\005\000\372\311V\003g\260\261\201\323Mn6\326:\247P\3472` \014\350\204\340D\220\352ti*\035\035\245\231\214A*\350\273\251O\267\202\217w\023\247\006E\203\026$H\204\021A\200zM*2\250\252\256v\036(\236\257\306\215\317\211\355\007\260g=t\373\274\331\031\272\326I\0316GH\301\006\200\230\374\273\341c\352\007c/:B<\245p\241<\202l>E\343x\366\256G\"\026\374@\230\213I\352\270\034\355\n\214\350\203\034\354\034\004Nb\022\271Y\206\014\274\"\221O\017\300\261\016b\271#\235=\246&\373\261X\354\300\372\033\030\2545\315\225\t!\034\330D\031\356\241Q\326\033\010P8p2'\221\315\3427`\253\0177w\263,Y\3313<\316\302\020i6\232\2336\313\241\314\315\013=\364*}\305\320V\235\303/8\023y\321\000\207\021\310{\276\257\0019\315\367WH\034j\320\002\226G\016E\243f\026\216\316)^\306\267\233Hm\266|\240u\363\224\225F\027\014dbR\200\3313\315\033\234&\204\211 \017F\333\337\331\342\366\366J\350Z\306\357\223\3639\361\323\002l\\\303\240\3669e\372r\032KJ\364\235\315\307RH({)\026\303\315\343\2765\366\343\227-k7\310Px\034\332LU&\r\304(\346o\350\251J'\312\343~\343#v\262\311h\357\272K\314q9n\340[\033~\272\201\327+\350n1\345\270\265a\341^5\354\247RGBX\373}\207\260(l\370\366\320\341\222\216\375\352\240\375\240=T\256d@T\017\367\225H\217B\325w\242\001\232w\017v\tv\313\324%\nDOp\026@\345\3029R\320\263g)\016\n\213f\310E\324\202\013\312[ *\343\343\305cZ\262\371A\324\304k\205I\006D\276\203\306\242\304\224$nID\032\360\201\200\034\\\030A\215\376\014\336\000\2034#7\2124\212\250\265\263\241\223\262}BX\370@\244\2521Ie@2\357\332\025\237fW\025\300{\366Z\345\201t\230\256\034\215\331\304f\346a\311\n\257\213\257y9\000pa\237o~\355q\350\315BA\2501\006\255\006\305\r\360eq\300\322\323Q\245g\365\262/\207w\026\356\226\223'\025\307\210A\225\265\034\206\264\327ub_\222\345\214\334\260\345\265|\362\306\201\035o\206\331\200Q\002\243\207@\300+\233h\tT\007EP>B\370}""\254x\213\357\362\367\254\002\207\247\247\256\222\275\330\351G\207o\2115\n\311\350\017\330B\222(\210\t\020\210\325\3047\023\247n>\033C\370\311\342\352x\036\347\313\232\301\244Q/pE\221`\236\0071\320\003\240\314\311\253a\326\230\322U\225\031\315\201\177-\0138\353\332\271\236\336\235\3500\374\030\213\303X\337N\024:;+\205\025b\021\372o\002\343\235\235\236O\350\245p\273z\026\375\333\275\337\253E\322\372\234\r\2467\332n\010\002\217\351`z\266\343\256\247W\217\233\013\343.0\210g\245\236\3179\004W\360\355u\002\310\203\250A\335\335\217\332\320\332\226*\003X\234M\006\234\316\2525\363\027\265K\304\366\277\302\313\"\361\305&\206\266#\006\247h\345]\226\363\371\366\314\267\027\260L3=@\206ff\204\010\346\227\3047\007\031(? \207\020# Ff\014\300\220\315\3518\244-P\007\332~\274\374\221\373A?\232\n\300\020=\352\017\337C\304\204v\341K}\307\266\233\337U\003\013\\G\235`\273\351\321\360\304\241\372'\010\016\353\376\307\304\241A\0175R\030\037y\226\305`\317\326=\320\177\243_\255tI~oza\201nv\367\370\207zxCV\265\022%!\271\223\261\370\364\033\\\t\335\240\001\331'\035S\004\212=\014\220\004;\260\024,>\315\"<\001\214\217?\224\355%\270\346\234G\016\360\202~\230\345\365\374B6\207\207:\321\273\"\241p\351@\254\232\235\330\250\227\347\344\350\212\026\346}\356zr(\0130\243\001\305\342\212rZ&\013\331\321\034n3\363v\335\017\037\366>ubb\200&z\240\201K\323\344\204:~\201\275\335\337\177\256\326\277\336~DN\213e\350Ha\t\305\327\216!\024W\"R\"x\225\333\205\341\352\266\367\233o\342G\354\232.\263\210\322I=\307Y?\321\307\265o\367\376\203-\304\340\302\275i\024U\0146\303\306@w\255\0174\245\267\032g\353\257d\342\365\233g\232?\273\373^\250\027P\027`8=\333\206\342n\307p\272|\353\261\352w\321#)!1\363#%P\366\242d\310\245w\\\334\273\273\347\3737_\033\301\303\207A\321%\331\034C\331\272\277<K\267n\217h\276q\317\372\037s\341\344\337\3520n\256\263\320\3467{0q+\242\216\021\317\374\315\315\307\355|\205\313\216\2031\266\377\231H\303\245\327\357\t\255\271\235\263\270\210zx\026as\177\375\033P\264\230-m;l[[r)\260\254\355\013\343P""\326[\036\007E\352\217\212\014\357\326\337\005\275\006\331\266\332\333\021\373\0341\247\373\376\3142\341\267\351\267r1f\312D\242t?\030\312\332\362\267\016\263\321\371\373m?\001\3033\327\353'\243\353\361x\277\206W6\366\241\264\205\022<K\376\361\334\342\331q\263\016(\223\366\230\265\336\271\365\356A\360\332\212(\266\370\270\245\361Jx\274,\\\343\265\270\235\325{T\203\230\034\256mh\353xS\033\026\335i\032\332\236\rS\203\257\3538\370u\2705\3668\365\316<\236\246\273\216\256\237\035\236\217\177}9\346\223\273'I\256w\237\206w\021\321\243\243[\267\317\347\231\274\366\r\014\370\370O\361\233\233\237\310\347\357ogg\031\335\255\361g\273\235U\316\344\342\301\314\342q\331\345eWu\213\256O\312-\345u\213%\177\303!\216\005\274e-]\37045\376\233\r\222A\322\301\013P\271\023\037B\002\212-LO\030Cg\254*\252 ?a\305^r\216LY\017L\244=\271y\016\360\351|zN\271\223\334\277pQ\357\323B\342\263\343:\266\227iS\347t\333k\203w\361\311\256\363\257\2011\346=\373\337\022KRG>Y$\201\274\307]\002N\3630\021y+w\033\352\310b\272\325\242sA\257Q\363\024\356y\242\226\274X\n1\324\2408D\233\247 \3325N\356ov\026\202N\343\002\3262\224\323Yjy\226N\374\304\225\360\266j\374\363\350w\356y|\024\337\340\247H\351\361\314\322;}\362\357\237\273\357\324\r\317\267\265\213\217\320\314X\203\234\357\311\026_\022\035\202=Oi\217L\254z\251\255P]i\236\236\360\017\211}\374\315\357\205G\275\245ar\360\326\220\256\3767\275\342\323\231\323\256\035\206\010[3\025\017\026\003\347\315\205\337\313\201\0257\035\242\212\020Q\247re\246L\246\037uD\tp\345\262\235\352A\016\021\026\202-\245\334\213\341j\236\353pZ\003(\242\000\376\340c\364\331d\016\354\337\027\315\243\313\310\236<\236\321\326\373\256S\243\347\323\270H\035\235.\203\231@\255N\361\324\254\0147\307\364e\350@5L\315KJ\005\240\270&ooQ\213\033S\212\014\036\345\231\227]\205&\320&\360=y@\232l\346\354\014Z\330\013\351\030\267\345T\245\014\345\332\241\257v\231\032\"\035f\035\324\272\372\324l\177\2420\313\341WG\017\234T\005_\206dl~\305?_\031\331\365u\nB\262\321\213\312\273\261\352\353Q\333e\036\354""\353\364u\251\037\376.\344\212p\241 ~qiH";
+    PyObject *data = __Pyx_DecompressString(cstring, 9797, 2);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (10134 bytes) */
-const char* const cstring = "x\332\305|I{\333F\326\256\325\255$\266[v$[v\234\251C\305s\342(\226\2078v;NC$$1\246H\212\0005\304\311E \022\222\030S$E\220\032\222\356\357f\251%\227\\r\311%\227Zj\251%\226Z\352'\370'\334\367\234\302P\000)w\276\357\336\347\271~,\262\352=5\236:S\025\210z\026\373\375\331\375\007\313\377\246\317\335\177OM\336\237\232\234z0y_)\026cE\263a\306\326\314R\331*NR~\255d\225\213>P.\307\212\245M\253b\227\252\025;V\253[\005\253X\252\254\007`\354f1\266\331\264\033\261U+V\252\024\255]\253\0303+\305X\245\332\210\331\345\022\212O\233\266\025\263v\013V\255A\345\327\252\365Xa\257\320\254\227c5\263\360\332\\\267\246\233kkV=\266]\262vb\305\252es]k\267VE=\273Q/\025-;n\226\313\346j\331z599y/\226\256V\254\237\343f\205\0136Q\252\\-\230e\243f66\270o\236\222\331\21056\320\200\271i\305\032\030\355$U\250V\312{\261B\3352\033V\314\214\255\212\216\033\033([\262c\205j\245QZoV\2336f\022\333\2646\253\365=\252E\275\230\266]Z\257\304\032\325\030*\027\277\342vD\t\032\266[\310mx\247^j\320`\335\002bbk\365\352\346\333\352\026\2335p\213\252\027\312\230x1\266\201\231\224-\257\177fml\247\204\0316\366jV\354\266\213\327\254:\030J-o5-\254\002\030<\260>-\\i\033c\263V\355j\341\265\325\020L:\255\270m\201\215\177\262l\243nVl^\254`Rb\244\030t\t\0357$\021\212c\3357cf\2318\261\347\2667\021\333j\226\032\r\022+\346R\255^-X\266mP\257\317c\tEW^\360g\302Z+U\254\330/\277\230\305\242A\rX\365_~A\247\215\215j\321\246\245\201\010B\016 \267\264~X^\210\327z\275\332\304Tl\253L\343hlP\265\311\363\347c\370\227\254\330\r\263\202\236b\3255PH\000\312Xf\210\234Y\307\202\243\016\004\242\350\326\341\225oV\030\246\246\252\365InD\247zn\021\026\241\315Z\331jXX\341\215R\261hU\304\214H\020!\247\365\177p\035\014\221\307I\343\263cf\335\342\226\301^*\266S7k5\314\300\332\266*\r\010v\265v\333\016\217[\337\253\225\250\372\0365Y\204t\231`\t4W\347B\232;<\225\352\247P\375\227_\356q\265\325&\004\024*\000&\231\215\206Y\330\260xR&u^!\336\233\366^\245P\252r\237br\tY\311KB/\305\212\252\233\265\306^\314\3360!\212\rH\256\345\2525\226\2422i\326\353\346\336\014""\033\020Z\0107\205\276\202\224\r\241\262\352u\324\021:x\333\230\001)a\331\205z\251\206\321\247J\257\255\333\004q\237k\274\206P\322\211\271$\353A\025s\301\242\255\022n\307\356\230\273\030\334\315\342\335d\277\274\t;\324\254\325\252\365\206ULV\266\315r\t\006\253Z\264\356\221\211Aa\014\350v\341v\014C\271\2159\2200\337\276\027[G-\257\260\230%I\024u\363|\236\205|\221\204\034CHg\364X\"\223V\311$\245\253\320^6&qf\004\261\254h\225K\253V\335d\221 c\206\016\331\342TbY5\373\325\243o\037\261\305\252[\277b(\220\275\346*\013\241\020\312\325f\251\014\265`\215\267'c\311\265\330^\265\031\253X\202\2075\026\326\240\002\244\247\302\214%1\272\315\272i\222\3055P\035\353{\333]:\262\002\274\026e\333\232\314\010\233\334\254\370,z\026\273igB\354\005\3355\224f\201\364\322\3457KH\266^5I\332$q\rLx\211ta\223\360@a\341X6K`\005\232\367\024\227L\027FV\0242\227\263\326K6x\304\022Y\241\232%\032\242Y\366\025\317S7\2228\251aw\006\256ZB\260\267\253\245\242\320\353\035\263\316\022\016}y\306d\326B!\356\223\340\230\301\2437h\364F\255\n3\274wg\t\266\253\272c\367iSV\220\357\336\345v\236\3074-\365\202>&c\232e\3056\032\215\232\375\354\353\257\311\273\241\341\257\261\366\224\374\272\340\245\276b\241\267'7\032\233ex\332\272\335\340i@\242,\210J\003\372aO\376?l*\226-[\344}\2535\210\206I\002i7-Z\320\331Rc\256\271Jr\260a\225\261d\326js]\360\212[\235\324\032V-\266i\356\361:\302b\374f\325\253\201\236\351\325z\305,V\375\025\311W\330\335\2415X\314m\013\326\263\324\2606)_]%\271\316W|Uc\277\277\331\204X\223\235m\260^\311\366\376^\254\366\326!\237_\202}$\\\0228\262b\010\\|qc\251w\255\372)\356\302\025\303\377\217\236\240\337\013p+\377=O\020\014\025\t\366\006f\263Q\335\004\003\204\203X\335\213\271k\205\376j\"\300`\336\330\033\325fY\004idN\2705\216m8\036\252b\375\\k\021\360\210C$\333\\\343u\336\021\253\260'/\203\010N\374!\335\303\014\301\352\346\372\006\265&\202\036\3635x\214\330\302\026\223]\013\031\016[\330N\310U\330x\014X\304>#\"&\260ambM\266\321\307\235\322\2445\211Z\256\032{fJr\212w\305\264\342\210@\3104\210N\336\346E1""\035\273*\"\026\373\224\365qY\265T'G\260\272\327@\301\211\357\274\320\253(\020\004\260\223\261W\347\357\306\276\237|q\373n\354\213\3474\261\nU ?\340\031%e\025\276\002C\366\373'\357w\177W4\361\3633HW\231\006Hk9i\256\026\236K\241+\007\300\274v/\242\260\027\217\275\270\307z\370,vG\004\342_\033n\277\206/\322\265\335\222Gc\013T\333\333u\363\315\006Y\026\320\213\360e\257\006\370\355{1/Z\377\271X\262\351\333b\373\260^X\267\340\315\326\252\261\330\035\362\257\353\034M\220c\241\005\260v\033\230*G\336\301\336\242d\213\252E\262'v\3517+\366\374\273\330\375\276X\243\014\2171h$?\337\023\246\006\023\255Ta\344\326L\344b\006\344\250\330,X\206\201\240\233\245\271R\255|\005\327\214H\252\014j\241T)5@\024\266\353\005X\2626\3111vA\304\273\024e\n3\347EPY\341\356E\005\036\035\"\264\327eLKT\256\323\036\344\177T\233B\266\002\312R\nfrw/\310Wk\215\330s\261=*\206\026\275\037\243\340\306_\373\020=\214\242\307j\263^\260^\210\210aR!\251\230\265*\024\277T\353\257(\306q7_M\337\342c\251\253\274m\341\225\340\235\302\344\000\252\010\242\250KwG7\251h\361d\262O\316O\327\300\323)\223\206\001\311BP[/!\310\305\272\276\265\250X\335\267\024\t,\315\177(D\373\274\267\026bc\361\026z\035\241\344\266\365\237;s\313\271\375U\366x]h'\345'&}\241\026z\201\tJ$H\013;\333AD\354\003\n\257\r\366\372\022\n)D[\264mF\250\035\3404k\261\371\01301I?+;\363\000ug\020\255+\266\227\206\311\226,\236\317\245\224\274>g(\351\0259\255)3j\220_\322\014-9\273\370\310G\246\025-\031\017r\252\222Ss~6\221\234U5=\2225\222A{\263\232\246d\223r6\255\316f\364\244\242\007e\006 \210\370\203\214\236\232\017e\214\245i?\237I\247x2\252\241Lgr\272\2320\246W\214\270\222JM+\361\227.aVI\246\335d*\247*\t\024\310\314gS\252\350\020(5\244\346r\231\234\310O+\tn\"\231\23652\271\204*\303\231\264\256\246uCM\3073\t\320\003J\"\263\224Ne\220\310\251Z~^\r\0103\371t\\Of\322\206\222\233\005!\255\007\244\254\242iK\350\001\315\351jNM\010J|.\237~i\314(\311\224\217d\322\213\375@N]\360\263\371T\002\243\002\014\276\351a\020\343\311\244\026Uc.\243\235B\311\3462\313.\023\325\370""\034\265\233O\372\243\021\335\032\311t\322\255=\203\274\226\374\021e\227\343\252\232\360\313%C-\323\304\201\2704=k(\361\270\232\325C\263\220`=9\257f\362z\030\3274#\241\246\223r\361S9\355\021y\030\251\244&5\025W0\242YU\2278\340\30395\3043\306\3359P\r\232g?%\247\352\271\310\354<\222\206Jlx\007\223\246\223i%\2672\230\246\257d\0075\250gN\353+\257\251\304\002i\350Y%\007=JE\312g\241\027}|\317b\022}\340B>\243\253\262&\020\210\315W_At\235\013\244\027\332\225\311\345BL\\R\223 <x\360\304\230\311\344\346\225>\n\325\305\340\263\251\225\001\224\305\301\024\364\271\210n\007\322x@QJ.\031\231\215\247\211\351\014\346\236\311\247\335\031\301\372\0204\347\353\363\234\256g\037HI\254\002$z>@\036\006\311hc\214\365\261\334Ea\033\245\3610\230S\322\263j?\252\352\371\\\032z'\021\222d$f\224\270\032j9\225PX\226i\030\020/\031M\246\027\225T\022\314\311\245$T\203\005\207\226\207\332HN\347 \227\321\251\2442\263\311tH\005\347\225\224XOf\270\300\270\343|2\245\033\236\225Mg<K\304fo\021=)\323\236Df\246at|\323\353\345\246\356G\362\017\"\371o\302\371\007\221\362\017\036E\362O\303\371\207\221\366\036F\312?\212\264\367h*\222\217\226\217\214\347q\244\376\343H\375\307O\302\371o\"\343y\3628\222\367\332w}X&\253\346\024f'Y\312\204o*\3038`o\245\220423\306\274:\237\361\014N\277u\310\252\320\032\327\300C\265\2223\31187\346R\003\267\000\207\020\367\326T\026\311>\203\321'\315\354\tBy|kIx\035\204\005\354e}|1\\n\236\232\036\340\006\\J\"\251\301I\346\203\372\214\262\371W\227a\377\265~<\"\3369]\203\346h\352B\250_\0025\364I<\225pMM'\372\362\304:\364\260\344\253\035\354x\006\336\014\177T][I\353\312\262K\231C\334\004\r!\305q\021m\316K\244\300\210\270\232\323\243y\362h\301j1\016\024\353\002m\232\227\300dv\316\323F\316\247\222\024f\204\033\354_<\206s\251\376N\3244\364^e\227/[\t\211\004NJ\214\224\010`@\264\212k\205h8\232\256\350yM\"iZ\036\022\030\031\023K%\025\027\362(\r,\233\304$\022\331\374\364Ku\005C \277\"\361P\233\313\353\024\033\204L\233\256\246\322\352\300\025\321\311G\220\024\005B\304\220,=\014$S)uV\221\213\2443Z""\036Q\232o\002]P\346\tCP\316y)\213\260.\215\361%\275\"\231\214\221BP\250\006\331y\204\343\020\250D\222\274\251;\006\267\226;\2050\026\232\235G\242\230\006\332L&\027.\307\233[>\255\345\263Y\021\"C\202\364L<\343Q\262\034M\311\\\303G`\353\007@\222\371\247($\032\"\234\346\257#\0369\231\236\311@\303uX\003-\023\177\251\352\001\230\315z\002Kv\3554\334\010j\304\025\372\222\262YE\237\013\262$M!z&\235H\262H\344\323\363R\307\003{=\255K\300\206XL/\317{\203\024t\201\366Bn\230\372\237\350\341\026\345\022ba\336N\035P\333\013$]0\3632\251z\0011C\364\250\317\365\325A\336\365(\014 @H\2550\252q{\001afF\345\345\202_\321\3472\211\001\0047\326\020h:(A\026&\304T\017\220\232g\355K\353\010DB\2137\007\027\0029\222F\354\"\362\230]\310\013\330\005\206HJlj)\004\351\207!\272\211\020\352o\2402\211p+\344\0355W\305\030L)\010\314\323j(\037\221\341T\006\336\315Hf#\000\251\240\017\245\225y5\205\025\312g\303\022\027\301%\036\245\345^\323\371yo\310\232\017f4\322\260t \353\024v\352p\314\332\014\030\024i\216\266\0012\351TB\250Nr\236\242Eij\036\024\232\034\300E\327|\273\371\300\352x\300\362\312\200\005\n\360\320\n1\034\261\036\002#\373\303\361\313\nm\tS\301\020\026\362j^\215\216\337\263\257\264\221J\017\200C|\010\241\203\032\221\005>\247\202]jN\312c\000\232\036\226J\0141\233Ik\264YN\310(\311\2752\243\313\3259@ag\316qJ\204@\221\013\205Ma\330\265\272\375\345\275\240F\262XZ|N\225\346\312\273\372>\263\025B%\0160\0361Q\022&\227\204GO\014h8\004\367\225\2176-\201rY,}\324\240\371\230l \202 E\013a\003\345\006\201JN\037\254\030\375$i4\272\272,eR\232\307\3640F\221\214\036,\263\236\321a\027B\235\004\220\3248)C\020\2243\264Lc\020\013:O\201\2478:r\035DVM+)}\305\227>Q\"\354D\006\226\231G\210$Y\025\017\243\272\310\347T>\226\240\rq\230L\307+\322\306/L\314&\263\360B\210\020E\307!\232\230\355\240\232n-wc\036\201<Q\237N\r$R\250!\223\362\332\034\tE\010\360N\004|P\330\360P9\001\365\225\244\305\311\205\n2\022*\247\315\032\t\327^S\232\234\204\227\366\3548UT\246\301N\205lI:\271l\004n\204i|>\346n\356\014\301\361\000\017\235C2\234H""\344h\303\244\3053\331\240\375\224\256-\306\3039#\256\013\303\305P6\353\372j\316\345\365\214d\311\030\222O\205\t\230\316\303\343\347<\251a\301\362\003\260 \007\376g\246\003\310\363\352\"G{\2349U>\371c\\\212\324\002\211\236\236M\0332g\003\212\267\002\001\302\033\263h\331TFS\021\013'\343+!(\274\334\021\270\257\021!\240\321\001\207Pi\205\274\250\321;\241\2261=#!\213\306L.3o \220_\312\344^\032\003\272uK\344\365\231o\007\223\365\314[\252S\000\030\316y\333\275\000\371A\311\205\001/b\014\020\311\224\t0\273B\221\305\014\312&\202I\347R3rZ\356\010\337\371 \203\370i\336\365\217\036\230P\247\363\263\362b0\020\235PB\235Q`\253C\341\004\343\311\034\rZf7vwJ*\225Y\342\355\n\305T\274\001\017\344>\221\326\006K!\021\374\3436\031\364\202\272G\203\300odP\030'-\004\315Ak\350y\203PR5D\244}\324,\324EI\211!\371\264\314\234\344\247\274#\354~\n\355\232\007S\202]\267G\223X\240\306}\225Tg\023a\333\0235.\034z\t\315\367\241\345,\311\363\324\375\373F\277\006\320\226\020f\316\013\330\030\222\004B\336\022p>\315\033\372\220J{XT\010f2\264\256\304\3700\232\233N\322s\001\367\220\2051\260zN~2\302 v\000!\233\007 *<\200\274p\326\315\202\245\024\225J\010\231a/\210\364\241\224N\302\306\273!=\343\357\224=r\034\216\023\236i>\tm\202\233\202\324j2\231\230\022l\256<\324\217\031#r\312\347\363/\223Yqj.\002r\037\327R\221\254\021\217\307e\210DN\315\206\246\350b\332b\024\243\375\200\207\211gzPD:\027\221\371?\007\246\"B_Q!\305\010t\372%\002\005(~\211\252\256\013{\261n0\017\261\253\013\347d\361\020HT8\004\212\224\017\270\007:^\232\016%C\315\270X_C\300\371\314\"Z\230\301A\245Cn\225v\216\367\237\032l\202\324\204\214>\270\177_I%\025\311\004\210\347\014i\3365e\320\372J\230\220\325\324|\302\333\345j\301S\311\240\204\246\302\007\245g#\rJqZ\000\322y%\031\305l\302\335\236y$Y\272)?\215\021F\226\000\350l \t\224\355/\220\225\214\024\347iq\365<40\304\032?\026\3056(dg\230\350\207\330\003\251\322~\234\260\344l\032!K$\270\365\211i\331\352\210\234\034\271\004Hp\034'\360\210\003` \245*\213!y\010\320\250@$3q=\025*J@_\251\254\373\034\326""\007\370T\324;\276\r#\241\210\352\245\252f\371 \232\037TK\307\325\202\270\302\017\350|\271{\231\233~\224R\027\2035\000\020\312\263\033\223M\236\017\360\251~\200\322S!q\344\250\005\340\222\273CK%\347\223z?,\033\372y:6\227e\215\001\nqB@.\036h\260\017\2206\241Ur-\332@b\037mY\231e\311HK\220\274\275q\241\250THPX,@H%g\304\331U\244Y>\024\220\033\025\2175\\\306D\032\021\217\020\006\321\320\262\254B\224\217\362\033\321^.\036\312\204\\kZ]2\304\371D\206Ne\324\334\274&\223\370iH\030\315Lg\022+A\016*;K1J\010Y\226\n`7\220V|\321\t?F\223\221'\017|\004\376\266?\336\016\320\250^x\217\227\203<\035\024!.\363\007\345?\016@\\\017q\017\340\254\272\244\004B(\213\264\314WJ?\274?%g\303\301l\200Hr\021\002\303\013G$~\"&\003,\023>@\021\257\\\000{,uA\346\207@\372x\221\223\036\307\t\300?[\023Y\261\\\341\226\004\326\337\226p\276Z\037@\336B\002\345\336\334\003\271\020\0206\374\302\261G\327\214A\231\377\354\nV\262j\010\360\302\363>0\273\024n*\262\313\224\261\220e\364\010\362\216\323\305\260\036p\021\364\0344\235\tG\212^\201\320\256E\200\375&9\212\017\350\276\317\002\013\3704\251\025'\231\3305$\343\252\321\307\r\016\347\372\372w\301>\206z\204\001\243\002\245\277W\306\006\266\002|p#\021\017\034\034\304\212\247\221\206\274\201\014\210\0213\026=\276\225\2677Q\232\274\301\0214=\245M=t\373\323\372H|\200<P }j\377\214=\312@\211\014b\222y\367\350V\234#\371C\246\307\344/\351\001\242\204H\332\216\332\tl\343e\361\ny\326hX:($es\322\257\303\021X\326\344\310Q\216w&\255\223\345\322\0034\024\202\270\331\2348\3554\302\203\n\221\372\307G\277\311\n9s\t\n\333K:\226\016\033\221A'\336>\0369-\030t\332-\341\362aw\000s8\214\375o2\004\363\272\312fJS4\021\241\374\0304\300X`\3125U})\363\205\362Qf\370O@\007\357\336N!K\373\245A\346\200\177I\340g\340:\361\035\032\210\200\372\306\002X{\034\n\273\\\310\335\316! \032Lp\007\341\023\261\235\366\265G\223Q\372Ue.|JD0)5\314Hh\214\001\3347N\227d\010\013IV\324\230O<~\033\031\034y\360\370\033\271\304\200\356N\351\212\237\243S\203\241\231\270\356\225+I\332\312$\277\3370%d\235\335l\330\374""\0170\326\203\31440\361\234\242\017\360\216\276$\202d\312E\256\257\313\210a\037`\322\373\215\271\367K\223\301+:\320\3043\254/\033a\266\013\254\237\357)C\215\323\201\340\242,@\364|\206\177\264\200MGz0<\250tz`a=)\237d\211\037(\244`\025\310h\311h\304!\211\337\237\344\346\363\364;\205el&\265(\325\265,\311D\370\230\216I\024\023\353\371\034\ru\2266\361s\363Z\204n\314)\244>\251\331\020\241\337\371\rv{\247\235\351i:lhPJ\030\271\204J\007\\\332`\324P#\270\272\034O\345\351wY\021|IM\316\316\005\303\312gY\036\374\203l\367@\302\243\353\361,\370\254\351\024\325\313\030\355T\225\224\324\272\007\306\203\2633\017J&R}\305\260\307^L\311`\032\0168\245\370\262/~\007\023YK\376\315\315t\352\245\034\275\273\277\324\211.;\357N\275\237\204\310\240d\255\373\2553!\213J*\257\366\001a?70N9-B\031\024\233\234\026\225\320\323D\367\024\016\233\310 \264\225;\t\3048|jD$\354\017\024-\324\232kN\261\306\341\215\274G\313k\264\233\246\037xB\364_\312T\372\325\021\375\350\207wE\321\252\244\0314B\262)\304$\210\357|64J!\320Q\037O\024:}\244M+\251\077\0773\317f\222\222\324\344\350wG\241CA\027\212Z\035/x\363\236\321\312X\337Q\267\364$\316\2207\021\364\353*hF2N\014\227}i>\313\2471|\030\004\021\220\244$x\216\035\344\006<?\363~\205\225R\002\333 \235\323\323\322\203\365\301\304\243\262\020\331.\271?\313\362\262\260\032\323\231`\251\227\222\251D\\\311%\374_\3201\030=\351\034x\312\311`8jcH\336\227-iQ\005\243\007\325TBn\336\303\242=,g\210\261\017\244WMhG\317\347~S~n\036~0\231M\251\313>\"\375\202\333\017Q|\216\005\210x\367\305\317K.\325\307\202wV|\310\263\315>\000e\230\316(Bm}\320{\250\353\003\262r\007\240\274\365\003\253\202\227\002\220\341\347\217^:#\006\217d\232x\222A\2308\353\002\231\231\031M\365\250\331\244\217KEr\312\222\277QA\326\223{\n\226S\356OACy\361\013\n?\353\232>q\252\350\377@\300{\"C\213\306\017x\372@_\246Bh:\023\340\362\t\2561e\334\037\004N\365\203\017\006@\272\260u\021tP\223\017\304\311:\007|)5!\254s\270\310\303\001\220\367D(\014{O\362\303\250\267\374\301\221\256!\236\230\313\3007\021`i\016\306{Q\3109\377""\\\323[\0077\355-\003g\375\0368\027\"\321\017\235\027]\242\177\206$^\212\212\202\342G\345\376\366R*\344CY\305=\030\361\3675\374\276\014e\302\250/\002>\342\266\356\032\317ia\372\274\254\344S\245\270S\326B\031\366\331,atrzJq\"\235V\305\347\\\004\207\000m{\"8\2204u:\351\301\351\244\207Q\022\222\333\017\006\201}%\271\201\201`\3770O\031\342)\303\223\207&9Ii\375e\324]G\337\t\004\217\027$L\310\211\373:r\234\336\361\247\353aTz\3331^\255\210\253%\350MD\372\023\250\227\360\337\024%d\276\264iy\337\375\257ZJ\224\2767-}\232Y,\326\314z#\310\363\035,~\226\337\242\364stU\200Ao5\023\262$n\257\030\374\232\347iox\272\257fZf\305}\351\3226\360e\210\213<\354\340\305MN\361\365\017\"\325\254\211\342\234[\267\032\364r\252\215\006k\033u\323\366Qz\213\233\323\245\315\032\232\253V\320\265x\373\323\254\333\030D\265\372\272d\031\033\374^\253-\021h\214M\0333\253\270\305\305\355E\356+\242\230\204x+\224_n\346d\263\366\332\262j\234\334FS\356jM\356\330F0zd6\255\206\351\245\353Va\333K\3235F\336\3571\304+\013*\275M\240\226\313\245\232]\262\007\2742n\314\2316\241\225j\220\232\\\343/~&2\227Y2\246WtU\233_1\024\035\221\3264\266b\032\275\023-\256R1\3130d3\311eU\313\3462\n=\3370\226\224\034\375\342+k66\372\356!\000\320\250\026\252e\303\310\356\355\342/Q*4\214\264\265\333\310Yk\336{\300\341\267\202E\316\227\316S\340\311\347|%\226\375\002\tss\265h\276\370\217\005\305\315\022\306\246Y1\327\255:\244\005\243\210V*T+vs\3232v\314\327V=J\024\202#\356R9\205&\256\027\210\022\353\315\312)\024\276\200\343\024Zx\274Q*\215\320\277\315 B\014^\360\036@\020/YG\010,l\021,\364\362\366`\232\327\326V\323\202\345\321\370J\213\270\320\r]\224\324\367j\326\242Y\317W :t\245\320dp\273\320\222\246\250\210\031\3111-i3t\205\200\373\325o\004\002B\237\035X\342\235\317\"\375>\016\373\352%\313|\375\322b)#Y\255\357\021\240\321\033\330\346jA\274\205\r\036\004oy\007\234\nX\343\0322\357\315~\327\244\030B`\360U_\267\335\333$\274\313,\n\325z\265\t\233ay\004\276i\007uw!\201\356\227w\023\2120\213hf\307$\361\344\313Q\312\246\rf\325\312f\301Z\205\021Z""\255V\313t\017\006\337\205\301\037F\243\nc\263\033\310\362\272E7\316\324\013\342\262\004j\333(\243\243:\247\354j\265\342'\\1\242{M\274!\024\330M\024<gA\223\\\307\232\024V!k5j\257\264V\222_\2337\014\276\357\3040\274\004\031\310\206\265I\331S\354/\021\352\374\341\031I\221\201\r\254\226\267\255\002\031H(\250Aw#X<&\022@a\363|\251\346\006\371\316\"q\215\032\177\301Q\370\005\ne\273P-Z\221\273B\240\303k\245u\303\275\023\311\016\3534]\030BW!\321\215S\234\336m\320uC,\263\205j\263\322\020W\334\031k\315F\023\206Vd\032\246\375\232\256\0061\304\r!\223|cH\321\204$W\350\026\000\366.\374\201j\025\036\210\341\336\305A\203+Z~\206\277<\216\030\006]0B\237v\301\254\027\221\250\026\350\243b\025it\006\314\267\2702\303\367Y\026\264\014\315\031\006f@\022iU0/\272z\013\313D\004|m\332\260\025\365J\225\027N\\\240dm\033\253\245\306&\346\000A\264\033\350\227\005\322X+\222\331g\323\017\335\022.\200>\355\265\262\t\266\205nH 'F\177f\303\275B\214\257\374\360\275\270\301\023\027\237\rH\257-\330\347J)\304\245\317\3212 \356e\343%\246\274\267\254r:\020\371S\205#r7\206\353\275\361U\343\333~`J\230m\324\023\021\205\3710\350\336<\227\255!\303\036\266\344b\251\334\005\203\006\302`\327\351\342\252I!16\245\r\327q\227\212\245\365\n\230.\205\014pB\233tg\0279\243\"j\273>\251\204nJ$\230\256\331\020\227\277\2707\300\374Z-U^[{\366\353\035\2624\236w+W\315bp\t$\247,\232}\240\036\345\352\216U\207Nn\232\320+|6\n\033\233\326&\335U\270i\3316\\\210\301Q\204\253\312\233,G\370lb\256\370\267Y\257\222T\3251'd\354u\022\t\303p?\213%\264[\261v\350c\267Q\251\302@\354A4\253\225*\207\004t\313\345\240\270\250/$\"\263Z2\313<\203\322j\315\334\243Y\271!\022\254\037KY\255Z\253U\355\306Zi\227\226\257\004\236\341\033\025-J\200q\362\365\033\200\020T\260\245\202\206\213\234\273\274\224d-\342T\263\3027\316X\206Z\361\312m\363\r\2264\365\255\246Y\026\023\205\254\270\336\300\306WY\210\227\237\022\362K\321Wp\301N\237\247\362\001Z\355\272{\325[\350r\220\220[\r\371Q\016\020\353\0264\247\002\353\020\004\r\342\323\315\260\377\361\322tk\227\257\021""\276f\360\260C9;(D\027\366P\324\310\267\302yw\226\262_uW\333fU\265a\250\220Z\205\244\275\026\027\365\270\326K\304\256\222#6\0068e\276\014\307\346p\000\026\245A\372\361\233e\303\200\325\304\205(\241kQD\246f\226\352\224Z+\242)Z\253m\253\354FGR\214\304i\233.\342\242\016K\005\367v,!bd\002%i\263\033\304`\360\277fc\310P\\q;!>\233\370l\222\2226kXU\333\266\367\250]2;\006\234-\177\302\323\273\361W8\014\033\024DF\212\270\353,@\360\016\211\352\016\0348e\361\305k\315WJ\262|\212\233\210\232\254D\315\032\244\332\022[\202m\263\334\264\370\303v\355\313\016G\014\241\270O\3704\303\373\336!\237\347\371\275\035D>\320\240\235\rH\334N\251\202\377\017\037p\337\256\264\331;\266\267\313p7\030\356\336\302\335V\354\356\332t\270\362\365O\305\237&\177*\306^\335\377\352\351\317\277?\374w\354\316\344\027w\231pGP\356\306\356x\264\273Lt\206\277\354N\235\234\275\332*\265\267;K\335\037z\305\203\211\343\263\347\366?h\275\343\\\271\323\275\320[\000r\373\360\352\341\2263\374\250\247\274\271t\346\334\245\326'\355\205\343\263#\373?\264\314\343\221\367\367\267[\213\355\007\355W\335\241\356\330\361\350\325\226\325\236j\317t&:\217:;]\363\370\354\373\373\250\031\353\014\035\237\375\333\376\243\375\255\343\221\013\307\027\256\264\026\250\352h\353\\\373J\333l\243\300+\347\325Oo\306\317\234\033A\231\235V\241=v<r\251u\027-)oF\316\\|\377x\344jk\2633\325It\317\366.\036\230\007;\207\346a\343\350[G\373\321\371\361\027\347\027\3231-\307Zs\326~u~\375\227\363\257\377\375\346\314\231\177\376E\371\013\215q\276=\326\276\331\336\242q4ZS\316\360\267\316\267\232\243\241\302\352\233\253\203\272;A\235L{\352\315\273\242W\347\352\035\314k\274\213\371\236\243\001_h/\264\255\316\324\361\310\345\026\225\2710\346\214~\321\235\350~\1770\201I:\261o\017\206\334\202\303\255$\212\232\307\357\217r\331c\321\254\313\216\317\235\317Q\362\315\2653\347.\267n\265\337A\301\265\316L\367\363\256\"\206\371-\006\222\351b\260\037;\037?=\030\023\225.\336\353*\177(\307\367\247h\204\323\373k-\305\271\202\005ab\353\335\226\331\332n/uD\2117\347\317\234""\273\340\225\341!\271\254\277\354\\\376\242{\235&\363\267\375\251\375\231\326D\353\241\230\374\307\030\332\205\213T\241\245\265\377\212\314`\344\204a\010\013*\265'\332\337t\306:\020\226\261\326\030f1\324\036;\301X\376\253\375sw\342\017\345\315\2433\027>\305\342\201Ew\273C'g/\267\236\264?o+b$.\307\337\337\337\343\226G?hm\035\217}\324\276\336^\351\024\272\037\366\256\367V\016\n\207\037\036]?Z\220h\375\351\0234\366\264\025\007\030\254\323ro\371`\341\300\014\226\352Yw\241\313R\272\333\262\333\023\242\215\021\032\315\304\361\005\232\307\207\235\353\235\225n\2417\366'\032\271\334\372\036r=%*\376\251\n\316\345\233\235\205\216\371\347k\204x\202\016\277\353\014u\306\376\033\035\266\246\376`\246\177\002\021J\220\322\215\354\317\265H*.Ma\212\347\316\023\240\266\306\250\342Eh\236\335\271\201\321\235\202\245\333\023\341\212I\250\355Z;\331YFg\257I.Y\246\235\341\353\316u\345p\214L\303\310\376wBX.\267\236\221\370\237\360z\377\006i\231\354\276\327\335\352\235s\236\246\217\212N\016*\250\363hO\316\216\266\336i-\320\274.\364^\035BR\256\265\317w&\234\353\017\235\207\363G\013G&&s\356j\353\247\016\204\353\334\233\213g\316]!\275b\241\307\330\316>\354}w8t8~\270p\314\026l\2533\364\207\"\372\204\262\037\217\214\267T\260m4q8\357,\374\344\374\364\363\311\310\205\0231\261\366\267\235)j\356<\331\243\321\317\234\317\240J=\375\340\303\303\211\303\251\223\321\313\255\247\3558\214\306\370\225c\244\277m?\356\274\327A\356\023\330\265\033\235\327\275\261\336\227\007K\207sG\312\361\370\337\333\033\035\253;u<\376Ak\027\234\2338\276\366I\373eg\013\"\217D\032\226\341I\357f\357w\264\372\364H9\031\377\220\324\346\370\362\370\361\3505\322z\264\177\202.\306?kc2o\316\0164G\027.\036\217|\352|\212E\350\335\350\231\244?\377\020\005.\020\373\023\255\241\326x\353\307v\243\363\264;\1770\006C\375\311\321\"\361V0\210f8\300\242\216\206,\352\320\361\215;\376\307\315\216\016+\356~\005\346\223Va\024\315\024\235\217\276\200\235J8\367\1778\272\213~\034}\331Y^\371#\254\327\264\2544lH\353m\260bX\230\265-Q\352[V=\032\375-\347""\326\263\203\211\003\330\023R\351<iV'\216\362\177\355>\3526\311\260]\334/\221\022\\k\0179\037\222\221}\326[p\276\371\341h\342h\212\026y\304\031\371\3043(0\013\227\216\307ot\024\036\366\310\2503\3729\031&!{\227Qj4\240\265F\332\n\327\337\237mMy\211\307\3165\364p\354\245\357\367\206X\215\316\375\275\255\371JDu\317\262t\213\331\234\234\375\264\255w>a\305CWOZ7Z\305\366\255\316;\035\rSN\364\336\355\375z8D<\277\335\036\023\253{q\337p\027\364#\347#t\321\033\207\241\263\016\247<>\263)\035o\345\241+C\036v\267\303\344\227\255\255\366\337:O\2727\273\277\271\376\200\307\367\311\247\307\037\\;\306\347\325\017\310\233}\345\334{\001\347\330\200\010\237\375\0142\361\204\246t\251\3655\314\364\255\356E!=\217\366\355\326D \ng\205\316\276\007a\037\211uF\272\263\275)\222\214*\254\326Z7\215P`\204\034\322Cx\353QW\301D\225\247\255YR\363O\332s\235\331\356\024\257\365\335\356X\367\026y\347\376:',\266\353X\344\033\320\226'=i\000\357RkD[\020\325\310l\2241\356\321O\211\365\235\217\305\210\210\362\010<8\337\271\335\275\314\320\250\220.\347\316\363\003\345`\341\317\014\340q\353=\022'\257\223\265\216BV\026N\301Uoi\332\267\234\177f\235\354\202\263\220\353o\212\026\376\375\375\337\333_uH\006 \310\227.\237\220y\024\355\276b\363\374\352`H\320F\205\351DD\360\001\374\263\027\017@\370G[C\316p\342Pys'\244\241\244:,\326#\237\302\233Oc0\323]Sp\234\324\376*L\314\227]\2557t2r\245\265\202\3260\346un\366\302\270X\220\253\202\223\320\200\t\370\rV\203\321\361V\212\"\223\367\016\266N\372\213q\211\240\330\323\203\017`\204Oo\rQ\335\277\234\207/\217\236\300\206\037\217\300\236\035\237\336\244(\233:\232ec/\227\245\230Qk\017\221\031\034\372\237\366B!eP\366\207\243\333\274Z\377\367e\257C\343\202\262\363GK\216\236\217\226-\221\272\014\230i\322\311/\236V\366\006\311\233_6}Tr\226\226O+\033\036C\250\3545\341_\337g\247z\2733\006\341 \333w\345O\376'\337\366\020\375\374\316\256\351Fo\375@\303z\217\177\324\276\345\304\036#\3267\311\0335I\247\273j\357\203\003\220\334\354\361\350G0F\337\367&N\306\020\003\266gi\204\024\021\002\276""\335\371\2547t<&\"\235Q\330\266\311\256\331\335\351\231'\030\345\016\363ut\334!\353|2r\311\271\204b\316\255\357\017\352\207c'l5o\267\331*\237\247\340\214\21297\276\351\231\275\306\301?\0167YnB1\217~\030\260\313[WT\372\302\371\202\314\200\356(9'g8\306/o\253\326\372\033\305W\"@)\221[\377{{\035;\037%\332\275\331\337\310I$\002\013<\344\036\300k\360\321\023\362\244x\200'\034\275\237\031o% \353\303\357\375\261E\312OA\333k\204\272\023'n\346\327\356\271\336\2303<\343\314\360\326\004V\361\202\003\033@=8#\177o\233\374\355\345]\2777\345\0313\362Q\343\336>\205\364X\354\266\336F\247\265i8\227\257w\036b\315$\2323~\253c:\303\024\351\300w\\\330\317!\036\035\202\335\331\005\243\204\033\304_\002\276\350yw\313\271\017\003\346\014\177\355|\375\362h*\262y\343-\017\244\212-\353Y\304\301d\234ot7z\225\303\231#\354\225\020\333a\227Ba\010\344\345ao\252\22788wx\355\350\023(\220\263\270$yDo\277\364\317\303!7&u]\177\262\363c\227\307\304\206\2260\262\036\364\215\346\370\373V\247\350|\201\020\343\204\266N\010z\260'z\331\372\255C\261\223\313\340\357\016\004C\361MF\226\350\215\366\363\3166\031p\021\360\376$\2668R\362\003\024\231\242\005\020^y\030\341^\203\366j\2411\212\t\374\235\002\301?\260\352\347\367\277D\214;\314\353w\356x\014\333_r'E8\372\277v\037\367\2061\371\341\003\004\223\327\332\027:y\362}\227\311\331q\364I\275\275\350~\000\375\032\375\260\3751Gk\2562!\334\276p\021\263Bk\t\004\223\213\344\355\273O{?\300\375\215^\201u\375\013\205Y\227[\377h\233\330g\216\215\267\246 \376\017!\351\013\235\365\256q\240B#\306\311\226<\342m\277\202(\246\330\273{\360\344\360&\366\325\217\216\266(\240\335:\276\206\021\237\\\373\020A*;\263\361\326K7Pv\236\376pt\343\310D(\213\020s\374\212s\346#\3646|v\377lk\350\370\302XK\010?4]lP\260/\355\337\363\213`d\217B\017H\002*\235\345\220x\370r\353\233\366\23081\030pNp\2236\037\307\354\315\377\352\\\376\ni\314\361q\373/\316G_\302dq\240\271\203\275p\243\375]w\3109\3639\274\345\217\275\255\343\341w\216Gx4o\3738\031\246u\031\276\260\277\334\322]\333\372\356\231w\316\376\261""\275\277\004\013\203m\363b\357\311\001\007T\3670\226F\347\001\352!s\213\0142\324\345\272s\223\367\352\244\376\264\033\276\0044\tn\027 \370_#4\277\303[\013\n\005huw\230\005l \327\332J;\207\310\342\\wLx\306%l\376\037u\267{K\316sD!\210\261\177t~$\253@r\361\004*E;\302\367Ga\213Zev\021u\252x\025\355`\313\322y\267Sp\356\222\\G\333\246}\177\267\212]\343\306\241y\270\265?\3216\367\207h\247\370a\373\\\207\353\027\021\t\275\240\246>\204\276o9\347)\272\032&\007-t\020\233\024\350\310\305K\25511\203\377B\234;\344z\355q\314\263\330\275\333{|\360\016\231\311\303\033\207\245\243&\373Mw\371\235a\022'\351\004h\240\214xg$\276`\210\220\233\304\342,\355\257\266:\236~Al\267\204V.\266\247B\t\350\244\333\031\235O\255y\212\212\340\213\017h\236\035Lx\241\332\377\"\201\261\255\306W\342\034\374Y,c\376\037\325B\226o";
-    PyObject *data = __Pyx_DecompressString(cstring, 10134, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (10137 bytes) */
+const char* const cstring = "x\332\305|I{\333F\326\256\325\255$\266[v$[v\234\251C\305s\342(\226\2078v;NC$$1\246H\212\0005\304\311E \022\222\030S$E\220\032\222\356\357f\251%\227\\r\311%\227Zj\251%\227Z\352'\370'\334\367\234\302P\000!w\276\357\336\347\271~,\262\352=5\236:S\025\210z\026\373\375\331\375\007\313\377\246\317\335\177OM\336\237\232\234z0y_)\026cE\263a\306\326\314R\331*NR~\255d\225\213\036P.\307\212\245M\253b\227\252\025;V\253[\005\253X\252\254\373`\354f1\266\331\264\033\261U+V\252\024\255]\253\0303+\305X\245\332\210\331\345\022\212O\233\266\025\263v\013V\255A\345\327\252\365Xa\257\320\254\227c5\263\360\332\\\267\246\233kkV=\266]\262vb\305\252es]k\267VE=\273Q/\025-;n\226\313\346j\331z599y/\226\256V\254\237\343f\205\0136Q\252\\-\230e\243f66\270o\236\222\331\21056\320\200\271i\305\032\030\355$U\250V\312{\261B\3352\033V\314\214\255\212\216\033\033([\262c\205j\245QZoV\2336f\022\333\2646\253\365=\252E\275\230\266]Z\257\304\032\325\030*\027\277\342vD\t\032\266S\310ix\247^j\320`\235\002bbk\365\352\346\333\352\026\2335p\213\252\027\312\230x1\266\201\231\224-\267\177fml\247\204\0316\366jV\354\266\203\327\254:\030J-o5-\254\002\030\034Y\237\026\256\264\215\261Y\253v\265\360\332j\010&\235V\334\266\300\306?Y\266Q7+6/\226?)1R\014\272\204\216\033\222\010\305\261\356\2331\263L\234\330s\332\233\210m5K\215\006\211\025s\251V\257\026,\3336\250\327\347\261\204\242+/\3703a\255\225*V\354\227_\314b\321\240\006\254\372/\277\240\323\306F\265h\323\322@\004!\007\220[Z?,/\304k\275^mb*\266U\246q46\250\332\344\371\3631\374KV\354\206YAO\261\352\032($\000e,3D\316\254c\301Q\007\002Qt\352\360\3127+\014SS\325\372$7\242S=\247\010\213\320f\255l5,\254\360F\251X\264*bF$\210\220\323\372?\270\016\206\310\343\244\361\3311\263nq\313`/\025\333\251\233\265\032f`m[\225\006\004\273Z\273m\007\307\255\357\325JT}\217\232,B\272L\260\004\232\253s!\315\031\236J\365S\250\376\313/\367\270\332j\023\002\n\025\000\223\314F\303,lX<)\223:\257\020\357M{\257R(U\271O1\271\204\254\344%\241\227bE\325\315Zc/fo\230\020\305\006$\327r\324\032KQ\2314\353us""o\206\r\010-\204\223B_~\312\206PY\365:\352\010\035\274m\314\200\224\260\354B\275T\303\350S\245\327\326m\202\270\3175^C(\351\304\\\222\365\240\212\271`\321V\t\267cw\314]\014\356f\361nrP\336\204\035j\326j\325z\303*&+\333f\271\004\203U-Z\367\310\304\2400\006t\273p;\206\241\334\306\034H\230o\337\213\255\243\226[X\314\222$\212\272y>\317B\276HB\216!\2443z,\221I\253d\222\322Uh/\033\22383\202XV\264\312\245U\253n\262H\2201C\207lq*\261\254\232\375\352\321\267\217\330b\325\255_1\024\310^s\225\205P\010\345j\263T\206Z\260\306\333\223\261\344Zl\257\332\214U,\301\303\032\013\253_\001\322Sa\306\222\030\335f\3354\311\342\032\250\216\365\275\355,\035Y\001^\213\262mMf\204MnV<\026=\213\335\2643\001\366\202\356\030J\263@z\351\360\233%$[\257\232$m\222\270\372&\274D\272\260I\270\257\260p,\233%\260\002\315\273\212K\246\013#+\n\231\313Y\353%\033<b\211\254P\315\022\r\321,{\212\347\252\033I\234\324\2603\003G-!\330\333\325RQ\350\365\216Yg\t\207\276<c2k\241\020\367Ip\314\340\321\0334z\243V\205\031\336\273\263\004\333U\335\261\007\264)+\310w\357r;\317c\232\226zA\037\2231\315\262b\033\215F\315~\366\365\327\344\335\320\360\327X{J~]pS_\261\320\333\223\033\215\3152<m\335n\3604 Q\026D\245\001\375\260'\377\0376\025\313\226-\362\276\325\032D\303$\201\264\233\026-\350l\2511\327\\%9\330\260\312X2k\265\271.x\305\255Nj\r\253\026\3334\367x\035a1~\263\352U_\317\364j\275b\026\253\336\212\344+\354\356\320\032,\346\266\005\353YjX\233\224\257\256\222\\\347+\236\252\261\337\337lB\254\311\3166X\257d{\177/V{\353\220\317/\301>\022.\t\034Y1\004.\236\270\261\324;V\375\024w\341\210\341\377GO0\350\005\270\225\377\236'\360\207\212\004{\003\263\331\250n\202\001\302A\254\356\305\234\265B\1775\021`0o\354\215j\263,\20242'\334\032\3076\034\017U\261~\216\265\360y\304!\222m\256\361:\357\210U\330\223\227A\004'\336\220\356a\206`us}\203Z\023A\217\371\032<Fla\213\311\256\005\014\207-l'\344*h<\"\026q\300\210\210\tlX\233X\223m\364q\2474iM\242\226\243\306\256\231\222\234\342]1\2558\"\0202\r\242\223\267yQL\307\256\212\210\305>e}\034V-""\325\311\021\254\3565Pp\342;7\364*\n\004\001\354d\354\325\371\273\261\357'_\334\276\033\373\3429M\254B\025\310\017\270FIY\205\257\300\220\275\376\311\373\335\337\025M\374\374\014\322U\246\001\322ZN\232\253\205\347R\350\312\0010\257\335\2130\354\306c/\356\261\036>\213\335\021\201\370\327\206\323\257\341\211tm\267\344\322\330\002\325\366v\235|\263A\226\005\364\"|\331\253\010\277}/\346F\353?\027K6}[l\037\326\013\353\026\274\331Z5\026\273C\376u\235\243\tr,\264\000\326n\003S\345\310\333\337[\224lQ\265H\366\304.\375f\305\236\177\027\273?\020k\224\3411\242F\362\363=aj0\321J\025Fn\315D.f@\216\212\315\202e\030\010\272Y\232+\325\312Wp\315\210\244\312\240\026J\225R\003Da\273^\200%k\223\034c\027D\274KQ\2460sn\004\225\025\356^T\340\321!B{]\306\264D\345:\355A\376G\265)d+\240,\245`&w\367\374|\265\326\210=\027\333\243b`\321\0071\nn\274\265\017\320\203(z\2546\353\005\353\205\210\030&\025\222\212Y\253B\361K\265\376\212b\034g\363\325\364,>\226\272\312\333\026^\t\336)LFPE\020E]:;\272IE\213'\223\003r~\272\006\236N\2314\014H\026\202\332z\tA.\326\365\255E\305\352\276\245\210oi\376C!\332\347\275\265\020\033\213\267\320\353\010%\267\255\377\334\231S\316\351\257\262\307\353B;)/1\351\t\265\320\013LP\"AZ\330\331F\021\261\017(\2746\330\353K(\244\020m\321\266\031\241\266\217\323\254\305\346\317\307\304$\275\254\354\314}\324\231A\270\256\330^\032&[\262x>\227R\362\372\234\241\244W\344\264\246\314\250~~I3\264\344\354\342#\017\231V\264d\334\317\251JN\315y\331DrV\325\364P\326H\372\355\315j\232\222M\312\331\264:\233\321\223\212\356\227\211@\020\361\373\031=5\037\310\030K\323^>\223N\361dTC\231\316\344t5aL\257\030q%\225\232V\342/\035\302\254\222L;\311TNU\022(\220\231\317\246T\321!PjH\315\34529\221\237V\022\334D2=kdr\tU\2063i]M\353\206\232\216g\022\240\373\224Df)\235\312 \221S\265\374\274\352\023f\362\351\270\236\314\244\r%7\013BZ\367IYE\323\226\320\003\232\323\325\234\232\020\224\370\\>\375\322\230Q\222)\017\311\244\027\007\201\234\272\340e\363\251\004F\005\030|\323\203 \306\223I-\252\306\\F;\205\222""\315e\226\035&\252\3619j7\237\364F#\2725\222\351\244S{\006y-\371#\312.\307U5\341\225K\006Z\246\211\003qhz\326P\342q5\253\007f!\301zr^\315\344\365 \256iFBM'\345\342\247r\332%\3620RIMj*\256`D\263\252.q\300\203sj\200g\214;s\240\0324\317AJN\325s\241\331\271$\r\225\330\360F\223\246\223i%\267\022M\323W\262Q\r\352\231\323\372\312k*\261@\032zV\311A\217R\241\362Y\350\305\000\337\263\230\304\000\270\220\317\350\252\254\t\004b\3635P\020]\347|\351\205ver\271\000\023\227\324$\010\017\036<1f2\271ye\200Bu1\370lj%\202\262\030MA\237\213\3506\222\306\003\nSr\311\320l\\MLg0\367L>\355\314\010\326\207\2409O\237\347t=\373@Jb\025 \321\363>\362\320O\206\033cl\200\345\016\n\333(\215\207\301\234\222\236U\007QU\317\347\322\320;\211\220$#1\243\304\325@\313\251\204\302\262L\303\200x\311h2\275\250\244\222`N.%\241\032,8\264<\320Fr:\007\271\014O%\225\231M\246\003*8\257\244\304z2\303\005\306\035\347\223)\335p\255l:\343Z\"6{\213\350I\231v%23\r\243\343\231^77u?\224\177\020\312\177\023\314?\010\225\177\360(\224\177\032\314?\014\265\3670T\376Q\250\275GS\241|\270|h<\217C\365\037\207\352?~\022\314\177\023\032\317\223\307\241\274\333\276\343\3032Y5\2470;\311R&<S\031\304\001\273+\205\244\221\2311\346\325\371\214kp\006\255CV\205\3268\006\036\252\225\234I\306\2711\207\352\273\0058\204\270\273\246\262H\016\030\214\001ifO\020\310\343[K\302\353 ,`/\353\341\213\301r\363\324t\204\033p(\211\244\006'\231\367\3533\312\346_]\206\375\327\006\361\220x\347t\r\232\243\251\013\201~\t\324\320'\361T\30255\235\030\310\023\353\320\303\222\247v\260\343\031x3\374Qum%\255+\313\016e\016q\0234\204\024\307A\26497\221\002#\342jN\017\347\311\243\371\253\3058P\254\013\264i^\002\223\3319W\0339\237JR\230\021lpp\361\030\316\245\006;Q\323\320{\225]\276l%$\0228)1R\"\200\001\341*\216\025\242\341h\272\242\3475\211\244iyH`hL,\225T\\\310\2434\260l\022\223Hd\363\323/\325\025\014\201\374\212\304Cm.\257Sl\0200m\272\232J\253\221+\242\223\217 )\362\205\210!Yz\030H\246R\352\254\"\027Ig\264<\2424\317\004:\240\314\023\206\240\234\363R\026a]\032\343K""\272E2\031#\205\240P\365\263\363\010\307!P\211$ySg\014N-g\nA,0;\227D1\r\264\231L.\\\216;\267|Z\313g\263\"D\206\004\351\231x\306\245d9\232\222\271\206\017\337\326G@\222\371\247($\034\"\234\346\257C\0369\231\236\311@\303uX\003-\023\177\251\352>\230\315\272\002Kv\3554\334\360k\304\025\372\222\262YE\237\363\263$M\001z&\235H\262H\344\323\363R\307\221\275\236\326%`C,\246\233\347\275A\n\272@{!'L\375O\364`\213r\t\2610o\247F\324v\003I\007\314\274L\252n@\314\020=\352s|\265\237w<\n\003\010\020R+\214j\334\236O\230\231Qy\271\340W\364\271L\"\202\340\304\032\002M\373%\310\302\004\230\352\002R\363\254}i\035\201H`\361\346\340B G\322\210\035D\036\263\003\271\001\273\300\020I\211M-\205 \2030D7\021@\275\rT&\021l\205\274\243\346\250\030\203)\005\201yZ\r\344C2\234\312\300\273\031\311l\010 \025\364\240\2642\257\246\260B\371lP\342B\270\304\243\264\334k:?\357\016Y\363\300\214F\032\226\366e\235\302N\035\216Y\233\001\203B\315\3216@&\235J\010\324I\316S\264(M\315\205\002\223\003\270\350\230o'\357[\035\027X^\211X \037\017\254\020\303!\353!0\262?\034\277\254\320\2260\345\017a!\257\346\325\360\370]\373J\033\251t\004\034\340C\000\215jD\026\370\234\nv\2519)\217\001hzP*1\304l&\255\321f9!\243$\367\312\214.W\347\000\205\2359\307)!\002E.\0246\005a\307\352\016\226w\203\032\311bi\3619U\232+\357\352\007\314V\000\2258\300x\310DI\230\\\022\036=\021\321p\000\036(\037nZ\002\345\262X\372\260A\3630\331@\370A\212\026\300\"\345\006\201JN\217V\214A\2224\032]]\2262)\315ez\020\243HF\367\227Y\317\350\260\013\201N|Hj\234\224\301\017\312\031Z\2461\210\005\235\247\300S\034\0359\016\"\253\246\225\224\276\342I\237(\021t\"\221e\346\021\"IV\305\305\250.\3629\225\217%hC\034$\323\361\212\264\361\013\022\263\311,\274\020\"D\321q\200&f\033U\323\251\345l\314C\220+\352\323\251H\"\205\0322)\257\315\221P\004\000\367D\300\003\205\r\017\224\023\320@IZ\234\\\240 #\201r\332\254\221p\3545\245\311I\270i\327\216SEe\032\354T\310\226\244\223\313\206\357F\230\306\347c\316\346\316\020\034\367\361\3009$\303\211D\2166LZ<\223\365\333O\351\332b<""\2303\342\2720\\\014e\263\216\257\346\\^\317H\226\214!\371T\230\200\351<<~\316\225\032\026,/\000\363s\340\177f\332\207\\\257.r\264\307\231S\345\223?\306\245H\315\227\350\351\331\264!s\326\247\270+\340#\2741\013\227Me4\025\261p2\276\022\200\202\313\035\202\007\032\021\002\032\036p\000\225V\310\215\032\335\023j\031\3233\022\262h\314\3442\363\006\002\371\245L\356\245\021\321\255S\"\257\317|\033M\3263o\251N\001`0\347n\367|\344\007%\027\004\334\210\321G$S&\300\354\nE\0263(\233\360'\235K\315\310i\271#|\347\375\014\342\247y\307?\272`B\235\316\317\312\213\301@xB\tuF\201\255\016\204\023\214's4h\231\335\330\335)\251Tf\211\267+\024S\361\006\334\227\373DZ\213\226B\"x\307m2\350\006u\217\242\300odP\030'-\000\315Ak\350y\203PR5@\244}\324,\324EI\211!y\264\314\234\344\247\334#\354A\n\355\232\243)\376\256\333\245I,P\343\236J\252\263\211\240\355\t\033\027\016\275\204\346{\320r\226\344y\352\376}cP\003hK\0103\347\006l\014I\002!o\t8\237\346\r}@\245],,\0043\031ZWb|\020\315M'\351\271\200s\310\302\030X='?\031a\020;\200\200\315\003\020\026\036@n8\353d\301R\212J%\204\314\260\033DzPJ'a\343\335\220\236\361v\312.9\016\307\t\3174\237\2046\301MAj5\231LL\3617W.\352\305\214!9\345\363\371\227\311\25485\027\001\271\207k\251P\326\210\307\3432D\"\247f\003St0m1\214\321~\300\305\3043=(\"\235\213\310\374\237\003S\021\241\257\250\220b\004:\203\022\201\002\024\277\204U\327\201\335X\327\237\207\330\325\005s\262x\010$,\034\002E\312\003\234\003\0357M\207\222\201f\034l\240!\340|f\021.\314`T\351\200[\245\235\343\375\247\006\233 5!\243\017\356\337WRIE2\001\3429C\232wM\031\264\276\022$d55\237pw\271\232\377T\322/\241\251\360A\351\331P\203R\234\346\203t^IF1\233p\266g.I\226n\312Oc\204\241%\000:\353K\002e\007\013d%#\305yZ\\=\017\r\014\260\306\213E\261\r\n\330\031&z!v$U\332\217\023\226\234M#d\t\005\267\0361-[\035\221\223#\027\037\361\217\343\004\036r\000\014\244Te1 \017>\032\026\210d&\256\247\002E\t\030(\225u\236\303z\000\237\212\272\307\267A$\020Q\275T\325,\037D\363\203j\351\270Z\020W\370\001\235'w/s\323\217R\352\242""\277\006\000\002yvc\262\311\363\000>\325\367Qz*$\216\0345\037\\rvh\251\344|R\037\204eC?O\307\346\262\2541@!N\000\310\305}\r\366\000\322&\264J\256E\213$\016\320\226\225Y\226\214\264\004\311\333\033\007\nK\205\004\005\305\002\204TrF\234]\205\232\345C\001\271Q\361X\303aL\250\021\361\010!\212\206\226e\025\242|\230\337\210\366r\361@&\340Z\323\352\222!\316'2t*\243\346\3465\231\304OC\202hf:\223X\361sP\331Y\212Q\002\310\262T\000\273\201\264\342\211N\3601\232\214<y\340!\360\267\203\361\266\217\206\365\302}\274\354\347\351\240\010q\2317(\357q\000\342z\210\273\017g\325%\305\027BY\244e\276R\372\341\375)9\033\014f}D\222\213\000\030\\8\"\361\0231\031`\231\360\000\212x\345\002\330c\251\0132?\0042\300\213\234\3648N\000\336\331\232\310\212\345\n\266$\260\301\266\204\363\325\006\000\362\026\022(\367\346\034\310\005\200\240\341\027\216=\274f\014\312\374gW\260\222U\003\200\033\236\017\200\331\245`S\241]\246\214\005,\243K\220w\234\016\206\365\200\213\240\347\240\351L0Rt\013\004v-\002\0344\311a<\242\373\001\013,\340\323\244V\234db\327\220\214\253\306\00078\234\033\350\337\001\007\030\352\022\"F\005\312`\257\214E\266\002<\272\221\220\007\366\017b\305\323HC\336@\372\304\220\031\013\037\337\312\333\2330M\336\340\010\232\236\322\246\036:\375i\003$>@\216\024H\217:8c\227\022)\221~L2\357\034\335\212s$o\310\364\230\374%=@\224\020I\333Q;\201m\274,^\001\317\032\016K\243BR6'\203:\034\202eM\016\035\345\270g\322:Y.\335G\003!\210\223\315\211\323N#8\250\000ip|\364\233\254\2003\227\240\240\275\244c\351\240\021\211:\361\366\360\320iA\324i\267\204\313\207\335>\314\3410\366\277\311\000\314\353*\233)M\321D\204\362\243\337\000c\276)\327T\365\245\314\027\312\207\231\341=\001\215\336\275\235B\226\366KQ\346\200\177I\340e\340:\361\035\030\210\200\006\306\002X{\034\010\273\034\310\331\316! \212&8\203\360\210\330N{\332\243\311(\375\2522\027<%\"\230\224\032f$0F\037\036\030\247C2\204\205$+j\314'\036\277\215\014\216<x\374\215\\\"\242\273S\272\342\347\350\324``&\216{\345J\222\2662\311\3537H\tXg'\0334\377\021\306:\312L""\003\023\317)\006\000\367\350K\"H\246\\\344\006\272\014\031\366\010\223>h\314\335_\232D\257h\244\211gX_6\202l\027\330 \337S\206\032\247\003\301EY\200\350\371\014\377h\001\233\216t4\034U:\035YXO\312'Y\342\007\n)X\0052Z2\032rH\342\367'\271\371<\375Na\031\233I-Lu,K2\021<\246c\022\305\304z>GC\235\245M\374\334\274\026\242\033s\n\251Oj6@\030t~\321n\357\2643=M\207\r\365K\t#\227P\351\200K\213F\r5\204\253\313\361T\236~\227\025\302\227\324\344\354\234?\254|\226\345\301;\310v\016$\\\272\036\317\202\317\232NQ\275\214\321NUII\255\273`\334?;s\241d\"5P\014{\354\305\224\014\246\341\200S\212'\373\342w0\241\265\344\337\334L\247^\312\321\273\363K\235\360\262\363\356\324\375I\210\014J\326z\320:\023\262\250\244\362\352\000\020\364s\221q\312i\021JTlrZTBO\023\235S8l\"\375\320V\356\304\027\343\340\251\021\221\260?P\264@k\2169\305\032\0077\362.-\257\321n\232~\340\t\321\177)S\351WG\364\243\037\336\025\205\253\222f\320\010\311\246\020\223 \276\363\331\300(\205@\207}<Q\350\364\2216\255\244\376\374\314<\233IJR\223\243\337\035\005\016\005\035(lu\334\340\315}F+c\003G\335\322\2238C\336D\320\257\253\240\031\31181\\\366\245\371,\237\306\360a\020D@\222\022\3779\266\237\213x~\346\376\n+\245\370\266A:\247\247\245\007\353\375\211\207e!\264]r~\226\345fa5\2463\376R/%S\211\270\222Kx\277\240c0|\322\031y\312\311`0jcH\336\227-ia\005\243\007\325TBn\336\305\302=,g\210\261\017\244WMhG\317\347~S^n\036~0\231M\251\313\036\"\375\202\333\013Q<\216\371\210x\367\305\313K.\325\303\374wV<\310\265\315\036\000e\230\316(Bm=\320}\250\353\001\262r\373\240\274\365\003\253\374\227\002\220\341\347\217n:#\006\217d\232x\222A\2308\353\000\231\231\031Mu\251\331\244\207KEr\312\222\267QA\326\225{\n\226S\316OA\003y\361\013\n/\353\230>q\252\350\375@\300}\"C\213\306\017x\006@O\246\002h:\343\343\362\t\2561e\334\217\002\247\006\301\007\021\220.l]\010\215j\362\2018Y\347\200/\245&\204u\016\026y\030\001\271O\204\202\260\373$?\210\272\313\357\037\351\032\342\211\271\014|\023\002\226\346`\274\027\205\234\363\3175\335up\322\3562p\326\353\201s""\001\022\375\320y\321!zgH\342\245\2500(~T\356m/\245B\036\224U\234\203\021o_\303\357\313P&\210z\"\340!N\353\216\361\234\026\246\317\315J>U\212;e-\224a\217\315\022F'\247\247\024'\322iU<\316\205p\010\320\266+\202\221\244\251\323I\017N'=\014\223\220\334~\020\005\016\224\344\006\"\301\301a\2362\304S\206'\017Mr\222\322\372\313\250\263\216\236\023\360\037/H\230\220\023\347u\3448\275\343O\327\303\250\364\266c\274Z\021WK\320\233\210\364'P7\341\275)J\310|i\323r\277\007_\265\224(\003oZz4\263X\254\231\365\206\237\347;X\274,\277E\351\345\350\252\000\203\336j&dI\334^\021\375\232\347iox:\257fZf\305y\351\3226\360e\210\213<l\377\305MN\361\365\017\"\325\254\211\342\234[\267\032\364r\252\215\006k\033u\323\366Pz\213\233\323\245\315\032\232\253V\320\265x\373\323\254\333\030D\265\372\272d\031\033\374^\253-\021h\214M\0333\2538\305\305\355E\316+\242\230\204x+\224_n\346d\263\366\332\262j\234\334FS\316jM\356\330\206?zd6\255\206\351\246\353Va\333M\3235F\356\3571\304+\013*\275M\240\226\313\245\232]\262#^\0317\346L\233\320J\325OM\256\361\027?\023\231\313,\031\323+\272\252\315\257\030\212\216Hk\032[1\215\336\211\026W\251\230e\030\262\231\344\262\252es\031\205\236o\030KJ\216~\361\2255\033\033\003\367\020\000hT\013\325\262ad\367v\361\227(\025\032F\332\332m\344\2545\367=\340\340[\301\"\347I\347)\360\344s\276\022\313~\201\204\271\271Z4_\374\307\202\342f\tc\323\254\230\353V\035\322\202Q\204+\025\252\025\273\271i\031;\346k\253\036&\n\301\021w\251\234B\023\327\013\204\211\365f\345\024\n_\300q\n-8\3360\225F\350\335f\020\"\372/xG\020\304K\326!\002\013[\010\013\274\274\035Ms\333\332jZ\260<\032_i\021\027\272\241\213\222\372^\315Z4\353\371\nD\207\256\024\232\364o\027Z\322\024\0251#9\246%m\206\256\020p\276\006\215\200O\030\260\003K\274\363Y\244\337\307a_\275d\231\257_Z,e$\253\365=\0024z\003\333\\-\210\267\260\301\003\377-o\237S>k\034C\346\276\331\357\230\024C\010\014\276\352\353\266s\233\204{\231E\241Z\2576a3,\227\3007\355\240\356.$\320\371roB\021f\021\315\354\230$\236|9J\331\264\301\254Z\331,X\2530B\253""\325j\231\356\301\340\2730\370\303hTalv}Y^\267\350\306\231zA\\\226@m\033etT\347\224]\255V\274\204#Ft\257\211;\204\002\273\211\202\353,h\222\353X\223\302*d\255F\355\225\326J\362k\363\206\301\367\235\030\206\233 \003\331\2606){\212\375%B\235?\\#)2\260\201\325\362\266U \003\t\0055\350n\004\213\307D\002(l\236'\325\334 \337Y$\256Q\343/8\n\257@\241l\027\252E+tW\010tx\255\264n8w\"\331A\235\246\013C\350*$\272q\212\323\273\r\272n\210e\266PmV\032\342\212;c\255\331h\302\320\212L\303\264_\323\325 \206\270!d\222o\014)\232\220\344\n\335\002\300\336\205?P\255\302\0031\234\2738hpE\313\313\360\227\313\021\303\240\013F\350\323.\230\365\"\022\325\002}T\254\"\215\316\200\371\026Wfx>\313\202\226\2419\303\300\014H\"\255\n\346EWoa\231\210\200\257M\033\266\242^\251\362\302\211\013\224\254mc\265\324\330\304\034 \210v\003\375\262@\032kE2\373l\372\241[\302\005\320\247\275V6\301\266\300\r\t\344\304\350\317l8W\210\361\225\037\236\0277x\342\342\263\001\351\265\005\373\034)\205\270\0148Z\006\304\275l\274\304\224w\227UN\373\"\177\252p\204\356\306p\2747\276j|\333\017L\t\263\215z\"\2420\037\006\335\233\347\2605`\330\203\226\\,\225\263`\320@\030\354:]\\5)$\306\246\264\3418\356R\261\264^\001\323\245\220\001Nh\223\356\354\"gTDm\307'\225\320M\211\004\3231\033\342\362\027\347\006\230_\253\245\312kk\317~\275C\226\306\365n\345\252Y\364/\201\344\224E\263\367\325\243\\\335\261\352\320\311M\023z\205\317Fac\323\332\244\273\n7-\333\206\01318\212pTy\223\345\010\237M\314\025\3776\353U\222\252:\346\204\214\275N\"a\030\316g\261\204v+\326\016}\3546*U\030\210=\210f\265R\345\220\200n\271\214\212\213\006B\"2\253%\263\3143(\255\326\314=\232\225\023\"\301\372\261\224\325\252\265Z\325n\254\225vi\371J\340\031\276Q\321\242\004\030'_\277\001\010A\005[*h\270\3109\313KI\326\"N5+|\343\214e\250\025\267\3346\337`IS\337j\232e1Q\310\212\343\rl|\225\205xy)!\277\024}\371\027\354\014x*\017\240\325\256;W\275\005.\007\t\270\325\200\037\345\000\261nAs*\260\016~\320 >\235\014\373\0377M\267vy\032\341i\006\017;\220\263\375Bta\017E\215|+""\234{g)\373Ug\265mVU\033\206\n\251UH\332kqQ\217c\275D\354*9b#\302)\363e86\207\003\260(\r\322\217\337,\033\006\254&.D\t\\\213\"25\263T\247\324Z\021M\321Zm[e':\222b$N\333t\021\027uX*8\267c\t\021#\023(I\233\335 \006\203\3775\033C\206\342\212\333\t\361\331\304g\223\224\264Y\303\252\332\266\275G\355\222\3311\340l\371\023\236\336\211\277\202aXT\020\031*\342\254\263\000\301;$\252;p\340\224\305\027\2575_)\311\362)n\"j\262\0225k\220jKl\t\266\315r\323\342\017\333\261/;\0341\004\342>\341\323\014\367{\207|\236\353\367v\020\371@\203v6 q;\245\n\376?|\300};\322f\357\330\356.\303\331`8{\013g[\261\273k\323\341\312\327?\025\177\232\374\251\030{u\377\253\247?\377\376\360\337\261;\223_\334e\302\035A\271\033\273\343\322\3562\261?\374ew\352\344\354\325V\251\275\335Y\352\376\320+\036L\034\237=\267\377A\353\235\376\225;\335\013\275\005 \267\017\257\036n\365\207\037\365\2247\227\316\234\273\324\372\244\275p|vd\377\207\226y<\362\376\376vk\261\375\240\375\252;\324\035;\036\275\332\262\332S\355\231\316D\347Qg\247k\036\237}\177\0375c\235\241\343\263\177\333\177\264\277u<r\341\370\302\225\326\002U\035m\235k_i\233m\024x\325\177\365\323\233\3613\347FPf\247Uh\217\035\217\\j\335EK\312\233\2213\027\337?\036\271\332\332\354Lu\022\335\263\275\213\007\346\301\316\241y\3308\372\266\257\375\330\377\361\227\376/f\337\264\372\326Z\177\355\327\376\257\377\352\377\353\177\2779s\346\237\177Q\376Bc\234o\217\265o\266\267h\034\215\326T\177\370\333\376\267Z_C\205\3257W\243\272;A\235L{\352\315\273\242\327\376\325;\230\327x\027\363=G\003\276\320^h[\235\251\343\221\313-*sa\254?\372Ew\242\373\375\301\004&\331\217}{0\344\024\034n%Q\324<~\177\224\313\036\213f\035v|\336\377\034%\337\\;s\356r\353V\373\035\024\\\353\314t?\357*b\230\337b \231.\006\373q\377\343\247\007c\242\322\305{]\345\017\345\370\376\024\215pz\177\255\245\364\257`A\230\330z\267e\266\266\333K\035Q\342\315\3713\347.\270exH\016\353/\367/\177\321\275N\223\371\333\376\324\376Lk\242\365PL\376c\014\355\302E\252\320\322\332\177E&\0329a\030\302\202J\355\211\3667""\235\261\016\204e\2545\206Y\014\265\307N0\226\377j\377\334\235\370Cy\363\350\314\205O\261x`\321\335\356\320\311\331\313\255'\355\317\333\212\030\211\303\361\367\367\367\270\345\321\017Z[\307c\037\265\257\267W:\205\356\207\275\353\275\225\203\302\341\207G\327\217\026$\332`\372\004\215=m\305\001\372\353\264\334[>X80\375\245z\326]\350\262\224\356\266\354\366\204hc\204F3q|\201\346\361a\347zg\245[\350\215\375\211F.\267\276\207\\O\211\212\177\252B\377\362\315\316B\307\374\3635\002<A\207\337u\206:c\377\215\016[S\1770\323?\201\010%H\351F\366\347Z$\025\227\2460\305s\347\tP[cT\361\"4\317\356\334\300\350N\301\322\355\211`\305$\324v\255\235\354,\243\263\327$\227,\323\375\341\353\375\353\312\341\030\231\206\221\375\357\204\260\\n=#\361?\341\365\376\r\3222\331}\257\273\325;\327\177\232>*\366sPA\235G{rv\264\365Nk\201\346u\241\367\352\020\222r\255}\2763\321\277\376\260\377p\376h\341\310\304d\316]m\375\324\201p\235{s\361\314\271+\244W,\364\030\333\331\207\275\357\016\207\016\307\017\027\216\331\202mu\206\376PD\237P\366\343\221\361\226\n\266\215&\016\347\373\013?\365\177\372\371d\344\302\211\230X\373\333\316\0245w\236\354\321\350g\375\317\240J=\375\340\303\303\211\303\251\223\321\313\255\247\3558\214\306\370\225c\244\277m?\356\274\327A\356\023\330\265\033\235\327\275\261\336\227\007K\207sG\312\361\370\337\333\033\035\253;u<\376Ak\027\234\2338\276\366I\373eg\013\"\217D\032\226\341I\357f\357w\264\372\364H9\031\377\220\324\346\370\362\370\361\3505\322z\264\177\202.\306?kc2o\316F\232\243\013\027\217G>\355\177\212E\350\335\350\231\244?\377\020\005.\020\373\023\255\241\326x\353\307v\243\363\264;\1770\006C\375\311\321\"\361V0\210f\030aQG\003\026u\350\370\306\035\357\343fG\207\025w\276|\363I\2530\212f\212\375\217\276\200\235J\364\357\377pt\027\375\364\365\345\376\362\312\037A\275\246e\245aCZo\203\025\303\302\254m\211R\337\262\352\321\350o\365o=;\2308\200=!\225\316\223fu\342(\377\327\356\243n\223\014\333\305\375\022)\301\265\366P\377C2\262\317z\013\375o~8\2328\232\242E\036\351\217|B\006\305""\375\026&n\354\322\361\370\215\216\302\303\037\031\355\217~N\006J\310\340e\224\032\365i\255\221\266\302\355\354\317\266\246\334\304\343\3765\364t\354\246\357\367\206X\235\316\375\275\255y\312Du\317\262\224\213Y\235\234\375\264\255w>a\005DWOZ7Z\305\366\255\316;\035\rSO\364\336\355\375z8D\274\277\335\036\023\253|q\337p\026\366\243\376G\350\2427\016\203g\035N\271\374f\223:\336\312Cg\206\\\354n\207\311/[[\355\277u\236tov\177s\374\002\217\357\223O\217?\270v\214\317\253\037\220W\373\252\177\357\005\234d\003\242|\3663\310\306\023\232\322\245\326\3270\327\267\272\027\205\024=\332\267[\023\276H\234\025\272\373\036\204~$\326\031\351\316\366\246HB\252\260^k\3354B\202\021rL\017\341\265G\035E\023U\236\266fI\335?i\317uf\273S\274\346w\273c\335[\344\245\007\353\234\260\370\256c\261o@k\236\364\244\001\274K\255\021mAT#\363Q\306\270G?%\326w>\026#\"\312#\360\340|\347v\3672C\243B\312\372w\236\037(\007\013\177f\000\217[\357\221X\271\235\254u\024\262\266p\016\216\232K\323\276\325\377g\266\237]\350/\344\006\233\242\205\177\177\377\367\366W\035\222\001\010\364\245\313'd&E\273\257\330L\277:\030\022\264QaB\021\031|\000?\355\306\005P\202\321\326P\1778q\250\274\271\023\320TR!\026\353\221O\341\325\2471\230\351\256)8N\352\177\025\246\346\313\256\326\033:\031\271\322ZAk\030\363:7{a\\,\310U\301Ih\300\004\374\007\253\301\350x+E\021\312{\007['\203\305\270\204_\354\351\301\0070\306\247\267\206\350\356_\375\207/\217\236\300\226\037\217\300\256\035\237\336\244(\233:\232e\243/\227\245\330Qk\017\2219\034\372\237\366B\241\245_\366\207\243\333\274Z\377\367e\257C\343\374\262\363GK}=\037.[\"u\211\230i\262\237_<\255\354\r\2227\257l\372\250\324_Z>\255lp\014\201\262\327\204\237}\237\235\353\355\316\030\204\203l\337\225?\371\237|\334C\364\363;\273\250\033\275\365\003\r\353=\376Q\373V?\366\0301\277I^\251I:\335U{\037\034\200\344d\217G?\2021\372\2767q2\206X\260=K#\244\310\020\360\355\316g\275\241\3431\021\361\214\302\266Mv\315\356N\317<\301(w\230\257\243\343}\262\316'#\227\372\227P\254\177\353\373\203\372\341\330""\t[\315\333m\266\312\347)H\243b\375\033\337\364\314^\343\340\037\207\233,7\201\330G?\364\331\345\256+*}\321\377\202\314\200\336Wr\375\234\3217~y[\265\326\337(\316\022\201J\211\334\373\337\333\353\330\001)\341\356\315\301FNB\221\230\357)\367\000^\203\257\236\220'\305\003<\341(\376\314x+\001Y\037~\357\217-R~\n\336^#\344\2358q2\277v\317\365\306\372\3033\375\031\336\242\300*^\350\303\006,\260\237\373{\333\344o7\357\370\275)\327\230\221\217\032w\367+\244\307b\327\3656:\255M\243\177\371z\347!\326L\242\365\307ou\314\3760E<\360\035\027\366s\210K\207`wv\301(\341\006\361\227\200/z\336\335\352\337\207\001\353\017\177\335\377\372\345\321Th\023\307[\037H\025[\326\263\210\207\3118\337\350n\364*\2073G\3303!\306\303n\205\302\021\310\313\303\336T/qp\356\360\332\321'P\240\376\342\222\344\021\335}\323?\017\207\234\330\324\t\001\222\235\037\273<&6\264\204\221\365\240o4\307\337\267:\305\376\027\0105Nh\013\205\340\007{\243\227\255\337:\024C9\014\376\356@0\024\337dd\211\336h?\357l\223\001\027\201\357Ob\253#%?@\221)\016@\330+\017#\354k\320\236-0F1\201\277S@\370\007V\375\374\376\227\210u\207y\375\316\035\217a\033L\356\244\010G\377\327\356\343\3360&?|\200\240\362Z\373B'O\276\35729;\216B\251\267\027\335\017\240_\243\037\266?\346\250\315Q&\204\335\027.bVh-\201\240r\221\274}\367i\357\007\270\277\321+\260\256\177\241p\353r\353\037m\023\373\315\261\361\326\024\304\377!$}\241\263\3365\016Th\3048\331\222G\274\375W\020\305\024{w\017\236\034\336\304\376\372\321\321\026\005\266[\307\3270\342\223k\037\"Xeg6\336z\351\004\314\375\247?\034\33582\021\322\"\324\034\277\322?\363\021z\033>\273\177\2665t|a\254%\204\037\232.6*\330\237\016\356\375E0\262G\241\007$\001\225\316rh<|\271\365M{L\234\034D\234\027\334\244M\3101{\363\277\366/\177\2054\346\370\270\375\227\376G_\302dq\300\271\203=q\243\375]w\250\177\346sx\313\037{[\307\303\357\034\217\360h\336\366q2L\3532|a\177\271\245;\266\365\3353\357\234\375c{\177\t\026\006\333\347\305\336\223\003\016\250\356a,\215\316\003\324C\346\026\031d\250\313\365\376M\336\263\223""\372\323\256\370\022\320$\270]\200\340\177\215\020\375\016o1(\024\240\325\335a\026\260\201\\k+\355\034\"\213s\3351\341\031\227\332\031\204\302\333\275\245\376sD!\210\265\177\354\377HV\201\344\342\tT\212v\206\357\217\302\026\265\312\354\"\352T\361*\332\301\326\245\363n\247\320\277Kr\035n\233\366\377\335*v\217\033\207\346\341\326\376D\333\334\037\242\035\343\207\355s\035\256_D$\364\202\232\372\020\372\276\325?O\321\32509h\241\203\330\254@G.^j\215\211\031\374\027\342\334!\307k\217c\236\305\356\335\336\343\203w\310L\036\3368,\0355\331o:\313\337\037&q\222N\202\"e\304=+\361\004C\204\334$\026gi\237\265\325q\365\013b\273%\264r\261=\025H@'\235\316\350\234j\315UT\004_|P\363\354`\302\r\325\376\027\t\214m5\276\022\347\341\317b\031\363\377\000A\024\231,";
+    PyObject *data = __Pyx_DecompressString(cstring, 10137, 1);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #else /* compression: none (27288 bytes) */
-const char* const bytes = ": {:02X}{:02x}1.01.12.0Add data failed.Add field failed.All dimensions preceding dimension %d must be indexed and not slicedBase exception for cycurl packageBuffer view does not expose stridesCallable[..., None]Can not use local_path and data at the same time.Can only create a buffer that is contiguous in memory.Cannot assign to read-only memoryviewCannot create writable memory view from read-only memoryviewCannot duplicate closed handle.Cannot index with type 'Cannot perform request on closed handle.Cannot receive websocket data on closed handle.Cannot send websocket data on closed handle.Cannot transpose memoryview with indirect dimensionsCurlm already closed! quitting from process_data< DATA> DATADefine ``add_reader`` methods to be called in a background select thread.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user;\n    all callbacks are run on the wrapped event loop's thread.\n\n    Typically used via ``AddThreadSelectorEventLoop``,\n    but can be attached to a running asyncio loop.\n    Dimension %d is not directEmpty shape tuple for cython.arrayFailed in Failed to Failed to set error buffer'_FileDescriptorLike'File not found at !HIndex out of bounds (axis %d)Indirect dimensions not supportedInvalid mode, expected 'c' or 'fortran', got Invalid shape in axis <MemoryView of NOT DONENoneNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Option unsupported: %sOut of bounds on buffer access (axis \n    Proactor event loop does not implement add_reader family of methods required.\n    Registering an additional selector thread for add_reader support.\n    To avoid this warning use:\n        asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())\n    < SSL> SSL. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.. See https://curl.se/l""ibcurl/c/libcurl-errors.html first for more details. Please open an issue on GitHub to help debug this error.Step may not be zero (axis %d)Tornado selectorUnable to convert item to objectUnexpected curl multi state in process_data, please open an issue on GitHub\nWrap an event loop to add implementations of the ``add_reader`` method family.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user; all callbacks are\n    run on the wrapped event loop's thread.\n\n    This class is used automatically by Tornado; applications should not need\n    to refer to it directly.\n\n    It is safe to wrap any event loop with this class, although it only makes sense\n    for event loops that do not implement the ``add_reader`` family of methods\n    themselves (i.e. ``WindowsProactorEventLoop``)\n\n    Closing the ``AddThreadSelectorEventLoop`` also closes the wrapped event loop.\n\n    Wrote bytes != received bytes.... [\n) ?.>') *<add_note and asyncio.AbstractEventLoop at 0x bytes]: collections.abc<contiguous and direct><contiguous and indirect>, curl: (cycurl/_asyncio_selector.pxicycurl/_curl.pyxcycurl/utils.pxidict[_FileDescriptorLike, Callable]disableenablegcgetinfo  (got got differing extents in dimension isenableditemsize <= 0 for cython.arraylist[_FileDescriptorLike], multi: (no default __reduce__ due to non-trivial __cinit__ object>self.form cannot be converted to a Python object for picklingself.frame cannot be converted to a Python object for picklingset cacertset proxy cacertsetopt <strided and direct><strided and direct or indirect><strided and indirect><stringsource>typing.AsyncGenerator[None, None]unable to allocate array data.unable to allocate shape and strides.ASCIIAbstractEventLoopAddThreadSelectorEventLoopAddThreadSelectorEventLoop.__getattribute__AddThreadSelectorEventLoop.__init__AddThreadSelectorEventLoop.add_readerAddThreadSelectorEventLoop.add_writerAddThreadSelectorEventLoop.closeAddThre""adSelectorEventLoop.remove_readerAddThreadSelectorEventLoop.remove_writerAnyAsyncCurlAsyncCurl.__reduce_cython__AsyncCurl.__setstate_cython__AsyncCurl._check_errorAsyncCurl._force_timeoutAsyncCurl.add_handleAsyncCurl.closeAsyncCurl.process_dataAsyncCurl.remove_handleAsyncCurl.socket_actionCURLAUTH_ANYCURLAUTH_ANYSAFECURLAUTH_AWS_SIGV4CURLAUTH_BASICCURLAUTH_BEARERCURLAUTH_DIGESTCURLAUTH_DIGEST_IECURLAUTH_GSSAPICURLAUTH_GSSNEGOTIATECURLAUTH_NEGOTIATECURLAUTH_NONECURLAUTH_NTLMCURLAUTH_NTLM_WBCURLAUTH_ONLYCURLE_ABORTED_BY_CALLBACKCURLE_AGAINCURLE_ALREADY_COMPLETECURLE_AUTH_ERRORCURLE_BAD_CALLING_ORDERCURLE_BAD_CONTENT_ENCODINGCURLE_BAD_DOWNLOAD_RESUMECURLE_BAD_FUNCTION_ARGUMENTCURLE_BAD_PASSWORD_ENTEREDCURLE_CHUNK_FAILEDCURLE_CONV_FAILEDCURLE_CONV_REQDCURLE_COULDNT_CONNECTCURLE_COULDNT_RESOLVE_HOSTCURLE_COULDNT_RESOLVE_PROXYCURLE_ECH_REQUIREDCURLE_FAILED_INITCURLE_FILESIZE_EXCEEDEDCURLE_FILE_COULDNT_READ_FILECURLE_FTP_ACCEPT_FAILEDCURLE_FTP_ACCEPT_TIMEOUTCURLE_FTP_ACCESS_DENIEDCURLE_FTP_BAD_DOWNLOAD_RESUMECURLE_FTP_BAD_FILE_LISTCURLE_FTP_CANT_GET_HOSTCURLE_FTP_CANT_RECONNECTCURLE_FTP_COULDNT_GET_SIZECURLE_FTP_COULDNT_RETR_FILECURLE_FTP_COULDNT_SET_ASCIICURLE_FTP_COULDNT_SET_BINARYCURLE_FTP_COULDNT_SET_TYPECURLE_FTP_COULDNT_STOR_FILECURLE_FTP_COULDNT_USE_RESTCURLE_FTP_PARTIAL_FILECURLE_FTP_PORT_FAILEDCURLE_FTP_PRET_FAILEDCURLE_FTP_QUOTE_ERRORCURLE_FTP_SSL_FAILEDCURLE_FTP_USER_PASSWORD_INCORRECTCURLE_FTP_WEIRD_227_FORMATCURLE_FTP_WEIRD_PASS_REPLYCURLE_FTP_WEIRD_PASV_REPLYCURLE_FTP_WEIRD_SERVER_REPLYCURLE_FTP_WEIRD_USER_REPLYCURLE_FTP_WRITE_ERRORCURLE_FUNCTION_NOT_FOUNDCURLE_GOT_NOTHINGCURLE_HTTP2CURLE_HTTP2_STREAMCURLE_HTTP3CURLE_HTTP_NOT_FOUNDCURLE_HTTP_PORT_FAILEDCURLE_HTTP_POST_ERRORCURLE_HTTP_RANGE_ERRORCURLE_HTTP_RETURNED_ERRORCURLE_INTERFACE_FAILEDCURLE_LDAP_CANNOT_BINDCURLE_LDAP_INVALID_URLCURLE_LDAP_SEARCH_FAILEDCURLE_LIBRARY_NOT_FOUNDCURLE_LOGIN_DENIEDCURLE_MALFORMAT_USERCURLE_NOT_BUILT_INCURLE_NO_CONNECTION_AVAILABLECURLE_OBSOLETECURLE_OBSOLETE10CURLE_OBSOLETE12""CURLE_OBSOLETE16CURLE_OBSOLETE20CURLE_OBSOLETE24CURLE_OBSOLETE29CURLE_OBSOLETE32CURLE_OBSOLETE34CURLE_OBSOLETE40CURLE_OBSOLETE41CURLE_OBSOLETE44CURLE_OBSOLETE46CURLE_OBSOLETE50CURLE_OBSOLETE51CURLE_OBSOLETE57CURLE_OBSOLETE62CURLE_OBSOLETE75CURLE_OBSOLETE76CURLE_OKCURLE_OPERATION_TIMEDOUTCURLE_OPERATION_TIMEOUTEDCURLE_OUT_OF_MEMORYCURLE_PARTIAL_FILECURLE_PEER_FAILED_VERIFICATIONCURLE_PROXYCURLE_QUIC_CONNECT_ERRORCURLE_QUOTE_ERRORCURLE_RANGE_ERRORCURLE_READ_ERRORCURLE_RECURSIVE_API_CALLCURLE_RECV_ERRORCURLE_REMOTE_ACCESS_DENIEDCURLE_REMOTE_DISK_FULLCURLE_REMOTE_FILE_EXISTSCURLE_REMOTE_FILE_NOT_FOUNDCURLE_RTSP_CSEQ_ERRORCURLE_RTSP_SESSION_ERRORCURLE_SEND_ERRORCURLE_SEND_FAIL_REWINDCURLE_SETOPT_OPTION_SYNTAXCURLE_SHARE_IN_USECURLE_SSHCURLE_SSL_CACERTCURLE_SSL_CACERT_BADFILECURLE_SSL_CERTPROBLEMCURLE_SSL_CIPHERCURLE_SSL_CLIENTCERTCURLE_SSL_CONNECT_ERRORCURLE_SSL_CRL_BADFILECURLE_SSL_ENGINE_INITFAILEDCURLE_SSL_ENGINE_NOTFOUNDCURLE_SSL_ENGINE_SETFAILEDCURLE_SSL_INVALIDCERTSTATUSCURLE_SSL_ISSUER_ERRORCURLE_SSL_PEER_CERTIFICATECURLE_SSL_PINNEDPUBKEYNOTMATCHCURLE_SSL_SHUTDOWN_FAILEDCURLE_TELNET_OPTION_SYNTAXCURLE_TFTP_DISKFULLCURLE_TFTP_EXISTSCURLE_TFTP_ILLEGALCURLE_TFTP_NOSUCHUSERCURLE_TFTP_NOTFOUNDCURLE_TFTP_PERMCURLE_TFTP_UNKNOWNIDCURLE_TOO_LARGECURLE_TOO_MANY_REDIRECTSCURLE_UNKNOWN_OPTIONCURLE_UNKNOWN_TELNET_OPTIONCURLE_UNRECOVERABLE_POLLCURLE_UNSUPPORTED_PROTOCOLCURLE_UPLOAD_FAILEDCURLE_URL_MALFORMATCURLE_URL_MALFORMAT_USERCURLE_USE_SSL_FAILEDCURLE_WEIRD_SERVER_REPLYCURLE_WRITE_ERRORCURLINFO_ACTIVESOCKETCURLINFO_APPCONNECT_TIMECURLINFO_APPCONNECT_TIME_TCURLINFO_CAINFOCURLINFO_CAPATHCURLINFO_CERTINFOCURLINFO_CONDITION_UNMETCURLINFO_CONNECT_TIMECURLINFO_CONNECT_TIME_TCURLINFO_CONN_IDCURLINFO_CONTENT_LENGTH_DOWNLOADCURLINFO_CONTENT_LENGTH_DOWNLOAD_TCURLINFO_CONTENT_LENGTH_UPLOADCURLINFO_CONTENT_LENGTH_UPLOAD_TCURLINFO_CONTENT_TYPECURLINFO_COOKIELISTCURLINFO_DATA_INCURLINFO_DATA_OUTCURLINFO_EARLYDATA_SENT_TCURLINFO_EFFECTIVE_METHODCURLINFO_EFFECTIVE_URLCURLINFO_ENDCURLINFO_F""ILETIMECURLINFO_FILETIME_TCURLINFO_FTP_ENTRY_PATHCURLINFO_HEADER_INCURLINFO_HEADER_OUTCURLINFO_HEADER_SIZECURLINFO_HTTPAUTH_AVAILCURLINFO_HTTPAUTH_USEDCURLINFO_HTTP_CONNECTCODECURLINFO_HTTP_VERSIONCURLINFO_LASTONECURLINFO_LASTSOCKETCURLINFO_LOCAL_IPCURLINFO_LOCAL_PORTCURLINFO_NAMELOOKUP_TIMECURLINFO_NAMELOOKUP_TIME_TCURLINFO_NONECURLINFO_NUM_CONNECTSCURLINFO_OS_ERRNOCURLINFO_POSTTRANSFER_TIME_TCURLINFO_PRETRANSFER_TIMECURLINFO_PRETRANSFER_TIME_TCURLINFO_PRIMARY_IPCURLINFO_PRIMARY_PORTCURLINFO_PRIVATECURLINFO_PROTOCOLCURLINFO_PROXYAUTH_AVAILCURLINFO_PROXYAUTH_USEDCURLINFO_PROXY_ERRORCURLINFO_PROXY_SSL_VERIFYRESULTCURLINFO_QUEUE_TIME_TCURLINFO_REDIRECT_COUNTCURLINFO_REDIRECT_TIMECURLINFO_REDIRECT_TIME_TCURLINFO_REDIRECT_URLCURLINFO_REFERERCURLINFO_REQUEST_SIZECURLINFO_RESPONSE_CODECURLINFO_RETRY_AFTERCURLINFO_RTSP_CLIENT_CSEQCURLINFO_RTSP_CSEQ_RECVCURLINFO_RTSP_SERVER_CSEQCURLINFO_RTSP_SESSION_IDCURLINFO_SCHEMECURLINFO_SIZE_DOWNLOADCURLINFO_SIZE_DOWNLOAD_TCURLINFO_SIZE_UPLOADCURLINFO_SIZE_UPLOAD_TCURLINFO_SPEED_DOWNLOADCURLINFO_SPEED_DOWNLOAD_TCURLINFO_SPEED_UPLOADCURLINFO_SPEED_UPLOAD_TCURLINFO_SSL_DATA_INCURLINFO_SSL_DATA_OUTCURLINFO_SSL_ENGINESCURLINFO_SSL_VERIFYRESULTCURLINFO_STARTTRANSFER_TIMECURLINFO_STARTTRANSFER_TIME_TCURLINFO_TEXTCURLINFO_TLS_SESSIONCURLINFO_TLS_SSL_PTRCURLINFO_TOTAL_TIMECURLINFO_TOTAL_TIME_TCURLINFO_USED_PROXYCURLINFO_XFER_IDCURLMOPT_CHUNK_LENGTH_PENALTY_SIZECURLMOPT_CONTENT_LENGTH_PENALTY_SIZECURLMOPT_MAXCONNECTSCURLMOPT_MAX_CONCURRENT_STREAMSCURLMOPT_MAX_HOST_CONNECTIONSCURLMOPT_MAX_PIPELINE_LENGTHCURLMOPT_MAX_TOTAL_CONNECTIONSCURLMOPT_PIPELININGCURLMOPT_PIPELINING_SERVER_BLCURLMOPT_PIPELINING_SITE_BLCURLMOPT_PUSHDATACURLMOPT_PUSHFUNCTIONCURLMOPT_SOCKETDATACURLMOPT_SOCKETFUNCTIONCURLMOPT_TIMERDATACURLMOPT_TIMERFUNCTIONCURLMSG_DONECURLMSG_LASTCURLMSG_NONECURLOPT_ABSTRACT_UNIX_SOCKETCURLOPT_ACCEPTTIMEOUT_MSCURLOPT_ACCEPT_ENCODINGCURLOPT_ADDRESS_SCOPECURLOPT_ALTSVCCURLOPT_ALTSVC_CTRLCURLOPT_APPENDCURLOPT_AUTOREFERERCURLOPT_AWS_SIGV4CURLOPT_BU""FFERSIZECURLOPT_CAINFOCURLOPT_CAINFO_BLOBCURLOPT_CAPATHCURLOPT_CA_CACHE_TIMEOUTCURLOPT_CERTINFOCURLOPT_CHUNK_BGN_FUNCTIONCURLOPT_CHUNK_DATACURLOPT_CHUNK_END_FUNCTIONCURLOPT_CLOSEPOLICYCURLOPT_CLOSESOCKETDATACURLOPT_CLOSESOCKETFUNCTIONCURLOPT_CONNECTTIMEOUTCURLOPT_CONNECTTIMEOUT_MSCURLOPT_CONNECT_ONLYCURLOPT_CONNECT_TOCURLOPT_CONV_FROM_NETWORK_FUNCTIONCURLOPT_CONV_FROM_UTF8_FUNCTIONCURLOPT_CONV_TO_NETWORK_FUNCTIONCURLOPT_COOKIECURLOPT_COOKIEFILECURLOPT_COOKIEJARCURLOPT_COOKIELISTCURLOPT_COOKIESESSIONCURLOPT_COPYPOSTFIELDSCURLOPT_CRLFCURLOPT_CRLFILECURLOPT_CURLUCURLOPT_CUSTOMREQUESTCURLOPT_DEBUGDATACURLOPT_DEBUGFUNCTIONCURLOPT_DEFAULT_PROTOCOLCURLOPT_DIRLISTONLYCURLOPT_DISALLOW_USERNAME_IN_URLCURLOPT_DNS_CACHE_TIMEOUTCURLOPT_DNS_INTERFACECURLOPT_DNS_LOCAL_IP4CURLOPT_DNS_LOCAL_IP6CURLOPT_DNS_SERVERSCURLOPT_DNS_SHUFFLE_ADDRESSESCURLOPT_DNS_USE_GLOBAL_CACHECURLOPT_DOH_SSL_VERIFYHOSTCURLOPT_DOH_SSL_VERIFYPEERCURLOPT_DOH_SSL_VERIFYSTATUSCURLOPT_DOH_URLCURLOPT_ECHCURLOPT_EGDSOCKETCURLOPT_ENCODINGCURLOPT_ERRORBUFFERCURLOPT_EXPECT_100_TIMEOUT_MSCURLOPT_FAILONERRORCURLOPT_FILECURLOPT_FILETIMECURLOPT_FNMATCH_DATACURLOPT_FNMATCH_FUNCTIONCURLOPT_FOLLOWLOCATIONCURLOPT_FORBID_REUSECURLOPT_FRESH_CONNECTCURLOPT_FTPAPPENDCURLOPT_FTPLISTONLYCURLOPT_FTPPORTCURLOPT_FTPSSLAUTHCURLOPT_FTP_ACCOUNTCURLOPT_FTP_ALTERNATIVE_TO_USERCURLOPT_FTP_CREATE_MISSING_DIRSCURLOPT_FTP_FILEMETHODCURLOPT_FTP_RESPONSE_TIMEOUTCURLOPT_FTP_SKIP_PASV_IPCURLOPT_FTP_SSLCURLOPT_FTP_SSL_CCCCURLOPT_FTP_USE_EPRTCURLOPT_FTP_USE_EPSVCURLOPT_FTP_USE_PRETCURLOPT_GSSAPI_DELEGATIONCURLOPT_HAPPY_EYEBALLS_TIMEOUT_MSCURLOPT_HAPROXYPROTOCOLCURLOPT_HAPROXY_CLIENT_IPCURLOPT_HEADERCURLOPT_HEADERDATACURLOPT_HEADERFUNCTIONCURLOPT_HEADEROPTCURLOPT_HSTSCURLOPT_HSTSREADDATACURLOPT_HSTSREADFUNCTIONCURLOPT_HSTSWRITEDATACURLOPT_HSTSWRITEFUNCTIONCURLOPT_HSTS_CTRLCURLOPT_HTTP09_ALLOWEDCURLOPT_HTTP200ALIASESCURLOPT_HTTP2_NO_PRIORITYCURLOPT_HTTP2_PSEUDO_HEADERS_ORDERCURLOPT_HTTP2_SETTINGSCURLOPT_HTTP2_STREAMSCURLOPT_HTTP2_WINDOW_UPDATECURLOPT_""HTTPAUTHCURLOPT_HTTPBASEHEADERCURLOPT_HTTPGETCURLOPT_HTTPHEADERCURLOPT_HTTPPOSTCURLOPT_HTTPPROXYTUNNELCURLOPT_HTTP_CONTENT_DECODINGCURLOPT_HTTP_TRANSFER_DECODINGCURLOPT_HTTP_VERSIONCURLOPT_IGNORE_CONTENT_LENGTHCURLOPT_INFILECURLOPT_INFILESIZECURLOPT_INFILESIZE_LARGECURLOPT_INTERFACECURLOPT_INTERLEAVEDATACURLOPT_INTERLEAVEFUNCTIONCURLOPT_IOCTLDATACURLOPT_IOCTLFUNCTIONCURLOPT_IPRESOLVECURLOPT_ISSUERCERTCURLOPT_ISSUERCERT_BLOBCURLOPT_KEEP_SENDING_ON_ERRORCURLOPT_KEYPASSWDCURLOPT_KRB4LEVELCURLOPT_KRBLEVELCURLOPT_LOCALPORTCURLOPT_LOCALPORTRANGECURLOPT_LOGIN_OPTIONSCURLOPT_LOW_SPEED_LIMITCURLOPT_LOW_SPEED_TIMECURLOPT_MAIL_AUTHCURLOPT_MAIL_FROMCURLOPT_MAIL_RCPTCURLOPT_MAIL_RCPT_ALLLOWFAILSCURLOPT_MAIL_RCPT_ALLOWFAILSCURLOPT_MAXAGE_CONNCURLOPT_MAXCONNECTSCURLOPT_MAXFILESIZECURLOPT_MAXFILESIZE_LARGECURLOPT_MAXLIFETIME_CONNCURLOPT_MAXREDIRSCURLOPT_MAX_RECV_SPEED_LARGECURLOPT_MAX_SEND_SPEED_LARGECURLOPT_MIMEPOSTCURLOPT_MIME_OPTIONSCURLOPT_NETRCCURLOPT_NETRC_FILECURLOPT_NEW_DIRECTORY_PERMSCURLOPT_NEW_FILE_PERMSCURLOPT_NOBODYCURLOPT_NOPROGRESSCURLOPT_NOPROXYCURLOPT_NOSIGNALCURLOPT_OBSOLETE40CURLOPT_OBSOLETE72CURLOPT_OPENSOCKETDATACURLOPT_OPENSOCKETFUNCTIONCURLOPT_PASSWORDCURLOPT_PATH_AS_ISCURLOPT_PINNEDPUBLICKEYCURLOPT_PIPEWAITCURLOPT_PORTCURLOPT_POSTCURLOPT_POST301CURLOPT_POSTFIELDSCURLOPT_POSTFIELDSIZECURLOPT_POSTFIELDSIZE_LARGECURLOPT_POSTQUOTECURLOPT_POSTREDIRCURLOPT_PREQUOTECURLOPT_PREREQDATACURLOPT_PREREQFUNCTIONCURLOPT_PRE_PROXYCURLOPT_PRIVATECURLOPT_PROGRESSDATACURLOPT_PROGRESSFUNCTIONCURLOPT_PROTOCOLSCURLOPT_PROTOCOLS_STRCURLOPT_PROXYCURLOPT_PROXYAUTHCURLOPT_PROXYHEADERCURLOPT_PROXYPASSWORDCURLOPT_PROXYPORTCURLOPT_PROXYTYPECURLOPT_PROXYUSERNAMECURLOPT_PROXYUSERPWDCURLOPT_PROXY_CAINFOCURLOPT_PROXY_CAINFO_BLOBCURLOPT_PROXY_CAPATHCURLOPT_PROXY_CREDENTIAL_NO_REUSECURLOPT_PROXY_CRLFILECURLOPT_PROXY_ISSUERCERTCURLOPT_PROXY_ISSUERCERT_BLOBCURLOPT_PROXY_KEYPASSWDCURLOPT_PROXY_PINNEDPUBLICKEYCURLOPT_PROXY_SERVICE_NAMECURLOPT_PROXY_SSLCERTCURLOPT_PROXY_SSLCERTTYPECURLOPT_PROXY_SS""LCERT_BLOBCURLOPT_PROXY_SSLKEYCURLOPT_PROXY_SSLKEYTYPECURLOPT_PROXY_SSLKEY_BLOBCURLOPT_PROXY_SSLVERSIONCURLOPT_PROXY_SSL_CIPHER_LISTCURLOPT_PROXY_SSL_OPTIONSCURLOPT_PROXY_SSL_VERIFYHOSTCURLOPT_PROXY_SSL_VERIFYPEERCURLOPT_PROXY_TLS13_CIPHERSCURLOPT_PROXY_TLSAUTH_PASSWORDCURLOPT_PROXY_TLSAUTH_TYPECURLOPT_PROXY_TLSAUTH_USERNAMECURLOPT_PROXY_TRANSFER_MODECURLOPT_PUTCURLOPT_QUICK_EXITCURLOPT_QUOTECURLOPT_RANDOM_FILECURLOPT_RANGECURLOPT_READDATACURLOPT_READFUNCTIONCURLOPT_REDIR_PROTOCOLSCURLOPT_REDIR_PROTOCOLS_STRCURLOPT_REFERERCURLOPT_REQUEST_TARGETCURLOPT_RESOLVECURLOPT_RESOLVER_START_DATACURLOPT_RESOLVER_START_FUNCTIONCURLOPT_RESUME_FROMCURLOPT_RESUME_FROM_LARGECURLOPT_RTSPHEADERCURLOPT_RTSP_CLIENT_CSEQCURLOPT_RTSP_REQUESTCURLOPT_RTSP_SERVER_CSEQCURLOPT_RTSP_SESSION_IDCURLOPT_RTSP_STREAM_URICURLOPT_RTSP_TRANSPORTCURLOPT_SASL_AUTHZIDCURLOPT_SASL_IRCURLOPT_SEEKDATACURLOPT_SEEKFUNCTIONCURLOPT_SERVER_RESPONSE_TIMEOUTCURLOPT_SERVER_RESPONSE_TIMEOUT_MSCURLOPT_SERVICE_NAMECURLOPT_SHARECURLOPT_SOCKOPTDATACURLOPT_SOCKOPTFUNCTIONCURLOPT_SOCKS5_AUTHCURLOPT_SOCKS5_GSSAPI_NECCURLOPT_SOCKS5_GSSAPI_SERVICECURLOPT_SSH_AUTH_TYPESCURLOPT_SSH_COMPRESSIONCURLOPT_SSH_HOSTKEYDATACURLOPT_SSH_HOSTKEYFUNCTIONCURLOPT_SSH_HOST_PUBLIC_KEY_MD5CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256CURLOPT_SSH_KEYDATACURLOPT_SSH_KEYFUNCTIONCURLOPT_SSH_KNOWNHOSTSCURLOPT_SSH_PRIVATE_KEYFILECURLOPT_SSH_PUBLIC_KEYFILECURLOPT_SSLCERTCURLOPT_SSLCERTPASSWDCURLOPT_SSLCERTTYPECURLOPT_SSLCERT_BLOBCURLOPT_SSLENGINECURLOPT_SSLENGINE_DEFAULTCURLOPT_SSLKEYCURLOPT_SSLKEYPASSWDCURLOPT_SSLKEYTYPECURLOPT_SSLKEY_BLOBCURLOPT_SSLVERSIONCURLOPT_SSL_CERT_COMPRESSIONCURLOPT_SSL_CIPHER_LISTCURLOPT_SSL_CTX_DATACURLOPT_SSL_CTX_FUNCTIONCURLOPT_SSL_EC_CURVESCURLOPT_SSL_ENABLE_ALPNCURLOPT_SSL_ENABLE_ALPSCURLOPT_SSL_ENABLE_NPNCURLOPT_SSL_ENABLE_TICKETCURLOPT_SSL_FALSESTARTCURLOPT_SSL_OPTIONSCURLOPT_SSL_PERMUTE_EXTENSIONSCURLOPT_SSL_SESSIONID_CACHECURLOPT_SSL_SIGNATURE_ALGORITHMSCURLOPT_SSL_SIG_HASH_ALGSCURLOPT_SSL_VERIFYHOSTCURLOPT_SSL_VERIFYPEERCURL""OPT_SSL_VERIFYSTATUSCURLOPT_STDERRCURLOPT_STREAM_DEPENDSCURLOPT_STREAM_DEPENDS_ECURLOPT_STREAM_EXCLUSIVECURLOPT_STREAM_WEIGHTCURLOPT_SUPPRESS_CONNECT_HEADERSCURLOPT_TCP_FASTOPENCURLOPT_TCP_KEEPALIVECURLOPT_TCP_KEEPCNTCURLOPT_TCP_KEEPIDLECURLOPT_TCP_KEEPINTVLCURLOPT_TCP_NODELAYCURLOPT_TELNETOPTIONSCURLOPT_TFTP_BLKSIZECURLOPT_TFTP_NO_OPTIONSCURLOPT_TIMECONDITIONCURLOPT_TIMEOUTCURLOPT_TIMEOUT_MSCURLOPT_TIMEVALUECURLOPT_TIMEVALUE_LARGECURLOPT_TLS13_CIPHERSCURLOPT_TLSAUTH_PASSWORDCURLOPT_TLSAUTH_TYPECURLOPT_TLSAUTH_USERNAMECURLOPT_TLS_DELEGATED_CREDENTIALSCURLOPT_TLS_EXTENSION_ORDERCURLOPT_TLS_GREASECURLOPT_TLS_KEY_SHARES_LIMITCURLOPT_TLS_KEY_USAGE_NO_CHECKCURLOPT_TLS_RECORD_SIZE_LIMITCURLOPT_TLS_SIGNED_CERT_TIMESTAMPSCURLOPT_TLS_STATUS_REQUESTCURLOPT_TLS_USE_NEW_ALPS_CODEPOINTCURLOPT_TRAILERDATACURLOPT_TRAILERFUNCTIONCURLOPT_TRANSFERTEXTCURLOPT_TRANSFER_ENCODINGCURLOPT_UNIX_SOCKET_PATHCURLOPT_UNRESTRICTED_AUTHCURLOPT_UPKEEP_INTERVAL_MSCURLOPT_UPLOADCURLOPT_UPLOAD_BUFFERSIZECURLOPT_UPLOAD_FLAGSCURLOPT_URLCURLOPT_USERAGENTCURLOPT_USERNAMECURLOPT_USERPWDCURLOPT_USE_SSLCURLOPT_VERBOSECURLOPT_WILDCARDMATCHCURLOPT_WRITEDATACURLOPT_WRITEFUNCTIONCURLOPT_WRITEHEADERCURLOPT_WRITEINFOCURLOPT_WS_OPTIONSCURLOPT_XFERINFODATACURLOPT_XFERINFOFUNCTIONCURLOPT_XOAUTH2_BEARERCURLPIPE_HTTP1CURLPIPE_MULTIPLEXCURLPIPE_NOTHINGCURLSSH_AUTH_AGENTCURLSSH_AUTH_ANYCURLSSH_AUTH_DEFAULTCURLSSH_AUTH_GSSAPICURLSSH_AUTH_HOSTCURLSSH_AUTH_KEYBOARDCURLSSH_AUTH_NONECURLSSH_AUTH_PASSWORDCURLSSH_AUTH_PUBLICKEYCURLWS_BINARYCURLWS_CLOSECURLWS_CONTCURLWS_NOAUTOPONGCURLWS_OFFSETCURLWS_PINGCURLWS_PONGCURLWS_RAW_MODECURLWS_TEXTCURL_CSELECT_ERRCURL_CSELECT_INCURL_CSELECT_OUTCURL_ERROR_SIZECURL_FNMATCHFUNC_FAILCURL_FNMATCHFUNC_MATCHCURL_FNMATCHFUNC_NOMATCHCURL_HTTP_VERSION_1_0CURL_HTTP_VERSION_1_1CURL_HTTP_VERSION_2CURL_HTTP_VERSION_2TLSCURL_HTTP_VERSION_2_0CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGECURL_HTTP_VERSION_3CURL_HTTP_VERSION_3ONLYCURL_HTTP_VERSION_LASTCURL_HTTP_VERSION_NONECURL_IPRESOLVE_V4CURL_IPRESOLVE_V6CURL_IP""RESOLVE_WHATEVERCURL_POLL_INCURL_POLL_INOUTCURL_POLL_NONECURL_POLL_OUTCURL_POLL_REMOVECURL_PREREQFUNC_ABORTCURL_PREREQFUNC_OKCURL_READFUNC_ABORTCURL_READFUNC_PAUSECURL_SEEKFUNC_CANTSEEKCURL_SEEKFUNC_FAILCURL_SEEKFUNC_OKCURL_SOCKET_BADCURL_SOCKET_TIMEOUTCURL_SSLVERSION_DEFAULTCURL_SSLVERSION_LASTCURL_SSLVERSION_MAX_DEFAULTCURL_SSLVERSION_MAX_LASTCURL_SSLVERSION_MAX_NONECURL_SSLVERSION_MAX_TLSv1_0CURL_SSLVERSION_MAX_TLSv1_1CURL_SSLVERSION_MAX_TLSv1_2CURL_SSLVERSION_MAX_TLSv1_3CURL_SSLVERSION_SSLv2CURL_SSLVERSION_SSLv3CURL_SSLVERSION_TLSv1CURL_SSLVERSION_TLSv1_0CURL_SSLVERSION_TLSv1_1CURL_SSLVERSION_TLSv1_2CURL_SSLVERSION_TLSv1_3CURL_TRAILERFUNC_ABORTCURL_TRAILERFUNC_OKCURL_WRITEFUNC_ERRORCURL_WRITEFUNC_PAUSECallableCancelledErrorConditionCurlCurlErrorCurlError.__init__CurlMimeCurlMime.__reduce_cython__CurlMime.__setstate_cython__CurlMime.addpartCurlMime.attachCurlMime.closeCurlMime.from_listCurlWarningCurl.__reduce_cython__Curl.__setstate_cython__Curl.clean_handles_and_buffersCurl.closeCurl.debugCurl.duphandleCurl.get_reason_phraseCurl.getinfoCurl.impersonateCurl.parse_cookie_headersCurl.parse_status_lineCurl.performCurl.resetCurl.setoptCurl.upkeepCurl.versionCurl.ws_closeCurl.ws_metaCurl.ws_recvCurl.ws_sendDEFAULT_CACERTEBADFEllipsis_FileDescriptorLike_HasFileno_HasFileno.filenoMAX_SHOW_BYTESMY_ATTRIBUTESNoneOptionalPREFIXESPROACTOR_WARNINGPathProactorEventLoopProtocol__Pyx_PyDict_NextRefSelectorThreadSelectorThread.__init__SelectorThread.__init__.<locals>.<lambda>SelectorThread.__init__.<locals>.thread_manager_anextSelectorThread._consume_wakerSelectorThread._handle_eventSelectorThread._handle_selectSelectorThread._run_selectSelectorThread._start_selectSelectorThread._thread_managerSelectorThread._wake_selectorSelectorThread.add_readerSelectorThread.add_writerSelectorThread.closeSelectorThread.remove_readerSelectorThread.remove_writerSequenceSimpleCookie_TThreadTypeVarUnionView.MemoryViewWSAENOTSOCKWSFrameWSFrame.__reduce_cython__WSFrame.__setstate_cython__WS_RECVWS""_SENDWeakKeyDictionaryWeakSet_aabcactionaddadd_handleadd_readeradd_writeraddpartallocate_buffer__anext__argsasyncioasyncio.coroutinesasyncio_loopatexit_atexit_callbackattach__await__backslashreplacebaseboolbytebytesbytes_to_hex.<locals>.genexprccacertcall_latercall_sooncall_soon_threadsafecallbackcancelcancelledcategorycb_mapcertifi_check_error__class____class_getitem__clean_handles_and_buffersclearclear_headersclear_resolvecline_in_tracebackclose_close_selector_and_loop_closed_closing_selectorclscodecollections.abcconfig_warnings_consume_wakercontent_typecontextlibcookiecountcreate_futurecreate_taskcurl_cycurl._curldaemondatadebugdebug_function_defaultdecodedefaultdefault_headers__dict__discard__doc__donedtype_is_objectduphandleeencode__enter__enumerateerrcodeerrmsgerrnoerrorerrorsev_bitmaskexists__exit__fdfilefilenamefilenofilesflags_force_timeoutformformatfortranframefrom_list__func__functoolsfuturegenexprgetget_reason_phraseget_running_loopget_selectorget_selector.<locals>._close_selector_and_loop__getattribute__getinfogetpreferredencoding__getstate__grouphandle_handle_event_handle_selectheaderheadershex_strhttp.cookieshttp_versionidignoreimpersonate__import__index__init__int_is_coroutineitemsitemsizejoinkeyskwargs<lambda>loadlocal_pathlocalelooploop_closelowerm__main__matchmemviewmessage__metaclass__mode__module____mro_entries__msgname__name__ndim__new__nextnotifyobjonoptionpackparse_cookie_headersparse_status_linepartialpathlibpayloadperformplatformpoppostfixprefix__prepare__printprocess_data__pyx_checksum__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_vtable____qualname__rre_readersreal_loop_real_loopreasonrecv__reduce____reduce_cython____reduce_ex__registerremove_handleremove_readerremove_writerresetreturnrs_run_selectselect_select_args_select_cond_selectorselector_loop_selector_loops_selectorsselfsendset_exception__set_name__set_resultsetblockingsetdefaultsetopt__setstate____setstate_cython__shapesimplefiltersizesleepsocketsocket_actionsocketpairsockfdstackle""velstart_start_selectstartswithstaticmethodstatus_codestatus_linestderrstepstopstrstrictstructsupersuppresssystarget__test__text_thread_thread_managerthread_manager_anext_thread_manager_handlethreadingthrowto_readto_writetupletype_typingunpackupdateupkeepvaluevaluesversionwwait_wake_selector_waker_r_waker_wwarnwarningsweakrefwherewinwin32write_writerswsws_closews_metaws_recvws_sendxxsHTTP/\\d\\.\\d [0-9]{3} (.*)HTTP/(\\d\\.\\d) ([0-9]{3}) (.*)\320\004+\2501\340\010\026\220i\230v\240W\250J\260d\270!\330\010\t\210\027\220\005\320\025(\250\r\260Q\260d\270'\300\026\300q\320\0044\260A\360\022\000\t\022\220\034\230Q\330\010\014\210J\220a\330\014\017\210v\220V\2302\230[\250\001\250\021\330\020\026\220e\2301\230F\240!\2404\240w\250a\330\010\017\210q\320\004 \240\001\330\010\013\2104\210q\330\014\r\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004[\320[\\\360\024\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\014\000\016\017\330\014\026\220m\2401\240D\250\010\260\016\270a\270w\300a\300t\3108\320SZ\320Z`\320`a\320ae\320ef\320fj\320j|\320|\177\360\000\000@\002A\002\330\010\014\210M\230\021\230%\230q\330\010\017\210t\2201\320\0048\3208S\320Sa\320ab\360\026\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\010\014\210O\2301\360\006\000\016\017\330\014\026\320\026(\250\001\250\024\250Q\330\010\t\330\014\020\220\r\230Q\230e\2401\330\014\023\2201\360\006\000\r\021\320\020*\250!\250?\270!\320\004 \320 8\270\001\330\010\t\330\014\020\220\004\220I\230Q\230a\330\017\020\330\014\023\2201\330\010\014\210O\2301\330\010\017\210q\320\004\"\320\"8\270\001\360\030\000\t\023\220&\230\005\230Q\230f\240F\250\"\250A\330\010\017\210t\2208\2301\230O\2501\320\004\033\320\0339\270\021\330\010\017\210q\320\016,\250A\200A\33001\340\010\014\210B\210f\220A\320\0254\260A\330\010\017\210q\220\006\220a\220v\230W\240A\200A\33001\360\n\000\t\r\210B\210f\220A\320\0258\270\001\330\010\013\2104\210q\330\014\023\320\023*\250#\250Q\330\010\013\2101\210F\220!\2203\220c""\230\021\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\340\014\033\2301\330\010\026\220c\230\021\230!\2306\240\021\240!\330\010\021\220\021\220&\230\001\230\021\340\010\017\210~\230]\250!\200A\3604\000\r\035\230A\360\006\000\r)\250\001\340\010\023\2207\230\"\230A\330\010\013\2104\210w\220c\230\021\330\014\017\210y\230\003\2301\330\020\027\220q\330\021\032\230#\230Y\240c\250\031\260#\260Y\270c\300\031\310#\310Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\340\010\013\2109\220C\220q\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210x\220s\230!\330\020\027\220q\330\014\023\2207\230!\330\r\026\220c\230\031\240#\240Y\250c\260\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\220?\240!\2401\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\320\023%\240Q\240a\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210y\230\003\2301\330\020\027\220q\330\014\023\220=\240\001\240\021\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\2201\200A\360\006\000\r\034\2301\230D\240\001\330\010\014\210H\220A\200A\330\0221\260\021\330\t\n\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210N\230!\200A\330\0221\260\021\330\t\n\330\010\014\210I\220Q\220f\230I\240X\250Q\250k\270\021\330\010\014\210O\2301\320\004#\320#A\300\021\360\022\000\t\014\210=\230\003\2301\330\014\023\220:\230Q\230a\340\010\013\2104\210z\230\021\230.\250\007\250q\260\t\3209N\310d\320RS\320ST\330\014\023\2201\340\010\020""\220\005\220Q\320\026(\250\r\260[\300\001\340\010\030\230\n\240!\320#3\3203M\310Q\310a\360\006\000\t\026\220\\\240\021\340\010\t\360\016\000\t\025\220I\230Q\330\010\017\210q\200A\330\0103\260=\300\001\300\024\300Q\330\010\026\220i\230q\240\001\200A\340\010\013\2104\210t\2201\330\014\024\220E\230\021\330\020D\300M\320Q\\\320\\]\340\014\r\340\010\014\210N\230!\2308\2401\360\016\000\t\n\330\014\r\330\020\037\320\0374\260A\260T\270\031\300!\3001\340\020\023\2209\230C\230q\330\024\025\330\020\023\2208\2305\240\007\240q\330\024\034\230F\240$\240k\260\021\260+\270W\300H\310A\330\024\036\230h\240e\2501\330\024\027\220x\230s\240!\330\030\034\230K\240q\250\001\340\030\034\230N\250!\2507\260%\260{\300!\3009\310A\340\024\031\230\021\230!\330\023\024\330\020\030\230\005\230Q\330\024\025\340\024\025\330\024\037\230q\200A\360\010\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\r\016\330\014\035\320\0351\260\021\260$\260a\330\010\013\210;\220c\230\021\330\014\r\330\010\014\210D\220\001\220\024\220Z\230t\2409\250M\270\021\270'\300\034\310V\320ST\330\010\017\210q\200A\360\016\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\020\000\016\017\330\014\026\220m\2401\240D\250\001\330$(\250\001\330$(\250\001\330$%\240T\250\021\330$%\240T\250\021\330\010\014\210M\230\021\230%\230q\360\006\000\t\020\210w\220d\320\032*\250\"\250D\3200J\310)\320ST\320TX\320XY\200A\330\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026'\240q\250\004\250A\330\010\017\210q\200A\330\010\013\2108\2207\230!\330\014\r\330\010&\320&:\270!\2701\330\010\032\230#\230U\240!\2401\240C\240q\250\003\2504\250u\260A\330\010\016\210i\220q\330\014\030\230\001\320\031*\250!\250:\260Q\3206J\310!\3101\200A\340\010\014\320\014\034\230A\330\010\013\2104\210q\330\021\022\330\024$\240A\240T\250\021\330\014\020\320\020\"\240!\330\010\013\2104\210z\230\023\230A\330\020$\240A\240T\250\021\330\014\020\220\014\230A\200A\340\010\014\210G\2201\200A\340\010\014\210G\2205\320\030*\250!""\330\010\014\210G\2205\320\0300\260\001\200A\360\006\000\t\036\230S\240\001\330\010\014\210H\220A\330\014\020\220\010\230\003\2301\330\010\017\210q\200A\340\010\035\230T\240\034\250Q\250a\330\010\013\2107\220$\220d\230&\240\005\240S\250\004\250D\260\006\260j\300\001\330\014\022\220'\230\021\200A\360\010\000\t\016\210_\230A\340\r\016\330\014\032\320\0320\260\001\260\024\260Y\270e\3001\330\010\014\210M\230\021\230!\330\010\021\220\024\220U\230.\250\001\330\010\014\210M\230\021\230)\2401\330\010\014\210K\220q\230\013\2407\250%\250z\270\021\330\010\017\210q\200A\360\006\000\034\035\330\027\030\330\034\035\330\026\027\360\026\000\t-\320,>\270a\270t\3001\340\010\037\230t\2407\250!\330\010\022\220/\240\021\240&\250\016\260a\330\010\013\2104\210s\220!\330\014\022\220)\2301\230A\360\010\000\t\014\210=\230\007\230q\330\014 \240\014\250G\2601\330\014\026\220o\240Q\240f\250N\270!\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\360\010\000\t\014\2109\220G\2301\330\014\034\230H\240G\2501\330\014\026\320\026)\250\021\250&\260\016\270a\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\210;\220g\230U\240$\240e\2507\260!\330\014\022\220)\2301\230A\360\006\000\t\014\210;\220g\230Q\330\014\017\210t\220:\230Q\230l\250!\330\020\035\230S\240\001\240\033\250G\2601\330\014\017\210t\2204\220q\230\n\240'\250\023\250G\2601\330\020\026\320\026'\240q\320(<\270A\270Q\330\014\026\320\026)\250\021\250&\260\016\270a\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\2105\220\007\220q\330\014\017\210t\220:\230Q\230f\240A\330\020\027\220s\230!\2305\240\007\240q\330\014\026\220o\240Q\240f\250N\270&\320@P\320PQ\320QR\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\200A\340\010\017\210{\230-\240q\200A\340\014\r\330\022\023\340\t\n\330\010\017\210t\220:\230[\250\001\250\024\250[\270\001\200A\340\014\r\330\020\021\330\t\n\330\010\t\330\014\027\220v\230Q\230a\330\017\020\330\014\r\330\010\020\220\001\320\004D\300A\360(\000\t\014\2104\210w\220c\230\021""\330\014\023\2201\340\014\034\230A\330\014\035\230W\240B\240f\250B\250a\360\010\000\t\014\210;\220c\230\026\230s\240+\250S\260\001\340\014\025\220Y\230a\330\014\026\220g\230Q\230a\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020!\240\021\330\020\"\240!\330\020\024\220L\320 8\270\007\270q\340\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020\"\240!\330\020\"\240!\330\020\024\220L\320 9\270\027\300\001\340\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020!\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020\"\240!\330\020\"\240!\2404\240|\3203L\310G\320ST\330\014\031\230\021\330\r\024\220G\2301\330\014\017\210v\220S\230\001\330\020\030\230\001\330\014\026\220g\230Q\330\014\020\320\020!\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020 \240\001\330\020\"\240!\2404\240|\3203J\310'\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020 \240\001\330\020\"\240!\2404\240|\3203J\310'\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020#\2401\330\020\"\240!\2404\240|\3203M\310W\320TU\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220i\230q\330\014\020\320\020\"\240!\330\020\"\240!\2404\240|\3203L\310I\320UV\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220i\230q\330\014\020\320\020$\240A\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220i\230q\330\014\020\320\020#\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\030\230\003\2301\330\014\017\210z\230\021\230'\240\021\360\010\000\021\022\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\340\020\023\2203\220i\230{\250!\2507\260$\260g\270S\300\001\340\024\032\230&\320 5\260Q\260a""\330\024\037\230u\240G\2501\250E\260\027\270\001\340\024\037\230u\240G\2501\330\020\032\230)\240?\260!\340\021\033\2301\230G\2401\330\020\033\2301\340\020\032\230'\240\037\260\001\330\021%\240Q\240a\330\020\032\320\032.\250a\250w\260a\340\014\017\210w\220g\230Q\330\020\024\320\024$\240A\340\014\022\320\022%\240Q\320&?\270r\300\021\340\010\013\2107\220'\230\021\330\014\020\220\n\230!\330\020\024\320\024$\320$6\260a\260t\270;\300m\320ST\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\320\020 \240\001\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\013\2301\330\020\023\220:\230Q\230i\240q\330\024\036\230g\240W\250A\330\020\024\320\024$\320$6\260a\260t\270;\300a\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\340\014\026\320\026(\250\001\250\024\250X\260X\270Q\330\010\014\210M\230\021\230%\230y\250\001\250\030\260\021\260!\340\010\013\2107\220'\230\021\330\014\020\320\020 \240\001\340\010\017\210q\320\000\024\220D\230\001\330\004\007\200q\330\010\020\220\r\230Q\230k\250\031\260!\340\010\020\220\r\230Q\230j\250\t\260\021\320\004F\320Fa\320ab\360\006\000\t\r\320\014\035\230Q\330\010\014\320\014\036\230a\330\010\014\320\014\035\230Q\330\010\014\320\014\034\230A\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\320\004\034\230F\240!\330\010\r\210R\210y\230\001\230\026\230x\240q\330\010\014\210H\220A\210H\220D\230\013\240<\250q\3200D\300A\320\004/\320/K\3101\360\024\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\032\230&\240\007\240q\330\010\023\320\023)\250\021\250$\250h\260n\300F\310!\320\004M\310Q\360\n\000\016\017\330\014\032\320\0323\2601\260D\270\t""\300\030\310\034\320UV\320VW\330\010\014\210M\230\021\230!\330\010\017\210q\320\004\"\320\"@\300\001\330\010\014\210N\230!\340\010\014\320\014\034\230I\240Z\250q\330\010\014\210A\340\014\r\330\010\014\320\014!\240\021\330\010\014\320\0143\2601\330\010\014\320\014&\240d\320*:\270!\340\016,\250A\360\020\000\t\r\210K\220z\240\021\330\014\r\360\006\000\t\r\320\014=\270Q\330\010\014\320\014=\270Q\360\010\000\t\r\210K\220t\230<\240v\250[\270\001\330\010\014\210I\220\\\240\021\240!\330\010\014\210I\220\\\240\021\240!\330\010\027\220t\2301\230A\330\010\014\210K\220q\230\004\230K\240t\2501\320\004\"\320\"@\300\001\330\010\014\210N\230!\330\010\014\210M\230\036\240q\250\001\200\001\330\004\n\210+\220Q\320\004\035\230Q\330\010\t\330\021\025\220Q\330\020\026\220d\230.\250\003\2505\260\004\260D\270\004\270A\330\024\030\230\r\240U\250!\330\020\023\2204\220q\330\024\025\330\020\027\220t\230>\250\027\260\001\330\020\031\230\033\240D\250\001\330\020\024\320\024$\240A\360\022\000\r\016\360\020\000\021\025\220D\230\005\230V\2407\250!\2509\260J\270a\330\020\025\220S\230\002\230!\330\014\023\220;\230a\360\030\000\021\024\2201\220G\2303\230g\240Q\240g\250_\270E\300\021\330\024\030\230\003\2304\230v\240W\250A\250Q\250d\260)\2707\300%\300t\3104\310q\330\024\027\220q\330\030\035\230Q\340\030\031\340\024\025\340\014\r\330\020\024\220K\320\0374\260A\260T\3209J\310$\310a\330\023\024\360\016\000\024\025\320\000\032\230!\330\004\010\210\010\220\001\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\330\010\013\2104\210y\230\007\230q\360\n\000\r\021\220\010\230\005\230Q\330\004\023\2206\230\021\320\004 \240\001\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004%\240X\250Q\330\010\013\2105\220\003\320\023-\250Q\330\014\023\2205\230\002\320\032+\2501\250A\330\010\017\210w\220a\220t\230=\250\001\320\000\"\240+\250Z\260q\330\004\005\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%""\240Q\330\014%\240Q\340\004\025\220Q\330\004\r\210X\220T\230\021\230'\240\021\360\006\000\005\010\200v\210W\320\024*\250#\250V\2607\270!\330\010\022\220,\230a\230t\2402\240Q\330\010\022\220&\230\003\2301\230F\240#\320%9\270\021\330\010\013\2107\220&\230\001\230\022\2301\230I\240Q\240c\250\021\250/\270\021\270(\300!\3001\340\010\t\330\014\023\2204\220w\230a\230q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\330\014\017\210v\220W\230O\2504\250v\260W\320<P\320PT\320TZ\320Za\320ab\330\020\023\2207\230&\240\001\240\021\330\017\020\340\014\026\220l\240!\2404\240r\250\021\330\014\026\220f\230C\230q\240\006\240c\320)=\270Q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\250#\250Q\250o\270Q\270h\300a\300q\210!\230a\210\001\360\006\000\r\031\230\t\240\021\330\014\026\220d\230!\230>\250\021\330\014\031\230\026\230q\320\n'\240q\320\004\030\230\001\330\010\017\210q\320\004\037\230q\360\010\000\016\022\220\021\330\014\023\2204\220~\240S\250\001\330\014\020\320\020!\240\024\240Q\240d\250)\2605\270\005\270T\300\021\300$\300i\310u\320TU\330\014\020\220\r\230W\240A\320\004\027\220q\330\010\013\2104\210q\330\014\r\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\010\014\210O\2301\330\010\013\2104\210y\230\007\230q\330\014\020\220\010\230\005\230Q\330\010\027\220x\230q\240\001\330\010\014\210N\230!\2304\230q\330\010\014\210I\220V\2301\330\010\014\210I\220V\2301\330\010\014\210K\220q\320\004\027\220q\330\010\014\210J\220f\230A\330\010\014\210K\220v\230Q\320\004 \320 :\270!\330\010\017\210t\220:\230^\2501\250Aset-cookie: Oa";
+    #else /* compression: none (27296 bytes) */
+const char* const bytes = ": {:02X}{:02x}1.01.12.0Add data failed.Add field failed.All dimensions preceding dimension %d must be indexed and not slicedBase exception for cycurl packageBuffer view does not expose stridesCallable[..., None]Can not use local_path and data at the same time.Can only create a buffer that is contiguous in memory.Cannot assign to read-only memoryviewCannot create writable memory view from read-only memoryviewCannot duplicate closed handle.Cannot index with type 'Cannot perform request on closed handle.Cannot receive websocket data on closed handle.Cannot send websocket data on closed handle.Cannot transpose memoryview with indirect dimensionsCurlm already closed! quitting from process_data< DATA> DATADefine ``add_reader`` methods to be called in a background select thread.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user;\n    all callbacks are run on the wrapped event loop's thread.\n\n    Typically used via ``AddThreadSelectorEventLoop``,\n    but can be attached to a running asyncio loop.\n    Dimension %d is not directEmpty shape tuple for cython.arrayFailed in Failed to Failed to set error buffer'_FileDescriptorLike'File not found at !HIndex out of bounds (axis %d)Indirect dimensions not supportedInvalid mode, expected 'c' or 'fortran', got Invalid shape in axis <MemoryView of NOT DONENoneNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Option unsupported: %sOut of bounds on buffer access (axis \n    Proactor event loop does not implement add_reader family of methods required.\n    Registering an additional selector thread for add_reader support.\n    To avoid this warning use:\n        asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())\n    < SSL> SSL. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.. See https://curl.se/l""ibcurl/c/libcurl-errors.html first for more details. Please open an issue on GitHub to help debug this error.Step may not be zero (axis %d)Tornado selectorUnable to convert item to objectUnexpected curl multi state in process_data, please open an issue on GitHub\nWrap an event loop to add implementations of the ``add_reader`` method family.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user; all callbacks are\n    run on the wrapped event loop's thread.\n\n    This class is used automatically by Tornado; applications should not need\n    to refer to it directly.\n\n    It is safe to wrap any event loop with this class, although it only makes sense\n    for event loops that do not implement the ``add_reader`` family of methods\n    themselves (i.e. ``WindowsProactorEventLoop``)\n\n    Closing the ``AddThreadSelectorEventLoop`` also closes the wrapped event loop.\n\n    Wrote bytes != received bytes.... [\n) ?.>') *<add_note and asyncio.AbstractEventLoop at 0x bytes]: collections.abc<contiguous and direct><contiguous and indirect>, curl: (cycurl/_asyncio_selector.pxicycurl/_curl.pyxcycurl/utils.pxidict[_FileDescriptorLike, Callable]disableenablegcgetinfo  (got got differing extents in dimension isenableditemsize <= 0 for cython.arraylist[_FileDescriptorLike], multi: (no default __reduce__ due to non-trivial __cinit__ object>self.form cannot be converted to a Python object for picklingself.frame cannot be converted to a Python object for picklingset cacertset proxy cacertsetopt <strided and direct><strided and direct or indirect><strided and indirect><stringsource>typing.AsyncGenerator[None, None]unable to allocate array data.unable to allocate shape and strides.ASCIIAbstractEventLoopAddThreadSelectorEventLoopAddThreadSelectorEventLoop.__getattribute__AddThreadSelectorEventLoop.__init__AddThreadSelectorEventLoop.add_readerAddThreadSelectorEventLoop.add_writerAddThreadSelectorEventLoop.closeAddThre""adSelectorEventLoop.remove_readerAddThreadSelectorEventLoop.remove_writerAnyAsyncCurlAsyncCurl.__reduce_cython__AsyncCurl.__setstate_cython__AsyncCurl._check_errorAsyncCurl._force_timeoutAsyncCurl.add_handleAsyncCurl.closeAsyncCurl.process_dataAsyncCurl.remove_handleAsyncCurl.socket_actionCURLAUTH_ANYCURLAUTH_ANYSAFECURLAUTH_AWS_SIGV4CURLAUTH_BASICCURLAUTH_BEARERCURLAUTH_DIGESTCURLAUTH_DIGEST_IECURLAUTH_GSSAPICURLAUTH_GSSNEGOTIATECURLAUTH_NEGOTIATECURLAUTH_NONECURLAUTH_NTLMCURLAUTH_NTLM_WBCURLAUTH_ONLYCURLE_ABORTED_BY_CALLBACKCURLE_AGAINCURLE_ALREADY_COMPLETECURLE_AUTH_ERRORCURLE_BAD_CALLING_ORDERCURLE_BAD_CONTENT_ENCODINGCURLE_BAD_DOWNLOAD_RESUMECURLE_BAD_FUNCTION_ARGUMENTCURLE_BAD_PASSWORD_ENTEREDCURLE_CHUNK_FAILEDCURLE_CONV_FAILEDCURLE_CONV_REQDCURLE_COULDNT_CONNECTCURLE_COULDNT_RESOLVE_HOSTCURLE_COULDNT_RESOLVE_PROXYCURLE_ECH_REQUIREDCURLE_FAILED_INITCURLE_FILESIZE_EXCEEDEDCURLE_FILE_COULDNT_READ_FILECURLE_FTP_ACCEPT_FAILEDCURLE_FTP_ACCEPT_TIMEOUTCURLE_FTP_ACCESS_DENIEDCURLE_FTP_BAD_DOWNLOAD_RESUMECURLE_FTP_BAD_FILE_LISTCURLE_FTP_CANT_GET_HOSTCURLE_FTP_CANT_RECONNECTCURLE_FTP_COULDNT_GET_SIZECURLE_FTP_COULDNT_RETR_FILECURLE_FTP_COULDNT_SET_ASCIICURLE_FTP_COULDNT_SET_BINARYCURLE_FTP_COULDNT_SET_TYPECURLE_FTP_COULDNT_STOR_FILECURLE_FTP_COULDNT_USE_RESTCURLE_FTP_PARTIAL_FILECURLE_FTP_PORT_FAILEDCURLE_FTP_PRET_FAILEDCURLE_FTP_QUOTE_ERRORCURLE_FTP_SSL_FAILEDCURLE_FTP_USER_PASSWORD_INCORRECTCURLE_FTP_WEIRD_227_FORMATCURLE_FTP_WEIRD_PASS_REPLYCURLE_FTP_WEIRD_PASV_REPLYCURLE_FTP_WEIRD_SERVER_REPLYCURLE_FTP_WEIRD_USER_REPLYCURLE_FTP_WRITE_ERRORCURLE_FUNCTION_NOT_FOUNDCURLE_GOT_NOTHINGCURLE_HTTP2CURLE_HTTP2_STREAMCURLE_HTTP3CURLE_HTTP_NOT_FOUNDCURLE_HTTP_PORT_FAILEDCURLE_HTTP_POST_ERRORCURLE_HTTP_RANGE_ERRORCURLE_HTTP_RETURNED_ERRORCURLE_INTERFACE_FAILEDCURLE_LDAP_CANNOT_BINDCURLE_LDAP_INVALID_URLCURLE_LDAP_SEARCH_FAILEDCURLE_LIBRARY_NOT_FOUNDCURLE_LOGIN_DENIEDCURLE_MALFORMAT_USERCURLE_NOT_BUILT_INCURLE_NO_CONNECTION_AVAILABLECURLE_OBSOLETECURLE_OBSOLETE10CURLE_OBSOLETE12""CURLE_OBSOLETE16CURLE_OBSOLETE20CURLE_OBSOLETE24CURLE_OBSOLETE29CURLE_OBSOLETE32CURLE_OBSOLETE34CURLE_OBSOLETE40CURLE_OBSOLETE41CURLE_OBSOLETE44CURLE_OBSOLETE46CURLE_OBSOLETE50CURLE_OBSOLETE51CURLE_OBSOLETE57CURLE_OBSOLETE62CURLE_OBSOLETE75CURLE_OBSOLETE76CURLE_OKCURLE_OPERATION_TIMEDOUTCURLE_OPERATION_TIMEOUTEDCURLE_OUT_OF_MEMORYCURLE_PARTIAL_FILECURLE_PEER_FAILED_VERIFICATIONCURLE_PROXYCURLE_QUIC_CONNECT_ERRORCURLE_QUOTE_ERRORCURLE_RANGE_ERRORCURLE_READ_ERRORCURLE_RECURSIVE_API_CALLCURLE_RECV_ERRORCURLE_REMOTE_ACCESS_DENIEDCURLE_REMOTE_DISK_FULLCURLE_REMOTE_FILE_EXISTSCURLE_REMOTE_FILE_NOT_FOUNDCURLE_RTSP_CSEQ_ERRORCURLE_RTSP_SESSION_ERRORCURLE_SEND_ERRORCURLE_SEND_FAIL_REWINDCURLE_SETOPT_OPTION_SYNTAXCURLE_SHARE_IN_USECURLE_SSHCURLE_SSL_CACERTCURLE_SSL_CACERT_BADFILECURLE_SSL_CERTPROBLEMCURLE_SSL_CIPHERCURLE_SSL_CLIENTCERTCURLE_SSL_CONNECT_ERRORCURLE_SSL_CRL_BADFILECURLE_SSL_ENGINE_INITFAILEDCURLE_SSL_ENGINE_NOTFOUNDCURLE_SSL_ENGINE_SETFAILEDCURLE_SSL_INVALIDCERTSTATUSCURLE_SSL_ISSUER_ERRORCURLE_SSL_PEER_CERTIFICATECURLE_SSL_PINNEDPUBKEYNOTMATCHCURLE_SSL_SHUTDOWN_FAILEDCURLE_TELNET_OPTION_SYNTAXCURLE_TFTP_DISKFULLCURLE_TFTP_EXISTSCURLE_TFTP_ILLEGALCURLE_TFTP_NOSUCHUSERCURLE_TFTP_NOTFOUNDCURLE_TFTP_PERMCURLE_TFTP_UNKNOWNIDCURLE_TOO_LARGECURLE_TOO_MANY_REDIRECTSCURLE_UNKNOWN_OPTIONCURLE_UNKNOWN_TELNET_OPTIONCURLE_UNRECOVERABLE_POLLCURLE_UNSUPPORTED_PROTOCOLCURLE_UPLOAD_FAILEDCURLE_URL_MALFORMATCURLE_URL_MALFORMAT_USERCURLE_USE_SSL_FAILEDCURLE_WEIRD_SERVER_REPLYCURLE_WRITE_ERRORCURLINFO_ACTIVESOCKETCURLINFO_APPCONNECT_TIMECURLINFO_APPCONNECT_TIME_TCURLINFO_CAINFOCURLINFO_CAPATHCURLINFO_CERTINFOCURLINFO_CONDITION_UNMETCURLINFO_CONNECT_TIMECURLINFO_CONNECT_TIME_TCURLINFO_CONN_IDCURLINFO_CONTENT_LENGTH_DOWNLOADCURLINFO_CONTENT_LENGTH_DOWNLOAD_TCURLINFO_CONTENT_LENGTH_UPLOADCURLINFO_CONTENT_LENGTH_UPLOAD_TCURLINFO_CONTENT_TYPECURLINFO_COOKIELISTCURLINFO_DATA_INCURLINFO_DATA_OUTCURLINFO_EARLYDATA_SENT_TCURLINFO_EFFECTIVE_METHODCURLINFO_EFFECTIVE_URLCURLINFO_ENDCURLINFO_F""ILETIMECURLINFO_FILETIME_TCURLINFO_FTP_ENTRY_PATHCURLINFO_HEADER_INCURLINFO_HEADER_OUTCURLINFO_HEADER_SIZECURLINFO_HTTPAUTH_AVAILCURLINFO_HTTPAUTH_USEDCURLINFO_HTTP_CONNECTCODECURLINFO_HTTP_VERSIONCURLINFO_LASTONECURLINFO_LASTSOCKETCURLINFO_LOCAL_IPCURLINFO_LOCAL_PORTCURLINFO_NAMELOOKUP_TIMECURLINFO_NAMELOOKUP_TIME_TCURLINFO_NONECURLINFO_NUM_CONNECTSCURLINFO_OS_ERRNOCURLINFO_POSTTRANSFER_TIME_TCURLINFO_PRETRANSFER_TIMECURLINFO_PRETRANSFER_TIME_TCURLINFO_PRIMARY_IPCURLINFO_PRIMARY_PORTCURLINFO_PRIVATECURLINFO_PROTOCOLCURLINFO_PROXYAUTH_AVAILCURLINFO_PROXYAUTH_USEDCURLINFO_PROXY_ERRORCURLINFO_PROXY_SSL_VERIFYRESULTCURLINFO_QUEUE_TIME_TCURLINFO_REDIRECT_COUNTCURLINFO_REDIRECT_TIMECURLINFO_REDIRECT_TIME_TCURLINFO_REDIRECT_URLCURLINFO_REFERERCURLINFO_REQUEST_SIZECURLINFO_RESPONSE_CODECURLINFO_RETRY_AFTERCURLINFO_RTSP_CLIENT_CSEQCURLINFO_RTSP_CSEQ_RECVCURLINFO_RTSP_SERVER_CSEQCURLINFO_RTSP_SESSION_IDCURLINFO_SCHEMECURLINFO_SIZE_DOWNLOADCURLINFO_SIZE_DOWNLOAD_TCURLINFO_SIZE_UPLOADCURLINFO_SIZE_UPLOAD_TCURLINFO_SPEED_DOWNLOADCURLINFO_SPEED_DOWNLOAD_TCURLINFO_SPEED_UPLOADCURLINFO_SPEED_UPLOAD_TCURLINFO_SSL_DATA_INCURLINFO_SSL_DATA_OUTCURLINFO_SSL_ENGINESCURLINFO_SSL_VERIFYRESULTCURLINFO_STARTTRANSFER_TIMECURLINFO_STARTTRANSFER_TIME_TCURLINFO_TEXTCURLINFO_TLS_SESSIONCURLINFO_TLS_SSL_PTRCURLINFO_TOTAL_TIMECURLINFO_TOTAL_TIME_TCURLINFO_USED_PROXYCURLINFO_XFER_IDCURLMOPT_CHUNK_LENGTH_PENALTY_SIZECURLMOPT_CONTENT_LENGTH_PENALTY_SIZECURLMOPT_MAXCONNECTSCURLMOPT_MAX_CONCURRENT_STREAMSCURLMOPT_MAX_HOST_CONNECTIONSCURLMOPT_MAX_PIPELINE_LENGTHCURLMOPT_MAX_TOTAL_CONNECTIONSCURLMOPT_PIPELININGCURLMOPT_PIPELINING_SERVER_BLCURLMOPT_PIPELINING_SITE_BLCURLMOPT_PUSHDATACURLMOPT_PUSHFUNCTIONCURLMOPT_SOCKETDATACURLMOPT_SOCKETFUNCTIONCURLMOPT_TIMERDATACURLMOPT_TIMERFUNCTIONCURLMSG_DONECURLMSG_LASTCURLMSG_NONECURLOPT_ABSTRACT_UNIX_SOCKETCURLOPT_ACCEPTTIMEOUT_MSCURLOPT_ACCEPT_ENCODINGCURLOPT_ADDRESS_SCOPECURLOPT_ALTSVCCURLOPT_ALTSVC_CTRLCURLOPT_APPENDCURLOPT_AUTOREFERERCURLOPT_AWS_SIGV4CURLOPT_BU""FFERSIZECURLOPT_CAINFOCURLOPT_CAINFO_BLOBCURLOPT_CAPATHCURLOPT_CA_CACHE_TIMEOUTCURLOPT_CERTINFOCURLOPT_CHUNK_BGN_FUNCTIONCURLOPT_CHUNK_DATACURLOPT_CHUNK_END_FUNCTIONCURLOPT_CLOSEPOLICYCURLOPT_CLOSESOCKETDATACURLOPT_CLOSESOCKETFUNCTIONCURLOPT_CONNECTTIMEOUTCURLOPT_CONNECTTIMEOUT_MSCURLOPT_CONNECT_ONLYCURLOPT_CONNECT_TOCURLOPT_CONV_FROM_NETWORK_FUNCTIONCURLOPT_CONV_FROM_UTF8_FUNCTIONCURLOPT_CONV_TO_NETWORK_FUNCTIONCURLOPT_COOKIECURLOPT_COOKIEFILECURLOPT_COOKIEJARCURLOPT_COOKIELISTCURLOPT_COOKIESESSIONCURLOPT_COPYPOSTFIELDSCURLOPT_CRLFCURLOPT_CRLFILECURLOPT_CURLUCURLOPT_CUSTOMREQUESTCURLOPT_DEBUGDATACURLOPT_DEBUGFUNCTIONCURLOPT_DEFAULT_PROTOCOLCURLOPT_DIRLISTONLYCURLOPT_DISALLOW_USERNAME_IN_URLCURLOPT_DNS_CACHE_TIMEOUTCURLOPT_DNS_INTERFACECURLOPT_DNS_LOCAL_IP4CURLOPT_DNS_LOCAL_IP6CURLOPT_DNS_SERVERSCURLOPT_DNS_SHUFFLE_ADDRESSESCURLOPT_DNS_USE_GLOBAL_CACHECURLOPT_DOH_SSL_VERIFYHOSTCURLOPT_DOH_SSL_VERIFYPEERCURLOPT_DOH_SSL_VERIFYSTATUSCURLOPT_DOH_URLCURLOPT_ECHCURLOPT_EGDSOCKETCURLOPT_ENCODINGCURLOPT_ERRORBUFFERCURLOPT_EXPECT_100_TIMEOUT_MSCURLOPT_FAILONERRORCURLOPT_FILECURLOPT_FILETIMECURLOPT_FNMATCH_DATACURLOPT_FNMATCH_FUNCTIONCURLOPT_FOLLOWLOCATIONCURLOPT_FORBID_REUSECURLOPT_FRESH_CONNECTCURLOPT_FTPAPPENDCURLOPT_FTPLISTONLYCURLOPT_FTPPORTCURLOPT_FTPSSLAUTHCURLOPT_FTP_ACCOUNTCURLOPT_FTP_ALTERNATIVE_TO_USERCURLOPT_FTP_CREATE_MISSING_DIRSCURLOPT_FTP_FILEMETHODCURLOPT_FTP_RESPONSE_TIMEOUTCURLOPT_FTP_SKIP_PASV_IPCURLOPT_FTP_SSLCURLOPT_FTP_SSL_CCCCURLOPT_FTP_USE_EPRTCURLOPT_FTP_USE_EPSVCURLOPT_FTP_USE_PRETCURLOPT_GSSAPI_DELEGATIONCURLOPT_HAPPY_EYEBALLS_TIMEOUT_MSCURLOPT_HAPROXYPROTOCOLCURLOPT_HAPROXY_CLIENT_IPCURLOPT_HEADERCURLOPT_HEADERDATACURLOPT_HEADERFUNCTIONCURLOPT_HEADEROPTCURLOPT_HSTSCURLOPT_HSTSREADDATACURLOPT_HSTSREADFUNCTIONCURLOPT_HSTSWRITEDATACURLOPT_HSTSWRITEFUNCTIONCURLOPT_HSTS_CTRLCURLOPT_HTTP09_ALLOWEDCURLOPT_HTTP200ALIASESCURLOPT_HTTP2_NO_PRIORITYCURLOPT_HTTP2_PSEUDO_HEADERS_ORDERCURLOPT_HTTP2_SETTINGSCURLOPT_HTTP2_STREAMSCURLOPT_HTTP2_WINDOW_UPDATECURLOPT_""HTTPAUTHCURLOPT_HTTPBASEHEADERCURLOPT_HTTPGETCURLOPT_HTTPHEADERCURLOPT_HTTPPOSTCURLOPT_HTTPPROXYTUNNELCURLOPT_HTTP_CONTENT_DECODINGCURLOPT_HTTP_TRANSFER_DECODINGCURLOPT_HTTP_VERSIONCURLOPT_IGNORE_CONTENT_LENGTHCURLOPT_INFILECURLOPT_INFILESIZECURLOPT_INFILESIZE_LARGECURLOPT_INTERFACECURLOPT_INTERLEAVEDATACURLOPT_INTERLEAVEFUNCTIONCURLOPT_IOCTLDATACURLOPT_IOCTLFUNCTIONCURLOPT_IPRESOLVECURLOPT_ISSUERCERTCURLOPT_ISSUERCERT_BLOBCURLOPT_KEEP_SENDING_ON_ERRORCURLOPT_KEYPASSWDCURLOPT_KRB4LEVELCURLOPT_KRBLEVELCURLOPT_LOCALPORTCURLOPT_LOCALPORTRANGECURLOPT_LOGIN_OPTIONSCURLOPT_LOW_SPEED_LIMITCURLOPT_LOW_SPEED_TIMECURLOPT_MAIL_AUTHCURLOPT_MAIL_FROMCURLOPT_MAIL_RCPTCURLOPT_MAIL_RCPT_ALLLOWFAILSCURLOPT_MAIL_RCPT_ALLOWFAILSCURLOPT_MAXAGE_CONNCURLOPT_MAXCONNECTSCURLOPT_MAXFILESIZECURLOPT_MAXFILESIZE_LARGECURLOPT_MAXLIFETIME_CONNCURLOPT_MAXREDIRSCURLOPT_MAX_RECV_SPEED_LARGECURLOPT_MAX_SEND_SPEED_LARGECURLOPT_MIMEPOSTCURLOPT_MIME_OPTIONSCURLOPT_NETRCCURLOPT_NETRC_FILECURLOPT_NEW_DIRECTORY_PERMSCURLOPT_NEW_FILE_PERMSCURLOPT_NOBODYCURLOPT_NOPROGRESSCURLOPT_NOPROXYCURLOPT_NOSIGNALCURLOPT_OBSOLETE40CURLOPT_OBSOLETE72CURLOPT_OPENSOCKETDATACURLOPT_OPENSOCKETFUNCTIONCURLOPT_PASSWORDCURLOPT_PATH_AS_ISCURLOPT_PINNEDPUBLICKEYCURLOPT_PIPEWAITCURLOPT_PORTCURLOPT_POSTCURLOPT_POST301CURLOPT_POSTFIELDSCURLOPT_POSTFIELDSIZECURLOPT_POSTFIELDSIZE_LARGECURLOPT_POSTQUOTECURLOPT_POSTREDIRCURLOPT_PREQUOTECURLOPT_PREREQDATACURLOPT_PREREQFUNCTIONCURLOPT_PRE_PROXYCURLOPT_PRIVATECURLOPT_PROGRESSDATACURLOPT_PROGRESSFUNCTIONCURLOPT_PROTOCOLSCURLOPT_PROTOCOLS_STRCURLOPT_PROXYCURLOPT_PROXYAUTHCURLOPT_PROXYHEADERCURLOPT_PROXYPASSWORDCURLOPT_PROXYPORTCURLOPT_PROXYTYPECURLOPT_PROXYUSERNAMECURLOPT_PROXYUSERPWDCURLOPT_PROXY_CAINFOCURLOPT_PROXY_CAINFO_BLOBCURLOPT_PROXY_CAPATHCURLOPT_PROXY_CREDENTIAL_NO_REUSECURLOPT_PROXY_CRLFILECURLOPT_PROXY_ISSUERCERTCURLOPT_PROXY_ISSUERCERT_BLOBCURLOPT_PROXY_KEYPASSWDCURLOPT_PROXY_PINNEDPUBLICKEYCURLOPT_PROXY_SERVICE_NAMECURLOPT_PROXY_SSLCERTCURLOPT_PROXY_SSLCERTTYPECURLOPT_PROXY_SS""LCERT_BLOBCURLOPT_PROXY_SSLKEYCURLOPT_PROXY_SSLKEYTYPECURLOPT_PROXY_SSLKEY_BLOBCURLOPT_PROXY_SSLVERSIONCURLOPT_PROXY_SSL_CIPHER_LISTCURLOPT_PROXY_SSL_OPTIONSCURLOPT_PROXY_SSL_VERIFYHOSTCURLOPT_PROXY_SSL_VERIFYPEERCURLOPT_PROXY_TLS13_CIPHERSCURLOPT_PROXY_TLSAUTH_PASSWORDCURLOPT_PROXY_TLSAUTH_TYPECURLOPT_PROXY_TLSAUTH_USERNAMECURLOPT_PROXY_TRANSFER_MODECURLOPT_PUTCURLOPT_QUICK_EXITCURLOPT_QUOTECURLOPT_RANDOM_FILECURLOPT_RANGECURLOPT_READDATACURLOPT_READFUNCTIONCURLOPT_REDIR_PROTOCOLSCURLOPT_REDIR_PROTOCOLS_STRCURLOPT_REFERERCURLOPT_REQUEST_TARGETCURLOPT_RESOLVECURLOPT_RESOLVER_START_DATACURLOPT_RESOLVER_START_FUNCTIONCURLOPT_RESUME_FROMCURLOPT_RESUME_FROM_LARGECURLOPT_RTSPHEADERCURLOPT_RTSP_CLIENT_CSEQCURLOPT_RTSP_REQUESTCURLOPT_RTSP_SERVER_CSEQCURLOPT_RTSP_SESSION_IDCURLOPT_RTSP_STREAM_URICURLOPT_RTSP_TRANSPORTCURLOPT_SASL_AUTHZIDCURLOPT_SASL_IRCURLOPT_SEEKDATACURLOPT_SEEKFUNCTIONCURLOPT_SERVER_RESPONSE_TIMEOUTCURLOPT_SERVER_RESPONSE_TIMEOUT_MSCURLOPT_SERVICE_NAMECURLOPT_SHARECURLOPT_SOCKOPTDATACURLOPT_SOCKOPTFUNCTIONCURLOPT_SOCKS5_AUTHCURLOPT_SOCKS5_GSSAPI_NECCURLOPT_SOCKS5_GSSAPI_SERVICECURLOPT_SSH_AUTH_TYPESCURLOPT_SSH_COMPRESSIONCURLOPT_SSH_HOSTKEYDATACURLOPT_SSH_HOSTKEYFUNCTIONCURLOPT_SSH_HOST_PUBLIC_KEY_MD5CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256CURLOPT_SSH_KEYDATACURLOPT_SSH_KEYFUNCTIONCURLOPT_SSH_KNOWNHOSTSCURLOPT_SSH_PRIVATE_KEYFILECURLOPT_SSH_PUBLIC_KEYFILECURLOPT_SSLCERTCURLOPT_SSLCERTPASSWDCURLOPT_SSLCERTTYPECURLOPT_SSLCERT_BLOBCURLOPT_SSLENGINECURLOPT_SSLENGINE_DEFAULTCURLOPT_SSLKEYCURLOPT_SSLKEYPASSWDCURLOPT_SSLKEYTYPECURLOPT_SSLKEY_BLOBCURLOPT_SSLVERSIONCURLOPT_SSL_CERT_COMPRESSIONCURLOPT_SSL_CIPHER_LISTCURLOPT_SSL_CTX_DATACURLOPT_SSL_CTX_FUNCTIONCURLOPT_SSL_EC_CURVESCURLOPT_SSL_ENABLE_ALPNCURLOPT_SSL_ENABLE_ALPSCURLOPT_SSL_ENABLE_NPNCURLOPT_SSL_ENABLE_TICKETCURLOPT_SSL_FALSESTARTCURLOPT_SSL_OPTIONSCURLOPT_SSL_PERMUTE_EXTENSIONSCURLOPT_SSL_SESSIONID_CACHECURLOPT_SSL_SIGNATURE_ALGORITHMSCURLOPT_SSL_SIG_HASH_ALGSCURLOPT_SSL_VERIFYHOSTCURLOPT_SSL_VERIFYPEERCURL""OPT_SSL_VERIFYSTATUSCURLOPT_STDERRCURLOPT_STREAM_DEPENDSCURLOPT_STREAM_DEPENDS_ECURLOPT_STREAM_EXCLUSIVECURLOPT_STREAM_WEIGHTCURLOPT_SUPPRESS_CONNECT_HEADERSCURLOPT_TCP_FASTOPENCURLOPT_TCP_KEEPALIVECURLOPT_TCP_KEEPCNTCURLOPT_TCP_KEEPIDLECURLOPT_TCP_KEEPINTVLCURLOPT_TCP_NODELAYCURLOPT_TELNETOPTIONSCURLOPT_TFTP_BLKSIZECURLOPT_TFTP_NO_OPTIONSCURLOPT_TIMECONDITIONCURLOPT_TIMEOUTCURLOPT_TIMEOUT_MSCURLOPT_TIMEVALUECURLOPT_TIMEVALUE_LARGECURLOPT_TLS13_CIPHERSCURLOPT_TLSAUTH_PASSWORDCURLOPT_TLSAUTH_TYPECURLOPT_TLSAUTH_USERNAMECURLOPT_TLS_DELEGATED_CREDENTIALSCURLOPT_TLS_EXTENSION_ORDERCURLOPT_TLS_GREASECURLOPT_TLS_KEY_SHARES_LIMITCURLOPT_TLS_KEY_USAGE_NO_CHECKCURLOPT_TLS_RECORD_SIZE_LIMITCURLOPT_TLS_SIGNED_CERT_TIMESTAMPSCURLOPT_TLS_STATUS_REQUESTCURLOPT_TLS_USE_NEW_ALPS_CODEPOINTCURLOPT_TRAILERDATACURLOPT_TRAILERFUNCTIONCURLOPT_TRANSFERTEXTCURLOPT_TRANSFER_ENCODINGCURLOPT_UNIX_SOCKET_PATHCURLOPT_UNRESTRICTED_AUTHCURLOPT_UPKEEP_INTERVAL_MSCURLOPT_UPLOADCURLOPT_UPLOAD_BUFFERSIZECURLOPT_UPLOAD_FLAGSCURLOPT_URLCURLOPT_USERAGENTCURLOPT_USERNAMECURLOPT_USERPWDCURLOPT_USE_SSLCURLOPT_VERBOSECURLOPT_WILDCARDMATCHCURLOPT_WRITEDATACURLOPT_WRITEFUNCTIONCURLOPT_WRITEHEADERCURLOPT_WRITEINFOCURLOPT_WS_OPTIONSCURLOPT_XFERINFODATACURLOPT_XFERINFOFUNCTIONCURLOPT_XOAUTH2_BEARERCURLPIPE_HTTP1CURLPIPE_MULTIPLEXCURLPIPE_NOTHINGCURLSSH_AUTH_AGENTCURLSSH_AUTH_ANYCURLSSH_AUTH_DEFAULTCURLSSH_AUTH_GSSAPICURLSSH_AUTH_HOSTCURLSSH_AUTH_KEYBOARDCURLSSH_AUTH_NONECURLSSH_AUTH_PASSWORDCURLSSH_AUTH_PUBLICKEYCURLWS_BINARYCURLWS_CLOSECURLWS_CONTCURLWS_NOAUTOPONGCURLWS_OFFSETCURLWS_PINGCURLWS_PONGCURLWS_RAW_MODECURLWS_TEXTCURL_CSELECT_ERRCURL_CSELECT_INCURL_CSELECT_OUTCURL_ERROR_SIZECURL_FNMATCHFUNC_FAILCURL_FNMATCHFUNC_MATCHCURL_FNMATCHFUNC_NOMATCHCURL_HTTP_VERSION_1_0CURL_HTTP_VERSION_1_1CURL_HTTP_VERSION_2CURL_HTTP_VERSION_2TLSCURL_HTTP_VERSION_2_0CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGECURL_HTTP_VERSION_3CURL_HTTP_VERSION_3ONLYCURL_HTTP_VERSION_LASTCURL_HTTP_VERSION_NONECURL_IPRESOLVE_V4CURL_IPRESOLVE_V6CURL_IP""RESOLVE_WHATEVERCURL_POLL_INCURL_POLL_INOUTCURL_POLL_NONECURL_POLL_OUTCURL_POLL_REMOVECURL_PREREQFUNC_ABORTCURL_PREREQFUNC_OKCURL_READFUNC_ABORTCURL_READFUNC_PAUSECURL_SEEKFUNC_CANTSEEKCURL_SEEKFUNC_FAILCURL_SEEKFUNC_OKCURL_SOCKET_BADCURL_SOCKET_TIMEOUTCURL_SSLVERSION_DEFAULTCURL_SSLVERSION_LASTCURL_SSLVERSION_MAX_DEFAULTCURL_SSLVERSION_MAX_LASTCURL_SSLVERSION_MAX_NONECURL_SSLVERSION_MAX_TLSv1_0CURL_SSLVERSION_MAX_TLSv1_1CURL_SSLVERSION_MAX_TLSv1_2CURL_SSLVERSION_MAX_TLSv1_3CURL_SSLVERSION_SSLv2CURL_SSLVERSION_SSLv3CURL_SSLVERSION_TLSv1CURL_SSLVERSION_TLSv1_0CURL_SSLVERSION_TLSv1_1CURL_SSLVERSION_TLSv1_2CURL_SSLVERSION_TLSv1_3CURL_TRAILERFUNC_ABORTCURL_TRAILERFUNC_OKCURL_WRITEFUNC_ERRORCURL_WRITEFUNC_PAUSECallableCancelledErrorConditionCurlCurlErrorCurlError.__init__CurlMimeCurlMime.__reduce_cython__CurlMime.__setstate_cython__CurlMime.addpartCurlMime.attachCurlMime.closeCurlMime.from_listCurlWarningCurl.__reduce_cython__Curl.__setstate_cython__Curl.clean_handles_and_buffersCurl.closeCurl.debugCurl.duphandleCurl.get_reason_phraseCurl.getinfoCurl.impersonateCurl.parse_cookie_headersCurl.parse_status_lineCurl.performCurl.resetCurl.setoptCurl.upkeepCurl.versionCurl.ws_closeCurl.ws_metaCurl.ws_recvCurl.ws_sendDEFAULT_CACERTEBADFEllipsis_FileDescriptorLike_HasFileno_HasFileno.filenoMAX_SHOW_BYTESMY_ATTRIBUTESNoneOptionalPREFIXESPROACTOR_WARNINGPathProactorEventLoopProtocol__Pyx_PyDict_NextRefSelectorThreadSelectorThread.__init__SelectorThread.__init__.<locals>.<lambda>SelectorThread.__init__.<locals>.thread_manager_anextSelectorThread._consume_wakerSelectorThread._handle_eventSelectorThread._handle_selectSelectorThread._run_selectSelectorThread._start_selectSelectorThread._thread_managerSelectorThread._wake_selectorSelectorThread.add_readerSelectorThread.add_writerSelectorThread.closeSelectorThread.remove_readerSelectorThread.remove_writerSequenceSimpleCookie_TThreadTypeVarUnionView.MemoryViewWSAENOTSOCKWSFrameWSFrame.__reduce_cython__WSFrame.__setstate_cython__WS_RECVWS""_SENDWeakKeyDictionaryWeakSet_aabcactionaddadd_handleadd_readeradd_writeraddpartallocate_buffer__anext__argsasyncioasyncio.coroutinesasyncio_loopatexit_atexit_callbackattach__await__backslashreplacebaseboolbytebytesbytes_to_hex.<locals>.genexprccacertcall_latercall_sooncall_soon_threadsafecallbackcancelcancelledcategorycb_mapcertifi_check_error__class____class_getitem__clean_handles_and_buffersclearclear_headersclear_resolvecline_in_tracebackclose_close_selector_and_loop_closed_closing_selectorclscodecollections.abcconfig_warnings_consume_wakercontent_typecontextlibcookiecountcreate_futurecreate_taskcurl_cycurl._curldaemondatadebugdebug_function_defaultdecodedefaultdefault_headers__dict__discard__doc__donedtype_is_objectduphandleeencode__enter__enumerateerrcodeerrmsgerrnoerrorerrorsev_bitmaskexists__exit__fdfilefilenamefilenofilesflags_force_timeoutformformatfortranframefrom_list__func__functoolsfuturegenexprgetget_reason_phraseget_running_loopget_selectorget_selector.<locals>._close_selector_and_loop__getattribute__getinfogetpreferredencoding__getstate__grouphandle_handle_event_handle_selectheaderheadershex_strhttp.cookieshttp_versionidignoreimpersonate__import__index__init__int_is_coroutineitemsitemsizejoinkeyskwargs<lambda>loadlocal_pathlocalelooploop_closelowerm__main__matchmemviewmessage__metaclass__mode__module____mro_entries__msgname__name__ndim__new__nextnotifyobjonoptionpackparse_cookie_headersparse_status_linepartialpathlibpayloadperformplatformpoppostfixprefix__prepare__printprocess_data__pyx_checksum__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_vtable____qualname__rre_readersreal_loop_real_loopreasonrecv__reduce____reduce_cython____reduce_ex__registerremove_handleremove_readerremove_writerresetreturnrs_run_selectselect_select_args_select_cond_selectorselector_loop_selector_loops_selectorsselfsendset_exception__set_name__set_resultsetblockingsetdefaultsetopt__setstate____setstate_cython__shapesimplefiltersizesleepsocketsocket_actionsocketpairsockfdstackle""velstart_start_selectstartswithstaticmethodstatus_codestatus_linestderrstepstopstrstrictstructsupersuppresssystarget__test__text_thread_thread_managerthread_manager_anext_thread_manager_handlethreadingthrowto_readto_writetupletype_typingunpackupdateupkeepvaluevaluesversionwwait_wake_selector_waker_r_waker_wwarnwarningsweakrefwherewinwin32write_writerswsws_closews_metaws_recvws_sendxxsHTTP/\\d\\.\\d [0-9]{3} (.*)HTTP/(\\d\\.\\d) ([0-9]{3}) (.*)\320\004+\2501\340\010\026\220i\230v\240W\250J\260d\270!\330\010\t\210\027\220\005\320\025(\250\r\260Q\260d\270'\300\026\300q\320\0044\260A\360\022\000\t\022\220\034\230Q\330\010\014\210J\220a\330\014\017\210v\220V\2302\230[\250\001\250\021\330\020\026\220e\2301\230F\240!\2404\240w\250a\330\010\017\210q\320\004 \240\001\330\010\013\2104\210q\330\014\r\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004[\320[\\\360\024\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\014\000\016\017\330\014\026\220m\2401\240D\250\010\260\016\270a\270w\300a\300t\3108\320SZ\320Z`\320`a\320ae\320ef\320fj\320j|\320|\177\360\000\000@\002A\002\330\010\014\210M\230\021\230%\230q\330\010\017\210t\2201\320\0048\3208S\320Sa\320ab\360\026\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\010\014\210O\2301\360\006\000\016\017\330\014\026\320\026(\250\001\250\024\250Q\330\010\t\330\014\020\220\r\230Q\230e\2401\330\014\023\2201\360\006\000\r\021\320\020*\250!\250?\270!\320\004 \320 8\270\001\330\010\t\330\014\020\220\004\220I\230Q\230a\330\017\020\330\014\023\2201\330\010\014\210O\2301\330\010\017\210q\320\004\"\320\"8\270\001\360\030\000\t\023\220&\230\005\230Q\230f\240F\250\"\250A\330\010\017\210t\2208\2301\230O\2501\320\004\033\320\0339\270\021\330\010\017\210q\320\016,\250A\200A\33001\340\010\014\210B\210f\220A\320\0254\260A\330\010\017\210q\220\006\220a\220v\230W\240A\200A\33001\360\n\000\t\r\210B\210f\220A\320\0258\270\001\330\010\013\2104\210q\330\014\023\320\023*\250#\250Q\330\010\013\2101\210F\220!\2203\220c""\230\021\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\340\014\033\2301\330\010\026\220c\230\021\230!\2306\240\021\240!\330\010\021\220\021\220&\230\001\230\021\340\010\017\210~\230]\250!\200A\3604\000\r\035\230A\360\006\000\r)\250\001\340\010\023\2207\230\"\230A\330\010\013\2104\210w\220c\230\021\330\014\017\210y\230\003\2301\330\020\027\220q\330\021\032\230#\230Y\240c\250\031\260#\260Y\270c\300\031\310#\310Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\340\010\013\2109\220C\220q\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210x\220s\230!\330\020\027\220q\330\014\023\2207\230!\330\r\026\220c\230\031\240#\240Y\250c\260\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\220?\240!\2401\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\320\023%\240Q\240a\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210y\230\003\2301\330\020\027\220q\330\014\023\220=\240\001\240\021\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\2201\200A\360\006\000\r\034\2301\230D\240\001\330\010\014\210H\220A\200A\330\0221\260\021\330\t\n\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210N\230!\200A\330\0221\260\021\330\t\n\330\010\014\210I\220Q\220f\230I\240X\250Q\250k\270\021\330\010\014\210O\2301\320\004#\320#A\300\021\360\022\000\t\014\210=\230\003\2301\330\014\023\220:\230Q\230a\340\010\013\2104\210z\230\021\230.\250\007\250q\260\t\3209N\310d\320RS\320ST\330\014\023\2201\340\010\020""\220\005\220Q\320\026(\250\r\260[\300\001\340\010\030\230\n\240!\320#3\3203M\310Q\310a\360\006\000\t\026\220\\\240\021\340\010\t\360\016\000\t\025\220I\230Q\330\010\017\210q\200A\330\0103\260=\300\001\300\024\300Q\330\010\026\220i\230q\240\001\200A\340\010\013\2104\210t\2201\330\014\024\220E\230\021\330\020D\300M\320Q\\\320\\]\340\014\r\340\010\014\210N\230!\2308\2401\360\016\000\t\n\330\014\r\330\020\037\320\0374\260A\260T\270\031\300!\3001\340\020\023\2209\230C\230q\330\024\025\330\020\023\2208\2305\240\007\240q\330\024\034\230F\240$\240k\260\021\260+\270W\300H\310A\330\024\036\230h\240e\2501\330\024\027\220x\230s\240!\330\030\034\230K\240q\250\001\340\030\034\230N\250!\2507\260%\260{\300!\3009\310A\340\024\031\230\021\230!\330\023\024\330\020\030\230\005\230Q\330\024\025\340\024\025\330\024\037\230q\200A\360\010\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\r\016\330\014\035\320\0351\260\021\260$\260a\330\010\013\210;\220c\230\021\330\014\r\330\010\014\210D\220\001\220\024\220Z\230t\2409\250M\270\021\270'\300\034\310V\320ST\330\010\017\210q\200A\360\016\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\020\000\016\017\330\014\026\220m\2401\240D\250\001\330$(\250\001\330$(\250\001\330$%\240T\250\021\330$%\240T\250\021\330\010\014\210M\230\021\230%\230q\360\006\000\t\020\210w\220d\320\032*\250\"\250D\3200J\310)\320ST\320TX\320XY\200A\330\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026'\240q\250\004\250A\330\010\017\210q\200A\330\010\013\2108\2207\230!\330\014\r\330\010&\320&:\270!\2701\330\010\032\230#\230U\240!\2401\240C\240q\250\003\2504\250u\260A\330\010\016\210i\220q\330\014\030\230\001\320\031*\250!\250:\260Q\3206J\310!\3101\200A\340\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\013\2104\210q\330\021\022\330\024$\240A\240T\250\021\330\014\020\320\020\"\240!\330\010\013\2104\210z\230\023\230A\330\020$\240A\240T\250\021\330\014\020\220\014\230A\200A\340\010\014\210G\2201\200A\340\010""\014\210G\2205\320\030*\250!\330\010\014\210G\2205\320\0300\260\001\200A\360\006\000\t\036\230S\240\001\330\010\014\210H\220A\330\014\020\220\010\230\003\2301\330\010\017\210q\200A\340\010\035\230T\240\034\250Q\250a\330\010\013\2107\220$\220d\230&\240\005\240S\250\004\250D\260\006\260j\300\001\330\014\022\220'\230\021\200A\360\010\000\t\016\210_\230A\340\r\016\330\014\032\320\0320\260\001\260\024\260Y\270e\3001\330\010\014\210M\230\021\230!\330\010\021\220\024\220U\230.\250\001\330\010\014\210M\230\021\230)\2401\330\010\014\210K\220q\230\013\2407\250%\250z\270\021\330\010\017\210q\200A\360\006\000\034\035\330\027\030\330\034\035\330\026\027\360\026\000\t-\320,>\270a\270t\3001\340\010\037\230t\2407\250!\330\010\022\220/\240\021\240&\250\016\260a\330\010\013\2104\210s\220!\330\014\022\220)\2301\230A\360\010\000\t\014\210=\230\007\230q\330\014 \240\014\250G\2601\330\014\026\220o\240Q\240f\250N\270!\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\360\010\000\t\014\2109\220G\2301\330\014\034\230H\240G\2501\330\014\026\320\026)\250\021\250&\260\016\270a\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\210;\220g\230U\240$\240e\2507\260!\330\014\022\220)\2301\230A\360\006\000\t\014\210;\220g\230Q\330\014\017\210t\220:\230Q\230l\250!\330\020\035\230S\240\001\240\033\250G\2601\330\014\017\210t\2204\220q\230\n\240'\250\023\250G\2601\330\020\026\320\026'\240q\320(<\270A\270Q\330\014\026\320\026)\250\021\250&\260\016\270a\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\2105\220\007\220q\330\014\017\210t\220:\230Q\230f\240A\330\020\027\220s\230!\2305\240\007\240q\330\014\026\220o\240Q\240f\250N\270&\320@P\320PQ\320QR\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\200A\340\010\017\210{\230-\240q\200A\340\014\r\330\022\023\340\t\n\330\010\017\210t\220:\230[\250\001\250\024\250[\270\001\200A\340\014\r\330\020\021\330\t\n\330\010\t\330\014\027\220v\230Q\230a\330\017\020\330\014\r\330\010\020\220\001\320\004D\300A\360(\000""\t\014\2104\210w\220c\230\021\330\014\023\2201\340\014\034\230A\330\014\035\230W\240B\240f\250B\250a\360\010\000\t\014\210;\220c\230\026\230s\240+\250S\260\001\340\014\025\220Y\230a\330\014\026\220g\230Q\230a\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020!\240\021\330\020\"\240!\330\020\024\220L\320 8\270\007\270q\340\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020\"\240!\330\020\"\240!\330\020\024\220L\320 9\270\027\300\001\340\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020!\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020\"\240!\330\020\"\240!\2404\240|\3203L\310G\320ST\330\014\031\230\021\330\r\024\220G\2301\330\014\017\210v\220S\230\001\330\020\030\230\001\330\014\026\220g\230Q\330\014\020\320\020!\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020 \240\001\330\020\"\240!\2404\240|\3203J\310'\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020 \240\001\330\020\"\240!\2404\240|\3203J\310'\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220g\230Q\330\014\020\320\020#\2401\330\020\"\240!\2404\240|\3203M\310W\320TU\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220i\230q\330\014\020\320\020\"\240!\330\020\"\240!\2404\240|\3203L\310I\320UV\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220i\230q\330\014\020\320\020$\240A\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\024\220G\2301\330\014\026\220i\230q\330\014\020\320\020#\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\030\230\003\2301\330\014\017\210z\230\021\230'\240\021\360\010\000\021\022\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\340\020\023\2203\220i\230{\250!\2507\260$\260g\270S\300\001""\340\024\032\230&\320 5\260Q\260a\330\024\037\230u\240G\2501\250E\260\027\270\001\340\024\037\230u\240G\2501\330\020\032\230)\240?\260!\340\021\033\2301\230G\2401\330\020\033\2301\340\020\032\230'\240\037\260\001\330\021%\240Q\240a\330\020\032\320\032.\250a\250w\260a\340\014\017\210w\220g\230Q\330\020\024\320\024$\240A\340\014\022\320\022%\240Q\320&?\270r\300\021\340\010\013\2107\220'\230\021\330\014\020\220\n\230!\330\020\024\320\024$\320$6\260a\260t\270;\300m\320ST\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\320\020 \240\001\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\013\2301\330\020\023\220:\230Q\230i\240q\330\024\036\230g\240W\250A\330\020\024\320\024$\320$6\260a\260t\270;\300a\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\340\014\026\320\026(\250\001\250\024\250X\260X\270Q\330\010\014\210M\230\021\230%\230y\250\001\250\030\260\021\260!\340\010\013\2107\220'\230\021\330\014\020\320\020 \240\001\340\010\017\210q\320\000\024\220D\230\001\330\004\007\200q\330\010\020\220\r\230Q\230k\250\031\260!\340\010\020\220\r\230Q\230j\250\t\260\021\320\004F\320Fa\320ab\360\006\000\t\r\320\014\035\230Q\330\010\014\320\014\036\230a\330\010\014\320\014\035\230Q\330\010\014\320\014\034\230A\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\320\004\034\230F\240!\330\010\r\210R\210y\230\001\230\026\230x\240q\330\010\014\210H\220A\210H\220D\230\013\240<\250q\3200D\300A\320\004/\320/K\3101\360\024\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\032\230&\240\007\240q\330\010\023\320\023)\250\021\250$\250h\260n\300F\310!\320\004M\310Q\360\n\000\016\017\330""\014\032\320\0323\2601\260D\270\t\300\030\310\034\320UV\320VW\330\010\014\210M\230\021\230!\330\010\017\210q\320\004\"\320\"@\300\001\330\010\014\210N\230!\340\010\014\320\014\034\230I\240Z\250q\330\010\014\210A\340\014\r\330\010\014\320\014!\240\021\330\010\014\320\0143\2601\330\010\014\320\014&\240d\320*:\270!\340\016,\250A\360\020\000\t\r\210K\220z\240\021\330\014\r\360\006\000\t\r\320\014=\270Q\330\010\014\320\014=\270Q\360\010\000\t\r\210K\220t\230<\240v\250[\270\001\330\010\014\210I\220\\\240\021\240!\330\010\014\210I\220\\\240\021\240!\330\010\027\220t\2301\230A\330\010\014\210K\220q\230\004\230K\240t\2501\320\004\"\320\"@\300\001\330\010\014\210N\230!\330\010\014\210M\230\036\240q\250\001\200\001\330\004\n\210+\220Q\320\004\035\230Q\330\010\t\330\021\025\220Q\330\020\026\220d\230.\250\003\2505\260\004\260D\270\004\270A\330\024\030\230\r\240U\250!\330\020\023\2204\220q\330\024\025\330\020\027\220t\230>\250\027\260\001\330\020\031\230\033\240D\250\001\330\020\024\320\024$\240A\360\022\000\r\016\360\020\000\021\025\220D\230\005\230V\2407\250!\2509\260J\270a\330\020\025\220S\230\002\230!\330\014\023\220;\230a\360\030\000\021\024\2201\220G\2303\230g\240Q\240g\250_\270E\300\021\330\024\030\230\003\2304\230v\240W\250A\250Q\250d\260)\2707\300%\300t\3104\310q\330\024\027\220q\330\030\035\230Q\340\030\031\340\024\025\340\014\r\330\020\024\220K\320\0374\260A\260T\3209J\310$\310a\330\023\024\360\016\000\024\025\320\000\032\230!\330\004\010\210\010\220\001\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\330\010\013\2104\210y\230\007\230q\360\n\000\r\021\220\010\230\005\230Q\330\004\023\2206\230\021\320\004 \240\001\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004%\240X\250Q\330\010\013\2105\220\003\320\023-\250Q\330\014\023\2205\230\002\320\032+\2501\250A\330\010\017\210w\220a\220t\230=\250\001\320\000\"\240+\250Z\260q\330\004\005\330\014%\240Q\330\014%\240Q\330\014%\240Q\330""\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\340\004\025\220Q\330\004\r\210X\220T\230\021\230'\240\021\360\006\000\005\010\200v\210W\320\024*\250#\250V\2607\270!\330\010\022\220,\230a\230t\2402\240Q\330\010\022\220&\230\003\2301\230F\240#\320%9\270\021\330\010\013\2107\220&\230\001\230\022\2301\230I\240Q\240c\250\021\250/\270\021\270(\300!\3001\340\010\t\330\014\023\2204\220w\230a\230q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\330\014\017\210v\220W\230O\2504\250v\260W\320<P\320PT\320TZ\320Za\320ab\330\020\023\2207\230&\240\001\240\021\330\017\020\340\014\026\220l\240!\2404\240r\250\021\330\014\026\220f\230C\230q\240\006\240c\320)=\270Q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\250#\250Q\250o\270Q\270h\300a\300q\210!\230a\210\001\360\006\000\r\031\230\t\240\021\330\014\026\220d\230!\230>\250\021\330\014\031\230\026\230q\320\n'\240q\320\004\030\230\001\330\010\017\210q\320\004\037\230q\360\010\000\016\022\220\021\330\014\023\2204\220~\240S\250\001\330\014\020\320\020!\240\024\240Q\240d\250)\2605\270\005\270T\300\021\300$\300i\310u\320TU\330\014\020\220\r\230W\240A\320\004\027\220q\330\010\013\2104\210q\330\014\r\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\010\014\210O\2301\330\010\013\2104\210y\230\007\230q\330\014\020\220\010\230\005\230Q\330\010\027\220x\230q\240\001\330\010\014\210N\230!\2304\230q\330\010\014\210I\220V\2301\330\010\014\210I\220V\2301\330\010\014\210K\220q\320\004\027\220q\330\010\014\210J\220f\230A\330\010\014\210K\220v\230Q\320\004 \320 :\270!\330\010\017\210t\220:\230^\2501\250Aset-cookie: Oa";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif
@@ -59450,17 +59602,17 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__asyncio_selector_pxi, __pyx_mstate->__pyx_n_u_thread_manager, __pyx_mstate->__pyx_kp_b_iso88591_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 828};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 833};
     PyObject* const varnames[] = {0};
     __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_close_selector_and_loop, __pyx_mstate->__pyx_kp_b_iso88591_d_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 943};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 948};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_curl_2, __pyx_mstate->__pyx_n_u_future, __pyx_mstate->__pyx_n_u_sockfd};
     __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591__16, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 965};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 970};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_force_timeout, __pyx_mstate->__pyx_kp_b_iso88591__16, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }
@@ -59490,92 +59642,92 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[11] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_stringsource, __pyx_mstate->__pyx_n_u_setstate_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[11])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 312};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 314};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[12] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_G1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[12])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 316};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 318};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[13] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_ws_recv, __pyx_mstate->__pyx_kp_b_iso88591_A_4wc_1A_m1D_T_T_M_q_wd_D0J_STTX, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[13])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 343};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 345};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_payload, __pyx_mstate->__pyx_n_u_flags};
     __pyx_mstate_global->__pyx_codeobj_tab[14] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_ws_send, __pyx_mstate->__pyx_kp_b_iso88591_4wc_1A_m1D_awat8SZZ_aaeeffjj_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[14])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 365};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 367};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_code, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_payload};
     __pyx_mstate_global->__pyx_codeobj_tab[15] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_ws_close, __pyx_mstate->__pyx_kp_b_iso88591_8_QfF_A_t81O1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[15])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 380};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 382};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_frame};
     __pyx_mstate_global->__pyx_codeobj_tab[16] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_ws_meta, __pyx_mstate->__pyx_kp_b_iso88591_A_3_Q_iq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[16])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 401};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 403};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[17] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_debug, __pyx_mstate->__pyx_kp_b_iso88591_A_G5_G5_0, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[17])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 422};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 424};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_option, __pyx_mstate->__pyx_n_u_value};
     __pyx_mstate_global->__pyx_codeobj_tab[18] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_setopt_2, __pyx_mstate->__pyx_kp_b_iso88591_DA_4wc_1_A_WBfBa_c_s_S_Ya_gQa_G, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[18])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 577};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 579};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_option};
     __pyx_mstate_global->__pyx_codeobj_tab[19] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_getinfo_2, __pyx_mstate->__pyx_kp_b_iso88591_A4_A_7_A_4wc_y_1_q_Yc_Yc_Q_q_Q_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[19])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 644};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 646};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[20] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_version, __pyx_mstate->__pyx_kp_b_iso88591_A_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[20])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 648};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 650};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_target, __pyx_mstate->__pyx_n_u_default_headers};
     __pyx_mstate_global->__pyx_codeobj_tab[21] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_impersonate, __pyx_mstate->__pyx_kp_b_iso88591_K1_4wc_1_q_hnF, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[21])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 670};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 674};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_clear_headers, __pyx_mstate->__pyx_n_u_clear_resolve};
     __pyx_mstate_global->__pyx_codeobj_tab[22] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_perform, __pyx_mstate->__pyx_kp_b_iso88591_88SSaab_4wc_1A_O1_Q_Qe1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[22])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 696};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 700};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[23] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_upkeep, __pyx_mstate->__pyx_kp_b_iso88591_A_4wc_1_q_A_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[23])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 704};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 708};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_clear_headers, __pyx_mstate->__pyx_n_u_clear_resolve};
     __pyx_mstate_global->__pyx_codeobj_tab[24] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_clean_handles_and_buffers, __pyx_mstate->__pyx_kp_b_iso88591_FFaab_Q_a_Q_A_1_t_S_Q_L_1_t_S_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[24])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 725};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 729};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[25] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_duphandle, __pyx_mstate->__pyx_kp_b_iso88591_A_4wc_1A_1_a_c_D_Zt9M_VST_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[25])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 739};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 743};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[26] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_reset, __pyx_mstate->__pyx_kp_b_iso88591_A_A_4q_AT_4z_A_AT_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[26])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[26] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_reset, __pyx_mstate->__pyx_kp_b_iso88591_A_A_A_4q_AT_4z_A_AT_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[26])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 750};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 755};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_headers, __pyx_mstate->__pyx_n_u_cookie, __pyx_mstate->__pyx_n_u_header};
     __pyx_mstate_global->__pyx_codeobj_tab[27] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_parse_cookie_headers, __pyx_mstate->__pyx_kp_b_iso88591_4A_Q_Ja_vV2_e1F_4wa_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[27])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 765};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 770};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_status_line, __pyx_mstate->__pyx_n_u_m};
     __pyx_mstate_global->__pyx_codeobj_tab[28] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_get_reason_phrase, __pyx_mstate->__pyx_kp_b_iso88591_A01_BfA_4A_q_avWA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[28])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 771};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 776};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_status_line, __pyx_mstate->__pyx_n_u_m, __pyx_mstate->__pyx_n_u_http_version, __pyx_mstate->__pyx_n_u_status_code, __pyx_mstate->__pyx_n_u_reason};
     __pyx_mstate_global->__pyx_codeobj_tab[29] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_parse_status_line, __pyx_mstate->__pyx_kp_b_iso88591_A01_BfA_8_4q_Q_1F_3c_1_fAS_1_1_f, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[29])) goto bad;
   }
@@ -59695,37 +59847,37 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[52] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__asyncio_selector_pxi, __pyx_mstate->__pyx_n_u_remove_writer, __pyx_mstate->__pyx_kp_b_iso88591_t_1A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[52])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 806};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 811};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_asyncio_loop, __pyx_mstate->__pyx_n_u_selector_loop, __pyx_mstate->__pyx_n_u_loop_close, __pyx_mstate->__pyx_n_u_close_selector_and_loop, __pyx_mstate->__pyx_n_u_close_selector_and_loop};
     __pyx_mstate_global->__pyx_codeobj_tab[53] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_get_selector, __pyx_mstate->__pyx_kp_b_iso88591_A_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[53])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 839};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 844};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_loop};
     __pyx_mstate_global->__pyx_codeobj_tab[54] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_get_selector, __pyx_mstate->__pyx_kp_b_iso88591_9_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[54])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 974};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 979};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_curl_2};
     __pyx_mstate_global->__pyx_codeobj_tab[55] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_add_handle, __pyx_mstate->__pyx_kp_b_iso88591_A__A_0_Ye1_M_U_M_1_Kq_7_z_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[55])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 988};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 993};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_sockfd, __pyx_mstate->__pyx_n_u_ev_bitmask};
     __pyx_mstate_global->__pyx_codeobj_tab[56] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_socket_action, __pyx_mstate->__pyx_kp_b_iso88591_MQ_31D_UVVW_M_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[56])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 998};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1003};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_sockfd, __pyx_mstate->__pyx_n_u_ev_bitmask};
     __pyx_mstate_global->__pyx_codeobj_tab[57] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_process_data, __pyx_mstate->__pyx_kp_b_iso88591_A_4t1_E_DMQ_N_81_4AT_1_9Cq_85_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[57])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1044};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1049};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_curl_2};
     __pyx_mstate_global->__pyx_codeobj_tab[58] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_remove_handle, __pyx_mstate->__pyx_kp_b_iso88591_A_T_Qa_7_d_S_D_j, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[58])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS), 1062};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS), 1067};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_errcode, __pyx_mstate->__pyx_n_u_args, __pyx_mstate->__pyx_n_u_errmsg, __pyx_mstate->__pyx_n_u_action, __pyx_mstate->__pyx_n_u_a};
     __pyx_mstate_global->__pyx_codeobj_tab[59] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_check_error, __pyx_mstate->__pyx_kp_b_iso88591_A_87_1_U_1Cq_4uA_iq_Q6J_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[59])) goto bad;
   }
@@ -59740,22 +59892,22 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[61] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_stringsource, __pyx_mstate->__pyx_n_u_setstate_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[61])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1095};
+    const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1100};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_name, __pyx_mstate->__pyx_n_u_content_type, __pyx_mstate->__pyx_n_u_filename, __pyx_mstate->__pyx_n_u_local_path, __pyx_mstate->__pyx_n_u_data};
     __pyx_mstate_global->__pyx_codeobj_tab[62] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_addpart, __pyx_mstate->__pyx_kp_b_iso88591_A_at1_t7_a_4s_1A_q_G1_oQfN_t3a_i, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[62])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1155};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1160};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_files, __pyx_mstate->__pyx_n_u_form, __pyx_mstate->__pyx_n_u_file};
     __pyx_mstate_global->__pyx_codeobj_tab[63] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_from_list, __pyx_mstate->__pyx_kp_b_iso88591_A_S_HA_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[63])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1163};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1168};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_curl_2};
     __pyx_mstate_global->__pyx_codeobj_tab[64] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_attach, __pyx_mstate->__pyx_kp_b_iso88591_1_ivWJd_Qd_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[64])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1168};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1173};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[65] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_1D_HA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[65])) goto bad;
   }
