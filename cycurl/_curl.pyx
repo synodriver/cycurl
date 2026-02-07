@@ -3,7 +3,7 @@
 from pathlib import Path
 
 cimport cython
-from cpython.bytes cimport PyBytes_GET_SIZE, PyBytes_AS_STRING
+from cpython.bytes cimport PyBytes_AS_STRING, PyBytes_GET_SIZE
 from cpython.float cimport PyFloat_FromDouble
 from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
@@ -17,8 +17,8 @@ include "consts.pxi"
 include "utils.pxi"
 
 import asyncio
-import re
 import locale
+import re
 import struct
 import sys
 from contextlib import suppress
@@ -348,7 +348,7 @@ cdef class Curl:
             payload: content to send.
             flags: websocket flag to set for the frame, default: binary.
         Returns:
-            0 if no error.
+            The number of bytes sent.
         Raises:
             CurlError: if failed.
         """

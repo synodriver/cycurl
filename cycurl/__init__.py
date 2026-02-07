@@ -1,6 +1,40 @@
 # -*- coding: utf-8 -*-
-from cycurl.__version__ import __curl_version__, __description__, __title__, __version__  # noqa: F401
+from cycurl.__version__ import (  # noqa: F401
+    __curl_version__,
+    __description__,
+    __title__,
+    __version__,
+)
 from cycurl._curl import *
+from cycurl.requests import (
+    AsyncSession,
+    AsyncWebSocket,
+    BrowserType,
+    BrowserTypeLiteral,
+    Cookies,
+    CookieTypes,
+    ExtraFingerprints,
+    Headers,
+    HeaderTypes,
+    ProxySpec,
+    Request,
+    Response,
+    Session,
+    WebSocket,
+    WebSocketClosed,
+    WebSocketError,
+    WebSocketTimeout,
+    WsCloseCode,
+    delete,
+    exceptions,
+    get,
+    head,
+    options,
+    patch,
+    post,
+    put,
+    request,
+)
 
 # __all__ = [
 #     "Curl",
@@ -37,36 +71,6 @@ from cycurl._curl import *
 #     "exceptions",
 # ]
 # here, we do not use __all__ because we want constants in _curl.so to be available
-
-from cycurl.requests import (
-    AsyncSession,
-    AsyncWebSocket,
-    BrowserType,
-    BrowserTypeLiteral,
-    Cookies,
-    CookieTypes,
-    ExtraFingerprints,
-    Headers,
-    HeaderTypes,
-    ProxySpec,
-    Request,
-    Response,
-    Session,
-    WebSocket,
-    WebSocketClosed,
-    WebSocketError,
-    WebSocketTimeout,
-    WsCloseCode,
-    delete,
-    exceptions,
-    get,
-    head,
-    options,
-    patch,
-    post,
-    put,
-    request,
-)
 
 
 config_warnings(on=False)

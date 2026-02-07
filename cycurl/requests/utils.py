@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-__all__ = ["HttpVersionLiteral", "set_curl_options", "not_set"]
+__all__ = ["HttpVersionLiteral", "set_curl_options", "NOT_SET"]
 
 
 import asyncio
@@ -8,10 +8,10 @@ import math
 import queue
 import warnings
 from collections import Counter
+from collections.abc import Callable
 from io import BytesIO
 from json import dumps
-from collections.abc import Callable
-from typing import TYPE_CHECKING, Any, Final, Literal, Optional, Union, cast
+from typing import TYPE_CHECKING, Any, Final, Literal, Optional, Union, cast, final
 from urllib.parse import ParseResult, parse_qsl, quote, urlencode, urljoin, urlparse
 
 import cycurl._curl as m
@@ -44,7 +44,23 @@ HttpVersionLiteral = Literal["v1", "v2", "v2tls", "v2_prior_knowledge", "v3", "v
 
 SAFE_CHARS = set("!#$%&'()*+,/:;=?@[]~")
 
-not_set: Final[Any] = object()
+
+@final
+class NotSetType:
+    """
+    Unique single initialized type distinct from ``None``.
+    """
+
+    __slots__ = ()
+
+    def __repr__(self) -> str:
+        return "NOT_SET"
+
+    def __reduce__(self) -> Literal["NOT_SET"]:
+        return "NOT_SET"
+
+
+NOT_SET: Final[NotSetType] = NotSetType()
 
 
 # ruff: noqa: SIM116
@@ -313,7 +329,9 @@ def set_extra_fp(curl: Curl, fp: ExtraFingerprints):
     if fp.tls_signature_algorithms:
         curl.setopt(m.CURLOPT_SSL_SIG_HASH_ALGS, ",".join(fp.tls_signature_algorithms))
 
-    curl.setopt(m.CURLOPT_SSLVERSION, fp.tls_min_version | m.CURL_SSLVERSION_MAX_DEFAULT)
+    curl.setopt(
+        m.CURLOPT_SSLVERSION, fp.tls_min_version | m.CURL_SSLVERSION_MAX_DEFAULT
+    )
     curl.setopt(m.CURLOPT_TLS_GREASE, int(fp.tls_grease))
     curl.setopt(m.CURLOPT_SSL_PERMUTE_EXTENSIONS, int(fp.tls_permute_extensions))
     curl.setopt(m.CURLOPT_SSL_CERT_COMPRESSION, fp.tls_cert_compression)
@@ -332,15 +350,19 @@ def set_curl_options(
     method: HttpMethod,
     url: str,
     *,
-    params_list: list[Union[dict, list, tuple, None]] = [],  # noqa: B006
+    params_list: list[
+        Union[dict[str, object], list[object], tuple[object, ...], None]
+    ] = [],  # noqa: B006
     base_url: Optional[str] = None,
-    data: Optional[Union[dict[str, str], list[tuple], str, BytesIO, bytes]] = None,
-    json: Optional[dict | list] = None,
+    data: Optional[
+        Union[dict[str, str], list[tuple[object]], str, BytesIO, bytes]
+    ] = None,
+    json: Optional[dict[object, object] | list[object]] = None,
     headers_list: list[Optional[HeaderTypes]] = [],  # noqa: B006
     cookies_list: list[Optional[CookieTypes]] = [],  # noqa: B006
-    files: Optional[dict] = None,
+    files: Optional[dict[object, object]] = None,
     auth: Optional[tuple[str, str]] = None,
-    timeout: Optional[Union[float, tuple[float, float], object]] = not_set,
+    timeout: Optional[Union[float, tuple[float, float], object]] = NOT_SET,
     allow_redirects: Optional[bool] = True,
     max_redirects: Optional[int] = 30,
     proxies_list: list[Optional[ProxySpec]] = [],  # noqa: B006
@@ -349,7 +371,7 @@ def set_curl_options(
     verify_list: list[Union[bool, str, None]] = [],  # noqa: B006
     referer: Optional[str] = None,
     accept_encoding: Optional[str] = "gzip, deflate, br, zstd",
-    content_callback: Optional[Callable] = None,
+    content_callback: Optional[Callable[..., object]] = None,
     impersonate: Optional[Union[BrowserTypeLiteral, str]] = None,
     ja3: Optional[str] = None,
     akamai: Optional[str] = None,
@@ -618,7 +640,6 @@ def set_curl_options(
         ret = c.impersonate(impersonate, default_headers=default_headers)  # type: ignore
         if ret != 0:
             raise ImpersonateError(f"Impersonating {impersonate} is not supported")
-
 
     # ja3 string
     if ja3:

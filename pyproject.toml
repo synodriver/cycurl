@@ -1,6 +1,6 @@
 [project]
 name = "cycurl"
-version = "0.15.0b1"
+version = "0.15.0b4"
 authors = [{ name = "Lyonnet", email = "infinitesheldon@gmail.com" }]
 description = "Ultra fast python binding for curl-impersonate via cython, with impersonation support."
 license = "MIT"
@@ -79,7 +79,7 @@ include-package-data = true
 
 
 [build-system]
-requires = ["wheel", "setuptools", "cython>=3.0.9"]
+requires = ["wheel", "setuptools", "cython>=3.2.2"]
 build-backend = "setuptools.build_meta"
 
 
@@ -131,6 +131,9 @@ manylinux-i686-image = "manylinux2014"
 environment = { LD_LIBRARY_PATH="$HOME/.local/lib" }
 environment-pass = ["LD_LIBRARY_PATH"]
 
+[tool.cibuildwheel.android]
+archs = ["arm64_v8a", "x86_64"]
+
 
 [tool.cibuildwheel.macos]
 before-all = "gmake preprocess"
@@ -166,7 +169,7 @@ profile = "black"
 line_length = 88
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 ignore_missing_imports = true
 #warn_unused_ignores = true
 #strict = true

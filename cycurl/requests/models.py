@@ -1,11 +1,11 @@
-from contextlib import suppress
 import queue
 import re
 import warnings
-from concurrent.futures import Future
-from typing import Any, Optional, Union
 from collections.abc import Awaitable, Callable
+from concurrent.futures import Future
+from contextlib import suppress
 from datetime import timedelta
+from typing import Any, Optional, Union
 
 from cycurl._curl import Curl, CurlWarning
 from cycurl.requests.cookies import Cookies
@@ -19,8 +19,8 @@ except ImportError:
     from json import loads
 
 with suppress(ImportError):
-    from markdownify import markdownify as md
     import readability as rd
+    from markdownify import markdownify as md
 
 CHARSET_RE = re.compile(r"charset=([\w-]+)")
 STREAM_END = object()

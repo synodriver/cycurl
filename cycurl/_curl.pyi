@@ -663,7 +663,6 @@ class AsyncCurl:
     def __init__(
         self, cacert: Optional[str] = "", loop: Optional["AbstractEventLoop"] = None
     ) -> None: ...
-
     def add_handle(self, curl_: Curl) -> Future[Any]: ...
     async def close(self) -> Any: ...
     def process_data(self, sockfd: int, ev_bitmask: int) -> Any: ...
@@ -723,7 +722,6 @@ class WSFrame:
     flags: int
     len: int
     offset: int
-
 
 class CurlWarning(UserWarning, RuntimeWarning):
     pass

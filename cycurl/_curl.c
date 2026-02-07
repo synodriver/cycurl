@@ -23628,7 +23628,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_8ws_send, "Curl.ws_send(self, const uint8_t[::1] payload, unsigned int flags=curl.CURLWS_BINARY) -> size_t\n\nSend data to a websocket connection.\nArgs:\n    payload: content to send.\n    flags: websocket flag to set for the frame, default: binary.\nReturns:\n    0 if no error.\nRaises:\n    CurlError: if failed.");
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_4Curl_8ws_send, "Curl.ws_send(self, const uint8_t[::1] payload, unsigned int flags=curl.CURLWS_BINARY) -> size_t\n\nSend data to a websocket connection.\nArgs:\n    payload: content to send.\n    flags: websocket flag to set for the frame, default: binary.\nReturns:\n    The number of bytes sent.\nRaises:\n    CurlError: if failed.");
 static PyMethodDef __pyx_mdef_6cycurl_5_curl_4Curl_9ws_send = {"ws_send", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_4Curl_9ws_send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_4Curl_8ws_send};
 static PyObject *__pyx_pw_6cycurl_5_curl_4Curl_9ws_send(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
@@ -57360,8 +57360,8 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * include "utils.pxi"
  * 
  * import asyncio             # <<<<<<<<<<<<<<
- * import re
  * import locale
+ * import re
 */
   __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_asyncio, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
   __pyx_t_11 = __pyx_t_1;
@@ -57372,32 +57372,32 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   /* "cycurl/_curl.pyx":20
  * 
  * import asyncio
- * import re             # <<<<<<<<<<<<<<
- * import locale
+ * import locale             # <<<<<<<<<<<<<<
+ * import re
  * import struct
 */
-  __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_re, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_locale, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __pyx_t_11 = __pyx_t_1;
   __Pyx_GOTREF(__pyx_t_11);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_re, __pyx_t_11) < (0)) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_locale, __pyx_t_11) < (0)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
   /* "cycurl/_curl.pyx":21
  * import asyncio
- * import re
- * import locale             # <<<<<<<<<<<<<<
+ * import locale
+ * import re             # <<<<<<<<<<<<<<
  * import struct
  * import sys
 */
-  __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_locale, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_re, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __pyx_t_11 = __pyx_t_1;
   __Pyx_GOTREF(__pyx_t_11);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_locale, __pyx_t_11) < (0)) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_re, __pyx_t_11) < (0)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
   /* "cycurl/_curl.pyx":22
- * import re
  * import locale
+ * import re
  * import struct             # <<<<<<<<<<<<<<
  * import sys
  * from contextlib import suppress
@@ -57409,7 +57409,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
   /* "cycurl/_curl.pyx":23
- * import locale
+ * import re
  * import struct
  * import sys             # <<<<<<<<<<<<<<
  * from contextlib import suppress

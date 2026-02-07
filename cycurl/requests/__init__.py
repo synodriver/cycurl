@@ -21,6 +21,7 @@ __all__ = [
     "WebSocketError",
     "WebSocketClosed",
     "WebSocketTimeout",
+    "WebSocketRetryStrategy",
     "WsCloseCode",
     "ExtraFingerprints",
     "CookieTypes",
@@ -28,20 +29,24 @@ __all__ = [
     "ProxySpec",
 ]
 
-from typing import Optional, TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING, Optional, TypedDict
 
 from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.errors import RequestsError
 from cycurl.requests.headers import Headers, HeaderTypes
-from cycurl.requests.impersonate import BrowserType, BrowserTypeLiteral, ExtraFingerprints
+from cycurl.requests.impersonate import (
+    BrowserType,
+    BrowserTypeLiteral,
+    ExtraFingerprints,
+)
 from cycurl.requests.models import Request, Response
 from cycurl.requests.session import (
     AsyncSession,
     HttpMethod,
     ProxySpec,
+    RequestParams,
     Session,
     ThreadType,
-    RequestParams,
     Unpack,
 )
 from cycurl.requests.websockets import (
@@ -49,6 +54,7 @@ from cycurl.requests.websockets import (
     WebSocket,
     WebSocketClosed,
     WebSocketError,
+    WebSocketRetryStrategy,
     WebSocketTimeout,
     WsCloseCode,
 )
@@ -59,6 +65,7 @@ if TYPE_CHECKING:
         thread: Optional[ThreadType]
         curl_options: Optional[dict]
         debug: Optional[bool]
+
 else:
     SessionRequestParams = TypedDict
 
@@ -133,37 +140,37 @@ def request(
         return s.request(method=method, url=url, **kwargs)
 
 
-def head(url: str, **kwargs: Unpack[SessionRequestParams]):
+def head(url: str, **kwargs: Unpack[SessionRequestParams]) -> Response:
     return request(method="HEAD", url=url, **kwargs)
 
 
-def get(url: str, **kwargs: Unpack[SessionRequestParams]):
+def get(url: str, **kwargs: Unpack[SessionRequestParams]) -> Response:
     return request(method="GET", url=url, **kwargs)
 
 
-def post(url: str, **kwargs: Unpack[SessionRequestParams]):
+def post(url: str, **kwargs: Unpack[SessionRequestParams]) -> Response:
     return request(method="POST", url=url, **kwargs)
 
 
-def put(url: str, **kwargs: Unpack[SessionRequestParams]):
+def put(url: str, **kwargs: Unpack[SessionRequestParams]) -> Response:
     return request(method="PUT", url=url, **kwargs)
 
 
-def patch(url: str, **kwargs: Unpack[SessionRequestParams]):
+def patch(url: str, **kwargs: Unpack[SessionRequestParams]) -> Response:
     return request(method="PATCH", url=url, **kwargs)
 
 
-def delete(url: str, **kwargs: Unpack[SessionRequestParams]):
+def delete(url: str, **kwargs: Unpack[SessionRequestParams]) -> Response:
     return request(method="DELETE", url=url, **kwargs)
 
 
-def options(url: str, **kwargs: Unpack[SessionRequestParams]):
+def options(url: str, **kwargs: Unpack[SessionRequestParams]) -> Response:
     return request(method="OPTIONS", url=url, **kwargs)
 
 
-def trace(url: str, **kwargs: Unpack[SessionRequestParams]):
+def trace(url: str, **kwargs: Unpack[SessionRequestParams]) -> Response:
     return request(method="TRACE", url=url, **kwargs)
 
 
-def query(url: str, **kwargs: Unpack[SessionRequestParams]):
+def query(url: str, **kwargs: Unpack[SessionRequestParams]) -> Response:
     return request(method="QUERY", url=url, **kwargs)
