@@ -10,7 +10,7 @@ async def main() -> None:
         print("Connecting to Postman Echo...")
         async with s.ws_connect("wss://ws.postman-echo.com/raw") as ws:
 
-            message = "Hello from curl_cffi!"
+            message = "Hello from cycurl!"
             print(f">>> Sending: {message}")
             await ws.send_str(payload=message)
 
