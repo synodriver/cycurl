@@ -329,7 +329,7 @@ cdef class Curl:
         # if buffer==NULL:
         #     raise MemoryError
         # cdef size_t n_recv
-        # cdef int ret
+        cdef int ret
         # cdef const curl.curl_ws_frame* frame = NULL
         with nogil:
             ret = curl.curl_ws_recv(self._curl,
@@ -337,7 +337,8 @@ cdef class Curl:
                                     self._WS_RECV_BUFFER_SIZE,
                                     &self._ws_recv_n_recv,
                                     &self._ws_recv_p_frame)
-        self._check_error(ret, "WS_RECV")
+        if ret:
+            self._check_error(ret, "WS_RECV")
         # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html
         # return <bytes>buffer[: n_recv], WSFrame.from_ptr(frame)
         return <bytes>self._ws_recv_buffer[:self._ws_recv_n_recv], WSFrame.from_ptr(self._ws_recv_p_frame)
@@ -361,7 +362,8 @@ cdef class Curl:
         # buffer = ffi.from_buffer(payload)
         with nogil:
             ret = curl.curl_ws_send(self._curl, <const void *>&payload[0], <size_t>payload.shape[0], &self._ws_send_n_sent, 0, flags)
-        self._check_error(ret, "WS_SEND")
+        if ret:
+            self._check_error(ret, "WS_SEND")
         return self._ws_send_n_sent
 
     def ws_close(self, int code = 1000, bytes message = b""):
