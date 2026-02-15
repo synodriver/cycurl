@@ -24,6 +24,7 @@ __all__ = [
     "WebSocketRetryStrategy",
     "WsCloseCode",
     "ExtraFingerprints",
+    "RetryStrategy",
     "CookieTypes",
     "HeaderTypes",
     "ProxySpec",
@@ -44,9 +45,10 @@ from cycurl.requests.session import (
     AsyncSession,
     HttpMethod,
     ProxySpec,
-    RequestParams,
+    RetryStrategy,
     Session,
     ThreadType,
+    RequestParams,
     Unpack,
 )
 from cycurl.requests.websockets import (

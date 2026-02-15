@@ -1550,7 +1550,6 @@ class AsyncWebSocket(BaseWebSocket):
         try:
             # Hoist the branch - decide loop strategy once at start
             if not self._coalesce_frames:
-
                 # Optimized fast path, no batching overhead
                 while True:
                     payload, flags = await queue_get()
@@ -1698,7 +1697,7 @@ class AsyncWebSocket(BaseWebSocket):
                         if write_retries >= max_zero_writes:
                             self._finalize_connection(
                                 WebSocketError(
-                                    ("Writer stalled " f"({write_retries} attempts)."),
+                                    (f"Writer stalled ({write_retries} attempts)."),
                                     m.CURLE_WRITE_ERROR,
                                 )
                             )

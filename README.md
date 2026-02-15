@@ -69,15 +69,16 @@ No browser automation. Just simple API calls that return the exact cookies and h
 - Supports websocket.
 - MIT licensed.
 
-|              | requests | aiohttp | httpx | pycurl        | curl_cffi     | cycurl        |
-| ------------ | -------- | ------- | ----- | ------------- | ------------- |---------------|
-| http/2       | ❌        | ❌       | ✅     | ✅             | ✅             |✅             |
-| http/3       | ❌        | ❌       | ❌     | ☑️<sup>1</sup> | ✅<sup>2</sup> |✅<sup>2</sup> |
-| sync         | ✅        | ❌       | ✅     | ✅             | ✅             |✅             |
-| async        | ❌        | ✅       | ✅     | ❌             | ✅             |✅             |
-| websocket    | ❌        | ✅       | ❌     | ❌             | ✅             |✅             |
-| fingerprints | ❌        | ❌       | ❌     | ❌             | ✅             |✅             |
-| speed        | 🐇        | 🐇🐇      | 🐇     | 🐇🐇            | 🐇🐇            |🐇🐇            |
+||requests|aiohttp|httpx|pycurl|curl_cffi|cycurl|
+|---|---|---|---|---|---|---|
+|http/2|❌|❌|✅|✅|✅|✅|
+|http/3|❌|❌|❌|☑️<sup>1</sup>|✅<sup>2</sup>|✅<sup>2</sup>|
+|sync|✅|❌|✅|✅|✅|✅|
+|async|❌|✅|✅|❌|✅|✅|
+|websocket|❌|✅|❌|❌|✅|✅|
+|native retry|❌|❌|❌|❌|✅|✅|
+|fingerprints|❌|❌|❌|❌|✅|✅|
+|speed|🐇|🐇🐇|🐇|🐇🐇|🐇🐇|🐇🐇|
 
 Notes:
 

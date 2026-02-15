@@ -516,12 +516,8 @@ def set_curl_options(
     # auth
     if auth:
         username, password = auth
-        c.setopt(
-            m.CURLOPT_USERNAME, username.encode()
-        )  # pyright: ignore [reportPossiblyUnboundVariable=none]
-        c.setopt(
-            m.CURLOPT_PASSWORD, password.encode()
-        )  # pyright: ignore [reportPossiblyUnboundVariable=none]
+        c.setopt(m.CURLOPT_USERNAME, username.encode())  # pyright: ignore [reportPossiblyUnboundVariable=none]
+        c.setopt(m.CURLOPT_PASSWORD, password.encode())  # pyright: ignore [reportPossiblyUnboundVariable=none]
 
     # timeout
     if timeout is None:
