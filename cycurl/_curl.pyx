@@ -603,10 +603,10 @@ cdef class Curl:
         # }
         cdef:
             int ret_type
-            int ret
+            int ret=0
             char* charret = NULL
-            long longret
-            double doubleret
+            long longret=0
+            double doubleret=0.0
             curl.curl_slist *slistret = NULL
             int64_t int64ret
         ret_type = option & 0xF00000
