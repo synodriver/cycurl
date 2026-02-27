@@ -7,4 +7,11 @@ __title__ = "cycurl"
 # __version__ = metadata.version("curl_cffi")
 __description__ = "libcurl cython bindings for Python, with impersonation support"
 __version__ = "0.15.0b4"
-__curl_version__ = Curl().version().decode()
+
+def _resolve_curl_version() -> str:
+    """Read libcurl version without creating a curl easy handle at import time."""
+
+    return Curl().version().decode()
+
+
+__curl_version__ = _resolve_curl_version()
