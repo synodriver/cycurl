@@ -99,7 +99,7 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
     cdef:
         size_t total
         object callback
-        size_t wrote
+        ssize_t wrote
     total = size*nmemb
     callback = <object>userdata
     wrote = callback(<bytes>ptr[:total])
