@@ -48,7 +48,7 @@ jobs:
           python -m build --sdist
       - uses: actions/upload-artifact@v4
         with:
-          name: curl_cffi-${{ github.sha }}-sdist.zip
+          name: cycurl-${{ github.sha }}-sdist.zip
           path: ./dist/*.tar.gz
 
   bdist_native:
@@ -89,7 +89,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: curl_cffi-${{ github.sha }}-${{ matrix.os }}.zip
+          name: cycurl-${{ github.sha }}-${{ matrix.os }}.zip
           path: ./wheelhouse/*.whl
 
   # bdist_qemu:
@@ -111,7 +111,7 @@ jobs:
   #         CIBW_ARCHS_LINUX: riscv64 armv7l
   #     - uses: actions/upload-artifact@v4
   #       with:
-  #         name: curl_cffi-${{ github.sha }}-linux-qemu.zip
+  #         name: cycurl-${{ github.sha }}-linux-qemu.zip
   #         path: ./wheelhouse/*.whl
 
   # bdist_android:
@@ -136,7 +136,7 @@ jobs:
   #         ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
   #     - uses: actions/upload-artifact@v4
   #       with:
-  #         name: curl_cffi-${{ github.sha }}-android.zip
+  #         name: cycurl-${{ github.sha }}-android.zip
   #         path: ./wheelhouse/*.whl
 
   publish:
@@ -150,7 +150,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          pattern: curl_cffi-*
+          pattern: cycurl-*
           path: dist
           merge-multiple: true
 
