@@ -30,16 +30,16 @@ import pytest
 import websockets
 from websockets.exceptions import ConnectionClosedError, ConnectionClosedOK
 
-from curl_cffi import (
+from cycurl import (
     AsyncSession,
     AsyncWebSocket,
-    CurlWsFlag,
     Response,
     WebSocketClosed,
     WebSocketError,
     WebSocketTimeout,
     WsCloseCode,
 )
+from cycurl._curl import CURLWS_BINARY, CURLWS_CLOSE
 
 # =============================================================================
 # Test Server Infrastructure
@@ -387,7 +387,7 @@ class TestAsyncWebSocketBasicConnectivity:
         await ws_connection.send(b"hello")
         data, flags = await ws_connection.recv()
         assert data == b"hello"
-        assert flags & CurlWsFlag.BINARY
+        assert flags & CURLWS_BINARY
 
     async def test_echo_multiple_messages(self, ws_connection: AsyncWebSocket) -> None:
         """Test multiple message exchanges."""
@@ -407,7 +407,7 @@ class TestAsyncWebSocketMessageTypes:
         await ws_connection.send_binary(payload)
         data, flags = await ws_connection.recv()
         assert data == payload
-        assert flags & CurlWsFlag.BINARY
+        assert flags & CURLWS_BINARY
 
     async def test_send_recv_text(self, ws_connection: AsyncWebSocket) -> None:
         """Test text message exchange."""
@@ -814,7 +814,7 @@ class TestAsyncWebSocketConcurrency:
             for task in done:
                 try:
                     _data, flags = task.result()
-                    if flags & CurlWsFlag.CLOSE:
+                    if flags & CURLWS_CLOSE:
                         close_frames += 1
                     else:
                         messages += 1
@@ -952,7 +952,7 @@ class TestAsyncWebSocketClose:
 
             # Next recv should get the close frame
             _close_data, close_flags = await ws.recv()
-            assert close_flags & CurlWsFlag.CLOSE
+            assert close_flags & CURLWS_CLOSE
 
 
 class TestAsyncWebSocketIterator:
@@ -1065,7 +1065,7 @@ class TestAsyncWebSocketQueueBehavior:
             try:
                 _, flags = await ws.recv(timeout=1.0)
                 # If we received data, it should be a close frame
-                assert flags & CurlWsFlag.CLOSE
+                assert flags & CURLWS_CLOSE
             except (WebSocketClosed, WebSocketError):
                 pass  # Also acceptable
 
@@ -1247,7 +1247,7 @@ class TestAsyncWebSocketIntegration:
             await ws.send_binary(b"binary")
             assert await ws.recv() == (
                 b"binary",
-                pytest.approx(CurlWsFlag.BINARY, abs=0xFF),
+                pytest.approx(CURLWS_BINARY, abs=0xFF),
             )
 
             await ws.send_str("text")
@@ -1536,7 +1536,7 @@ class TestAsyncWebSocketAutoclose:
             assert data == b"trigger"
             # Receive close frame
             _, flags = await ws.recv(timeout=5.0)
-            assert flags & CurlWsFlag.CLOSE
+            assert flags & CURLWS_CLOSE
         finally:
             await ws.close()
 
@@ -1708,7 +1708,7 @@ class TestAsyncWebSocketCoverageGaps:
             await ws.send_binary(b"\x00\x01\x02\xff")
             data, flags = await ws.recv(timeout=5.0)
             assert data == b"\x00\x01\x02\xff"
-            assert flags & CurlWsFlag.BINARY
+            assert flags & CURLWS_BINARY
 
     async def test_multiple_flush_calls(
         self,
@@ -1755,7 +1755,7 @@ class TestAsyncWebSocketCoverageGaps:
             _ = await ws.recv(timeout=5.0)
             # Receive close frame
             _, flags = await ws.recv(timeout=5.0)
-            assert flags & CurlWsFlag.CLOSE
+            assert flags & CURLWS_CLOSE
             assert ws.close_code == 1001
             assert ws.close_reason == "going away"
         finally:

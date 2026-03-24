@@ -462,7 +462,7 @@ async def test_stream_atext(server):
 async def test_async_session_auto_raise_for_status_enabled(server):
     """Test that AsyncSession automatically raises HTTPError for error status codes
     when raise_for_status=True"""
-    from curl_cffi.requests.exceptions import HTTPError
+    from cycurl.requests.exceptions import HTTPError
 
     async with AsyncSession(raise_for_status=True) as s:
         try:
