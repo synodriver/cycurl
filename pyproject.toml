@@ -148,7 +148,7 @@ build = [
     "cp314-android_arm64_v8a",
     "cp314-android_x86_64",
 ]
-before-all = "make preprocess"
+# before-all not needed: dep/ submodule provides prebuilt headers and libraries
 test-requires = "pytest"
 test-command = "python -bb -m pytest {project}/tests/unittest"
 test-extras = ["test"]
@@ -174,7 +174,7 @@ environment-pass = ["LD_LIBRARY_PATH"]
 archs = ["arm64_v8a", "x86_64"]
 
 [tool.cibuildwheel.macos]
-before-all = "gmake preprocess"
+# before-all not needed: dep/ submodule provides prebuilt headers and libraries
 
 [tool.cibuildwheel.windows]
 before-build = "pip install delvewheel"
