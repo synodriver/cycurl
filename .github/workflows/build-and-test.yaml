@@ -3,10 +3,10 @@ name: Build, test and release
 on:
   pull_request:
     branches:
-      - main
+      - cython
   push:
     branches:
-      - main
+      - cython
       - bugfix/*
       - feature/*
       - release/*
