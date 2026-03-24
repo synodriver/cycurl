@@ -34,7 +34,6 @@ jobs:
 
   sdist:
     name: Build sdist
-    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -54,7 +53,6 @@ jobs:
 
   bdist_native:
     name: Build wheels (${{ matrix.name }})
-    needs: [lint]
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
