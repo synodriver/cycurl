@@ -150,7 +150,7 @@ build = [
 ]
 # before-all not needed: dep/ submodule provides prebuilt headers and libraries
 test-requires = "pytest"
-test-command = "python -bb -m pytest {project}/tests/unittest"
+test-command = "python -m pytest {project}/tests/unittest"
 test-extras = ["test"]
 # trustme not available for these images
 test-skip = []
