@@ -1,17 +1,17 @@
 import pytest
 
-from curl_cffi import requests
-from curl_cffi.const import CurlHttpVersion, CurlSslVersion
+from cycurl import requests
+from cycurl._curl import CURL_HTTP_VERSION_1_1, CURL_SSLVERSION_TLSv1_0
 
 
 def test_impersonate_with_version(server):
     # the test server does not understand http/2
     r = requests.get(
-        str(server.url), impersonate="chrome120", http_version=CurlHttpVersion.V1_1
+        str(server.url), impersonate="chrome120", http_version=CURL_HTTP_VERSION_1_1
     )
     assert r.status_code == 200
     r = requests.get(
-        str(server.url), impersonate="safari17_0", http_version=CurlHttpVersion.V1_1
+        str(server.url), impersonate="safari17_0", http_version=CURL_HTTP_VERSION_1_1
     )
     assert r.status_code == 200
 
@@ -23,11 +23,11 @@ def test_impersonate_with_version_v1_1_string(server):
 
 def test_impersonate_without_version(server):
     r = requests.get(
-        str(server.url), impersonate="chrome", http_version=CurlHttpVersion.V1_1
+        str(server.url), impersonate="chrome", http_version=CURL_HTTP_VERSION_1_1
     )
     assert r.status_code == 200
     r = requests.get(
-        str(server.url), impersonate="safari_ios", http_version=CurlHttpVersion.V1_1
+        str(server.url), impersonate="safari_ios", http_version=CURL_HTTP_VERSION_1_1
     )
     assert r.status_code == 200
 
@@ -192,7 +192,7 @@ def test_customized_extra_fp_sig_hash_algs():
 @pytest.mark.skip(reason="Unstable API")
 def test_customized_extra_fp_tls_min_version():
     url = "https://tls.peet.ws/api/all"
-    safari_min_version = CurlSslVersion.TLSv1_0
+    safari_min_version = CURL_SSLVERSION_TLSv1_0
     fp = requests.ExtraFingerprints(tls_min_version=safari_min_version)
     r = requests.get(url, extra_fp=fp).json()
     for ex in r["tls"]["extensions"]:

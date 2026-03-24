@@ -77,108 +77,102 @@ build = [
     "cp310-macosx_x86_64",
     "cp310-macosx_arm64",
     "cp310-win_amd64",
-    "cp310-win_arm64",
+    # "cp310-win_arm64",            # TODO: waiting for prebuilt libs
     "cp310-manylinux_x86_64",
     "cp310-manylinux_aarch64",
-    "cp310-manylinux_riscv64",
-    "cp310-manylinux_i686",
-    "cp310-manylinux_armv7l",
-    "cp310-musllinux_x86_64",
-    "cp310-musllinux_aarch64",
+    # "cp310-manylinux_riscv64",    # TODO: waiting for prebuilt libs
+    # "cp310-manylinux_i686",       # TODO: waiting for prebuilt libs
+    # "cp310-manylinux_armv7l",     # TODO: waiting for prebuilt libs
+    # "cp310-musllinux_x86_64",     # TODO: waiting for prebuilt libs
+    # "cp310-musllinux_aarch64",    # TODO: waiting for prebuilt libs
     # --- CPython 3.11 ---
     "cp311-macosx_x86_64",
     "cp311-macosx_arm64",
     "cp311-win_amd64",
-    "cp311-win_arm64",
+    # "cp311-win_arm64",            # TODO: waiting for prebuilt libs
     "cp311-manylinux_x86_64",
     "cp311-manylinux_aarch64",
-    "cp311-manylinux_riscv64",
-    "cp311-manylinux_i686",
-    "cp311-manylinux_armv7l",
-    "cp311-musllinux_x86_64",
-    "cp311-musllinux_aarch64",
+    # "cp311-manylinux_riscv64",    # TODO: waiting for prebuilt libs
+    # "cp311-manylinux_i686",       # TODO: waiting for prebuilt libs
+    # "cp311-manylinux_armv7l",     # TODO: waiting for prebuilt libs
+    # "cp311-musllinux_x86_64",     # TODO: waiting for prebuilt libs
+    # "cp311-musllinux_aarch64",    # TODO: waiting for prebuilt libs
     # --- CPython 3.12 ---
     "cp312-macosx_x86_64",
     "cp312-macosx_arm64",
     "cp312-win_amd64",
-    "cp312-win_arm64",
+    # "cp312-win_arm64",            # TODO: waiting for prebuilt libs
     "cp312-manylinux_x86_64",
     "cp312-manylinux_aarch64",
-    "cp312-manylinux_riscv64",
-    "cp312-manylinux_i686",
-    "cp312-manylinux_armv7l",
-    "cp312-musllinux_x86_64",
-    "cp312-musllinux_aarch64",
+    # "cp312-manylinux_riscv64",    # TODO: waiting for prebuilt libs
+    # "cp312-manylinux_i686",       # TODO: waiting for prebuilt libs
+    # "cp312-manylinux_armv7l",     # TODO: waiting for prebuilt libs
+    # "cp312-musllinux_x86_64",     # TODO: waiting for prebuilt libs
+    # "cp312-musllinux_aarch64",    # TODO: waiting for prebuilt libs
     # --- CPython 3.13 ---
     "cp313-macosx_x86_64",
     "cp313-macosx_arm64",
     "cp313-win_amd64",
-    "cp313-win_arm64",
+    # "cp313-win_arm64",            # TODO: waiting for prebuilt libs
     "cp313-manylinux_x86_64",
     "cp313-manylinux_aarch64",
-    "cp313-manylinux_riscv64",
-    "cp313-manylinux_i686",
-    "cp313-manylinux_armv7l",
-    "cp313-musllinux_x86_64",
-    "cp313-musllinux_aarch64",
+    # "cp313-manylinux_riscv64",    # TODO: waiting for prebuilt libs
+    # "cp313-manylinux_i686",       # TODO: waiting for prebuilt libs
+    # "cp313-manylinux_armv7l",     # TODO: waiting for prebuilt libs
+    # "cp313-musllinux_x86_64",     # TODO: waiting for prebuilt libs
+    # "cp313-musllinux_aarch64",    # TODO: waiting for prebuilt libs
     # --- CPython 3.14 ---
     "cp314-macosx_x86_64",
     "cp314-macosx_arm64",
     "cp314-win_amd64",
-    "cp314-win_arm64",
+    # "cp314-win_arm64",            # TODO: waiting for prebuilt libs
     "cp314-manylinux_x86_64",
     "cp314-manylinux_aarch64",
-    "cp314-manylinux_riscv64",
-    "cp314-manylinux_i686",
-    "cp314-manylinux_armv7l",
-    "cp314-musllinux_x86_64",
-    "cp314-musllinux_aarch64",
+    # "cp314-manylinux_riscv64",    # TODO: waiting for prebuilt libs
+    # "cp314-manylinux_i686",       # TODO: waiting for prebuilt libs
+    # "cp314-manylinux_armv7l",     # TODO: waiting for prebuilt libs
+    # "cp314-musllinux_x86_64",     # TODO: waiting for prebuilt libs
+    # "cp314-musllinux_aarch64",    # TODO: waiting for prebuilt libs
     # --- Free-threaded CPython 3.14t (PEP 703) ---
     "cp314t-macosx_x86_64",
     "cp314t-macosx_arm64",
     "cp314t-win_amd64",
-    "cp314t-win_arm64",
+    # "cp314t-win_arm64",           # TODO: waiting for prebuilt libs
     "cp314t-manylinux_x86_64",
     "cp314t-manylinux_aarch64",
-    "cp314t-musllinux_x86_64",
-    "cp314t-musllinux_aarch64",
+    # "cp314t-musllinux_x86_64",    # TODO: waiting for prebuilt libs
+    # "cp314t-musllinux_aarch64",   # TODO: waiting for prebuilt libs
     # --- Android (cibuildwheel supports Android from cp313+) ---
-    "cp313-android_arm64_v8a",
-    "cp313-android_x86_64",
-    "cp314-android_arm64_v8a",
-    "cp314-android_x86_64",
+    # "cp313-android_arm64_v8a",    # TODO: waiting for prebuilt libs
+    # "cp313-android_x86_64",       # TODO: waiting for prebuilt libs
+    # "cp314-android_arm64_v8a",    # TODO: waiting for prebuilt libs
+    # "cp314-android_x86_64",       # TODO: waiting for prebuilt libs
 ]
 # before-all not needed: dep/ submodule provides prebuilt headers and libraries
 test-requires = "pytest"
 test-command = "python -bb -m pytest {project}/tests/unittest"
 test-extras = ["test"]
 # trustme not available for these images
-test-skip = [
-    "*-manylinux_i686",
-    "*-win_arm64",
-    "*-manylinux_armv7l",
-    "*-manylinux_riscv64",
-]
+test-skip = []
 build-verbosity = 1
 
 # configure cibuildwheel to build native archs ('auto'), and some emulated ones
 [tool.cibuildwheel.linux]
-archs = ["auto", "aarch64", "riscv64", "i686", "armv7l"]
+archs = ["auto", "aarch64"]
 manylinux-x86_64-image = "manylinux2014"
 manylinux-aarch64-image = "manylinux2014"
-manylinux-i686-image = "manylinux2014"
 environment = { LD_LIBRARY_PATH = "$HOME/.local/lib" }
 environment-pass = ["LD_LIBRARY_PATH"]
 
-[tool.cibuildwheel.android]
-archs = ["arm64_v8a", "x86_64"]
+# [tool.cibuildwheel.android]
+# archs = ["arm64_v8a", "x86_64"]
 
 [tool.cibuildwheel.macos]
 # before-all not needed: dep/ submodule provides prebuilt headers and libraries
 
 [tool.cibuildwheel.windows]
 before-build = "pip install delvewheel"
-repair-wheel-command = "delvewheel repair --add-path ./lib64;./lib32;./libarm64 -w {dest_dir} {wheel}"
+repair-wheel-command = "delvewheel repair --add-path ./cycurl -w {dest_dir} {wheel}"
 
 [tool.pytest.ini_options]
 # pythonpath = [ "." ]

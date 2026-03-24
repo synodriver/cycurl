@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from curl_cffi import CurlMime, requests
+from cycurl import CurlMime, requests
 
 ASSET_FOLDER = Path(__file__).parent.parent.parent / "assets"
 

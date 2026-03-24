@@ -343,7 +343,3 @@ def test_duphandle(server):
     c = c.duphandle()
     with pytest.raises(CurlError):
         c.perform()
-
-
-def test_is_pro():
-    assert curl_cffi.is_pro() is False

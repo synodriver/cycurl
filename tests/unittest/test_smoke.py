@@ -1,5 +1,5 @@
 # Simple smoke test to real world websites
-from curl_cffi import requests
+from cycurl import requests
 
 URLS = [
     "https://www.google.com",
