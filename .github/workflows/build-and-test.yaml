@@ -24,17 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v7
-        name: Setup UV
-        with:
-          enable-cache: true
-
-      - name: "Set up Python"
-        uses: actions/setup-python@v6
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-      - name: Install dependencies
-        run: uv sync --all-extras --all-groups
       - name: Lint
         run: |
           pip install mypy ruff
@@ -42,7 +34,6 @@ jobs:
 
   sdist:
     name: Build sdist
-    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -62,7 +53,6 @@ jobs:
 
   bdist_native:
     name: Build wheels (${{ matrix.name }})
-    needs: [lint]
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -109,7 +99,6 @@ jobs:
 
   bdist_qemu:
     name: Build wheels (Linux QEMU)
-    needs: [lint]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -134,7 +123,6 @@ jobs:
 
   bdist_android:
     name: Build wheels (Android)
-    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
