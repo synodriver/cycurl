@@ -5,10 +5,7 @@ authors = [{ name = "Lyonnet", email = "infinitesheldon@gmail.com" }]
 description = "Ultra fast python binding for curl-impersonate via cython, with impersonation support."
 license = "MIT"
 license-files = ["LICENSE"]
-dependencies = [
-    "cython >= 3.2.2",
-    "certifi>=2025.11.12",
-]
+dependencies = ["cython >= 3.2.2", "certifi>=2025.11.12"]
 readme = "README.md"
 requires-python = ">=3.10"
 urls = { "repository" = "https://github.com/synodriver/cycurl" }
@@ -24,18 +21,13 @@ classifiers = [
     "Programming Language :: Python :: Free Threading",
 ]
 
-
 [project.optional-dependencies]
-extra = [
-    "readability-lxml>=0.8.1",
-    "markdownify>=1.1.0",
-    "lxml_html_clean",
-]
+extra = ["readability-lxml>=0.8.1", "markdownify>=1.1.0", "lxml_html_clean"]
 dev = [
     "charset_normalizer>=3.3.2,<4.0",
     "coverage>=6.4.1,<7.0",
     "cryptography>=46.0.4,<47.0",
-    "httpx==0.23.1",  # don't change, tests will raise "httpx.InvalidURL: Invalid URL component 'path'"
+    "httpx==0.23.1",                  # don't change, tests will raise "httpx.InvalidURL: Invalid URL component 'path'"
     "mypy>=1.9.0,<2.0",
     "pytest>=8.1.1,<9.0",
     "pytest-asyncio>=0.23.6,<1.0",
@@ -47,15 +39,12 @@ dev = [
     "websockets>=14.0",
     "typing_extensions",
 ]
-build = [
-    "cibuildwheel",
-    "wheel",
-]
+build = ["cibuildwheel", "wheel"]
 test = [
     "charset_normalizer>=3.3.2,<4.0",
     "cryptography>=46.0.4,<47.0",
     "litestar>=2.19.0,<3.0",
-    "httpx==0.23.1",  # don't change, tests will raise "httpx.InvalidURL: Invalid URL component 'path'"
+    "httpx==0.23.1",                  # don't change, tests will raise "httpx.InvalidURL: Invalid URL component 'path'"
     "proxy.py>=2.4.3,<3.0",
     "pytest>=8.1.1,<9.0",
     "pytest-asyncio>=0.23.6,<1.0",
@@ -71,21 +60,20 @@ test = [
 [project.scripts]
 curl-cffi = "curl_cffi.cli:main"
 
-
 [tool.setuptools]
 packages = ["cycurl", "cycurl.requests"]
 # package-data = { curl_cffi = ["libcurl/*/*"] }
 include-package-data = true
 
-
 [build-system]
 requires = ["wheel", "setuptools", "cython>=3.2.2"]
 build-backend = "setuptools.build_meta"
 
-
 [tool.cibuildwheel]
-# Building for these platforms is enough since we are using abi3 packages
+# abi3 is NOT active (Cython extensions don't use stable ABI),
+# so we must build separate wheels for each Python version.
 build = [
+    # --- CPython 3.10 ---
     "cp310-macosx_x86_64",
     "cp310-macosx_arm64",
     "cp310-win_amd64",
@@ -97,7 +85,55 @@ build = [
     "cp310-manylinux_armv7l",
     "cp310-musllinux_x86_64",
     "cp310-musllinux_aarch64",
-    # Free-threaded (PEP 703) wheels
+    # --- CPython 3.11 ---
+    "cp311-macosx_x86_64",
+    "cp311-macosx_arm64",
+    "cp311-win_amd64",
+    "cp311-win_arm64",
+    "cp311-manylinux_x86_64",
+    "cp311-manylinux_aarch64",
+    "cp311-manylinux_riscv64",
+    "cp311-manylinux_i686",
+    "cp311-manylinux_armv7l",
+    "cp311-musllinux_x86_64",
+    "cp311-musllinux_aarch64",
+    # --- CPython 3.12 ---
+    "cp312-macosx_x86_64",
+    "cp312-macosx_arm64",
+    "cp312-win_amd64",
+    "cp312-win_arm64",
+    "cp312-manylinux_x86_64",
+    "cp312-manylinux_aarch64",
+    "cp312-manylinux_riscv64",
+    "cp312-manylinux_i686",
+    "cp312-manylinux_armv7l",
+    "cp312-musllinux_x86_64",
+    "cp312-musllinux_aarch64",
+    # --- CPython 3.13 ---
+    "cp313-macosx_x86_64",
+    "cp313-macosx_arm64",
+    "cp313-win_amd64",
+    "cp313-win_arm64",
+    "cp313-manylinux_x86_64",
+    "cp313-manylinux_aarch64",
+    "cp313-manylinux_riscv64",
+    "cp313-manylinux_i686",
+    "cp313-manylinux_armv7l",
+    "cp313-musllinux_x86_64",
+    "cp313-musllinux_aarch64",
+    # --- CPython 3.14 ---
+    "cp314-macosx_x86_64",
+    "cp314-macosx_arm64",
+    "cp314-win_amd64",
+    "cp314-win_arm64",
+    "cp314-manylinux_x86_64",
+    "cp314-manylinux_aarch64",
+    "cp314-manylinux_riscv64",
+    "cp314-manylinux_i686",
+    "cp314-manylinux_armv7l",
+    "cp314-musllinux_x86_64",
+    "cp314-musllinux_aarch64",
+    # --- Free-threaded CPython 3.14t (PEP 703) ---
     "cp314t-macosx_x86_64",
     "cp314t-macosx_arm64",
     "cp314t-win_amd64",
@@ -106,6 +142,11 @@ build = [
     "cp314t-manylinux_aarch64",
     "cp314t-musllinux_x86_64",
     "cp314t-musllinux_aarch64",
+    # --- Android (cibuildwheel supports Android from cp313+) ---
+    "cp313-android_arm64_v8a",
+    "cp313-android_x86_64",
+    "cp314-android_arm64_v8a",
+    "cp314-android_x86_64",
 ]
 before-all = "make preprocess"
 test-requires = "pytest"
@@ -113,14 +154,12 @@ test-command = "python -bb -m pytest {project}/tests/unittest"
 test-extras = ["test"]
 # trustme not available for these images
 test-skip = [
-    "cp310-manylinux_i686",
-    "cp310-win_arm64",
-    "cp314t-win_arm64",
-    "cp310-manylinux_armv7l",
-    "cp310-manylinux_riscv64",
+    "*-manylinux_i686",
+    "*-win_arm64",
+    "*-manylinux_armv7l",
+    "*-manylinux_riscv64",
 ]
 build-verbosity = 1
-
 
 # configure cibuildwheel to build native archs ('auto'), and some emulated ones
 [tool.cibuildwheel.linux]
@@ -128,12 +167,11 @@ archs = ["auto", "aarch64", "riscv64", "i686", "armv7l"]
 manylinux-x86_64-image = "manylinux2014"
 manylinux-aarch64-image = "manylinux2014"
 manylinux-i686-image = "manylinux2014"
-environment = { LD_LIBRARY_PATH="$HOME/.local/lib" }
+environment = { LD_LIBRARY_PATH = "$HOME/.local/lib" }
 environment-pass = ["LD_LIBRARY_PATH"]
 
 [tool.cibuildwheel.android]
 archs = ["arm64_v8a", "x86_64"]
-
 
 [tool.cibuildwheel.macos]
 before-all = "gmake preprocess"
@@ -142,26 +180,24 @@ before-all = "gmake preprocess"
 before-build = "pip install delvewheel"
 repair-wheel-command = "delvewheel repair --add-path ./lib64;./lib32;./libarm64 -w {dest_dir} {wheel}"
 
-
 [tool.pytest.ini_options]
 # pythonpath = [ "." ]
 asyncio_mode = "auto"
-
 
 [tool.ruff]
 line-length = 88
 
 [tool.ruff.lint]
 select = [
-    "E",  # pycodestyle
-    "F",  # Pyflakes
+    "E",   # pycodestyle
+    "F",   # Pyflakes
     "UP",  # pyupgrade
-    "B",  # flake8-bugbear
-    "SIM",  # flake8-simplify
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
 ]
 ignore = [
     "UP007",
-    "UP045",  # X | None
+    "UP045", # X | None
 ]
 
 [tool.isort]
