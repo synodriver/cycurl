@@ -8,6 +8,7 @@ __title__ = "cycurl"
 __description__ = "libcurl cython bindings for Python, with impersonation support"
 __version__ = "0.15.0b4"
 
+
 def _resolve_curl_version() -> str:
     """Read libcurl version without creating a curl easy handle at import time."""
 
