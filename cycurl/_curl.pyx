@@ -20,16 +20,35 @@ import asyncio
 import locale
 import re
 import struct
+import ssl
 import sys
 from contextlib import suppress
 from http.cookies import SimpleCookie
 from weakref import WeakKeyDictionary, WeakSet
 
+import os
+
 import certifi
 
-DEFAULT_CACERT = certifi.where()
+cpdef str _default_cacert():
+    # 1. Explicit env var overrides
+    for env_var in ("SSL_CERT_FILE", "CURL_CA_BUNDLE", "REQUESTS_CA_BUNDLE"):
+        path = os.environ.get(env_var)
+        if path and os.path.exists(path):
+            return path
+
+    # 2. Python's CA bundle
+    defaults = ssl.get_default_verify_paths()
+    if defaults.cafile and os.path.exists(defaults.cafile):
+        return defaults.cafile
+
+    # 3. Fallback to certifi
+    return certifi.where()
 
 
+DEFAULT_CACERT = _default_cacert()
+REASON_PHRASE_RE = re.compile(rb"HTTP/\d\.\d [0-9]{3} (.*)")
+STATUS_LINE_RE = re.compile(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)")
 
 
 class CurlError(Exception):
@@ -772,7 +791,7 @@ cdef class Curl:
     @staticmethod
     def get_reason_phrase(bytes status_line) -> bytes:
         """Extract reason phrase, like ``OK``, ``Not Found`` from response status line."""
-        m = re.match(rb"HTTP/\d\.\d [0-9]{3} (.*)", status_line)
+        m = REASON_PHRASE_RE.match(status_line)
         return m.group(1) if m else b""
 
     @staticmethod
@@ -781,7 +800,7 @@ cdef class Curl:
         Returns:
             http_version, status_code, and reason phrase
         """
-        m = re.match(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)", status_line)
+        m = STATUS_LINE_RE.match(status_line)
         if not m:
             return CURL_HTTP_VERSION_1_0, 0, b""
         if m.group(1) == "2.0":

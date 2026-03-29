@@ -11,3 +11,5 @@ def config_warnings(on: bool = False):
     else:
         warnings.simplefilter("ignore", category=CurlWarning)
 
+cpdef inline bint is_pro():
+    return False
