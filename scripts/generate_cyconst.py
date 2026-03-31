@@ -198,6 +198,14 @@ async def main():
                     name = l.split()[1].strip()
                     fconsts.write(name + b" = curl." + name + b"\n")
 
+        fconsts.write(b"#CURLFOLLOW_\n")
+        with open("curl/curl.h", "rb") as f1:
+            for l in f1.readlines():
+                if l.startswith(b"#define CURLFOLLOW_"):
+                    name = l.split()[1].strip()
+                    fconsts.write(name + b" = curl." + name + b"\n")
+
+
 
 if __name__ == "__main__":
     asyncio.run(main())

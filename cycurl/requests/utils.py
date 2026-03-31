@@ -325,6 +325,18 @@ def set_akamai_options(curl: Curl, akamai: str):
     curl.setopt(m.CURLOPT_HTTP2_PSEUDO_HEADERS_ORDER, header_order.replace(",", ""))
 
 
+def set_perk_options(curl: Curl, perk: str):
+    settings, header_order, quic_transport_parameters = perk.split("|")
+
+    curl.setopt(m.CURLOPT_HTTP3_SETTINGS, settings)
+
+    # m,a,s,p -> masp
+    # curl-impersonate only accepts masp format, without commas.
+    curl.setopt(m.CURLOPT_HTTP3_PSEUDO_HEADERS_ORDER, header_order.replace(",", ""))
+
+    curl.setopt(m.CURLOPT_QUIC_TRANSPORT_PARAMETERS, quic_transport_parameters)
+
+
 def set_extra_fp(curl: Curl, fp: ExtraFingerprints):
     if fp.tls_signature_algorithms:
         curl.setopt(m.CURLOPT_SSL_SIG_HASH_ALGS, ",".join(fp.tls_signature_algorithms))
@@ -343,6 +355,14 @@ def set_extra_fp(curl: Curl, fp: ExtraFingerprints):
         curl.setopt(m.CURLOPT_TLS_RECORD_SIZE_LIMIT, fp.tls_record_size_limit)
     if fp.http2_no_priority:
         curl.setopt(m.CURLOPT_HTTP2_NO_PRIORITY, fp.http2_no_priority)
+    if fp.form_boundary is not None:
+        curl.setopt(m.CURLOPT_FORM_BOUNDARY, fp.form_boundary)
+    if fp.split_cookies is not None:
+        curl.setopt(m.CURLOPT_SPLIT_COOKIES, fp.split_cookies)
+    if fp.http3_sig_hash_algs is not None:
+        curl.setopt(m.CURLOPT_HTTP3_SIG_HASH_ALGS, fp.http3_sig_hash_algs)
+    if fp.http3_tls_extension_order is not None:
+        curl.setopt(m.CURLOPT_HTTP3_TLS_EXTENSION_ORDER, fp.http3_tls_extension_order)
 
 
 def set_curl_options(
@@ -363,7 +383,7 @@ def set_curl_options(
     files: Optional[dict[object, object]] = None,
     auth: Optional[tuple[str, str]] = None,
     timeout: Optional[Union[float, tuple[float, float], object]] = NOT_SET,
-    allow_redirects: Optional[bool] = True,
+    allow_redirects: Optional[Union[bool, int, str]] = True,
     max_redirects: Optional[int] = 30,
     proxies_list: list[Optional[ProxySpec]] = [],  # noqa: B006
     proxy: Optional[str] = None,
@@ -375,6 +395,7 @@ def set_curl_options(
     impersonate: Optional[Union[BrowserTypeLiteral, str]] = None,
     ja3: Optional[str] = None,
     akamai: Optional[str] = None,
+    perk: Optional[str] = None,
     extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None,
     default_headers: bool = True,
     quote: Union[str, Literal[False]] = "",
@@ -429,6 +450,8 @@ def set_curl_options(
         raise TypeError("data must be dict/list/tuple, str, BytesIO or bytes")
     if json is not None:
         body = dumps(json, separators=(",", ":")).encode()
+    body_provided = data is not None or json is not None
+    request_body = body if body_provided and multipart is None else None
 
     # Tell libcurl to be aware of bodies and related headers when,
     # 1. POST/PUT/PATCH, even if the body is empty, it's up to curl to decide what to do
@@ -478,7 +501,7 @@ def set_curl_options(
 
     c.setopt(m.CURLOPT_HTTPHEADER, [h.encode() for h in header_lines])
 
-    req = Request(url, h, method)
+    req = Request(url, h, method, request_body)
 
     # cookies
     c.setopt(m.CURLOPT_COOKIEFILE, b"")  # always enable the curl cookie engine first
@@ -542,7 +565,12 @@ def set_curl_options(
             c.setopt(m.CURLOPT_LOW_SPEED_TIME, math.ceil(timeout))
 
     # allow_redirects
-    c.setopt(m.CURLOPT_FOLLOWLOCATION, int(allow_redirects))  # type: ignore
+    if isinstance(allow_redirects, int):
+        c.setopt(m.CURLOPT_FOLLOWLOCATION, allow_redirects)
+    elif allow_redirects == "safe":
+        c.setopt(m.CURLOPT_FOLLOWLOCATION, int(m.CURLFOLLOW_SAFE))
+    else:
+        c.setopt(m.CURLOPT_FOLLOWLOCATION, int(allow_redirects))  # type: ignore
 
     # max_redirects
     c.setopt(m.CURLOPT_MAXREDIRS, max_redirects)
@@ -677,6 +705,16 @@ def set_curl_options(
                 stacklevel=1,
             )
         set_akamai_options(c, akamai)
+
+    # perk string
+    if perk:
+        if impersonate:
+            warnings.warn(
+                "Perk fingerprint was altered after impersonated version was set.",
+                m.CurlWarning,
+                stacklevel=1,
+            )
+        set_akamai_options(c, perk)
 
     buffer = None
     q = None
