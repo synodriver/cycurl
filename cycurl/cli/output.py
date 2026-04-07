@@ -91,6 +91,12 @@ def _print_body(console: Console, response: Response, use_color: bool) -> None:
             return
         except (json.JSONDecodeError, ValueError):
             pass
+    if content_type.startswith("image/"):
+        print(
+            f"Binary image data ({content_type}, {len(response.content)} bytes)",
+            file=sys.stderr,
+        )
+        return
     if not use_color:
         print(response.text)
         return
@@ -115,7 +121,7 @@ def _print_body(console: Console, response: Response, use_color: bool) -> None:
             )
         )
     else:
-        console.print(response.text, highlight=False)
+        console.print(response.text, highlight=False, markup=False)
 
 
 def _print_status(console: Console, response: Response, use_color: bool) -> None:
