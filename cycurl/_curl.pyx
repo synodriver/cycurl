@@ -8,7 +8,7 @@ from cpython.float cimport PyFloat_FromDouble
 from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport PyCapsule_CheckExact, PyCapsule_GetPointer, PyCapsule_New
-from cpython.unicode cimport PyUnicode_FromString, PyUnicode_FromStringAndSize
+from cpython.unicode cimport PyUnicode_FromString, PyUnicode_AsUTF8
 from libc.stdint cimport int64_t, uint8_t
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
 from libc.string cimport memcpy
@@ -1176,24 +1176,27 @@ cdef class CurlMime:
             if ret != 0:
                 raise CurlError("Add field failed.")
 
-        # remote file name
-        cdef bytes bytesfilename
-        if filename is not None:
-            bytesfilename = filename.encode()
-            ret = curl.curl_mime_filename(part, <const char *>bytesfilename)
-            if ret != 0:
-                raise CurlError("Add field failed.")
-
         if local_path is not None and data is not None:
             raise CurlError("Can not use local_path and data at the same time.")
 
         # this is a filename
         if local_path is not None:
-            if not isinstance(local_path, bytes):
-                local_path = str(local_path).encode()
-            if not Path(local_path.decode()).exists():
-                raise FileNotFoundError(f"File not found at {local_path}")
-            ret = curl.curl_mime_filedata(part, <const char *>local_path)
+            if isinstance(local_path, Path):
+                local_path_str = str(local_path)
+            elif isinstance(local_path, bytes):
+                local_path_str = local_path.decode()
+            else:
+                local_path_str = local_path
+
+            if not Path(local_path_str).exists():
+                raise FileNotFoundError(f"File not found at {local_path_str}")
+            ret = curl.curl_mime_filedata(part, PyUnicode_AsUTF8(local_path_str))
+            if ret != 0:
+                raise CurlError("Add field failed.")
+
+        # remote file name
+        if filename is not None:
+            ret = curl.curl_mime_filename(part, PyUnicode_AsUTF8(filename))
             if ret != 0:
                 raise CurlError("Add field failed.")
 

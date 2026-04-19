@@ -43,6 +43,12 @@ mp = cycurl.CurlMime.from_list(
             "filename": "another.txt",
             "data": "bar",
         },
+       {
+            "name": "测试",
+            "content_type": "text/plain",
+            "filename": "测试.txt",
+            "local_path": "./测试.txt",
+        },
     ]
 )
 
