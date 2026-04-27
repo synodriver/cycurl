@@ -60,6 +60,7 @@ else:
 
 if TYPE_CHECKING:
     from typing_extensions import Unpack
+    from ..fingerprints import Fingerprint
 
     class ProxySpec(TypedDict, total=False):
         all: str
@@ -83,7 +84,7 @@ if TYPE_CHECKING:
         allow_redirects: Union[bool, int, str]
         max_redirects: int
         retry: Union[int, RetryStrategy]
-        impersonate: Optional[BrowserTypeLiteral]
+        impersonate: Optional[Union[BrowserTypeLiteral, str, Fingerprint]]
         ja3: Optional[str]
         akamai: Optional[str]
         perk: Optional[str]
@@ -118,7 +119,7 @@ if TYPE_CHECKING:
         referer: Optional[str]
         accept_encoding: Optional[str]
         content_callback: Optional[Callable]
-        impersonate: Optional[BrowserTypeLiteral]
+        impersonate: Optional[Union[BrowserTypeLiteral, str, Fingerprint]]
         ja3: Optional[str]
         akamai: Optional[str]
         perk: Optional[str]
@@ -317,7 +318,7 @@ class BaseSession(Generic[R]):
         allow_redirects: Union[bool, int, str] = True,
         max_redirects: int = 30,
         retry: Optional[Union[int, RetryStrategy]] = 0,
-        impersonate: Optional[BrowserTypeLiteral] = None,
+        impersonate: Optional[Union[BrowserTypeLiteral, str, Fingerprint]] = None,
         ja3: Optional[str] = None,
         akamai: Optional[str] = None,
         perk: Optional[str] = None,
@@ -540,7 +541,8 @@ class Session(BaseSession[R]):
                 internal/private IP addresses (SSRF protection).
             max_redirects: max redirect counts, default 30, use -1 for unlimited.
             retry: number of retries or ``RetryStrategy`` for failed requests.
-            impersonate: which browser version to impersonate in the session.
+            impersonate: which browser version or fingerprint to impersonate
+                in the session.
             ja3: ja3 string to impersonate in the session.
             akamai: akamai string to impersonate in the session.
             perk: perk string to impersonate in the session.
@@ -705,7 +707,7 @@ class Session(BaseSession[R]):
         referer: Optional[str] = None,
         accept_encoding: Optional[str] = "gzip, deflate, br",
         content_callback: Optional[Callable[..., object]] = None,
-        impersonate: Optional[BrowserTypeLiteral] = None,
+        impersonate: Optional[Union[BrowserTypeLiteral, str, Fingerprint]] = None,
         ja3: Optional[str] = None,
         akamai: Optional[str] = None,
         perk: Optional[str] = None,
@@ -784,7 +786,8 @@ class Session(BaseSession[R]):
                         c, buffer, header_buffer, default_encoding, discard_cookies
                     )
                     rsp.request = req
-                    q.put_nowait(RequestException(str(e), e.code, rsp))  # type: ignore
+                    error = code2error(e.code, str(e))
+                    q.put_nowait(error(str(e), e.code, rsp))  # type: ignore
                 finally:
                     if not cast(threading.Event, header_recved).is_set():
                         cast(threading.Event, header_recved).set()
@@ -1001,7 +1004,8 @@ class AsyncSession(BaseSession[R]):
                 internal/private IP addresses (SSRF protection).
             max_redirects: max redirect counts, default 30, use -1 for unlimited.
             retry: number of retries or ``RetryStrategy`` for failed requests.
-            impersonate: which browser version to impersonate in the session.
+            impersonate: which browser version or fingerprint to impersonate
+                in the session.
             ja3: ja3 string to impersonate in the session.
             akamai: akamai string to impersonate in the session.
             perk: perk string to impersonate in the session.
@@ -1125,7 +1129,7 @@ class AsyncSession(BaseSession[R]):
         verify: bool | None = None,
         referer: str | None = None,
         accept_encoding: str | None = "gzip, deflate, br",
-        impersonate: BrowserTypeLiteral | None = None,
+        impersonate: BrowserTypeLiteral | str | Fingerprint | None = None,
         ja3: str | None = None,
         akamai: str | None = None,
         perk: str | None = None,
@@ -1172,7 +1176,7 @@ class AsyncSession(BaseSession[R]):
             verify: whether to verify https certs.
             referer: shortcut for setting referer header.
             accept_encoding: shortcut for setting accept-encoding header.
-            impersonate: which browser version to impersonate.
+            impersonate: which browser version or fingerprint to impersonate.
             ja3: ja3 string to impersonate.
             akamai: akamai string to impersonate.
             perk: perk string to impersonate.
@@ -1322,7 +1326,7 @@ class AsyncSession(BaseSession[R]):
         referer: Optional[str] = None,
         accept_encoding: Optional[str] = "gzip, deflate, br",
         content_callback: Optional[Callable] = None,
-        impersonate: Optional[BrowserTypeLiteral] = None,
+        impersonate: Optional[Union[BrowserTypeLiteral, str, Fingerprint]] = None,
         ja3: Optional[str] = None,
         akamai: Optional[str] = None,
         perk: Optional[str] = None,
@@ -1395,7 +1399,8 @@ class AsyncSession(BaseSession[R]):
                         curl, buffer, header_buffer, default_encoding, discard_cookies
                     )
                     rsp.request = req
-                    q.put_nowait(RequestException(str(e), e.code, rsp))  # type: ignore
+                    error = code2error(e.code, str(e))
+                    q.put_nowait(error(str(e), e.code, rsp))  # type: ignore
                 finally:
                     if not cast(asyncio.Event, header_recved).is_set():
                         cast(asyncio.Event, header_recved).set()

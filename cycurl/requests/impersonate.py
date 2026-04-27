@@ -8,6 +8,7 @@ from cycurl import _curl as m
 
 # from ..const import CurlOpt, CurlSslVersion
 
+
 BrowserTypeLiteral = Literal[
     # Edge
     "edge99",
@@ -104,7 +105,7 @@ REAL_TARGET_MAP = {
 }
 
 
-def normalize_browser_type(item):
+def resolve_latest_browser_type(item):
     if item == "chrome":  # noqa: SIM116
         return DEFAULT_CHROME
     elif item == "edge":
@@ -218,6 +219,7 @@ TLS_VERSION_MAP = {
     0x0303: m.CURL_SSLVERSION_TLSv1_2,  # 771
     0x0304: m.CURL_SSLVERSION_TLSv1_3,  # 772
 }
+
 
 # A list of the possible cipher suite ids. Taken from
 # http://www.iana.org/assignments/tls-parameters/tls-parameters.xml
@@ -448,7 +450,7 @@ def toggle_extension(curl, extension_id: int, enable: bool):
     elif extension_id == 21:
         pass  # type: ignore
     # firefox extension, toggled by extra_fp
-    elif extension_id in [34, 28]:
+    elif extension_id in (34, 28):
         pass
     else:
         raise NotImplementedError(

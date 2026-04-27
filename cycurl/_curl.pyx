@@ -1220,11 +1220,15 @@ cdef class CurlMime:
         cdef Curl c = curl_ if curl_ is not None else self._curl
         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
 
-    def close(self):
+    cpdef inline close(self):
         """Close the mime instance and underlying files. This method must be called after
         ``perform`` or ``request``."""
         curl.curl_mime_free(self.form)
         self.form = NULL
 
-    def __del__(self):
+    def __dealloc__(self):
         self.close()
+
+cpdef inline bytes version():
+    """Get the underlying libcurl version."""
+    return <bytes>curl.curl_version()

@@ -146,24 +146,20 @@ To install unstable version from GitHub:
 
 ## Usage
 
-<<<<<<< HEAD
 `cycurl` comes with a low-level `curl` API and a high-level `requests`-like API.
-=======
-`curl_cffi` comes with a low-level `curl` API and a high-level `requests`-like API.
-`curl_cffi` also bundles with a CLI called `curl-cffi`.
+`cycurl` also bundles with a CLI called `cycurl`.
 
 ### CLI
 
 ```sh
-curl-cffi get tls.browserleaks.com/json
+cycurl get tls.browserleaks.com/json
 
 # curl-cffi can be hard to type, use an alias if you want
-alias imp=curl-cffi
+alias imp=cycurl
 imp get tls.browserleaks.com/json --impersonate chrome
 ```
 
 For a complete CLI guide, see [docs](https://curl-cffi.readthedocs.io).
->>>>>>> temp
 
 ### requests-like
 
@@ -188,11 +184,6 @@ r = curl_cffi.get(
     http_version="v3",
     impersonate="chrome"
 )
-
-# Randomly choose a browser version based on current market share in real world
-# from: https://caniuse.com/usage-table
-# NOTE: this is a pro feature.
-r = cycurl.get("https://example.com", impersonate="realworld")
 
 # To pin a specific version, use version numbers together.
 r = cycurl.get("https://tls.browserleaks.com/json", impersonate="chrome124")
@@ -229,19 +220,25 @@ print(r.json())
 
 `cycurl` supports the same browser versions as supported by the [fork](https://github.com/lexiforest/curl-impersonate) of [curl-impersonate](https://github.com/lwthiker/curl-impersonate):
 
-<<<<<<< HEAD
-Open source version of cycurl includes versions whose fingerprints differ from previous versions.
-If you see a version, e.g. `chrome135`, were skipped, you can simply impersonate it with your own headers and the previous version.
-=======
 The open source version of curl_cffi includes versions whose fingerprints differ from previous versions.
 If you see a version, e.g. `chrome135`, was skipped, you can simply impersonate it with your own headers and the previous version.
->>>>>>> temp
 
 If you don't want to look up the headers/etc by yourself, consider buying commercial support from [impersonate.pro](https://impersonate.pro).
 We have comprehensive browser fingerprints database for almost all the browser versions on various platforms.
 
 If you are trying to impersonate a target other than a browser, use `ja3=...` and `akamai=...`
 to specify your own customized fingerprints. See the [docs on impersonation](https://curl-cffi.readthedocs.io/en/latest/impersonate/_index.html) for details.
+
+To see the complete list of fingerprints, use the command line:
+
+```sh
+curl-cffi list
+```
+
+Since v0.15.1, you can use `curl-cffi update` to retrieve the latest fingerprints, without updating to a new version.
+We offer the Safari, Chrome, Firefox updates for free and others as part of the [commercial plan](https://impersonate.pro).
+
+The following table is the builtin fingerprints bundled with current version.
 
 |Browser|Open Source| Pro version|
 |---|---|---|
@@ -373,7 +370,7 @@ See the WebSocket [docs](https://curl-cffi.readthedocs.io/en/latest/websockets.h
 
 - Integrating with Scrapy: [divtiply/scrapy-curl-cffi](https://github.com/divtiply/scrapy-curl-cffi), [jxlil/scrapy-impersonate](https://github.com/jxlil/scrapy-impersonate) and [tieyongjie/scrapy-fingerprint](https://github.com/tieyongjie/scrapy-fingerprint).
 - Integrating with [requests](https://github.com/el1s7/curl-adapter), [httpx](https://github.com/vgavro/httpx-curl-cffi) as adapter.
-- Integrating with captcha resolvers: [YesCaptcha](https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/overview). Please see the head area for promo code and link.
+- Integrating with captcha resolvers: [YesCaptcha](https://yescaptcha.com/i/stfnIO).
 
 ## Acknowledgement
 

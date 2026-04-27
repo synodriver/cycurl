@@ -30,6 +30,7 @@ if TYPE_CHECKING:
     from typing_extensions import Self
 
     from cycurl._curl import WSFrame
+    from cycurl.fingerprints import Fingerprint
     from cycurl.requests.cookies import CookieTypes
     from cycurl.requests.headers import HeaderTypes
     from cycurl.requests.impersonate import (
@@ -318,7 +319,7 @@ class WebSocket(BaseWebSocket):
         verify: bool | None = None,
         referer: str | None = None,
         accept_encoding: str | None = "gzip, deflate, br",
-        impersonate: BrowserTypeLiteral | None = None,
+        impersonate: BrowserTypeLiteral | str | Fingerprint | None = None,
         ja3: str | None = None,
         akamai: str | None = None,
         perk: str | None = None,
@@ -355,7 +356,7 @@ class WebSocket(BaseWebSocket):
             verify: whether to verify https certs.
             referer: shortcut for setting referer header.
             accept_encoding: shortcut for setting accept-encoding header.
-            impersonate: which browser version to impersonate.
+            impersonate: which browser version or fingerprint to impersonate.
             ja3: ja3 string to impersonate.
             akamai: akamai string to impersonate.
             perk: perk string to impersonate.

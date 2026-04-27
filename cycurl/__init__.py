@@ -35,6 +35,7 @@ from cycurl.requests import (
     put,
     request,
 )
+from cycurl.fingerprints import Fingerprint, FingerprintManager, get_fingerprint
 
 # __all__ = [
 #     "Curl",

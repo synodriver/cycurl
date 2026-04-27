@@ -1,6 +1,6 @@
 [project]
 name = "cycurl"
-version = "0.15.1"
+version = "0.15.1b1"
 authors = [{ name = "Lyonnet", email = "infinitesheldon@gmail.com" }]
 description = "Ultra fast python binding for curl-impersonate via cython, with impersonation support."
 license = "MIT"
@@ -144,6 +144,7 @@ asyncio_mode = "auto"
 
 [tool.ruff]
 line-length = 88
+target-version = "py310"
 
 [tool.ruff.lint]
 select = [

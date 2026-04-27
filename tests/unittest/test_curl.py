@@ -1,6 +1,7 @@
 import base64
 import json
 import os
+from importlib import import_module
 from io import BytesIO
 from typing import cast
 from unittest.mock import patch
@@ -8,6 +9,7 @@ from unittest.mock import patch
 import pytest
 
 from cycurl import *
+from cycurl._curl import _default_cacert
 
 #######################################################################################
 # testing setopt
@@ -134,19 +136,19 @@ def test_write_function(server):
 def test_read_function(server):
     c = Curl()
     url = str(server.url.copy_with(path="/echo_body"))
-    c.setopt(CurlOpt.URL, url.encode())
-    c.setopt(CurlOpt.UPLOAD, 1)
+    c.setopt(CURLOPT_URL, url.encode())
+    c.setopt(CURLOPT_UPLOAD, 1)
     data = b"hello world"
     source = BytesIO(data)
 
     def read(max_len: int) -> bytes:
         return source.read(max_len)
 
-    c.setopt(CurlOpt.READFUNCTION, read)
-    c.setopt(CurlOpt.INFILESIZE, len(data))
+    c.setopt(CURLOPT_READFUNCTION, read)
+    c.setopt(CURLOPT_INFILESIZE, len(data))
 
     buffer = BytesIO()
-    c.setopt(CurlOpt.WRITEDATA, buffer)
+    c.setopt(CURLOPT_WRITEDATA, buffer)
     c.perform()
     assert buffer.getvalue() == data
 
@@ -351,8 +353,8 @@ def test_reason(server):
 
 def test_resolve(server):
     c = Curl()
-    url = "http://example.com:8000"
-    c.setopt(CURLOPT_RESOLVE, ["example.com:8000:127.0.0.1"])
+    url = "http://example.com:8008"
+    c.setopt(CURLOPT_RESOLVE, ["example.com:8008:127.0.0.1"])
     c.setopt(CURLOPT_URL, url)
     c.perform()
 
@@ -366,9 +368,28 @@ def test_duphandle(server):
     with pytest.raises(CurlError):
         c.perform()
 
-
-def test_is_pro():
-    assert cycurl.is_pro() is False
+# not work for cython
+# def test_resolve_curl_version_does_not_need_easy_handle(monkeypatch):
+#     version_module = import_module("curl_cffi.__version__")
+#
+#     class DummyFFI:
+#         @staticmethod
+#         def string(value):
+#             return value
+#
+#     class DummyLib:
+#         @staticmethod
+#         def curl_version():
+#             return b"libcurl/fake"
+#
+#         @staticmethod
+#         def curl_easy_init():
+#             raise AssertionError("curl_easy_init should not be called")
+#
+#     monkeypatch.setattr(_wrapper, "ffi", DummyFFI())
+#     monkeypatch.setattr(_wrapper, "lib", DummyLib())
+#
+#     assert version_module._resolve_curl_version() == "libcurl/fake"
 
 
 # ---------------------------------------------------------------------------
