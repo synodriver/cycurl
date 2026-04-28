@@ -60,7 +60,7 @@ else:
 
 if TYPE_CHECKING:
     from typing_extensions import Unpack
-    from ..fingerprints import Fingerprint
+    from cycurl.fingerprints import Fingerprint
 
     class ProxySpec(TypedDict, total=False):
         all: str
