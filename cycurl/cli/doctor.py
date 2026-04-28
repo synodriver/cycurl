@@ -12,7 +12,7 @@ def print_doctor() -> None:
     config_exists = os.path.exists(config_path)
     fingerprint_exists = os.path.exists(fingerprint_path)
 
-    print("curl-cffi doctor")
+    print("cython doctor")
     print("----------------")
     print(f"python: {sys.version.split()[0]}")
     print(f"executable: {sys.executable}")

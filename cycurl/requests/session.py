@@ -1493,7 +1493,7 @@ class AsyncSession(BaseSession[R]):
         multipart: Optional[CurlMime] = None,
         discard_cookies: bool = False,
     ) -> R:
-        """Send the request, see ``curl_cffi.requests.request`` for details on args."""
+        """Send the request, see ``cython.requests.request`` for details on args."""
 
         self._check_session_closed()
 
