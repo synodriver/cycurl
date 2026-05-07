@@ -525,6 +525,23 @@ def _apply_fingerprint(
     if fingerprint.form_boundary:
         curl.setopt(m.CURLOPT_FORM_BOUNDARY, fingerprint.form_boundary)
 
+    # http3 settings
+    if fingerprint.http3_settings:
+        curl.setopt(m.CURLOPT_HTTP3_SETTINGS, fingerprint.http3_settings)
+    if fingerprint.http3_pseudo_headers_order:
+        curl.setopt(
+            m.CURLOPT_HTTP3_PSEUDO_HEADERS_ORDER,
+            fingerprint.http3_pseudo_headers_order.replace(",", ""),
+        )
+    if fingerprint.http3_tls_extension_order:
+        curl.setopt(
+            m.CURLOPT_HTTP3_TLS_EXTENSION_ORDER, fingerprint.http3_tls_extension_order
+        )
+    if fingerprint.quic_transport_parameters:
+        curl.setopt(
+            m.CURLOPT_QUIC_TRANSPORT_PARAMETERS, fingerprint.quic_transport_parameters
+        )
+
     # default headers will not override user-defined headers
     if default_headers and fingerprint.headers:
         header_lines = []
