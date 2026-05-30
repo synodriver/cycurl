@@ -79,7 +79,7 @@ def get_curl_libraries():
     else:
         return []
 
-LIB_VERSION = "v1.5.5"
+LIB_VERSION = "v1.5.6"
 
 if uname.system == "Windows":
     library_dirs = [f"./dep/libcurl-impersonate-{LIB_VERSION}.x86_64-win32/lib"]
