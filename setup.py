@@ -79,7 +79,7 @@ def get_curl_libraries():
     else:
         return []
 
-LIB_VERSION = "v1.5.6"
+LIB_VERSION = "v2.0.0a5"
 
 if uname.system == "Windows":
     library_dirs = [f"./dep/libcurl-impersonate-{LIB_VERSION}.x86_64-win32/lib"]
@@ -89,7 +89,7 @@ if uname.system == "Windows":
     extra_objects = [
         i for i in extra_objects if "libcurl-impersonate.lib" not in i
     ]  # only libcurl_imp is enough
-    for file in glob.glob(f"./dep/libcurl-impersonate-{LIB_VERSION}.x86_64-win32/bin/*.dll"):
+    for file in glob.glob(f"./dep/libcurl-impersonate-{LIB_VERSION}.x86_64-win32/lib/*.dll"):
         shutil.copy(file, "./cycurl")
 elif uname.system == "Darwin":
     if platform.machine() == "x86_64":

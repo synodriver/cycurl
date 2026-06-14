@@ -957,7 +957,7 @@ cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, 
 cdef class AsyncCurl:
     cdef:
         curl.CURLM *_curlm
-        str _cacert
+        public str _cacert # session.py L1126 wants to access this,
         dict _curl2future  # Dict[Curl, asyncio.Future]
         dict _curl2curl  #  c curl to Curl
         set _sockfds   # sockfds

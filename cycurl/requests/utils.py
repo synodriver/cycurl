@@ -4,6 +4,7 @@ __all__ = ["HttpVersionLiteral", "set_curl_options", "NOT_SET"]
 
 
 import asyncio
+import ipaddress
 import math
 import queue
 import warnings
@@ -599,6 +600,7 @@ def set_curl_options(
     quote: Union[str, Literal[False]] = "",
     http_version: Optional[Union[int, HttpVersionLiteral]] = None,
     interface: Optional[str] = None,
+    doh_url: Optional[str] = None,
     cert: Optional[Union[str, tuple[str, str]]] = None,
     stream: Optional[bool] = None,
     max_recv_speed: int = 0,
@@ -839,10 +841,12 @@ def set_curl_options(
     # cert for this single request
     if isinstance(verify, str):
         c.setopt(m.CURLOPT_CAINFO, verify)
+        c.setopt(m.CURLOPT_PROXY_CAINFO, verify)
 
     # cert for the session
     if verify in (None, True) and isinstance(base_verify, str):
         c.setopt(m.CURLOPT_CAINFO, base_verify)
+        c.setopt(m.CURLOPT_PROXY_CAINFO, base_verify)
 
     # referer
     if referer:
@@ -963,7 +967,18 @@ def set_curl_options(
 
     # interface
     if interface:
-        c.setopt(m.CURLOPT_INTERFACE, interface.encode())
+        value = interface
+        if "!" not in interface:
+            try:
+                ipaddress.ip_address(interface)
+            except ValueError:
+                pass
+            else:
+                value = f"host!{interface}"
+        c.setopt(m.CURLOPT_INTERFACE, value.encode())
+
+    if doh_url:
+        c.setopt(m.CURLOPT_DOH_URL, doh_url.encode())
 
     # max_recv_speed
     # do not check, since 0 is a valid value to disable it
