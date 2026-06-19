@@ -457,7 +457,8 @@ def _apply_fingerprint(
         tls_extension_order = _strip_padding_extension(fingerprint.tls_extension_order)
         extension_ids = set(int(e) for e in tls_extension_order.split("-"))
         toggle_extensions_by_ids(curl, extension_ids)
-        curl.setopt(m.CURLOPT_TLS_EXTENSION_ORDER, tls_extension_order)
+        if not fingerprint.tls_permute_extensions:
+            curl.setopt(m.CURLOPT_TLS_EXTENSION_ORDER, tls_extension_order)
 
     curl.setopt(m.CURLOPT_SSL_ENABLE_ALPN, int(fingerprint.tls_alpn))
     curl.setopt(m.CURLOPT_SSL_ENABLE_ALPS, int(fingerprint.tls_alps))
