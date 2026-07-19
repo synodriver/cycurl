@@ -79,7 +79,7 @@ def get_curl_libraries():
     else:
         return []
 
-LIB_VERSION = "v2.0.0a5"
+LIB_VERSION = "v2.0.0rc3"
 
 if uname.system == "Windows":
     library_dirs = [f"./dep/libcurl-impersonate-{LIB_VERSION}.x86_64-win32/lib"]
@@ -144,7 +144,7 @@ extensions = [
         ["cycurl/_curl.pyx", "ffi/shim.c"],
         libraries=get_curl_libraries(),
         include_dirs=[
-            f"./dep/curl-8.15.0/include",
+            f"./dep/curl-8.21.0/include",
             "ffi",
         ],
         library_dirs=library_dirs,
