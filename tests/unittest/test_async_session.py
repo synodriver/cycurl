@@ -1,15 +1,16 @@
 import asyncio
 import base64
 import json
+import pickle
 from contextlib import suppress
 
 import pytest
 
+from cycurl import _curl as m
 from cycurl import AsyncCurl, Headers
-from cycurl import CURLE_TOO_MANY_REDIRECTS
 from cycurl.requests import AsyncSession, RequestsError
 from cycurl.requests.errors import SessionClosed
-from cycurl.requests.exceptions import TooManyRedirects
+from cycurl.requests.exceptions import CertificateVerifyError, TooManyRedirects
 from cycurl.requests.models import Response
 
 
@@ -212,15 +213,16 @@ async def test_too_many_redirects(server):
                 str(server.url.copy_with(path="/redirect_loop")), max_redirects=2
             )
     assert isinstance(e.value, TooManyRedirects)
-    assert e.value.code == CURLE_TOO_MANY_REDIRECTS
+    assert e.value.code == m.CURLE_TOO_MANY_REDIRECTS
     assert isinstance(e.value.response, Response)
     assert e.value.response.status_code == 301
 
 
 async def test_verify(https_server):
     async with AsyncSession() as s:
-        with pytest.raises(RequestsError, match="SSL certificate problem"):
+        with pytest.raises(CertificateVerifyError) as exc_info:
             await s.get(str(https_server.url), verify=True)
+    assert exc_info.value.code == m.CURLE_PEER_FAILED_VERIFICATION
 
 
 async def test_verify_false(https_server):
@@ -442,6 +444,16 @@ async def test_stream_iter_content(server):
                 assert b"path" in chunk
 
 
+async def test_stream_response_pickle_raises(server):
+    url = str(server.url.copy_with(path="/stream"))
+    async with (
+        AsyncSession() as session,
+        session.stream("GET", url, params={"n": "1"}) as response,
+    ):
+        with pytest.raises(TypeError, match="Streaming responses cannot be pickled"):
+            pickle.dumps(response)
+
+
 async def test_stream_iter_content_break(server):
     async with AsyncSession() as s:
         url = str(server.url.copy_with(path="/stream"))
@@ -478,15 +490,82 @@ async def test_stream_empty_body(server):
             assert r.status_code == 200
 
 
+async def test_stream_incomplete_read(server):
+    async with AsyncSession() as s:
+        url = str(server.url.copy_with(path="/incomplete_read"))
+        with pytest.raises(RequestsError) as e:  # noqa: SIM117
+            async with s.stream("GET", url) as r:
+                async for _ in r.aiter_content():
+                    continue
+        assert e.value.code == m.CURLE_PARTIAL_FILE
+
+
+async def test_stream_incomplete_read_without_close(server):
+    async with AsyncSession() as s:
+        url = str(server.url.copy_with(path="/incomplete_read"))
+        with pytest.raises(RequestsError) as e:
+            r = await s.get(url, stream=True)
+
+            # The error will only be raised when you try to read it.
+            async for _ in r.aiter_content():
+                continue
+
+        assert e.value.code == m.CURLE_PARTIAL_FILE
+
+
 async def test_stream_redirect_loop(server):
+    async with AsyncSession() as s:
+        url = str(server.url.copy_with(path="/redirect_loop"))
+        with pytest.raises(RequestsError) as e:  # noqa: SIM117
+            async with s.stream("GET", url, max_redirects=2):
+                pass
+        assert isinstance(e.value, TooManyRedirects)
+        assert e.value.code == m.CURLE_TOO_MANY_REDIRECTS
+        assert isinstance(e.value.response, Response)
+        assert e.value.response.status_code == 301
+
+
+async def test_stream_redirect_loop_without_close(server):
     async with AsyncSession() as s:
         url = str(server.url.copy_with(path="/redirect_loop"))
         with pytest.raises(RequestsError) as e:
             await s.get(url, max_redirects=2, stream=True)
-    assert isinstance(e.value, TooManyRedirects)
-    assert e.value.code == CURLE_TOO_MANY_REDIRECTS
-    assert isinstance(e.value.response, Response)
-    assert e.value.response.status_code == 301
+        assert isinstance(e.value, TooManyRedirects)
+        assert e.value.code == m.CURLE_TOO_MANY_REDIRECTS
+        assert isinstance(e.value.response, Response)
+        assert e.value.response.status_code == 301
+
+        r = await s.get(str(server.url))
+        assert r.status_code == 200
+
+
+async def test_stream_unconsumed_response_releases_handle(server):
+    async with AsyncSession(max_clients=1) as s:
+        url = str(server.url.copy_with(path="/stream"))
+        await s.get(url, params={"n": "20"}, stream=True)
+
+        r = await s.get(str(server.url))
+        assert r.status_code == 200
+
+
+async def test_stream_unconsumed_error_releases_handle(server):
+    async with AsyncSession(max_clients=1) as s:
+        url = str(server.url.copy_with(path="/incomplete_read"))
+        await s.get(url, stream=True)
+
+        r = await s.get(str(server.url))
+        assert r.status_code == 200
+
+
+async def test_stream_session_curl_options(server):
+    async with AsyncSession(
+        curl_options={m.CURLOPT_USERAGENT: "foo/1.0"},
+    ) as s:
+        url = str(server.url.copy_with(path="/echo_headers"))
+        async with s.stream("GET", url) as r:
+            data = json.loads(await r.acontent())
+
+        assert data["User-agent"][0] == "foo/1.0"
 
 
 async def test_stream_atext(server):

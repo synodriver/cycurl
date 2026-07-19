@@ -1,5 +1,6 @@
 # cython: language_level=3
 # cython: cdivision=True
+from asyncio.windows_events import NULL
 from pathlib import Path
 
 cimport cython
@@ -58,12 +59,25 @@ class CurlError(Exception):
         super().__init__(msg, *args, **kwargs)
         self.code = code
 
+cdef class _CallbackContext:
+    cdef public object callback
+    cdef public BaseException exception
+    def __init__(self, object callback):
+        self.callback = callback
+        self.exception = None
 
 cdef int debug_function(curl.CURL *curl_, int type_, char *data, size_t size, void *clientp) with gil:
     """ffi callback for curl debug info"""
-    cdef object callback = <object>clientp
+    cdef _CallbackContext context = <_CallbackContext>clientp
+    if context.exception is not None:
+        return 0
+    cdef object callback = context.callback
     cdef bytes text = <bytes>data[:size]
-    return callback(type_, text)
+    try:
+        return callback(type_, text)
+    except BaseException as e:
+        context.exception = e
+        return 0
 
 cdef inline str bytes_to_hex(bytes b, bint uppercase = False):
     """
@@ -108,20 +122,30 @@ def debug_function_default(type_: int, data: bytes) -> None:
 cdef size_t buffer_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:
     """ffi callback for curl write function, directly writes to a buffer"""
     cdef size_t total = size*nmemb
-    cdef object stream
-    stream = <object>userdata
-    stream.write(<bytes>ptr[:total])
+    cdef _CallbackContext context = <_CallbackContext>userdata
+    cdef object stream = context.callback
+    try:
+        stream.write(<bytes>ptr[:total])
+    except BaseException as e:
+        context.exception = e
+        return curl.CURL_WRITEFUNC_ERROR
     return total
 
 cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) with gil:
     """ffi callback for curl write function, calls the callback python function"""
     cdef:
         size_t total
+        _CallbackContext context
         object callback
         ssize_t wrote
     total = size*nmemb
-    callback = <object>userdata
-    wrote = callback(<bytes>ptr[:total])
+    context = <_CallbackContext>userdata
+    callback = context.callback
+    try:
+        wrote = callback(<bytes>ptr[:total])
+    except BaseException as e:
+        context.exception = e
+        return curl.CURL_WRITEFUNC_ERROR
     if <unsigned int>wrote == curl.CURL_WRITEFUNC_PAUSE or <unsigned int>wrote == curl.CURL_WRITEFUNC_ERROR:
         return wrote
     # should make this an exception in future versions
@@ -131,70 +155,110 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
 
 cdef size_t read_buffer_callback(char *buffer, size_t size, size_t nitems, void *userdata) except? 268435456 with gil:
     cdef size_t total = size * nitems
-    cdef object stream = <object>userdata
-    cdef bytes ret = stream.read(total)
-    cdef size_t read_size = PyBytes_GET_SIZE(ret)
-    if read_size > total:
-        raise CurlError(f"Read callback returned {read_size} bytes, but only {total} bytes are allowed.")  # noqa: E501)
-    cdef const char* ret_ptr = <const char *> ret
-    memcpy(buffer, ret_ptr, read_size)
-    return read_size
+    cdef _CallbackContext context = <_CallbackContext>userdata
+    cdef object stream = context.callback
+    cdef bytes ret
+    cdef size_t read_size
+    cdef const char * ret_ptr
+    try:
+        ret = stream.read(total)
+        read_size = PyBytes_GET_SIZE(ret)
+        if read_size > total:
+            raise CurlError(
+                f"Read callback returned {read_size} bytes, but only {total} bytes are allowed.")  # noqa: E501
+        ret_ptr = <const char *> ret
+        memcpy(buffer, ret_ptr, read_size)
+        return read_size
+    except BaseException as e:
+        context.exception = e
+        return curl.CURL_READFUNC_ABORT
 
 
 cdef size_t read_callback(char *buffer, size_t size, size_t nitems, void *userdata) except? 268435456 with gil:
     cdef:
         size_t total
         size_t read_size
+        _CallbackContext context
         object callback
         bytes ret
         const char* ret_ptr
-    callback = <object>userdata
+    context = <_CallbackContext>userdata
+    callback = context.callback
     total = size * nitems # numbytes
-    ret = callback(total)
-    read_size = PyBytes_GET_SIZE(ret)
-    if read_size > total: # stream end
-        raise CurlError(
-            f"Read callback returned {read_size} bytes, but only {total} bytes are allowed."  # noqa: E501
-        )
-    ret_ptr = <const char*>ret
-    memcpy(buffer, ret_ptr, read_size)
-    return read_size
+    try:
+        ret = callback(total)
+        read_size = PyBytes_GET_SIZE(ret)
+        if read_size > total: # stream end
+            raise CurlError(
+                f"Read callback returned {read_size} bytes, but only {total} bytes are allowed."  # noqa: E501
+            )
+        ret_ptr = <const char*>ret
+        memcpy(buffer, ret_ptr, read_size)
+        return read_size
+    except BaseException as e:
+        context.exception = e
+        return curl.CURL_READFUNC_ABORT
 
 cdef int seek_callback(void *clientp, curl.curl_off_t offset, int origin) except? 2 with gil:
-    cdef object callback = <object> clientp
-    return callback(offset, origin)
+    cdef _CallbackContext context = <_CallbackContext>clientp
+    cdef object callback = context.callback
+    try:
+        return callback(offset, origin)
+    except BaseException as e:
+        context.exception = e
+        return curl.CURL_SEEKFUNC_FAIL
 
 cdef int trailer_callback(curl.curl_slist ** list, void *userdata) except? 1 with gil:
-    cdef object callback = <object>userdata
-    trailers = callback()
-    for tr in trailers:
-        list[0] = curl.curl_slist_append(list[0], <const char*>tr)
-    return curl.CURL_TRAILERFUNC_OK
+    cdef _CallbackContext context = <_CallbackContext>userdata
+    cdef object callback = context.callback
+    try:
+        trailers = callback()
+        for tr in trailers:
+            list[0] = curl.curl_slist_append(list[0], <const char*>tr)
+        return curl.CURL_TRAILERFUNC_OK
+    except BaseException as e:
+        context.exception = e
+        return curl.CURL_TRAILERFUNC_ABORT
 
 cdef int prereq_callback(void *clientp,
                     char *conn_primary_ip,
                     char *conn_local_ip,
                     int conn_primary_port,
                     int conn_local_port) except? 1 with gil:
-    cdef object callback = <object>clientp
-    return callback(PyUnicode_FromString(conn_primary_ip),
+    cdef _CallbackContext context = <_CallbackContext>clientp
+    cdef object callback = context.callback
+    try:
+        return callback(PyUnicode_FromString(conn_primary_ip),
                     PyUnicode_FromString(conn_local_ip),
                     conn_primary_port,
                     conn_local_port)
+    except BaseException as e:
+        context.exception = e
+        return curl.CURL_PREREQFUNC_ABORT
 
 cdef int xferinfo_callback(void *clientp,
                       curl.curl_off_t dltotal,
                       curl.curl_off_t dlnow,
                       curl.curl_off_t ultotal,
                       curl.curl_off_t ulnow) except? 1 with gil:
-    cdef object callback = <object> clientp
-    return callback(dltotal, dlnow, ultotal, ulnow)
+    cdef _CallbackContext context = <_CallbackContext>clientp
+    cdef object callback = context.callback
+    try:
+        return callback(dltotal, dlnow, ultotal, ulnow)
+    except BaseException as e:
+        context.exception = e
+        return -1
 
 cdef int fnmatch_callback(void *clientp,
                      const char *pattern,
                      const char *string) except? 2 with gil:
-    cdef object callback = <object> clientp
-    return callback(PyUnicode_FromString(pattern), PyUnicode_FromString(string))
+    cdef _CallbackContext context = <_CallbackContext>clientp
+    cdef object callback = context.callback
+    try:
+        return callback(PyUnicode_FromString(pattern), PyUnicode_FromString(string))
+    except BaseException as e:
+        context.exception = e
+        return curl.CURL_FNMATCHFUNC_FAIL
 
 cdef list slist_to_list(curl.curl_slist *head) with gil:
     """Converts curl slist to a python list."""
@@ -247,6 +311,8 @@ cdef class Curl:
     cdef:
         curl.CURL* _curl
         curl.curl_slist * _headers
+        curl.curl_slist * _http3_headers
+        curl.curl_slist * _ws_headers
         curl.curl_slist * _proxy_headers
         curl.curl_slist * _resolve
         str _cacert
@@ -292,6 +358,8 @@ cdef class Curl:
         else:
             self._curl = <curl.CURL*>PyCapsule_GetPointer(handle, NULL)
         self._headers = NULL
+        self._http3_headers = NULL
+        self._ws_headers = NULL
         self._proxy_headers = NULL
         self._resolve = NULL
         self._cacert = cacert or DEFAULT_CACERT
@@ -456,6 +524,64 @@ cdef class Curl:
                 code=errcode,
             )
 
+    cpdef object _get_callback_exception(self):
+        cdef object handle
+        handle = self._write_handle
+        if handle is not None:
+            exception = <_CallbackContext>handle.exception
+            if exception is not None:
+                return exception
+
+        handle = self._header_handle
+        if handle is not None:
+            exception = <_CallbackContext>handle.exception
+            if exception is not None:
+                return exception
+
+        handle = self._debug_handle
+        if handle is not None:
+            exception = <_CallbackContext>handle.exception
+            if exception is not None:
+                return exception
+
+        handle = self._read_handle
+        if handle is not None:
+            exception = <_CallbackContext>handle.exception
+            if exception is not None:
+                return exception
+
+        handle = self._seek_handle
+        if handle is not None:
+            exception = <_CallbackContext>handle.exception
+            if exception is not None:
+                return exception
+
+        handle = self._trailer_handle
+        if handle is not None:
+            exception = <_CallbackContext>handle.exception
+            if exception is not None:
+                return exception
+
+        handle = self._prereq_handle
+        if handle is not None:
+            exception = <_CallbackContext>handle.exception
+            if exception is not None:
+                return exception
+
+        handle = self._xferinfo_handle
+        if handle is not None:
+            exception = <_CallbackContext>handle.exception
+            if exception is not None:
+                return exception
+
+        handle = self._fnmatch_handle
+        if handle is not None:
+            exception = <_CallbackContext>handle.exception
+            if exception is not None:
+                return exception
+
+        return None
+
     cpdef inline int setopt(self, int option, object value) except -1:
         """Wrapper for ``curl_easy_setopt``.
     
@@ -489,68 +615,68 @@ cdef class Curl:
             intval = <int64_t>value
             c_value = <void*>&intval
         elif option == curl.CURLOPT_WRITEDATA:
-            c_value = <void*>value
-            self._write_handle = value # store a ref
+            self._write_handle = _CallbackContext(value) # store a ref
+            c_value = <void*>self._write_handle
             curl._curl_easy_setopt(
                 self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>buffer_callback
             )
         elif option == curl.CURLOPT_HEADERDATA:
-            c_value = <void*>value
-            self._header_handle = value # store a ref
+            self._header_handle = _CallbackContext(value) # store a ref
+            c_value = <void*>self._header_handle
             curl._curl_easy_setopt(
                 self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>buffer_callback
             )
         elif option == curl.CURLOPT_READDATA:
-            c_value = <void*>value
-            self._read_handle = value # store a ref
+            self._read_handle = _CallbackContext(value) # store a ref
+            c_value = <void*>self._read_handle
             curl._curl_easy_setopt(
                 self._curl, curl.CURLOPT_READFUNCTION, <void*>read_buffer_callback
             )
         elif option == curl.CURLOPT_WRITEFUNCTION:
-            c_value = <void*>value
-            self._write_handle = value # store a ref
+            self._write_handle = _CallbackContext(value) # store a ref
+            c_value = <void*>self._write_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_WRITEFUNCTION, <void*>write_callback)
             option = curl.CURLOPT_WRITEDATA
         elif option == curl.CURLOPT_HEADERFUNCTION:
-            c_value = <void*>value
-            self._header_handle = value # store a ref
+            self._header_handle = _CallbackContext(value) # store a ref
+            c_value = <void*>self._header_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_HEADERFUNCTION, <void*>write_callback)
             option = curl.CURLOPT_HEADERDATA
         elif option == curl.CURLOPT_DEBUGFUNCTION:
             if value is True:
                 value = debug_function_default
-            c_value = <void*>value
-            self._debug_handle = value # store a ref
+            self._debug_handle = _CallbackContext(value) # store a ref
+            c_value = <void*>self._debug_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_DEBUGFUNCTION, <void*>debug_function)
             option = curl.CURLOPT_DEBUGDATA
         elif option == curl.CURLOPT_READFUNCTION:
-            c_value = <void*>value
-            self._read_handle = value # store a ref
+            self._read_handle = _CallbackContext(value) # store a ref
+            c_value = <void*>self._read_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_READFUNCTION, <void*>read_callback)
             option = curl.CURLOPT_READDATA
         elif option == curl.CURLOPT_SEEKFUNCTION:
-            c_value = <void*>value
-            self._seek_handle = value
+            self._seek_handle = _CallbackContext(value) # store a ref
+            c_value = <void*>self._seek_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_SEEKFUNCTION, <void*>seek_callback)
             option = curl.CURLOPT_SEEKDATA
         elif option == curl.CURLOPT_TRAILERFUNCTION:
-            c_value = <void*>value
-            self._trailer_handle = value
+            self._trailer_handle = _CallbackContext(value) # store a ref
+            c_value = <void*>self._trailer_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_TRAILERFUNCTION, <void*>trailer_callback)
             option = curl.CURLOPT_TRAILERDATA
         elif option == curl.CURLOPT_PREREQFUNCTION:
-            c_value = <void *> value
-            self._prereq_handle = value
+            self._prereq_handle = _CallbackContext(value)
+            c_value = <void *> self._prereq_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_PREREQFUNCTION, <void *> prereq_callback)
             option = curl.CURLOPT_PREREQDATA
         elif option == curl.CURLOPT_XFERINFOFUNCTION:
-            c_value = <void *> value
-            self._xferinfo_handle = value
+            self._xferinfo_handle = _CallbackContext(value)
+            c_value = <void *> self._xferinfo_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_XFERINFOFUNCTION, <void *> xferinfo_callback)
             option = curl.CURLOPT_XFERINFODATA
         elif option == curl.CURLOPT_FNMATCH_FUNCTION:
-            c_value = <void *> value
-            self._fnmatch_handle = value
+            self._fnmatch_handle = _CallbackContext(value)
+            c_value = <void *> self._fnmatch_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_FNMATCH_FUNCTION, <void *> fnmatch_callback)
             option = curl.CURLOPT_FNMATCH_DATA
         elif value_type == 10000:
@@ -598,6 +724,14 @@ cdef class Curl:
             for header in value:
                 self._headers = curl.curl_slist_append(self._headers, <const char*>header)
             ret = curl._curl_easy_setopt(self._curl, option, self._headers)
+        elif option == curl.CURLOPT_HTTP3_HTTPHEADER:
+            for header in value:
+                self._http3_headers = curl.curl_slist_append(self._http3_headers, <const char*>header)
+            ret = curl._curl_easy_setopt(self._curl, option, self._http3_headers)
+        elif option == curl.CURLOPT_WS_HTTPHEADER:
+            for header in value:
+                self._ws_headers = curl.curl_slist_append(self._ws_headers, <const char*>header)
+            ret = curl._curl_easy_setopt(self._curl, option, self._ws_headers)
         elif option == curl.CURLOPT_PROXYHEADER:
             for proxy_header in value:
                 self._proxy_headers = curl.curl_slist_append(self._proxy_headers, <const char*>proxy_header)
@@ -722,16 +856,19 @@ cdef class Curl:
         Raises:
             CurlError: if the perform was not successful.
         """
-        # make sure we set a cacert store
         if self._curl == NULL:
             raise CurlError("Cannot perform request on closed handle.")
         cdef int ret
+        # make sure we set a cacert store
         self._ensure_cacert()
 
         # here we go
         with nogil:
             ret = curl.curl_easy_perform(self._curl)
         try:
+            callback_exception = self._get_callback_exception()
+            if callback_exception is not None:
+                raise callback_exception
             self._check_error(ret, "perform")
             return ret
         finally:
@@ -767,6 +904,14 @@ cdef class Curl:
             if self._headers != NULL:
                 curl.curl_slist_free_all(self._headers)
                 self._headers = NULL
+
+            if self._http3_headers != NULL:
+                curl.curl_slist_free_all(self._http3_headers)
+                self._http3_headers = NULL
+
+            if self._ws_headers != NULL:
+                curl.curl_slist_free_all(self._ws_headers)
+                self._ws_headers = NULL
 
             if self._proxy_headers != NULL:
                 curl.curl_slist_free_all(self._proxy_headers)
@@ -1071,7 +1216,10 @@ cdef class AsyncCurl:
                 if curl_msg.msg == curl.CURLMSG_DONE:
                     curl_ = <Curl>self._curl2curl[<long long><void*>curl_msg.easy_handle]
                     retcode = curl_msg.data.result
-                    if retcode == 0:
+                    callback_exception = curl_._get_callback_exception()
+                    if callback_exception is not None:
+                        self.set_exception(curl_, callback_exception)
+                    elif retcode == 0:
                         self.set_result(curl_)
                     else:
                         self.set_exception(curl_, curl_._get_error(retcode, "perform"))

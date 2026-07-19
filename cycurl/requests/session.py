@@ -37,7 +37,7 @@ except ImportError:
 import cycurl._curl as m
 from cycurl._curl import AsyncCurl, Curl, CurlError, CurlMime, CurlWarning
 from cycurl.requests.cache import CacheSpec, normalize_cache_backend
-from cycurl.requests.cookies import Cookies, CookieTypes, CurlMorsel
+from cycurl.requests.cookies import Cookies, CookieTypes
 from cycurl.requests.exceptions import RequestException, SessionClosed, code2error
 from cycurl.requests.headers import Headers, HeaderTypes
 from cycurl.requests.impersonate import (
@@ -458,13 +458,11 @@ class BaseSession(Generic[R]):
             except Exception:
                 continue
 
-        # Session cookies - from full cookie store
+        # Session cookies - accepted changes from all responses in the transfer
         discard_cookies = discard_cookies or self.discard_cookies
         if not discard_cookies:
-            morsels = [
-                CurlMorsel.from_curl_format(c) for c in c.getinfo(m.CURLINFO_COOKIELIST)
-            ]
-            self._cookies.update_cookies_from_curl(morsels)
+            changes = cast(list[bytes], c.getinfo(m.CURLINFO_COOKIECHANGES))
+            self._cookies.update_cookies_from_curl_changes(changes)
 
         rsp.primary_ip = cast(bytes, c.getinfo(m.CURLINFO_PRIMARY_IP)).decode()
         rsp.primary_port = cast(int, c.getinfo(m.CURLINFO_PRIMARY_PORT))

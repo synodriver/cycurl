@@ -15,6 +15,20 @@ async def test_add_handle(server):
     await fut
 
 
+async def test_add_handle_callback_exception(server):
+    ac = AsyncCurl()
+    c = Curl()
+    c.setopt(m.CURLOPT_URL, str(server.url).encode())
+
+    def write(data: bytes):
+        raise ValueError("callback failed")
+
+    c.setopt(m.CURLOPT_WRITEFUNCTION, write)
+    with pytest.raises(ValueError, match="callback failed"):
+        await ac.add_handle(c)
+    await ac.close()
+
+
 async def test_socket_action(server):
     ac = AsyncCurl()
     running = ac.socket_action(-1, 0)

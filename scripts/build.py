@@ -14,7 +14,7 @@ from urllib.request import urlretrieve
 from cffi import FFI
 
 # this is the upstream libcurl-impersonate version
-__version__ = "2.0.0a5"
+__version__ = "2.0.0rc3"
 
 
 def is_android_env() -> bool:
@@ -49,7 +49,9 @@ def detect_arch():
             and arch["pointer_size"] == pointer_size
             and ("libc" not in arch or arch.get("libc") == libc)
         ):
-            if arch.get("libdir"):
+            if build_dir := os.environ.get("IMPERSONATE_BUILD_DIR"):
+                arch["libdir"] = os.path.expanduser(build_dir)
+            elif arch.get("libdir"):
                 arch["libdir"] = os.path.expanduser(arch["libdir"])
             else:
                 if "CI" in os.environ:
@@ -166,13 +168,18 @@ if is_static:
             f"-Wl,-force_load,{static_libs[0]}",
             "-lc++",
         ]
-    elif system in ("Linux", "Android"):
-        cxx_lib = "-lc++" if is_android else "-lstdc++"
+    elif is_android:
         extra_link_args = [
             "-Wl,--whole-archive",
             static_libs[0],
             "-Wl,--no-whole-archive",
-            cxx_lib,
+            "-lc++",
+        ]
+    elif system == "Linux":
+        extra_link_args = [
+            "-Wl,--whole-archive",
+            static_libs[0],
+            "-Wl,--no-whole-archive",
         ]
 
 libraries = get_curl_libraries()
