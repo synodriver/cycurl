@@ -15,6 +15,7 @@ cdef extern from "curl/curl.h" nogil:
     int curl_easy_impersonate(CURL *curl, const char *target, int default_headers)
     CURL *curl_easy_duphandle(CURL *curl)
     int curl_easy_upkeep(CURL *curl)
+    int curl_easy_pause(CURL *curl, int action)
 
     char *curl_version()
 
@@ -548,6 +549,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURLINFO_PROXYAUTH_USED
     int CURLINFO_SIZE_DELIVERED
     int CURLINFO_COOKIECHANGES
+    int CURLINFO_REDIRECT_HISTORY
     int CURLINFO_LASTONE
     #CURLMOPT_
     int CURLMOPT_SOCKETFUNCTION
@@ -821,6 +823,13 @@ cdef extern from "curl/curl.h" nogil:
     int CURLFOLLOW_OBEYCODE
     int CURLFOLLOW_FIRSTONLY
     int CURLFOLLOW_SAFE
+    #CURLPAUSE_
+    int CURLPAUSE_RECV
+    int CURLPAUSE_RECV_CONT
+    int CURLPAUSE_SEND
+    int CURLPAUSE_SEND_CONT
+    int CURLPAUSE_ALL
+    int CURLPAUSE_CONT
 
 
 

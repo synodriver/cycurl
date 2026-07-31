@@ -203,10 +203,26 @@ cdef int seek_callback(void *clientp, curl.curl_off_t offset, int origin) except
     cdef _CallbackContext context = <_CallbackContext>clientp
     cdef object callback = context.callback
     try:
-        return callback(offset, origin)
+        callback(offset, origin)
+        return curl.CURL_SEEKFUNC_OK
+    except (AttributeError, OSError):
+        return curl.CURL_SEEKFUNC_CANTSEEK
     except BaseException as e:
         context.exception = e
         return curl.CURL_SEEKFUNC_FAIL
+
+cdef int seek_buffer_callback(void *clientp, curl.curl_off_t offset, int origin) except? 2 with gil:
+    cdef _CallbackContext context = <_CallbackContext>clientp
+    cdef object stream = context.callback
+    try:
+        stream.seek(offset, origin)
+        return curl.CURL_SEEKFUNC_OK
+    except (AttributeError, OSError):
+        return curl.CURL_SEEKFUNC_CANTSEEK
+    except BaseException as e:
+        context.exception = e
+        return curl.CURL_SEEKFUNC_FAIL
+
 
 cdef int trailer_callback(curl.curl_slist ** list, void *userdata) except? 1 with gil:
     cdef _CallbackContext context = <_CallbackContext>userdata
@@ -654,6 +670,10 @@ cdef class Curl:
             c_value = <void*>self._read_handle
             curl._curl_easy_setopt(self._curl, curl.CURLOPT_READFUNCTION, <void*>read_callback)
             option = curl.CURLOPT_READDATA
+        elif option == curl.CURLOPT_SEEKDATA:
+            self._seek_handle = _CallbackContext(value) # store a ref of this stream
+            c_value = <void*>self._seek_handle
+            curl._curl_easy_setopt(self._curl, curl.CURLOPT_SEEKFUNCTION, <void*>seek_buffer_callback)
         elif option == curl.CURLOPT_SEEKFUNCTION:
             self._seek_handle = _CallbackContext(value) # store a ref
             c_value = <void*>self._seek_handle
@@ -881,6 +901,16 @@ cdef class Curl:
         cdef int ret
         with nogil:
             ret = curl.curl_easy_upkeep(self._curl)
+        return ret
+
+    cpdef int pause(self, int action) except -1:
+        """Pause or resume data transfer on this handle."""
+        if self._curl == NULL:
+            return 0
+        cdef int ret
+        with nogil:
+            ret = curl.curl_easy_pause(self._curl, action)
+        self._check_error(ret, "pause")
         return ret
 
     cpdef inline clean_handles_and_buffers(self, bint clear_headers = True, bint clear_resolve = True):
