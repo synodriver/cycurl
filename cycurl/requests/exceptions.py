@@ -145,9 +145,8 @@ class RetryError(RequestException):
     """Custom retries logic failed. not used"""
 
 
-# not used
 class UnrewindableBodyError(RequestException):
-    """Requests encountered an error when trying to rewind a body. not used"""
+    """The request body could not be rewound for a redirect or retry."""
 
 
 class InterfaceError(RequestException):
@@ -197,6 +196,7 @@ CODE2ERROR = {
     CURLE_SSL_ENGINE_NOTFOUND: SSLError,
     CURLE_SSL_ENGINE_SETFAILED: SSLError,
     CURLE_SEND_ERROR: ConnectionError,
+    CURLE_SEND_FAIL_REWIND: UnrewindableBodyError,
     CURLE_RECV_ERROR: ConnectionError,
     CURLE_SSL_CERTPROBLEM: SSLError,
     CURLE_SSL_CIPHER: SSLError,

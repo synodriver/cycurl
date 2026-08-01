@@ -11,6 +11,7 @@ from cycurl._curl import Curl, CurlWarning
 from cycurl.requests.cookies import Cookies
 from cycurl.requests.exceptions import HTTPError, RequestException
 from cycurl.requests.headers import Headers
+from cycurl.requests.streams import STREAM_END
 
 # Use orjson if present
 try:
@@ -41,15 +42,7 @@ JSON_NATIVE_ENCODINGS = {
     "utf-32be",
     "utf-32le",
 }
-STREAM_END = object()
 REDIRECT_STATI = (301, 302, 303, 307, 308)
-
-
-def clear_queue(q: queue.Queue):
-    with q.mutex:
-        q.queue.clear()
-        q.all_tasks_done.notify_all()
-        q.unfinished_tasks = 0
 
 
 class Request:
@@ -101,7 +94,8 @@ class Response:
         redirect_count: how many redirects happened.
         redirect_url: the final redirected url.
         http_version: http version used.
-        history: history redirections, only headers are available.
+        history: redirect responses, in request order. Response bodies are not
+            available.
         download_size: total downloaded bytes (body).
         upload_size: total uploaded bytes (body).
         header_size: total header size.
@@ -128,7 +122,7 @@ class Response:
         self.primary_port: int = 0
         self.local_ip: str = ""
         self.local_port: int = 0
-        self.history: list[dict[str, Any]] = []
+        self.history: list[Response] = []
         self.infos: dict[str, Any] = {}
         self.queue: Optional[queue.Queue] = None
         self.stream_task: Optional[Future] = None

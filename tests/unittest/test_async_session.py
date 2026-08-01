@@ -3,6 +3,7 @@ import base64
 import json
 import pickle
 from contextlib import suppress
+from uuid import uuid4
 
 import pytest
 
@@ -10,7 +11,7 @@ from cycurl import _curl as m
 from cycurl import AsyncCurl, Headers
 from cycurl.requests import AsyncSession, RequestsError
 from cycurl.requests.errors import SessionClosed
-from cycurl.requests.exceptions import CertificateVerifyError, TooManyRedirects
+from cycurl.requests.exceptions import CertificateVerifyError, TooManyRedirects, UnrewindableBodyError
 from cycurl.requests.models import Response
 
 
@@ -68,6 +69,84 @@ async def test_post_json(server):
         )
         assert r.status_code == 200
         assert r.content == b'{"foo":"bar"}'
+
+
+async def test_post_async_iterable_content(server):
+    async def content():
+        yield b"foo"
+        await asyncio.sleep(0)
+        yield b"x" * 200000
+        await asyncio.sleep(0)
+        yield b"bar"
+
+    async with AsyncSession() as s:
+        r = await s.post(
+            str(server.url.copy_with(path="/echo_body")), content=content()
+        )
+    assert r.content == b"foo" + b"x" * 200000 + b"bar"
+
+
+async def test_file_like_content_overrides_content_length(server, tmp_path):
+    path = tmp_path / "body.bin"
+    path.write_bytes(b"streamed-from-file")
+
+    with path.open("rb") as f:
+        async with AsyncSession() as s:
+            r = await s.post(
+                str(server.url.copy_with(path="/echo_body")),
+                content=f,
+                headers={"Content-Length": "1"},
+            )
+
+    assert r.request.headers["Content-Length"] == str(len(b"streamed-from-file"))
+    assert r.content == b"streamed-from-file"
+
+
+async def test_async_iterable_content_error_propagates(server):
+    async def content():
+        yield b"partial"
+        raise ValueError("upload failed")
+
+    async with AsyncSession() as s:
+        with pytest.raises(ValueError, match="upload failed"):
+            await s.post(
+                str(server.url.copy_with(path="/echo_body")), content=content()
+            )
+
+
+async def test_async_iterable_content_is_closed_on_cancellation(server):
+    started = asyncio.Event()
+    closed = asyncio.Event()
+
+    async def content():
+        try:
+            yield b"partial"
+            started.set()
+            while True:
+                await asyncio.sleep(1)
+                yield b"more"
+        finally:
+            closed.set()
+
+    async with AsyncSession() as s:
+        task = asyncio.create_task(
+            s.post(str(server.url.copy_with(path="/echo_body")), content=content())
+        )
+        await asyncio.wait_for(started.wait(), 1)
+        task.cancel()
+        with suppress(asyncio.CancelledError):
+            await task
+        await asyncio.wait_for(closed.wait(), 1)
+
+
+async def test_one_shot_async_content_is_not_retried(server):
+    async def content():
+        yield b"important-body"
+
+    url = server.url.copy_with(path="/retry_body", query=f"key={uuid4().hex}".encode())
+    async with AsyncSession(retry=1, raise_for_status=True) as s:
+        with pytest.raises(UnrewindableBodyError):
+            await s.post(str(url), content=content())
 
 
 async def test_put_json(server):
@@ -194,16 +273,21 @@ async def test_not_follow_redirects(server):
         )
         assert r.status_code == 301
         assert r.redirect_count == 0
+        assert r.history == []
         assert r.content == b"Redirecting..."
 
 
 async def test_follow_redirects(server):
     async with AsyncSession() as s:
-        r = await s.get(
-            str(server.url.copy_with(path="/redirect_301")), allow_redirects=True
-        )
+        url = str(server.url.copy_with(path="/redirect_301"))
+        r = await s.get(url, allow_redirects=True)
         assert r.status_code == 200
         assert r.redirect_count == 1
+        assert len(r.history) == 1
+        assert isinstance(r.history[0], Response)
+        assert r.history[0].url == url
+        assert r.history[0].status_code == 301
+        assert r.history[0].headers["location"] == "/"
 
 
 async def test_too_many_redirects(server):
@@ -216,6 +300,7 @@ async def test_too_many_redirects(server):
     assert e.value.code == m.CURLE_TOO_MANY_REDIRECTS
     assert isinstance(e.value.response, Response)
     assert e.value.response.status_code == 301
+    assert len(e.value.response.history) == 2
 
 
 async def test_verify(https_server):
