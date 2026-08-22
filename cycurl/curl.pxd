@@ -441,6 +441,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURLOPT_WS_HTTPHEADER_ORDER
     int CURLOPT_WS_SSL_DISABLE_TICKET
     int CURLOPT_WS_SSL_CERT_COMPRESSION
+    int CURLOPT_QUIC_CID_LENGTH
     int CURLOPT_ENCODING
     int CURLOPT_FILE
     int CURLOPT_INFILE
@@ -835,4 +836,4 @@ cdef extern from "curl/curl.h" nogil:
 
 cdef extern from "shim.h" nogil:
     int _curl_easy_setopt(CURL * curl, int option, void * param)
-    int _curl_easy_getinfo_socket(CURL *curl, int option, uintptr_t *ret)
+    int _curl_easy_getinfo_socket(CURL *curl, int option, uintptr_t *result)

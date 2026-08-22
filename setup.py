@@ -51,20 +51,21 @@ class build_ext_compiler_check(build_ext):
             ext.extra_link_args.extend(link_args)
         super().build_extensions()
 
-# class bdist_wheel_abi3(bdist_wheel):
-#     def get_tag(self):
-#         python, abi, plat = super().get_tag()
-#
-#         if python.startswith("cp") and not (python.endswith("t") or abi.endswith("t")):
-#             if "android" in plat:
-#                 # cibuildwheel supports android since cp313, so we can't mark it as 310
-#                 return python, "abi3", plat
-#             # On CPython, our wheels are abi3 and compatible back to 3.10.
-#             # Free-threaded builds ("t" tag) must keep their original tags (PEP 803).
-#             # Once PEP 803 is accepted, we may be able to build abi3t wheels.
-#             return "cp310", "abi3", plat
-#
-#         return python, abi, plat
+        # Android extension modules link libpython3.X.so by SONAME, so they are not
+        # stable-ABI across minor versions even though they are built against the
+        # limited API. Keep the real tag there and ship one wheel per CPython minor,
+        # otherwise pip installs the 3.13 wheel on 3.14 and the import fails, see #824.
+        # if (
+        #     python.startswith("cp")
+        #     and not (python.endswith("t") or abi.endswith("t"))
+        #     and "android" not in plat
+        # ):
+        #     # On CPython, our wheels are abi3 and compatible back to 3.10.
+        #     # Free-threaded builds ("t" tag) must keep their original tags (PEP 803).
+        #     # Once PEP 803 is accepted, we may be able to build abi3t wheels.
+        #     return "cp310", "abi3", plat
+        # 
+        # return python, abi, plat
 
 
 
@@ -79,7 +80,7 @@ def get_curl_libraries():
     else:
         return []
 
-LIB_VERSION = "v2.0.0rc5"
+LIB_VERSION = "v2.1.1"
 
 if uname.system == "Windows":
     library_dirs = [f"./dep/libcurl-impersonate-{LIB_VERSION}.x86_64-win32/lib"]

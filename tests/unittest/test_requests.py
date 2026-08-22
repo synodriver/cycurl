@@ -8,28 +8,13 @@ from uuid import uuid4
 import pytest
 from charset_normalizer import detect
 
-<<<<<<< HEAD
 import cycurl
 from cycurl import *
 from cycurl import CurlWarning, config_warnings, requests
 from cycurl.requests.errors import SessionClosed
-from cycurl.requests.exceptions import HTTPError, TooManyRedirects
+from cycurl.requests.exceptions import CertificateVerifyError, HTTPError, TooManyRedirects, UnrewindableBodyError
 from cycurl.requests.models import Response
-=======
-import curl_cffi
-from curl_cffi import Curl, CurlFollow, CurlOpt, requests
-from curl_cffi.const import CurlECode, CurlInfo
-from curl_cffi.requests.errors import SessionClosed
-from curl_cffi.requests.exceptions import (
-    CertificateVerifyError,
-    HTTPError,
-    TooManyRedirects,
-    UnrewindableBodyError,
-)
-from curl_cffi.requests.models import Response
-from curl_cffi.requests.streams import _IterableReader
-from curl_cffi.utils import CurlCffiWarning
->>>>>>> temp
+from cycurl.requests.streams import _IterableReader
 
 
 def test_head(server):
@@ -691,15 +676,9 @@ def test_safe_redirect_blocks_private_ip(server, https_server):
     assert r.status_code == 200
     assert r.redirect_count == 1
 
-<<<<<<< HEAD
-    url = str(server.url.copy_with(path="/redirect_to")) + "?to=http://10.0.0.1/"
-    with pytest.raises(requests.RequestsError, match="SSRF"):
-        requests.get(url, allow_redirects=CURLFOLLOW_SAFE)
-=======
     with pytest.raises(requests.RequestsError) as exc_info:
-        requests.get(url, allow_redirects=CurlFollow.SAFE, verify=False)
-    assert exc_info.value.code == CurlECode.COULDNT_CONNECT
->>>>>>> temp
+        requests.get(url, allow_redirects=CURLFOLLOW_SAFE, verify=False)
+    assert exc_info.value.code == CURLE_COULDNT_CONNECT
 
 
 def test_safe_redirect_string(server, https_server):
@@ -708,13 +687,13 @@ def test_safe_redirect_string(server, https_server):
     url = str(server.url.copy_with(path="/redirect_to")) + f"?to={target}"
     with pytest.raises(requests.RequestsError) as exc_info:
         requests.get(url, allow_redirects="safe", verify=False)
-    assert exc_info.value.code == CurlECode.COULDNT_CONNECT
+    assert exc_info.value.code == CURLE_COULDNT_CONNECT
 
 
 def test_verify(https_server):
     with pytest.raises(CertificateVerifyError) as exc_info:
         requests.get(str(https_server.url), verify=True)
-    assert exc_info.value.code == CurlECode.PEER_FAILED_VERIFICATION
+    assert exc_info.value.code == CURLE_PEER_FAILED_VERIFICATION
 
 
 def test_verify_false(https_server):

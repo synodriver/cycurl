@@ -6,7 +6,7 @@ from pathlib import Path
 cimport cython
 from cpython.bytes cimport PyBytes_AS_STRING, PyBytes_GET_SIZE
 from cpython.float cimport PyFloat_FromDouble
-from cpython.long cimport PyLong_FromLong
+from cpython.long cimport PyLong_FromLong, PyLong_FromUnsignedLongLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport PyCapsule_CheckExact, PyCapsule_GetPointer, PyCapsule_New
 from cpython.unicode cimport PyUnicode_FromString, PyUnicode_AsUTF8
@@ -839,7 +839,7 @@ cdef class Curl:
             self._check_error(ret, f"getinfo {option}")
             if <int>uintptrret == curl.CURL_SOCKET_BAD:
                 return PyLong_FromLong(-1)
-            return PyLong_FromLong(uintptrret)
+            return PyLong_FromUnsignedLongLong(uintptrret)
         elif ret_type == 0x600000:
             ret = curl.curl_easy_getinfo(self._curl, option, &int64ret)
             self._check_error(ret, f"getinfo {option}")

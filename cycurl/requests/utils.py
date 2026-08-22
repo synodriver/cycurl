@@ -529,6 +529,8 @@ def _apply_fingerprint(
         curl.setopt(
             m.CURLOPT_QUIC_TRANSPORT_PARAMETERS, fingerprint.quic_transport_parameters
         )
+    if fingerprint.quic_cid_length is not None:
+        curl.setopt(CurlOpt.QUIC_CID_LENGTH, fingerprint.quic_cid_length)
 
     # websocket settings
     if fingerprint.ws_header_order:
