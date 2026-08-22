@@ -365,7 +365,7 @@ class BaseSession(Generic[R]):
             _, rsp.reason, header_list = header_blocks[-1]
         rsp.headers = Headers(header_list)
 
-        redirect_history = cast(list[bytes], c.getinfo(CurlInfo.REDIRECT_HISTORY))
+        redirect_history = cast(list[bytes], c.getinfo(m.CURLINFO_REDIRECT_HISTORY))
         block_index = 0
         for item in redirect_history:
             try:

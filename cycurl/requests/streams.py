@@ -7,8 +7,8 @@ from contextlib import suppress
 from io import SEEK_END, SEEK_SET, BytesIO
 from typing import IO, Any, Union, cast, final
 
-from ..curl import CURL_READFUNC_PAUSE, CURLPAUSE_SEND_CONT, Curl
-from .exceptions import UnrewindableBodyError
+from cycurl import _curl as m
+from cycurl.requests.exceptions import UnrewindableBodyError
 
 
 RequestData = Union[
@@ -146,7 +146,7 @@ class _FileReader:
 class _AsyncIterableReader:
     """Bridge an async byte iterable to libcurl's synchronous read callback."""
 
-    def __init__(self, iterable: AsyncIterable[bytes], curl: Curl) -> None:
+    def __init__(self, iterable: AsyncIterable[bytes], curl: m.Curl) -> None:
         self._iterable = iterable
         self._curl = curl
         self._queue: asyncio.Queue[bytes] = asyncio.Queue(maxsize=1)
@@ -203,7 +203,7 @@ class _AsyncIterableReader:
     def _resume(self) -> None:
         if self._paused:
             self._paused = False
-            self._curl.pause(CURLPAUSE_SEND_CONT)
+            self._curl.pause(m.CURLPAUSE_SEND_CONT)
 
     def read(self, size: int) -> bytes | int:
         buffer = self._buffer
@@ -216,7 +216,7 @@ class _AsyncIterableReader:
                         raise self._exception from None
                     return b""
                 self._paused = True
-                return CURL_READFUNC_PAUSE
+                return m.CURL_READFUNC_PAUSE
         chunk = bytes(buffer[:size])
         del buffer[:size]
         return chunk
