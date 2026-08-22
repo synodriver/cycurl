@@ -15,9 +15,9 @@ from pathlib import Path
 from typing import Any, Optional, Union
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
-from .cookies import Cookies
-from .headers import Headers
-from .models import Request, Response
+from cycurl.requests.cookies import Cookies
+from cycurl.requests.headers import Headers
+from cycurl.requests.models import Request, Response
 
 __all__ = [
     "CacheBackend",

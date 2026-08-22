@@ -1,5 +1,5 @@
 """
-The Curl CFFI WebSocket client implementation.
+The Cycurl WebSocket client implementation.
 """
 
 from __future__ import annotations
