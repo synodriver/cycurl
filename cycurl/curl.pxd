@@ -1,6 +1,6 @@
 # cython: language_level=3
 # cython: cdivision=True
-from libc.stdint cimport int64_t
+from libc.stdint cimport int64_t, uintptr_t
 
 
 cdef extern from "curl/curl.h" nogil:
@@ -835,3 +835,4 @@ cdef extern from "curl/curl.h" nogil:
 
 cdef extern from "shim.h" nogil:
     int _curl_easy_setopt(CURL * curl, int option, void * param)
+    int _curl_easy_getinfo_socket(CURL *curl, int option, uintptr_t *ret)

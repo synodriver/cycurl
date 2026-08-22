@@ -10,7 +10,7 @@ from cpython.long cimport PyLong_FromLong
 from cpython.mem cimport PyMem_Free, PyMem_Malloc
 from cpython.pycapsule cimport PyCapsule_CheckExact, PyCapsule_GetPointer, PyCapsule_New
 from cpython.unicode cimport PyUnicode_FromString, PyUnicode_AsUTF8
-from libc.stdint cimport int64_t, uint8_t
+from libc.stdint cimport int64_t, uint8_t, uintptr_t
 from libc.stdio cimport fflush, fprintf, fwrite, stderr
 from libc.string cimport memcpy
 
@@ -784,7 +784,7 @@ cdef class Curl:
         #     0x200000: "long*",
         #     0x300000: "double*",
         #     0x400000: "struct curl_slist **",
-        #     0x500000: "long*",
+        #     0x500000: "uintptr_t*",
         #     0x600000: "int64_t*"
         # }
         # ret_cast_option = {
@@ -799,6 +799,7 @@ cdef class Curl:
             int ret=0
             char* charret = NULL
             long longret=0
+            uintptr_t uintptrret=0
             double doubleret=0.0
             curl.curl_slist *slistret = NULL
             int64_t int64ret
@@ -819,7 +820,7 @@ cdef class Curl:
             if charret == NULL:
                 return b""
             return <bytes>charret
-        elif ret_type == 0x200000 or ret_type == 0x500000:
+        elif ret_type == 0x200000:
             ret = curl.curl_easy_getinfo(self._curl, option, &longret)
             self._check_error(ret, f"getinfo {option}")
             return PyLong_FromLong(longret)
@@ -833,6 +834,12 @@ cdef class Curl:
             if slistret == NULL:
                 return []
             return slist_to_list(slistret)
+        elif ret_type == 0x500000:
+            ret = curl._curl_easy_getinfo_socket(self._curl, option, &uintptrret)
+            self._check_error(ret, f"getinfo {option}")
+            if <int>uintptrret == curl.CURL_SOCKET_BAD:
+                return PyLong_FromLong(-1)
+            return PyLong_FromLong(uintptrret)
         elif ret_type == 0x600000:
             ret = curl.curl_easy_getinfo(self._curl, option, &int64ret)
             self._check_error(ret, f"getinfo {option}")
