@@ -1,6 +1,5 @@
 # cython: language_level=3
 # cython: cdivision=True
-from asyncio.windows_events import NULL
 from pathlib import Path
 
 cimport cython
