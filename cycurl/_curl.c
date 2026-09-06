@@ -11,7 +11,7 @@
         ],
         "depends": [],
         "extra_objects": [
-            "./dep/libcurl-impersonate-v2.1.1.x86_64-win32/lib\\libcurl-impersonate_imp.lib"
+            "./dep/libcurl-impersonate-v2.2.2.x86_64-win32/lib\\libcurl-impersonate_imp.lib"
         ],
         "include_dirs": [
             "./dep/curl-8.21.0/include",
@@ -24,7 +24,7 @@
             "Normaliz"
         ],
         "library_dirs": [
-            "./dep/libcurl-impersonate-v2.1.1.x86_64-win32/lib"
+            "./dep/libcurl-impersonate-v2.2.2.x86_64-win32/lib"
         ],
         "name": "cycurl._curl",
         "sources": [
@@ -4981,7 +4981,7 @@ namespace {
     PyObject *__pyx_slice[2];
     PyObject *__pyx_tuple[15];
     PyObject *__pyx_codeobj_tab[76];
-    PyObject *__pyx_string_tab[1290];
+    PyObject *__pyx_string_tab[1292];
     PyObject *__pyx_number_tab[12];
 /* #### Code section: module_state_contents ### */
 /* PyFrozenDict.module_state_decls */
@@ -5610,801 +5610,803 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_CURLOPT_HTTP3_SETTINGS __pyx_string_tab[492]
 #define __pyx_n_u_CURLOPT_HTTP3_SIG_HASH_ALGS __pyx_string_tab[493]
 #define __pyx_n_u_CURLOPT_HTTP3_SSL_EC_CURVES __pyx_string_tab[494]
-#define __pyx_n_u_CURLOPT_HTTP3_TLS_EXTENSION_ORDE __pyx_string_tab[495]
-#define __pyx_n_u_CURLOPT_HTTPAUTH __pyx_string_tab[496]
-#define __pyx_n_u_CURLOPT_HTTPBASEHEADER __pyx_string_tab[497]
-#define __pyx_n_u_CURLOPT_HTTPGET __pyx_string_tab[498]
-#define __pyx_n_u_CURLOPT_HTTPHEADER __pyx_string_tab[499]
-#define __pyx_n_u_CURLOPT_HTTPHEADER_ORDER __pyx_string_tab[500]
-#define __pyx_n_u_CURLOPT_HTTPPOST __pyx_string_tab[501]
-#define __pyx_n_u_CURLOPT_HTTPPROXYTUNNEL __pyx_string_tab[502]
-#define __pyx_n_u_CURLOPT_HTTP_CONTENT_DECODING __pyx_string_tab[503]
-#define __pyx_n_u_CURLOPT_HTTP_TRANSFER_DECODING __pyx_string_tab[504]
-#define __pyx_n_u_CURLOPT_HTTP_VERSION __pyx_string_tab[505]
-#define __pyx_n_u_CURLOPT_IGNORE_CONTENT_LENGTH __pyx_string_tab[506]
-#define __pyx_n_u_CURLOPT_IMPERSONATE __pyx_string_tab[507]
-#define __pyx_n_u_CURLOPT_INFILE __pyx_string_tab[508]
-#define __pyx_n_u_CURLOPT_INFILESIZE __pyx_string_tab[509]
-#define __pyx_n_u_CURLOPT_INFILESIZE_LARGE __pyx_string_tab[510]
-#define __pyx_n_u_CURLOPT_INTERFACE __pyx_string_tab[511]
-#define __pyx_n_u_CURLOPT_INTERLEAVEDATA __pyx_string_tab[512]
-#define __pyx_n_u_CURLOPT_INTERLEAVEFUNCTION __pyx_string_tab[513]
-#define __pyx_n_u_CURLOPT_IOCTLDATA __pyx_string_tab[514]
-#define __pyx_n_u_CURLOPT_IOCTLFUNCTION __pyx_string_tab[515]
-#define __pyx_n_u_CURLOPT_IPRESOLVE __pyx_string_tab[516]
-#define __pyx_n_u_CURLOPT_ISSUERCERT __pyx_string_tab[517]
-#define __pyx_n_u_CURLOPT_ISSUERCERT_BLOB __pyx_string_tab[518]
-#define __pyx_n_u_CURLOPT_KEEP_SENDING_ON_ERROR __pyx_string_tab[519]
-#define __pyx_n_u_CURLOPT_KEYPASSWD __pyx_string_tab[520]
-#define __pyx_n_u_CURLOPT_KRB4LEVEL __pyx_string_tab[521]
-#define __pyx_n_u_CURLOPT_KRBLEVEL __pyx_string_tab[522]
-#define __pyx_n_u_CURLOPT_LOCALPORT __pyx_string_tab[523]
-#define __pyx_n_u_CURLOPT_LOCALPORTRANGE __pyx_string_tab[524]
-#define __pyx_n_u_CURLOPT_LOGIN_OPTIONS __pyx_string_tab[525]
-#define __pyx_n_u_CURLOPT_LOW_SPEED_LIMIT __pyx_string_tab[526]
-#define __pyx_n_u_CURLOPT_LOW_SPEED_TIME __pyx_string_tab[527]
-#define __pyx_n_u_CURLOPT_MAIL_AUTH __pyx_string_tab[528]
-#define __pyx_n_u_CURLOPT_MAIL_FROM __pyx_string_tab[529]
-#define __pyx_n_u_CURLOPT_MAIL_RCPT __pyx_string_tab[530]
-#define __pyx_n_u_CURLOPT_MAIL_RCPT_ALLLOWFAILS __pyx_string_tab[531]
-#define __pyx_n_u_CURLOPT_MAIL_RCPT_ALLOWFAILS __pyx_string_tab[532]
-#define __pyx_n_u_CURLOPT_MAXAGE_CONN __pyx_string_tab[533]
-#define __pyx_n_u_CURLOPT_MAXCONNECTS __pyx_string_tab[534]
-#define __pyx_n_u_CURLOPT_MAXFILESIZE __pyx_string_tab[535]
-#define __pyx_n_u_CURLOPT_MAXFILESIZE_LARGE __pyx_string_tab[536]
-#define __pyx_n_u_CURLOPT_MAXLIFETIME_CONN __pyx_string_tab[537]
-#define __pyx_n_u_CURLOPT_MAXREDIRS __pyx_string_tab[538]
-#define __pyx_n_u_CURLOPT_MAX_RECV_SPEED_LARGE __pyx_string_tab[539]
-#define __pyx_n_u_CURLOPT_MAX_SEND_SPEED_LARGE __pyx_string_tab[540]
-#define __pyx_n_u_CURLOPT_MIMEPOST __pyx_string_tab[541]
-#define __pyx_n_u_CURLOPT_MIME_OPTIONS __pyx_string_tab[542]
-#define __pyx_n_u_CURLOPT_NETRC __pyx_string_tab[543]
-#define __pyx_n_u_CURLOPT_NETRC_FILE __pyx_string_tab[544]
-#define __pyx_n_u_CURLOPT_NEW_DIRECTORY_PERMS __pyx_string_tab[545]
-#define __pyx_n_u_CURLOPT_NEW_FILE_PERMS __pyx_string_tab[546]
-#define __pyx_n_u_CURLOPT_NOBODY __pyx_string_tab[547]
-#define __pyx_n_u_CURLOPT_NOPROGRESS __pyx_string_tab[548]
-#define __pyx_n_u_CURLOPT_NOPROXY __pyx_string_tab[549]
-#define __pyx_n_u_CURLOPT_NOSIGNAL __pyx_string_tab[550]
-#define __pyx_n_u_CURLOPT_OBSOLETE40 __pyx_string_tab[551]
-#define __pyx_n_u_CURLOPT_OBSOLETE72 __pyx_string_tab[552]
-#define __pyx_n_u_CURLOPT_OPENSOCKETDATA __pyx_string_tab[553]
-#define __pyx_n_u_CURLOPT_OPENSOCKETFUNCTION __pyx_string_tab[554]
-#define __pyx_n_u_CURLOPT_PASSWORD __pyx_string_tab[555]
-#define __pyx_n_u_CURLOPT_PATH_AS_IS __pyx_string_tab[556]
-#define __pyx_n_u_CURLOPT_PINNEDPUBLICKEY __pyx_string_tab[557]
-#define __pyx_n_u_CURLOPT_PIPEWAIT __pyx_string_tab[558]
-#define __pyx_n_u_CURLOPT_PORT __pyx_string_tab[559]
-#define __pyx_n_u_CURLOPT_POST __pyx_string_tab[560]
-#define __pyx_n_u_CURLOPT_POST301 __pyx_string_tab[561]
-#define __pyx_n_u_CURLOPT_POSTFIELDS __pyx_string_tab[562]
-#define __pyx_n_u_CURLOPT_POSTFIELDSIZE __pyx_string_tab[563]
-#define __pyx_n_u_CURLOPT_POSTFIELDSIZE_LARGE __pyx_string_tab[564]
-#define __pyx_n_u_CURLOPT_POSTQUOTE __pyx_string_tab[565]
-#define __pyx_n_u_CURLOPT_POSTREDIR __pyx_string_tab[566]
-#define __pyx_n_u_CURLOPT_PREQUOTE __pyx_string_tab[567]
-#define __pyx_n_u_CURLOPT_PREREQDATA __pyx_string_tab[568]
-#define __pyx_n_u_CURLOPT_PREREQFUNCTION __pyx_string_tab[569]
-#define __pyx_n_u_CURLOPT_PRE_PROXY __pyx_string_tab[570]
-#define __pyx_n_u_CURLOPT_PRIVATE __pyx_string_tab[571]
-#define __pyx_n_u_CURLOPT_PROGRESSDATA __pyx_string_tab[572]
-#define __pyx_n_u_CURLOPT_PROGRESSFUNCTION __pyx_string_tab[573]
-#define __pyx_n_u_CURLOPT_PROTOCOLS __pyx_string_tab[574]
-#define __pyx_n_u_CURLOPT_PROTOCOLS_STR __pyx_string_tab[575]
-#define __pyx_n_u_CURLOPT_PROXY __pyx_string_tab[576]
-#define __pyx_n_u_CURLOPT_PROXYAUTH __pyx_string_tab[577]
-#define __pyx_n_u_CURLOPT_PROXYHEADER __pyx_string_tab[578]
-#define __pyx_n_u_CURLOPT_PROXYPASSWORD __pyx_string_tab[579]
-#define __pyx_n_u_CURLOPT_PROXYPORT __pyx_string_tab[580]
-#define __pyx_n_u_CURLOPT_PROXYTYPE __pyx_string_tab[581]
-#define __pyx_n_u_CURLOPT_PROXYUSERNAME __pyx_string_tab[582]
-#define __pyx_n_u_CURLOPT_PROXYUSERPWD __pyx_string_tab[583]
-#define __pyx_n_u_CURLOPT_PROXY_CAINFO __pyx_string_tab[584]
-#define __pyx_n_u_CURLOPT_PROXY_CAINFO_BLOB __pyx_string_tab[585]
-#define __pyx_n_u_CURLOPT_PROXY_CAPATH __pyx_string_tab[586]
-#define __pyx_n_u_CURLOPT_PROXY_CREDENTIAL_NO_REUS __pyx_string_tab[587]
-#define __pyx_n_u_CURLOPT_PROXY_CRLFILE __pyx_string_tab[588]
-#define __pyx_n_u_CURLOPT_PROXY_ISSUERCERT __pyx_string_tab[589]
-#define __pyx_n_u_CURLOPT_PROXY_ISSUERCERT_BLOB __pyx_string_tab[590]
-#define __pyx_n_u_CURLOPT_PROXY_KEYPASSWD __pyx_string_tab[591]
-#define __pyx_n_u_CURLOPT_PROXY_PINNEDPUBLICKEY __pyx_string_tab[592]
-#define __pyx_n_u_CURLOPT_PROXY_SERVICE_NAME __pyx_string_tab[593]
-#define __pyx_n_u_CURLOPT_PROXY_SSLCERT __pyx_string_tab[594]
-#define __pyx_n_u_CURLOPT_PROXY_SSLCERTTYPE __pyx_string_tab[595]
-#define __pyx_n_u_CURLOPT_PROXY_SSLCERT_BLOB __pyx_string_tab[596]
-#define __pyx_n_u_CURLOPT_PROXY_SSLKEY __pyx_string_tab[597]
-#define __pyx_n_u_CURLOPT_PROXY_SSLKEYTYPE __pyx_string_tab[598]
-#define __pyx_n_u_CURLOPT_PROXY_SSLKEY_BLOB __pyx_string_tab[599]
-#define __pyx_n_u_CURLOPT_PROXY_SSLVERSION __pyx_string_tab[600]
-#define __pyx_n_u_CURLOPT_PROXY_SSL_CIPHER_LIST __pyx_string_tab[601]
-#define __pyx_n_u_CURLOPT_PROXY_SSL_OPTIONS __pyx_string_tab[602]
-#define __pyx_n_u_CURLOPT_PROXY_SSL_VERIFYHOST __pyx_string_tab[603]
-#define __pyx_n_u_CURLOPT_PROXY_SSL_VERIFYPEER __pyx_string_tab[604]
-#define __pyx_n_u_CURLOPT_PROXY_TLS13_CIPHERS __pyx_string_tab[605]
-#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_PASSWORD __pyx_string_tab[606]
-#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_TYPE __pyx_string_tab[607]
-#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_USERNAME __pyx_string_tab[608]
-#define __pyx_n_u_CURLOPT_PROXY_TRANSFER_MODE __pyx_string_tab[609]
-#define __pyx_n_u_CURLOPT_PUT __pyx_string_tab[610]
-#define __pyx_n_u_CURLOPT_QUICK_EXIT __pyx_string_tab[611]
-#define __pyx_n_u_CURLOPT_QUIC_CID_LENGTH __pyx_string_tab[612]
-#define __pyx_n_u_CURLOPT_QUIC_TRANSPORT_PARAMETER __pyx_string_tab[613]
-#define __pyx_n_u_CURLOPT_QUOTE __pyx_string_tab[614]
-#define __pyx_n_u_CURLOPT_RANDOM_FILE __pyx_string_tab[615]
-#define __pyx_n_u_CURLOPT_RANGE __pyx_string_tab[616]
-#define __pyx_n_u_CURLOPT_READDATA __pyx_string_tab[617]
-#define __pyx_n_u_CURLOPT_READFUNCTION __pyx_string_tab[618]
-#define __pyx_n_u_CURLOPT_REDIR_PROTOCOLS __pyx_string_tab[619]
-#define __pyx_n_u_CURLOPT_REDIR_PROTOCOLS_STR __pyx_string_tab[620]
-#define __pyx_n_u_CURLOPT_REFERER __pyx_string_tab[621]
-#define __pyx_n_u_CURLOPT_REQUEST_TARGET __pyx_string_tab[622]
-#define __pyx_n_u_CURLOPT_RESOLVE __pyx_string_tab[623]
-#define __pyx_n_u_CURLOPT_RESOLVER_START_DATA __pyx_string_tab[624]
-#define __pyx_n_u_CURLOPT_RESOLVER_START_FUNCTION __pyx_string_tab[625]
-#define __pyx_n_u_CURLOPT_RESUME_FROM __pyx_string_tab[626]
-#define __pyx_n_u_CURLOPT_RESUME_FROM_LARGE __pyx_string_tab[627]
-#define __pyx_n_u_CURLOPT_RTSPHEADER __pyx_string_tab[628]
-#define __pyx_n_u_CURLOPT_RTSP_CLIENT_CSEQ __pyx_string_tab[629]
-#define __pyx_n_u_CURLOPT_RTSP_REQUEST __pyx_string_tab[630]
-#define __pyx_n_u_CURLOPT_RTSP_SERVER_CSEQ __pyx_string_tab[631]
-#define __pyx_n_u_CURLOPT_RTSP_SESSION_ID __pyx_string_tab[632]
-#define __pyx_n_u_CURLOPT_RTSP_STREAM_URI __pyx_string_tab[633]
-#define __pyx_n_u_CURLOPT_RTSP_TRANSPORT __pyx_string_tab[634]
-#define __pyx_n_u_CURLOPT_SASL_AUTHZID __pyx_string_tab[635]
-#define __pyx_n_u_CURLOPT_SASL_IR __pyx_string_tab[636]
-#define __pyx_n_u_CURLOPT_SEEKDATA __pyx_string_tab[637]
-#define __pyx_n_u_CURLOPT_SEEKFUNCTION __pyx_string_tab[638]
-#define __pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT __pyx_string_tab[639]
-#define __pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT_2 __pyx_string_tab[640]
-#define __pyx_n_u_CURLOPT_SERVICE_NAME __pyx_string_tab[641]
-#define __pyx_n_u_CURLOPT_SHARE __pyx_string_tab[642]
-#define __pyx_n_u_CURLOPT_SOCKOPTDATA __pyx_string_tab[643]
-#define __pyx_n_u_CURLOPT_SOCKOPTFUNCTION __pyx_string_tab[644]
-#define __pyx_n_u_CURLOPT_SOCKS5_AUTH __pyx_string_tab[645]
-#define __pyx_n_u_CURLOPT_SOCKS5_GSSAPI_NEC __pyx_string_tab[646]
-#define __pyx_n_u_CURLOPT_SOCKS5_GSSAPI_SERVICE __pyx_string_tab[647]
-#define __pyx_n_u_CURLOPT_SPLIT_COOKIES __pyx_string_tab[648]
-#define __pyx_n_u_CURLOPT_SSH_AUTH_TYPES __pyx_string_tab[649]
-#define __pyx_n_u_CURLOPT_SSH_COMPRESSION __pyx_string_tab[650]
-#define __pyx_n_u_CURLOPT_SSH_HOSTKEYDATA __pyx_string_tab[651]
-#define __pyx_n_u_CURLOPT_SSH_HOSTKEYFUNCTION __pyx_string_tab[652]
-#define __pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 __pyx_string_tab[653]
-#define __pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_SHA2 __pyx_string_tab[654]
-#define __pyx_n_u_CURLOPT_SSH_KEYDATA __pyx_string_tab[655]
-#define __pyx_n_u_CURLOPT_SSH_KEYFUNCTION __pyx_string_tab[656]
-#define __pyx_n_u_CURLOPT_SSH_KNOWNHOSTS __pyx_string_tab[657]
-#define __pyx_n_u_CURLOPT_SSH_PRIVATE_KEYFILE __pyx_string_tab[658]
-#define __pyx_n_u_CURLOPT_SSH_PUBLIC_KEYFILE __pyx_string_tab[659]
-#define __pyx_n_u_CURLOPT_SSLCERT __pyx_string_tab[660]
-#define __pyx_n_u_CURLOPT_SSLCERTPASSWD __pyx_string_tab[661]
-#define __pyx_n_u_CURLOPT_SSLCERTTYPE __pyx_string_tab[662]
-#define __pyx_n_u_CURLOPT_SSLCERT_BLOB __pyx_string_tab[663]
-#define __pyx_n_u_CURLOPT_SSLENGINE __pyx_string_tab[664]
-#define __pyx_n_u_CURLOPT_SSLENGINE_DEFAULT __pyx_string_tab[665]
-#define __pyx_n_u_CURLOPT_SSLKEY __pyx_string_tab[666]
-#define __pyx_n_u_CURLOPT_SSLKEYPASSWD __pyx_string_tab[667]
-#define __pyx_n_u_CURLOPT_SSLKEYTYPE __pyx_string_tab[668]
-#define __pyx_n_u_CURLOPT_SSLKEY_BLOB __pyx_string_tab[669]
-#define __pyx_n_u_CURLOPT_SSLVERSION __pyx_string_tab[670]
-#define __pyx_n_u_CURLOPT_SSL_CERT_COMPRESSION __pyx_string_tab[671]
-#define __pyx_n_u_CURLOPT_SSL_CIPHER_LIST __pyx_string_tab[672]
-#define __pyx_n_u_CURLOPT_SSL_CTX_DATA __pyx_string_tab[673]
-#define __pyx_n_u_CURLOPT_SSL_CTX_FUNCTION __pyx_string_tab[674]
-#define __pyx_n_u_CURLOPT_SSL_EC_CURVES __pyx_string_tab[675]
-#define __pyx_n_u_CURLOPT_SSL_ENABLE_ALPN __pyx_string_tab[676]
-#define __pyx_n_u_CURLOPT_SSL_ENABLE_ALPS __pyx_string_tab[677]
-#define __pyx_n_u_CURLOPT_SSL_ENABLE_NPN __pyx_string_tab[678]
-#define __pyx_n_u_CURLOPT_SSL_ENABLE_TICKET __pyx_string_tab[679]
-#define __pyx_n_u_CURLOPT_SSL_FALSESTART __pyx_string_tab[680]
-#define __pyx_n_u_CURLOPT_SSL_OPTIONS __pyx_string_tab[681]
-#define __pyx_n_u_CURLOPT_SSL_PERMUTE_EXTENSIONS __pyx_string_tab[682]
-#define __pyx_n_u_CURLOPT_SSL_SESSIONID_CACHE __pyx_string_tab[683]
-#define __pyx_n_u_CURLOPT_SSL_SIGNATURE_ALGORITHMS __pyx_string_tab[684]
-#define __pyx_n_u_CURLOPT_SSL_SIG_HASH_ALGS __pyx_string_tab[685]
-#define __pyx_n_u_CURLOPT_SSL_VERIFYHOST __pyx_string_tab[686]
-#define __pyx_n_u_CURLOPT_SSL_VERIFYPEER __pyx_string_tab[687]
-#define __pyx_n_u_CURLOPT_SSL_VERIFYSTATUS __pyx_string_tab[688]
-#define __pyx_n_u_CURLOPT_STDERR __pyx_string_tab[689]
-#define __pyx_n_u_CURLOPT_STREAM_DEPENDS __pyx_string_tab[690]
-#define __pyx_n_u_CURLOPT_STREAM_DEPENDS_E __pyx_string_tab[691]
-#define __pyx_n_u_CURLOPT_STREAM_EXCLUSIVE __pyx_string_tab[692]
-#define __pyx_n_u_CURLOPT_STREAM_WEIGHT __pyx_string_tab[693]
-#define __pyx_n_u_CURLOPT_SUPPRESS_CONNECT_HEADERS __pyx_string_tab[694]
-#define __pyx_n_u_CURLOPT_TCP_FASTOPEN __pyx_string_tab[695]
-#define __pyx_n_u_CURLOPT_TCP_KEEPALIVE __pyx_string_tab[696]
-#define __pyx_n_u_CURLOPT_TCP_KEEPCNT __pyx_string_tab[697]
-#define __pyx_n_u_CURLOPT_TCP_KEEPIDLE __pyx_string_tab[698]
-#define __pyx_n_u_CURLOPT_TCP_KEEPINTVL __pyx_string_tab[699]
-#define __pyx_n_u_CURLOPT_TCP_NODELAY __pyx_string_tab[700]
-#define __pyx_n_u_CURLOPT_TELNETOPTIONS __pyx_string_tab[701]
-#define __pyx_n_u_CURLOPT_TFTP_BLKSIZE __pyx_string_tab[702]
-#define __pyx_n_u_CURLOPT_TFTP_NO_OPTIONS __pyx_string_tab[703]
-#define __pyx_n_u_CURLOPT_TIMECONDITION __pyx_string_tab[704]
-#define __pyx_n_u_CURLOPT_TIMEOUT __pyx_string_tab[705]
-#define __pyx_n_u_CURLOPT_TIMEOUT_MS __pyx_string_tab[706]
-#define __pyx_n_u_CURLOPT_TIMEVALUE __pyx_string_tab[707]
-#define __pyx_n_u_CURLOPT_TIMEVALUE_LARGE __pyx_string_tab[708]
-#define __pyx_n_u_CURLOPT_TLS13_CIPHERS __pyx_string_tab[709]
-#define __pyx_n_u_CURLOPT_TLSAUTH_PASSWORD __pyx_string_tab[710]
-#define __pyx_n_u_CURLOPT_TLSAUTH_TYPE __pyx_string_tab[711]
-#define __pyx_n_u_CURLOPT_TLSAUTH_USERNAME __pyx_string_tab[712]
-#define __pyx_n_u_CURLOPT_TLS_DELEGATED_CREDENTIAL __pyx_string_tab[713]
-#define __pyx_n_u_CURLOPT_TLS_EXTENSION_ORDER __pyx_string_tab[714]
-#define __pyx_n_u_CURLOPT_TLS_GREASE __pyx_string_tab[715]
-#define __pyx_n_u_CURLOPT_TLS_KEY_SHARES_LIMIT __pyx_string_tab[716]
-#define __pyx_n_u_CURLOPT_TLS_KEY_USAGE_NO_CHECK __pyx_string_tab[717]
-#define __pyx_n_u_CURLOPT_TLS_RECORD_SIZE_LIMIT __pyx_string_tab[718]
-#define __pyx_n_u_CURLOPT_TLS_SIGNED_CERT_TIMESTAM __pyx_string_tab[719]
-#define __pyx_n_u_CURLOPT_TLS_STATUS_REQUEST __pyx_string_tab[720]
-#define __pyx_n_u_CURLOPT_TLS_USE_NEW_ALPS_CODEPOI __pyx_string_tab[721]
-#define __pyx_n_u_CURLOPT_TRAILERDATA __pyx_string_tab[722]
-#define __pyx_n_u_CURLOPT_TRAILERFUNCTION __pyx_string_tab[723]
-#define __pyx_n_u_CURLOPT_TRANSFERTEXT __pyx_string_tab[724]
-#define __pyx_n_u_CURLOPT_TRANSFER_ENCODING __pyx_string_tab[725]
-#define __pyx_n_u_CURLOPT_UNIX_SOCKET_PATH __pyx_string_tab[726]
-#define __pyx_n_u_CURLOPT_UNRESTRICTED_AUTH __pyx_string_tab[727]
-#define __pyx_n_u_CURLOPT_UPKEEP_INTERVAL_MS __pyx_string_tab[728]
-#define __pyx_n_u_CURLOPT_UPLOAD __pyx_string_tab[729]
-#define __pyx_n_u_CURLOPT_UPLOAD_BUFFERSIZE __pyx_string_tab[730]
-#define __pyx_n_u_CURLOPT_UPLOAD_FLAGS __pyx_string_tab[731]
-#define __pyx_n_u_CURLOPT_URL __pyx_string_tab[732]
-#define __pyx_n_u_CURLOPT_USERAGENT __pyx_string_tab[733]
-#define __pyx_n_u_CURLOPT_USERNAME __pyx_string_tab[734]
-#define __pyx_n_u_CURLOPT_USERPWD __pyx_string_tab[735]
-#define __pyx_n_u_CURLOPT_USE_SSL __pyx_string_tab[736]
-#define __pyx_n_u_CURLOPT_VERBOSE __pyx_string_tab[737]
-#define __pyx_n_u_CURLOPT_WILDCARDMATCH __pyx_string_tab[738]
-#define __pyx_n_u_CURLOPT_WRITEDATA __pyx_string_tab[739]
-#define __pyx_n_u_CURLOPT_WRITEFUNCTION __pyx_string_tab[740]
-#define __pyx_n_u_CURLOPT_WRITEHEADER __pyx_string_tab[741]
-#define __pyx_n_u_CURLOPT_WRITEINFO __pyx_string_tab[742]
-#define __pyx_n_u_CURLOPT_WS_HTTPHEADER __pyx_string_tab[743]
-#define __pyx_n_u_CURLOPT_WS_HTTPHEADER_ORDER __pyx_string_tab[744]
-#define __pyx_n_u_CURLOPT_WS_OPTIONS __pyx_string_tab[745]
-#define __pyx_n_u_CURLOPT_WS_SSL_CERT_COMPRESSION __pyx_string_tab[746]
-#define __pyx_n_u_CURLOPT_WS_SSL_DISABLE_TICKET __pyx_string_tab[747]
-#define __pyx_n_u_CURLOPT_XFERINFODATA __pyx_string_tab[748]
-#define __pyx_n_u_CURLOPT_XFERINFOFUNCTION __pyx_string_tab[749]
-#define __pyx_n_u_CURLOPT_XOAUTH2_BEARER __pyx_string_tab[750]
-#define __pyx_n_u_CURLPAUSE_ALL __pyx_string_tab[751]
-#define __pyx_n_u_CURLPAUSE_CONT __pyx_string_tab[752]
-#define __pyx_n_u_CURLPAUSE_RECV __pyx_string_tab[753]
-#define __pyx_n_u_CURLPAUSE_RECV_CONT __pyx_string_tab[754]
-#define __pyx_n_u_CURLPAUSE_SEND __pyx_string_tab[755]
-#define __pyx_n_u_CURLPAUSE_SEND_CONT __pyx_string_tab[756]
-#define __pyx_n_u_CURLPIPE_HTTP1 __pyx_string_tab[757]
-#define __pyx_n_u_CURLPIPE_MULTIPLEX __pyx_string_tab[758]
-#define __pyx_n_u_CURLPIPE_NOTHING __pyx_string_tab[759]
-#define __pyx_n_u_CURLSSH_AUTH_AGENT __pyx_string_tab[760]
-#define __pyx_n_u_CURLSSH_AUTH_ANY __pyx_string_tab[761]
-#define __pyx_n_u_CURLSSH_AUTH_DEFAULT __pyx_string_tab[762]
-#define __pyx_n_u_CURLSSH_AUTH_GSSAPI __pyx_string_tab[763]
-#define __pyx_n_u_CURLSSH_AUTH_HOST __pyx_string_tab[764]
-#define __pyx_n_u_CURLSSH_AUTH_KEYBOARD __pyx_string_tab[765]
-#define __pyx_n_u_CURLSSH_AUTH_NONE __pyx_string_tab[766]
-#define __pyx_n_u_CURLSSH_AUTH_PASSWORD __pyx_string_tab[767]
-#define __pyx_n_u_CURLSSH_AUTH_PUBLICKEY __pyx_string_tab[768]
-#define __pyx_n_u_CURLWS_BINARY __pyx_string_tab[769]
-#define __pyx_n_u_CURLWS_CLOSE __pyx_string_tab[770]
-#define __pyx_n_u_CURLWS_CONT __pyx_string_tab[771]
-#define __pyx_n_u_CURLWS_NOAUTOPONG __pyx_string_tab[772]
-#define __pyx_n_u_CURLWS_OFFSET __pyx_string_tab[773]
-#define __pyx_n_u_CURLWS_PING __pyx_string_tab[774]
-#define __pyx_n_u_CURLWS_PONG __pyx_string_tab[775]
-#define __pyx_n_u_CURLWS_RAW_MODE __pyx_string_tab[776]
-#define __pyx_n_u_CURLWS_TEXT __pyx_string_tab[777]
-#define __pyx_n_u_CURL_CA_BUNDLE __pyx_string_tab[778]
-#define __pyx_n_u_CURL_CSELECT_ERR __pyx_string_tab[779]
-#define __pyx_n_u_CURL_CSELECT_IN __pyx_string_tab[780]
-#define __pyx_n_u_CURL_CSELECT_OUT __pyx_string_tab[781]
-#define __pyx_n_u_CURL_ERROR_SIZE __pyx_string_tab[782]
-#define __pyx_n_u_CURL_FNMATCHFUNC_FAIL __pyx_string_tab[783]
-#define __pyx_n_u_CURL_FNMATCHFUNC_MATCH __pyx_string_tab[784]
-#define __pyx_n_u_CURL_FNMATCHFUNC_NOMATCH __pyx_string_tab[785]
-#define __pyx_n_u_CURL_HTTP_VERSION_1_0 __pyx_string_tab[786]
-#define __pyx_n_u_CURL_HTTP_VERSION_1_1 __pyx_string_tab[787]
-#define __pyx_n_u_CURL_HTTP_VERSION_2 __pyx_string_tab[788]
-#define __pyx_n_u_CURL_HTTP_VERSION_2TLS __pyx_string_tab[789]
-#define __pyx_n_u_CURL_HTTP_VERSION_2_0 __pyx_string_tab[790]
-#define __pyx_n_u_CURL_HTTP_VERSION_2_PRIOR_KNOWLE __pyx_string_tab[791]
-#define __pyx_n_u_CURL_HTTP_VERSION_3 __pyx_string_tab[792]
-#define __pyx_n_u_CURL_HTTP_VERSION_3ONLY __pyx_string_tab[793]
-#define __pyx_n_u_CURL_HTTP_VERSION_LAST __pyx_string_tab[794]
-#define __pyx_n_u_CURL_HTTP_VERSION_NONE __pyx_string_tab[795]
-#define __pyx_n_u_CURL_IPRESOLVE_V4 __pyx_string_tab[796]
-#define __pyx_n_u_CURL_IPRESOLVE_V6 __pyx_string_tab[797]
-#define __pyx_n_u_CURL_IPRESOLVE_WHATEVER __pyx_string_tab[798]
-#define __pyx_n_u_CURL_POLL_IN __pyx_string_tab[799]
-#define __pyx_n_u_CURL_POLL_INOUT __pyx_string_tab[800]
-#define __pyx_n_u_CURL_POLL_NONE __pyx_string_tab[801]
-#define __pyx_n_u_CURL_POLL_OUT __pyx_string_tab[802]
-#define __pyx_n_u_CURL_POLL_REMOVE __pyx_string_tab[803]
-#define __pyx_n_u_CURL_PREREQFUNC_ABORT __pyx_string_tab[804]
-#define __pyx_n_u_CURL_PREREQFUNC_OK __pyx_string_tab[805]
-#define __pyx_n_u_CURL_READFUNC_ABORT __pyx_string_tab[806]
-#define __pyx_n_u_CURL_READFUNC_PAUSE __pyx_string_tab[807]
-#define __pyx_n_u_CURL_SEEKFUNC_CANTSEEK __pyx_string_tab[808]
-#define __pyx_n_u_CURL_SEEKFUNC_FAIL __pyx_string_tab[809]
-#define __pyx_n_u_CURL_SEEKFUNC_OK __pyx_string_tab[810]
-#define __pyx_n_u_CURL_SOCKET_BAD __pyx_string_tab[811]
-#define __pyx_n_u_CURL_SOCKET_TIMEOUT __pyx_string_tab[812]
-#define __pyx_n_u_CURL_SSLVERSION_DEFAULT __pyx_string_tab[813]
-#define __pyx_n_u_CURL_SSLVERSION_LAST __pyx_string_tab[814]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_DEFAULT __pyx_string_tab[815]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_LAST __pyx_string_tab[816]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_NONE __pyx_string_tab[817]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_0 __pyx_string_tab[818]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_1 __pyx_string_tab[819]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_2 __pyx_string_tab[820]
-#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_3 __pyx_string_tab[821]
-#define __pyx_n_u_CURL_SSLVERSION_SSLv2 __pyx_string_tab[822]
-#define __pyx_n_u_CURL_SSLVERSION_SSLv3 __pyx_string_tab[823]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1 __pyx_string_tab[824]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1_0 __pyx_string_tab[825]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1_1 __pyx_string_tab[826]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1_2 __pyx_string_tab[827]
-#define __pyx_n_u_CURL_SSLVERSION_TLSv1_3 __pyx_string_tab[828]
-#define __pyx_n_u_CURL_TRAILERFUNC_ABORT __pyx_string_tab[829]
-#define __pyx_n_u_CURL_TRAILERFUNC_OK __pyx_string_tab[830]
-#define __pyx_n_u_CURL_WRITEFUNC_ERROR __pyx_string_tab[831]
-#define __pyx_n_u_CURL_WRITEFUNC_PAUSE __pyx_string_tab[832]
-#define __pyx_n_u_Callable __pyx_string_tab[833]
-#define __pyx_n_u_CancelledError __pyx_string_tab[834]
-#define __pyx_n_u_Condition __pyx_string_tab[835]
-#define __pyx_n_u_Curl __pyx_string_tab[836]
-#define __pyx_n_u_Curl___reduce_cython __pyx_string_tab[837]
-#define __pyx_n_u_Curl___setstate_cython __pyx_string_tab[838]
-#define __pyx_n_u_Curl__get_callback_exception __pyx_string_tab[839]
-#define __pyx_n_u_Curl_clean_handles_and_buffers __pyx_string_tab[840]
-#define __pyx_n_u_Curl_close __pyx_string_tab[841]
-#define __pyx_n_u_Curl_debug __pyx_string_tab[842]
-#define __pyx_n_u_Curl_duphandle __pyx_string_tab[843]
-#define __pyx_n_u_Curl_get_reason_phrase __pyx_string_tab[844]
-#define __pyx_n_u_Curl_getinfo __pyx_string_tab[845]
-#define __pyx_n_u_Curl_impersonate __pyx_string_tab[846]
-#define __pyx_n_u_Curl_parse_cookie_headers __pyx_string_tab[847]
-#define __pyx_n_u_Curl_parse_status_line __pyx_string_tab[848]
-#define __pyx_n_u_Curl_pause __pyx_string_tab[849]
-#define __pyx_n_u_Curl_perform __pyx_string_tab[850]
-#define __pyx_n_u_Curl_reset __pyx_string_tab[851]
-#define __pyx_n_u_Curl_setopt __pyx_string_tab[852]
-#define __pyx_n_u_Curl_upkeep __pyx_string_tab[853]
-#define __pyx_n_u_Curl_version __pyx_string_tab[854]
-#define __pyx_n_u_Curl_ws_close __pyx_string_tab[855]
-#define __pyx_n_u_Curl_ws_meta __pyx_string_tab[856]
-#define __pyx_n_u_Curl_ws_recv __pyx_string_tab[857]
-#define __pyx_n_u_Curl_ws_send __pyx_string_tab[858]
-#define __pyx_n_u_CurlError __pyx_string_tab[859]
-#define __pyx_n_u_CurlError___init __pyx_string_tab[860]
-#define __pyx_n_u_CurlMime __pyx_string_tab[861]
-#define __pyx_n_u_CurlMime___reduce_cython __pyx_string_tab[862]
-#define __pyx_n_u_CurlMime___setstate_cython __pyx_string_tab[863]
-#define __pyx_n_u_CurlMime_addpart __pyx_string_tab[864]
-#define __pyx_n_u_CurlMime_attach __pyx_string_tab[865]
-#define __pyx_n_u_CurlMime_close __pyx_string_tab[866]
-#define __pyx_n_u_CurlMime_from_list __pyx_string_tab[867]
-#define __pyx_n_u_CurlWarning __pyx_string_tab[868]
-#define __pyx_n_u_DEFAULT_CACERT __pyx_string_tab[869]
-#define __pyx_n_u_EBADF __pyx_string_tab[870]
-#define __pyx_n_u_Ellipsis __pyx_string_tab[871]
-#define __pyx_n_u_MAX_SHOW_BYTES __pyx_string_tab[872]
-#define __pyx_n_u_MY_ATTRIBUTES __pyx_string_tab[873]
-#define __pyx_n_u_None __pyx_string_tab[874]
-#define __pyx_n_u_Optional __pyx_string_tab[875]
-#define __pyx_n_u_PREFIXES __pyx_string_tab[876]
-#define __pyx_n_u_PROACTOR_WARNING __pyx_string_tab[877]
-#define __pyx_n_u_Path __pyx_string_tab[878]
-#define __pyx_n_u_ProactorEventLoop __pyx_string_tab[879]
-#define __pyx_n_u_Protocol __pyx_string_tab[880]
-#define __pyx_n_u_REASON_PHRASE_RE __pyx_string_tab[881]
-#define __pyx_n_u_REQUESTS_CA_BUNDLE __pyx_string_tab[882]
-#define __pyx_n_u_SSL_CERT_FILE __pyx_string_tab[883]
-#define __pyx_n_u_STATUS_LINE_RE __pyx_string_tab[884]
-#define __pyx_n_u_SelectorThread __pyx_string_tab[885]
-#define __pyx_n_u_SelectorThread___init __pyx_string_tab[886]
-#define __pyx_n_u_SelectorThread___init___locals_l __pyx_string_tab[887]
-#define __pyx_n_u_SelectorThread___init___locals_t __pyx_string_tab[888]
-#define __pyx_n_u_SelectorThread__consume_waker __pyx_string_tab[889]
-#define __pyx_n_u_SelectorThread__handle_event __pyx_string_tab[890]
-#define __pyx_n_u_SelectorThread__handle_select __pyx_string_tab[891]
-#define __pyx_n_u_SelectorThread__run_select __pyx_string_tab[892]
-#define __pyx_n_u_SelectorThread__start_select __pyx_string_tab[893]
-#define __pyx_n_u_SelectorThread__thread_manager __pyx_string_tab[894]
-#define __pyx_n_u_SelectorThread__wake_selector __pyx_string_tab[895]
-#define __pyx_n_u_SelectorThread_add_reader __pyx_string_tab[896]
-#define __pyx_n_u_SelectorThread_add_writer __pyx_string_tab[897]
-#define __pyx_n_u_SelectorThread_close __pyx_string_tab[898]
-#define __pyx_n_u_SelectorThread_remove_reader __pyx_string_tab[899]
-#define __pyx_n_u_SelectorThread_remove_writer __pyx_string_tab[900]
-#define __pyx_n_u_Sequence __pyx_string_tab[901]
-#define __pyx_n_u_SimpleCookie __pyx_string_tab[902]
-#define __pyx_n_u_Thread __pyx_string_tab[903]
-#define __pyx_n_u_TypeVar __pyx_string_tab[904]
-#define __pyx_n_u_Union __pyx_string_tab[905]
-#define __pyx_n_u_View_MemoryView __pyx_string_tab[906]
-#define __pyx_n_u_WSAENOTSOCK __pyx_string_tab[907]
-#define __pyx_n_u_WSFrame __pyx_string_tab[908]
-#define __pyx_n_u_WSFrame___reduce_cython __pyx_string_tab[909]
-#define __pyx_n_u_WSFrame___setstate_cython __pyx_string_tab[910]
-#define __pyx_n_u_WS_RECV __pyx_string_tab[911]
-#define __pyx_n_u_WS_SEND __pyx_string_tab[912]
-#define __pyx_n_u_WeakKeyDictionary __pyx_string_tab[913]
-#define __pyx_n_u_WeakSet __pyx_string_tab[914]
-#define __pyx_n_u__15 __pyx_string_tab[915]
-#define __pyx_n_u_CallbackContext __pyx_string_tab[916]
-#define __pyx_n_u_CallbackContext___reduce_cython __pyx_string_tab[917]
-#define __pyx_n_u_CallbackContext___setstate_cyth __pyx_string_tab[918]
-#define __pyx_n_u_FileDescriptorLike __pyx_string_tab[919]
-#define __pyx_n_u_HasFileno __pyx_string_tab[920]
-#define __pyx_n_u_HasFileno_fileno __pyx_string_tab[921]
-#define __pyx_n_u_T __pyx_string_tab[922]
-#define __pyx_n_u_Pyx_PyDict_NextRef __pyx_string_tab[923]
-#define __pyx_n_u_anext __pyx_string_tab[924]
-#define __pyx_n_u_annotate __pyx_string_tab[925]
-#define __pyx_n_u_await __pyx_string_tab[926]
-#define __pyx_n_u_class __pyx_string_tab[927]
-#define __pyx_n_u_class_getitem __pyx_string_tab[928]
-#define __pyx_n_u_dict __pyx_string_tab[929]
-#define __pyx_n_u_doc __pyx_string_tab[930]
-#define __pyx_n_u_enter __pyx_string_tab[931]
-#define __pyx_n_u_exit __pyx_string_tab[932]
-#define __pyx_n_u_func __pyx_string_tab[933]
-#define __pyx_n_u_getattribute __pyx_string_tab[934]
-#define __pyx_n_u_getstate __pyx_string_tab[935]
-#define __pyx_n_u_import __pyx_string_tab[936]
-#define __pyx_n_u_init __pyx_string_tab[937]
-#define __pyx_n_u_main __pyx_string_tab[938]
-#define __pyx_n_u_metaclass __pyx_string_tab[939]
-#define __pyx_n_u_module __pyx_string_tab[940]
-#define __pyx_n_u_mro_entries __pyx_string_tab[941]
-#define __pyx_n_u_name_2 __pyx_string_tab[942]
-#define __pyx_n_u_new __pyx_string_tab[943]
-#define __pyx_n_u_prepare __pyx_string_tab[944]
-#define __pyx_n_u_pyx_checksum __pyx_string_tab[945]
-#define __pyx_n_u_pyx_result __pyx_string_tab[946]
-#define __pyx_n_u_pyx_state __pyx_string_tab[947]
-#define __pyx_n_u_pyx_type __pyx_string_tab[948]
-#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[949]
-#define __pyx_n_u_pyx_unpickle__CallbackContext __pyx_string_tab[950]
-#define __pyx_n_u_pyx_vtable __pyx_string_tab[951]
-#define __pyx_n_u_qualname __pyx_string_tab[952]
-#define __pyx_n_u_reduce __pyx_string_tab[953]
-#define __pyx_n_u_reduce_cython __pyx_string_tab[954]
-#define __pyx_n_u_reduce_ex __pyx_string_tab[955]
-#define __pyx_n_u_set_name __pyx_string_tab[956]
-#define __pyx_n_u_setstate __pyx_string_tab[957]
-#define __pyx_n_u_setstate_cython __pyx_string_tab[958]
-#define __pyx_n_u_test __pyx_string_tab[959]
-#define __pyx_n_u_atexit_callback __pyx_string_tab[960]
-#define __pyx_n_u_check_error __pyx_string_tab[961]
-#define __pyx_n_u_close_selector_and_loop __pyx_string_tab[962]
-#define __pyx_n_u_closed __pyx_string_tab[963]
-#define __pyx_n_u_closing_selector __pyx_string_tab[964]
-#define __pyx_n_u_consume_waker __pyx_string_tab[965]
-#define __pyx_n_u_default_cacert __pyx_string_tab[966]
-#define __pyx_n_u_dict_2 __pyx_string_tab[967]
-#define __pyx_n_u_force_timeout __pyx_string_tab[968]
-#define __pyx_n_u_get_callback_exception __pyx_string_tab[969]
-#define __pyx_n_u_handle_event __pyx_string_tab[970]
-#define __pyx_n_u_handle_select __pyx_string_tab[971]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[972]
-#define __pyx_n_u_readers __pyx_string_tab[973]
-#define __pyx_n_u_real_loop_2 __pyx_string_tab[974]
-#define __pyx_n_u_run_select __pyx_string_tab[975]
-#define __pyx_n_u_select_args __pyx_string_tab[976]
-#define __pyx_n_u_select_cond __pyx_string_tab[977]
-#define __pyx_n_u_selector __pyx_string_tab[978]
-#define __pyx_n_u_selector_loops __pyx_string_tab[979]
-#define __pyx_n_u_selectors __pyx_string_tab[980]
-#define __pyx_n_u_start_select __pyx_string_tab[981]
-#define __pyx_n_u_thread __pyx_string_tab[982]
-#define __pyx_n_u_thread_manager __pyx_string_tab[983]
-#define __pyx_n_u_thread_manager_handle __pyx_string_tab[984]
-#define __pyx_n_u_wake_selector __pyx_string_tab[985]
-#define __pyx_n_u_waker_r __pyx_string_tab[986]
-#define __pyx_n_u_waker_w __pyx_string_tab[987]
-#define __pyx_n_u_writers __pyx_string_tab[988]
-#define __pyx_n_u_a __pyx_string_tab[989]
-#define __pyx_n_u_abc __pyx_string_tab[990]
-#define __pyx_n_u_action __pyx_string_tab[991]
-#define __pyx_n_u_add __pyx_string_tab[992]
-#define __pyx_n_u_add_handle __pyx_string_tab[993]
-#define __pyx_n_u_add_reader __pyx_string_tab[994]
-#define __pyx_n_u_add_writer __pyx_string_tab[995]
-#define __pyx_n_u_addpart __pyx_string_tab[996]
-#define __pyx_n_u_allocate_buffer __pyx_string_tab[997]
-#define __pyx_n_u_args __pyx_string_tab[998]
-#define __pyx_n_u_asyncio __pyx_string_tab[999]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[1000]
-#define __pyx_n_u_asyncio_loop __pyx_string_tab[1001]
-#define __pyx_n_u_atexit __pyx_string_tab[1002]
-#define __pyx_n_u_attach __pyx_string_tab[1003]
-#define __pyx_n_u_backslashreplace __pyx_string_tab[1004]
-#define __pyx_n_u_base __pyx_string_tab[1005]
-#define __pyx_n_u_bool __pyx_string_tab[1006]
-#define __pyx_n_u_byte __pyx_string_tab[1007]
-#define __pyx_n_u_bytes_2 __pyx_string_tab[1008]
-#define __pyx_n_u_bytes_to_hex_locals_genexpr __pyx_string_tab[1009]
-#define __pyx_n_u_c __pyx_string_tab[1010]
-#define __pyx_n_u_cacert __pyx_string_tab[1011]
-#define __pyx_n_u_cafile __pyx_string_tab[1012]
-#define __pyx_n_u_call_later __pyx_string_tab[1013]
-#define __pyx_n_u_call_soon __pyx_string_tab[1014]
-#define __pyx_n_u_call_soon_threadsafe __pyx_string_tab[1015]
-#define __pyx_n_u_callback __pyx_string_tab[1016]
-#define __pyx_n_u_cancel __pyx_string_tab[1017]
-#define __pyx_n_u_cancelled __pyx_string_tab[1018]
-#define __pyx_n_u_category __pyx_string_tab[1019]
-#define __pyx_n_u_cb_map __pyx_string_tab[1020]
-#define __pyx_n_u_certifi __pyx_string_tab[1021]
-#define __pyx_n_u_clean_handles_and_buffers __pyx_string_tab[1022]
-#define __pyx_n_u_clear __pyx_string_tab[1023]
-#define __pyx_n_u_clear_headers __pyx_string_tab[1024]
-#define __pyx_n_u_clear_resolve __pyx_string_tab[1025]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[1026]
-#define __pyx_n_u_close __pyx_string_tab[1027]
-#define __pyx_n_u_cls __pyx_string_tab[1028]
-#define __pyx_n_u_code __pyx_string_tab[1029]
-#define __pyx_n_u_collections_abc __pyx_string_tab[1030]
-#define __pyx_n_u_compile __pyx_string_tab[1031]
-#define __pyx_n_u_config_warnings __pyx_string_tab[1032]
-#define __pyx_n_u_content_type __pyx_string_tab[1033]
-#define __pyx_n_u_contextlib __pyx_string_tab[1034]
-#define __pyx_n_u_cookie __pyx_string_tab[1035]
-#define __pyx_n_u_count __pyx_string_tab[1036]
-#define __pyx_n_u_create_future __pyx_string_tab[1037]
-#define __pyx_n_u_create_task __pyx_string_tab[1038]
-#define __pyx_n_u_curl_2 __pyx_string_tab[1039]
-#define __pyx_n_u_cycurl__curl __pyx_string_tab[1040]
-#define __pyx_n_u_daemon __pyx_string_tab[1041]
-#define __pyx_n_u_data __pyx_string_tab[1042]
-#define __pyx_n_u_debug __pyx_string_tab[1043]
-#define __pyx_n_u_debug_function_default __pyx_string_tab[1044]
-#define __pyx_n_u_decode __pyx_string_tab[1045]
-#define __pyx_n_u_default __pyx_string_tab[1046]
-#define __pyx_n_u_default_headers __pyx_string_tab[1047]
-#define __pyx_n_u_discard __pyx_string_tab[1048]
-#define __pyx_n_u_done __pyx_string_tab[1049]
-#define __pyx_n_u_dtype_is_object __pyx_string_tab[1050]
-#define __pyx_n_u_duphandle __pyx_string_tab[1051]
-#define __pyx_n_u_e __pyx_string_tab[1052]
-#define __pyx_n_u_encode __pyx_string_tab[1053]
-#define __pyx_n_u_enumerate __pyx_string_tab[1054]
-#define __pyx_n_u_environ __pyx_string_tab[1055]
-#define __pyx_n_u_errcode __pyx_string_tab[1056]
-#define __pyx_n_u_errmsg __pyx_string_tab[1057]
-#define __pyx_n_u_errno __pyx_string_tab[1058]
-#define __pyx_n_u_error __pyx_string_tab[1059]
-#define __pyx_n_u_errors __pyx_string_tab[1060]
-#define __pyx_n_u_ev_bitmask __pyx_string_tab[1061]
-#define __pyx_n_u_exception __pyx_string_tab[1062]
-#define __pyx_n_u_exists __pyx_string_tab[1063]
-#define __pyx_n_u_fd __pyx_string_tab[1064]
-#define __pyx_n_u_file __pyx_string_tab[1065]
-#define __pyx_n_u_filename __pyx_string_tab[1066]
-#define __pyx_n_u_fileno __pyx_string_tab[1067]
-#define __pyx_n_u_files __pyx_string_tab[1068]
-#define __pyx_n_u_flags __pyx_string_tab[1069]
-#define __pyx_n_u_form __pyx_string_tab[1070]
-#define __pyx_n_u_format __pyx_string_tab[1071]
-#define __pyx_n_u_fortran __pyx_string_tab[1072]
-#define __pyx_n_u_frame __pyx_string_tab[1073]
-#define __pyx_n_u_from_list __pyx_string_tab[1074]
-#define __pyx_n_u_functools __pyx_string_tab[1075]
-#define __pyx_n_u_future __pyx_string_tab[1076]
-#define __pyx_n_u_genexpr __pyx_string_tab[1077]
-#define __pyx_n_u_get __pyx_string_tab[1078]
-#define __pyx_n_u_get_default_verify_paths __pyx_string_tab[1079]
-#define __pyx_n_u_get_reason_phrase __pyx_string_tab[1080]
-#define __pyx_n_u_get_running_loop __pyx_string_tab[1081]
-#define __pyx_n_u_get_selector __pyx_string_tab[1082]
-#define __pyx_n_u_get_selector_locals__close_selec __pyx_string_tab[1083]
-#define __pyx_n_u_getinfo_2 __pyx_string_tab[1084]
-#define __pyx_n_u_getpreferredencoding __pyx_string_tab[1085]
-#define __pyx_n_u_group __pyx_string_tab[1086]
-#define __pyx_n_u_handle __pyx_string_tab[1087]
-#define __pyx_n_u_header __pyx_string_tab[1088]
-#define __pyx_n_u_headers __pyx_string_tab[1089]
-#define __pyx_n_u_hex_str __pyx_string_tab[1090]
-#define __pyx_n_u_http_cookies __pyx_string_tab[1091]
-#define __pyx_n_u_http_version __pyx_string_tab[1092]
-#define __pyx_n_u_id __pyx_string_tab[1093]
-#define __pyx_n_u_ignore __pyx_string_tab[1094]
-#define __pyx_n_u_impersonate __pyx_string_tab[1095]
-#define __pyx_n_u_index __pyx_string_tab[1096]
-#define __pyx_n_u_int __pyx_string_tab[1097]
-#define __pyx_n_u_is_pro __pyx_string_tab[1098]
-#define __pyx_n_u_items __pyx_string_tab[1099]
-#define __pyx_n_u_itemsize __pyx_string_tab[1100]
-#define __pyx_n_u_join __pyx_string_tab[1101]
-#define __pyx_n_u_keys __pyx_string_tab[1102]
-#define __pyx_n_u_kwargs __pyx_string_tab[1103]
-#define __pyx_n_u_load __pyx_string_tab[1104]
-#define __pyx_n_u_local_path __pyx_string_tab[1105]
-#define __pyx_n_u_locale __pyx_string_tab[1106]
-#define __pyx_n_u_loop __pyx_string_tab[1107]
-#define __pyx_n_u_loop_close __pyx_string_tab[1108]
-#define __pyx_n_u_lower __pyx_string_tab[1109]
-#define __pyx_n_u_m __pyx_string_tab[1110]
-#define __pyx_n_u_match __pyx_string_tab[1111]
-#define __pyx_n_u_memview __pyx_string_tab[1112]
-#define __pyx_n_u_message __pyx_string_tab[1113]
-#define __pyx_n_u_mode __pyx_string_tab[1114]
-#define __pyx_n_u_msg __pyx_string_tab[1115]
-#define __pyx_n_u_name __pyx_string_tab[1116]
-#define __pyx_n_u_ndim __pyx_string_tab[1117]
-#define __pyx_n_u_next __pyx_string_tab[1118]
-#define __pyx_n_u_notify __pyx_string_tab[1119]
-#define __pyx_n_u_obj __pyx_string_tab[1120]
-#define __pyx_n_u_on __pyx_string_tab[1121]
-#define __pyx_n_u_option __pyx_string_tab[1122]
-#define __pyx_n_u_os __pyx_string_tab[1123]
-#define __pyx_n_u_pack __pyx_string_tab[1124]
-#define __pyx_n_u_parse_cookie_headers __pyx_string_tab[1125]
-#define __pyx_n_u_parse_status_line __pyx_string_tab[1126]
-#define __pyx_n_u_partial __pyx_string_tab[1127]
-#define __pyx_n_u_path __pyx_string_tab[1128]
-#define __pyx_n_u_pathlib __pyx_string_tab[1129]
-#define __pyx_n_u_pause __pyx_string_tab[1130]
-#define __pyx_n_u_payload __pyx_string_tab[1131]
-#define __pyx_n_u_perform __pyx_string_tab[1132]
-#define __pyx_n_u_platform __pyx_string_tab[1133]
-#define __pyx_n_u_pop __pyx_string_tab[1134]
-#define __pyx_n_u_postfix __pyx_string_tab[1135]
-#define __pyx_n_u_prefix __pyx_string_tab[1136]
-#define __pyx_n_u_print __pyx_string_tab[1137]
-#define __pyx_n_u_process_data __pyx_string_tab[1138]
-#define __pyx_n_u_r __pyx_string_tab[1139]
-#define __pyx_n_u_re __pyx_string_tab[1140]
-#define __pyx_n_u_read __pyx_string_tab[1141]
-#define __pyx_n_u_real_loop __pyx_string_tab[1142]
-#define __pyx_n_u_reason __pyx_string_tab[1143]
-#define __pyx_n_u_recv __pyx_string_tab[1144]
-#define __pyx_n_u_register __pyx_string_tab[1145]
-#define __pyx_n_u_remove_handle __pyx_string_tab[1146]
-#define __pyx_n_u_remove_reader __pyx_string_tab[1147]
-#define __pyx_n_u_remove_writer __pyx_string_tab[1148]
-#define __pyx_n_u_reset __pyx_string_tab[1149]
-#define __pyx_n_u_return __pyx_string_tab[1150]
-#define __pyx_n_u_rs __pyx_string_tab[1151]
-#define __pyx_n_u_seek __pyx_string_tab[1152]
-#define __pyx_n_u_select __pyx_string_tab[1153]
-#define __pyx_n_u_selector_loop __pyx_string_tab[1154]
-#define __pyx_n_u_self __pyx_string_tab[1155]
-#define __pyx_n_u_send __pyx_string_tab[1156]
-#define __pyx_n_u_set_exception __pyx_string_tab[1157]
-#define __pyx_n_u_set_result __pyx_string_tab[1158]
-#define __pyx_n_u_setblocking __pyx_string_tab[1159]
-#define __pyx_n_u_setdefault __pyx_string_tab[1160]
-#define __pyx_n_u_setopt_2 __pyx_string_tab[1161]
-#define __pyx_n_u_shape __pyx_string_tab[1162]
-#define __pyx_n_u_simplefilter __pyx_string_tab[1163]
-#define __pyx_n_u_size __pyx_string_tab[1164]
-#define __pyx_n_u_sleep __pyx_string_tab[1165]
-#define __pyx_n_u_socket __pyx_string_tab[1166]
-#define __pyx_n_u_socket_action __pyx_string_tab[1167]
-#define __pyx_n_u_socketpair __pyx_string_tab[1168]
-#define __pyx_n_u_sockfd __pyx_string_tab[1169]
-#define __pyx_n_u_ssl __pyx_string_tab[1170]
-#define __pyx_n_u_stacklevel __pyx_string_tab[1171]
-#define __pyx_n_u_start __pyx_string_tab[1172]
-#define __pyx_n_u_startswith __pyx_string_tab[1173]
-#define __pyx_n_u_state __pyx_string_tab[1174]
-#define __pyx_n_u_staticmethod __pyx_string_tab[1175]
-#define __pyx_n_u_status_code __pyx_string_tab[1176]
-#define __pyx_n_u_status_line __pyx_string_tab[1177]
-#define __pyx_n_u_stderr __pyx_string_tab[1178]
-#define __pyx_n_u_step __pyx_string_tab[1179]
-#define __pyx_n_u_stop __pyx_string_tab[1180]
-#define __pyx_n_u_str __pyx_string_tab[1181]
-#define __pyx_n_u_strict __pyx_string_tab[1182]
-#define __pyx_n_u_struct __pyx_string_tab[1183]
-#define __pyx_n_u_super __pyx_string_tab[1184]
-#define __pyx_n_u_suppress __pyx_string_tab[1185]
-#define __pyx_n_u_sys __pyx_string_tab[1186]
-#define __pyx_n_u_target __pyx_string_tab[1187]
-#define __pyx_n_u_text __pyx_string_tab[1188]
-#define __pyx_n_u_thread_manager_anext __pyx_string_tab[1189]
-#define __pyx_n_u_threading __pyx_string_tab[1190]
-#define __pyx_n_u_throw __pyx_string_tab[1191]
-#define __pyx_n_u_to_read __pyx_string_tab[1192]
-#define __pyx_n_u_to_write __pyx_string_tab[1193]
-#define __pyx_n_u_tuple __pyx_string_tab[1194]
-#define __pyx_n_u_type __pyx_string_tab[1195]
-#define __pyx_n_u_typing __pyx_string_tab[1196]
-#define __pyx_n_u_unpack __pyx_string_tab[1197]
-#define __pyx_n_u_update __pyx_string_tab[1198]
-#define __pyx_n_u_upkeep __pyx_string_tab[1199]
-#define __pyx_n_u_use_setstate __pyx_string_tab[1200]
-#define __pyx_n_u_value __pyx_string_tab[1201]
-#define __pyx_n_u_values __pyx_string_tab[1202]
-#define __pyx_n_u_version __pyx_string_tab[1203]
-#define __pyx_n_u_w __pyx_string_tab[1204]
-#define __pyx_n_u_wait __pyx_string_tab[1205]
-#define __pyx_n_u_warn __pyx_string_tab[1206]
-#define __pyx_n_u_warnings __pyx_string_tab[1207]
-#define __pyx_n_u_weakref __pyx_string_tab[1208]
-#define __pyx_n_u_where __pyx_string_tab[1209]
-#define __pyx_n_u_win __pyx_string_tab[1210]
-#define __pyx_n_u_win32 __pyx_string_tab[1211]
-#define __pyx_n_u_write __pyx_string_tab[1212]
-#define __pyx_n_u_ws __pyx_string_tab[1213]
-#define __pyx_n_u_ws_close __pyx_string_tab[1214]
-#define __pyx_n_u_ws_meta __pyx_string_tab[1215]
-#define __pyx_n_u_ws_recv __pyx_string_tab[1216]
-#define __pyx_n_u_ws_send __pyx_string_tab[1217]
-#define __pyx_n_u_x __pyx_string_tab[1218]
-#define __pyx_n_u_xs __pyx_string_tab[1219]
-#define __pyx_kp_b__8 __pyx_string_tab[1220]
-#define __pyx_kp_b_HTTP_d_d_0_9_3_2 __pyx_string_tab[1221]
-#define __pyx_kp_b_HTTP_d_d_0_9_3 __pyx_string_tab[1222]
-#define __pyx_n_b_O __pyx_string_tab[1223]
-#define __pyx_n_b_a __pyx_string_tab[1224]
-#define __pyx_kp_b_set_cookie __pyx_string_tab[1225]
-#define __pyx_kp_b_iso88591_Q __pyx_string_tab[1226]
-#define __pyx_kp_b_iso88591_avQ __pyx_string_tab[1227]
-#define __pyx_kp_b_iso88591_1_7q_r_Qa_5_Be7_1_1_s_1_xxt2U_x __pyx_string_tab[1228]
-#define __pyx_kp_b_iso88591_m1 __pyx_string_tab[1229]
-#define __pyx_kp_b_iso88591_q_0_kQR_81A_7_2_3FnTU_1 __pyx_string_tab[1230]
-#define __pyx_kp_b_iso88591_A_q_l_vWE_Q_q_t_WE_D_7_q_1_Qg_q __pyx_string_tab[1231]
-#define __pyx_kp_b_iso88591_A_4wc_1_q_A_q __pyx_string_tab[1232]
-#define __pyx_kp_b_iso88591_A_87_1_U_1Cq_4uA_iq_Q6J_1 __pyx_string_tab[1233]
-#define __pyx_kp_b_iso88591_A_3_Q_iq __pyx_string_tab[1234]
-#define __pyx_kp_b_iso88591_A_1_E_as_a_E_as_a_N __pyx_string_tab[1235]
-#define __pyx_kp_b_iso88591_A_1_IQfIXQk_O1 __pyx_string_tab[1236]
-#define __pyx_kp_b_iso88591_A01_F_1_q_avWA __pyx_string_tab[1237]
-#define __pyx_kp_b_iso88591_A01_N_4q_Q_1F_3c_1_fAS_1_1_fAS_1 __pyx_string_tab[1238]
-#define __pyx_kp_b_iso88591_A_4t1_E_DMQ_N_81_4AT_1_9Cq_85_q __pyx_string_tab[1239]
-#define __pyx_kp_b_iso88591_A_G1 __pyx_string_tab[1240]
-#define __pyx_kp_b_iso88591_A_G5_G5_0 __pyx_string_tab[1241]
-#define __pyx_kp_b_iso88591_A_A_A_4q_AT_4z_A_AT_A __pyx_string_tab[1242]
-#define __pyx_kp_b_iso88591_A_q __pyx_string_tab[1243]
-#define __pyx_kp_b_iso88591_A_Q_7_z_q_Q_7_z_q_Q_7_z_q_Q_7_z __pyx_string_tab[1244]
-#define __pyx_kp_b_iso88591_A_T_Qa_7_d_S_D_j __pyx_string_tab[1245]
-#define __pyx_kp_b_iso88591_A_vQa __pyx_string_tab[1246]
-#define __pyx_kp_b_iso88591_A_t __pyx_string_tab[1247]
-#define __pyx_kp_b_iso88591_A_S_HA_1_q __pyx_string_tab[1248]
-#define __pyx_kp_b_iso88591_A_1D_HA __pyx_string_tab[1249]
-#define __pyx_kp_b_iso88591_A_at1_t7_a_4s_1A_q_G1_oQfN_t3a_i __pyx_string_tab[1250]
-#define __pyx_kp_b_iso88591_A_4wc_1A_1_a_c_D_Zt9M_VST_q __pyx_string_tab[1251]
-#define __pyx_kp_b_iso88591_A__A_0_Ye1_M_U_M_1_Kq_7_z_q __pyx_string_tab[1252]
-#define __pyx_kp_b_iso88591_A_4wc_1A_m1D_T_T_1_Qe1_wd_D0J_ST __pyx_string_tab[1253]
-#define __pyx_kp_b_iso88591_A2_A_A_Q_7_A_4wc_y_1_q_Yc_Yc_Q_q __pyx_string_tab[1254]
-#define __pyx_kp_b_iso88591_d_q __pyx_string_tab[1255]
-#define __pyx_kp_b_iso88591__14 __pyx_string_tab[1256]
-#define __pyx_kp_b_iso88591_HD_q0DA __pyx_string_tab[1257]
-#define __pyx_kp_b_iso88591_a_2 __pyx_string_tab[1258]
-#define __pyx_kp_b_iso88591_D_q_Qk_Qj __pyx_string_tab[1259]
-#define __pyx_kp_b_iso88591_1 __pyx_string_tab[1260]
-#define __pyx_kp_b_iso88591_Q_WA_Qa_aq_4y_q_Q_6 __pyx_string_tab[1261]
-#define __pyx_kp_b_iso88591_Zq_Q_Q_Q_Q_Q_Q_Q_Q_XT_vW_V7_at2 __pyx_string_tab[1262]
-#define __pyx_kp_b_iso88591_q_4q_Q_WA_O1_4y_q_Q_xq_N_4q_IV1 __pyx_string_tab[1263]
-#define __pyx_kp_b_iso88591_q_JfA_KvQ __pyx_string_tab[1264]
-#define __pyx_kp_b_iso88591_q_2 __pyx_string_tab[1265]
-#define __pyx_kp_b_iso88591_9_q __pyx_string_tab[1266]
-#define __pyx_kp_b_iso88591_F_Ry_xq_HA __pyx_string_tab[1267]
-#define __pyx_kp_b_iso88591_Q_Q_d_5_D_A_U_4q_t_D_A_D_V7_9Ja __pyx_string_tab[1268]
-#define __pyx_kp_b_iso88591_q_4_S_Qd_5_T_iuTU_WA __pyx_string_tab[1269]
-#define __pyx_kp_b_iso88591_4q_Qa_aq __pyx_string_tab[1270]
-#define __pyx_kp_b_iso88591_Qa_aq __pyx_string_tab[1271]
-#define __pyx_kp_b_iso88591_8_IQa_1_O1_q __pyx_string_tab[1272]
-#define __pyx_kp_b_iso88591_t_1A __pyx_string_tab[1273]
-#define __pyx_kp_b_iso88591_8_QfF_A_t81O1 __pyx_string_tab[1274]
-#define __pyx_kp_b_iso88591_N_M_q __pyx_string_tab[1275]
-#define __pyx_kp_b_iso88591_N_IZq_A_31_d_A_Kz_Q_Q_Kt_v_I_I __pyx_string_tab[1276]
-#define __pyx_kp_b_iso88591_A_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I __pyx_string_tab[1277]
-#define __pyx_kp_b_iso88591_XQ_5_Q_5_1A_wat __pyx_string_tab[1278]
-#define __pyx_kp_b_iso88591_1_ivWJd_Qd_q __pyx_string_tab[1279]
-#define __pyx_kp_b_iso88591_a_4wc_1_at81_M_q_q __pyx_string_tab[1280]
-#define __pyx_kp_b_iso88591_K1_4wc_1_q_hnF __pyx_string_tab[1281]
-#define __pyx_kp_b_iso88591_4A_Q_Ja_vV2_e1F_4wa_q __pyx_string_tab[1282]
-#define __pyx_kp_b_iso88591_88SSaab_4wc_1A_O1_Q_Q_a_Qe1_1 __pyx_string_tab[1283]
-#define __pyx_kp_b_iso88591_DA_4wc_1_A_WBfBa_c_s_S_Ya_gQa_G __pyx_string_tab[1284]
-#define __pyx_kp_b_iso88591_FFaab_Q_a_Q_A_A_A_q_a_q_1_t_S_Q __pyx_string_tab[1285]
-#define __pyx_kp_b_iso88591_MQ_31D_UVVW_M_q __pyx_string_tab[1286]
-#define __pyx_kp_b_iso88591_4wc_1A_m1D_awat8SZZ_aaeeffjj_A __pyx_string_tab[1287]
-#define __pyx_kp_b_iso88591_q __pyx_string_tab[1288]
-#define __pyx_kp_b_iso88591_A __pyx_string_tab[1289]
+#define __pyx_n_u_CURLOPT_HTTP3_SSL_PERMUTE_EXTENS __pyx_string_tab[495]
+#define __pyx_n_u_CURLOPT_HTTP3_TLS_EXTENSION_ORDE __pyx_string_tab[496]
+#define __pyx_n_u_CURLOPT_HTTPAUTH __pyx_string_tab[497]
+#define __pyx_n_u_CURLOPT_HTTPBASEHEADER __pyx_string_tab[498]
+#define __pyx_n_u_CURLOPT_HTTPGET __pyx_string_tab[499]
+#define __pyx_n_u_CURLOPT_HTTPHEADER __pyx_string_tab[500]
+#define __pyx_n_u_CURLOPT_HTTPHEADER_ORDER __pyx_string_tab[501]
+#define __pyx_n_u_CURLOPT_HTTPPOST __pyx_string_tab[502]
+#define __pyx_n_u_CURLOPT_HTTPPROXYTUNNEL __pyx_string_tab[503]
+#define __pyx_n_u_CURLOPT_HTTP_CONTENT_DECODING __pyx_string_tab[504]
+#define __pyx_n_u_CURLOPT_HTTP_TRANSFER_DECODING __pyx_string_tab[505]
+#define __pyx_n_u_CURLOPT_HTTP_VERSION __pyx_string_tab[506]
+#define __pyx_n_u_CURLOPT_IGNORE_CONTENT_LENGTH __pyx_string_tab[507]
+#define __pyx_n_u_CURLOPT_IMPERSONATE __pyx_string_tab[508]
+#define __pyx_n_u_CURLOPT_INFILE __pyx_string_tab[509]
+#define __pyx_n_u_CURLOPT_INFILESIZE __pyx_string_tab[510]
+#define __pyx_n_u_CURLOPT_INFILESIZE_LARGE __pyx_string_tab[511]
+#define __pyx_n_u_CURLOPT_INTERFACE __pyx_string_tab[512]
+#define __pyx_n_u_CURLOPT_INTERLEAVEDATA __pyx_string_tab[513]
+#define __pyx_n_u_CURLOPT_INTERLEAVEFUNCTION __pyx_string_tab[514]
+#define __pyx_n_u_CURLOPT_IOCTLDATA __pyx_string_tab[515]
+#define __pyx_n_u_CURLOPT_IOCTLFUNCTION __pyx_string_tab[516]
+#define __pyx_n_u_CURLOPT_IPRESOLVE __pyx_string_tab[517]
+#define __pyx_n_u_CURLOPT_ISSUERCERT __pyx_string_tab[518]
+#define __pyx_n_u_CURLOPT_ISSUERCERT_BLOB __pyx_string_tab[519]
+#define __pyx_n_u_CURLOPT_KEEP_SENDING_ON_ERROR __pyx_string_tab[520]
+#define __pyx_n_u_CURLOPT_KEYPASSWD __pyx_string_tab[521]
+#define __pyx_n_u_CURLOPT_KRB4LEVEL __pyx_string_tab[522]
+#define __pyx_n_u_CURLOPT_KRBLEVEL __pyx_string_tab[523]
+#define __pyx_n_u_CURLOPT_LOCALPORT __pyx_string_tab[524]
+#define __pyx_n_u_CURLOPT_LOCALPORTRANGE __pyx_string_tab[525]
+#define __pyx_n_u_CURLOPT_LOGIN_OPTIONS __pyx_string_tab[526]
+#define __pyx_n_u_CURLOPT_LOW_SPEED_LIMIT __pyx_string_tab[527]
+#define __pyx_n_u_CURLOPT_LOW_SPEED_TIME __pyx_string_tab[528]
+#define __pyx_n_u_CURLOPT_MAIL_AUTH __pyx_string_tab[529]
+#define __pyx_n_u_CURLOPT_MAIL_FROM __pyx_string_tab[530]
+#define __pyx_n_u_CURLOPT_MAIL_RCPT __pyx_string_tab[531]
+#define __pyx_n_u_CURLOPT_MAIL_RCPT_ALLLOWFAILS __pyx_string_tab[532]
+#define __pyx_n_u_CURLOPT_MAIL_RCPT_ALLOWFAILS __pyx_string_tab[533]
+#define __pyx_n_u_CURLOPT_MAXAGE_CONN __pyx_string_tab[534]
+#define __pyx_n_u_CURLOPT_MAXCONNECTS __pyx_string_tab[535]
+#define __pyx_n_u_CURLOPT_MAXFILESIZE __pyx_string_tab[536]
+#define __pyx_n_u_CURLOPT_MAXFILESIZE_LARGE __pyx_string_tab[537]
+#define __pyx_n_u_CURLOPT_MAXLIFETIME_CONN __pyx_string_tab[538]
+#define __pyx_n_u_CURLOPT_MAXREDIRS __pyx_string_tab[539]
+#define __pyx_n_u_CURLOPT_MAX_RECV_SPEED_LARGE __pyx_string_tab[540]
+#define __pyx_n_u_CURLOPT_MAX_SEND_SPEED_LARGE __pyx_string_tab[541]
+#define __pyx_n_u_CURLOPT_MIMEPOST __pyx_string_tab[542]
+#define __pyx_n_u_CURLOPT_MIME_OPTIONS __pyx_string_tab[543]
+#define __pyx_n_u_CURLOPT_NETRC __pyx_string_tab[544]
+#define __pyx_n_u_CURLOPT_NETRC_FILE __pyx_string_tab[545]
+#define __pyx_n_u_CURLOPT_NEW_DIRECTORY_PERMS __pyx_string_tab[546]
+#define __pyx_n_u_CURLOPT_NEW_FILE_PERMS __pyx_string_tab[547]
+#define __pyx_n_u_CURLOPT_NOBODY __pyx_string_tab[548]
+#define __pyx_n_u_CURLOPT_NOPROGRESS __pyx_string_tab[549]
+#define __pyx_n_u_CURLOPT_NOPROXY __pyx_string_tab[550]
+#define __pyx_n_u_CURLOPT_NOSIGNAL __pyx_string_tab[551]
+#define __pyx_n_u_CURLOPT_OBSOLETE40 __pyx_string_tab[552]
+#define __pyx_n_u_CURLOPT_OBSOLETE72 __pyx_string_tab[553]
+#define __pyx_n_u_CURLOPT_OPENSOCKETDATA __pyx_string_tab[554]
+#define __pyx_n_u_CURLOPT_OPENSOCKETFUNCTION __pyx_string_tab[555]
+#define __pyx_n_u_CURLOPT_PASSWORD __pyx_string_tab[556]
+#define __pyx_n_u_CURLOPT_PATH_AS_IS __pyx_string_tab[557]
+#define __pyx_n_u_CURLOPT_PINNEDPUBLICKEY __pyx_string_tab[558]
+#define __pyx_n_u_CURLOPT_PIPEWAIT __pyx_string_tab[559]
+#define __pyx_n_u_CURLOPT_PORT __pyx_string_tab[560]
+#define __pyx_n_u_CURLOPT_POST __pyx_string_tab[561]
+#define __pyx_n_u_CURLOPT_POST301 __pyx_string_tab[562]
+#define __pyx_n_u_CURLOPT_POSTFIELDS __pyx_string_tab[563]
+#define __pyx_n_u_CURLOPT_POSTFIELDSIZE __pyx_string_tab[564]
+#define __pyx_n_u_CURLOPT_POSTFIELDSIZE_LARGE __pyx_string_tab[565]
+#define __pyx_n_u_CURLOPT_POSTQUOTE __pyx_string_tab[566]
+#define __pyx_n_u_CURLOPT_POSTREDIR __pyx_string_tab[567]
+#define __pyx_n_u_CURLOPT_PREQUOTE __pyx_string_tab[568]
+#define __pyx_n_u_CURLOPT_PREREQDATA __pyx_string_tab[569]
+#define __pyx_n_u_CURLOPT_PREREQFUNCTION __pyx_string_tab[570]
+#define __pyx_n_u_CURLOPT_PRE_PROXY __pyx_string_tab[571]
+#define __pyx_n_u_CURLOPT_PRIVATE __pyx_string_tab[572]
+#define __pyx_n_u_CURLOPT_PROGRESSDATA __pyx_string_tab[573]
+#define __pyx_n_u_CURLOPT_PROGRESSFUNCTION __pyx_string_tab[574]
+#define __pyx_n_u_CURLOPT_PROTOCOLS __pyx_string_tab[575]
+#define __pyx_n_u_CURLOPT_PROTOCOLS_STR __pyx_string_tab[576]
+#define __pyx_n_u_CURLOPT_PROXY __pyx_string_tab[577]
+#define __pyx_n_u_CURLOPT_PROXYAUTH __pyx_string_tab[578]
+#define __pyx_n_u_CURLOPT_PROXYHEADER __pyx_string_tab[579]
+#define __pyx_n_u_CURLOPT_PROXYPASSWORD __pyx_string_tab[580]
+#define __pyx_n_u_CURLOPT_PROXYPORT __pyx_string_tab[581]
+#define __pyx_n_u_CURLOPT_PROXYTYPE __pyx_string_tab[582]
+#define __pyx_n_u_CURLOPT_PROXYUSERNAME __pyx_string_tab[583]
+#define __pyx_n_u_CURLOPT_PROXYUSERPWD __pyx_string_tab[584]
+#define __pyx_n_u_CURLOPT_PROXY_CAINFO __pyx_string_tab[585]
+#define __pyx_n_u_CURLOPT_PROXY_CAINFO_BLOB __pyx_string_tab[586]
+#define __pyx_n_u_CURLOPT_PROXY_CAPATH __pyx_string_tab[587]
+#define __pyx_n_u_CURLOPT_PROXY_CREDENTIAL_NO_REUS __pyx_string_tab[588]
+#define __pyx_n_u_CURLOPT_PROXY_CRLFILE __pyx_string_tab[589]
+#define __pyx_n_u_CURLOPT_PROXY_ISSUERCERT __pyx_string_tab[590]
+#define __pyx_n_u_CURLOPT_PROXY_ISSUERCERT_BLOB __pyx_string_tab[591]
+#define __pyx_n_u_CURLOPT_PROXY_KEYPASSWD __pyx_string_tab[592]
+#define __pyx_n_u_CURLOPT_PROXY_PINNEDPUBLICKEY __pyx_string_tab[593]
+#define __pyx_n_u_CURLOPT_PROXY_SERVICE_NAME __pyx_string_tab[594]
+#define __pyx_n_u_CURLOPT_PROXY_SSLCERT __pyx_string_tab[595]
+#define __pyx_n_u_CURLOPT_PROXY_SSLCERTTYPE __pyx_string_tab[596]
+#define __pyx_n_u_CURLOPT_PROXY_SSLCERT_BLOB __pyx_string_tab[597]
+#define __pyx_n_u_CURLOPT_PROXY_SSLKEY __pyx_string_tab[598]
+#define __pyx_n_u_CURLOPT_PROXY_SSLKEYTYPE __pyx_string_tab[599]
+#define __pyx_n_u_CURLOPT_PROXY_SSLKEY_BLOB __pyx_string_tab[600]
+#define __pyx_n_u_CURLOPT_PROXY_SSLVERSION __pyx_string_tab[601]
+#define __pyx_n_u_CURLOPT_PROXY_SSL_CIPHER_LIST __pyx_string_tab[602]
+#define __pyx_n_u_CURLOPT_PROXY_SSL_OPTIONS __pyx_string_tab[603]
+#define __pyx_n_u_CURLOPT_PROXY_SSL_VERIFYHOST __pyx_string_tab[604]
+#define __pyx_n_u_CURLOPT_PROXY_SSL_VERIFYPEER __pyx_string_tab[605]
+#define __pyx_n_u_CURLOPT_PROXY_TLS13_CIPHERS __pyx_string_tab[606]
+#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_PASSWORD __pyx_string_tab[607]
+#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_TYPE __pyx_string_tab[608]
+#define __pyx_n_u_CURLOPT_PROXY_TLSAUTH_USERNAME __pyx_string_tab[609]
+#define __pyx_n_u_CURLOPT_PROXY_TRANSFER_MODE __pyx_string_tab[610]
+#define __pyx_n_u_CURLOPT_PUT __pyx_string_tab[611]
+#define __pyx_n_u_CURLOPT_QUICK_EXIT __pyx_string_tab[612]
+#define __pyx_n_u_CURLOPT_QUIC_CID_LENGTH __pyx_string_tab[613]
+#define __pyx_n_u_CURLOPT_QUIC_TRANSPORT_PARAMETER __pyx_string_tab[614]
+#define __pyx_n_u_CURLOPT_QUOTE __pyx_string_tab[615]
+#define __pyx_n_u_CURLOPT_RANDOM_FILE __pyx_string_tab[616]
+#define __pyx_n_u_CURLOPT_RANGE __pyx_string_tab[617]
+#define __pyx_n_u_CURLOPT_READDATA __pyx_string_tab[618]
+#define __pyx_n_u_CURLOPT_READFUNCTION __pyx_string_tab[619]
+#define __pyx_n_u_CURLOPT_REDIR_PROTOCOLS __pyx_string_tab[620]
+#define __pyx_n_u_CURLOPT_REDIR_PROTOCOLS_STR __pyx_string_tab[621]
+#define __pyx_n_u_CURLOPT_REFERER __pyx_string_tab[622]
+#define __pyx_n_u_CURLOPT_REQUEST_TARGET __pyx_string_tab[623]
+#define __pyx_n_u_CURLOPT_RESOLVE __pyx_string_tab[624]
+#define __pyx_n_u_CURLOPT_RESOLVER_START_DATA __pyx_string_tab[625]
+#define __pyx_n_u_CURLOPT_RESOLVER_START_FUNCTION __pyx_string_tab[626]
+#define __pyx_n_u_CURLOPT_RESUME_FROM __pyx_string_tab[627]
+#define __pyx_n_u_CURLOPT_RESUME_FROM_LARGE __pyx_string_tab[628]
+#define __pyx_n_u_CURLOPT_RTSPHEADER __pyx_string_tab[629]
+#define __pyx_n_u_CURLOPT_RTSP_CLIENT_CSEQ __pyx_string_tab[630]
+#define __pyx_n_u_CURLOPT_RTSP_REQUEST __pyx_string_tab[631]
+#define __pyx_n_u_CURLOPT_RTSP_SERVER_CSEQ __pyx_string_tab[632]
+#define __pyx_n_u_CURLOPT_RTSP_SESSION_ID __pyx_string_tab[633]
+#define __pyx_n_u_CURLOPT_RTSP_STREAM_URI __pyx_string_tab[634]
+#define __pyx_n_u_CURLOPT_RTSP_TRANSPORT __pyx_string_tab[635]
+#define __pyx_n_u_CURLOPT_SASL_AUTHZID __pyx_string_tab[636]
+#define __pyx_n_u_CURLOPT_SASL_IR __pyx_string_tab[637]
+#define __pyx_n_u_CURLOPT_SEEKDATA __pyx_string_tab[638]
+#define __pyx_n_u_CURLOPT_SEEKFUNCTION __pyx_string_tab[639]
+#define __pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT __pyx_string_tab[640]
+#define __pyx_n_u_CURLOPT_SERVER_RESPONSE_TIMEOUT_2 __pyx_string_tab[641]
+#define __pyx_n_u_CURLOPT_SERVICE_NAME __pyx_string_tab[642]
+#define __pyx_n_u_CURLOPT_SHARE __pyx_string_tab[643]
+#define __pyx_n_u_CURLOPT_SOCKOPTDATA __pyx_string_tab[644]
+#define __pyx_n_u_CURLOPT_SOCKOPTFUNCTION __pyx_string_tab[645]
+#define __pyx_n_u_CURLOPT_SOCKS5_AUTH __pyx_string_tab[646]
+#define __pyx_n_u_CURLOPT_SOCKS5_GSSAPI_NEC __pyx_string_tab[647]
+#define __pyx_n_u_CURLOPT_SOCKS5_GSSAPI_SERVICE __pyx_string_tab[648]
+#define __pyx_n_u_CURLOPT_SPLIT_COOKIES __pyx_string_tab[649]
+#define __pyx_n_u_CURLOPT_SSH_AUTH_TYPES __pyx_string_tab[650]
+#define __pyx_n_u_CURLOPT_SSH_COMPRESSION __pyx_string_tab[651]
+#define __pyx_n_u_CURLOPT_SSH_HOSTKEYDATA __pyx_string_tab[652]
+#define __pyx_n_u_CURLOPT_SSH_HOSTKEYFUNCTION __pyx_string_tab[653]
+#define __pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 __pyx_string_tab[654]
+#define __pyx_n_u_CURLOPT_SSH_HOST_PUBLIC_KEY_SHA2 __pyx_string_tab[655]
+#define __pyx_n_u_CURLOPT_SSH_KEYDATA __pyx_string_tab[656]
+#define __pyx_n_u_CURLOPT_SSH_KEYFUNCTION __pyx_string_tab[657]
+#define __pyx_n_u_CURLOPT_SSH_KNOWNHOSTS __pyx_string_tab[658]
+#define __pyx_n_u_CURLOPT_SSH_PRIVATE_KEYFILE __pyx_string_tab[659]
+#define __pyx_n_u_CURLOPT_SSH_PUBLIC_KEYFILE __pyx_string_tab[660]
+#define __pyx_n_u_CURLOPT_SSLCERT __pyx_string_tab[661]
+#define __pyx_n_u_CURLOPT_SSLCERTPASSWD __pyx_string_tab[662]
+#define __pyx_n_u_CURLOPT_SSLCERTTYPE __pyx_string_tab[663]
+#define __pyx_n_u_CURLOPT_SSLCERT_BLOB __pyx_string_tab[664]
+#define __pyx_n_u_CURLOPT_SSLENGINE __pyx_string_tab[665]
+#define __pyx_n_u_CURLOPT_SSLENGINE_DEFAULT __pyx_string_tab[666]
+#define __pyx_n_u_CURLOPT_SSLKEY __pyx_string_tab[667]
+#define __pyx_n_u_CURLOPT_SSLKEYPASSWD __pyx_string_tab[668]
+#define __pyx_n_u_CURLOPT_SSLKEYTYPE __pyx_string_tab[669]
+#define __pyx_n_u_CURLOPT_SSLKEY_BLOB __pyx_string_tab[670]
+#define __pyx_n_u_CURLOPT_SSLVERSION __pyx_string_tab[671]
+#define __pyx_n_u_CURLOPT_SSL_CERT_COMPRESSION __pyx_string_tab[672]
+#define __pyx_n_u_CURLOPT_SSL_CIPHER_LIST __pyx_string_tab[673]
+#define __pyx_n_u_CURLOPT_SSL_CTX_DATA __pyx_string_tab[674]
+#define __pyx_n_u_CURLOPT_SSL_CTX_FUNCTION __pyx_string_tab[675]
+#define __pyx_n_u_CURLOPT_SSL_EC_CURVES __pyx_string_tab[676]
+#define __pyx_n_u_CURLOPT_SSL_ENABLE_ALPN __pyx_string_tab[677]
+#define __pyx_n_u_CURLOPT_SSL_ENABLE_ALPS __pyx_string_tab[678]
+#define __pyx_n_u_CURLOPT_SSL_ENABLE_NPN __pyx_string_tab[679]
+#define __pyx_n_u_CURLOPT_SSL_ENABLE_TICKET __pyx_string_tab[680]
+#define __pyx_n_u_CURLOPT_SSL_FALSESTART __pyx_string_tab[681]
+#define __pyx_n_u_CURLOPT_SSL_OPTIONS __pyx_string_tab[682]
+#define __pyx_n_u_CURLOPT_SSL_PERMUTE_EXTENSIONS __pyx_string_tab[683]
+#define __pyx_n_u_CURLOPT_SSL_SESSIONID_CACHE __pyx_string_tab[684]
+#define __pyx_n_u_CURLOPT_SSL_SIGNATURE_ALGORITHMS __pyx_string_tab[685]
+#define __pyx_n_u_CURLOPT_SSL_SIG_HASH_ALGS __pyx_string_tab[686]
+#define __pyx_n_u_CURLOPT_SSL_VERIFYHOST __pyx_string_tab[687]
+#define __pyx_n_u_CURLOPT_SSL_VERIFYPEER __pyx_string_tab[688]
+#define __pyx_n_u_CURLOPT_SSL_VERIFYSTATUS __pyx_string_tab[689]
+#define __pyx_n_u_CURLOPT_STDERR __pyx_string_tab[690]
+#define __pyx_n_u_CURLOPT_STREAM_DEPENDS __pyx_string_tab[691]
+#define __pyx_n_u_CURLOPT_STREAM_DEPENDS_E __pyx_string_tab[692]
+#define __pyx_n_u_CURLOPT_STREAM_EXCLUSIVE __pyx_string_tab[693]
+#define __pyx_n_u_CURLOPT_STREAM_WEIGHT __pyx_string_tab[694]
+#define __pyx_n_u_CURLOPT_SUPPRESS_CONNECT_HEADERS __pyx_string_tab[695]
+#define __pyx_n_u_CURLOPT_TCP_FASTOPEN __pyx_string_tab[696]
+#define __pyx_n_u_CURLOPT_TCP_KEEPALIVE __pyx_string_tab[697]
+#define __pyx_n_u_CURLOPT_TCP_KEEPCNT __pyx_string_tab[698]
+#define __pyx_n_u_CURLOPT_TCP_KEEPIDLE __pyx_string_tab[699]
+#define __pyx_n_u_CURLOPT_TCP_KEEPINTVL __pyx_string_tab[700]
+#define __pyx_n_u_CURLOPT_TCP_NODELAY __pyx_string_tab[701]
+#define __pyx_n_u_CURLOPT_TELNETOPTIONS __pyx_string_tab[702]
+#define __pyx_n_u_CURLOPT_TFTP_BLKSIZE __pyx_string_tab[703]
+#define __pyx_n_u_CURLOPT_TFTP_NO_OPTIONS __pyx_string_tab[704]
+#define __pyx_n_u_CURLOPT_TIMECONDITION __pyx_string_tab[705]
+#define __pyx_n_u_CURLOPT_TIMEOUT __pyx_string_tab[706]
+#define __pyx_n_u_CURLOPT_TIMEOUT_MS __pyx_string_tab[707]
+#define __pyx_n_u_CURLOPT_TIMEVALUE __pyx_string_tab[708]
+#define __pyx_n_u_CURLOPT_TIMEVALUE_LARGE __pyx_string_tab[709]
+#define __pyx_n_u_CURLOPT_TLS13_CIPHERS __pyx_string_tab[710]
+#define __pyx_n_u_CURLOPT_TLSAUTH_PASSWORD __pyx_string_tab[711]
+#define __pyx_n_u_CURLOPT_TLSAUTH_TYPE __pyx_string_tab[712]
+#define __pyx_n_u_CURLOPT_TLSAUTH_USERNAME __pyx_string_tab[713]
+#define __pyx_n_u_CURLOPT_TLS_DELEGATED_CREDENTIAL __pyx_string_tab[714]
+#define __pyx_n_u_CURLOPT_TLS_EXTENSION_ORDER __pyx_string_tab[715]
+#define __pyx_n_u_CURLOPT_TLS_GREASE __pyx_string_tab[716]
+#define __pyx_n_u_CURLOPT_TLS_KEY_SHARES_LIMIT __pyx_string_tab[717]
+#define __pyx_n_u_CURLOPT_TLS_KEY_USAGE_NO_CHECK __pyx_string_tab[718]
+#define __pyx_n_u_CURLOPT_TLS_RECORD_SIZE_LIMIT __pyx_string_tab[719]
+#define __pyx_n_u_CURLOPT_TLS_SIGNED_CERT_TIMESTAM __pyx_string_tab[720]
+#define __pyx_n_u_CURLOPT_TLS_STATUS_REQUEST __pyx_string_tab[721]
+#define __pyx_n_u_CURLOPT_TLS_TRUST_ANCHORS __pyx_string_tab[722]
+#define __pyx_n_u_CURLOPT_TLS_USE_NEW_ALPS_CODEPOI __pyx_string_tab[723]
+#define __pyx_n_u_CURLOPT_TRAILERDATA __pyx_string_tab[724]
+#define __pyx_n_u_CURLOPT_TRAILERFUNCTION __pyx_string_tab[725]
+#define __pyx_n_u_CURLOPT_TRANSFERTEXT __pyx_string_tab[726]
+#define __pyx_n_u_CURLOPT_TRANSFER_ENCODING __pyx_string_tab[727]
+#define __pyx_n_u_CURLOPT_UNIX_SOCKET_PATH __pyx_string_tab[728]
+#define __pyx_n_u_CURLOPT_UNRESTRICTED_AUTH __pyx_string_tab[729]
+#define __pyx_n_u_CURLOPT_UPKEEP_INTERVAL_MS __pyx_string_tab[730]
+#define __pyx_n_u_CURLOPT_UPLOAD __pyx_string_tab[731]
+#define __pyx_n_u_CURLOPT_UPLOAD_BUFFERSIZE __pyx_string_tab[732]
+#define __pyx_n_u_CURLOPT_UPLOAD_FLAGS __pyx_string_tab[733]
+#define __pyx_n_u_CURLOPT_URL __pyx_string_tab[734]
+#define __pyx_n_u_CURLOPT_USERAGENT __pyx_string_tab[735]
+#define __pyx_n_u_CURLOPT_USERNAME __pyx_string_tab[736]
+#define __pyx_n_u_CURLOPT_USERPWD __pyx_string_tab[737]
+#define __pyx_n_u_CURLOPT_USE_SSL __pyx_string_tab[738]
+#define __pyx_n_u_CURLOPT_VERBOSE __pyx_string_tab[739]
+#define __pyx_n_u_CURLOPT_WILDCARDMATCH __pyx_string_tab[740]
+#define __pyx_n_u_CURLOPT_WRITEDATA __pyx_string_tab[741]
+#define __pyx_n_u_CURLOPT_WRITEFUNCTION __pyx_string_tab[742]
+#define __pyx_n_u_CURLOPT_WRITEHEADER __pyx_string_tab[743]
+#define __pyx_n_u_CURLOPT_WRITEINFO __pyx_string_tab[744]
+#define __pyx_n_u_CURLOPT_WS_HTTPHEADER __pyx_string_tab[745]
+#define __pyx_n_u_CURLOPT_WS_HTTPHEADER_ORDER __pyx_string_tab[746]
+#define __pyx_n_u_CURLOPT_WS_OPTIONS __pyx_string_tab[747]
+#define __pyx_n_u_CURLOPT_WS_SSL_CERT_COMPRESSION __pyx_string_tab[748]
+#define __pyx_n_u_CURLOPT_WS_SSL_DISABLE_TICKET __pyx_string_tab[749]
+#define __pyx_n_u_CURLOPT_XFERINFODATA __pyx_string_tab[750]
+#define __pyx_n_u_CURLOPT_XFERINFOFUNCTION __pyx_string_tab[751]
+#define __pyx_n_u_CURLOPT_XOAUTH2_BEARER __pyx_string_tab[752]
+#define __pyx_n_u_CURLPAUSE_ALL __pyx_string_tab[753]
+#define __pyx_n_u_CURLPAUSE_CONT __pyx_string_tab[754]
+#define __pyx_n_u_CURLPAUSE_RECV __pyx_string_tab[755]
+#define __pyx_n_u_CURLPAUSE_RECV_CONT __pyx_string_tab[756]
+#define __pyx_n_u_CURLPAUSE_SEND __pyx_string_tab[757]
+#define __pyx_n_u_CURLPAUSE_SEND_CONT __pyx_string_tab[758]
+#define __pyx_n_u_CURLPIPE_HTTP1 __pyx_string_tab[759]
+#define __pyx_n_u_CURLPIPE_MULTIPLEX __pyx_string_tab[760]
+#define __pyx_n_u_CURLPIPE_NOTHING __pyx_string_tab[761]
+#define __pyx_n_u_CURLSSH_AUTH_AGENT __pyx_string_tab[762]
+#define __pyx_n_u_CURLSSH_AUTH_ANY __pyx_string_tab[763]
+#define __pyx_n_u_CURLSSH_AUTH_DEFAULT __pyx_string_tab[764]
+#define __pyx_n_u_CURLSSH_AUTH_GSSAPI __pyx_string_tab[765]
+#define __pyx_n_u_CURLSSH_AUTH_HOST __pyx_string_tab[766]
+#define __pyx_n_u_CURLSSH_AUTH_KEYBOARD __pyx_string_tab[767]
+#define __pyx_n_u_CURLSSH_AUTH_NONE __pyx_string_tab[768]
+#define __pyx_n_u_CURLSSH_AUTH_PASSWORD __pyx_string_tab[769]
+#define __pyx_n_u_CURLSSH_AUTH_PUBLICKEY __pyx_string_tab[770]
+#define __pyx_n_u_CURLWS_BINARY __pyx_string_tab[771]
+#define __pyx_n_u_CURLWS_CLOSE __pyx_string_tab[772]
+#define __pyx_n_u_CURLWS_CONT __pyx_string_tab[773]
+#define __pyx_n_u_CURLWS_NOAUTOPONG __pyx_string_tab[774]
+#define __pyx_n_u_CURLWS_OFFSET __pyx_string_tab[775]
+#define __pyx_n_u_CURLWS_PING __pyx_string_tab[776]
+#define __pyx_n_u_CURLWS_PONG __pyx_string_tab[777]
+#define __pyx_n_u_CURLWS_RAW_MODE __pyx_string_tab[778]
+#define __pyx_n_u_CURLWS_TEXT __pyx_string_tab[779]
+#define __pyx_n_u_CURL_CA_BUNDLE __pyx_string_tab[780]
+#define __pyx_n_u_CURL_CSELECT_ERR __pyx_string_tab[781]
+#define __pyx_n_u_CURL_CSELECT_IN __pyx_string_tab[782]
+#define __pyx_n_u_CURL_CSELECT_OUT __pyx_string_tab[783]
+#define __pyx_n_u_CURL_ERROR_SIZE __pyx_string_tab[784]
+#define __pyx_n_u_CURL_FNMATCHFUNC_FAIL __pyx_string_tab[785]
+#define __pyx_n_u_CURL_FNMATCHFUNC_MATCH __pyx_string_tab[786]
+#define __pyx_n_u_CURL_FNMATCHFUNC_NOMATCH __pyx_string_tab[787]
+#define __pyx_n_u_CURL_HTTP_VERSION_1_0 __pyx_string_tab[788]
+#define __pyx_n_u_CURL_HTTP_VERSION_1_1 __pyx_string_tab[789]
+#define __pyx_n_u_CURL_HTTP_VERSION_2 __pyx_string_tab[790]
+#define __pyx_n_u_CURL_HTTP_VERSION_2TLS __pyx_string_tab[791]
+#define __pyx_n_u_CURL_HTTP_VERSION_2_0 __pyx_string_tab[792]
+#define __pyx_n_u_CURL_HTTP_VERSION_2_PRIOR_KNOWLE __pyx_string_tab[793]
+#define __pyx_n_u_CURL_HTTP_VERSION_3 __pyx_string_tab[794]
+#define __pyx_n_u_CURL_HTTP_VERSION_3ONLY __pyx_string_tab[795]
+#define __pyx_n_u_CURL_HTTP_VERSION_LAST __pyx_string_tab[796]
+#define __pyx_n_u_CURL_HTTP_VERSION_NONE __pyx_string_tab[797]
+#define __pyx_n_u_CURL_IPRESOLVE_V4 __pyx_string_tab[798]
+#define __pyx_n_u_CURL_IPRESOLVE_V6 __pyx_string_tab[799]
+#define __pyx_n_u_CURL_IPRESOLVE_WHATEVER __pyx_string_tab[800]
+#define __pyx_n_u_CURL_POLL_IN __pyx_string_tab[801]
+#define __pyx_n_u_CURL_POLL_INOUT __pyx_string_tab[802]
+#define __pyx_n_u_CURL_POLL_NONE __pyx_string_tab[803]
+#define __pyx_n_u_CURL_POLL_OUT __pyx_string_tab[804]
+#define __pyx_n_u_CURL_POLL_REMOVE __pyx_string_tab[805]
+#define __pyx_n_u_CURL_PREREQFUNC_ABORT __pyx_string_tab[806]
+#define __pyx_n_u_CURL_PREREQFUNC_OK __pyx_string_tab[807]
+#define __pyx_n_u_CURL_READFUNC_ABORT __pyx_string_tab[808]
+#define __pyx_n_u_CURL_READFUNC_PAUSE __pyx_string_tab[809]
+#define __pyx_n_u_CURL_SEEKFUNC_CANTSEEK __pyx_string_tab[810]
+#define __pyx_n_u_CURL_SEEKFUNC_FAIL __pyx_string_tab[811]
+#define __pyx_n_u_CURL_SEEKFUNC_OK __pyx_string_tab[812]
+#define __pyx_n_u_CURL_SOCKET_BAD __pyx_string_tab[813]
+#define __pyx_n_u_CURL_SOCKET_TIMEOUT __pyx_string_tab[814]
+#define __pyx_n_u_CURL_SSLVERSION_DEFAULT __pyx_string_tab[815]
+#define __pyx_n_u_CURL_SSLVERSION_LAST __pyx_string_tab[816]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_DEFAULT __pyx_string_tab[817]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_LAST __pyx_string_tab[818]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_NONE __pyx_string_tab[819]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_0 __pyx_string_tab[820]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_1 __pyx_string_tab[821]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_2 __pyx_string_tab[822]
+#define __pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_3 __pyx_string_tab[823]
+#define __pyx_n_u_CURL_SSLVERSION_SSLv2 __pyx_string_tab[824]
+#define __pyx_n_u_CURL_SSLVERSION_SSLv3 __pyx_string_tab[825]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1 __pyx_string_tab[826]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1_0 __pyx_string_tab[827]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1_1 __pyx_string_tab[828]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1_2 __pyx_string_tab[829]
+#define __pyx_n_u_CURL_SSLVERSION_TLSv1_3 __pyx_string_tab[830]
+#define __pyx_n_u_CURL_TRAILERFUNC_ABORT __pyx_string_tab[831]
+#define __pyx_n_u_CURL_TRAILERFUNC_OK __pyx_string_tab[832]
+#define __pyx_n_u_CURL_WRITEFUNC_ERROR __pyx_string_tab[833]
+#define __pyx_n_u_CURL_WRITEFUNC_PAUSE __pyx_string_tab[834]
+#define __pyx_n_u_Callable __pyx_string_tab[835]
+#define __pyx_n_u_CancelledError __pyx_string_tab[836]
+#define __pyx_n_u_Condition __pyx_string_tab[837]
+#define __pyx_n_u_Curl __pyx_string_tab[838]
+#define __pyx_n_u_Curl___reduce_cython __pyx_string_tab[839]
+#define __pyx_n_u_Curl___setstate_cython __pyx_string_tab[840]
+#define __pyx_n_u_Curl__get_callback_exception __pyx_string_tab[841]
+#define __pyx_n_u_Curl_clean_handles_and_buffers __pyx_string_tab[842]
+#define __pyx_n_u_Curl_close __pyx_string_tab[843]
+#define __pyx_n_u_Curl_debug __pyx_string_tab[844]
+#define __pyx_n_u_Curl_duphandle __pyx_string_tab[845]
+#define __pyx_n_u_Curl_get_reason_phrase __pyx_string_tab[846]
+#define __pyx_n_u_Curl_getinfo __pyx_string_tab[847]
+#define __pyx_n_u_Curl_impersonate __pyx_string_tab[848]
+#define __pyx_n_u_Curl_parse_cookie_headers __pyx_string_tab[849]
+#define __pyx_n_u_Curl_parse_status_line __pyx_string_tab[850]
+#define __pyx_n_u_Curl_pause __pyx_string_tab[851]
+#define __pyx_n_u_Curl_perform __pyx_string_tab[852]
+#define __pyx_n_u_Curl_reset __pyx_string_tab[853]
+#define __pyx_n_u_Curl_setopt __pyx_string_tab[854]
+#define __pyx_n_u_Curl_upkeep __pyx_string_tab[855]
+#define __pyx_n_u_Curl_version __pyx_string_tab[856]
+#define __pyx_n_u_Curl_ws_close __pyx_string_tab[857]
+#define __pyx_n_u_Curl_ws_meta __pyx_string_tab[858]
+#define __pyx_n_u_Curl_ws_recv __pyx_string_tab[859]
+#define __pyx_n_u_Curl_ws_send __pyx_string_tab[860]
+#define __pyx_n_u_CurlError __pyx_string_tab[861]
+#define __pyx_n_u_CurlError___init __pyx_string_tab[862]
+#define __pyx_n_u_CurlMime __pyx_string_tab[863]
+#define __pyx_n_u_CurlMime___reduce_cython __pyx_string_tab[864]
+#define __pyx_n_u_CurlMime___setstate_cython __pyx_string_tab[865]
+#define __pyx_n_u_CurlMime_addpart __pyx_string_tab[866]
+#define __pyx_n_u_CurlMime_attach __pyx_string_tab[867]
+#define __pyx_n_u_CurlMime_close __pyx_string_tab[868]
+#define __pyx_n_u_CurlMime_from_list __pyx_string_tab[869]
+#define __pyx_n_u_CurlWarning __pyx_string_tab[870]
+#define __pyx_n_u_DEFAULT_CACERT __pyx_string_tab[871]
+#define __pyx_n_u_EBADF __pyx_string_tab[872]
+#define __pyx_n_u_Ellipsis __pyx_string_tab[873]
+#define __pyx_n_u_MAX_SHOW_BYTES __pyx_string_tab[874]
+#define __pyx_n_u_MY_ATTRIBUTES __pyx_string_tab[875]
+#define __pyx_n_u_None __pyx_string_tab[876]
+#define __pyx_n_u_Optional __pyx_string_tab[877]
+#define __pyx_n_u_PREFIXES __pyx_string_tab[878]
+#define __pyx_n_u_PROACTOR_WARNING __pyx_string_tab[879]
+#define __pyx_n_u_Path __pyx_string_tab[880]
+#define __pyx_n_u_ProactorEventLoop __pyx_string_tab[881]
+#define __pyx_n_u_Protocol __pyx_string_tab[882]
+#define __pyx_n_u_REASON_PHRASE_RE __pyx_string_tab[883]
+#define __pyx_n_u_REQUESTS_CA_BUNDLE __pyx_string_tab[884]
+#define __pyx_n_u_SSL_CERT_FILE __pyx_string_tab[885]
+#define __pyx_n_u_STATUS_LINE_RE __pyx_string_tab[886]
+#define __pyx_n_u_SelectorThread __pyx_string_tab[887]
+#define __pyx_n_u_SelectorThread___init __pyx_string_tab[888]
+#define __pyx_n_u_SelectorThread___init___locals_l __pyx_string_tab[889]
+#define __pyx_n_u_SelectorThread___init___locals_t __pyx_string_tab[890]
+#define __pyx_n_u_SelectorThread__consume_waker __pyx_string_tab[891]
+#define __pyx_n_u_SelectorThread__handle_event __pyx_string_tab[892]
+#define __pyx_n_u_SelectorThread__handle_select __pyx_string_tab[893]
+#define __pyx_n_u_SelectorThread__run_select __pyx_string_tab[894]
+#define __pyx_n_u_SelectorThread__start_select __pyx_string_tab[895]
+#define __pyx_n_u_SelectorThread__thread_manager __pyx_string_tab[896]
+#define __pyx_n_u_SelectorThread__wake_selector __pyx_string_tab[897]
+#define __pyx_n_u_SelectorThread_add_reader __pyx_string_tab[898]
+#define __pyx_n_u_SelectorThread_add_writer __pyx_string_tab[899]
+#define __pyx_n_u_SelectorThread_close __pyx_string_tab[900]
+#define __pyx_n_u_SelectorThread_remove_reader __pyx_string_tab[901]
+#define __pyx_n_u_SelectorThread_remove_writer __pyx_string_tab[902]
+#define __pyx_n_u_Sequence __pyx_string_tab[903]
+#define __pyx_n_u_SimpleCookie __pyx_string_tab[904]
+#define __pyx_n_u_Thread __pyx_string_tab[905]
+#define __pyx_n_u_TypeVar __pyx_string_tab[906]
+#define __pyx_n_u_Union __pyx_string_tab[907]
+#define __pyx_n_u_View_MemoryView __pyx_string_tab[908]
+#define __pyx_n_u_WSAENOTSOCK __pyx_string_tab[909]
+#define __pyx_n_u_WSFrame __pyx_string_tab[910]
+#define __pyx_n_u_WSFrame___reduce_cython __pyx_string_tab[911]
+#define __pyx_n_u_WSFrame___setstate_cython __pyx_string_tab[912]
+#define __pyx_n_u_WS_RECV __pyx_string_tab[913]
+#define __pyx_n_u_WS_SEND __pyx_string_tab[914]
+#define __pyx_n_u_WeakKeyDictionary __pyx_string_tab[915]
+#define __pyx_n_u_WeakSet __pyx_string_tab[916]
+#define __pyx_n_u__15 __pyx_string_tab[917]
+#define __pyx_n_u_CallbackContext __pyx_string_tab[918]
+#define __pyx_n_u_CallbackContext___reduce_cython __pyx_string_tab[919]
+#define __pyx_n_u_CallbackContext___setstate_cyth __pyx_string_tab[920]
+#define __pyx_n_u_FileDescriptorLike __pyx_string_tab[921]
+#define __pyx_n_u_HasFileno __pyx_string_tab[922]
+#define __pyx_n_u_HasFileno_fileno __pyx_string_tab[923]
+#define __pyx_n_u_T __pyx_string_tab[924]
+#define __pyx_n_u_Pyx_PyDict_NextRef __pyx_string_tab[925]
+#define __pyx_n_u_anext __pyx_string_tab[926]
+#define __pyx_n_u_annotate __pyx_string_tab[927]
+#define __pyx_n_u_await __pyx_string_tab[928]
+#define __pyx_n_u_class __pyx_string_tab[929]
+#define __pyx_n_u_class_getitem __pyx_string_tab[930]
+#define __pyx_n_u_dict __pyx_string_tab[931]
+#define __pyx_n_u_doc __pyx_string_tab[932]
+#define __pyx_n_u_enter __pyx_string_tab[933]
+#define __pyx_n_u_exit __pyx_string_tab[934]
+#define __pyx_n_u_func __pyx_string_tab[935]
+#define __pyx_n_u_getattribute __pyx_string_tab[936]
+#define __pyx_n_u_getstate __pyx_string_tab[937]
+#define __pyx_n_u_import __pyx_string_tab[938]
+#define __pyx_n_u_init __pyx_string_tab[939]
+#define __pyx_n_u_main __pyx_string_tab[940]
+#define __pyx_n_u_metaclass __pyx_string_tab[941]
+#define __pyx_n_u_module __pyx_string_tab[942]
+#define __pyx_n_u_mro_entries __pyx_string_tab[943]
+#define __pyx_n_u_name_2 __pyx_string_tab[944]
+#define __pyx_n_u_new __pyx_string_tab[945]
+#define __pyx_n_u_prepare __pyx_string_tab[946]
+#define __pyx_n_u_pyx_checksum __pyx_string_tab[947]
+#define __pyx_n_u_pyx_result __pyx_string_tab[948]
+#define __pyx_n_u_pyx_state __pyx_string_tab[949]
+#define __pyx_n_u_pyx_type __pyx_string_tab[950]
+#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[951]
+#define __pyx_n_u_pyx_unpickle__CallbackContext __pyx_string_tab[952]
+#define __pyx_n_u_pyx_vtable __pyx_string_tab[953]
+#define __pyx_n_u_qualname __pyx_string_tab[954]
+#define __pyx_n_u_reduce __pyx_string_tab[955]
+#define __pyx_n_u_reduce_cython __pyx_string_tab[956]
+#define __pyx_n_u_reduce_ex __pyx_string_tab[957]
+#define __pyx_n_u_set_name __pyx_string_tab[958]
+#define __pyx_n_u_setstate __pyx_string_tab[959]
+#define __pyx_n_u_setstate_cython __pyx_string_tab[960]
+#define __pyx_n_u_test __pyx_string_tab[961]
+#define __pyx_n_u_atexit_callback __pyx_string_tab[962]
+#define __pyx_n_u_check_error __pyx_string_tab[963]
+#define __pyx_n_u_close_selector_and_loop __pyx_string_tab[964]
+#define __pyx_n_u_closed __pyx_string_tab[965]
+#define __pyx_n_u_closing_selector __pyx_string_tab[966]
+#define __pyx_n_u_consume_waker __pyx_string_tab[967]
+#define __pyx_n_u_default_cacert __pyx_string_tab[968]
+#define __pyx_n_u_dict_2 __pyx_string_tab[969]
+#define __pyx_n_u_force_timeout __pyx_string_tab[970]
+#define __pyx_n_u_get_callback_exception __pyx_string_tab[971]
+#define __pyx_n_u_handle_event __pyx_string_tab[972]
+#define __pyx_n_u_handle_select __pyx_string_tab[973]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[974]
+#define __pyx_n_u_readers __pyx_string_tab[975]
+#define __pyx_n_u_real_loop_2 __pyx_string_tab[976]
+#define __pyx_n_u_run_select __pyx_string_tab[977]
+#define __pyx_n_u_select_args __pyx_string_tab[978]
+#define __pyx_n_u_select_cond __pyx_string_tab[979]
+#define __pyx_n_u_selector __pyx_string_tab[980]
+#define __pyx_n_u_selector_loops __pyx_string_tab[981]
+#define __pyx_n_u_selectors __pyx_string_tab[982]
+#define __pyx_n_u_start_select __pyx_string_tab[983]
+#define __pyx_n_u_thread __pyx_string_tab[984]
+#define __pyx_n_u_thread_manager __pyx_string_tab[985]
+#define __pyx_n_u_thread_manager_handle __pyx_string_tab[986]
+#define __pyx_n_u_wake_selector __pyx_string_tab[987]
+#define __pyx_n_u_waker_r __pyx_string_tab[988]
+#define __pyx_n_u_waker_w __pyx_string_tab[989]
+#define __pyx_n_u_writers __pyx_string_tab[990]
+#define __pyx_n_u_a __pyx_string_tab[991]
+#define __pyx_n_u_abc __pyx_string_tab[992]
+#define __pyx_n_u_action __pyx_string_tab[993]
+#define __pyx_n_u_add __pyx_string_tab[994]
+#define __pyx_n_u_add_handle __pyx_string_tab[995]
+#define __pyx_n_u_add_reader __pyx_string_tab[996]
+#define __pyx_n_u_add_writer __pyx_string_tab[997]
+#define __pyx_n_u_addpart __pyx_string_tab[998]
+#define __pyx_n_u_allocate_buffer __pyx_string_tab[999]
+#define __pyx_n_u_args __pyx_string_tab[1000]
+#define __pyx_n_u_asyncio __pyx_string_tab[1001]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[1002]
+#define __pyx_n_u_asyncio_loop __pyx_string_tab[1003]
+#define __pyx_n_u_atexit __pyx_string_tab[1004]
+#define __pyx_n_u_attach __pyx_string_tab[1005]
+#define __pyx_n_u_backslashreplace __pyx_string_tab[1006]
+#define __pyx_n_u_base __pyx_string_tab[1007]
+#define __pyx_n_u_bool __pyx_string_tab[1008]
+#define __pyx_n_u_byte __pyx_string_tab[1009]
+#define __pyx_n_u_bytes_2 __pyx_string_tab[1010]
+#define __pyx_n_u_bytes_to_hex_locals_genexpr __pyx_string_tab[1011]
+#define __pyx_n_u_c __pyx_string_tab[1012]
+#define __pyx_n_u_cacert __pyx_string_tab[1013]
+#define __pyx_n_u_cafile __pyx_string_tab[1014]
+#define __pyx_n_u_call_later __pyx_string_tab[1015]
+#define __pyx_n_u_call_soon __pyx_string_tab[1016]
+#define __pyx_n_u_call_soon_threadsafe __pyx_string_tab[1017]
+#define __pyx_n_u_callback __pyx_string_tab[1018]
+#define __pyx_n_u_cancel __pyx_string_tab[1019]
+#define __pyx_n_u_cancelled __pyx_string_tab[1020]
+#define __pyx_n_u_category __pyx_string_tab[1021]
+#define __pyx_n_u_cb_map __pyx_string_tab[1022]
+#define __pyx_n_u_certifi __pyx_string_tab[1023]
+#define __pyx_n_u_clean_handles_and_buffers __pyx_string_tab[1024]
+#define __pyx_n_u_clear __pyx_string_tab[1025]
+#define __pyx_n_u_clear_headers __pyx_string_tab[1026]
+#define __pyx_n_u_clear_resolve __pyx_string_tab[1027]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[1028]
+#define __pyx_n_u_close __pyx_string_tab[1029]
+#define __pyx_n_u_cls __pyx_string_tab[1030]
+#define __pyx_n_u_code __pyx_string_tab[1031]
+#define __pyx_n_u_collections_abc __pyx_string_tab[1032]
+#define __pyx_n_u_compile __pyx_string_tab[1033]
+#define __pyx_n_u_config_warnings __pyx_string_tab[1034]
+#define __pyx_n_u_content_type __pyx_string_tab[1035]
+#define __pyx_n_u_contextlib __pyx_string_tab[1036]
+#define __pyx_n_u_cookie __pyx_string_tab[1037]
+#define __pyx_n_u_count __pyx_string_tab[1038]
+#define __pyx_n_u_create_future __pyx_string_tab[1039]
+#define __pyx_n_u_create_task __pyx_string_tab[1040]
+#define __pyx_n_u_curl_2 __pyx_string_tab[1041]
+#define __pyx_n_u_cycurl__curl __pyx_string_tab[1042]
+#define __pyx_n_u_daemon __pyx_string_tab[1043]
+#define __pyx_n_u_data __pyx_string_tab[1044]
+#define __pyx_n_u_debug __pyx_string_tab[1045]
+#define __pyx_n_u_debug_function_default __pyx_string_tab[1046]
+#define __pyx_n_u_decode __pyx_string_tab[1047]
+#define __pyx_n_u_default __pyx_string_tab[1048]
+#define __pyx_n_u_default_headers __pyx_string_tab[1049]
+#define __pyx_n_u_discard __pyx_string_tab[1050]
+#define __pyx_n_u_done __pyx_string_tab[1051]
+#define __pyx_n_u_dtype_is_object __pyx_string_tab[1052]
+#define __pyx_n_u_duphandle __pyx_string_tab[1053]
+#define __pyx_n_u_e __pyx_string_tab[1054]
+#define __pyx_n_u_encode __pyx_string_tab[1055]
+#define __pyx_n_u_enumerate __pyx_string_tab[1056]
+#define __pyx_n_u_environ __pyx_string_tab[1057]
+#define __pyx_n_u_errcode __pyx_string_tab[1058]
+#define __pyx_n_u_errmsg __pyx_string_tab[1059]
+#define __pyx_n_u_errno __pyx_string_tab[1060]
+#define __pyx_n_u_error __pyx_string_tab[1061]
+#define __pyx_n_u_errors __pyx_string_tab[1062]
+#define __pyx_n_u_ev_bitmask __pyx_string_tab[1063]
+#define __pyx_n_u_exception __pyx_string_tab[1064]
+#define __pyx_n_u_exists __pyx_string_tab[1065]
+#define __pyx_n_u_fd __pyx_string_tab[1066]
+#define __pyx_n_u_file __pyx_string_tab[1067]
+#define __pyx_n_u_filename __pyx_string_tab[1068]
+#define __pyx_n_u_fileno __pyx_string_tab[1069]
+#define __pyx_n_u_files __pyx_string_tab[1070]
+#define __pyx_n_u_flags __pyx_string_tab[1071]
+#define __pyx_n_u_form __pyx_string_tab[1072]
+#define __pyx_n_u_format __pyx_string_tab[1073]
+#define __pyx_n_u_fortran __pyx_string_tab[1074]
+#define __pyx_n_u_frame __pyx_string_tab[1075]
+#define __pyx_n_u_from_list __pyx_string_tab[1076]
+#define __pyx_n_u_functools __pyx_string_tab[1077]
+#define __pyx_n_u_future __pyx_string_tab[1078]
+#define __pyx_n_u_genexpr __pyx_string_tab[1079]
+#define __pyx_n_u_get __pyx_string_tab[1080]
+#define __pyx_n_u_get_default_verify_paths __pyx_string_tab[1081]
+#define __pyx_n_u_get_reason_phrase __pyx_string_tab[1082]
+#define __pyx_n_u_get_running_loop __pyx_string_tab[1083]
+#define __pyx_n_u_get_selector __pyx_string_tab[1084]
+#define __pyx_n_u_get_selector_locals__close_selec __pyx_string_tab[1085]
+#define __pyx_n_u_getinfo_2 __pyx_string_tab[1086]
+#define __pyx_n_u_getpreferredencoding __pyx_string_tab[1087]
+#define __pyx_n_u_group __pyx_string_tab[1088]
+#define __pyx_n_u_handle __pyx_string_tab[1089]
+#define __pyx_n_u_header __pyx_string_tab[1090]
+#define __pyx_n_u_headers __pyx_string_tab[1091]
+#define __pyx_n_u_hex_str __pyx_string_tab[1092]
+#define __pyx_n_u_http_cookies __pyx_string_tab[1093]
+#define __pyx_n_u_http_version __pyx_string_tab[1094]
+#define __pyx_n_u_id __pyx_string_tab[1095]
+#define __pyx_n_u_ignore __pyx_string_tab[1096]
+#define __pyx_n_u_impersonate __pyx_string_tab[1097]
+#define __pyx_n_u_index __pyx_string_tab[1098]
+#define __pyx_n_u_int __pyx_string_tab[1099]
+#define __pyx_n_u_is_pro __pyx_string_tab[1100]
+#define __pyx_n_u_items __pyx_string_tab[1101]
+#define __pyx_n_u_itemsize __pyx_string_tab[1102]
+#define __pyx_n_u_join __pyx_string_tab[1103]
+#define __pyx_n_u_keys __pyx_string_tab[1104]
+#define __pyx_n_u_kwargs __pyx_string_tab[1105]
+#define __pyx_n_u_load __pyx_string_tab[1106]
+#define __pyx_n_u_local_path __pyx_string_tab[1107]
+#define __pyx_n_u_locale __pyx_string_tab[1108]
+#define __pyx_n_u_loop __pyx_string_tab[1109]
+#define __pyx_n_u_loop_close __pyx_string_tab[1110]
+#define __pyx_n_u_lower __pyx_string_tab[1111]
+#define __pyx_n_u_m __pyx_string_tab[1112]
+#define __pyx_n_u_match __pyx_string_tab[1113]
+#define __pyx_n_u_memview __pyx_string_tab[1114]
+#define __pyx_n_u_message __pyx_string_tab[1115]
+#define __pyx_n_u_mode __pyx_string_tab[1116]
+#define __pyx_n_u_msg __pyx_string_tab[1117]
+#define __pyx_n_u_name __pyx_string_tab[1118]
+#define __pyx_n_u_ndim __pyx_string_tab[1119]
+#define __pyx_n_u_next __pyx_string_tab[1120]
+#define __pyx_n_u_notify __pyx_string_tab[1121]
+#define __pyx_n_u_obj __pyx_string_tab[1122]
+#define __pyx_n_u_on __pyx_string_tab[1123]
+#define __pyx_n_u_option __pyx_string_tab[1124]
+#define __pyx_n_u_os __pyx_string_tab[1125]
+#define __pyx_n_u_pack __pyx_string_tab[1126]
+#define __pyx_n_u_parse_cookie_headers __pyx_string_tab[1127]
+#define __pyx_n_u_parse_status_line __pyx_string_tab[1128]
+#define __pyx_n_u_partial __pyx_string_tab[1129]
+#define __pyx_n_u_path __pyx_string_tab[1130]
+#define __pyx_n_u_pathlib __pyx_string_tab[1131]
+#define __pyx_n_u_pause __pyx_string_tab[1132]
+#define __pyx_n_u_payload __pyx_string_tab[1133]
+#define __pyx_n_u_perform __pyx_string_tab[1134]
+#define __pyx_n_u_platform __pyx_string_tab[1135]
+#define __pyx_n_u_pop __pyx_string_tab[1136]
+#define __pyx_n_u_postfix __pyx_string_tab[1137]
+#define __pyx_n_u_prefix __pyx_string_tab[1138]
+#define __pyx_n_u_print __pyx_string_tab[1139]
+#define __pyx_n_u_process_data __pyx_string_tab[1140]
+#define __pyx_n_u_r __pyx_string_tab[1141]
+#define __pyx_n_u_re __pyx_string_tab[1142]
+#define __pyx_n_u_read __pyx_string_tab[1143]
+#define __pyx_n_u_real_loop __pyx_string_tab[1144]
+#define __pyx_n_u_reason __pyx_string_tab[1145]
+#define __pyx_n_u_recv __pyx_string_tab[1146]
+#define __pyx_n_u_register __pyx_string_tab[1147]
+#define __pyx_n_u_remove_handle __pyx_string_tab[1148]
+#define __pyx_n_u_remove_reader __pyx_string_tab[1149]
+#define __pyx_n_u_remove_writer __pyx_string_tab[1150]
+#define __pyx_n_u_reset __pyx_string_tab[1151]
+#define __pyx_n_u_return __pyx_string_tab[1152]
+#define __pyx_n_u_rs __pyx_string_tab[1153]
+#define __pyx_n_u_seek __pyx_string_tab[1154]
+#define __pyx_n_u_select __pyx_string_tab[1155]
+#define __pyx_n_u_selector_loop __pyx_string_tab[1156]
+#define __pyx_n_u_self __pyx_string_tab[1157]
+#define __pyx_n_u_send __pyx_string_tab[1158]
+#define __pyx_n_u_set_exception __pyx_string_tab[1159]
+#define __pyx_n_u_set_result __pyx_string_tab[1160]
+#define __pyx_n_u_setblocking __pyx_string_tab[1161]
+#define __pyx_n_u_setdefault __pyx_string_tab[1162]
+#define __pyx_n_u_setopt_2 __pyx_string_tab[1163]
+#define __pyx_n_u_shape __pyx_string_tab[1164]
+#define __pyx_n_u_simplefilter __pyx_string_tab[1165]
+#define __pyx_n_u_size __pyx_string_tab[1166]
+#define __pyx_n_u_sleep __pyx_string_tab[1167]
+#define __pyx_n_u_socket __pyx_string_tab[1168]
+#define __pyx_n_u_socket_action __pyx_string_tab[1169]
+#define __pyx_n_u_socketpair __pyx_string_tab[1170]
+#define __pyx_n_u_sockfd __pyx_string_tab[1171]
+#define __pyx_n_u_ssl __pyx_string_tab[1172]
+#define __pyx_n_u_stacklevel __pyx_string_tab[1173]
+#define __pyx_n_u_start __pyx_string_tab[1174]
+#define __pyx_n_u_startswith __pyx_string_tab[1175]
+#define __pyx_n_u_state __pyx_string_tab[1176]
+#define __pyx_n_u_staticmethod __pyx_string_tab[1177]
+#define __pyx_n_u_status_code __pyx_string_tab[1178]
+#define __pyx_n_u_status_line __pyx_string_tab[1179]
+#define __pyx_n_u_stderr __pyx_string_tab[1180]
+#define __pyx_n_u_step __pyx_string_tab[1181]
+#define __pyx_n_u_stop __pyx_string_tab[1182]
+#define __pyx_n_u_str __pyx_string_tab[1183]
+#define __pyx_n_u_strict __pyx_string_tab[1184]
+#define __pyx_n_u_struct __pyx_string_tab[1185]
+#define __pyx_n_u_super __pyx_string_tab[1186]
+#define __pyx_n_u_suppress __pyx_string_tab[1187]
+#define __pyx_n_u_sys __pyx_string_tab[1188]
+#define __pyx_n_u_target __pyx_string_tab[1189]
+#define __pyx_n_u_text __pyx_string_tab[1190]
+#define __pyx_n_u_thread_manager_anext __pyx_string_tab[1191]
+#define __pyx_n_u_threading __pyx_string_tab[1192]
+#define __pyx_n_u_throw __pyx_string_tab[1193]
+#define __pyx_n_u_to_read __pyx_string_tab[1194]
+#define __pyx_n_u_to_write __pyx_string_tab[1195]
+#define __pyx_n_u_tuple __pyx_string_tab[1196]
+#define __pyx_n_u_type __pyx_string_tab[1197]
+#define __pyx_n_u_typing __pyx_string_tab[1198]
+#define __pyx_n_u_unpack __pyx_string_tab[1199]
+#define __pyx_n_u_update __pyx_string_tab[1200]
+#define __pyx_n_u_upkeep __pyx_string_tab[1201]
+#define __pyx_n_u_use_setstate __pyx_string_tab[1202]
+#define __pyx_n_u_value __pyx_string_tab[1203]
+#define __pyx_n_u_values __pyx_string_tab[1204]
+#define __pyx_n_u_version __pyx_string_tab[1205]
+#define __pyx_n_u_w __pyx_string_tab[1206]
+#define __pyx_n_u_wait __pyx_string_tab[1207]
+#define __pyx_n_u_warn __pyx_string_tab[1208]
+#define __pyx_n_u_warnings __pyx_string_tab[1209]
+#define __pyx_n_u_weakref __pyx_string_tab[1210]
+#define __pyx_n_u_where __pyx_string_tab[1211]
+#define __pyx_n_u_win __pyx_string_tab[1212]
+#define __pyx_n_u_win32 __pyx_string_tab[1213]
+#define __pyx_n_u_write __pyx_string_tab[1214]
+#define __pyx_n_u_ws __pyx_string_tab[1215]
+#define __pyx_n_u_ws_close __pyx_string_tab[1216]
+#define __pyx_n_u_ws_meta __pyx_string_tab[1217]
+#define __pyx_n_u_ws_recv __pyx_string_tab[1218]
+#define __pyx_n_u_ws_send __pyx_string_tab[1219]
+#define __pyx_n_u_x __pyx_string_tab[1220]
+#define __pyx_n_u_xs __pyx_string_tab[1221]
+#define __pyx_kp_b__8 __pyx_string_tab[1222]
+#define __pyx_kp_b_HTTP_d_d_0_9_3_2 __pyx_string_tab[1223]
+#define __pyx_kp_b_HTTP_d_d_0_9_3 __pyx_string_tab[1224]
+#define __pyx_n_b_O __pyx_string_tab[1225]
+#define __pyx_n_b_a __pyx_string_tab[1226]
+#define __pyx_kp_b_set_cookie __pyx_string_tab[1227]
+#define __pyx_kp_b_iso88591_Q __pyx_string_tab[1228]
+#define __pyx_kp_b_iso88591_avQ __pyx_string_tab[1229]
+#define __pyx_kp_b_iso88591_1_7q_r_Qa_5_Be7_1_1_s_1_xxt2U_x __pyx_string_tab[1230]
+#define __pyx_kp_b_iso88591_m1 __pyx_string_tab[1231]
+#define __pyx_kp_b_iso88591_q_0_kQR_81A_7_2_3FnTU_1 __pyx_string_tab[1232]
+#define __pyx_kp_b_iso88591_A_q_l_vWE_Q_q_t_WE_D_7_q_1_Qg_q __pyx_string_tab[1233]
+#define __pyx_kp_b_iso88591_A_4wc_1_q_A_q __pyx_string_tab[1234]
+#define __pyx_kp_b_iso88591_A_87_1_U_1Cq_4uA_iq_Q6J_1 __pyx_string_tab[1235]
+#define __pyx_kp_b_iso88591_A_3_Q_iq __pyx_string_tab[1236]
+#define __pyx_kp_b_iso88591_A_1_E_as_a_E_as_a_N __pyx_string_tab[1237]
+#define __pyx_kp_b_iso88591_A_1_IQfIXQk_O1 __pyx_string_tab[1238]
+#define __pyx_kp_b_iso88591_A01_F_1_q_avWA __pyx_string_tab[1239]
+#define __pyx_kp_b_iso88591_A01_N_4q_Q_1F_3c_1_fAS_1_1_fAS_1 __pyx_string_tab[1240]
+#define __pyx_kp_b_iso88591_A_4t1_E_DMQ_N_81_4AT_1_9Cq_85_q __pyx_string_tab[1241]
+#define __pyx_kp_b_iso88591_A_G1 __pyx_string_tab[1242]
+#define __pyx_kp_b_iso88591_A_G5_G5_0 __pyx_string_tab[1243]
+#define __pyx_kp_b_iso88591_A_A_A_4q_AT_4z_A_AT_A __pyx_string_tab[1244]
+#define __pyx_kp_b_iso88591_A_q __pyx_string_tab[1245]
+#define __pyx_kp_b_iso88591_A_Q_7_z_q_Q_7_z_q_Q_7_z_q_Q_7_z __pyx_string_tab[1246]
+#define __pyx_kp_b_iso88591_A_T_Qa_7_d_S_D_j __pyx_string_tab[1247]
+#define __pyx_kp_b_iso88591_A_vQa __pyx_string_tab[1248]
+#define __pyx_kp_b_iso88591_A_t __pyx_string_tab[1249]
+#define __pyx_kp_b_iso88591_A_S_HA_1_q __pyx_string_tab[1250]
+#define __pyx_kp_b_iso88591_A_1D_HA __pyx_string_tab[1251]
+#define __pyx_kp_b_iso88591_A_at1_t7_a_4s_1A_q_G1_oQfN_t3a_i __pyx_string_tab[1252]
+#define __pyx_kp_b_iso88591_A_4wc_1A_1_a_c_D_Zt9M_VST_q __pyx_string_tab[1253]
+#define __pyx_kp_b_iso88591_A__A_0_Ye1_M_U_M_1_Kq_7_z_q __pyx_string_tab[1254]
+#define __pyx_kp_b_iso88591_A_4wc_1A_m1D_T_T_1_Qe1_wd_D0J_ST __pyx_string_tab[1255]
+#define __pyx_kp_b_iso88591_A2_A_A_Q_7_A_4wc_y_1_q_Yc_Yc_Q_q __pyx_string_tab[1256]
+#define __pyx_kp_b_iso88591_d_q __pyx_string_tab[1257]
+#define __pyx_kp_b_iso88591__14 __pyx_string_tab[1258]
+#define __pyx_kp_b_iso88591_HD_q0DA __pyx_string_tab[1259]
+#define __pyx_kp_b_iso88591_a_2 __pyx_string_tab[1260]
+#define __pyx_kp_b_iso88591_D_q_Qk_Qj __pyx_string_tab[1261]
+#define __pyx_kp_b_iso88591_1 __pyx_string_tab[1262]
+#define __pyx_kp_b_iso88591_Q_WA_Qa_aq_4y_q_Q_6 __pyx_string_tab[1263]
+#define __pyx_kp_b_iso88591_Zq_Q_Q_Q_Q_Q_Q_Q_Q_XT_vW_V7_at2 __pyx_string_tab[1264]
+#define __pyx_kp_b_iso88591_q_4q_Q_WA_O1_4y_q_Q_xq_N_4q_IV1 __pyx_string_tab[1265]
+#define __pyx_kp_b_iso88591_q_JfA_KvQ __pyx_string_tab[1266]
+#define __pyx_kp_b_iso88591_q_2 __pyx_string_tab[1267]
+#define __pyx_kp_b_iso88591_9_q __pyx_string_tab[1268]
+#define __pyx_kp_b_iso88591_F_Ry_xq_HA __pyx_string_tab[1269]
+#define __pyx_kp_b_iso88591_Q_Q_d_5_D_A_U_4q_t_D_A_D_V7_9Ja __pyx_string_tab[1270]
+#define __pyx_kp_b_iso88591_q_4_S_Qd_5_T_iuTU_WA __pyx_string_tab[1271]
+#define __pyx_kp_b_iso88591_4q_Qa_aq __pyx_string_tab[1272]
+#define __pyx_kp_b_iso88591_Qa_aq __pyx_string_tab[1273]
+#define __pyx_kp_b_iso88591_8_IQa_1_O1_q __pyx_string_tab[1274]
+#define __pyx_kp_b_iso88591_t_1A __pyx_string_tab[1275]
+#define __pyx_kp_b_iso88591_8_QfF_A_t81O1 __pyx_string_tab[1276]
+#define __pyx_kp_b_iso88591_N_M_q __pyx_string_tab[1277]
+#define __pyx_kp_b_iso88591_N_IZq_A_31_d_A_Kz_Q_Q_Kt_v_I_I __pyx_string_tab[1278]
+#define __pyx_kp_b_iso88591_A_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I __pyx_string_tab[1279]
+#define __pyx_kp_b_iso88591_XQ_5_Q_5_1A_wat __pyx_string_tab[1280]
+#define __pyx_kp_b_iso88591_1_ivWJd_Qd_q __pyx_string_tab[1281]
+#define __pyx_kp_b_iso88591_a_4wc_1_at81_M_q_q __pyx_string_tab[1282]
+#define __pyx_kp_b_iso88591_K1_4wc_1_q_hnF __pyx_string_tab[1283]
+#define __pyx_kp_b_iso88591_4A_Q_Ja_vV2_e1F_4wa_q __pyx_string_tab[1284]
+#define __pyx_kp_b_iso88591_88SSaab_4wc_1A_O1_Q_Q_a_Qe1_1 __pyx_string_tab[1285]
+#define __pyx_kp_b_iso88591_DA_4wc_1_A_WBfBa_c_s_S_Ya_gQa_G __pyx_string_tab[1286]
+#define __pyx_kp_b_iso88591_FFaab_Q_a_Q_A_A_A_q_a_q_1_t_S_Q __pyx_string_tab[1287]
+#define __pyx_kp_b_iso88591_MQ_31D_UVVW_M_q __pyx_string_tab[1288]
+#define __pyx_kp_b_iso88591_4wc_1A_m1D_awat8SZZ_aaeeffjj_A __pyx_string_tab[1289]
+#define __pyx_kp_b_iso88591_q __pyx_string_tab[1290]
+#define __pyx_kp_b_iso88591_A __pyx_string_tab[1291]
 #define __pyx_float_0_0 __pyx_number_tab[0]
 #define __pyx_float_0_1 __pyx_number_tab[1]
 #define __pyx_int_0 __pyx_number_tab[2]
@@ -6474,7 +6476,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_slice[i]); }
   for (int i=0; i<15; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<76; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<1290; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<1292; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<12; ++i) { Py_CLEAR(clear_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_clear_contents ### */
 /* CommonTypesMetaclass.module_state_clear */
@@ -6554,7 +6556,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_slice[i]); }
   for (int i=0; i<15; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<76; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<1290; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<1292; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<12; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_traverse_contents ### */
 /* CommonTypesMetaclass.module_state_traverse */
@@ -63984,7 +63986,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * CURLOPT_WS_SSL_DISABLE_TICKET = curl.CURLOPT_WS_SSL_DISABLE_TICKET
  * CURLOPT_WS_SSL_CERT_COMPRESSION = curl.CURLOPT_WS_SSL_CERT_COMPRESSION             # <<<<<<<<<<<<<<
  * CURLOPT_QUIC_CID_LENGTH = curl.CURLOPT_QUIC_CID_LENGTH
- * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
+ * CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS
 */
   __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_WS_SSL_CERT_COMPRESSION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -63995,8 +63997,8 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * CURLOPT_WS_SSL_DISABLE_TICKET = curl.CURLOPT_WS_SSL_DISABLE_TICKET
  * CURLOPT_WS_SSL_CERT_COMPRESSION = curl.CURLOPT_WS_SSL_CERT_COMPRESSION
  * CURLOPT_QUIC_CID_LENGTH = curl.CURLOPT_QUIC_CID_LENGTH             # <<<<<<<<<<<<<<
- * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
- * CURLOPT_FILE = curl.CURLOPT_FILE
+ * CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS
+ * CURLOPT_TLS_TRUST_ANCHORS = curl.CURLOPT_TLS_TRUST_ANCHORS
 */
   __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_QUIC_CID_LENGTH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 351, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -64006,4486 +64008,4510 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   /* "cycurl/consts.pxi":352
  * CURLOPT_WS_SSL_CERT_COMPRESSION = curl.CURLOPT_WS_SSL_CERT_COMPRESSION
  * CURLOPT_QUIC_CID_LENGTH = curl.CURLOPT_QUIC_CID_LENGTH
- * CURLOPT_ENCODING = curl.CURLOPT_ENCODING             # <<<<<<<<<<<<<<
- * CURLOPT_FILE = curl.CURLOPT_FILE
- * CURLOPT_INFILE = curl.CURLOPT_INFILE
+ * CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS             # <<<<<<<<<<<<<<
+ * CURLOPT_TLS_TRUST_ANCHORS = curl.CURLOPT_TLS_TRUST_ANCHORS
+ * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_ENCODING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 352, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 352, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ENCODING, __pyx_t_4) < (0)) __PYX_ERR(5, 352, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_HTTP3_SSL_PERMUTE_EXTENS, __pyx_t_4) < (0)) __PYX_ERR(5, 352, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "cycurl/consts.pxi":353
  * CURLOPT_QUIC_CID_LENGTH = curl.CURLOPT_QUIC_CID_LENGTH
+ * CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS
+ * CURLOPT_TLS_TRUST_ANCHORS = curl.CURLOPT_TLS_TRUST_ANCHORS             # <<<<<<<<<<<<<<
+ * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
+ * CURLOPT_FILE = curl.CURLOPT_FILE
+*/
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_TLS_TRUST_ANCHORS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 353, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_TLS_TRUST_ANCHORS, __pyx_t_4) < (0)) __PYX_ERR(5, 353, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "cycurl/consts.pxi":354
+ * CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS = curl.CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS
+ * CURLOPT_TLS_TRUST_ANCHORS = curl.CURLOPT_TLS_TRUST_ANCHORS
+ * CURLOPT_ENCODING = curl.CURLOPT_ENCODING             # <<<<<<<<<<<<<<
+ * CURLOPT_FILE = curl.CURLOPT_FILE
+ * CURLOPT_INFILE = curl.CURLOPT_INFILE
+*/
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_ENCODING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 354, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_ENCODING, __pyx_t_4) < (0)) __PYX_ERR(5, 354, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "cycurl/consts.pxi":355
+ * CURLOPT_TLS_TRUST_ANCHORS = curl.CURLOPT_TLS_TRUST_ANCHORS
  * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
  * CURLOPT_FILE = curl.CURLOPT_FILE             # <<<<<<<<<<<<<<
  * CURLOPT_INFILE = curl.CURLOPT_INFILE
  * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 353, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 355, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 353, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 355, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":354
+  /* "cycurl/consts.pxi":356
  * CURLOPT_ENCODING = curl.CURLOPT_ENCODING
  * CURLOPT_FILE = curl.CURLOPT_FILE
  * CURLOPT_INFILE = curl.CURLOPT_INFILE             # <<<<<<<<<<<<<<
  * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER
  * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_INFILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 354, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_INFILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 356, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INFILE, __pyx_t_4) < (0)) __PYX_ERR(5, 354, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_INFILE, __pyx_t_4) < (0)) __PYX_ERR(5, 356, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":355
+  /* "cycurl/consts.pxi":357
  * CURLOPT_FILE = curl.CURLOPT_FILE
  * CURLOPT_INFILE = curl.CURLOPT_INFILE
  * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER             # <<<<<<<<<<<<<<
  * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO
  * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_WRITEHEADER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 355, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_WRITEHEADER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 357, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WRITEHEADER, __pyx_t_4) < (0)) __PYX_ERR(5, 355, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WRITEHEADER, __pyx_t_4) < (0)) __PYX_ERR(5, 357, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":356
+  /* "cycurl/consts.pxi":358
  * CURLOPT_INFILE = curl.CURLOPT_INFILE
  * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER
  * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO             # <<<<<<<<<<<<<<
  * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY
  * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_WRITEINFO); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 356, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_WRITEINFO); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 358, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WRITEINFO, __pyx_t_4) < (0)) __PYX_ERR(5, 356, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_WRITEINFO, __pyx_t_4) < (0)) __PYX_ERR(5, 358, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":357
+  /* "cycurl/consts.pxi":359
  * CURLOPT_WRITEHEADER = curl.CURLOPT_WRITEHEADER
  * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO
  * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY             # <<<<<<<<<<<<<<
  * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
  * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_CLOSEPOLICY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 357, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_CLOSEPOLICY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 359, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CLOSEPOLICY, __pyx_t_4) < (0)) __PYX_ERR(5, 357, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_CLOSEPOLICY, __pyx_t_4) < (0)) __PYX_ERR(5, 359, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":358
+  /* "cycurl/consts.pxi":360
  * CURLOPT_WRITEINFO = curl.CURLOPT_WRITEINFO
  * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY
  * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72             # <<<<<<<<<<<<<<
  * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
  * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_OBSOLETE72); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 358, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_OBSOLETE72); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 360, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OBSOLETE72, __pyx_t_4) < (0)) __PYX_ERR(5, 358, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OBSOLETE72, __pyx_t_4) < (0)) __PYX_ERR(5, 360, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":359
+  /* "cycurl/consts.pxi":361
  * CURLOPT_CLOSEPOLICY = curl.CURLOPT_CLOSEPOLICY
  * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
  * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40             # <<<<<<<<<<<<<<
  * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
  * CURLOPT_POST301 = curl.CURLOPT_POST301
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_OBSOLETE40); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 359, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_OBSOLETE40); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OBSOLETE40, __pyx_t_4) < (0)) __PYX_ERR(5, 359, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_OBSOLETE40, __pyx_t_4) < (0)) __PYX_ERR(5, 361, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":360
+  /* "cycurl/consts.pxi":362
  * CURLOPT_OBSOLETE72 = curl.CURLOPT_OBSOLETE72
  * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
  * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA             # <<<<<<<<<<<<<<
  * CURLOPT_POST301 = curl.CURLOPT_POST301
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_PROGRESSDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 360, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_PROGRESSDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 362, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROGRESSDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 360, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_PROGRESSDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 362, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":361
+  /* "cycurl/consts.pxi":363
  * CURLOPT_OBSOLETE40 = curl.CURLOPT_OBSOLETE40
  * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
  * CURLOPT_POST301 = curl.CURLOPT_POST301             # <<<<<<<<<<<<<<
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_POST301); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 361, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_POST301); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 363, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POST301, __pyx_t_4) < (0)) __PYX_ERR(5, 361, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_POST301, __pyx_t_4) < (0)) __PYX_ERR(5, 363, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":362
+  /* "cycurl/consts.pxi":364
  * CURLOPT_PROGRESSDATA = curl.CURLOPT_PROGRESSDATA
  * CURLOPT_POST301 = curl.CURLOPT_POST301
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD             # <<<<<<<<<<<<<<
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_SSLKEYPASSWD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 362, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_SSLKEYPASSWD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 364, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEYPASSWD, __pyx_t_4) < (0)) __PYX_ERR(5, 362, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLKEYPASSWD, __pyx_t_4) < (0)) __PYX_ERR(5, 364, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":363
+  /* "cycurl/consts.pxi":365
  * CURLOPT_POST301 = curl.CURLOPT_POST301
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND             # <<<<<<<<<<<<<<
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FTPAPPEND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 363, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FTPAPPEND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 365, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPAPPEND, __pyx_t_4) < (0)) __PYX_ERR(5, 363, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPAPPEND, __pyx_t_4) < (0)) __PYX_ERR(5, 365, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":364
+  /* "cycurl/consts.pxi":366
  * CURLOPT_SSLKEYPASSWD = curl.CURLOPT_SSLKEYPASSWD
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FTPLISTONLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 364, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FTPLISTONLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 366, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPLISTONLY, __pyx_t_4) < (0)) __PYX_ERR(5, 364, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTPLISTONLY, __pyx_t_4) < (0)) __PYX_ERR(5, 366, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":365
+  /* "cycurl/consts.pxi":367
  * CURLOPT_FTPAPPEND = curl.CURLOPT_FTPAPPEND
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL             # <<<<<<<<<<<<<<
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FTP_SSL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 365, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FTP_SSL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 367, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_SSL, __pyx_t_4) < (0)) __PYX_ERR(5, 365, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_SSL, __pyx_t_4) < (0)) __PYX_ERR(5, 367, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":366
+  /* "cycurl/consts.pxi":368
  * CURLOPT_FTPLISTONLY = curl.CURLOPT_FTPLISTONLY
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD             # <<<<<<<<<<<<<<
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_SSLCERTPASSWD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 366, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_SSLCERTPASSWD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERTPASSWD, __pyx_t_4) < (0)) __PYX_ERR(5, 366, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_SSLCERTPASSWD, __pyx_t_4) < (0)) __PYX_ERR(5, 368, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":367
+  /* "cycurl/consts.pxi":369
  * CURLOPT_FTP_SSL = curl.CURLOPT_FTP_SSL
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL             # <<<<<<<<<<<<<<
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT
  * CURLOPT_MAIL_RCPT_ALLLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLLOWFAILS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_KRB4LEVEL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 367, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_KRB4LEVEL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_KRB4LEVEL, __pyx_t_4) < (0)) __PYX_ERR(5, 367, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_KRB4LEVEL, __pyx_t_4) < (0)) __PYX_ERR(5, 369, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":368
+  /* "cycurl/consts.pxi":370
  * CURLOPT_SSLCERTPASSWD = curl.CURLOPT_SSLCERTPASSWD
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT             # <<<<<<<<<<<<<<
  * CURLOPT_MAIL_RCPT_ALLLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLLOWFAILS
  * CURLOPT_RTSPHEADER = curl.CURLOPT_RTSPHEADER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FTP_RESPONSE_TIMEOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 368, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_FTP_RESPONSE_TIMEOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_RESPONSE_TIMEOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 368, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_FTP_RESPONSE_TIMEOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 370, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":369
+  /* "cycurl/consts.pxi":371
  * CURLOPT_KRB4LEVEL = curl.CURLOPT_KRB4LEVEL
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT
  * CURLOPT_MAIL_RCPT_ALLLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLLOWFAILS             # <<<<<<<<<<<<<<
  * CURLOPT_RTSPHEADER = curl.CURLOPT_RTSPHEADER
  * #CURLINFO_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_MAIL_RCPT_ALLLOWFAILS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 369, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_MAIL_RCPT_ALLLOWFAILS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_RCPT_ALLLOWFAILS, __pyx_t_4) < (0)) __PYX_ERR(5, 369, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_MAIL_RCPT_ALLLOWFAILS, __pyx_t_4) < (0)) __PYX_ERR(5, 371, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":370
+  /* "cycurl/consts.pxi":372
  * CURLOPT_FTP_RESPONSE_TIMEOUT = curl.CURLOPT_FTP_RESPONSE_TIMEOUT
  * CURLOPT_MAIL_RCPT_ALLLOWFAILS = curl.CURLOPT_MAIL_RCPT_ALLLOWFAILS
  * CURLOPT_RTSPHEADER = curl.CURLOPT_RTSPHEADER             # <<<<<<<<<<<<<<
  * #CURLINFO_
  * CURLINFO_TEXT = curl.CURLINFO_TEXT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_RTSPHEADER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 370, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLOPT_RTSPHEADER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 372, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSPHEADER, __pyx_t_4) < (0)) __PYX_ERR(5, 370, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLOPT_RTSPHEADER, __pyx_t_4) < (0)) __PYX_ERR(5, 372, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":372
+  /* "cycurl/consts.pxi":374
  * CURLOPT_RTSPHEADER = curl.CURLOPT_RTSPHEADER
  * #CURLINFO_
  * CURLINFO_TEXT = curl.CURLINFO_TEXT             # <<<<<<<<<<<<<<
  * CURLINFO_HEADER_IN = curl.CURLINFO_HEADER_IN
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TEXT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 372, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TEXT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 374, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TEXT, __pyx_t_4) < (0)) __PYX_ERR(5, 372, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TEXT, __pyx_t_4) < (0)) __PYX_ERR(5, 374, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":373
+  /* "cycurl/consts.pxi":375
  * #CURLINFO_
  * CURLINFO_TEXT = curl.CURLINFO_TEXT
  * CURLINFO_HEADER_IN = curl.CURLINFO_HEADER_IN             # <<<<<<<<<<<<<<
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HEADER_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 373, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HEADER_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 375, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 373, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 375, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":374
+  /* "cycurl/consts.pxi":376
  * CURLINFO_TEXT = curl.CURLINFO_TEXT
  * CURLINFO_HEADER_IN = curl.CURLINFO_HEADER_IN
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT             # <<<<<<<<<<<<<<
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HEADER_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 374, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HEADER_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 374, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 376, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":375
+  /* "cycurl/consts.pxi":377
  * CURLINFO_HEADER_IN = curl.CURLINFO_HEADER_IN
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN             # <<<<<<<<<<<<<<
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_DATA_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 375, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_DATA_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 377, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_DATA_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 375, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_DATA_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 377, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":376
+  /* "cycurl/consts.pxi":378
  * CURLINFO_HEADER_OUT = curl.CURLINFO_HEADER_OUT
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT             # <<<<<<<<<<<<<<
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_DATA_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 376, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_DATA_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_DATA_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 376, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_DATA_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 378, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":377
+  /* "cycurl/consts.pxi":379
  * CURLINFO_DATA_IN = curl.CURLINFO_DATA_IN
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN             # <<<<<<<<<<<<<<
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT
  * CURLINFO_END = curl.CURLINFO_END
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SSL_DATA_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 377, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SSL_DATA_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 379, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_DATA_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 377, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_DATA_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 379, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":378
+  /* "cycurl/consts.pxi":380
  * CURLINFO_DATA_OUT = curl.CURLINFO_DATA_OUT
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT             # <<<<<<<<<<<<<<
  * CURLINFO_END = curl.CURLINFO_END
  * CURLINFO_NONE = curl.CURLINFO_NONE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SSL_DATA_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 378, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SSL_DATA_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 380, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_DATA_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 378, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_DATA_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 380, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":379
+  /* "cycurl/consts.pxi":381
  * CURLINFO_SSL_DATA_IN = curl.CURLINFO_SSL_DATA_IN
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT
  * CURLINFO_END = curl.CURLINFO_END             # <<<<<<<<<<<<<<
  * CURLINFO_NONE = curl.CURLINFO_NONE
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_END); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 379, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_END); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_END, __pyx_t_4) < (0)) __PYX_ERR(5, 379, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_END, __pyx_t_4) < (0)) __PYX_ERR(5, 381, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":380
+  /* "cycurl/consts.pxi":382
  * CURLINFO_SSL_DATA_OUT = curl.CURLINFO_SSL_DATA_OUT
  * CURLINFO_END = curl.CURLINFO_END
  * CURLINFO_NONE = curl.CURLINFO_NONE             # <<<<<<<<<<<<<<
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 380, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 380, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 382, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":381
+  /* "cycurl/consts.pxi":383
  * CURLINFO_END = curl.CURLINFO_END
  * CURLINFO_NONE = curl.CURLINFO_NONE
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL             # <<<<<<<<<<<<<<
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_EFFECTIVE_URL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 381, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_EFFECTIVE_URL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EFFECTIVE_URL, __pyx_t_4) < (0)) __PYX_ERR(5, 381, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EFFECTIVE_URL, __pyx_t_4) < (0)) __PYX_ERR(5, 383, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":382
+  /* "cycurl/consts.pxi":384
  * CURLINFO_NONE = curl.CURLINFO_NONE
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE             # <<<<<<<<<<<<<<
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RESPONSE_CODE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 382, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RESPONSE_CODE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 384, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RESPONSE_CODE, __pyx_t_4) < (0)) __PYX_ERR(5, 382, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RESPONSE_CODE, __pyx_t_4) < (0)) __PYX_ERR(5, 384, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":383
+  /* "cycurl/consts.pxi":385
  * CURLINFO_EFFECTIVE_URL = curl.CURLINFO_EFFECTIVE_URL
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TOTAL_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 383, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TOTAL_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TOTAL_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 383, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TOTAL_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 385, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":384
+  /* "cycurl/consts.pxi":386
  * CURLINFO_RESPONSE_CODE = curl.CURLINFO_RESPONSE_CODE
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_NAMELOOKUP_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 384, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_NAMELOOKUP_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NAMELOOKUP_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 384, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NAMELOOKUP_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 386, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":385
+  /* "cycurl/consts.pxi":387
  * CURLINFO_TOTAL_TIME = curl.CURLINFO_TOTAL_TIME
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONNECT_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 385, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONNECT_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 387, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONNECT_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 385, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONNECT_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 387, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":386
+  /* "cycurl/consts.pxi":388
  * CURLINFO_NAMELOOKUP_TIME = curl.CURLINFO_NAMELOOKUP_TIME
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRETRANSFER_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 386, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRETRANSFER_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 388, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRETRANSFER_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 386, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRETRANSFER_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 388, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":387
+  /* "cycurl/consts.pxi":389
  * CURLINFO_CONNECT_TIME = curl.CURLINFO_CONNECT_TIME
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_UPLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 387, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_UPLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_UPLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 387, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_UPLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 389, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":388
+  /* "cycurl/consts.pxi":390
  * CURLINFO_PRETRANSFER_TIME = curl.CURLINFO_PRETRANSFER_TIME
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_UPLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 388, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_UPLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_UPLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 388, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_UPLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 390, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":389
+  /* "cycurl/consts.pxi":391
  * CURLINFO_SIZE_UPLOAD = curl.CURLINFO_SIZE_UPLOAD
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DOWNLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 389, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DOWNLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DOWNLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 389, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DOWNLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 391, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":390
+  /* "cycurl/consts.pxi":392
  * CURLINFO_SIZE_UPLOAD_T = curl.CURLINFO_SIZE_UPLOAD_T
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DOWNLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 390, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DOWNLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 392, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DOWNLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 390, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DOWNLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 392, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":391
+  /* "cycurl/consts.pxi":393
  * CURLINFO_SIZE_DOWNLOAD = curl.CURLINFO_SIZE_DOWNLOAD
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SPEED_DOWNLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 391, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SPEED_DOWNLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 393, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_DOWNLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 391, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_DOWNLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 393, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":392
+  /* "cycurl/consts.pxi":394
  * CURLINFO_SIZE_DOWNLOAD_T = curl.CURLINFO_SIZE_DOWNLOAD_T
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SPEED_DOWNLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 392, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SPEED_DOWNLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 394, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_DOWNLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 392, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_DOWNLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 394, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":393
+  /* "cycurl/consts.pxi":395
  * CURLINFO_SPEED_DOWNLOAD = curl.CURLINFO_SPEED_DOWNLOAD
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SPEED_UPLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 393, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SPEED_UPLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_UPLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 393, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_UPLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 395, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":394
+  /* "cycurl/consts.pxi":396
  * CURLINFO_SPEED_DOWNLOAD_T = curl.CURLINFO_SPEED_DOWNLOAD_T
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SPEED_UPLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 394, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SPEED_UPLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_UPLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 394, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SPEED_UPLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 396, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":395
+  /* "cycurl/consts.pxi":397
  * CURLINFO_SPEED_UPLOAD = curl.CURLINFO_SPEED_UPLOAD
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE             # <<<<<<<<<<<<<<
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HEADER_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 395, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HEADER_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_SIZE, __pyx_t_4) < (0)) __PYX_ERR(5, 395, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HEADER_SIZE, __pyx_t_4) < (0)) __PYX_ERR(5, 397, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":396
+  /* "cycurl/consts.pxi":398
  * CURLINFO_SPEED_UPLOAD_T = curl.CURLINFO_SPEED_UPLOAD_T
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE             # <<<<<<<<<<<<<<
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REQUEST_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 396, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REQUEST_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 398, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REQUEST_SIZE, __pyx_t_4) < (0)) __PYX_ERR(5, 396, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REQUEST_SIZE, __pyx_t_4) < (0)) __PYX_ERR(5, 398, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":397
+  /* "cycurl/consts.pxi":399
  * CURLINFO_HEADER_SIZE = curl.CURLINFO_HEADER_SIZE
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT             # <<<<<<<<<<<<<<
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SSL_VERIFYRESULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 397, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SSL_VERIFYRESULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_VERIFYRESULT, __pyx_t_4) < (0)) __PYX_ERR(5, 397, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_VERIFYRESULT, __pyx_t_4) < (0)) __PYX_ERR(5, 399, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":398
+  /* "cycurl/consts.pxi":400
  * CURLINFO_REQUEST_SIZE = curl.CURLINFO_REQUEST_SIZE
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME             # <<<<<<<<<<<<<<
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_FILETIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 398, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_FILETIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 400, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FILETIME, __pyx_t_4) < (0)) __PYX_ERR(5, 398, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FILETIME, __pyx_t_4) < (0)) __PYX_ERR(5, 400, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":399
+  /* "cycurl/consts.pxi":401
  * CURLINFO_SSL_VERIFYRESULT = curl.CURLINFO_SSL_VERIFYRESULT
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_FILETIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 399, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_FILETIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FILETIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 399, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FILETIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 401, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":400
+  /* "cycurl/consts.pxi":402
  * CURLINFO_FILETIME = curl.CURLINFO_FILETIME
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_DOWNLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 400, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_DOWNLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 402, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 400, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 402, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":401
+  /* "cycurl/consts.pxi":403
  * CURLINFO_FILETIME_T = curl.CURLINFO_FILETIME_T
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_DOWNLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 401, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_DOWNLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD_2, __pyx_t_4) < (0)) __PYX_ERR(5, 401, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_DOWNLOAD_2, __pyx_t_4) < (0)) __PYX_ERR(5, 403, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":402
+  /* "cycurl/consts.pxi":404
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_UPLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 402, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_UPLOAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 404, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 402, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD, __pyx_t_4) < (0)) __PYX_ERR(5, 404, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":403
+  /* "cycurl/consts.pxi":405
  * CURLINFO_CONTENT_LENGTH_DOWNLOAD_T = curl.CURLINFO_CONTENT_LENGTH_DOWNLOAD_T
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T             # <<<<<<<<<<<<<<
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_UPLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 403, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_LENGTH_UPLOAD_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 405, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 403, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_LENGTH_UPLOAD_T, __pyx_t_4) < (0)) __PYX_ERR(5, 405, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":404
+  /* "cycurl/consts.pxi":406
  * CURLINFO_CONTENT_LENGTH_UPLOAD = curl.CURLINFO_CONTENT_LENGTH_UPLOAD
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_STARTTRANSFER_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 404, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_STARTTRANSFER_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 406, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_STARTTRANSFER_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 404, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_STARTTRANSFER_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 406, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":405
+  /* "cycurl/consts.pxi":407
  * CURLINFO_CONTENT_LENGTH_UPLOAD_T = curl.CURLINFO_CONTENT_LENGTH_UPLOAD_T
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE             # <<<<<<<<<<<<<<
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_TYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 405, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONTENT_TYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 407, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_TYPE, __pyx_t_4) < (0)) __PYX_ERR(5, 405, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONTENT_TYPE, __pyx_t_4) < (0)) __PYX_ERR(5, 407, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":406
+  /* "cycurl/consts.pxi":408
  * CURLINFO_STARTTRANSFER_TIME = curl.CURLINFO_STARTTRANSFER_TIME
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 406, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 406, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 408, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":407
+  /* "cycurl/consts.pxi":409
  * CURLINFO_CONTENT_TYPE = curl.CURLINFO_CONTENT_TYPE
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT             # <<<<<<<<<<<<<<
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_COUNT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 407, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_COUNT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 409, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_COUNT, __pyx_t_4) < (0)) __PYX_ERR(5, 407, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_COUNT, __pyx_t_4) < (0)) __PYX_ERR(5, 409, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":408
+  /* "cycurl/consts.pxi":410
  * CURLINFO_REDIRECT_TIME = curl.CURLINFO_REDIRECT_TIME
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE             # <<<<<<<<<<<<<<
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRIVATE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 408, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRIVATE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 410, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIVATE, __pyx_t_4) < (0)) __PYX_ERR(5, 408, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIVATE, __pyx_t_4) < (0)) __PYX_ERR(5, 410, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":409
+  /* "cycurl/consts.pxi":411
  * CURLINFO_REDIRECT_COUNT = curl.CURLINFO_REDIRECT_COUNT
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE             # <<<<<<<<<<<<<<
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HTTP_CONNECTCODE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 409, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HTTP_CONNECTCODE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 411, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTP_CONNECTCODE, __pyx_t_4) < (0)) __PYX_ERR(5, 409, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTP_CONNECTCODE, __pyx_t_4) < (0)) __PYX_ERR(5, 411, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":410
+  /* "cycurl/consts.pxi":412
  * CURLINFO_PRIVATE = curl.CURLINFO_PRIVATE
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL             # <<<<<<<<<<<<<<
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HTTPAUTH_AVAIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 410, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HTTPAUTH_AVAIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTPAUTH_AVAIL, __pyx_t_4) < (0)) __PYX_ERR(5, 410, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTPAUTH_AVAIL, __pyx_t_4) < (0)) __PYX_ERR(5, 412, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":411
+  /* "cycurl/consts.pxi":413
  * CURLINFO_HTTP_CONNECTCODE = curl.CURLINFO_HTTP_CONNECTCODE
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL             # <<<<<<<<<<<<<<
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROXYAUTH_AVAIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 411, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROXYAUTH_AVAIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 413, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXYAUTH_AVAIL, __pyx_t_4) < (0)) __PYX_ERR(5, 411, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXYAUTH_AVAIL, __pyx_t_4) < (0)) __PYX_ERR(5, 413, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":412
+  /* "cycurl/consts.pxi":414
  * CURLINFO_HTTPAUTH_AVAIL = curl.CURLINFO_HTTPAUTH_AVAIL
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO             # <<<<<<<<<<<<<<
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_OS_ERRNO); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 412, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_OS_ERRNO); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_OS_ERRNO, __pyx_t_4) < (0)) __PYX_ERR(5, 412, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_OS_ERRNO, __pyx_t_4) < (0)) __PYX_ERR(5, 414, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":413
+  /* "cycurl/consts.pxi":415
  * CURLINFO_PROXYAUTH_AVAIL = curl.CURLINFO_PROXYAUTH_AVAIL
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS             # <<<<<<<<<<<<<<
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_NUM_CONNECTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 413, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_NUM_CONNECTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 415, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NUM_CONNECTS, __pyx_t_4) < (0)) __PYX_ERR(5, 413, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NUM_CONNECTS, __pyx_t_4) < (0)) __PYX_ERR(5, 415, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":414
+  /* "cycurl/consts.pxi":416
  * CURLINFO_OS_ERRNO = curl.CURLINFO_OS_ERRNO
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES             # <<<<<<<<<<<<<<
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SSL_ENGINES); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 414, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SSL_ENGINES); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_ENGINES, __pyx_t_4) < (0)) __PYX_ERR(5, 414, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SSL_ENGINES, __pyx_t_4) < (0)) __PYX_ERR(5, 416, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":415
+  /* "cycurl/consts.pxi":417
  * CURLINFO_NUM_CONNECTS = curl.CURLINFO_NUM_CONNECTS
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST             # <<<<<<<<<<<<<<
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_COOKIELIST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 415, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_COOKIELIST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 417, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_COOKIELIST, __pyx_t_4) < (0)) __PYX_ERR(5, 415, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_COOKIELIST, __pyx_t_4) < (0)) __PYX_ERR(5, 417, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":416
+  /* "cycurl/consts.pxi":418
  * CURLINFO_SSL_ENGINES = curl.CURLINFO_SSL_ENGINES
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET             # <<<<<<<<<<<<<<
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_LASTSOCKET); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 416, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_LASTSOCKET); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 418, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LASTSOCKET, __pyx_t_4) < (0)) __PYX_ERR(5, 416, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LASTSOCKET, __pyx_t_4) < (0)) __PYX_ERR(5, 418, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":417
+  /* "cycurl/consts.pxi":419
  * CURLINFO_COOKIELIST = curl.CURLINFO_COOKIELIST
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH             # <<<<<<<<<<<<<<
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_FTP_ENTRY_PATH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 417, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_FTP_ENTRY_PATH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 419, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FTP_ENTRY_PATH, __pyx_t_4) < (0)) __PYX_ERR(5, 417, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_FTP_ENTRY_PATH, __pyx_t_4) < (0)) __PYX_ERR(5, 419, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":418
+  /* "cycurl/consts.pxi":420
  * CURLINFO_LASTSOCKET = curl.CURLINFO_LASTSOCKET
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL             # <<<<<<<<<<<<<<
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_URL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 418, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_URL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_URL, __pyx_t_4) < (0)) __PYX_ERR(5, 418, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_URL, __pyx_t_4) < (0)) __PYX_ERR(5, 420, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":419
+  /* "cycurl/consts.pxi":421
  * CURLINFO_FTP_ENTRY_PATH = curl.CURLINFO_FTP_ENTRY_PATH
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP             # <<<<<<<<<<<<<<
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRIMARY_IP); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 419, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRIMARY_IP); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 421, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIMARY_IP, __pyx_t_4) < (0)) __PYX_ERR(5, 419, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIMARY_IP, __pyx_t_4) < (0)) __PYX_ERR(5, 421, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":420
+  /* "cycurl/consts.pxi":422
  * CURLINFO_REDIRECT_URL = curl.CURLINFO_REDIRECT_URL
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME             # <<<<<<<<<<<<<<
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_APPCONNECT_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 420, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_APPCONNECT_TIME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 422, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_APPCONNECT_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 420, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_APPCONNECT_TIME, __pyx_t_4) < (0)) __PYX_ERR(5, 422, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":421
+  /* "cycurl/consts.pxi":423
  * CURLINFO_PRIMARY_IP = curl.CURLINFO_PRIMARY_IP
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO             # <<<<<<<<<<<<<<
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CERTINFO); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 421, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CERTINFO); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CERTINFO, __pyx_t_4) < (0)) __PYX_ERR(5, 421, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CERTINFO, __pyx_t_4) < (0)) __PYX_ERR(5, 423, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":422
+  /* "cycurl/consts.pxi":424
  * CURLINFO_APPCONNECT_TIME = curl.CURLINFO_APPCONNECT_TIME
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET             # <<<<<<<<<<<<<<
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONDITION_UNMET); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 422, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONDITION_UNMET); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONDITION_UNMET, __pyx_t_4) < (0)) __PYX_ERR(5, 422, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONDITION_UNMET, __pyx_t_4) < (0)) __PYX_ERR(5, 424, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":423
+  /* "cycurl/consts.pxi":425
  * CURLINFO_CERTINFO = curl.CURLINFO_CERTINFO
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID             # <<<<<<<<<<<<<<
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RTSP_SESSION_ID); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 423, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RTSP_SESSION_ID); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 425, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_SESSION_ID, __pyx_t_4) < (0)) __PYX_ERR(5, 423, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_SESSION_ID, __pyx_t_4) < (0)) __PYX_ERR(5, 425, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":424
+  /* "cycurl/consts.pxi":426
  * CURLINFO_CONDITION_UNMET = curl.CURLINFO_CONDITION_UNMET
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ             # <<<<<<<<<<<<<<
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RTSP_CLIENT_CSEQ); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 424, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RTSP_CLIENT_CSEQ); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 426, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_CLIENT_CSEQ, __pyx_t_4) < (0)) __PYX_ERR(5, 424, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_CLIENT_CSEQ, __pyx_t_4) < (0)) __PYX_ERR(5, 426, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":425
+  /* "cycurl/consts.pxi":427
  * CURLINFO_RTSP_SESSION_ID = curl.CURLINFO_RTSP_SESSION_ID
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ             # <<<<<<<<<<<<<<
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RTSP_SERVER_CSEQ); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 425, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RTSP_SERVER_CSEQ); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 427, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_SERVER_CSEQ, __pyx_t_4) < (0)) __PYX_ERR(5, 425, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_SERVER_CSEQ, __pyx_t_4) < (0)) __PYX_ERR(5, 427, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":426
+  /* "cycurl/consts.pxi":428
  * CURLINFO_RTSP_CLIENT_CSEQ = curl.CURLINFO_RTSP_CLIENT_CSEQ
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV             # <<<<<<<<<<<<<<
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RTSP_CSEQ_RECV); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 426, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RTSP_CSEQ_RECV); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 428, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_CSEQ_RECV, __pyx_t_4) < (0)) __PYX_ERR(5, 426, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RTSP_CSEQ_RECV, __pyx_t_4) < (0)) __PYX_ERR(5, 428, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":427
+  /* "cycurl/consts.pxi":429
  * CURLINFO_RTSP_SERVER_CSEQ = curl.CURLINFO_RTSP_SERVER_CSEQ
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT             # <<<<<<<<<<<<<<
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRIMARY_PORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 427, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRIMARY_PORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 429, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIMARY_PORT, __pyx_t_4) < (0)) __PYX_ERR(5, 427, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRIMARY_PORT, __pyx_t_4) < (0)) __PYX_ERR(5, 429, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":428
+  /* "cycurl/consts.pxi":430
  * CURLINFO_RTSP_CSEQ_RECV = curl.CURLINFO_RTSP_CSEQ_RECV
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP             # <<<<<<<<<<<<<<
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_LOCAL_IP); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 428, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_LOCAL_IP); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 430, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LOCAL_IP, __pyx_t_4) < (0)) __PYX_ERR(5, 428, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LOCAL_IP, __pyx_t_4) < (0)) __PYX_ERR(5, 430, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":429
+  /* "cycurl/consts.pxi":431
  * CURLINFO_PRIMARY_PORT = curl.CURLINFO_PRIMARY_PORT
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT             # <<<<<<<<<<<<<<
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_LOCAL_PORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 429, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_LOCAL_PORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 431, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LOCAL_PORT, __pyx_t_4) < (0)) __PYX_ERR(5, 429, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LOCAL_PORT, __pyx_t_4) < (0)) __PYX_ERR(5, 431, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":430
+  /* "cycurl/consts.pxi":432
  * CURLINFO_LOCAL_IP = curl.CURLINFO_LOCAL_IP
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION             # <<<<<<<<<<<<<<
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TLS_SESSION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 430, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TLS_SESSION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 432, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TLS_SESSION, __pyx_t_4) < (0)) __PYX_ERR(5, 430, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TLS_SESSION, __pyx_t_4) < (0)) __PYX_ERR(5, 432, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":431
+  /* "cycurl/consts.pxi":433
  * CURLINFO_LOCAL_PORT = curl.CURLINFO_LOCAL_PORT
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET             # <<<<<<<<<<<<<<
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_ACTIVESOCKET); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 431, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_ACTIVESOCKET); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 433, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_ACTIVESOCKET, __pyx_t_4) < (0)) __PYX_ERR(5, 431, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_ACTIVESOCKET, __pyx_t_4) < (0)) __PYX_ERR(5, 433, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":432
+  /* "cycurl/consts.pxi":434
  * CURLINFO_TLS_SESSION = curl.CURLINFO_TLS_SESSION
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR             # <<<<<<<<<<<<<<
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TLS_SSL_PTR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 432, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TLS_SSL_PTR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TLS_SSL_PTR, __pyx_t_4) < (0)) __PYX_ERR(5, 432, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TLS_SSL_PTR, __pyx_t_4) < (0)) __PYX_ERR(5, 434, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":433
+  /* "cycurl/consts.pxi":435
  * CURLINFO_ACTIVESOCKET = curl.CURLINFO_ACTIVESOCKET
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION             # <<<<<<<<<<<<<<
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HTTP_VERSION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 433, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HTTP_VERSION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 435, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTP_VERSION, __pyx_t_4) < (0)) __PYX_ERR(5, 433, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTP_VERSION, __pyx_t_4) < (0)) __PYX_ERR(5, 435, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":434
+  /* "cycurl/consts.pxi":436
  * CURLINFO_TLS_SSL_PTR = curl.CURLINFO_TLS_SSL_PTR
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT             # <<<<<<<<<<<<<<
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROXY_SSL_VERIFYRESULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 434, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROXY_SSL_VERIFYRESULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXY_SSL_VERIFYRESULT, __pyx_t_4) < (0)) __PYX_ERR(5, 434, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXY_SSL_VERIFYRESULT, __pyx_t_4) < (0)) __PYX_ERR(5, 436, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":435
+  /* "cycurl/consts.pxi":437
  * CURLINFO_HTTP_VERSION = curl.CURLINFO_HTTP_VERSION
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL             # <<<<<<<<<<<<<<
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROTOCOL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 435, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROTOCOL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 437, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROTOCOL, __pyx_t_4) < (0)) __PYX_ERR(5, 435, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROTOCOL, __pyx_t_4) < (0)) __PYX_ERR(5, 437, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":436
+  /* "cycurl/consts.pxi":438
  * CURLINFO_PROXY_SSL_VERIFYRESULT = curl.CURLINFO_PROXY_SSL_VERIFYRESULT
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME             # <<<<<<<<<<<<<<
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SCHEME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 436, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SCHEME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SCHEME, __pyx_t_4) < (0)) __PYX_ERR(5, 436, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SCHEME, __pyx_t_4) < (0)) __PYX_ERR(5, 438, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":437
+  /* "cycurl/consts.pxi":439
  * CURLINFO_PROTOCOL = curl.CURLINFO_PROTOCOL
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TOTAL_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 437, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_TOTAL_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 439, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TOTAL_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 437, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_TOTAL_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 439, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":438
+  /* "cycurl/consts.pxi":440
  * CURLINFO_SCHEME = curl.CURLINFO_SCHEME
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_NAMELOOKUP_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 438, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_NAMELOOKUP_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 440, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NAMELOOKUP_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 438, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_NAMELOOKUP_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 440, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":439
+  /* "cycurl/consts.pxi":441
  * CURLINFO_TOTAL_TIME_T = curl.CURLINFO_TOTAL_TIME_T
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONNECT_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 439, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONNECT_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 441, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONNECT_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 439, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONNECT_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 441, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":440
+  /* "cycurl/consts.pxi":442
  * CURLINFO_NAMELOOKUP_TIME_T = curl.CURLINFO_NAMELOOKUP_TIME_T
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRETRANSFER_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 440, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PRETRANSFER_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRETRANSFER_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 440, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PRETRANSFER_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 442, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":441
+  /* "cycurl/consts.pxi":443
  * CURLINFO_CONNECT_TIME_T = curl.CURLINFO_CONNECT_TIME_T
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_STARTTRANSFER_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 441, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_STARTTRANSFER_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 443, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_STARTTRANSFER_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 441, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_STARTTRANSFER_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 443, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":442
+  /* "cycurl/consts.pxi":444
  * CURLINFO_PRETRANSFER_TIME_T = curl.CURLINFO_PRETRANSFER_TIME_T
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 442, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 444, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 442, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 444, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":443
+  /* "cycurl/consts.pxi":445
  * CURLINFO_STARTTRANSFER_TIME_T = curl.CURLINFO_STARTTRANSFER_TIME_T
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_APPCONNECT_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 443, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_APPCONNECT_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 445, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_APPCONNECT_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 443, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_APPCONNECT_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 445, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":444
+  /* "cycurl/consts.pxi":446
  * CURLINFO_REDIRECT_TIME_T = curl.CURLINFO_REDIRECT_TIME_T
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER             # <<<<<<<<<<<<<<
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RETRY_AFTER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 444, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_RETRY_AFTER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 446, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RETRY_AFTER, __pyx_t_4) < (0)) __PYX_ERR(5, 444, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_RETRY_AFTER, __pyx_t_4) < (0)) __PYX_ERR(5, 446, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":445
+  /* "cycurl/consts.pxi":447
  * CURLINFO_APPCONNECT_TIME_T = curl.CURLINFO_APPCONNECT_TIME_T
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD             # <<<<<<<<<<<<<<
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR
  * CURLINFO_REFERER = curl.CURLINFO_REFERER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_EFFECTIVE_METHOD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 445, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_EFFECTIVE_METHOD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 447, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EFFECTIVE_METHOD, __pyx_t_4) < (0)) __PYX_ERR(5, 445, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EFFECTIVE_METHOD, __pyx_t_4) < (0)) __PYX_ERR(5, 447, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":446
+  /* "cycurl/consts.pxi":448
  * CURLINFO_RETRY_AFTER = curl.CURLINFO_RETRY_AFTER
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR             # <<<<<<<<<<<<<<
  * CURLINFO_REFERER = curl.CURLINFO_REFERER
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROXY_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 446, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROXY_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 448, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXY_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 446, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXY_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 448, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":447
+  /* "cycurl/consts.pxi":449
  * CURLINFO_EFFECTIVE_METHOD = curl.CURLINFO_EFFECTIVE_METHOD
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR
  * CURLINFO_REFERER = curl.CURLINFO_REFERER             # <<<<<<<<<<<<<<
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REFERER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 447, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REFERER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 449, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REFERER, __pyx_t_4) < (0)) __PYX_ERR(5, 447, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REFERER, __pyx_t_4) < (0)) __PYX_ERR(5, 449, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":448
+  /* "cycurl/consts.pxi":450
  * CURLINFO_PROXY_ERROR = curl.CURLINFO_PROXY_ERROR
  * CURLINFO_REFERER = curl.CURLINFO_REFERER
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO             # <<<<<<<<<<<<<<
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CAINFO); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 448, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CAINFO); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 450, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CAINFO, __pyx_t_4) < (0)) __PYX_ERR(5, 448, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CAINFO, __pyx_t_4) < (0)) __PYX_ERR(5, 450, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":449
+  /* "cycurl/consts.pxi":451
  * CURLINFO_REFERER = curl.CURLINFO_REFERER
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH             # <<<<<<<<<<<<<<
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CAPATH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 449, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CAPATH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CAPATH, __pyx_t_4) < (0)) __PYX_ERR(5, 449, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CAPATH, __pyx_t_4) < (0)) __PYX_ERR(5, 451, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":450
+  /* "cycurl/consts.pxi":452
  * CURLINFO_CAINFO = curl.CURLINFO_CAINFO
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID             # <<<<<<<<<<<<<<
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID
  * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_XFER_ID); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 450, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_XFER_ID); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 452, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_XFER_ID, __pyx_t_4) < (0)) __PYX_ERR(5, 450, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_XFER_ID, __pyx_t_4) < (0)) __PYX_ERR(5, 452, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":451
+  /* "cycurl/consts.pxi":453
  * CURLINFO_CAPATH = curl.CURLINFO_CAPATH
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID             # <<<<<<<<<<<<<<
  * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T
  * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONN_ID); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 451, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_CONN_ID); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 453, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONN_ID, __pyx_t_4) < (0)) __PYX_ERR(5, 451, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_CONN_ID, __pyx_t_4) < (0)) __PYX_ERR(5, 453, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":452
+  /* "cycurl/consts.pxi":454
  * CURLINFO_XFER_ID = curl.CURLINFO_XFER_ID
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID
  * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY
  * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_QUEUE_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 452, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_QUEUE_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_QUEUE_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 452, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_QUEUE_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 454, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":453
+  /* "cycurl/consts.pxi":455
  * CURLINFO_CONN_ID = curl.CURLINFO_CONN_ID
  * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T
  * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY             # <<<<<<<<<<<<<<
  * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T
  * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_USED_PROXY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 453, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_USED_PROXY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 455, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_USED_PROXY, __pyx_t_4) < (0)) __PYX_ERR(5, 453, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_USED_PROXY, __pyx_t_4) < (0)) __PYX_ERR(5, 455, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":454
+  /* "cycurl/consts.pxi":456
  * CURLINFO_QUEUE_TIME_T = curl.CURLINFO_QUEUE_TIME_T
  * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY
  * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T             # <<<<<<<<<<<<<<
  * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T
  * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_POSTTRANSFER_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 454, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_POSTTRANSFER_TIME_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 456, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_POSTTRANSFER_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 454, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_POSTTRANSFER_TIME_T, __pyx_t_4) < (0)) __PYX_ERR(5, 456, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":455
+  /* "cycurl/consts.pxi":457
  * CURLINFO_USED_PROXY = curl.CURLINFO_USED_PROXY
  * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T
  * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T             # <<<<<<<<<<<<<<
  * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED
  * CURLINFO_PROXYAUTH_USED = curl.CURLINFO_PROXYAUTH_USED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_EARLYDATA_SENT_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 455, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_EARLYDATA_SENT_T); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 457, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EARLYDATA_SENT_T, __pyx_t_4) < (0)) __PYX_ERR(5, 455, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_EARLYDATA_SENT_T, __pyx_t_4) < (0)) __PYX_ERR(5, 457, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":456
+  /* "cycurl/consts.pxi":458
  * CURLINFO_POSTTRANSFER_TIME_T = curl.CURLINFO_POSTTRANSFER_TIME_T
  * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T
  * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED             # <<<<<<<<<<<<<<
  * CURLINFO_PROXYAUTH_USED = curl.CURLINFO_PROXYAUTH_USED
  * CURLINFO_SIZE_DELIVERED = curl.CURLINFO_SIZE_DELIVERED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HTTPAUTH_USED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 456, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_HTTPAUTH_USED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 458, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTPAUTH_USED, __pyx_t_4) < (0)) __PYX_ERR(5, 456, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_HTTPAUTH_USED, __pyx_t_4) < (0)) __PYX_ERR(5, 458, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":457
+  /* "cycurl/consts.pxi":459
  * CURLINFO_EARLYDATA_SENT_T = curl.CURLINFO_EARLYDATA_SENT_T
  * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED
  * CURLINFO_PROXYAUTH_USED = curl.CURLINFO_PROXYAUTH_USED             # <<<<<<<<<<<<<<
  * CURLINFO_SIZE_DELIVERED = curl.CURLINFO_SIZE_DELIVERED
  * CURLINFO_COOKIECHANGES = curl.CURLINFO_COOKIECHANGES
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROXYAUTH_USED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 457, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_PROXYAUTH_USED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 459, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXYAUTH_USED, __pyx_t_4) < (0)) __PYX_ERR(5, 457, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_PROXYAUTH_USED, __pyx_t_4) < (0)) __PYX_ERR(5, 459, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":458
+  /* "cycurl/consts.pxi":460
  * CURLINFO_HTTPAUTH_USED = curl.CURLINFO_HTTPAUTH_USED
  * CURLINFO_PROXYAUTH_USED = curl.CURLINFO_PROXYAUTH_USED
  * CURLINFO_SIZE_DELIVERED = curl.CURLINFO_SIZE_DELIVERED             # <<<<<<<<<<<<<<
  * CURLINFO_COOKIECHANGES = curl.CURLINFO_COOKIECHANGES
  * CURLINFO_REDIRECT_HISTORY = curl.CURLINFO_REDIRECT_HISTORY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DELIVERED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 458, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_SIZE_DELIVERED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 460, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DELIVERED, __pyx_t_4) < (0)) __PYX_ERR(5, 458, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_SIZE_DELIVERED, __pyx_t_4) < (0)) __PYX_ERR(5, 460, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":459
+  /* "cycurl/consts.pxi":461
  * CURLINFO_PROXYAUTH_USED = curl.CURLINFO_PROXYAUTH_USED
  * CURLINFO_SIZE_DELIVERED = curl.CURLINFO_SIZE_DELIVERED
  * CURLINFO_COOKIECHANGES = curl.CURLINFO_COOKIECHANGES             # <<<<<<<<<<<<<<
  * CURLINFO_REDIRECT_HISTORY = curl.CURLINFO_REDIRECT_HISTORY
  * CURLINFO_LASTONE = curl.CURLINFO_LASTONE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_COOKIECHANGES); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 459, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_COOKIECHANGES); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 461, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_COOKIECHANGES, __pyx_t_4) < (0)) __PYX_ERR(5, 459, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_COOKIECHANGES, __pyx_t_4) < (0)) __PYX_ERR(5, 461, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":460
+  /* "cycurl/consts.pxi":462
  * CURLINFO_SIZE_DELIVERED = curl.CURLINFO_SIZE_DELIVERED
  * CURLINFO_COOKIECHANGES = curl.CURLINFO_COOKIECHANGES
  * CURLINFO_REDIRECT_HISTORY = curl.CURLINFO_REDIRECT_HISTORY             # <<<<<<<<<<<<<<
  * CURLINFO_LASTONE = curl.CURLINFO_LASTONE
  * #CURLMOPT_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_HISTORY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 460, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_REDIRECT_HISTORY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 462, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_HISTORY, __pyx_t_4) < (0)) __PYX_ERR(5, 460, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_REDIRECT_HISTORY, __pyx_t_4) < (0)) __PYX_ERR(5, 462, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":461
+  /* "cycurl/consts.pxi":463
  * CURLINFO_COOKIECHANGES = curl.CURLINFO_COOKIECHANGES
  * CURLINFO_REDIRECT_HISTORY = curl.CURLINFO_REDIRECT_HISTORY
  * CURLINFO_LASTONE = curl.CURLINFO_LASTONE             # <<<<<<<<<<<<<<
  * #CURLMOPT_
  * CURLMOPT_SOCKETFUNCTION = curl.CURLMOPT_SOCKETFUNCTION
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_LASTONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 461, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLINFO_LASTONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 463, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LASTONE, __pyx_t_4) < (0)) __PYX_ERR(5, 461, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLINFO_LASTONE, __pyx_t_4) < (0)) __PYX_ERR(5, 463, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":463
+  /* "cycurl/consts.pxi":465
  * CURLINFO_LASTONE = curl.CURLINFO_LASTONE
  * #CURLMOPT_
  * CURLMOPT_SOCKETFUNCTION = curl.CURLMOPT_SOCKETFUNCTION             # <<<<<<<<<<<<<<
  * CURLMOPT_SOCKETDATA = curl.CURLMOPT_SOCKETDATA
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_SOCKETFUNCTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 463, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_SOCKETFUNCTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_SOCKETFUNCTION, __pyx_t_4) < (0)) __PYX_ERR(5, 463, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_SOCKETFUNCTION, __pyx_t_4) < (0)) __PYX_ERR(5, 465, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":464
+  /* "cycurl/consts.pxi":466
  * #CURLMOPT_
  * CURLMOPT_SOCKETFUNCTION = curl.CURLMOPT_SOCKETFUNCTION
  * CURLMOPT_SOCKETDATA = curl.CURLMOPT_SOCKETDATA             # <<<<<<<<<<<<<<
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_SOCKETDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 464, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_SOCKETDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 466, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_SOCKETDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 464, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_SOCKETDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 466, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":465
+  /* "cycurl/consts.pxi":467
  * CURLMOPT_SOCKETFUNCTION = curl.CURLMOPT_SOCKETFUNCTION
  * CURLMOPT_SOCKETDATA = curl.CURLMOPT_SOCKETDATA
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING             # <<<<<<<<<<<<<<
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 465, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 467, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING, __pyx_t_4) < (0)) __PYX_ERR(5, 465, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING, __pyx_t_4) < (0)) __PYX_ERR(5, 467, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":466
+  /* "cycurl/consts.pxi":468
  * CURLMOPT_SOCKETDATA = curl.CURLMOPT_SOCKETDATA
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION             # <<<<<<<<<<<<<<
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_TIMERFUNCTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 466, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_TIMERFUNCTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 468, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_TIMERFUNCTION, __pyx_t_4) < (0)) __PYX_ERR(5, 466, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_TIMERFUNCTION, __pyx_t_4) < (0)) __PYX_ERR(5, 468, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":467
+  /* "cycurl/consts.pxi":469
  * CURLMOPT_PIPELINING = curl.CURLMOPT_PIPELINING
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA             # <<<<<<<<<<<<<<
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_TIMERDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 467, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_TIMERDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 469, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_TIMERDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 467, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_TIMERDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 469, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":468
+  /* "cycurl/consts.pxi":470
  * CURLMOPT_TIMERFUNCTION = curl.CURLMOPT_TIMERFUNCTION
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS             # <<<<<<<<<<<<<<
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAXCONNECTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 468, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAXCONNECTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 470, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAXCONNECTS, __pyx_t_4) < (0)) __PYX_ERR(5, 468, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAXCONNECTS, __pyx_t_4) < (0)) __PYX_ERR(5, 470, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":469
+  /* "cycurl/consts.pxi":471
  * CURLMOPT_TIMERDATA = curl.CURLMOPT_TIMERDATA
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS             # <<<<<<<<<<<<<<
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAX_HOST_CONNECTIONS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 469, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAX_HOST_CONNECTIONS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 471, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_HOST_CONNECTIONS, __pyx_t_4) < (0)) __PYX_ERR(5, 469, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_HOST_CONNECTIONS, __pyx_t_4) < (0)) __PYX_ERR(5, 471, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":470
+  /* "cycurl/consts.pxi":472
  * CURLMOPT_MAXCONNECTS = curl.CURLMOPT_MAXCONNECTS
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH             # <<<<<<<<<<<<<<
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAX_PIPELINE_LENGTH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 470, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAX_PIPELINE_LENGTH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 472, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_PIPELINE_LENGTH, __pyx_t_4) < (0)) __PYX_ERR(5, 470, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_PIPELINE_LENGTH, __pyx_t_4) < (0)) __PYX_ERR(5, 472, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":471
+  /* "cycurl/consts.pxi":473
  * CURLMOPT_MAX_HOST_CONNECTIONS = curl.CURLMOPT_MAX_HOST_CONNECTIONS
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE             # <<<<<<<<<<<<<<
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 471, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 473, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_CONTENT_LENGTH_PENALTY, __pyx_t_4) < (0)) __PYX_ERR(5, 471, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_CONTENT_LENGTH_PENALTY, __pyx_t_4) < (0)) __PYX_ERR(5, 473, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":472
+  /* "cycurl/consts.pxi":474
  * CURLMOPT_MAX_PIPELINE_LENGTH = curl.CURLMOPT_MAX_PIPELINE_LENGTH
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE             # <<<<<<<<<<<<<<
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 472, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_CHUNK_LENGTH_PENALTY_SI, __pyx_t_4) < (0)) __PYX_ERR(5, 472, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_CHUNK_LENGTH_PENALTY_SI, __pyx_t_4) < (0)) __PYX_ERR(5, 474, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":473
+  /* "cycurl/consts.pxi":475
  * CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL             # <<<<<<<<<<<<<<
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING_SITE_BL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 473, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING_SITE_BL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 475, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING_SITE_BL, __pyx_t_4) < (0)) __PYX_ERR(5, 473, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING_SITE_BL, __pyx_t_4) < (0)) __PYX_ERR(5, 475, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":474
+  /* "cycurl/consts.pxi":476
  * CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE = curl.CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL             # <<<<<<<<<<<<<<
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING_SERVER_BL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 474, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PIPELINING_SERVER_BL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 476, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING_SERVER_BL, __pyx_t_4) < (0)) __PYX_ERR(5, 474, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PIPELINING_SERVER_BL, __pyx_t_4) < (0)) __PYX_ERR(5, 476, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":475
+  /* "cycurl/consts.pxi":477
  * CURLMOPT_PIPELINING_SITE_BL = curl.CURLMOPT_PIPELINING_SITE_BL
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS             # <<<<<<<<<<<<<<
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION
  * CURLMOPT_PUSHDATA = curl.CURLMOPT_PUSHDATA
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAX_TOTAL_CONNECTIONS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 475, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAX_TOTAL_CONNECTIONS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 477, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_TOTAL_CONNECTIONS, __pyx_t_4) < (0)) __PYX_ERR(5, 475, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_TOTAL_CONNECTIONS, __pyx_t_4) < (0)) __PYX_ERR(5, 477, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":476
+  /* "cycurl/consts.pxi":478
  * CURLMOPT_PIPELINING_SERVER_BL = curl.CURLMOPT_PIPELINING_SERVER_BL
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION             # <<<<<<<<<<<<<<
  * CURLMOPT_PUSHDATA = curl.CURLMOPT_PUSHDATA
  * CURLMOPT_MAX_CONCURRENT_STREAMS = curl.CURLMOPT_MAX_CONCURRENT_STREAMS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PUSHFUNCTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 476, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PUSHFUNCTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 478, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PUSHFUNCTION, __pyx_t_4) < (0)) __PYX_ERR(5, 476, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PUSHFUNCTION, __pyx_t_4) < (0)) __PYX_ERR(5, 478, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":477
+  /* "cycurl/consts.pxi":479
  * CURLMOPT_MAX_TOTAL_CONNECTIONS = curl.CURLMOPT_MAX_TOTAL_CONNECTIONS
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION
  * CURLMOPT_PUSHDATA = curl.CURLMOPT_PUSHDATA             # <<<<<<<<<<<<<<
  * CURLMOPT_MAX_CONCURRENT_STREAMS = curl.CURLMOPT_MAX_CONCURRENT_STREAMS
  * CURLMOPT_NETWORK_CHANGED = curl.CURLMOPT_NETWORK_CHANGED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PUSHDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 477, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_PUSHDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PUSHDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 477, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_PUSHDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 479, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":478
+  /* "cycurl/consts.pxi":480
  * CURLMOPT_PUSHFUNCTION = curl.CURLMOPT_PUSHFUNCTION
  * CURLMOPT_PUSHDATA = curl.CURLMOPT_PUSHDATA
  * CURLMOPT_MAX_CONCURRENT_STREAMS = curl.CURLMOPT_MAX_CONCURRENT_STREAMS             # <<<<<<<<<<<<<<
  * CURLMOPT_NETWORK_CHANGED = curl.CURLMOPT_NETWORK_CHANGED
  * CURLMOPT_NOTIFYFUNCTION = curl.CURLMOPT_NOTIFYFUNCTION
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAX_CONCURRENT_STREAMS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 478, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_MAX_CONCURRENT_STREAMS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 480, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_CONCURRENT_STREAMS, __pyx_t_4) < (0)) __PYX_ERR(5, 478, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_MAX_CONCURRENT_STREAMS, __pyx_t_4) < (0)) __PYX_ERR(5, 480, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":479
+  /* "cycurl/consts.pxi":481
  * CURLMOPT_PUSHDATA = curl.CURLMOPT_PUSHDATA
  * CURLMOPT_MAX_CONCURRENT_STREAMS = curl.CURLMOPT_MAX_CONCURRENT_STREAMS
  * CURLMOPT_NETWORK_CHANGED = curl.CURLMOPT_NETWORK_CHANGED             # <<<<<<<<<<<<<<
  * CURLMOPT_NOTIFYFUNCTION = curl.CURLMOPT_NOTIFYFUNCTION
  * CURLMOPT_NOTIFYDATA = curl.CURLMOPT_NOTIFYDATA
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_NETWORK_CHANGED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 479, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_NETWORK_CHANGED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 481, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_NETWORK_CHANGED, __pyx_t_4) < (0)) __PYX_ERR(5, 479, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_NETWORK_CHANGED, __pyx_t_4) < (0)) __PYX_ERR(5, 481, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":480
+  /* "cycurl/consts.pxi":482
  * CURLMOPT_MAX_CONCURRENT_STREAMS = curl.CURLMOPT_MAX_CONCURRENT_STREAMS
  * CURLMOPT_NETWORK_CHANGED = curl.CURLMOPT_NETWORK_CHANGED
  * CURLMOPT_NOTIFYFUNCTION = curl.CURLMOPT_NOTIFYFUNCTION             # <<<<<<<<<<<<<<
  * CURLMOPT_NOTIFYDATA = curl.CURLMOPT_NOTIFYDATA
  * CURLMOPT_RESOLVE_THREADS_MAX = curl.CURLMOPT_RESOLVE_THREADS_MAX
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_NOTIFYFUNCTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 480, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_NOTIFYFUNCTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 482, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_NOTIFYFUNCTION, __pyx_t_4) < (0)) __PYX_ERR(5, 480, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_NOTIFYFUNCTION, __pyx_t_4) < (0)) __PYX_ERR(5, 482, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":481
+  /* "cycurl/consts.pxi":483
  * CURLMOPT_NETWORK_CHANGED = curl.CURLMOPT_NETWORK_CHANGED
  * CURLMOPT_NOTIFYFUNCTION = curl.CURLMOPT_NOTIFYFUNCTION
  * CURLMOPT_NOTIFYDATA = curl.CURLMOPT_NOTIFYDATA             # <<<<<<<<<<<<<<
  * CURLMOPT_RESOLVE_THREADS_MAX = curl.CURLMOPT_RESOLVE_THREADS_MAX
  * CURLMOPT_QUICK_EXIT = curl.CURLMOPT_QUICK_EXIT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_NOTIFYDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 481, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_NOTIFYDATA); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 483, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_NOTIFYDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 481, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_NOTIFYDATA, __pyx_t_4) < (0)) __PYX_ERR(5, 483, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":482
+  /* "cycurl/consts.pxi":484
  * CURLMOPT_NOTIFYFUNCTION = curl.CURLMOPT_NOTIFYFUNCTION
  * CURLMOPT_NOTIFYDATA = curl.CURLMOPT_NOTIFYDATA
  * CURLMOPT_RESOLVE_THREADS_MAX = curl.CURLMOPT_RESOLVE_THREADS_MAX             # <<<<<<<<<<<<<<
  * CURLMOPT_QUICK_EXIT = curl.CURLMOPT_QUICK_EXIT
  * #CURLE_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_RESOLVE_THREADS_MAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 482, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_RESOLVE_THREADS_MAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 484, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_RESOLVE_THREADS_MAX, __pyx_t_4) < (0)) __PYX_ERR(5, 482, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_RESOLVE_THREADS_MAX, __pyx_t_4) < (0)) __PYX_ERR(5, 484, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":483
+  /* "cycurl/consts.pxi":485
  * CURLMOPT_NOTIFYDATA = curl.CURLMOPT_NOTIFYDATA
  * CURLMOPT_RESOLVE_THREADS_MAX = curl.CURLMOPT_RESOLVE_THREADS_MAX
  * CURLMOPT_QUICK_EXIT = curl.CURLMOPT_QUICK_EXIT             # <<<<<<<<<<<<<<
  * #CURLE_
  * CURLE_OK = curl.CURLE_OK
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_QUICK_EXIT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 483, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMOPT_QUICK_EXIT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 485, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_QUICK_EXIT, __pyx_t_4) < (0)) __PYX_ERR(5, 483, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMOPT_QUICK_EXIT, __pyx_t_4) < (0)) __PYX_ERR(5, 485, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":485
+  /* "cycurl/consts.pxi":487
  * CURLMOPT_QUICK_EXIT = curl.CURLMOPT_QUICK_EXIT
  * #CURLE_
  * CURLE_OK = curl.CURLE_OK             # <<<<<<<<<<<<<<
  * CURLE_UNSUPPORTED_PROTOCOL = curl.CURLE_UNSUPPORTED_PROTOCOL
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 485, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 487, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OK, __pyx_t_4) < (0)) __PYX_ERR(5, 485, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OK, __pyx_t_4) < (0)) __PYX_ERR(5, 487, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":486
+  /* "cycurl/consts.pxi":488
  * #CURLE_
  * CURLE_OK = curl.CURLE_OK
  * CURLE_UNSUPPORTED_PROTOCOL = curl.CURLE_UNSUPPORTED_PROTOCOL             # <<<<<<<<<<<<<<
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UNSUPPORTED_PROTOCOL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 486, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UNSUPPORTED_PROTOCOL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 488, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNSUPPORTED_PROTOCOL, __pyx_t_4) < (0)) __PYX_ERR(5, 486, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNSUPPORTED_PROTOCOL, __pyx_t_4) < (0)) __PYX_ERR(5, 488, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":487
+  /* "cycurl/consts.pxi":489
  * CURLE_OK = curl.CURLE_OK
  * CURLE_UNSUPPORTED_PROTOCOL = curl.CURLE_UNSUPPORTED_PROTOCOL
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT             # <<<<<<<<<<<<<<
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FAILED_INIT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 487, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FAILED_INIT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 489, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FAILED_INIT, __pyx_t_4) < (0)) __PYX_ERR(5, 487, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FAILED_INIT, __pyx_t_4) < (0)) __PYX_ERR(5, 489, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":488
+  /* "cycurl/consts.pxi":490
  * CURLE_UNSUPPORTED_PROTOCOL = curl.CURLE_UNSUPPORTED_PROTOCOL
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT             # <<<<<<<<<<<<<<
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_URL_MALFORMAT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 488, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_URL_MALFORMAT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_URL_MALFORMAT, __pyx_t_4) < (0)) __PYX_ERR(5, 488, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_URL_MALFORMAT, __pyx_t_4) < (0)) __PYX_ERR(5, 490, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":489
+  /* "cycurl/consts.pxi":491
  * CURLE_FAILED_INIT = curl.CURLE_FAILED_INIT
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN             # <<<<<<<<<<<<<<
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_NOT_BUILT_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 489, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_NOT_BUILT_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 491, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_NOT_BUILT_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 489, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_NOT_BUILT_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 491, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":490
+  /* "cycurl/consts.pxi":492
  * CURLE_URL_MALFORMAT = curl.CURLE_URL_MALFORMAT
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY             # <<<<<<<<<<<<<<
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_COULDNT_RESOLVE_PROXY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 490, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_COULDNT_RESOLVE_PROXY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 492, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_RESOLVE_PROXY, __pyx_t_4) < (0)) __PYX_ERR(5, 490, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_RESOLVE_PROXY, __pyx_t_4) < (0)) __PYX_ERR(5, 492, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":491
+  /* "cycurl/consts.pxi":493
  * CURLE_NOT_BUILT_IN = curl.CURLE_NOT_BUILT_IN
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST             # <<<<<<<<<<<<<<
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_COULDNT_RESOLVE_HOST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 491, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_COULDNT_RESOLVE_HOST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 493, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_RESOLVE_HOST, __pyx_t_4) < (0)) __PYX_ERR(5, 491, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_RESOLVE_HOST, __pyx_t_4) < (0)) __PYX_ERR(5, 493, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":492
+  /* "cycurl/consts.pxi":494
  * CURLE_COULDNT_RESOLVE_PROXY = curl.CURLE_COULDNT_RESOLVE_PROXY
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT             # <<<<<<<<<<<<<<
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_COULDNT_CONNECT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 492, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_COULDNT_CONNECT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 494, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_CONNECT, __pyx_t_4) < (0)) __PYX_ERR(5, 492, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_COULDNT_CONNECT, __pyx_t_4) < (0)) __PYX_ERR(5, 494, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":493
+  /* "cycurl/consts.pxi":495
  * CURLE_COULDNT_RESOLVE_HOST = curl.CURLE_COULDNT_RESOLVE_HOST
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY             # <<<<<<<<<<<<<<
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_WEIRD_SERVER_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 493, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_WEIRD_SERVER_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 495, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_WEIRD_SERVER_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 493, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_WEIRD_SERVER_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 495, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":494
+  /* "cycurl/consts.pxi":496
  * CURLE_COULDNT_CONNECT = curl.CURLE_COULDNT_CONNECT
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED             # <<<<<<<<<<<<<<
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_REMOTE_ACCESS_DENIED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 494, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_REMOTE_ACCESS_DENIED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 496, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_ACCESS_DENIED, __pyx_t_4) < (0)) __PYX_ERR(5, 494, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_ACCESS_DENIED, __pyx_t_4) < (0)) __PYX_ERR(5, 496, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":495
+  /* "cycurl/consts.pxi":497
  * CURLE_WEIRD_SERVER_REPLY = curl.CURLE_WEIRD_SERVER_REPLY
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_ACCEPT_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 495, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_ACCEPT_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 497, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCEPT_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 495, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCEPT_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 497, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":496
+  /* "cycurl/consts.pxi":498
  * CURLE_REMOTE_ACCESS_DENIED = curl.CURLE_REMOTE_ACCESS_DENIED
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY             # <<<<<<<<<<<<<<
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_PASS_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 496, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_PASS_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_PASS_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 496, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_PASS_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 498, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":497
+  /* "cycurl/consts.pxi":499
  * CURLE_FTP_ACCEPT_FAILED = curl.CURLE_FTP_ACCEPT_FAILED
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_ACCEPT_TIMEOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 497, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_ACCEPT_TIMEOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 499, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCEPT_TIMEOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 497, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCEPT_TIMEOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 499, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":498
+  /* "cycurl/consts.pxi":500
  * CURLE_FTP_WEIRD_PASS_REPLY = curl.CURLE_FTP_WEIRD_PASS_REPLY
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_PASV_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 498, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_PASV_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 500, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_PASV_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 498, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_PASV_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 500, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":499
+  /* "cycurl/consts.pxi":501
  * CURLE_FTP_ACCEPT_TIMEOUT = curl.CURLE_FTP_ACCEPT_TIMEOUT
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT             # <<<<<<<<<<<<<<
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST
  * CURLE_HTTP2 = curl.CURLE_HTTP2
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_227_FORMAT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 499, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_227_FORMAT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 501, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_227_FORMAT, __pyx_t_4) < (0)) __PYX_ERR(5, 499, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_227_FORMAT, __pyx_t_4) < (0)) __PYX_ERR(5, 501, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":500
+  /* "cycurl/consts.pxi":502
  * CURLE_FTP_WEIRD_PASV_REPLY = curl.CURLE_FTP_WEIRD_PASV_REPLY
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST             # <<<<<<<<<<<<<<
  * CURLE_HTTP2 = curl.CURLE_HTTP2
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_CANT_GET_HOST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 500, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_CANT_GET_HOST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_CANT_GET_HOST, __pyx_t_4) < (0)) __PYX_ERR(5, 500, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_CANT_GET_HOST, __pyx_t_4) < (0)) __PYX_ERR(5, 502, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":501
+  /* "cycurl/consts.pxi":503
  * CURLE_FTP_WEIRD_227_FORMAT = curl.CURLE_FTP_WEIRD_227_FORMAT
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST
  * CURLE_HTTP2 = curl.CURLE_HTTP2             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 501, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP2, __pyx_t_4) < (0)) __PYX_ERR(5, 501, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP2, __pyx_t_4) < (0)) __PYX_ERR(5, 503, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":502
+  /* "cycurl/consts.pxi":504
  * CURLE_FTP_CANT_GET_HOST = curl.CURLE_FTP_CANT_GET_HOST
  * CURLE_HTTP2 = curl.CURLE_HTTP2
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE             # <<<<<<<<<<<<<<
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_TYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 502, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_TYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 504, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_TYPE, __pyx_t_4) < (0)) __PYX_ERR(5, 502, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_TYPE, __pyx_t_4) < (0)) __PYX_ERR(5, 504, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":503
+  /* "cycurl/consts.pxi":505
  * CURLE_HTTP2 = curl.CURLE_HTTP2
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_PARTIAL_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 503, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_PARTIAL_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 505, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PARTIAL_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 503, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PARTIAL_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 505, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":504
+  /* "cycurl/consts.pxi":506
  * CURLE_FTP_COULDNT_SET_TYPE = curl.CURLE_FTP_COULDNT_SET_TYPE
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_RETR_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 504, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_RETR_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 506, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_RETR_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 504, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_RETR_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 506, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":505
+  /* "cycurl/consts.pxi":507
  * CURLE_PARTIAL_FILE = curl.CURLE_PARTIAL_FILE
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20             # <<<<<<<<<<<<<<
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE20); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 505, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE20); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE20, __pyx_t_4) < (0)) __PYX_ERR(5, 505, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE20, __pyx_t_4) < (0)) __PYX_ERR(5, 507, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":506
+  /* "cycurl/consts.pxi":508
  * CURLE_FTP_COULDNT_RETR_FILE = curl.CURLE_FTP_COULDNT_RETR_FILE
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_QUOTE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 506, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_QUOTE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 508, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_QUOTE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 506, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_QUOTE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 508, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":507
+  /* "cycurl/consts.pxi":509
  * CURLE_OBSOLETE20 = curl.CURLE_OBSOLETE20
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR             # <<<<<<<<<<<<<<
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_RETURNED_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 507, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_RETURNED_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 509, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_RETURNED_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 507, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_RETURNED_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 509, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":508
+  /* "cycurl/consts.pxi":510
  * CURLE_QUOTE_ERROR = curl.CURLE_QUOTE_ERROR
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_WRITE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 508, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_WRITE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 510, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_WRITE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 508, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_WRITE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 510, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":509
+  /* "cycurl/consts.pxi":511
  * CURLE_HTTP_RETURNED_ERROR = curl.CURLE_HTTP_RETURNED_ERROR
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24             # <<<<<<<<<<<<<<
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE24); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 509, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE24); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 511, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE24, __pyx_t_4) < (0)) __PYX_ERR(5, 509, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE24, __pyx_t_4) < (0)) __PYX_ERR(5, 511, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":510
+  /* "cycurl/consts.pxi":512
  * CURLE_WRITE_ERROR = curl.CURLE_WRITE_ERROR
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED             # <<<<<<<<<<<<<<
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UPLOAD_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 510, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UPLOAD_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 512, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UPLOAD_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 510, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UPLOAD_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 512, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":511
+  /* "cycurl/consts.pxi":513
  * CURLE_OBSOLETE24 = curl.CURLE_OBSOLETE24
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR             # <<<<<<<<<<<<<<
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_READ_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 511, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_READ_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_READ_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 511, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_READ_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 513, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":512
+  /* "cycurl/consts.pxi":514
  * CURLE_UPLOAD_FAILED = curl.CURLE_UPLOAD_FAILED
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY             # <<<<<<<<<<<<<<
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OUT_OF_MEMORY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 512, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OUT_OF_MEMORY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OUT_OF_MEMORY, __pyx_t_4) < (0)) __PYX_ERR(5, 512, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OUT_OF_MEMORY, __pyx_t_4) < (0)) __PYX_ERR(5, 514, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":513
+  /* "cycurl/consts.pxi":515
  * CURLE_READ_ERROR = curl.CURLE_READ_ERROR
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OPERATION_TIMEDOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 513, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OPERATION_TIMEDOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 515, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OPERATION_TIMEDOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 513, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OPERATION_TIMEDOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 515, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":514
+  /* "cycurl/consts.pxi":516
  * CURLE_OUT_OF_MEMORY = curl.CURLE_OUT_OF_MEMORY
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29             # <<<<<<<<<<<<<<
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE29); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 514, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE29); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 516, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE29, __pyx_t_4) < (0)) __PYX_ERR(5, 514, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE29, __pyx_t_4) < (0)) __PYX_ERR(5, 516, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":515
+  /* "cycurl/consts.pxi":517
  * CURLE_OPERATION_TIMEDOUT = curl.CURLE_OPERATION_TIMEDOUT
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_PORT_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 515, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_PORT_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PORT_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 515, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PORT_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 517, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":516
+  /* "cycurl/consts.pxi":518
  * CURLE_OBSOLETE29 = curl.CURLE_OBSOLETE29
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_USE_REST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 516, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_USE_REST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 518, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_USE_REST, __pyx_t_4) < (0)) __PYX_ERR(5, 516, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_USE_REST, __pyx_t_4) < (0)) __PYX_ERR(5, 518, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":517
+  /* "cycurl/consts.pxi":519
  * CURLE_FTP_PORT_FAILED = curl.CURLE_FTP_PORT_FAILED
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32             # <<<<<<<<<<<<<<
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR
  * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE32); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 517, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE32); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 519, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE32, __pyx_t_4) < (0)) __PYX_ERR(5, 517, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE32, __pyx_t_4) < (0)) __PYX_ERR(5, 519, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":518
+  /* "cycurl/consts.pxi":520
  * CURLE_FTP_COULDNT_USE_REST = curl.CURLE_FTP_COULDNT_USE_REST
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RANGE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 518, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RANGE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 520, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RANGE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 518, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RANGE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 520, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":519
+  /* "cycurl/consts.pxi":521
  * CURLE_OBSOLETE32 = curl.CURLE_OBSOLETE32
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR
  * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34             # <<<<<<<<<<<<<<
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE34); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 519, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE34); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 521, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE34, __pyx_t_4) < (0)) __PYX_ERR(5, 519, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE34, __pyx_t_4) < (0)) __PYX_ERR(5, 521, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":520
+  /* "cycurl/consts.pxi":522
  * CURLE_RANGE_ERROR = curl.CURLE_RANGE_ERROR
  * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR             # <<<<<<<<<<<<<<
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CONNECT_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 520, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CONNECT_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 522, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CONNECT_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 520, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CONNECT_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 522, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":521
+  /* "cycurl/consts.pxi":523
  * CURLE_OBSOLETE34 = curl.CURLE_OBSOLETE34
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME             # <<<<<<<<<<<<<<
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_DOWNLOAD_RESUME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 521, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_DOWNLOAD_RESUME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_DOWNLOAD_RESUME, __pyx_t_4) < (0)) __PYX_ERR(5, 521, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_DOWNLOAD_RESUME, __pyx_t_4) < (0)) __PYX_ERR(5, 523, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":522
+  /* "cycurl/consts.pxi":524
  * CURLE_SSL_CONNECT_ERROR = curl.CURLE_SSL_CONNECT_ERROR
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE             # <<<<<<<<<<<<<<
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FILE_COULDNT_READ_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 522, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FILE_COULDNT_READ_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 524, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FILE_COULDNT_READ_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 522, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FILE_COULDNT_READ_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 524, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":523
+  /* "cycurl/consts.pxi":525
  * CURLE_BAD_DOWNLOAD_RESUME = curl.CURLE_BAD_DOWNLOAD_RESUME
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND             # <<<<<<<<<<<<<<
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LDAP_CANNOT_BIND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 523, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LDAP_CANNOT_BIND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 525, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_CANNOT_BIND, __pyx_t_4) < (0)) __PYX_ERR(5, 523, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_CANNOT_BIND, __pyx_t_4) < (0)) __PYX_ERR(5, 525, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":524
+  /* "cycurl/consts.pxi":526
  * CURLE_FILE_COULDNT_READ_FILE = curl.CURLE_FILE_COULDNT_READ_FILE
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40
  * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LDAP_SEARCH_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 524, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LDAP_SEARCH_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 526, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_SEARCH_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 524, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_SEARCH_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 526, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":525
+  /* "cycurl/consts.pxi":527
  * CURLE_LDAP_CANNOT_BIND = curl.CURLE_LDAP_CANNOT_BIND
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE40); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 525, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE40); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 527, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE40, __pyx_t_4) < (0)) __PYX_ERR(5, 525, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE40, __pyx_t_4) < (0)) __PYX_ERR(5, 527, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":526
+  /* "cycurl/consts.pxi":528
  * CURLE_LDAP_SEARCH_FAILED = curl.CURLE_LDAP_SEARCH_FAILED
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40
  * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41             # <<<<<<<<<<<<<<
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE41); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 526, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE41); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 528, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE41, __pyx_t_4) < (0)) __PYX_ERR(5, 526, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE41, __pyx_t_4) < (0)) __PYX_ERR(5, 528, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":527
+  /* "cycurl/consts.pxi":529
  * CURLE_OBSOLETE40 = curl.CURLE_OBSOLETE40
  * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK             # <<<<<<<<<<<<<<
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_ABORTED_BY_CALLBACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 527, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_ABORTED_BY_CALLBACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 529, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ABORTED_BY_CALLBACK, __pyx_t_4) < (0)) __PYX_ERR(5, 527, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ABORTED_BY_CALLBACK, __pyx_t_4) < (0)) __PYX_ERR(5, 529, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":528
+  /* "cycurl/consts.pxi":530
  * CURLE_OBSOLETE41 = curl.CURLE_OBSOLETE41
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_FUNCTION_ARGUMENT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 528, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_FUNCTION_ARGUMENT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_FUNCTION_ARGUMENT, __pyx_t_4) < (0)) __PYX_ERR(5, 528, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_FUNCTION_ARGUMENT, __pyx_t_4) < (0)) __PYX_ERR(5, 530, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":529
+  /* "cycurl/consts.pxi":531
  * CURLE_ABORTED_BY_CALLBACK = curl.CURLE_ABORTED_BY_CALLBACK
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44             # <<<<<<<<<<<<<<
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE44); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 529, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE44); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 531, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE44, __pyx_t_4) < (0)) __PYX_ERR(5, 529, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE44, __pyx_t_4) < (0)) __PYX_ERR(5, 531, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":530
+  /* "cycurl/consts.pxi":532
  * CURLE_BAD_FUNCTION_ARGUMENT = curl.CURLE_BAD_FUNCTION_ARGUMENT
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_INTERFACE_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 530, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_INTERFACE_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 532, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_INTERFACE_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 530, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_INTERFACE_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 532, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":531
+  /* "cycurl/consts.pxi":533
  * CURLE_OBSOLETE44 = curl.CURLE_OBSOLETE44
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46             # <<<<<<<<<<<<<<
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE46); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 531, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE46); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 533, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE46, __pyx_t_4) < (0)) __PYX_ERR(5, 531, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE46, __pyx_t_4) < (0)) __PYX_ERR(5, 533, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":532
+  /* "cycurl/consts.pxi":534
  * CURLE_INTERFACE_FAILED = curl.CURLE_INTERFACE_FAILED
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS             # <<<<<<<<<<<<<<
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TOO_MANY_REDIRECTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 532, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TOO_MANY_REDIRECTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 534, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TOO_MANY_REDIRECTS, __pyx_t_4) < (0)) __PYX_ERR(5, 532, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TOO_MANY_REDIRECTS, __pyx_t_4) < (0)) __PYX_ERR(5, 534, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":533
+  /* "cycurl/consts.pxi":535
  * CURLE_OBSOLETE46 = curl.CURLE_OBSOLETE46
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION             # <<<<<<<<<<<<<<
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UNKNOWN_OPTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 533, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UNKNOWN_OPTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 535, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNKNOWN_OPTION, __pyx_t_4) < (0)) __PYX_ERR(5, 533, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNKNOWN_OPTION, __pyx_t_4) < (0)) __PYX_ERR(5, 535, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":534
+  /* "cycurl/consts.pxi":536
  * CURLE_TOO_MANY_REDIRECTS = curl.CURLE_TOO_MANY_REDIRECTS
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SETOPT_OPTION_SYNTAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 534, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SETOPT_OPTION_SYNTAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 536, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SETOPT_OPTION_SYNTAX, __pyx_t_4) < (0)) __PYX_ERR(5, 534, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SETOPT_OPTION_SYNTAX, __pyx_t_4) < (0)) __PYX_ERR(5, 536, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":535
+  /* "cycurl/consts.pxi":537
  * CURLE_UNKNOWN_OPTION = curl.CURLE_UNKNOWN_OPTION
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE50); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 535, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE50); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 537, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE50, __pyx_t_4) < (0)) __PYX_ERR(5, 535, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE50, __pyx_t_4) < (0)) __PYX_ERR(5, 537, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":536
+  /* "cycurl/consts.pxi":538
  * CURLE_SETOPT_OPTION_SYNTAX = curl.CURLE_SETOPT_OPTION_SYNTAX
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51             # <<<<<<<<<<<<<<
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE51); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 536, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE51); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 538, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE51, __pyx_t_4) < (0)) __PYX_ERR(5, 536, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE51, __pyx_t_4) < (0)) __PYX_ERR(5, 538, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":537
+  /* "cycurl/consts.pxi":539
  * CURLE_OBSOLETE50 = curl.CURLE_OBSOLETE50
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING             # <<<<<<<<<<<<<<
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_GOT_NOTHING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 537, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_GOT_NOTHING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 539, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_GOT_NOTHING, __pyx_t_4) < (0)) __PYX_ERR(5, 537, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_GOT_NOTHING, __pyx_t_4) < (0)) __PYX_ERR(5, 539, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":538
+  /* "cycurl/consts.pxi":540
  * CURLE_OBSOLETE51 = curl.CURLE_OBSOLETE51
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND             # <<<<<<<<<<<<<<
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_NOTFOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 538, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_NOTFOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 540, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_NOTFOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 538, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_NOTFOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 540, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":539
+  /* "cycurl/consts.pxi":541
  * CURLE_GOT_NOTHING = curl.CURLE_GOT_NOTHING
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED             # <<<<<<<<<<<<<<
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_SETFAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 539, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_SETFAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 541, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_SETFAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 539, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_SETFAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 541, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":540
+  /* "cycurl/consts.pxi":542
  * CURLE_SSL_ENGINE_NOTFOUND = curl.CURLE_SSL_ENGINE_NOTFOUND
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR             # <<<<<<<<<<<<<<
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SEND_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 540, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SEND_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 542, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SEND_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 540, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SEND_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 542, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":541
+  /* "cycurl/consts.pxi":543
  * CURLE_SSL_ENGINE_SETFAILED = curl.CURLE_SSL_ENGINE_SETFAILED
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RECV_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 541, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RECV_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 543, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RECV_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 541, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RECV_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 543, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":542
+  /* "cycurl/consts.pxi":544
  * CURLE_SEND_ERROR = curl.CURLE_SEND_ERROR
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57             # <<<<<<<<<<<<<<
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE57); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 542, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE57); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE57, __pyx_t_4) < (0)) __PYX_ERR(5, 542, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE57, __pyx_t_4) < (0)) __PYX_ERR(5, 544, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":543
+  /* "cycurl/consts.pxi":545
  * CURLE_RECV_ERROR = curl.CURLE_RECV_ERROR
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM             # <<<<<<<<<<<<<<
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CERTPROBLEM); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 543, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CERTPROBLEM); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CERTPROBLEM, __pyx_t_4) < (0)) __PYX_ERR(5, 543, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CERTPROBLEM, __pyx_t_4) < (0)) __PYX_ERR(5, 545, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":544
+  /* "cycurl/consts.pxi":546
  * CURLE_OBSOLETE57 = curl.CURLE_OBSOLETE57
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER             # <<<<<<<<<<<<<<
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CIPHER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 544, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CIPHER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 546, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CIPHER, __pyx_t_4) < (0)) __PYX_ERR(5, 544, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CIPHER, __pyx_t_4) < (0)) __PYX_ERR(5, 546, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":545
+  /* "cycurl/consts.pxi":547
  * CURLE_SSL_CERTPROBLEM = curl.CURLE_SSL_CERTPROBLEM
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION             # <<<<<<<<<<<<<<
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_PEER_FAILED_VERIFICATION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 545, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_PEER_FAILED_VERIFICATION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 547, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PEER_FAILED_VERIFICATION, __pyx_t_4) < (0)) __PYX_ERR(5, 545, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PEER_FAILED_VERIFICATION, __pyx_t_4) < (0)) __PYX_ERR(5, 547, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":546
+  /* "cycurl/consts.pxi":548
  * CURLE_SSL_CIPHER = curl.CURLE_SSL_CIPHER
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_CONTENT_ENCODING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 546, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_CONTENT_ENCODING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_CONTENT_ENCODING, __pyx_t_4) < (0)) __PYX_ERR(5, 546, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_CONTENT_ENCODING, __pyx_t_4) < (0)) __PYX_ERR(5, 548, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":547
+  /* "cycurl/consts.pxi":549
  * CURLE_PEER_FAILED_VERIFICATION = curl.CURLE_PEER_FAILED_VERIFICATION
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62             # <<<<<<<<<<<<<<
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE62); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 547, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE62); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 549, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE62, __pyx_t_4) < (0)) __PYX_ERR(5, 547, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE62, __pyx_t_4) < (0)) __PYX_ERR(5, 549, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":548
+  /* "cycurl/consts.pxi":550
  * CURLE_BAD_CONTENT_ENCODING = curl.CURLE_BAD_CONTENT_ENCODING
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED             # <<<<<<<<<<<<<<
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FILESIZE_EXCEEDED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 548, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FILESIZE_EXCEEDED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 550, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FILESIZE_EXCEEDED, __pyx_t_4) < (0)) __PYX_ERR(5, 548, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FILESIZE_EXCEEDED, __pyx_t_4) < (0)) __PYX_ERR(5, 550, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":549
+  /* "cycurl/consts.pxi":551
  * CURLE_OBSOLETE62 = curl.CURLE_OBSOLETE62
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED             # <<<<<<<<<<<<<<
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_USE_SSL_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 549, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_USE_SSL_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_USE_SSL_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 549, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_USE_SSL_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 551, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":550
+  /* "cycurl/consts.pxi":552
  * CURLE_FILESIZE_EXCEEDED = curl.CURLE_FILESIZE_EXCEEDED
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND             # <<<<<<<<<<<<<<
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SEND_FAIL_REWIND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 550, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SEND_FAIL_REWIND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 552, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SEND_FAIL_REWIND, __pyx_t_4) < (0)) __PYX_ERR(5, 550, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SEND_FAIL_REWIND, __pyx_t_4) < (0)) __PYX_ERR(5, 552, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":551
+  /* "cycurl/consts.pxi":553
  * CURLE_USE_SSL_FAILED = curl.CURLE_USE_SSL_FAILED
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED             # <<<<<<<<<<<<<<
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_INITFAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 551, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_ENGINE_INITFAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 553, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_INITFAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 551, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ENGINE_INITFAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 553, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":552
+  /* "cycurl/consts.pxi":554
  * CURLE_SEND_FAIL_REWIND = curl.CURLE_SEND_FAIL_REWIND
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED             # <<<<<<<<<<<<<<
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LOGIN_DENIED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 552, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LOGIN_DENIED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LOGIN_DENIED, __pyx_t_4) < (0)) __PYX_ERR(5, 552, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LOGIN_DENIED, __pyx_t_4) < (0)) __PYX_ERR(5, 554, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":553
+  /* "cycurl/consts.pxi":555
  * CURLE_SSL_ENGINE_INITFAILED = curl.CURLE_SSL_ENGINE_INITFAILED
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND             # <<<<<<<<<<<<<<
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_NOTFOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 553, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_NOTFOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 555, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_NOTFOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 553, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_NOTFOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 555, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":554
+  /* "cycurl/consts.pxi":556
  * CURLE_LOGIN_DENIED = curl.CURLE_LOGIN_DENIED
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM             # <<<<<<<<<<<<<<
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_PERM); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 554, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_PERM); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 556, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_PERM, __pyx_t_4) < (0)) __PYX_ERR(5, 554, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_PERM, __pyx_t_4) < (0)) __PYX_ERR(5, 556, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":555
+  /* "cycurl/consts.pxi":557
  * CURLE_TFTP_NOTFOUND = curl.CURLE_TFTP_NOTFOUND
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL             # <<<<<<<<<<<<<<
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_REMOTE_DISK_FULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 555, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_REMOTE_DISK_FULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 557, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_DISK_FULL, __pyx_t_4) < (0)) __PYX_ERR(5, 555, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_DISK_FULL, __pyx_t_4) < (0)) __PYX_ERR(5, 557, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":556
+  /* "cycurl/consts.pxi":558
  * CURLE_TFTP_PERM = curl.CURLE_TFTP_PERM
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL             # <<<<<<<<<<<<<<
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_ILLEGAL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 556, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_ILLEGAL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 558, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_ILLEGAL, __pyx_t_4) < (0)) __PYX_ERR(5, 556, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_ILLEGAL, __pyx_t_4) < (0)) __PYX_ERR(5, 558, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":557
+  /* "cycurl/consts.pxi":559
  * CURLE_REMOTE_DISK_FULL = curl.CURLE_REMOTE_DISK_FULL
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID             # <<<<<<<<<<<<<<
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_UNKNOWNID); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 557, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_UNKNOWNID); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 559, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_UNKNOWNID, __pyx_t_4) < (0)) __PYX_ERR(5, 557, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_UNKNOWNID, __pyx_t_4) < (0)) __PYX_ERR(5, 559, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":558
+  /* "cycurl/consts.pxi":560
  * CURLE_TFTP_ILLEGAL = curl.CURLE_TFTP_ILLEGAL
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS             # <<<<<<<<<<<<<<
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_REMOTE_FILE_EXISTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 558, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_REMOTE_FILE_EXISTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 560, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_FILE_EXISTS, __pyx_t_4) < (0)) __PYX_ERR(5, 558, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_FILE_EXISTS, __pyx_t_4) < (0)) __PYX_ERR(5, 560, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":559
+  /* "cycurl/consts.pxi":561
  * CURLE_TFTP_UNKNOWNID = curl.CURLE_TFTP_UNKNOWNID
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_NOSUCHUSER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 559, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_NOSUCHUSER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 561, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_NOSUCHUSER, __pyx_t_4) < (0)) __PYX_ERR(5, 559, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_NOSUCHUSER, __pyx_t_4) < (0)) __PYX_ERR(5, 561, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":560
+  /* "cycurl/consts.pxi":562
  * CURLE_REMOTE_FILE_EXISTS = curl.CURLE_REMOTE_FILE_EXISTS
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE75); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 560, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE75); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 562, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE75, __pyx_t_4) < (0)) __PYX_ERR(5, 560, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE75, __pyx_t_4) < (0)) __PYX_ERR(5, 562, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":561
+  /* "cycurl/consts.pxi":563
  * CURLE_TFTP_NOSUCHUSER = curl.CURLE_TFTP_NOSUCHUSER
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76             # <<<<<<<<<<<<<<
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE76); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 561, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE76); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 563, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE76, __pyx_t_4) < (0)) __PYX_ERR(5, 561, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE76, __pyx_t_4) < (0)) __PYX_ERR(5, 563, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":562
+  /* "cycurl/consts.pxi":564
  * CURLE_OBSOLETE75 = curl.CURLE_OBSOLETE75
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE             # <<<<<<<<<<<<<<
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND
  * CURLE_SSH = curl.CURLE_SSH
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CACERT_BADFILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 562, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CACERT_BADFILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 564, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CACERT_BADFILE, __pyx_t_4) < (0)) __PYX_ERR(5, 562, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CACERT_BADFILE, __pyx_t_4) < (0)) __PYX_ERR(5, 564, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":563
+  /* "cycurl/consts.pxi":565
  * CURLE_OBSOLETE76 = curl.CURLE_OBSOLETE76
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND             # <<<<<<<<<<<<<<
  * CURLE_SSH = curl.CURLE_SSH
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_REMOTE_FILE_NOT_FOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 563, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_REMOTE_FILE_NOT_FOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 565, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_FILE_NOT_FOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 563, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_REMOTE_FILE_NOT_FOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 565, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":564
+  /* "cycurl/consts.pxi":566
  * CURLE_SSL_CACERT_BADFILE = curl.CURLE_SSL_CACERT_BADFILE
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND
  * CURLE_SSH = curl.CURLE_SSH             # <<<<<<<<<<<<<<
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED
  * CURLE_AGAIN = curl.CURLE_AGAIN
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 564, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 566, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSH, __pyx_t_4) < (0)) __PYX_ERR(5, 564, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSH, __pyx_t_4) < (0)) __PYX_ERR(5, 566, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":565
+  /* "cycurl/consts.pxi":567
  * CURLE_REMOTE_FILE_NOT_FOUND = curl.CURLE_REMOTE_FILE_NOT_FOUND
  * CURLE_SSH = curl.CURLE_SSH
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED             # <<<<<<<<<<<<<<
  * CURLE_AGAIN = curl.CURLE_AGAIN
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_SHUTDOWN_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 565, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_SHUTDOWN_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 567, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_SHUTDOWN_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 565, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_SHUTDOWN_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 567, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":566
+  /* "cycurl/consts.pxi":568
  * CURLE_SSH = curl.CURLE_SSH
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED
  * CURLE_AGAIN = curl.CURLE_AGAIN             # <<<<<<<<<<<<<<
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_AGAIN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 566, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_AGAIN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 568, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_AGAIN, __pyx_t_4) < (0)) __PYX_ERR(5, 566, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_AGAIN, __pyx_t_4) < (0)) __PYX_ERR(5, 568, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":567
+  /* "cycurl/consts.pxi":569
  * CURLE_SSL_SHUTDOWN_FAILED = curl.CURLE_SSL_SHUTDOWN_FAILED
  * CURLE_AGAIN = curl.CURLE_AGAIN
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE             # <<<<<<<<<<<<<<
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CRL_BADFILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 567, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CRL_BADFILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 569, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CRL_BADFILE, __pyx_t_4) < (0)) __PYX_ERR(5, 567, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CRL_BADFILE, __pyx_t_4) < (0)) __PYX_ERR(5, 569, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":568
+  /* "cycurl/consts.pxi":570
  * CURLE_AGAIN = curl.CURLE_AGAIN
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR             # <<<<<<<<<<<<<<
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_ISSUER_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 568, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_ISSUER_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 570, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ISSUER_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 568, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_ISSUER_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 570, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":569
+  /* "cycurl/consts.pxi":571
  * CURLE_SSL_CRL_BADFILE = curl.CURLE_SSL_CRL_BADFILE
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED             # <<<<<<<<<<<<<<
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_PRET_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 569, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_PRET_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 571, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PRET_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 569, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PRET_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 571, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":570
+  /* "cycurl/consts.pxi":572
  * CURLE_SSL_ISSUER_ERROR = curl.CURLE_SSL_ISSUER_ERROR
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR             # <<<<<<<<<<<<<<
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RTSP_CSEQ_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 570, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RTSP_CSEQ_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 572, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RTSP_CSEQ_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 570, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RTSP_CSEQ_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 572, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":571
+  /* "cycurl/consts.pxi":573
  * CURLE_FTP_PRET_FAILED = curl.CURLE_FTP_PRET_FAILED
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR             # <<<<<<<<<<<<<<
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RTSP_SESSION_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 571, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RTSP_SESSION_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 573, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RTSP_SESSION_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 571, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RTSP_SESSION_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 573, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":572
+  /* "cycurl/consts.pxi":574
  * CURLE_RTSP_CSEQ_ERROR = curl.CURLE_RTSP_CSEQ_ERROR
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST             # <<<<<<<<<<<<<<
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_BAD_FILE_LIST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 572, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_BAD_FILE_LIST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 574, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_BAD_FILE_LIST, __pyx_t_4) < (0)) __PYX_ERR(5, 572, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_BAD_FILE_LIST, __pyx_t_4) < (0)) __PYX_ERR(5, 574, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":573
+  /* "cycurl/consts.pxi":575
  * CURLE_RTSP_SESSION_ERROR = curl.CURLE_RTSP_SESSION_ERROR
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED             # <<<<<<<<<<<<<<
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_CHUNK_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 573, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_CHUNK_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 575, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CHUNK_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 573, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CHUNK_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 575, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":574
+  /* "cycurl/consts.pxi":576
  * CURLE_FTP_BAD_FILE_LIST = curl.CURLE_FTP_BAD_FILE_LIST
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE             # <<<<<<<<<<<<<<
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_NO_CONNECTION_AVAILABLE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 574, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_NO_CONNECTION_AVAILABLE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 576, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_NO_CONNECTION_AVAILABLE, __pyx_t_4) < (0)) __PYX_ERR(5, 574, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_NO_CONNECTION_AVAILABLE, __pyx_t_4) < (0)) __PYX_ERR(5, 576, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":575
+  /* "cycurl/consts.pxi":577
  * CURLE_CHUNK_FAILED = curl.CURLE_CHUNK_FAILED
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH             # <<<<<<<<<<<<<<
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_PINNEDPUBKEYNOTMATCH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 575, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_PINNEDPUBKEYNOTMATCH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 577, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_PINNEDPUBKEYNOTMATCH, __pyx_t_4) < (0)) __PYX_ERR(5, 575, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_PINNEDPUBKEYNOTMATCH, __pyx_t_4) < (0)) __PYX_ERR(5, 577, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":576
+  /* "cycurl/consts.pxi":578
  * CURLE_NO_CONNECTION_AVAILABLE = curl.CURLE_NO_CONNECTION_AVAILABLE
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS             # <<<<<<<<<<<<<<
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_INVALIDCERTSTATUS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 576, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_INVALIDCERTSTATUS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 578, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_INVALIDCERTSTATUS, __pyx_t_4) < (0)) __PYX_ERR(5, 576, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_INVALIDCERTSTATUS, __pyx_t_4) < (0)) __PYX_ERR(5, 578, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":577
+  /* "cycurl/consts.pxi":579
  * CURLE_SSL_PINNEDPUBKEYNOTMATCH = curl.CURLE_SSL_PINNEDPUBKEYNOTMATCH
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM             # <<<<<<<<<<<<<<
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP2_STREAM); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 577, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP2_STREAM); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 579, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP2_STREAM, __pyx_t_4) < (0)) __PYX_ERR(5, 577, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP2_STREAM, __pyx_t_4) < (0)) __PYX_ERR(5, 579, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":578
+  /* "cycurl/consts.pxi":580
  * CURLE_SSL_INVALIDCERTSTATUS = curl.CURLE_SSL_INVALIDCERTSTATUS
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL             # <<<<<<<<<<<<<<
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR
  * CURLE_HTTP3 = curl.CURLE_HTTP3
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RECURSIVE_API_CALL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 578, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_RECURSIVE_API_CALL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 580, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RECURSIVE_API_CALL, __pyx_t_4) < (0)) __PYX_ERR(5, 578, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_RECURSIVE_API_CALL, __pyx_t_4) < (0)) __PYX_ERR(5, 580, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":579
+  /* "cycurl/consts.pxi":581
  * CURLE_HTTP2_STREAM = curl.CURLE_HTTP2_STREAM
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR             # <<<<<<<<<<<<<<
  * CURLE_HTTP3 = curl.CURLE_HTTP3
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_AUTH_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 579, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_AUTH_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 581, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_AUTH_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 579, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_AUTH_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 581, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":580
+  /* "cycurl/consts.pxi":582
  * CURLE_RECURSIVE_API_CALL = curl.CURLE_RECURSIVE_API_CALL
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR
  * CURLE_HTTP3 = curl.CURLE_HTTP3             # <<<<<<<<<<<<<<
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR
  * CURLE_PROXY = curl.CURLE_PROXY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 580, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 582, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP3, __pyx_t_4) < (0)) __PYX_ERR(5, 580, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP3, __pyx_t_4) < (0)) __PYX_ERR(5, 582, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":581
+  /* "cycurl/consts.pxi":583
  * CURLE_AUTH_ERROR = curl.CURLE_AUTH_ERROR
  * CURLE_HTTP3 = curl.CURLE_HTTP3
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR             # <<<<<<<<<<<<<<
  * CURLE_PROXY = curl.CURLE_PROXY
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_QUIC_CONNECT_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 581, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_QUIC_CONNECT_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 583, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_QUIC_CONNECT_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 581, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_QUIC_CONNECT_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 583, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":582
+  /* "cycurl/consts.pxi":584
  * CURLE_HTTP3 = curl.CURLE_HTTP3
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR
  * CURLE_PROXY = curl.CURLE_PROXY             # <<<<<<<<<<<<<<
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_PROXY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 582, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_PROXY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 584, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PROXY, __pyx_t_4) < (0)) __PYX_ERR(5, 582, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_PROXY, __pyx_t_4) < (0)) __PYX_ERR(5, 584, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":583
+  /* "cycurl/consts.pxi":585
  * CURLE_QUIC_CONNECT_ERROR = curl.CURLE_QUIC_CONNECT_ERROR
  * CURLE_PROXY = curl.CURLE_PROXY
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT             # <<<<<<<<<<<<<<
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL
  * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CLIENTCERT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 583, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CLIENTCERT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 585, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CLIENTCERT, __pyx_t_4) < (0)) __PYX_ERR(5, 583, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CLIENTCERT, __pyx_t_4) < (0)) __PYX_ERR(5, 585, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":584
+  /* "cycurl/consts.pxi":586
  * CURLE_PROXY = curl.CURLE_PROXY
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL             # <<<<<<<<<<<<<<
  * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE
  * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UNRECOVERABLE_POLL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 584, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UNRECOVERABLE_POLL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 586, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNRECOVERABLE_POLL, __pyx_t_4) < (0)) __PYX_ERR(5, 584, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNRECOVERABLE_POLL, __pyx_t_4) < (0)) __PYX_ERR(5, 586, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":585
+  /* "cycurl/consts.pxi":587
  * CURLE_SSL_CLIENTCERT = curl.CURLE_SSL_CLIENTCERT
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL
  * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE             # <<<<<<<<<<<<<<
  * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
  * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TOO_LARGE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 585, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TOO_LARGE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 587, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TOO_LARGE, __pyx_t_4) < (0)) __PYX_ERR(5, 585, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TOO_LARGE, __pyx_t_4) < (0)) __PYX_ERR(5, 587, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":586
+  /* "cycurl/consts.pxi":588
  * CURLE_UNRECOVERABLE_POLL = curl.CURLE_UNRECOVERABLE_POLL
  * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE
  * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED             # <<<<<<<<<<<<<<
  * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
  * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_ECH_REQUIRED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 586, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_ECH_REQUIRED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 588, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ECH_REQUIRED, __pyx_t_4) < (0)) __PYX_ERR(5, 586, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ECH_REQUIRED, __pyx_t_4) < (0)) __PYX_ERR(5, 588, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":587
+  /* "cycurl/consts.pxi":589
  * CURLE_TOO_LARGE = curl.CURLE_TOO_LARGE
  * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
  * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND             # <<<<<<<<<<<<<<
  * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
  * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FUNCTION_NOT_FOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 587, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FUNCTION_NOT_FOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 589, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FUNCTION_NOT_FOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 587, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FUNCTION_NOT_FOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 589, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":588
+  /* "cycurl/consts.pxi":590
  * CURLE_ECH_REQUIRED = curl.CURLE_ECH_REQUIRED
  * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
  * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_POST_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 588, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_POST_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 590, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_POST_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 588, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_POST_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 590, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":589
+  /* "cycurl/consts.pxi":591
  * CURLE_FUNCTION_NOT_FOUND = curl.CURLE_FUNCTION_NOT_FOUND
  * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
  * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE16); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 589, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE16); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 591, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE16, __pyx_t_4) < (0)) __PYX_ERR(5, 589, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE16, __pyx_t_4) < (0)) __PYX_ERR(5, 591, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":590
+  /* "cycurl/consts.pxi":592
  * CURLE_HTTP_POST_ERROR = curl.CURLE_HTTP_POST_ERROR
  * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE10); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 590, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE10); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 592, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE10, __pyx_t_4) < (0)) __PYX_ERR(5, 590, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE10, __pyx_t_4) < (0)) __PYX_ERR(5, 592, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":591
+  /* "cycurl/consts.pxi":593
  * CURLE_OBSOLETE16 = curl.CURLE_OBSOLETE16
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE12); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 591, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE12); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 593, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE12, __pyx_t_4) < (0)) __PYX_ERR(5, 591, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE12, __pyx_t_4) < (0)) __PYX_ERR(5, 593, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":592
+  /* "cycurl/consts.pxi":594
  * CURLE_OBSOLETE10 = curl.CURLE_OBSOLETE10
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY             # <<<<<<<<<<<<<<
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_SERVER_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 592, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_SERVER_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 594, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_SERVER_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 592, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_SERVER_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 594, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":593
+  /* "cycurl/consts.pxi":595
  * CURLE_OBSOLETE12 = curl.CURLE_OBSOLETE12
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT             # <<<<<<<<<<<<<<
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CACERT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 593, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_CACERT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 595, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CACERT, __pyx_t_4) < (0)) __PYX_ERR(5, 593, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_CACERT, __pyx_t_4) < (0)) __PYX_ERR(5, 595, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":594
+  /* "cycurl/consts.pxi":596
  * CURLE_FTP_WEIRD_SERVER_REPLY = curl.CURLE_FTP_WEIRD_SERVER_REPLY
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION             # <<<<<<<<<<<<<<
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UNKNOWN_TELNET_OPTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 594, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_UNKNOWN_TELNET_OPTION); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 596, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNKNOWN_TELNET_OPTION, __pyx_t_4) < (0)) __PYX_ERR(5, 594, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_UNKNOWN_TELNET_OPTION, __pyx_t_4) < (0)) __PYX_ERR(5, 596, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":595
+  /* "cycurl/consts.pxi":597
  * CURLE_SSL_CACERT = curl.CURLE_SSL_CACERT
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX             # <<<<<<<<<<<<<<
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TELNET_OPTION_SYNTAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 595, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TELNET_OPTION_SYNTAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 597, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TELNET_OPTION_SYNTAX, __pyx_t_4) < (0)) __PYX_ERR(5, 595, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TELNET_OPTION_SYNTAX, __pyx_t_4) < (0)) __PYX_ERR(5, 597, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":596
+  /* "cycurl/consts.pxi":598
  * CURLE_UNKNOWN_TELNET_OPTION = curl.CURLE_UNKNOWN_TELNET_OPTION
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE             # <<<<<<<<<<<<<<
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_PEER_CERTIFICATE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 596, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SSL_PEER_CERTIFICATE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 598, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_PEER_CERTIFICATE, __pyx_t_4) < (0)) __PYX_ERR(5, 596, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SSL_PEER_CERTIFICATE, __pyx_t_4) < (0)) __PYX_ERR(5, 598, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":597
+  /* "cycurl/consts.pxi":599
  * CURLE_TELNET_OPTION_SYNTAX = curl.CURLE_TELNET_OPTION_SYNTAX
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE             # <<<<<<<<<<<<<<
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 597, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OBSOLETE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 599, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE, __pyx_t_4) < (0)) __PYX_ERR(5, 597, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OBSOLETE, __pyx_t_4) < (0)) __PYX_ERR(5, 599, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":598
+  /* "cycurl/consts.pxi":600
  * CURLE_SSL_PEER_CERTIFICATE = curl.CURLE_SSL_PEER_CERTIFICATE
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED             # <<<<<<<<<<<<<<
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_PASSWORD_ENTERED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 598, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_PASSWORD_ENTERED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 600, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_PASSWORD_ENTERED, __pyx_t_4) < (0)) __PYX_ERR(5, 598, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_PASSWORD_ENTERED, __pyx_t_4) < (0)) __PYX_ERR(5, 600, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":599
+  /* "cycurl/consts.pxi":601
  * CURLE_OBSOLETE = curl.CURLE_OBSOLETE
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER             # <<<<<<<<<<<<<<
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_CALLING_ORDER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 599, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_BAD_CALLING_ORDER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_CALLING_ORDER, __pyx_t_4) < (0)) __PYX_ERR(5, 599, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_BAD_CALLING_ORDER, __pyx_t_4) < (0)) __PYX_ERR(5, 601, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":600
+  /* "cycurl/consts.pxi":602
  * CURLE_BAD_PASSWORD_ENTERED = curl.CURLE_BAD_PASSWORD_ENTERED
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT             # <<<<<<<<<<<<<<
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_USER_PASSWORD_INCORRECT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 600, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_USER_PASSWORD_INCORRECT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 602, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_USER_PASSWORD_INCORREC, __pyx_t_4) < (0)) __PYX_ERR(5, 600, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_USER_PASSWORD_INCORREC, __pyx_t_4) < (0)) __PYX_ERR(5, 602, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":601
+  /* "cycurl/consts.pxi":603
  * CURLE_BAD_CALLING_ORDER = curl.CURLE_BAD_CALLING_ORDER
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_CANT_RECONNECT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 601, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_CANT_RECONNECT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 603, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_CANT_RECONNECT, __pyx_t_4) < (0)) __PYX_ERR(5, 601, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_CANT_RECONNECT, __pyx_t_4) < (0)) __PYX_ERR(5, 603, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":602
+  /* "cycurl/consts.pxi":604
  * CURLE_FTP_USER_PASSWORD_INCORRECT = curl.CURLE_FTP_USER_PASSWORD_INCORRECT
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_GET_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 602, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_GET_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 604, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_GET_SIZE, __pyx_t_4) < (0)) __PYX_ERR(5, 602, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_GET_SIZE, __pyx_t_4) < (0)) __PYX_ERR(5, 604, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":603
+  /* "cycurl/consts.pxi":605
  * CURLE_FTP_CANT_RECONNECT = curl.CURLE_FTP_CANT_RECONNECT
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII             # <<<<<<<<<<<<<<
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_ASCII); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 603, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_ASCII); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 605, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_ASCII, __pyx_t_4) < (0)) __PYX_ERR(5, 603, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_ASCII, __pyx_t_4) < (0)) __PYX_ERR(5, 605, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":604
+  /* "cycurl/consts.pxi":606
  * CURLE_FTP_COULDNT_GET_SIZE = curl.CURLE_FTP_COULDNT_GET_SIZE
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY             # <<<<<<<<<<<<<<
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_USER_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 604, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WEIRD_USER_REPLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 606, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_USER_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 604, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WEIRD_USER_REPLY, __pyx_t_4) < (0)) __PYX_ERR(5, 606, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":605
+  /* "cycurl/consts.pxi":607
  * CURLE_FTP_COULDNT_SET_ASCII = curl.CURLE_FTP_COULDNT_SET_ASCII
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WRITE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 605, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_WRITE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 607, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WRITE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 605, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_WRITE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 607, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":606
+  /* "cycurl/consts.pxi":608
  * CURLE_FTP_WEIRD_USER_REPLY = curl.CURLE_FTP_WEIRD_USER_REPLY
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND             # <<<<<<<<<<<<<<
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LIBRARY_NOT_FOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 606, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LIBRARY_NOT_FOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 608, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LIBRARY_NOT_FOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 606, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LIBRARY_NOT_FOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 608, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":607
+  /* "cycurl/consts.pxi":609
  * CURLE_FTP_WRITE_ERROR = curl.CURLE_FTP_WRITE_ERROR
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER             # <<<<<<<<<<<<<<
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_MALFORMAT_USER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 607, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_MALFORMAT_USER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 609, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_MALFORMAT_USER, __pyx_t_4) < (0)) __PYX_ERR(5, 607, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_MALFORMAT_USER, __pyx_t_4) < (0)) __PYX_ERR(5, 609, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":608
+  /* "cycurl/consts.pxi":610
  * CURLE_LIBRARY_NOT_FOUND = curl.CURLE_LIBRARY_NOT_FOUND
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE             # <<<<<<<<<<<<<<
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SHARE_IN_USE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 608, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_SHARE_IN_USE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 610, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SHARE_IN_USE, __pyx_t_4) < (0)) __PYX_ERR(5, 608, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_SHARE_IN_USE, __pyx_t_4) < (0)) __PYX_ERR(5, 610, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":609
+  /* "cycurl/consts.pxi":611
  * CURLE_MALFORMAT_USER = curl.CURLE_MALFORMAT_USER
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER             # <<<<<<<<<<<<<<
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_URL_MALFORMAT_USER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 609, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_URL_MALFORMAT_USER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 611, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_URL_MALFORMAT_USER, __pyx_t_4) < (0)) __PYX_ERR(5, 609, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_URL_MALFORMAT_USER, __pyx_t_4) < (0)) __PYX_ERR(5, 611, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":610
+  /* "cycurl/consts.pxi":612
  * CURLE_SHARE_IN_USE = curl.CURLE_SHARE_IN_USE
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_ACCESS_DENIED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 610, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_ACCESS_DENIED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 612, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCESS_DENIED, __pyx_t_4) < (0)) __PYX_ERR(5, 610, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_ACCESS_DENIED, __pyx_t_4) < (0)) __PYX_ERR(5, 612, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":611
+  /* "cycurl/consts.pxi":613
  * CURLE_URL_MALFORMAT_USER = curl.CURLE_URL_MALFORMAT_USER
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY             # <<<<<<<<<<<<<<
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_BINARY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 611, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_SET_BINARY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 613, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_BINARY, __pyx_t_4) < (0)) __PYX_ERR(5, 611, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_SET_BINARY, __pyx_t_4) < (0)) __PYX_ERR(5, 613, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":612
+  /* "cycurl/consts.pxi":614
  * CURLE_FTP_ACCESS_DENIED = curl.CURLE_FTP_ACCESS_DENIED
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_QUOTE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 612, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_QUOTE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_QUOTE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 612, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_QUOTE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 614, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":613
+  /* "cycurl/consts.pxi":615
  * CURLE_FTP_COULDNT_SET_BINARY = curl.CURLE_FTP_COULDNT_SET_BINARY
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL             # <<<<<<<<<<<<<<
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_DISKFULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 613, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_DISKFULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 615, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_DISKFULL, __pyx_t_4) < (0)) __PYX_ERR(5, 613, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_DISKFULL, __pyx_t_4) < (0)) __PYX_ERR(5, 615, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":614
+  /* "cycurl/consts.pxi":616
  * CURLE_FTP_QUOTE_ERROR = curl.CURLE_FTP_QUOTE_ERROR
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS             # <<<<<<<<<<<<<<
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_EXISTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 614, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_TFTP_EXISTS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_EXISTS, __pyx_t_4) < (0)) __PYX_ERR(5, 614, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_TFTP_EXISTS, __pyx_t_4) < (0)) __PYX_ERR(5, 616, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":615
+  /* "cycurl/consts.pxi":617
  * CURLE_TFTP_DISKFULL = curl.CURLE_TFTP_DISKFULL
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR             # <<<<<<<<<<<<<<
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_RANGE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 615, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_RANGE_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 617, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_RANGE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 615, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_RANGE_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 617, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":616
+  /* "cycurl/consts.pxi":618
  * CURLE_TFTP_EXISTS = curl.CURLE_TFTP_EXISTS
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED             # <<<<<<<<<<<<<<
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_SSL_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 616, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_SSL_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 618, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_SSL_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 616, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_SSL_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 618, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":617
+  /* "cycurl/consts.pxi":619
  * CURLE_HTTP_RANGE_ERROR = curl.CURLE_HTTP_RANGE_ERROR
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED             # <<<<<<<<<<<<<<
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OPERATION_TIMEOUTED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 617, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_OPERATION_TIMEOUTED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 619, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OPERATION_TIMEOUTED, __pyx_t_4) < (0)) __PYX_ERR(5, 617, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_OPERATION_TIMEOUTED, __pyx_t_4) < (0)) __PYX_ERR(5, 619, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":618
+  /* "cycurl/consts.pxi":620
  * CURLE_FTP_SSL_FAILED = curl.CURLE_FTP_SSL_FAILED
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND             # <<<<<<<<<<<<<<
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_NOT_FOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 618, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_NOT_FOUND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 620, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_NOT_FOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 618, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_NOT_FOUND, __pyx_t_4) < (0)) __PYX_ERR(5, 620, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":619
+  /* "cycurl/consts.pxi":621
  * CURLE_OPERATION_TIMEOUTED = curl.CURLE_OPERATION_TIMEOUTED
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED             # <<<<<<<<<<<<<<
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_PORT_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 619, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_HTTP_PORT_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 621, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_PORT_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 619, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_HTTP_PORT_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 621, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":620
+  /* "cycurl/consts.pxi":622
  * CURLE_HTTP_NOT_FOUND = curl.CURLE_HTTP_NOT_FOUND
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE             # <<<<<<<<<<<<<<
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_STOR_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 620, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_COULDNT_STOR_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_STOR_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 620, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_COULDNT_STOR_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 622, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":621
+  /* "cycurl/consts.pxi":623
  * CURLE_HTTP_PORT_FAILED = curl.CURLE_HTTP_PORT_FAILED
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE             # <<<<<<<<<<<<<<
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_PARTIAL_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 621, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_PARTIAL_FILE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 623, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PARTIAL_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 621, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_PARTIAL_FILE, __pyx_t_4) < (0)) __PYX_ERR(5, 623, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":622
+  /* "cycurl/consts.pxi":624
  * CURLE_FTP_COULDNT_STOR_FILE = curl.CURLE_FTP_COULDNT_STOR_FILE
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME             # <<<<<<<<<<<<<<
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_BAD_DOWNLOAD_RESUME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 622, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_FTP_BAD_DOWNLOAD_RESUME); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 624, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_BAD_DOWNLOAD_RESUME, __pyx_t_4) < (0)) __PYX_ERR(5, 622, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_FTP_BAD_DOWNLOAD_RESUME, __pyx_t_4) < (0)) __PYX_ERR(5, 624, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":623
+  /* "cycurl/consts.pxi":625
  * CURLE_FTP_PARTIAL_FILE = curl.CURLE_FTP_PARTIAL_FILE
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL             # <<<<<<<<<<<<<<
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD
  * CURLE_CONV_FAILED = curl.CURLE_CONV_FAILED
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LDAP_INVALID_URL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 623, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_LDAP_INVALID_URL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 625, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_INVALID_URL, __pyx_t_4) < (0)) __PYX_ERR(5, 623, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_LDAP_INVALID_URL, __pyx_t_4) < (0)) __PYX_ERR(5, 625, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":624
+  /* "cycurl/consts.pxi":626
  * CURLE_FTP_BAD_DOWNLOAD_RESUME = curl.CURLE_FTP_BAD_DOWNLOAD_RESUME
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD             # <<<<<<<<<<<<<<
  * CURLE_CONV_FAILED = curl.CURLE_CONV_FAILED
  * CURLE_ALREADY_COMPLETE = curl.CURLE_ALREADY_COMPLETE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_CONV_REQD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 624, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_CONV_REQD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 626, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CONV_REQD, __pyx_t_4) < (0)) __PYX_ERR(5, 624, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CONV_REQD, __pyx_t_4) < (0)) __PYX_ERR(5, 626, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":625
+  /* "cycurl/consts.pxi":627
  * CURLE_LDAP_INVALID_URL = curl.CURLE_LDAP_INVALID_URL
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD
  * CURLE_CONV_FAILED = curl.CURLE_CONV_FAILED             # <<<<<<<<<<<<<<
  * CURLE_ALREADY_COMPLETE = curl.CURLE_ALREADY_COMPLETE
  * #CURL_HTTP_VERSION_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_CONV_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 625, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_CONV_FAILED); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 627, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CONV_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 625, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_CONV_FAILED, __pyx_t_4) < (0)) __PYX_ERR(5, 627, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":626
+  /* "cycurl/consts.pxi":628
  * CURLE_CONV_REQD = curl.CURLE_CONV_REQD
  * CURLE_CONV_FAILED = curl.CURLE_CONV_FAILED
  * CURLE_ALREADY_COMPLETE = curl.CURLE_ALREADY_COMPLETE             # <<<<<<<<<<<<<<
  * #CURL_HTTP_VERSION_
  * CURL_HTTP_VERSION_NONE = curl.CURL_HTTP_VERSION_NONE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_ALREADY_COMPLETE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 626, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLE_ALREADY_COMPLETE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 628, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ALREADY_COMPLETE, __pyx_t_4) < (0)) __PYX_ERR(5, 626, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLE_ALREADY_COMPLETE, __pyx_t_4) < (0)) __PYX_ERR(5, 628, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":628
+  /* "cycurl/consts.pxi":630
  * CURLE_ALREADY_COMPLETE = curl.CURLE_ALREADY_COMPLETE
  * #CURL_HTTP_VERSION_
  * CURL_HTTP_VERSION_NONE = curl.CURL_HTTP_VERSION_NONE             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_1_0 = curl.CURL_HTTP_VERSION_1_0
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 628, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 630, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 628, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 630, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":629
+  /* "cycurl/consts.pxi":631
  * #CURL_HTTP_VERSION_
  * CURL_HTTP_VERSION_NONE = curl.CURL_HTTP_VERSION_NONE
  * CURL_HTTP_VERSION_1_0 = curl.CURL_HTTP_VERSION_1_0             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_1_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 629, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_1_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 631, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_0, __pyx_t_4) < (0)) __PYX_ERR(5, 629, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_0, __pyx_t_4) < (0)) __PYX_ERR(5, 631, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":630
+  /* "cycurl/consts.pxi":632
  * CURL_HTTP_VERSION_NONE = curl.CURL_HTTP_VERSION_NONE
  * CURL_HTTP_VERSION_1_0 = curl.CURL_HTTP_VERSION_1_0
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_1_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 630, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_1_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 632, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_1, __pyx_t_4) < (0)) __PYX_ERR(5, 630, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_1_1, __pyx_t_4) < (0)) __PYX_ERR(5, 632, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":631
+  /* "cycurl/consts.pxi":633
  * CURL_HTTP_VERSION_1_0 = curl.CURL_HTTP_VERSION_1_0
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 631, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 633, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_0, __pyx_t_4) < (0)) __PYX_ERR(5, 631, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_0, __pyx_t_4) < (0)) __PYX_ERR(5, 633, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":632
+  /* "cycurl/consts.pxi":634
  * CURL_HTTP_VERSION_1_1 = curl.CURL_HTTP_VERSION_1_1
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2TLS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 632, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2TLS); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 634, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2TLS, __pyx_t_4) < (0)) __PYX_ERR(5, 632, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2TLS, __pyx_t_4) < (0)) __PYX_ERR(5, 634, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":633
+  /* "cycurl/consts.pxi":635
  * CURL_HTTP_VERSION_2_0 = curl.CURL_HTTP_VERSION_2_0
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3
  * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 633, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 635, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_PRIOR_KNOWLE, __pyx_t_4) < (0)) __PYX_ERR(5, 633, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2_PRIOR_KNOWLE, __pyx_t_4) < (0)) __PYX_ERR(5, 635, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":634
+  /* "cycurl/consts.pxi":636
  * CURL_HTTP_VERSION_2TLS = curl.CURL_HTTP_VERSION_2TLS
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY
  * CURL_HTTP_VERSION_LAST = curl.CURL_HTTP_VERSION_LAST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 634, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 636, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_3, __pyx_t_4) < (0)) __PYX_ERR(5, 634, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_3, __pyx_t_4) < (0)) __PYX_ERR(5, 636, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":635
+  /* "cycurl/consts.pxi":637
  * CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE = curl.CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3
  * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_LAST = curl.CURL_HTTP_VERSION_LAST
  * CURL_HTTP_VERSION_2 = curl.CURL_HTTP_VERSION_2
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_3ONLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 635, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_3ONLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 637, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_3ONLY, __pyx_t_4) < (0)) __PYX_ERR(5, 635, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_3ONLY, __pyx_t_4) < (0)) __PYX_ERR(5, 637, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":636
+  /* "cycurl/consts.pxi":638
  * CURL_HTTP_VERSION_3 = curl.CURL_HTTP_VERSION_3
  * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY
  * CURL_HTTP_VERSION_LAST = curl.CURL_HTTP_VERSION_LAST             # <<<<<<<<<<<<<<
  * CURL_HTTP_VERSION_2 = curl.CURL_HTTP_VERSION_2
  * #CURLWS_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_LAST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 636, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_LAST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 638, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_LAST, __pyx_t_4) < (0)) __PYX_ERR(5, 636, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_LAST, __pyx_t_4) < (0)) __PYX_ERR(5, 638, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":637
+  /* "cycurl/consts.pxi":639
  * CURL_HTTP_VERSION_3ONLY = curl.CURL_HTTP_VERSION_3ONLY
  * CURL_HTTP_VERSION_LAST = curl.CURL_HTTP_VERSION_LAST
  * CURL_HTTP_VERSION_2 = curl.CURL_HTTP_VERSION_2             # <<<<<<<<<<<<<<
  * #CURLWS_
  * CURLWS_TEXT = curl.CURLWS_TEXT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 637, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_HTTP_VERSION_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 639, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2, __pyx_t_4) < (0)) __PYX_ERR(5, 637, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_HTTP_VERSION_2, __pyx_t_4) < (0)) __PYX_ERR(5, 639, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":639
+  /* "cycurl/consts.pxi":641
  * CURL_HTTP_VERSION_2 = curl.CURL_HTTP_VERSION_2
  * #CURLWS_
  * CURLWS_TEXT = curl.CURLWS_TEXT             # <<<<<<<<<<<<<<
  * CURLWS_BINARY = curl.CURLWS_BINARY
  * CURLWS_CONT = curl.CURLWS_CONT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_TEXT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 639, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_TEXT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 641, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_TEXT, __pyx_t_4) < (0)) __PYX_ERR(5, 639, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_TEXT, __pyx_t_4) < (0)) __PYX_ERR(5, 641, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":640
+  /* "cycurl/consts.pxi":642
  * #CURLWS_
  * CURLWS_TEXT = curl.CURLWS_TEXT
  * CURLWS_BINARY = curl.CURLWS_BINARY             # <<<<<<<<<<<<<<
  * CURLWS_CONT = curl.CURLWS_CONT
  * CURLWS_CLOSE = curl.CURLWS_CLOSE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_BINARY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 640, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_BINARY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 642, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_BINARY, __pyx_t_4) < (0)) __PYX_ERR(5, 640, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_BINARY, __pyx_t_4) < (0)) __PYX_ERR(5, 642, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":641
+  /* "cycurl/consts.pxi":643
  * CURLWS_TEXT = curl.CURLWS_TEXT
  * CURLWS_BINARY = curl.CURLWS_BINARY
  * CURLWS_CONT = curl.CURLWS_CONT             # <<<<<<<<<<<<<<
  * CURLWS_CLOSE = curl.CURLWS_CLOSE
  * CURLWS_PING = curl.CURLWS_PING
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_CONT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 641, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_CONT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 643, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_CONT, __pyx_t_4) < (0)) __PYX_ERR(5, 641, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_CONT, __pyx_t_4) < (0)) __PYX_ERR(5, 643, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":642
+  /* "cycurl/consts.pxi":644
  * CURLWS_BINARY = curl.CURLWS_BINARY
  * CURLWS_CONT = curl.CURLWS_CONT
  * CURLWS_CLOSE = curl.CURLWS_CLOSE             # <<<<<<<<<<<<<<
  * CURLWS_PING = curl.CURLWS_PING
  * CURLWS_OFFSET = curl.CURLWS_OFFSET
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_CLOSE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 642, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_CLOSE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 644, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_CLOSE, __pyx_t_4) < (0)) __PYX_ERR(5, 642, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_CLOSE, __pyx_t_4) < (0)) __PYX_ERR(5, 644, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":643
+  /* "cycurl/consts.pxi":645
  * CURLWS_CONT = curl.CURLWS_CONT
  * CURLWS_CLOSE = curl.CURLWS_CLOSE
  * CURLWS_PING = curl.CURLWS_PING             # <<<<<<<<<<<<<<
  * CURLWS_OFFSET = curl.CURLWS_OFFSET
  * CURLWS_PONG = curl.CURLWS_PONG
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_PING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 643, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_PING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 645, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_PING, __pyx_t_4) < (0)) __PYX_ERR(5, 643, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_PING, __pyx_t_4) < (0)) __PYX_ERR(5, 645, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":644
+  /* "cycurl/consts.pxi":646
  * CURLWS_CLOSE = curl.CURLWS_CLOSE
  * CURLWS_PING = curl.CURLWS_PING
  * CURLWS_OFFSET = curl.CURLWS_OFFSET             # <<<<<<<<<<<<<<
  * CURLWS_PONG = curl.CURLWS_PONG
  * CURLWS_RAW_MODE = curl.CURLWS_RAW_MODE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_OFFSET); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 644, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_OFFSET); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_OFFSET, __pyx_t_4) < (0)) __PYX_ERR(5, 644, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_OFFSET, __pyx_t_4) < (0)) __PYX_ERR(5, 646, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":645
+  /* "cycurl/consts.pxi":647
  * CURLWS_PING = curl.CURLWS_PING
  * CURLWS_OFFSET = curl.CURLWS_OFFSET
  * CURLWS_PONG = curl.CURLWS_PONG             # <<<<<<<<<<<<<<
  * CURLWS_RAW_MODE = curl.CURLWS_RAW_MODE
  * CURLWS_NOAUTOPONG = curl.CURLWS_NOAUTOPONG
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_PONG); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 645, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_PONG); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 647, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_PONG, __pyx_t_4) < (0)) __PYX_ERR(5, 645, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_PONG, __pyx_t_4) < (0)) __PYX_ERR(5, 647, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":646
+  /* "cycurl/consts.pxi":648
  * CURLWS_OFFSET = curl.CURLWS_OFFSET
  * CURLWS_PONG = curl.CURLWS_PONG
  * CURLWS_RAW_MODE = curl.CURLWS_RAW_MODE             # <<<<<<<<<<<<<<
  * CURLWS_NOAUTOPONG = curl.CURLWS_NOAUTOPONG
  * #CURL_SSLVERSION_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_RAW_MODE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 646, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_RAW_MODE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 648, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_RAW_MODE, __pyx_t_4) < (0)) __PYX_ERR(5, 646, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_RAW_MODE, __pyx_t_4) < (0)) __PYX_ERR(5, 648, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":647
+  /* "cycurl/consts.pxi":649
  * CURLWS_PONG = curl.CURLWS_PONG
  * CURLWS_RAW_MODE = curl.CURLWS_RAW_MODE
  * CURLWS_NOAUTOPONG = curl.CURLWS_NOAUTOPONG             # <<<<<<<<<<<<<<
  * #CURL_SSLVERSION_
  * CURL_SSLVERSION_DEFAULT = curl.CURL_SSLVERSION_DEFAULT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_NOAUTOPONG); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 647, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLWS_NOAUTOPONG); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 649, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_NOAUTOPONG, __pyx_t_4) < (0)) __PYX_ERR(5, 647, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLWS_NOAUTOPONG, __pyx_t_4) < (0)) __PYX_ERR(5, 649, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":649
+  /* "cycurl/consts.pxi":651
  * CURLWS_NOAUTOPONG = curl.CURLWS_NOAUTOPONG
  * #CURL_SSLVERSION_
  * CURL_SSLVERSION_DEFAULT = curl.CURL_SSLVERSION_DEFAULT             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1 = curl.CURL_SSLVERSION_TLSv1
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_DEFAULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 649, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_DEFAULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 651, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_DEFAULT, __pyx_t_4) < (0)) __PYX_ERR(5, 649, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_DEFAULT, __pyx_t_4) < (0)) __PYX_ERR(5, 651, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":650
+  /* "cycurl/consts.pxi":652
  * #CURL_SSLVERSION_
  * CURL_SSLVERSION_DEFAULT = curl.CURL_SSLVERSION_DEFAULT
  * CURL_SSLVERSION_TLSv1 = curl.CURL_SSLVERSION_TLSv1             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 650, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 652, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1, __pyx_t_4) < (0)) __PYX_ERR(5, 650, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1, __pyx_t_4) < (0)) __PYX_ERR(5, 652, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":651
+  /* "cycurl/consts.pxi":653
  * CURL_SSLVERSION_DEFAULT = curl.CURL_SSLVERSION_DEFAULT
  * CURL_SSLVERSION_TLSv1 = curl.CURL_SSLVERSION_TLSv1
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_SSLv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 651, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_SSLv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 653, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_SSLv2, __pyx_t_4) < (0)) __PYX_ERR(5, 651, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_SSLv2, __pyx_t_4) < (0)) __PYX_ERR(5, 653, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":652
+  /* "cycurl/consts.pxi":654
  * CURL_SSLVERSION_TLSv1 = curl.CURL_SSLVERSION_TLSv1
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_SSLv3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 652, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_SSLv3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 654, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_SSLv3, __pyx_t_4) < (0)) __PYX_ERR(5, 652, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_SSLv3, __pyx_t_4) < (0)) __PYX_ERR(5, 654, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":653
+  /* "cycurl/consts.pxi":655
  * CURL_SSLVERSION_SSLv2 = curl.CURL_SSLVERSION_SSLv2
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 653, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 655, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_0, __pyx_t_4) < (0)) __PYX_ERR(5, 653, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_0, __pyx_t_4) < (0)) __PYX_ERR(5, 655, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":654
+  /* "cycurl/consts.pxi":656
  * CURL_SSLVERSION_SSLv3 = curl.CURL_SSLVERSION_SSLv3
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 654, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 656, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_1, __pyx_t_4) < (0)) __PYX_ERR(5, 654, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_1, __pyx_t_4) < (0)) __PYX_ERR(5, 656, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":655
+  /* "cycurl/consts.pxi":657
  * CURL_SSLVERSION_TLSv1_0 = curl.CURL_SSLVERSION_TLSv1_0
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 655, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 657, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_2, __pyx_t_4) < (0)) __PYX_ERR(5, 655, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_2, __pyx_t_4) < (0)) __PYX_ERR(5, 657, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":656
+  /* "cycurl/consts.pxi":658
  * CURL_SSLVERSION_TLSv1_1 = curl.CURL_SSLVERSION_TLSv1_1
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 656, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_TLSv1_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 658, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_3, __pyx_t_4) < (0)) __PYX_ERR(5, 656, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_TLSv1_3, __pyx_t_4) < (0)) __PYX_ERR(5, 658, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":657
+  /* "cycurl/consts.pxi":659
  * CURL_SSLVERSION_TLSv1_2 = curl.CURL_SSLVERSION_TLSv1_2
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_LAST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 657, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_LAST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 659, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_LAST, __pyx_t_4) < (0)) __PYX_ERR(5, 657, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_LAST, __pyx_t_4) < (0)) __PYX_ERR(5, 659, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":658
+  /* "cycurl/consts.pxi":660
  * CURL_SSLVERSION_TLSv1_3 = curl.CURL_SSLVERSION_TLSv1_3
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 658, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 660, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 658, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 660, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":659
+  /* "cycurl/consts.pxi":661
  * CURL_SSLVERSION_LAST = curl.CURL_SSLVERSION_LAST
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_DEFAULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 659, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_DEFAULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 661, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_DEFAULT, __pyx_t_4) < (0)) __PYX_ERR(5, 659, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_DEFAULT, __pyx_t_4) < (0)) __PYX_ERR(5, 661, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":660
+  /* "cycurl/consts.pxi":662
  * CURL_SSLVERSION_MAX_NONE = curl.CURL_SSLVERSION_MAX_NONE
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 660, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 662, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_0, __pyx_t_4) < (0)) __PYX_ERR(5, 660, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_0, __pyx_t_4) < (0)) __PYX_ERR(5, 662, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":661
+  /* "cycurl/consts.pxi":663
  * CURL_SSLVERSION_MAX_DEFAULT = curl.CURL_SSLVERSION_MAX_DEFAULT
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2
  * CURL_SSLVERSION_MAX_TLSv1_3 = curl.CURL_SSLVERSION_MAX_TLSv1_3
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 661, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 663, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_1, __pyx_t_4) < (0)) __PYX_ERR(5, 661, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_1, __pyx_t_4) < (0)) __PYX_ERR(5, 663, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":662
+  /* "cycurl/consts.pxi":664
  * CURL_SSLVERSION_MAX_TLSv1_0 = curl.CURL_SSLVERSION_MAX_TLSv1_0
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_TLSv1_3 = curl.CURL_SSLVERSION_MAX_TLSv1_3
  * CURL_SSLVERSION_MAX_LAST = curl.CURL_SSLVERSION_MAX_LAST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 662, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 664, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_2, __pyx_t_4) < (0)) __PYX_ERR(5, 662, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_2, __pyx_t_4) < (0)) __PYX_ERR(5, 664, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":663
+  /* "cycurl/consts.pxi":665
  * CURL_SSLVERSION_MAX_TLSv1_1 = curl.CURL_SSLVERSION_MAX_TLSv1_1
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2
  * CURL_SSLVERSION_MAX_TLSv1_3 = curl.CURL_SSLVERSION_MAX_TLSv1_3             # <<<<<<<<<<<<<<
  * CURL_SSLVERSION_MAX_LAST = curl.CURL_SSLVERSION_MAX_LAST
  * #CURLAUTH_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 663, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_TLSv1_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 665, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_3, __pyx_t_4) < (0)) __PYX_ERR(5, 663, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_TLSv1_3, __pyx_t_4) < (0)) __PYX_ERR(5, 665, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":664
+  /* "cycurl/consts.pxi":666
  * CURL_SSLVERSION_MAX_TLSv1_2 = curl.CURL_SSLVERSION_MAX_TLSv1_2
  * CURL_SSLVERSION_MAX_TLSv1_3 = curl.CURL_SSLVERSION_MAX_TLSv1_3
  * CURL_SSLVERSION_MAX_LAST = curl.CURL_SSLVERSION_MAX_LAST             # <<<<<<<<<<<<<<
  * #CURLAUTH_
  * CURLAUTH_NONE = curl.CURLAUTH_NONE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_LAST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 664, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SSLVERSION_MAX_LAST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 666, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_LAST, __pyx_t_4) < (0)) __PYX_ERR(5, 664, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SSLVERSION_MAX_LAST, __pyx_t_4) < (0)) __PYX_ERR(5, 666, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":666
+  /* "cycurl/consts.pxi":668
  * CURL_SSLVERSION_MAX_LAST = curl.CURL_SSLVERSION_MAX_LAST
  * #CURLAUTH_
  * CURLAUTH_NONE = curl.CURLAUTH_NONE             # <<<<<<<<<<<<<<
  * CURLAUTH_BASIC = curl.CURLAUTH_BASIC
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 666, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 668, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 666, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 668, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":667
+  /* "cycurl/consts.pxi":669
  * #CURLAUTH_
  * CURLAUTH_NONE = curl.CURLAUTH_NONE
  * CURLAUTH_BASIC = curl.CURLAUTH_BASIC             # <<<<<<<<<<<<<<
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_BASIC); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 667, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_BASIC); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 669, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_BASIC, __pyx_t_4) < (0)) __PYX_ERR(5, 667, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_BASIC, __pyx_t_4) < (0)) __PYX_ERR(5, 669, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":668
+  /* "cycurl/consts.pxi":670
  * CURLAUTH_NONE = curl.CURLAUTH_NONE
  * CURLAUTH_BASIC = curl.CURLAUTH_BASIC
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST             # <<<<<<<<<<<<<<
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_DIGEST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 668, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_DIGEST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_DIGEST, __pyx_t_4) < (0)) __PYX_ERR(5, 668, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_DIGEST, __pyx_t_4) < (0)) __PYX_ERR(5, 670, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":669
+  /* "cycurl/consts.pxi":671
  * CURLAUTH_BASIC = curl.CURLAUTH_BASIC
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE             # <<<<<<<<<<<<<<
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_NEGOTIATE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 669, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_NEGOTIATE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 671, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NEGOTIATE, __pyx_t_4) < (0)) __PYX_ERR(5, 669, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NEGOTIATE, __pyx_t_4) < (0)) __PYX_ERR(5, 671, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":670
+  /* "cycurl/consts.pxi":672
  * CURLAUTH_DIGEST = curl.CURLAUTH_DIGEST
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE             # <<<<<<<<<<<<<<
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_GSSNEGOTIATE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 670, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_GSSNEGOTIATE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 672, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_GSSNEGOTIATE, __pyx_t_4) < (0)) __PYX_ERR(5, 670, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_GSSNEGOTIATE, __pyx_t_4) < (0)) __PYX_ERR(5, 672, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":671
+  /* "cycurl/consts.pxi":673
  * CURLAUTH_NEGOTIATE = curl.CURLAUTH_NEGOTIATE
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI             # <<<<<<<<<<<<<<
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_GSSAPI); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 671, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_GSSAPI); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 673, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_GSSAPI, __pyx_t_4) < (0)) __PYX_ERR(5, 671, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_GSSAPI, __pyx_t_4) < (0)) __PYX_ERR(5, 673, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":672
+  /* "cycurl/consts.pxi":674
  * CURLAUTH_GSSNEGOTIATE = curl.CURLAUTH_GSSNEGOTIATE
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM             # <<<<<<<<<<<<<<
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_NTLM); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 672, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_NTLM); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 674, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NTLM, __pyx_t_4) < (0)) __PYX_ERR(5, 672, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NTLM, __pyx_t_4) < (0)) __PYX_ERR(5, 674, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":673
+  /* "cycurl/consts.pxi":675
  * CURLAUTH_GSSAPI = curl.CURLAUTH_GSSAPI
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE             # <<<<<<<<<<<<<<
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_DIGEST_IE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 673, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_DIGEST_IE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 675, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_DIGEST_IE, __pyx_t_4) < (0)) __PYX_ERR(5, 673, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_DIGEST_IE, __pyx_t_4) < (0)) __PYX_ERR(5, 675, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":674
+  /* "cycurl/consts.pxi":676
  * CURLAUTH_NTLM = curl.CURLAUTH_NTLM
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB             # <<<<<<<<<<<<<<
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_NTLM_WB); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 674, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_NTLM_WB); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 676, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NTLM_WB, __pyx_t_4) < (0)) __PYX_ERR(5, 674, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_NTLM_WB, __pyx_t_4) < (0)) __PYX_ERR(5, 676, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":675
+  /* "cycurl/consts.pxi":677
  * CURLAUTH_DIGEST_IE = curl.CURLAUTH_DIGEST_IE
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER             # <<<<<<<<<<<<<<
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_BEARER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 675, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_BEARER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 677, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_BEARER, __pyx_t_4) < (0)) __PYX_ERR(5, 675, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_BEARER, __pyx_t_4) < (0)) __PYX_ERR(5, 677, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":676
+  /* "cycurl/consts.pxi":678
  * CURLAUTH_NTLM_WB = curl.CURLAUTH_NTLM_WB
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4             # <<<<<<<<<<<<<<
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY
  * CURLAUTH_ANY = curl.CURLAUTH_ANY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_AWS_SIGV4); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 676, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_AWS_SIGV4); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 678, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_AWS_SIGV4, __pyx_t_4) < (0)) __PYX_ERR(5, 676, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_AWS_SIGV4, __pyx_t_4) < (0)) __PYX_ERR(5, 678, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":677
+  /* "cycurl/consts.pxi":679
  * CURLAUTH_BEARER = curl.CURLAUTH_BEARER
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY             # <<<<<<<<<<<<<<
  * CURLAUTH_ANY = curl.CURLAUTH_ANY
  * CURLAUTH_ANYSAFE = curl.CURLAUTH_ANYSAFE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_ONLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 677, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_ONLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 679, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ONLY, __pyx_t_4) < (0)) __PYX_ERR(5, 677, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ONLY, __pyx_t_4) < (0)) __PYX_ERR(5, 679, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":678
+  /* "cycurl/consts.pxi":680
  * CURLAUTH_AWS_SIGV4 = curl.CURLAUTH_AWS_SIGV4
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY
  * CURLAUTH_ANY = curl.CURLAUTH_ANY             # <<<<<<<<<<<<<<
  * CURLAUTH_ANYSAFE = curl.CURLAUTH_ANYSAFE
  * #CURLSSH_AUTH_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_ANY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 678, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_ANY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 680, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ANY, __pyx_t_4) < (0)) __PYX_ERR(5, 678, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ANY, __pyx_t_4) < (0)) __PYX_ERR(5, 680, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":679
+  /* "cycurl/consts.pxi":681
  * CURLAUTH_ONLY = curl.CURLAUTH_ONLY
  * CURLAUTH_ANY = curl.CURLAUTH_ANY
  * CURLAUTH_ANYSAFE = curl.CURLAUTH_ANYSAFE             # <<<<<<<<<<<<<<
  * #CURLSSH_AUTH_
  * CURLSSH_AUTH_ANY = curl.CURLSSH_AUTH_ANY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_ANYSAFE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 679, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLAUTH_ANYSAFE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 681, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ANYSAFE, __pyx_t_4) < (0)) __PYX_ERR(5, 679, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLAUTH_ANYSAFE, __pyx_t_4) < (0)) __PYX_ERR(5, 681, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":681
+  /* "cycurl/consts.pxi":683
  * CURLAUTH_ANYSAFE = curl.CURLAUTH_ANYSAFE
  * #CURLSSH_AUTH_
  * CURLSSH_AUTH_ANY = curl.CURLSSH_AUTH_ANY             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_NONE = curl.CURLSSH_AUTH_NONE
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_ANY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 681, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_ANY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 683, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_ANY, __pyx_t_4) < (0)) __PYX_ERR(5, 681, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_ANY, __pyx_t_4) < (0)) __PYX_ERR(5, 683, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":682
+  /* "cycurl/consts.pxi":684
  * #CURLSSH_AUTH_
  * CURLSSH_AUTH_ANY = curl.CURLSSH_AUTH_ANY
  * CURLSSH_AUTH_NONE = curl.CURLSSH_AUTH_NONE             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 682, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 684, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 682, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 684, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":683
+  /* "cycurl/consts.pxi":685
  * CURLSSH_AUTH_ANY = curl.CURLSSH_AUTH_ANY
  * CURLSSH_AUTH_NONE = curl.CURLSSH_AUTH_NONE
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_PUBLICKEY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 683, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_PUBLICKEY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 685, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_PUBLICKEY, __pyx_t_4) < (0)) __PYX_ERR(5, 683, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_PUBLICKEY, __pyx_t_4) < (0)) __PYX_ERR(5, 685, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":684
+  /* "cycurl/consts.pxi":686
  * CURLSSH_AUTH_NONE = curl.CURLSSH_AUTH_NONE
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_PASSWORD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 684, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_PASSWORD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 686, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_PASSWORD, __pyx_t_4) < (0)) __PYX_ERR(5, 684, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_PASSWORD, __pyx_t_4) < (0)) __PYX_ERR(5, 686, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":685
+  /* "cycurl/consts.pxi":687
  * CURLSSH_AUTH_PUBLICKEY = curl.CURLSSH_AUTH_PUBLICKEY
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_HOST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 685, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_HOST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 687, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_HOST, __pyx_t_4) < (0)) __PYX_ERR(5, 685, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_HOST, __pyx_t_4) < (0)) __PYX_ERR(5, 687, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":686
+  /* "cycurl/consts.pxi":688
  * CURLSSH_AUTH_PASSWORD = curl.CURLSSH_AUTH_PASSWORD
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_KEYBOARD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 686, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_KEYBOARD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 688, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_KEYBOARD, __pyx_t_4) < (0)) __PYX_ERR(5, 686, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_KEYBOARD, __pyx_t_4) < (0)) __PYX_ERR(5, 688, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":687
+  /* "cycurl/consts.pxi":689
  * CURLSSH_AUTH_HOST = curl.CURLSSH_AUTH_HOST
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI
  * CURLSSH_AUTH_DEFAULT = curl.CURLSSH_AUTH_DEFAULT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_AGENT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 687, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_AGENT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 689, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_AGENT, __pyx_t_4) < (0)) __PYX_ERR(5, 687, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_AGENT, __pyx_t_4) < (0)) __PYX_ERR(5, 689, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":688
+  /* "cycurl/consts.pxi":690
  * CURLSSH_AUTH_KEYBOARD = curl.CURLSSH_AUTH_KEYBOARD
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI             # <<<<<<<<<<<<<<
  * CURLSSH_AUTH_DEFAULT = curl.CURLSSH_AUTH_DEFAULT
  * CURL_ERROR_SIZE = curl.CURL_ERROR_SIZE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_GSSAPI); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 688, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_GSSAPI); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 690, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_GSSAPI, __pyx_t_4) < (0)) __PYX_ERR(5, 688, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_GSSAPI, __pyx_t_4) < (0)) __PYX_ERR(5, 690, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":689
+  /* "cycurl/consts.pxi":691
  * CURLSSH_AUTH_AGENT = curl.CURLSSH_AUTH_AGENT
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI
  * CURLSSH_AUTH_DEFAULT = curl.CURLSSH_AUTH_DEFAULT             # <<<<<<<<<<<<<<
  * CURL_ERROR_SIZE = curl.CURL_ERROR_SIZE
  * #CURL_WRITEFUNC_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_DEFAULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 689, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLSSH_AUTH_DEFAULT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 691, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_DEFAULT, __pyx_t_4) < (0)) __PYX_ERR(5, 689, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLSSH_AUTH_DEFAULT, __pyx_t_4) < (0)) __PYX_ERR(5, 691, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":690
+  /* "cycurl/consts.pxi":692
  * CURLSSH_AUTH_GSSAPI = curl.CURLSSH_AUTH_GSSAPI
  * CURLSSH_AUTH_DEFAULT = curl.CURLSSH_AUTH_DEFAULT
  * CURL_ERROR_SIZE = curl.CURL_ERROR_SIZE             # <<<<<<<<<<<<<<
  * #CURL_WRITEFUNC_
  * CURL_WRITEFUNC_PAUSE = curl.CURL_WRITEFUNC_PAUSE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_ERROR_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 690, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_ERROR_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 692, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_ERROR_SIZE, __pyx_t_4) < (0)) __PYX_ERR(5, 690, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_ERROR_SIZE, __pyx_t_4) < (0)) __PYX_ERR(5, 692, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":692
+  /* "cycurl/consts.pxi":694
  * CURL_ERROR_SIZE = curl.CURL_ERROR_SIZE
  * #CURL_WRITEFUNC_
  * CURL_WRITEFUNC_PAUSE = curl.CURL_WRITEFUNC_PAUSE             # <<<<<<<<<<<<<<
  * CURL_WRITEFUNC_ERROR = curl.CURL_WRITEFUNC_ERROR
  * #CURL_POLL_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_WRITEFUNC_PAUSE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 692, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_WRITEFUNC_PAUSE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 694, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_WRITEFUNC_PAUSE, __pyx_t_4) < (0)) __PYX_ERR(5, 692, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_WRITEFUNC_PAUSE, __pyx_t_4) < (0)) __PYX_ERR(5, 694, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":693
+  /* "cycurl/consts.pxi":695
  * #CURL_WRITEFUNC_
  * CURL_WRITEFUNC_PAUSE = curl.CURL_WRITEFUNC_PAUSE
  * CURL_WRITEFUNC_ERROR = curl.CURL_WRITEFUNC_ERROR             # <<<<<<<<<<<<<<
  * #CURL_POLL_
  * CURL_POLL_NONE = curl.CURL_POLL_NONE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_WRITEFUNC_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 693, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_WRITEFUNC_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 695, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_WRITEFUNC_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 693, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_WRITEFUNC_ERROR, __pyx_t_4) < (0)) __PYX_ERR(5, 695, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":695
+  /* "cycurl/consts.pxi":697
  * CURL_WRITEFUNC_ERROR = curl.CURL_WRITEFUNC_ERROR
  * #CURL_POLL_
  * CURL_POLL_NONE = curl.CURL_POLL_NONE             # <<<<<<<<<<<<<<
  * CURL_POLL_IN = curl.CURL_POLL_IN
  * CURL_POLL_OUT = curl.CURL_POLL_OUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 695, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 697, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 695, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 697, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":696
+  /* "cycurl/consts.pxi":698
  * #CURL_POLL_
  * CURL_POLL_NONE = curl.CURL_POLL_NONE
  * CURL_POLL_IN = curl.CURL_POLL_IN             # <<<<<<<<<<<<<<
  * CURL_POLL_OUT = curl.CURL_POLL_OUT
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 696, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 698, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 696, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 698, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":697
+  /* "cycurl/consts.pxi":699
  * CURL_POLL_NONE = curl.CURL_POLL_NONE
  * CURL_POLL_IN = curl.CURL_POLL_IN
  * CURL_POLL_OUT = curl.CURL_POLL_OUT             # <<<<<<<<<<<<<<
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 697, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 699, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 697, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 699, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":698
+  /* "cycurl/consts.pxi":700
  * CURL_POLL_IN = curl.CURL_POLL_IN
  * CURL_POLL_OUT = curl.CURL_POLL_OUT
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT             # <<<<<<<<<<<<<<
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_INOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 698, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_INOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 700, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_INOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 698, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_INOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 700, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":699
+  /* "cycurl/consts.pxi":701
  * CURL_POLL_OUT = curl.CURL_POLL_OUT
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE             # <<<<<<<<<<<<<<
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_REMOVE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 699, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_POLL_REMOVE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 701, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_REMOVE, __pyx_t_4) < (0)) __PYX_ERR(5, 699, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_POLL_REMOVE, __pyx_t_4) < (0)) __PYX_ERR(5, 701, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":700
+  /* "cycurl/consts.pxi":702
  * CURL_POLL_INOUT = curl.CURL_POLL_INOUT
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN             # <<<<<<<<<<<<<<
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_CSELECT_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 700, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_CSELECT_IN); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 702, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 700, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_IN, __pyx_t_4) < (0)) __PYX_ERR(5, 702, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":701
+  /* "cycurl/consts.pxi":703
  * CURL_POLL_REMOVE = curl.CURL_POLL_REMOVE
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT             # <<<<<<<<<<<<<<
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_CSELECT_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 701, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_CSELECT_OUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 703, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 701, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_OUT, __pyx_t_4) < (0)) __PYX_ERR(5, 703, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":702
+  /* "cycurl/consts.pxi":704
  * CURL_CSELECT_IN = curl.CURL_CSELECT_IN
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR             # <<<<<<<<<<<<<<
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_CSELECT_ERR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 702, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_CSELECT_ERR); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 704, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_ERR, __pyx_t_4) < (0)) __PYX_ERR(5, 702, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_CSELECT_ERR, __pyx_t_4) < (0)) __PYX_ERR(5, 704, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":703
+  /* "cycurl/consts.pxi":705
  * CURL_CSELECT_OUT = curl.CURL_CSELECT_OUT
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT             # <<<<<<<<<<<<<<
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SOCKET_TIMEOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 703, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SOCKET_TIMEOUT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 705, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SOCKET_TIMEOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 703, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SOCKET_TIMEOUT, __pyx_t_4) < (0)) __PYX_ERR(5, 705, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":704
+  /* "cycurl/consts.pxi":706
  * CURL_CSELECT_ERR = curl.CURL_CSELECT_ERR
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD             # <<<<<<<<<<<<<<
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SOCKET_BAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 704, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SOCKET_BAD); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 706, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SOCKET_BAD, __pyx_t_4) < (0)) __PYX_ERR(5, 704, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SOCKET_BAD, __pyx_t_4) < (0)) __PYX_ERR(5, 706, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":705
+  /* "cycurl/consts.pxi":707
  * CURL_SOCKET_TIMEOUT = curl.CURL_SOCKET_TIMEOUT
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT             # <<<<<<<<<<<<<<
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_READFUNC_ABORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 705, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_READFUNC_ABORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 707, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_READFUNC_ABORT, __pyx_t_4) < (0)) __PYX_ERR(5, 705, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_READFUNC_ABORT, __pyx_t_4) < (0)) __PYX_ERR(5, 707, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":706
+  /* "cycurl/consts.pxi":708
  * CURL_SOCKET_BAD = curl.CURL_SOCKET_BAD
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE             # <<<<<<<<<<<<<<
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_READFUNC_PAUSE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 706, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_READFUNC_PAUSE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 708, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_READFUNC_PAUSE, __pyx_t_4) < (0)) __PYX_ERR(5, 706, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_READFUNC_PAUSE, __pyx_t_4) < (0)) __PYX_ERR(5, 708, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":707
+  /* "cycurl/consts.pxi":709
  * CURL_READFUNC_ABORT = curl.CURL_READFUNC_ABORT
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK             # <<<<<<<<<<<<<<
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_TRAILERFUNC_OK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 707, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_TRAILERFUNC_OK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 709, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_TRAILERFUNC_OK, __pyx_t_4) < (0)) __PYX_ERR(5, 707, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_TRAILERFUNC_OK, __pyx_t_4) < (0)) __PYX_ERR(5, 709, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":708
+  /* "cycurl/consts.pxi":710
  * CURL_READFUNC_PAUSE = curl.CURL_READFUNC_PAUSE
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT             # <<<<<<<<<<<<<<
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_TRAILERFUNC_ABORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 708, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_TRAILERFUNC_ABORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 710, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_TRAILERFUNC_ABORT, __pyx_t_4) < (0)) __PYX_ERR(5, 708, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_TRAILERFUNC_ABORT, __pyx_t_4) < (0)) __PYX_ERR(5, 710, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":709
+  /* "cycurl/consts.pxi":711
  * CURL_TRAILERFUNC_OK = curl.CURL_TRAILERFUNC_OK
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK             # <<<<<<<<<<<<<<
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_PREREQFUNC_OK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 709, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_PREREQFUNC_OK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 711, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_PREREQFUNC_OK, __pyx_t_4) < (0)) __PYX_ERR(5, 709, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_PREREQFUNC_OK, __pyx_t_4) < (0)) __PYX_ERR(5, 711, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":710
+  /* "cycurl/consts.pxi":712
  * CURL_TRAILERFUNC_ABORT = curl.CURL_TRAILERFUNC_ABORT
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT             # <<<<<<<<<<<<<<
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_PREREQFUNC_ABORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 710, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_PREREQFUNC_ABORT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 712, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_PREREQFUNC_ABORT, __pyx_t_4) < (0)) __PYX_ERR(5, 710, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_PREREQFUNC_ABORT, __pyx_t_4) < (0)) __PYX_ERR(5, 712, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":711
+  /* "cycurl/consts.pxi":713
  * CURL_PREREQFUNC_OK = curl.CURL_PREREQFUNC_OK
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH             # <<<<<<<<<<<<<<
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_MATCH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 711, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_MATCH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 713, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_MATCH, __pyx_t_4) < (0)) __PYX_ERR(5, 711, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_MATCH, __pyx_t_4) < (0)) __PYX_ERR(5, 713, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":712
+  /* "cycurl/consts.pxi":714
  * CURL_PREREQFUNC_ABORT = curl.CURL_PREREQFUNC_ABORT
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH             # <<<<<<<<<<<<<<
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_NOMATCH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 712, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_NOMATCH); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 714, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_NOMATCH, __pyx_t_4) < (0)) __PYX_ERR(5, 712, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_NOMATCH, __pyx_t_4) < (0)) __PYX_ERR(5, 714, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":713
+  /* "cycurl/consts.pxi":715
  * CURL_FNMATCHFUNC_MATCH = curl.CURL_FNMATCHFUNC_MATCH
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL             # <<<<<<<<<<<<<<
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK
  * CURL_SEEKFUNC_FAIL = curl.CURL_SEEKFUNC_FAIL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_FAIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 713, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_FNMATCHFUNC_FAIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 715, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_FAIL, __pyx_t_4) < (0)) __PYX_ERR(5, 713, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_FNMATCHFUNC_FAIL, __pyx_t_4) < (0)) __PYX_ERR(5, 715, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":714
+  /* "cycurl/consts.pxi":716
  * CURL_FNMATCHFUNC_NOMATCH = curl.CURL_FNMATCHFUNC_NOMATCH
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK             # <<<<<<<<<<<<<<
  * CURL_SEEKFUNC_FAIL = curl.CURL_SEEKFUNC_FAIL
  * CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_OK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 714, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_OK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 716, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_OK, __pyx_t_4) < (0)) __PYX_ERR(5, 714, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_OK, __pyx_t_4) < (0)) __PYX_ERR(5, 716, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":715
+  /* "cycurl/consts.pxi":717
  * CURL_FNMATCHFUNC_FAIL = curl.CURL_FNMATCHFUNC_FAIL
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK
  * CURL_SEEKFUNC_FAIL = curl.CURL_SEEKFUNC_FAIL             # <<<<<<<<<<<<<<
  * CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK
  * #CURLMSG_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_FAIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 715, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_FAIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 717, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_FAIL, __pyx_t_4) < (0)) __PYX_ERR(5, 715, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_FAIL, __pyx_t_4) < (0)) __PYX_ERR(5, 717, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":716
+  /* "cycurl/consts.pxi":718
  * CURL_SEEKFUNC_OK = curl.CURL_SEEKFUNC_OK
  * CURL_SEEKFUNC_FAIL = curl.CURL_SEEKFUNC_FAIL
  * CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK             # <<<<<<<<<<<<<<
  * #CURLMSG_
  * CURLMSG_NONE = curl.CURLMSG_NONE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_CANTSEEK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 716, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_SEEKFUNC_CANTSEEK); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 718, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_CANTSEEK, __pyx_t_4) < (0)) __PYX_ERR(5, 716, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_SEEKFUNC_CANTSEEK, __pyx_t_4) < (0)) __PYX_ERR(5, 718, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":718
+  /* "cycurl/consts.pxi":720
  * CURL_SEEKFUNC_CANTSEEK = curl.CURL_SEEKFUNC_CANTSEEK
  * #CURLMSG_
  * CURLMSG_NONE = curl.CURLMSG_NONE             # <<<<<<<<<<<<<<
  * CURLMSG_DONE = curl.CURLMSG_DONE
  * CURLMSG_LAST = curl.CURLMSG_LAST
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMSG_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 718, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMSG_NONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 720, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 718, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_NONE, __pyx_t_4) < (0)) __PYX_ERR(5, 720, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":719
+  /* "cycurl/consts.pxi":721
  * #CURLMSG_
  * CURLMSG_NONE = curl.CURLMSG_NONE
  * CURLMSG_DONE = curl.CURLMSG_DONE             # <<<<<<<<<<<<<<
  * CURLMSG_LAST = curl.CURLMSG_LAST
  * #CURL_IPRESOLVE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMSG_DONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 719, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMSG_DONE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 721, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_DONE, __pyx_t_4) < (0)) __PYX_ERR(5, 719, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_DONE, __pyx_t_4) < (0)) __PYX_ERR(5, 721, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":720
+  /* "cycurl/consts.pxi":722
  * CURLMSG_NONE = curl.CURLMSG_NONE
  * CURLMSG_DONE = curl.CURLMSG_DONE
  * CURLMSG_LAST = curl.CURLMSG_LAST             # <<<<<<<<<<<<<<
  * #CURL_IPRESOLVE
  * CURL_IPRESOLVE_WHATEVER = curl.CURL_IPRESOLVE_WHATEVER
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMSG_LAST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 720, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLMSG_LAST); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 722, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_LAST, __pyx_t_4) < (0)) __PYX_ERR(5, 720, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLMSG_LAST, __pyx_t_4) < (0)) __PYX_ERR(5, 722, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":722
+  /* "cycurl/consts.pxi":724
  * CURLMSG_LAST = curl.CURLMSG_LAST
  * #CURL_IPRESOLVE
  * CURL_IPRESOLVE_WHATEVER = curl.CURL_IPRESOLVE_WHATEVER             # <<<<<<<<<<<<<<
  * CURL_IPRESOLVE_V4 = curl.CURL_IPRESOLVE_V4
  * CURL_IPRESOLVE_V6 = curl.CURL_IPRESOLVE_V6
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_IPRESOLVE_WHATEVER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 722, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_IPRESOLVE_WHATEVER); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 724, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_IPRESOLVE_WHATEVER, __pyx_t_4) < (0)) __PYX_ERR(5, 722, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_IPRESOLVE_WHATEVER, __pyx_t_4) < (0)) __PYX_ERR(5, 724, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":723
+  /* "cycurl/consts.pxi":725
  * #CURL_IPRESOLVE
  * CURL_IPRESOLVE_WHATEVER = curl.CURL_IPRESOLVE_WHATEVER
  * CURL_IPRESOLVE_V4 = curl.CURL_IPRESOLVE_V4             # <<<<<<<<<<<<<<
  * CURL_IPRESOLVE_V6 = curl.CURL_IPRESOLVE_V6
  * #CURLPIPE_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_IPRESOLVE_V4); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 723, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_IPRESOLVE_V4); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 725, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_IPRESOLVE_V4, __pyx_t_4) < (0)) __PYX_ERR(5, 723, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_IPRESOLVE_V4, __pyx_t_4) < (0)) __PYX_ERR(5, 725, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":724
+  /* "cycurl/consts.pxi":726
  * CURL_IPRESOLVE_WHATEVER = curl.CURL_IPRESOLVE_WHATEVER
  * CURL_IPRESOLVE_V4 = curl.CURL_IPRESOLVE_V4
  * CURL_IPRESOLVE_V6 = curl.CURL_IPRESOLVE_V6             # <<<<<<<<<<<<<<
  * #CURLPIPE_
  * CURLPIPE_NOTHING = curl.CURLPIPE_NOTHING
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_IPRESOLVE_V6); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 724, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURL_IPRESOLVE_V6); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 726, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_IPRESOLVE_V6, __pyx_t_4) < (0)) __PYX_ERR(5, 724, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURL_IPRESOLVE_V6, __pyx_t_4) < (0)) __PYX_ERR(5, 726, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":726
+  /* "cycurl/consts.pxi":728
  * CURL_IPRESOLVE_V6 = curl.CURL_IPRESOLVE_V6
  * #CURLPIPE_
  * CURLPIPE_NOTHING = curl.CURLPIPE_NOTHING             # <<<<<<<<<<<<<<
  * CURLPIPE_HTTP1 = curl.CURLPIPE_HTTP1
  * CURLPIPE_MULTIPLEX = curl.CURLPIPE_MULTIPLEX
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPIPE_NOTHING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 726, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPIPE_NOTHING); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 728, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPIPE_NOTHING, __pyx_t_4) < (0)) __PYX_ERR(5, 726, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPIPE_NOTHING, __pyx_t_4) < (0)) __PYX_ERR(5, 728, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":727
+  /* "cycurl/consts.pxi":729
  * #CURLPIPE_
  * CURLPIPE_NOTHING = curl.CURLPIPE_NOTHING
  * CURLPIPE_HTTP1 = curl.CURLPIPE_HTTP1             # <<<<<<<<<<<<<<
  * CURLPIPE_MULTIPLEX = curl.CURLPIPE_MULTIPLEX
  * #CURLFOLLOW_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPIPE_HTTP1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 727, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPIPE_HTTP1); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 729, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPIPE_HTTP1, __pyx_t_4) < (0)) __PYX_ERR(5, 727, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPIPE_HTTP1, __pyx_t_4) < (0)) __PYX_ERR(5, 729, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":728
+  /* "cycurl/consts.pxi":730
  * CURLPIPE_NOTHING = curl.CURLPIPE_NOTHING
  * CURLPIPE_HTTP1 = curl.CURLPIPE_HTTP1
  * CURLPIPE_MULTIPLEX = curl.CURLPIPE_MULTIPLEX             # <<<<<<<<<<<<<<
  * #CURLFOLLOW_
  * CURLFOLLOW_ALL = curl.CURLFOLLOW_ALL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPIPE_MULTIPLEX); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 728, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPIPE_MULTIPLEX); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 730, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPIPE_MULTIPLEX, __pyx_t_4) < (0)) __PYX_ERR(5, 728, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPIPE_MULTIPLEX, __pyx_t_4) < (0)) __PYX_ERR(5, 730, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":730
+  /* "cycurl/consts.pxi":732
  * CURLPIPE_MULTIPLEX = curl.CURLPIPE_MULTIPLEX
  * #CURLFOLLOW_
  * CURLFOLLOW_ALL = curl.CURLFOLLOW_ALL             # <<<<<<<<<<<<<<
  * CURLFOLLOW_OBEYCODE = curl.CURLFOLLOW_OBEYCODE
  * CURLFOLLOW_FIRSTONLY = curl.CURLFOLLOW_FIRSTONLY
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLFOLLOW_ALL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 730, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLFOLLOW_ALL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 732, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLFOLLOW_ALL, __pyx_t_4) < (0)) __PYX_ERR(5, 730, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLFOLLOW_ALL, __pyx_t_4) < (0)) __PYX_ERR(5, 732, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":731
+  /* "cycurl/consts.pxi":733
  * #CURLFOLLOW_
  * CURLFOLLOW_ALL = curl.CURLFOLLOW_ALL
  * CURLFOLLOW_OBEYCODE = curl.CURLFOLLOW_OBEYCODE             # <<<<<<<<<<<<<<
  * CURLFOLLOW_FIRSTONLY = curl.CURLFOLLOW_FIRSTONLY
  * CURLFOLLOW_SAFE = curl.CURLFOLLOW_SAFE
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLFOLLOW_OBEYCODE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 731, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLFOLLOW_OBEYCODE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 733, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLFOLLOW_OBEYCODE, __pyx_t_4) < (0)) __PYX_ERR(5, 731, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLFOLLOW_OBEYCODE, __pyx_t_4) < (0)) __PYX_ERR(5, 733, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":732
+  /* "cycurl/consts.pxi":734
  * CURLFOLLOW_ALL = curl.CURLFOLLOW_ALL
  * CURLFOLLOW_OBEYCODE = curl.CURLFOLLOW_OBEYCODE
  * CURLFOLLOW_FIRSTONLY = curl.CURLFOLLOW_FIRSTONLY             # <<<<<<<<<<<<<<
  * CURLFOLLOW_SAFE = curl.CURLFOLLOW_SAFE
  * #CURLPAUSE_
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLFOLLOW_FIRSTONLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 732, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLFOLLOW_FIRSTONLY); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 734, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLFOLLOW_FIRSTONLY, __pyx_t_4) < (0)) __PYX_ERR(5, 732, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLFOLLOW_FIRSTONLY, __pyx_t_4) < (0)) __PYX_ERR(5, 734, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":733
+  /* "cycurl/consts.pxi":735
  * CURLFOLLOW_OBEYCODE = curl.CURLFOLLOW_OBEYCODE
  * CURLFOLLOW_FIRSTONLY = curl.CURLFOLLOW_FIRSTONLY
  * CURLFOLLOW_SAFE = curl.CURLFOLLOW_SAFE             # <<<<<<<<<<<<<<
  * #CURLPAUSE_
  * CURLPAUSE_RECV = curl.CURLPAUSE_RECV
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLFOLLOW_SAFE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 733, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLFOLLOW_SAFE); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 735, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLFOLLOW_SAFE, __pyx_t_4) < (0)) __PYX_ERR(5, 733, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLFOLLOW_SAFE, __pyx_t_4) < (0)) __PYX_ERR(5, 735, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":735
+  /* "cycurl/consts.pxi":737
  * CURLFOLLOW_SAFE = curl.CURLFOLLOW_SAFE
  * #CURLPAUSE_
  * CURLPAUSE_RECV = curl.CURLPAUSE_RECV             # <<<<<<<<<<<<<<
  * CURLPAUSE_RECV_CONT = curl.CURLPAUSE_RECV_CONT
  * CURLPAUSE_SEND = curl.CURLPAUSE_SEND
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_RECV); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 735, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_RECV); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 737, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_RECV, __pyx_t_4) < (0)) __PYX_ERR(5, 735, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_RECV, __pyx_t_4) < (0)) __PYX_ERR(5, 737, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":736
+  /* "cycurl/consts.pxi":738
  * #CURLPAUSE_
  * CURLPAUSE_RECV = curl.CURLPAUSE_RECV
  * CURLPAUSE_RECV_CONT = curl.CURLPAUSE_RECV_CONT             # <<<<<<<<<<<<<<
  * CURLPAUSE_SEND = curl.CURLPAUSE_SEND
  * CURLPAUSE_SEND_CONT = curl.CURLPAUSE_SEND_CONT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_RECV_CONT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 736, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_RECV_CONT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 738, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_RECV_CONT, __pyx_t_4) < (0)) __PYX_ERR(5, 736, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_RECV_CONT, __pyx_t_4) < (0)) __PYX_ERR(5, 738, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":737
+  /* "cycurl/consts.pxi":739
  * CURLPAUSE_RECV = curl.CURLPAUSE_RECV
  * CURLPAUSE_RECV_CONT = curl.CURLPAUSE_RECV_CONT
  * CURLPAUSE_SEND = curl.CURLPAUSE_SEND             # <<<<<<<<<<<<<<
  * CURLPAUSE_SEND_CONT = curl.CURLPAUSE_SEND_CONT
  * CURLPAUSE_ALL = curl.CURLPAUSE_ALL
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_SEND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 737, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_SEND); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 739, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_SEND, __pyx_t_4) < (0)) __PYX_ERR(5, 737, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_SEND, __pyx_t_4) < (0)) __PYX_ERR(5, 739, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":738
+  /* "cycurl/consts.pxi":740
  * CURLPAUSE_RECV_CONT = curl.CURLPAUSE_RECV_CONT
  * CURLPAUSE_SEND = curl.CURLPAUSE_SEND
  * CURLPAUSE_SEND_CONT = curl.CURLPAUSE_SEND_CONT             # <<<<<<<<<<<<<<
  * CURLPAUSE_ALL = curl.CURLPAUSE_ALL
  * CURLPAUSE_CONT = curl.CURLPAUSE_CONT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_SEND_CONT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 738, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_SEND_CONT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 740, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_SEND_CONT, __pyx_t_4) < (0)) __PYX_ERR(5, 738, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_SEND_CONT, __pyx_t_4) < (0)) __PYX_ERR(5, 740, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":739
+  /* "cycurl/consts.pxi":741
  * CURLPAUSE_SEND = curl.CURLPAUSE_SEND
  * CURLPAUSE_SEND_CONT = curl.CURLPAUSE_SEND_CONT
  * CURLPAUSE_ALL = curl.CURLPAUSE_ALL             # <<<<<<<<<<<<<<
  * CURLPAUSE_CONT = curl.CURLPAUSE_CONT
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_ALL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 739, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_ALL); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 741, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_ALL, __pyx_t_4) < (0)) __PYX_ERR(5, 739, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_ALL, __pyx_t_4) < (0)) __PYX_ERR(5, 741, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/consts.pxi":740
+  /* "cycurl/consts.pxi":742
  * CURLPAUSE_SEND_CONT = curl.CURLPAUSE_SEND_CONT
  * CURLPAUSE_ALL = curl.CURLPAUSE_ALL
  * CURLPAUSE_CONT = curl.CURLPAUSE_CONT             # <<<<<<<<<<<<<<
 */
-  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_CONT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 740, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(CURLPAUSE_CONT); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 742, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_CONT, __pyx_t_4) < (0)) __PYX_ERR(5, 740, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CURLPAUSE_CONT, __pyx_t_4) < (0)) __PYX_ERR(5, 742, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "cycurl/utils.pxi":1
@@ -70976,47 +71002,47 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   int __pyx_clineno = 0;
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 10; } str_length_index[] = {{0},{1},{260},{1},{2},{6},{19},{17},{9},{8},{2},{21},{15},{2},{1},{9},{10},{1},{75},{132},{3},{3},{3},{3},{2},{1},{6},{5},{15},{23},{25},{32},{20},{22},{1},{6},{5},{1},{16},{17},{33},{19},{49},{37},{31},{40},{47},{44},{48},{369},{10},{10},{26},{18},{45},{22},{8},{4},{179},{22},{23},{16},{76},{675},{30},{8},{25},{15},{28},{16},{16},{35},{7},{6},{2},{8},{9},{25},{50},{61},{62},{10},{16},{7},{33},{30},{37},{6},{6},{8},{5},{17},{26},{43},{35},{37},{37},{32},{40},{40},{3},{9},{27},{29},{22},{24},{20},{15},{22},{23},{23},{12},{16},{18},{14},{15},{15},{18},{15},{21},{18},{13},{13},{16},{13},{25},{11},{22},{16},{23},{26},{25},{27},{26},{18},{17},{15},{21},{26},{27},{18},{17},{23},{28},{23},{24},{23},{29},{23},{23},{24},{26},{27},{27},{28},{26},{27},{26},{22},{21},{21},{21},{20},{33},{26},{26},{26},{28},{26},{21},{24},{17},{11},{18},{11},{20},{22},{21},{22},{25},{22},{22},{22},{24},{23},{18},{20},{18},{29},{14},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{8},{24},{25},{19},{18},{30},{11},{24},{17},{17},{16},{24},{16},{26},{22},{24},{27},{21},{24},{16},{22},{26},{18},{9},{16},{24},{21},{16},{20},{23},{21},{27},{25},{26},{27},{22},{26},{30},{25},{26},{19},{17},{18},{21},{19},{15},{20},{15},{24},{20},{27},{24},{26},{19},{19},{24},{20},{24},{17},{14},{20},{19},{15},{21},{24},{26},{15},{15},{17},{24},{21},{23},{16},{32},{34},{30},{32},{21},{22},{19},{16},{17},{25},{25},{22},{12},{17},{19},{23},{18},{19},{20},{23},{22},{25},{21},{16},{19},{17},{19},{24},{26},{13},{21},{17},{28},{25},{27},{19},{21},{16},{17},{24},{23},{20},{31},{21},{23},{25},{22},{24},{21},{16},{21},{22},{20},{25},{23},{25},{24},{15},{23},{22},{24},{20},{22},{23},{25},{21},{23},{20},{21},{20},{25},{27},{29},{13},{20},{20},{19},{21},{19},{16},{34},{36},{20},{31},{29},{28},{30},{24},{19},{23},{19},{29},{27},{17},{21},{19},{28},{19},{23},{18},{22},{12},{12},{12},{28},{24},{23},{21},{14},{19},{14},{19},{17},{18},{14},{19},{14},{24},{16},{26},{18},{26},{19},{23},{27},{22},{25},{20},{18},{34},{31},{32},{14},{18},{17},{18},{21},{22},{12},{15},{13},{21},{17},{21},{24},{19},{32},{25},{21},{21},{21},{19},{29},{28},{26},{26},{28},{15},{11},{17},{16},{19},{29},{19},{12},{16},{20},{24},{22},{20},{21},{21},{17},{19},{15},{18},{19},{31},{31},{22},{28},{24},{15},{19},{20},{20},{20},{25},{33},{23},{25},{14},{18},{22},{17},{12},{20},{24},{21},{25},{17},{22},{22},{25},{34},{22},{21},{27},{24},{30},{34},{22},{27},{27},{33},{16},{22},{15},{18},{24},{16},{23},{29},{30},{20},{29},{19},{14},{18},{24},{17},{22},{26},{17},{21},{17},{18},{23},{29},{17},{17},{16},{17},{22},{21},{23},{22},{17},{17},{17},{29},{28},{19},{19},{19},{25},{24},{17},{28},{28},{16},{20},{13},{18},{27},{22},{14},{18},{15},{16},{18},{18},{22},{26},{16},{18},{23},{16},{12},{12},{15},{18},{21},{27},{17},{17},{16},{18},{22},{17},{15},{20},{24},{17},{21},{13},{17},{19},{21},{17},{17},{21},{20},{20},{25},{20},{33},{21},{24},{29},{23},{29},{26},{21},{25},{26},{20},{24},{25},{24},{29},{25},{28},{28},{27},{30},{26},{30},{27},{11},{18},{23},{33},{13},{19},{13},{16},{20},{23},{27},{15},{22},{15},{27},{31},{19},{25},{18},{24},{20},{24},{23},{23},{22},{20},{15},{16},{20},{31},{34},{20},{13},{19},{23},{19},{25},{29},{21},{22},{23},{23},{27},{31},{34},{19},{23},{22},{27},{26},{15},{21},{19},{20},{17},{25},{14},{20},{18},{19},{18},{28},{23},{20},{24},{21},{23},{23},{22},{25},{22},{19},{30},{27},{32},{25},{22},{22},{24},{14},{22},{24},{24},{21},{32},{20},{21},{19},{20},{21},{19},{21},{20},{23},{21},{15},{18},{17},{23},{21},{24},{20},{24},{33},{27},{18},{28},{30},{29},{34},{26},{34},{19},{23},{20},{25},{24},{25},{26},{14},{25},{20},{11},{17},{16},{15},{15},{15},{21},{17},{21},{19},{17},{21},{27},{18},{31},{29},{20},{24},{22},{13},{14},{14},{19},{14},{19},{14},{18},{16},{18},{16},{20},{19},{17},{21},{17},{21},{22},{13},{12},{11},{17},{13},{11},{11},{15},{11},{14},{16},{15},{16},{15},{21},{22},{24},{21},{21},{19},{22},{21},{35},{19},{23},{22},{22},{17},{17},{23},{12},{15},{14},{13},{16},{21},{18},{19},{19},{22},{18},{16},{15},{19},{23},{20},{27},{24},{24},{27},{27},{27},{27},{21},{21},{21},{23},{23},{23},{23},{22},{19},{20},{20},{8},{14},{9},{4},{22},{24},{28},{30},{10},{10},{14},{22},{12},{16},{25},{22},{10},{12},{10},{11},{11},{12},{13},{12},{12},{12},{9},{18},{8},{26},{28},{16},{15},{14},{18},{11},{14},{5},{8},{14},{13},{4},{8},{8},{16},{4},{17},{8},{16},{18},{13},{14},{14},{23},{41},{53},{29},{28},{29},{26},{28},{30},{29},{25},{25},{20},{28},{28},{8},{12},{6},{7},{5},{15},{11},{7},{25},{27},{7},{7},{17},{7},{1},{16},{34},{36},{19},{10},{17},{2},{20},{9},{12},{9},{9},{17},{8},{7},{9},{8},{8},{16},{12},{10},{8},{8},{13},{10},{15},{8},{7},{11},{14},{12},{11},{10},{19},{31},{14},{12},{10},{17},{13},{12},{12},{19},{8},{16},{12},{24},{7},{17},{14},{15},{5},{14},{23},{13},{14},{13},{8},{10},{11},{12},{12},{9},{15},{10},{13},{7},{15},{22},{14},{8},{8},{8},{1},{3},{6},{3},{10},{10},{10},{7},{15},{4},{7},{18},{12},{6},{6},{16},{4},{4},{4},{5},{29},{1},{6},{6},{10},{9},{20},{8},{6},{9},{8},{6},{7},{25},{5},{13},{13},{18},{5},{3},{4},{15},{7},{15},{12},{10},{6},{5},{13},{11},{5},{12},{6},{4},{5},{22},{6},{7},{15},{7},{4},{15},{9},{1},{6},{9},{7},{7},{6},{5},{5},{6},{10},{9},{6},{2},{4},{8},{6},{5},{5},{4},{6},{7},{5},{9},{9},{6},{7},{3},{24},{17},{16},{12},{46},{7},{20},{5},{6},{6},{7},{7},{12},{12},{2},{6},{11},{5},{3},{6},{5},{8},{4},{4},{6},{4},{10},{6},{4},{10},{5},{1},{5},{7},{7},{4},{3},{4},{4},{4},{6},{3},{2},{6},{2},{4},{20},{17},{7},{4},{7},{5},{7},{7},{8},{3},{7},{6},{5},{12},{1},{2},{4},{9},{6},{4},{8},{13},{13},{13},{5},{6},{2},{4},{6},{13},{4},{4},{13},{10},{11},{10},{6},{5},{12},{4},{5},{6},{13},{10},{6},{3},{10},{5},{10},{5},{12},{11},{11},{6},{4},{4},{3},{6},{6},{5},{8},{3},{6},{4},{20},{9},{5},{7},{8},{5},{5},{6},{6},{6},{6},{12},{5},{6},{7},{1},{4},{4},{8},{7},{5},{3},{5},{5},{2},{8},{7},{7},{7},{1},{2}};
+    const struct { const unsigned int length: 10; } str_length_index[] = {{0},{1},{260},{1},{2},{6},{19},{17},{9},{8},{2},{21},{15},{2},{1},{9},{10},{1},{75},{132},{3},{3},{3},{3},{2},{1},{6},{5},{15},{23},{25},{32},{20},{22},{1},{6},{5},{1},{16},{17},{33},{19},{49},{37},{31},{40},{47},{44},{48},{369},{10},{10},{26},{18},{45},{22},{8},{4},{179},{22},{23},{16},{76},{675},{30},{8},{25},{15},{28},{16},{16},{35},{7},{6},{2},{8},{9},{25},{50},{61},{62},{10},{16},{7},{33},{30},{37},{6},{6},{8},{5},{17},{26},{43},{35},{37},{37},{32},{40},{40},{3},{9},{27},{29},{22},{24},{20},{15},{22},{23},{23},{12},{16},{18},{14},{15},{15},{18},{15},{21},{18},{13},{13},{16},{13},{25},{11},{22},{16},{23},{26},{25},{27},{26},{18},{17},{15},{21},{26},{27},{18},{17},{23},{28},{23},{24},{23},{29},{23},{23},{24},{26},{27},{27},{28},{26},{27},{26},{22},{21},{21},{21},{20},{33},{26},{26},{26},{28},{26},{21},{24},{17},{11},{18},{11},{20},{22},{21},{22},{25},{22},{22},{22},{24},{23},{18},{20},{18},{29},{14},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{8},{24},{25},{19},{18},{30},{11},{24},{17},{17},{16},{24},{16},{26},{22},{24},{27},{21},{24},{16},{22},{26},{18},{9},{16},{24},{21},{16},{20},{23},{21},{27},{25},{26},{27},{22},{26},{30},{25},{26},{19},{17},{18},{21},{19},{15},{20},{15},{24},{20},{27},{24},{26},{19},{19},{24},{20},{24},{17},{14},{20},{19},{15},{21},{24},{26},{15},{15},{17},{24},{21},{23},{16},{32},{34},{30},{32},{21},{22},{19},{16},{17},{25},{25},{22},{12},{17},{19},{23},{18},{19},{20},{23},{22},{25},{21},{16},{19},{17},{19},{24},{26},{13},{21},{17},{28},{25},{27},{19},{21},{16},{17},{24},{23},{20},{31},{21},{23},{25},{22},{24},{21},{16},{21},{22},{20},{25},{23},{25},{24},{15},{23},{22},{24},{20},{22},{23},{25},{21},{23},{20},{21},{20},{25},{27},{29},{13},{20},{20},{19},{21},{19},{16},{34},{36},{20},{31},{29},{28},{30},{24},{19},{23},{19},{29},{27},{17},{21},{19},{28},{19},{23},{18},{22},{12},{12},{12},{28},{24},{23},{21},{14},{19},{14},{19},{17},{18},{14},{19},{14},{24},{16},{26},{18},{26},{19},{23},{27},{22},{25},{20},{18},{34},{31},{32},{14},{18},{17},{18},{21},{22},{12},{15},{13},{21},{17},{21},{24},{19},{32},{25},{21},{21},{21},{19},{29},{28},{26},{26},{28},{15},{11},{17},{16},{19},{29},{19},{12},{16},{20},{24},{22},{20},{21},{21},{17},{19},{15},{18},{19},{31},{31},{22},{28},{24},{15},{19},{20},{20},{20},{25},{33},{23},{25},{14},{18},{22},{17},{12},{20},{24},{21},{25},{17},{22},{22},{25},{34},{22},{21},{27},{24},{30},{34},{22},{27},{27},{36},{33},{16},{22},{15},{18},{24},{16},{23},{29},{30},{20},{29},{19},{14},{18},{24},{17},{22},{26},{17},{21},{17},{18},{23},{29},{17},{17},{16},{17},{22},{21},{23},{22},{17},{17},{17},{29},{28},{19},{19},{19},{25},{24},{17},{28},{28},{16},{20},{13},{18},{27},{22},{14},{18},{15},{16},{18},{18},{22},{26},{16},{18},{23},{16},{12},{12},{15},{18},{21},{27},{17},{17},{16},{18},{22},{17},{15},{20},{24},{17},{21},{13},{17},{19},{21},{17},{17},{21},{20},{20},{25},{20},{33},{21},{24},{29},{23},{29},{26},{21},{25},{26},{20},{24},{25},{24},{29},{25},{28},{28},{27},{30},{26},{30},{27},{11},{18},{23},{33},{13},{19},{13},{16},{20},{23},{27},{15},{22},{15},{27},{31},{19},{25},{18},{24},{20},{24},{23},{23},{22},{20},{15},{16},{20},{31},{34},{20},{13},{19},{23},{19},{25},{29},{21},{22},{23},{23},{27},{31},{34},{19},{23},{22},{27},{26},{15},{21},{19},{20},{17},{25},{14},{20},{18},{19},{18},{28},{23},{20},{24},{21},{23},{23},{22},{25},{22},{19},{30},{27},{32},{25},{22},{22},{24},{14},{22},{24},{24},{21},{32},{20},{21},{19},{20},{21},{19},{21},{20},{23},{21},{15},{18},{17},{23},{21},{24},{20},{24},{33},{27},{18},{28},{30},{29},{34},{26},{25},{34},{19},{23},{20},{25},{24},{25},{26},{14},{25},{20},{11},{17},{16},{15},{15},{15},{21},{17},{21},{19},{17},{21},{27},{18},{31},{29},{20},{24},{22},{13},{14},{14},{19},{14},{19},{14},{18},{16},{18},{16},{20},{19},{17},{21},{17},{21},{22},{13},{12},{11},{17},{13},{11},{11},{15},{11},{14},{16},{15},{16},{15},{21},{22},{24},{21},{21},{19},{22},{21},{35},{19},{23},{22},{22},{17},{17},{23},{12},{15},{14},{13},{16},{21},{18},{19},{19},{22},{18},{16},{15},{19},{23},{20},{27},{24},{24},{27},{27},{27},{27},{21},{21},{21},{23},{23},{23},{23},{22},{19},{20},{20},{8},{14},{9},{4},{22},{24},{28},{30},{10},{10},{14},{22},{12},{16},{25},{22},{10},{12},{10},{11},{11},{12},{13},{12},{12},{12},{9},{18},{8},{26},{28},{16},{15},{14},{18},{11},{14},{5},{8},{14},{13},{4},{8},{8},{16},{4},{17},{8},{16},{18},{13},{14},{14},{23},{41},{53},{29},{28},{29},{26},{28},{30},{29},{25},{25},{20},{28},{28},{8},{12},{6},{7},{5},{15},{11},{7},{25},{27},{7},{7},{17},{7},{1},{16},{34},{36},{19},{10},{17},{2},{20},{9},{12},{9},{9},{17},{8},{7},{9},{8},{8},{16},{12},{10},{8},{8},{13},{10},{15},{8},{7},{11},{14},{12},{11},{10},{19},{31},{14},{12},{10},{17},{13},{12},{12},{19},{8},{16},{12},{24},{7},{17},{14},{15},{5},{14},{23},{13},{14},{13},{8},{10},{11},{12},{12},{9},{15},{10},{13},{7},{15},{22},{14},{8},{8},{8},{1},{3},{6},{3},{10},{10},{10},{7},{15},{4},{7},{18},{12},{6},{6},{16},{4},{4},{4},{5},{29},{1},{6},{6},{10},{9},{20},{8},{6},{9},{8},{6},{7},{25},{5},{13},{13},{18},{5},{3},{4},{15},{7},{15},{12},{10},{6},{5},{13},{11},{5},{12},{6},{4},{5},{22},{6},{7},{15},{7},{4},{15},{9},{1},{6},{9},{7},{7},{6},{5},{5},{6},{10},{9},{6},{2},{4},{8},{6},{5},{5},{4},{6},{7},{5},{9},{9},{6},{7},{3},{24},{17},{16},{12},{46},{7},{20},{5},{6},{6},{7},{7},{12},{12},{2},{6},{11},{5},{3},{6},{5},{8},{4},{4},{6},{4},{10},{6},{4},{10},{5},{1},{5},{7},{7},{4},{3},{4},{4},{4},{6},{3},{2},{6},{2},{4},{20},{17},{7},{4},{7},{5},{7},{7},{8},{3},{7},{6},{5},{12},{1},{2},{4},{9},{6},{4},{8},{13},{13},{13},{5},{6},{2},{4},{6},{13},{4},{4},{13},{10},{11},{10},{6},{5},{12},{4},{5},{6},{13},{10},{6},{3},{10},{5},{10},{5},{12},{11},{11},{6},{4},{4},{3},{6},{6},{5},{8},{3},{6},{4},{20},{9},{5},{7},{8},{5},{5},{6},{6},{6},{6},{12},{5},{6},{7},{1},{4},{4},{8},{7},{5},{3},{5},{5},{2},{8},{7},{7},{7},{1},{2}};
     const struct { const unsigned int length: 11; } bytes_length_index[] = {{0},{29},{25},{1},{1},{12},{9},{11},{103},{11},{58},{116},{38},{75},{22},{57},{36},{32},{131},{212},{9},{26},{72},{11},{367},{45},{34},{28},{32},{20},{387},{84},{83},{110},{460},{29},{2},{15},{2},{38},{10},{81},{284},{109},{23},{10},{13},{29},{219},{63},{33},{23},{42},{21},{40},{26},{164},{120},{46},{42},{54},{53},{58},{118},{1279},{240},{46},{110},{5},{5}};
     #ifndef CYTHON_COMPRESS_STRINGS
       #define CYTHON_COMPRESS_STRINGS 90
     #endif
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (10258 bytes) */
-static const char cstring[] = "BZh91AY&SYq\353\020\205\000\001\033\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\300@@@@@@@@@@@@\000@\000`.Wu\364\364\312P\363\240o\\\024\367`ox\335\356\034y\320\003\3166\366!N\332\33162U\002\252K\254Q\024Wl\354\324R\353Tn\3318(IWD\234\242\351b\212\223v\030\r\353\035\355ZM\264\032\353\256\354\001\327\025\022\t\003R^\333\254\363\246L\372\372\203\242]\244A\361\350\001(D&\232d\320F\2154h#bji\241\351\r\001\204j\236\311=<U=4\237\252z\217jG\250\361\0325=6\251\341F\3244yM\241= 4\320&\204\023A\021\252~\232\231P\321\372\247\246\246\2031F\2004\365=G\251\240\304i\240\000\000\000h\032i\241\247\251\240\006\232hI\02524\001\240\000\006\200\r\242\017\325\032\017D\366)\233Tz\215@dh\006\200=C\312\036\241\344\217j\200\t5\021\004\320\202\022oHh\241\355\004M\036\241\352=G\250\365\000\r\250=@\000\0004\320\000\001\240\321\352\007\224\006\232*)\355SM\006aOQ\240\323\324\007\246\246\200z\215\210\321\264\246j<\243\312?J\r\036\241\211\352~\220\2003\325\017!\000\000\002DB\000@@LF\232\023\324\311\251\223\nL\362\047\252m\242\215\000\365\000\000\000h\003 \000\r\000?\372\311\276;\005?j\356{(\353\311\321\213\370S\017<D\277\310\"\273+\310\274_\377\022O\334\357\347\t\370\t\373\"\221`\n\t\377\037/\375\177\347\375\374\227Y\225>@\206I\362\3120?\262m@\030y\006i\200\207\207\264\271\014\"QA\332\314\354\364\360\342\321\217\227L~?\033\237\023\003]\216?\366O\376b\307\304E\220\244\r\260k\256\247^;\325\254\213R|\275@\021Z\335TP\242\242\276\356\027\201\231\243M\210m\264\330\242$\025A\031 \244X\214\"\220P\030\212\243\001\"\305\025Dg\237\221\337\304\3373N\204\047\245\231\323\241\254\263B$\251\326\312J\312\222f\262\202\252\242\235\315\277I\356\365G\216\317\247+!25\220uUT\020\037\014\344\361\371<\236\036\010\"\214\0261\"\220\001a\005\000P\212\000,\347\006\250*0V\002\263\202yXs\220\014{!\001b\340\352 l\010\030\330C@\313\0055\270KN\302\247\264\026\201z4\312\277A\226&\033\250\215\025\352\300\031!\264\306\223i\262D\347Ty\303\244\323\233\026I\005\rIUK\022\013\030(=\332]{\032@\306\002\374kk1\205""\354\313;\230\3226\224\215\341\270[\205\301z\342\267\326\326\033=\326-K\213H\357\" \200\035&\241A(m2\014\224\266$*\361\214^*\221\357\234w\211\342\357\352w\310\233\327\331\026.\002\324A\250\3277|\250m_\231\255\251f{\364\\\263Ir\030\230\320\336\20015\255.\344\200\325. \2666\342 \334\034l\202\237Q\236\031\361\205\306n\3235\370\264i\007\r\371$\031_\3134c#\0050\020\241\243\025\264\024i+\357\353\324\2523b0lwD`\203M\3757|w\035\032\215\352\221\237F\272\361\205\335{\267\347t\003\334\323LT\"\014P\345\177\217H6\356\033\023\213\2171\310\267\305\260`\037\273\237,\362\220\003\345uNz\357\353\336\254\226\344\243\345\017\005\031\033\320Zpl\303<\275\224DD\254\202\037\216\226\232\334\271\357u\337\315\232\025\373\352\"\017\373yO\341\357\371\275\336\361L\020\224\250\017\177\264\275\330r\346\177\327\035*U4\0300\024*\364om\304\177\267\323\337\352\177\275\017\253\277BO\352\342t\204m\257\364\353\210]\364r\266\034\273\367\353\177\257\327>W\226\356\026~\345\340\003\262[g\016+M\224\\[\245U\tO\243a?\210\242o\234R5\363\315\374\320\243pk\010+\263\013\300\033\344H\260tPnR\317\245\230\0375\240#\032\032v\006\370\032\351o\206\370\325kT\353\365\343`R\302\374\013\005\014:\256\271]\206\326\354\377\237+\373\353\3125\370\\k\263\252\211\325D^W6\263\247\374rf\033\210Z\357=\307a\201\001\307|\336\360\024R\213\261)\347P\336\364\264b\324E\315\337vu-1\030k+?_\303\346\177)\014 \277\334\275\036\317\217\353}\377d\243\023\023\224\\\370\300\001`\334f\363\370\255\305\017MS\025\202\245\024J\224\202\2141\002&\023\247Z\250D\215\325\232\212o\022\374\377u\344\256\n\301`\374\312\252\374\356.\313\362\204i,\035$\200#\214\232\234\221DF\225\346&\331\354\304VD\375\245Zt\346\226R\242\022\206\353\3125c@\203\256\305m\037\205\276L\274v\023H\234\022\222O\264\264\311\246*YN\325\312A37\361^|\224\020TB\311c\205\322\313\322\334\354^n\356\265O\t\224&Q\247)Rm\034\255\223&D\277\247\275\337\245#\220>F5\240\277\177D\247f\344\353\256Xm\013=:\366l\367\017\267\306gu\315\rX\2638*\301\250)\252/P\243\220BW\202\260\341\354\306\364^N\025\352o\277""\266\333Rl,\250Y\337o\366U\200Z-\224@Va\210\215)\t\213\211\016\351n\305%\2213\235\017\321\037\230\265\365/\030\261\210/\301\266J\nCm\204\206\312Y\344\334[}\202\273P\016\221\326*\016\344`\2178\316\316\267\364\356\024\311\237L\323\212\206\037*\351\004$=\ru\r\213\r\273\004\\r\257\370\026JP\323\210\374\224QTN\177G\253\237\2309\242LOH>)\373\236\371\370\207\333\315\3647\035\315\337\207L\267\205~\373\032\227\004`\320\n\220\035\202-g`m\300\244\242a\223\272/+\177\307\355z\256\267\253>\307l\361=\317\317\347\240e)*\360PeB\047\323)\371S\017~m\265\216\211In\002,\343\321>&H\222\312}e\314T\335\350\231\017G\273/&\343\251\257\253E\020\047\t\311\3014\016\367\330k\351NS\\\377^\252J\222\312R\346]y\035\252\362W\345\344[\241J\271E!\251LD\205\010r\022t8\352T\277\177$\255?\262YIe\226\225\305\313\222y\014\322\355\"\224\222b\255\307-^\247\341\331\353oM\006\341\312)\242X\234I\375S|\273\346\366B\021\347\047\223b\207\367\314n\337\203m\006J\225>Y\315\312e2\036\217\203=\257IS\035\220Pr\341#<y\024\252ffv\262\255\227\3168{\035\202O\271=\313\323\354\002`8\321T6]\376\242\214A\031\021\375\"\001\010TIt\025MR m0h\374w\307\334N\010\032\003>\244\037\251\252\017\254\273\302e:\334~\025\007\004\246\233\253\002\237WEL\n\023\316E\221\325Xs\2206s)J\3422\255!\254\026\260\263%\246\264\262\374\024_\377>w\332\2039\001\236\024\3458\0145\311\351\253\353<q\307\217\013\265\047\201]\001l\216N\0145@\032$do\345M\321\321\254g\210\256+\261vO\20235\025\340r\332.\375\326\022\335\335KETE\235\305\010\343\026g\001\320N7\234\206@\337\244r\0259~\365\342\214\350\033\n\357 \335H\006\324\204\324_\024wo\352\"\233.K\232\311\323L1A\001\021\370\202\021\002\320\312&\004\271\211/\"\332p\230\r\"\036D\020\200$\232{\353\215{{8\372\032\007\335\351\237\226@\201\2735\373\254\372\351H\025\005D\036\272\320+O\n!\024\245\014\006\252\316\216{p\365U%\210\232^w\223*\203\311*|\231\347B\237\212\340\237+\034I\301C\312\t\241\005\002\305/\047\013\333QC\332\311R\216\021\203\265,4Zt\013\306\201\246&P\014\371q\302\207\310\257\035\340J-\202\303Q&\252\302NN4""\240\235/\234\334\230\000\270q\241$\241^tp5\222\210\214\002\237\314\351_\017\034q\216\031\355\374\375\276>\271\330\371\365\277\220\023Z\246\332j\242r\305\026\340\321\263\001w\247\303\307\344\340\314O\230\312\343\227\311\257\240\274}gV\371\313\014\337:>mONz\363\215W`70\276\n\310|m\356]z\313\026\224\2634\275\252L\275\033F\004\207\275\227\n\353a\004\370\344\253\033\002J\335nC\334eZ]L\274\030\355\013\223k\2220^\302\330a\260\313\314 \177\216\334\332\010\242I\047\047%\310k3^XJh[\312\2744\014\327\344\314M\334\232\263z*\372y\343\217F\331m5;\252\276\317\016\2241->\354z\242\363\266\013\316\275\370\014\371i\325\370\21023\220\271\267%[\233T7l\257c\211x\266be\230\231\247\305\224eQP\344\334\203m\005\342\3100\304\254\363\254\334<aV\375\314\342\346\002\252\206^\254\243Rk\307\303k\351ka<[\t\261\252\2633C\306\306\367\240\275\374\245\3044Y\334\273*\335\356n\266\224qN\311\2135\204\304G&\217<\233\373\014\257T\367\240\357\216o\001\340\370\367\263<\n\302\354[wg\221\026[\022X(\202\027E%\203+\263\036\267\2061\n\300\335B\331_\304\271\027\262\367n\"\364\271\226vX\252\307B.\327\205z\1771\301\355\343\253nz\231\334\372\2403\311!T\347Fm9\017>\276~\032}:]\274{\365\326 \223\334Uv<:\007\316\333jJ\261f\213c\025\302\020\234\330\002:\260d\207EDWs7\242\014.\273\364*mt}\201\007\213\246\261\250\253}w`\362\251\211\\\243\317g]\227j\204\033<P\276n\3642\221\373\034\347U\310\330\353\035,\032i\233\tz\376\226\204\255\312g^\321(\303\203V\010\256A \350\343\367,1\356\361\355i9\262v\210\253\021Q\272\037\2607\306\0148\n\2531^\377\0029(\255+K.\034\006\260\326\203\316\332K\022\263\225b(\242\316\210\006rd\232\335\244F!F\351\255\311\304\202\026zJ\200.\376\340t\340X9\035\027C\242\346\312tU\205PAr\254IB\\\344z\271\303\0149\310\367\010\364{\333F\320n\033V\222\325\244\352\354\246\277\177\215\371 \204\307\244\020\300=?\254vJ\352-\351\354:\272n1\241\343\202\262l?!\004#\3062\224\252\244\205 \222\367\310si?\n\321\016F\304/\226qB\306\236\354M\213\272\242\207\020\270\270\374\rV\332`5\264\267\272\266uHU\224\304T\253!\322\036h\306""\330\201Z\2357\270\215}Y\266v\205\\\035\252-\002\362\272\242d6\320^\201\272\356B\0328E\212\341\345\351\222\254F\231\254\006\352EaM\360\247~\300P^\321B4\026+cX\307f\261U\314\306\232\266+\364\0266\300\240\\\250d\022E\353S.\0164F\201x\301\266`1\204:\303i\240\275x\340\254c\206\362\373\207B\303b\307\030\322\364\226\032\230\014\271\021up7\205\212\005\220\231\263\274/@\036\361\310\206\320\327W\220\201\235T\200\265\243qO\010)\031&e%\020T\251\220`\210\264\017D#V\256\316\325\211\022W\227\320\325)h\013`\221m\031SY\213\260\"\002\326mC%\033\263\251M\331\304n\331\032\024\261AO\201\n\030\206k\260{\261\2161\333\026\222\200\361\350\312\301F\214\320\220\206dP\303c\264X(!ATY-g\016\245\322\240P\260\323g\272s\020\321T\326\035-(`\024\243-\214-\230\250\347<\242\324\026=\0272jIbK\272\356\250\242\202\242\004\223}T\001s\030\265\323hI,R\242\2601f\320\341\002p\303;W\014,`\232\321BS) \260\311\004\n\263\211E\234\224a\233q\t\215\275\333}_\007\363\001\360h~G\221\336~\035\034V)\0201w\215w\013]N\361\312\364\020rP\305\335\337S\240<\350f\031CCN/\312\323\353\r\361UTC/6\030\001\320\021\2146,$\205\023\035*C\t\005T\025\001d=]\375,wd\246z\215\364\3464\237k\234[1\220\327\277\014/QS\242\221\n\361\034\000\225\356\373I\371\036:\001\356\016I\343\361\221\357\371\376\337\303\341\331\275z\001w\3072X6s\212\217\231\347]\345j;\355\"\350+!\357\356\310\245\235\224\024/\240\245\006\027\221\306\006@}}G5\354H::\017g\347\376?\216_\023e\t\236\350\232\003b\032\212t\363~N\034\244\323*\020\206U\255\01414\214\356ft\315\223\317\352\376U\310\023M\310\350\"\t\006\tTDB\201c \255xK\202\206\017\232x\303\325\300zI\341^_h\313\346V*\274\013o\276\"\224\032o\206\201\361\254\356\364\333\344\271\3253Pe\001\217<\230\304x\235[\226\0142<Q\331\220\004\0006\014J\260\2671`r\220\237^\221Hs\232v\016\211+s\312\031W\023:+\323sIc\022\021\257\277|\"8M\346\372\332\203X\226O\255\212\031\230\302\365x\3047\"\301ADAT\213\020\021$PA\203\301\"\250\034\021I\0169F\242\204\2705\305\205\031\306\021\252[\276\006\367^\021\006\300ne^\003\275\252A\2545\225\211\0227""\007\227\274c\355G\260\366/_*\036_\217\366?G\275}^\216\366\360c\355\r\316\211&\316c\347)\277K(\206\034\256\013\300\2119\253\310\032\265H\247K v\222?_\200\271\363?ky7\236]\232\211NB[m)L.\367\271\315\362\343x\345\226\210\271]\354\232\337y\202\343\036\244\214\002\341\251\014\230.\361\211y3\n\225\234LPB\013\236\200\216\227\013\363\335L\26762\031b\204\202\305\246\004\252\250\020F@\355\235\210r\242\301\251:\203\306\253Wx\204\215\245K\0319\227Sd\260\223y\224\0325\213pF\0359\001\035\347\207\n\260b\253\347\340\016\204\361\047=M\310\220\221\2704\002\243\224\032\0130.4&]\020BD\225\201\032\223*\016\216\226m\251\330@@\304\016\316\3100\255\263I\255T\nJ\214\221e\025-!\310\306%\312\022\255\262\231p\264\254J1\020\244\030\202\203 C>\200\363II\322vu\220\267 \300\335\325;j\214\302@=\355\033m\306\267\025\307\210\305V\026\023e))\006\024\245h\252b\2441\030\233B\031%\352\031\\\203\261^\312k\033\355w\322k\027F\341\347t\0213\304\323\257\201yw\252\205\265)\324UQE\254N\320@\017\250\000)\002(\251!\343\022OL\315C\003\230\005\"\227\013(\357\306\000\337X\"\310\243\010W\341\312\324\251nTC\032\201!)o\001`)M\003GyIS\203\014\204T\n\213\324\211\204\221E\027M\345\315#6{\330\276|\264\224c\361D\013#\021,\220\\\206O\241,\n\022x\3417&\3044D\330v\275\254.\252F\231*8\301\230d\031\nN\316\234\356\ni\tC\002\013~\326\0346>\336\301x\235\247\303\264\350\352\020{}\334%\006\325\230B%-\022\017 7\235\245\231-z\316\265\363\225\204\263\306\317\023%\330\035\364\016\241\027\206\250E\013\320\321!\"1\274\220\323\tU\325\t\025V\263\263C\306\306\234h\247n\300L\020\310Q\002\202e\222n\204\26055)\310;\234\274\306\t\2044 v2(I\"\301\210\240\244D-\225\020\204Ed\213\000D\000\021\t\rt\270H\354E\3002\227a\333\225U\350\266\211o\006\214\360We\025\3142\273\202q\210\"*\245tt\236\244\344\"Xu\031\310\006J\347!\307BQ\351x\270\224GV\200w\317Y\2254\200\225\321\205\274\022Cp2\254\201\201\223\306\202\235S\t\024\001HJ~\307\327\364\3750\366}C}\340\216\202#\202\365\020\341\260=M\2147\212\201^\242\340\352\356\300\340\322\364\000\316F\200\230\324\330""\243\326L\007\206\272\207\023t*\031\350o@\260\325\030\ro6\247\010)\005\273(\270L\231\000\215etww\014ZV\n&\201\216-\270\373=\265F\201\252\306Ae~\222\214\230\210h\306\320(h\026}7\263lc_I\204\316(,I\tLY!\000P\t\323\302fO)\2167\003\204\350$\021\234\223\226.\027\016\254\231Lf\341`\3163*\"\031\265\266\360l\337t\360\013\376yT\220+\240\242<E\221Y\034\305\256z\206j \375\342_(\212\007\332/\217\306\327]n\271\245\355\220\202/ce\257\211nJ\3352*Q6Z\371(\333\254\341\233a\323\2444\322<\374\352S\337\334\346-\001vea`\240(\210\230p\226\220}<X\245>f\013\214B\200\253@\353\003\006\375\0276\260\364\301x\035\336\277M\017-1K:%\244\273\033\340\236vu|\030n\303U\236\275\024\314r\270\320_\315\252#\020\352y\333\n\276\276\301A\253\230\305\236\307<c\220\024C\251\233\220\300\211\363\210hTf \031E\310\222@;bI!\334\220\010M\256\240%`\2506(\246\353\321\262+)\"D\205\001kB\005x\304\0052\223\326\211\211\232\250\213\265JF\206\025\316\022\254`6UU\020\324e\330\234#U`]\320\240l$\246Gc\317\356{^\337\201\211\366\243\260\356Y\362\347\277};\221%\302x\017\205\231\301\267\331\3243\257\246\266\244\273?\203\020\266\300\211i\031\323\026\211\0134(\371\244>3{\300\205\275\232\320\371\322\351\257Q\010\322\210\247b\200+\002\250)He\253R\232\260\277\262\022\320\277&\006\314(&\375\363\254\324/%M\013\220\344\300\2560K\354DVo\010!1\0204\246\350\204;\215\334f\201EH\\\033\275$\030\260\001d\206T\356\316\215\362\252\252\003\036hC\0047\333 e\300h6%\305\020\024\340\201\244e(>C\205\004\"X\002\265Q\202E\023{\231P\303\2312\351g\021g\022\020\342\"\034\252@\267\316\226!\326\272\300\210\272\207\204\332\002\216T1\235\310\216\010\221o\277M\236\005\222 \241\177;\251\027J\2676\0352\311\002\330a\236N-)\310\024\223y+.J\200@%N\235\007T\014\345\047\304\326\365\324\0249k:\354:D\013\241\240\227K\327\262<*e\344\345\202#$pb:\n!\264\036T\025)1\337\331\004\267i\274\2167\266\255X\034\326Q\344\267(!\227\326qU!A+\213\336\025\374\214\260\263\262\226\000\210hgs\206v_b\246\301\333&\304\nug\227\"\201\226%\241.\320\300 }\002\206\032\r\342W;U\320Z,\226h=\214Ze""\0369c~/<\230\333\254\025\"o\320*Y\004\255mq\353pC\"\"\035\213\354]DU\201a\244\221\004C\216C\261\241tT\325\202\207\325\244F\005\"\311\202\315\271\035\241(d\2340\271\030\226_\\\026\364\023\203p>\203\010s\200\346\010\364\3505\252\342\034\302\035\275jB\204\252\220\241\222(\"*\202\301\010\223&\003\010k\221h\256\271)\201\207R\370l\270\255\274\266\204\241\350PggS\276\020\232e\352\235\325\226\036\245\224\253\311\337\251v\256\" \320\255\264A{\036OX\t\213@)2\322BsM\223\002e)\000R\334\321F6hRl\010\005hP\0313D\223D\333\024\006Y\0220\047i\030\033!X\243U\255\256\330CT l!6\031\021\212H\307\027P\tc\nIHi\023\014\321.0\212\027\213\262)\324Kd\231\371\256\344\227\200\207\335>%#\277\275#\274>\035\342l\337\233\006\223\341\274p\2174\242}\313\265\224C})\036\202\343\230y\262\017\006t\324I\026J\363\245\030\241\3633\007\020\240\233\036\331\233\362\222$B\020\207\240\222@\205\t\000\264*\243\330u*\034\223\325Ae\214\021D\357;\366\330\351\002\214W\275x_\202\022(\227\201\350:\372\327^k\244\300\301t\234\016\357\005\323\305\267\310\223\267cR\267\254T\206\311\240\200\250\013%H\211e(\214\205\226\033\231\222\310p\373\377{\370>\013\207\263\343\3537\3573\354i\361\224\230\3128IQ)\321\\\252\211\2753gWF\024UE\352\330\030vAFEQ`Q9\232\325\361w\375\234\214\031yh\364\207\311O>\336[\267\215\017\325\315I \342!\213\210\2229Ocm+\r\037\014\264;\3224\005\255\377I\361Z\036=\263\345\000\342\010\217)%\335\350\255\314kk\342\353\276\022CP\313B\217\021\251\301\005\023\217[\222\366y\311a\234\361\363\241B\252J\251\034,\22022\306\316(\214\2002\332\265X\312\021\rI\210,X\253%\376\365\315nF\254\234\342\224\345\"|\343g\232P\352\033t\250\246\r\255\212\201\264S\373\026\370\001\212\372\231j\231\346\222\260\301\217\315x\325y(\177\010\237\010\361l\367\3056pK\272J\251\270\234\035/\371\177\215\244Q^\322\265\320\243`ej\261\031So\256\336\307\347k\265\243f\255\373\343W\363\033\347g!_5\024H\366g\035H\231\233\323.\260\314\005l\356\233\034O\313\00523\231K+p\343\332\304\213<\032\216\030e\360\320\t\257\270\3320\257\002J*\202T\241!\024i\212\0353""\221\336\021\263u1\302\245d~|\300\337\2657k{r\262\326{\255\032t\225\203\314Xv\267\312\312\361uD\017-\321\025WhlPp\352\001M\233w\002\330\241j7`\246\025B\365\364\356\321\244\366\216\332?\007]\205\333a\177+\211\332\311\203[\351\264>\322\357\252\270`\370\332l\374\211QG\230ZH\003\346\220\213\003P\300BcHw8\006\014i\213]/\217\271\355n\212\335\375_Y\327b\207E\344\367\221S\300a\326\016\216\047\tRZ\261E\003\002zn\325T\226\342\016\036\361\037\247\257\201\326\352t\276\017\276\256/j\230\316T\226]G$\222\273zd\220\264Q\271\260N\305\335\2616\222\343*\324\332\343!\366\276;\034lP.\271\235M]\361K\301\202\315\014X\035\224\337LL\260\344\243\020z\373\273X\357\351\330\230t\300\362\342\023\207\206\032\036{Zy\256\371\347IX*\244\030nL\213\351\263P\307\247\223\240\030(\204\246\312\273%\233b\034j\245p1P%x6Rc\271L\332\227e\\\047[\030<\240j*\250ZY\363\242\324p\240K\240\203\017`Q5UG\032`\306*w5\3119\335\035\025\243S\r\204\264\001a\247\206\373\030\207\363x\331\222\210\312\250U\326\221\301\014\241\227\324T\215\367\244\022\tp->\034\220\341\255miB4X?!\001aa\332\356\246\025IUT\354B\336\314%%\235SN\255\332\006\005\0176\3538\224\300\353\326R\304\276\225@\244\256m\271\240\273&\244i\2116\246\241\203\273N\322\314td9\"\256\367E\242\252\354\001f\026\325a\225\010\220\372\262\006t\222\304J\2512\252G\016\252\252e\233\260a\260\327\002v\322\315\323C\307Rr:\225D\240J\305o\266.\013\006k\275=6\333\032\002W\320\333\030\003m\213\272\333\245\252\251\325\207\n\234\273\225RV\2038\341\234P87^\366\034\047\241C\330d\261\350\262\3340R\312\336\005^aXa\334k\010T-\033\321\034\002\302\370!cP\202\000N$(\022M\2712\303)NR\233\014\334!.\356\321\277\274\230\231\010\232D\222\204\230\317[\275\326\303\317f\200b\030\\\253\266\240\355\006\032\017E\035\216p\224\240\210f{\320eC\000Q\221\252Qo\220\337?\036\330\200/\357olb>\000\324i\342\341\362\376\363\200\216\004O\007\3545\022\030\250Z?=\331\265\276\221\0273\210\210\005\235pi\003.n\234\305\341\355\227k\205A\375\364,\313\003\337\320r}B^\311\251$\0024\214\002$$\360\373\335k\n)\231\205\3316""\276Z-\222\n\006\324e\364pKUV`Yl\352\354\0338\272\372\2502\302[o\243O\315\367\372\217\337 \317\024\316\261J\353\375<\212\037\327\341\r43a\256_\312\342s:\025b\257%\255{\302\313\254\r\315DBqSZ\276K\241!\033i\263\201\234\025 \277Z\314\343T\202\373\016\002\375v3\355\213\221\206\357\255x\031\235\334;\rF)\216\214H4^\007\037\331\225\361M\203JL\234\037\354\302d5\202\363cv\366\264\006\367\257\323v\rim\215\310\255\036\305\200\353\013\304\r_k\0147\375\327T\302\365\n\177\036K\t\\\363\316\356g\342j\325\2601\261\214\335\363\237\300\310\303\301\374\275\027\357\262\225\213\026D\367\376\216\255\356\274\233~\0021\344f\370@C\026F\323H\322\010\226I\237\033j\2504\t\035\r\007RQ3\021\"\034Y{B\375\323\262\211\333\274\233\346\371\210\202x]\347\023\205u`{\004\020\302A\003\006\026\t\241\031\"$\t\206\311VB,\352\320\301\006\241^\302\006eV-;U!/\241d\210\032\326\202\020\240e\320\201M\262(\221\301\035\256\243\315\243\325^X\257\227\352=i\032\274\370b{wYew\246\327\252B\330\260G\307t\033\251V{#\352\307C>\204\022p4(\276\244I\344\3112\017\252M\351\360\212\245\"\274h\262M\350C\030K\334\0350\365=\326\327\201}\026Lg,Q\003!\355+\245B\350\373\366\270a$\212_\315\016?v\006\333)\236\r\000B\016\001M\342)\032\352\325\224\227TH\252I/\307\307\223\201\343\321(\261\307\213;+\312N\351\350\220^B\016\323\305\336\277\204\326\346nq\332\324/G]+@\206T\223\236\226R\246!\201)\326\302\201\2226\324\206\204\034\0301\202\212\"\020DB\336;\266\r\033,\372\357\3570b\032K!\366\263L:\373\251\331\026B\223\227#\n\317\260{\000\220BZ$k\354\277\226\025\346\326\014\t#\350\372\033F \316\326f1Z\214\241zs\224\315\302-:\3517[\245ty{I\237n\334\275\201\204t\347\326\337\262 \241v\365j\317g\211\005\261\251\207\327qw;\024k\324i\323\321\206\001\232\200\nx\026\047\304\205\047ZQ%\300`\276\253r\231\223\225U\232b\2069*\271qcp\352I$\222L\005]\206\006,\310\2621@\224\265\013E\305\047\275\301\010a!\330\252\014=\323\335\243\0223\222r8\311\334\031\323\277Sy\225\367\014\266\233\256\377\310\351\020\210\002(A#HD\270\\\362\341\202\303\032`\244\nF\031\246q}XIsx""\\(A\361\302\206\203Sn\216[\231D\270~\207\365\346_\352\3221\2720\244G\"?\367\234\362\274Kd\206\300\030\226\2240\235\374c \242\351\364\375\346\375\200\303+\312t\022S\035\262\355\212\320\271\237\243B\340\232j\223\030\203(\366{\261$z\365\337\023w\004G\032\032\225\364\\L\267=\233R\215\220Km\310M2\360\316\230n\343\311a\302\336\213\362\232\275\332\373\016\047\267\342m~\014\301\3033S\241/\231A\252C\277\225\016PR\316\347\333\304\215\357\3004)[\273\251\220t\307n\006YP\246z\016\036\024y%\304Y\271\261EY\324\273\202\0273UU@<\2674\254a\023\315.kpi|_wU\235\320d\364\303\262\342\322\240\375\210\206\306\337\354\337\356>\224\027N^\226b&\365s>d\025\022\264\221\016\266*\226\003&)\341\257\025\345\225HJ\315rX\322\247C\016\223\016\263\266\350\307\352w\026\302\024e\307,\256x\327q\367\235h\353:\325t\016m\022H\2637a\263*\014di\r\034z\247v\364\332#\272g].4\327B\335<\376\305\305\301|B\270\342%\304\343\363.X>L\3148\034X\230\326\345B\254F\352-]\003\\\236\3065\301\367\231\004f\214!\207q\003\022\021\002\331\350\033\336\244\332\331\361c[\242\332D\214jN\0244\035\241uHYa5\324\267px>\326r\024^\333f\215\347G^:I\370\007\334\212\356\365\"\t\032\202\261\343\355S\363\244\314;<>\032z\027\265\205\336\255=W\325}&\335\245\355\266\271uFq\310dn\213\035Q5\315\033x\372;s\341D\264\r\036L\010i=,\031\201\323\331\313y\237\2409&\330\336;\314\361*\263=c\276O\240\331\031\322\006_\303-\3108\031\237G\014o\352.\340`|\276b=\277o\326f\030\017\343_~=\250\324`g\363\004\235\343E\005N\2109\211\245Ff\325q\371\276\033\256\355=\2472X\220\236PRA\243M\276\323=\020xV\311\030lu\345\303\231\330\047|HI\353-\024\026H\267\345\270\301\006C\004\210\206\014\272\347\245.\232n\225DJp\262\275z>\340\217]M\306\006\375\231\201\254f\352\220Xx\037\204\013\203\335\371<\260\327\230f\270\325-74h\345\233\204\037\203\272\246\207$\302\217{\336;\221%\324)\n!\375\024\241D\205e\356\365y?j$\033`0\365\362\344\023\0365mCA\266\320\303\001\227\363\214\217s\261ofz<\003\216x\255H\302\270\336\340d,\351\232\205\025Y\305\263#\335=]57\256\205h]b-\215D\301\214Y\326\353-2E""\n\023#m\031+s0\243\227w]7\314\362\310oX\332\030\222\214K\221pYAG+eY\002\213\033PLcBi0e\037\310\241q\305\322\312\030\2029\3406]@(\261,\203\362`\265x\323\243\310,\030\247^\376S;!\262{\302b\311#T\311\314\2573R\204Z\263\247\345\366\375\235\031\201\372\217\273t{^O\326\320\331\005\034\322M+V\334.\302y.]\230TE\203\024\242\376\376\316\340l\200\214\357\311(\323\343\371s\350\026/\344\362\222v\2525\242\311\0346PF\215\022\t\227\027\302 \213-\274\276\324o\316\373<\217\203\266\370I\231\2700\246\220\366{2x\344\367\244\020b\262vHN\006w\241\244\357q\344\354m\264*Z\254I\001aGy\234c\022z\047B\205\036\n\245\307\213\310\021\205i\002V\345\004ut\030NO\304\364\220f\006gQ\047\264\370x\225\344\013\203\014\030\241\256]\033\351_\257\340\353\241K\257\364\361y;\373.\322\356\020sG\343:\325L\360\323\231\205\370\\J\314\247\003\002\351U3\222\214Re}\364\226\314\002\245^q\302>[A\206\256\270\305\3223\2772\023\374\314n\034\204E\3067\212\"U\377O\307\350\200\207\330\020\202C\263\335J\225\031,+.\276sg4\211f?L\306\206r%]\027\246.[\356\344\251L\017\234\340\354\0476\010\251\022 \n\010\240\300=\006\221\021*\212\252\241\355\251\342\211\342~\252r~\247\322\025\365\ry>\334L\250\324\014\252:\030 \314\023\271\307\213\3653\017aq\341\334\005|\\i\035\315\014\337v\007\263\017\216\372\372qf\366E\373\352M\253\031\331\225\312\360\272\274\002h!\223\2708\240\246\200\222\271\026f,\233\302b=\177\025\212:Q\306\344\216\232\371\230\234/\3070m\037Cc\025F\233\t\010\204b\327L\031mK\026n!5\021\0202\t\340t\276Cv*\317O\247\303\267\023>\203\266\\\201\347&\346Z\22146|(T\374\205\320V\207yy\034I\213\305\001\207!\353\257\037\3335\200QF\360\350\025\0300\245\036|\250k\030\356\332\353\024bM)@\235u\315\226\360\047\241R!XdA3\211H\006\314\251N\220\032hH\035\010\035N\274W\227*\237\"\272&\2267|\2358\337\237\207KQ\2031\242\002y\351\021n\234x\235\204\322\355[\234\010N\224\026G\263\332\332\337_\2148\333\236\272_@\240\3607fJ\200\334B\343=\006\225&G\246&\356\006E4\226K\027\027vT \307\023G\256\342\330\333\354Q\\n\223c\023\216\342\325\214+\306\275_JG$""\261\360\367\036\345\024\\z35d\327\342\021\305\235\262>(d\3714\210\257U/b\014\323\365\207\214zD\204\273\3321\003\010\271\231\256\005\001\t\341\254B(\321\235\364\252\025\t\004h\207\301u\047\204V\\\0214\311*?w\025\225(\313\345K\027S\325\202xgq@e\327W\001\3431E\t\320\222\002/\213\213\243\245\201\302b\362\3001w\n1H\236\304a\024\322\0355\261\336\262\3720\232\244\243\020\332I\275\340\016\276nU\027\3038\260\331\201\337a\3137\026a\252g\240\340\350\253\242\263)\014\024)\304\257C>A\264\022\340\303N\316\375\333c\3175\t\006\240\304\0334\033\212\033\240\312\343\201\371m5\030\255\365\301yw&\347+\350\320T\214\224\3609r\n\024\330d\0056\337H\342\252\266DKBZ\023L\345\2275\210L\277\216\361\222L\201]\206y`\323\002%p\317\255\n\241pf\\\305\026164o$c\315,\222\303\334]\243(\370\362\364\037\0021l:((\002\210\200\221\010\215\032\210r;~\252\212O\031\221=\372\037P\312\3150`\353 t\212ur\3054\212@f\263\200\347\"\"\245\234\245\261@\212\275\016Vt\025\345\215z\005t\323L\203O$\250\205\010\371L%\271\332\\\332\3172K0Q|\014\301\020\033\361\0356vy\277\3055\303\200\227\016\034\016\036~\177\303\307\255\264\3304?\0226iv\267\363BG\263w.\335\353~\376\377\047\216\031\362\240\035\343#\354\327\344]\316\310\273\264AN\357\267\301\r\252\020L\005\331\n \2225\200+!V\300\310%{Z\206\177\222\010\255\354\346h\010u\360\231\330c\230\374\3631\237\016\021u\331\277su\331\356{\334}\316\031\314\307{\361O\261H\230\366\301\363\376B\047\230D\202\222*\"M\022sH|j\310,O\263\037\362\017\354$\372 \277J\251\220\030\025P\360\375*0\"2\030\375\016\337\330,\377N\352\267\3460\010]\004]!\004\223\310n\311\346\276!\226\367\225D\004\001i\276\023\267\214\024\204 a-!\221\365\376\215L1PE\370\276\001>\247\357}.w\212\375V\001\217_M?72|\211\275\235\017\014\001\357\217\206<\210\241\"PC\365\277\371\373\274\226\215 \016\3650\016\301\047\3330\377-\032\336\256\230\242\024\300\325\244?\207\336}\307\347\226\237\017\341T\312\023\335Uk\222\341\336\022w\332l\373\2742\336\330\362\347J7\244X.%PWD\330\357LK\277\313\177\320(\216g\324\344mH\240X1`\r\006\030\261\n""\302\264\332j\251\200X>\221\213\023\373[\256\206\347\030l\234mt\324X\004\022\272\004\002I\334\330\205\261\350\376a\264{\337\327\003P\351\335\262%\343\326D\000\t!\3067\016#\246\252\307F\343\204\323\023\312\324\033\375\316BA\262|\320\0321\274\222I\t\3064\340\344\365~\316G\037G5\2009K\210Z0\221WE\320wBZ\247\306B\021\007\302\336x\244\244\220\303\004_\365\177Jpx\017\302lT\317\235\203\022\242\030\3362w\277.\3561\254[78^(\034\317\373.X\250t0\\\317\035\".\214\365\201e\027\346;]\013\363\322nk\000\202\n^\337\275\310\353\207\025\322\346\035\273\374\333\371n\206\270aK\\\026\t\362t5\264l\257H0\316u\221\016\317\234\\\360\361\007o|E\357\250I\313\215\262\352\317&1\013\000\332\25344\":\216\376/\010\307qp\275\343\260\367T\203\304s\014X\275\2467\360(\037\241x1\263\205\305\216,M$\013\256U;XW\271\362\020\177\347\341\340g\373\243\361\275\033\337\217{\017E1\342N\337\0048\276\016\363\250\206\377\336\300\003\361jd\332\325\375/\315\2009\260\243O\033\022;,\2746\353\276<\220G\327\242u\240\206\002\320\377G=\332zF\317\350Y+\326y\236 \302T\001A:g\375^\007\272\365\331\253\253\320\313=\345\"!N\256\036\341\217\346g?\024\020>\017\255\276\250O\253|N\017W\017\312\255\266\3442\036\310\203/s\01797x\024B\265\032\241\035\032W)\272I\261\365D\236\200?\243\225r\223\261 \224\220\032\016\250\310\002\224\014\030/t\014\271\370\310L\n\372\263\n\013\232\224\014\324\241\231\341\205\277L\354\000\270\313\241\317\305\337w\371\"l\324\2075\020~\272\303\345<\374\336n\277\255\234\247\027\026\013x\005\301\303\236\270\033\233a\230\312\365\371\233[\314\307{6\376\243S\306\327\331\354_\324\355}+\325K\336\2354>\225\360&\242\366>\207\240\363u\236w\357i\241v\367\214v\246\356e\323\342N\247\025\353\333\272;\"\206\317\023X~\336\347\023nnx._\371\257\\[\253\316>\035\326\344\365\272zZ>\237\007!\206\225\251\216\274\001Z^\312<\226A\025\371\004\033\263\255\2114r\317l\306\217\216\225yz2%V6C\204L\365\225C\017\216YH\220Ip\302\264\000\352\020\001-\244\232\310\200_\335\325\302\017\001l\342\001~S\024\212r\321\0229I\366%\240\006E[\336$\325\275""\2352\350\033\275\t\214A\303K\201&\0052\323\234\273\227$Q\332d\305\361\213\230\231\2731\022\216\337Y\023<\246\326\325J\234+\346\024~\303\274\344d\235\033(k\213V\354^\177\005\235~.\010\247v\372\220\352\340[\025\265\363\307\3570\013>~\344\256\047\016q\311\252\255\250x#\ra\035\210H\343d~;2\337r3\027\250\022\250\004\264|\3145\257\005\326\354\364\365\000\372\024<\315*b\322d\210Z\227|M\255R\037\321\013J\263{\322\275e\324\276\031Y,\010Yf\005D4P\037\003XS\354\\\275\014\022\330v\014\357\224\000\375\266md\265\220\232Rv\352`\302\206\302RD\247uM9\327Vhq[r\306\325\260\335\3449H\r\226f\026\177\311\r_\260\031l\007~\207\342f\261:\322\240\031\277\331px_/I\267.K\250\302\227\313i\357\354\211a\335\326Bjx(\035\362\370\353V\016\r\237\351{r\371\020\204c\014\300\206\275\334\252\007\263\202a\000\232\226\373\303,n\255p\216H)c\235\212bjFo#\362\264@\224\317\21300\363q\226\007\345\211\252\307\276\324\220\010\311\247{\207kS@\320\332\"\036Z!@\017\016\312\315\360(\324\375*\304\331a}\021\0008x\276/!B\375\013Xj\177\313\027\273\310\353\273\350\353\n\2441\271{T\254C\036\235Tw\331F}v\371\231\322G\377\213\271\"\234(H8\365\210B\200";
-    PyObject *data = __Pyx_DecompressString(cstring, 10258, 2);
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (10277 bytes) */
+static const char cstring[] = "BZh91AY&SY\315\324$L\000\001\033\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\300@@@@@@@@@@@@\000@\000`.wu\364\364\311P{\275\203\264\341\321\323\243\336\343w\270q\347@\243\316=\353\304)\311)\260\325)\353\256\252*\242\202\252\204Q!i\224\335\333\336\350(%+\321<t]{\203D\353l\303\334\013\330x^\226\316\235\036\262\000\007\252\t5\356n\205Eu\203\325*\3573kG\325m\254\240\037\0000\224\322B\023\023\t\221\246Q\2004\323SMF\364\241\3410\024\364\302i\264\251\341O\325=OeFO2\020\230\323jjx\202<\246\324\321\351\001\246\2014 \232\020\231S\364\324\311M\250\333D\200\362j4\r\036\247\251\352=@24\320\000\000\001\223@\000\323\324\320\003M2D\210\223\322y&\324l\246F\200\000\014M\006\232\006\014S\324\36154\r\000\032\032d\321\240\311\211\204m\010\004\232\210\204hM\020\207\240\205?Tz\231\352\236(\364d\236\240hz\206\203\324=G\250\000\000\000\r\000\001\240\365\003j\003BBQ\262\000\23244\311\200\023M=L\324\321\265\006\023\006\236\231\251\352\201\240\0040\000\000F\023\000\r\004\211\002h\020\004\000\2324\320\2314\001!\351\224joI\036\240\r\000\000\000\320\003M\003@\032\000\177\365\223|v\005>\313\271\354Q\327\223\243\027\360\246\035\361\022\377pEv+\310\274_\377\022O\333o\354\004\372I\372\342\221`\n\t\377\037/\375\177\347\375\375[\254\312\237T!\222|\262\214\016\3217\260\005\315\003V\200\034\271\275I\020\035\"\204\305\342bm.E\336>]1\361o\300\374f\006\273\033\377\354\237\374\305\217\200\213!H\033`\327]N\233\367*\325\025\234\274\274@\"\224\265\0212jk\013o\300\014\315\032lCm\246\305\021 \252\010\311\005\"\304a\024\202\200\304U\030\t\026(\252#=\216\047v\363\206f\234\310O&g>f\263\357d\032{jVk\344\323zn\201$\310\355ly\317gD\316*\376z\325Z\256s\020\246\223\014\017~rx|^.\376\364\021F\013\030\221H\000\260\202\200(E\000\026r\203T\025\030+\001Y\271<l9H\006=p\200\251`\351 l\010\030\330C@\312\204\365\260\226\235e\0170Z\006\010\323*}\006X\227\3334h\260U\000\311\r\2464\233M\222\047*\243\330\016sNLY$\0245%U,H,`\240\365\347\256\310\310\010\201>|\354\321\020\3317\345\2522\035\227!\332\035E\264[""\327\252)\205+Q\263\331R\263\261Y\017\002\"\010\001\316T\t\211Ci\220d\245\261!W\214b\361T\217t\337\270O\007wC\272D\341^\351R\300Vh5\032\344\360\222\206\326\031\232\326ug\277E\3074\227\021\211\215\r\350\003\023Z\316\334P\032\245\300\026\303g\001\006\320\341T\023\372\314\357\237\010\\%m3_6\215 \337\273$\203,8\346\214d0R\200\205\r\030\255\220M\244\260\303\253R\210\315\210\273c\264E\320i\273\242\337\035\247=F\365H\317\236\272n\3066G=\233\356\203\355\317<p\242F8\033o\361\301\032\3635o\033\235/\"\336\273\022\003\366\363\345\236R\000|\256\251\317]\376V\365d\267%\0374x(\310\336\202\323\203f\031\345\352Ffk\346\030\375q\362\225\233>\330e\376\316\362/\322\2231\027\253\251\027\037\177\352\366{D\\\220\235,\212/Y\213\022\033<\263\324\307\231\205\2462F3BD\316b\3351]^\206WK\255\200\351\345f\022x\370\355\223P\266\277\370W\020\273\350\345l9wo\326\377_\256|\257-\332,\375\253\300\007d\266\316\034V\233(\270\267J\252\022\237J\302\177\005D\3378\244k\347\233\371\241F\340\326\020Wc\013\300\033\344H\260tPnR\317\245\230\0375\240#\032\032v\003|\rt\267\307|j\265\252u\372\361\260)a~\005\202\206\035W\\\256\303kv?\347J\376\362\362\215~7\032\354\352\242uQ\027\225\315\254\351\377\034\231\206\342\026\273\217i\330`@q\3357\274\005\024\242\354Jw\250o\202Z1j\"\315\341l\350VQ\027\326K?W\303\345\177!\014 \303\330\273}\177\037\324\375o\266H\304\304\3262|\260\000\270\217Z=M\354oD\332-N\330\255H\242U$\023\306\330t\324\247J(D\206\350\315E,\004\277?\345\300\222\336\252\025\017\327TXgb\331~\001u\245?MP/s]\231Z\305\327\035M\177W\361\261\301/\350\233\366l\327M\r\310\320?<\314i\314`\217U\313\354ov\036L\3776\003c\224A\2475\035u@\275\275)Wm\3133\202\365\337\302\276)\262\330L\305s\003\216\023\347\350\354\355Z~\336u/\234\2545c*yJ\367\032\266\261\1775\255\345n\367\347M\203\007e\314\350\355\333\306(W\263Eg\230\017\213_J\245z\375\243\325\314aj\230\271\262\254pS\2170Fh\264\313\312\244\205H\357\210\021;\233\262\271\370\326\236\364[\357\2577AOb\276\363\377\222\234b\274z\304e\363\216*\352\352\204\047@\246\314L\207b\025\233G""\037\206\276\370\232\201@\204\302\250\253\222\355-\022a\270\322Wj\3716V\036\321Q\345\206\211\250R!\221rf\021\205\205\207\344\331(\027\261P2\245K\341\362\254p\220\223\343\317A\241\200\373q\312\363O_\220\246\316\222\204\243\375\241\t\r\361|\235|K\004\023\214\3215\200\272\336-#\262i\264\311\t\202\230L[\362F\241\022Kj)D\030Bb\030*\200\230\010\305\346\001\276\316\311:p\246Q\232[.\016\337/\270\314?\006\342]n\177\017\256YY\023\327\004\267LJ\212\201C\312\334=\373\335\2052\360\234\254\203*$@{\313\361\247\317>\222\315\332\020\373oX\373}\2307\366aAtc3\005\020\242Q\006\305;\277a\237\217D\240\261>\374\326\236\332hg\363\373f_\267\216\\~<\2740\317\211\212\256\355\202UEy-\250\3776\355\336\377\1773\206\337\334\323B|\371\363\254\254\031\264f\2353.q:l\333\267\336i\364\364\377\327\313\251\273{\036\311\324(3`Q\032\217E\357sx\335\252\304\314&\347\320\227\370\330}\376M\206\035\251R\356Q6h\024\t>NLG\2656\227\025pA\005\302L9\252\316\245b\306\345l2\331\346\223kh\233\371\267\261im\003\\<\314\220kC\374J\2300\316\315\026\211\030\204*$\272\n\246\251\0206\2304~K\337\356&\344\r\001\237\353\003\376Z\240\372\313\274&S\255\307\316\240\340\224\323u`S\3754T\300\241<\344Y\035U\207:\201\261\312Ia5\300eZCRZ\302\314\223MiU\370\250\303\376|\260\254\306q\003;\317\214\2560\327\047\246\257\250\364\343\217\r\366\324\226\362\232\002\330\216.\013\352\2004H\310\335\306{c\236\261\236\"\261M\205\262{\321\231\250\260\003\216\310\267\3570\222\335\324\264UDY\332P\2161fp\034\304\337\204\3422\007\t\355\006)u}\253\226a\361\232\n\034\343\351\306>d\206b\361L\313\267\230\310\326\203Y\316m&\341\225\034e\307<\020\210\027p\2351R]\031\241~\003P\006\360\211\240\310@\022Mc\ncN\316\276\035\255\003\356\364K\344\220\0207V\277y\237d\347\002\230\246\203\325I\205\047\3414\"s\231q\2523\237-\233\374h\222\304M/v\004\244\246<\222\237\267<\346O\346\260K\312\247\002WP\362\202S \230T\236\004\257\203j&y\262K\3334p\226.\323\260\321ij\027\032\006\230\23104\345\306\3633X\017\000.\026\301a\250\223Ua\047\027\032PNw\312p&\000.\033\350I(W\225\033\215d""\242#\000\247\362\271\327\303\276\373\343vz=\275\276N\231\330\366\353\207\210\023Z\246\332j\242q\305\026\340\321\263\001w\247\303\277\307\2031=6.q\356W\321^>\263\253|\365\206o\237\037\231S\323\236\274\343U\330\r\314/\202\262\037\033|\313\257Yb\322\226f\227\265I\227\243h\300\220\367\262\341]l \237\034\225c`I[\255\310x\032W\251UR\313\356\314\223|\022,\315\305\361\270\307SM\003\375\367\206\354\211$\222rr\\\206\2635\345\204\246\205\274\253\303@\315~L\304\335\311\2537\236\257\247|q\347\333-\246\247uW\331\341\322\206%\247\336\217L^v\301y\327\273\001\237-:\277\021\006Fr\0276\344\253sj\206\354\312\366\034K\305\263\023,\304\315>,\243*\212\001\311\271\006\332\013\305\220a\211Y\347Y\270x\302\255\373Y\305\314\005U\014\275YF\244\327\217\206\327\322\326\302x\266\023cUff\207\215\215\357A{\271K\210h\263\271vU\273\334\335m(\342\235\223\026k\t\210\216M\035\362o\3532\275S\336\203\2769\274\007G?5\047C\014s\333\025\224\323\260\253\315\311(H\242\047&IAKH\355/\014b\025\201\272\205\262\277\211rM\354\275\273\210\275.e\235\226*\261\320\213\265\341^\237\314p{<um\317S;\237L\006y$*\234\350\315\247!\337\257\177\r>\215.\336=\332\353\020I\355*\273\036\035\003\347m\265%X\263E\261\212\341\010Nl\001\035X2G\023;2\207\301\273(8a\227\343M\257\362z\002?\026\222\230\204\255\255\270\374\250\272\240\210\217F\253\255yq\353r\311\025\357vI\344\317D!\nut5\r\033\231M\323\220\265o\037\026{\365\036\026\261\213\311.f\307*\314{\227\303\207\271a\217{\177\233\244\344\311\324EX\212\215\320\374\343\2060a\300UY\212\373m\304rQZV\226\\7\ra\255\007\260\332K\022\263\225b(\242\316h\006rd\232\335\244F!G\004\326\344\336A\204\237\n\300\027\237\332Mn,M\234#7\234ehy\304R c\233\2112`\224\241\224\204\211\tCB\0347;\234\360=q\277\317\214\374\370\364\375X\363\375\376c\332\201\032\236\200C\000\364~\241\327%\322W\321\326t\364X\306g\246\352\251\260\373\310!\036\272\345\221UI\nA%\357\220\346\322~5\242\034\215\210_,\342\205\215=\330\233\027uE\016!qq\367\332\255\264\300kioyl\352\220\253)\210\251VC\244<\321\215\261\002\265:oq\032\372sl\355""\n\270;TZ\005\345uD\310m\240\275\003u\330\304\346\341\025)\177/D\2121\032f\2567B)\nXB\226\355\200L^b\204h,V\303X\307cX\252fc=[\026\032\013\032\334\230YL\310$F\013S-\3564F\201\200\301\266\\c\010t\206\323A\202\364\334*c}\306\026\034\312\215\213\034cL\022W\324\270\313\"-K\233\202\244\302\250B74\027\240\017x\344Chk\253\310@\316\252@Z\321\270\247\204\024\214\2235UH\241C$]\021X\036\210F\255[:\322$$\2600\231\252Rh\n\335\"\2722\206\262\213\\\210\n\325\265\014\2226\347B{s\210\333\261\032\030\320\301\047\321B\206!\232\354\036\334c|u\213I@xte`\243FhHf\356QgG\246u(J\032\225\243z\340\3058\233d\330\324\345\322w[\3124Q0\277CJ\030\004\346\312\343\013c\024\334\263\312+1c\316\314\225\t\026m\316pl\205\006\004$*\273\351\000]\323\033]kEW&\266\316\334N:\336\206\350\023v\031\332\267ac\004\326\212\022\231I\005\206H e<\006\047+0\207%\252\210\257^\317{\332}\260=\246\017\221\344w\237\217>\013\024\210\030\273\306\273\205\256\247x\344\273H8\250b\356\357\241\314=\0309\006\360\320\323{\361\264\372\343{\325U\020\313\311\206\000t\004c\r\213\t!D\307:\220\302AU\005@Y\017[\207\223\035\271\024\247\234\266\272\r\047\333\347\026\314d5\357\303\013\324T\350\244B\274G\000%{\336\332~/\216\201\366\233Wo\275\036\377\237\356\374~\035{\227h.\370\344I\203g(\240\371\036\352n)A\341Y\013\231I\007\277\273\"uuPL\302b\222\013\340G\010\031\001\366t\234\227\255 \347\314\365\376\177\331\364\345\3616(L\366D\246\r\210j\047\321\311\3718rI\246P!\014\243U&\324AT\326\346\251Z\310^\277\017\331\220!V\342u\030\301 \301*\210\210P,d\025\256\371pP\301\366\007\204=l\007c:\243\257\332e\362\252\224^\005wa\0219\2157\277@\370\322[}\025\366\331\3213PL\002<\267D\207\234\365:\316\010ny\341\343\334\002\200\024\022JB\332\305s\024\205\36316#5]\203\253\024\\\353\n6\346\251V\336\227*\2444\220\215}\373\241\021\276X\033\251Y\215bU>\246(fc\014&\302AdX((\210*\212\013\020\021$X0hy\022\025\000\336\211\3108e\032\212\022\336\327\006\023g\010F\251m\370\033\2357\304\033\000\332\312;\217\006\247\006\260\326U$$m\017/x\305a\214\223%\261\352Ddu\266{\026\333?""\245\204\224\304+\001ED\314\311\025EV\014\226\"&\206\034l\030\001\0229,\010\032\255\010\237C u\221\037\253\274\\\271\037\265\270j\037\047\303`\210\331\010\233\356\310\214\251\344y\026\246+\300,D\252\331-\3544U\013\256\021\342\221p\260\324\203&\013\274b^L\275\nK\023\024\020\202\317@\207\246\324\372Z\343~\255\214\206X\241 \261i\201*\252\004\021\244\033V\306\030\315]\251\035!\351\242\325\340!#d\224\230\311fZ{\022\341gi\275\034\331\305\270#\016|@\217\t\337\272\254\030\252\373\033\201\240\2703;\027\000I\033C@(9 \320Y\201cBRsAR\026f\244:\023*\016\216\226m\251\330@@\304\016\316\3100\255\263I\255T\nJ\214\221e\025-!\304\306%\312\022\255\262\220\270ZV%\030\252\226\t\003\002Q\004\371\301\350\222Y\351\236>\362\246\324\0276\364\313f\250\314$\001\357h\331\263\205,S\036\003\025\030TM\223\235\310\0341\214\342d\305Hb16\2042K\3242\271\007b\276bj\234\215\256\365VM\326?\233\364\375\251z\005\347\307\352\177\037v\360\360f\315\315\261\217\201\266)\263@\317h\000\232DT\220\360\211\047\224\315C\003\230\005\"\226\211\020Vs\002\366B*\211\260\205\205\370\326t+\306hcP$%&\356+\212I\240h\357\047%+\260\310E\000\240\274Q(I\023Qi`Y\244f\317{\027\317\226\222F?\024@\2621Id\202\302d\273R\271\202\317?\013\326)\006\210\233\016\327\265\205\325H\323%G\0303\014\203H\206l\3239!Jp\2240 \257\355_~\303\356\353\027\244\354>\035\207>\221\007\237\263|\220l\244\241\010\222Z$\036@n;\n\262Mz\216\245\363\224\204\263\306\257\023%\326\035\363\016\221\030\006\250D\314\020\321 \220\214p$\032^J\232\241\"\212\265uhy`W*\266m\300\0054\212\004\010 \025\032J\354\024\200\261b\035\001\334\307\274\230\246\302\242\r\215&\320\222\213\006\"\202\221\020\266TB\021\025\222,\001\020\000cBE\264\260\221\326\213\000\311\332\375\231Q`\212\357\325-\340\321\317\214\333\225g\230r\327h\306 \210\252\225\315\322y\247\021\022\303\240\326 4\2434\214\264\024\035\2342P\047g\000;\323UF\312\240dsan\344\220\340\006U\22002xPS\242a\"\200,B\207\364\371v\366\207\263\270\335\202\021\314\210\336\274Hp\330\036-\2147\naN\222\301\323\335s{K\264\006\261*\014\235""\214\010=\014\232:\255`\311]\204\"\232\027\200m\032)\006\227\255\260\230\214\021nP\\Y:\2034\254g9\316d\234\253\024if\030\342\333\217\267\316\210\3205X\310\026Xi$d\304S\016:Q)\2019s\341f\330\306\276F\0238\240\261$%1@\220\005\200N}\3632x\314o\300\r\323\230\220FqN8\270\\:2e1\233\205\203\324\252d\207\233\301\360{\277u\354\337\\\217\324\366\271@\360\301&\004\362p\245\007o\330\303\271 \375$\276A\023\017\270_\037\215mj\365Jx6B\010\331\024\323j\265\263:\335\223\030\212i\265\230W7\303\222\207\247\316\230\310z=\0311\354\371\233\255(5\314\254,\024\005\021\023\016\022\322\017\227\026)O\252\301q\212\224\031`9\241\005\362\352\263\207\257F\300y\276\267\3213\313LR\316ii\047R\363\027\255\255_SE\332,\332\362\202\032\2362N\002_$@\232a\251\353r\010\226\276d\005\235\023M\257<\347<@\201\032\231\271\014\010\236\311\r\n\214\304\003(\271\022H\007X\222Hv\241\002\023k\250\022h\031\202\222\261\327hvC7$,\220\224\032iP&\302\026\222Ke\247\257\023\0235Q\027j\224\215\014+\224%X\300l\252\252\335\201\260\314`L#U`]\320\330\030\014P\322x\036\277\237\333\356\3601>\344u\235\313><\267n\237r$XN\343\347$s$\370y\201\035\375\321.\306_\301\210[\014\010\226\221\2351h\220\263B\217\232\244\361\312\367\241H\275\242V\2452\316\353N\222\021\244\321>\265\000R\005@RHeiBz\260\303\256\022\324\303&\006\r\020\n\373\326\252\301*\020\252IC\213\002\267\301/\261\021Y\300\250\025\022\0242^\265Pu:\370/\001\211\212\235\313\264\2208\240\002\2012\247nto\215UP\030\365P\211\210\276\024\002\216aQ\310K\202 \047\275\003H\312H=\246\371\220\205\260\t\246a\302C\021z\246C\207\210\273q\243U\243V\024\325U71D\355\276z\024\347=(\205k\203\326\275(0\336\311h\236hWr\006\t\305\365\334\340J P\342\273,\353iV\346\303\246Y [\0143\243\213Jr\023H\246H\236H\222p@\220\352u\361\327\003\t\024n\276\036z\004\035UEhK$\036\320\361^\323\335\356\345\375vus\352\004\241F\366#\23146\203\312b\234\344\276^\n\030\231j\013\322\211I\205\005\241\220\362[\224\020\313\362\216*\244(%q\213\025K\333\233!v\244\240\010\245I\263\2155;\214-p\326A\271\003\007)\351\204\330t\265\274""\316\027\233\010c\221B\034\305\342g\226\231pNsp\344\203\326\305\246Q\351\313\0341y\344\306\335\010(D\260\320(U\004\226\265\261\352pRUU:\033hk\210e\003A\222\"\010\206\374GcB\350\251\253\005\017:D`R,\230,\333\211\324%\014\223v\027#\022\313\351\202\336bnp\003\360\222C\224\0070G\2371\255W\020\345\010u\351R\024%T\205\014\221A\021T\026\010D\2310\030C\\\213Et\311L\014:\231\306\356\014Em\343\264%\017B\002\227v7\211\n\264z\263tQ\243\305e%\201-\332\026\325\304D\032\031\323\230\034\236\010\362zP]kA,\345\245\204\344\233&\004\312R\000\245\271\242\214l\320\244\330\020\n\320\2402f\244\223D\333\024\006Y\0220\047R06B\261F\253[]\260\206\250@\330Bl2#\024\221\216.\240\022\306\024\222\220\322&\031\242\\I\024/\027dS\240\226\3119z\047\232I\353\020|\327\3471]\375\351\035\341\360\357\023f\354\3304\236\375\303\204{\222\211{\027c&\206\372\022;K\034\203\334\310<\031\321A$U,\016\204b\207\336\324\314\221\000\260=\306o\306H\221\010B\036\222\001\010P\220\013B\252=\207B\241\213<\0306\24441\261\233\315\370v\334\325\005\030\256\366p/\212\022&\227\201\334u\365\256\274\327Ir\353\244\340m\360]\034\033|I\033p,E\342p\221\2034\020\025\001d\251\021,\245\021\2257\341\3257\233\215>\257\301\370\275\353\177\257\343\3527n3\353i\360\222Ld\334$\246\226\324\344\332_\300\326;\370\250\020\223.\276\000\344*\227\223R\024ho\203:\245\336\377\243\"\346\016\013\030\201\227\025\253\025(\322\023\017\307\222\221 q\020\322\340$\2162\353m\245Q\243\341\226\207zF\200\265\303\352>+C\323\331/(\007\020DyH\223\267m,\306\266a\026\267\302D5\014\254(\364\215J\350&\234z\234\214\031\356\221Q\234\261\367L\231Fh\325\353\n\220\241\336 ^\016\300:\351t\257\212\3031\231zG\201\201Nm\276\355\234\354\214\331\275bu\022qG\010\326\370Izf\304\353\306\271\257\241H5\312\037b\266\000]\266\214\024\330\206:q\002\025\246\306\215\262\031\327\266\255\353/\256H\366\225\367*\030\331\222\021\254\032\345\353\325\371z\253\245\024I\262\242\356\001\021\t\200D\r\375\331\366\017\2636\331\311\033\023\355.\307\345\216\033g!_5\024H\365N:\22137\246]a\230\n\331\33568\237|""\024\310\316e,\255\303\217o\022,\360k=\266o\2167\221v\367:g\215c&\214\252\026\230\241XbJq\312\306\200]\311\201\213\300\206\007\331\354\000q\273\362\332\211d\316\323\333h\323\244\254\036b\303\262\3377+\305\325\020<\267DU]\241\261A\303\250\0056m\334\013b\205\250\335\202\230U\013\327\321\273F\223\331\035\232?\007]\205\330l/\345q;Y0k}6\207\332]\365W\026c\217M5\307U\243g\270\255\246C\343IY9\226\025\021\220uh\020cLZ\351\204~W\262\274\351o\353z\216\252\2239\340K\274\210]CF\250us[\245Ij\305\026\006\004\362\273UR[\2104\366\220\370\373\373\216\367#4\345\235\275\031\300\303\306\262\032\"\354\240\202\214\354\324\020\026\226J\260\013(_9ZXXf oa\220~A\351\270\351!\300\265\210\363\024f\312\223\220\341\204\207`\006\352[WH(0H(@;{\224\300\337\305\202a\323\003\313\210N\036\030hy\355i\346\273\347\235%`\252\220a\2712/\242\315C\036\216N\200`\242\022\233*\354\226m\210q\252\225\300\305@\225\340\331I\216\3253j]\225p\235l`\362\201\250\252\241ig\031\321j8P%\320A\207\260(\232\252\243\211p\356\251\301\\\021\245\321\315Z50\330K@\026\032w\360\330\304>\237\227[\233&\365EW:G\0042\206_IR7\336\220H%\300\264\370rC\206\265\265\245\010\321`\374\204\005\205\207k\272\230U%US\260\205\275\230JK:\246\235[\262\006\005\0176\3538\224\300\353\326R\304\276\225@\244\256m\271\240\273&\244i\211\024\245P8\342y\0061\315\220\342\212\274.\213EU\330\002\3147\316\263u\023C\034\356\027\211\243i\245Vj\264\252N\334\325U:\335\370\213:\032\340N\264\263\212T\343\tbjD\n\001\2218\276\023\222\033CV\274=0\302u\006G\350\303\030\003m\213\272\333\235\252\251\321\206\352\316=\252\252\326\305\340\355\274\033\003\203u\356\321\307\t\347Q\0244,z,\267\014\024\262\267\201W\230V\031w\033B8#\007|\031\220\344_\026E4\021@[\252@U\272\361eFN|e\02495\t<\336A~\354\272\273\n\274U\227\t\022\260\374\337\310\257\213\350Ud\243M-~\004/\353(\254\375>?i\363\311\313:\225X\304)\207\272Q\271\316l\337\273\177C\036\350\200/\360olb> \324i\342\341\362\377\003\200\216\004O\007\327\324Hb\241h\375\007f\326\372D\\\316\" \026u\301\244\014\271\272s\027\207\266]\256\025""\007\366P\263,\017\207A\311\365\t{&\244\220\010\3220\010\220\223\303\357u\254(\246f\027d\332\371h\266H(\033Q\227\321\301-UY\201e\263\253\260m\026\325\010\2437b\222\277\237\265\257\212n0N\274d`\215\006\301\375\325\010\217\351M\323&\021@MS\275|U/\325\"\217%\255;\302\253\250\r\255DBqCZ>+\232B6i\261\300\315\352pa\255%,h\220aQ\300a\256\303>\310\262/\267\354^\006gv\376\263Q\212Q\317\022\r\027\201\303\364I|S`\322\221\223\203\375\267\224\203X06\033w5\2407\271\177\"\327kJ\3546\242\223{\n\201\324\030\010\032\302\265\030n\374\266\241|\024)}9+\311r\317;r>f\253J\203\033\030\315\2779\374\034\213\370?\223\236\033\252\244\261b\310\227\177\354t\356t\342\333\360\021\217\0237\276\002\030\2626Jq\245,\362\326w\217\225\203\306\323%\342\302r\032\3034\242\005x\236H\266\317\225\233~\323o\033\305\3228\355\344\350[\227$\307\224@!\214\202\006,p\0244h\207@S\215\033]\007yW\265W\2126\231\260\006v\\\035\262\371UOz:\313\004v\370\242\250:\260\243?1k)\004v:\0176\217\032q\305|\237Y\352H\325\347\277\023\317mVV\364W\0058[\n\204|v\301\266tg\256>\274t3\346\202F\363Bk\353D\217&H\310>\271\033\223\337\024JB\300h\252M\350C\030I\355\016\210z\236\312\353\274\302k&3\216(\201\262v\254g\205#9\366x\270\026h\246\325\370\346\017\333\311\323\245:v\273\002C\264gdE#]\032\262\222\352\211\025I%\370w\361n;\372\205\0268\360gi\261\213\353~\225\204\372\342\007\220\363\273O\304gT\352\327\221\225<\275\370\316\002\223%\234\264\262\2251\014\tN\266\024\014\221\266\2444 \340\301\214\024b\025\002\252\246\341\333`h\331W\325\207yv!\244\262\037c4\277Wt\372\351d\325r\2331\206}\203\330\004\202\022\321#_S\371a^m`\300\222>\227\235\264!\000\322d\214-(2f\t\313)J\302+-t\225\253\320\271\371y\222\227\236\316>\260\274tg\324\337\256 \231m\312\264\227_\244\202\270\320\277\331b\334\252M\257\023N\216w\270g\0005\326\344\337i\nN\264\242K\200\301}6\3453\047*\2534\305\014rUr\342\306\341\324\225U\\\225]\016\047\035nV\207\035\205\232\354k\236\006\323\337\334\2040\220\330\333`\321\365\237\\\023I\254Y\211\225\r\301J\357\261u\226\026\031]6\333\377#\234B ""\010\231\004\206\220\2118\\\262\337u|gu \301H\313\tL\276\311\013\026qT\343\221\003\311\022\025\034-|\306VY\210\304\036a\365R;\3278\3578\234G\022?\367\234\270\340%\261!\260\006%\244\313\313w\010\310&\272=\037\254n\330\005\362\300\2372D\361\331\227dRe\231\373\032\026\tOT\230\304\031G\257\331\211!\353\325\202\265\271\240^\2166\021\343`\314Kxn\356HP\304\222\3003\347\326\321\357\313\247T\276\372\366\341\224\250\366\353\3538\036\177\023f\027e\33435-\t>D\306\247\017\01638\301:\273>\316\004n~\001\241:[\272y\007Dv\\\313)\223\317A\243\252\016JI\215\253\230\020D\215II\014$\251\021\021\000<nV\047x\227$\271-\241\244\267\227*\264\212S\223T\371\225\345\022A\234\331wHIoK\262\\`\313:\270\366\031\267j\030\232\241\245\303+\022\360\033:\003\235\266\327\215\275\317FT\341\036\315.\250sa\320_\250\354\262\343\3346\023uE\317L\346\307\021\310|\341\336\203\274w\244j\007aBI\026f\354\0332\240\306F\220\321\307\246woE\242;fu\322\343Mt-\323\277\326\270\270\024\252\226\035\002\047C\207\312\270\335\361fa\274\340\304\306\266\251\224b6\315j\346\026\241\347;L\374\324\0065V\204M\334`M!0$\3272\362\261\257\315\350\267\361\337\264}\251\\\214\3440\361\227\217\265\225\207S\353g\207\260\230O\267\275\030\316?1\243y\315\323\206\222?\020\374\250\246\337\024A!\250)\036\2375/\235&_\257\303\341\247j\363ao\035<p\242\372\215\235\206\r\266\270\364\306q\304dm\212\2351*f\215\236\236\336\314\367\315-\003G\223\002\032OJ\206`tu\361\334g\332\034Slo\035\306x\224Y\236\241\341#\3506#9\300\3147\345\265\006\3633\350\337\216\035%\267\227>Op\217?\273\3543\013\217\343O~=\210\324`g\362\204\216\361\242b\23789\t\2456f\3251\371~\033m\330y\234\2111!<\240\234\201\243M\237q\236\210<)T\213\354:\262\337\310\353\023\302$\022=Ebb\311\025\374,]\006C\004\210\206\014\265\236\223\264\247\266Jh\222p\262\301v\376P\217U\r\245\315\333\031sX\315\321 \250\356~0-\357o\337\345}y\006k\205\022\323kF\216L\332 \374]\250hqL&\367=\224\346\225g\0042\nO\273\010 \251\022\216~=\363\345\203c\266$\217n\335\242\307\267\n\352\032\r\266\206\027\031\207(\310\366:\225""\365\347\243\270p\317\025\251\027\24688\032D\215)\010\202\2538\266d{g\255\246\247\n\346V\205\326\"\330\324L\030\305\235.\262\322\222l e\007\047\005\010\271DA\216\355kz.\264\213\304\360D\322\203\022\344\\\026PQ\306\331V@\242\306\324\023\215s/\027F\365\3713,ps\252\206 \216W\033-0&\261*\203\357\272\263\312\272<B@\323f\273\361T\301\206\014\374\203\047!$\342\032Y\221\336\350L\212\322Z~\036\177o<\300\374\217\273ly\274\237\251\241\262\t\271NF\224\243n\027Y.+\217]\350\"\241\212Q\207\177_p6@Fxd\224i\361\3743\346,_\267\312D\266Q\032\315d\215\373\024\021\243D\2012\306\020\210\"\253g\227\334\215\331\341W\221\367\355\226LTW\006\024\322\0373\263\047\206O~A\006+\047d\204\334gr\032N\347\036.\306\333B\245\252\304\220\026\024w\031\3061\047\250s0a\3412jy\336@\213\322p%^0GO2\362\311\372OA\006`ft\222<\317\207\244\247\020[\330]\212\032\343\317t\351\366|\0354\047l=\034\036O\016\273im\360rG\322u*\031\337^\301z\275\203&\201\371\213\2132@\321\203\220\2143T\354H\270\020 \350\274\327\344\254\027\325\323\030\264\206w\346B\177\256\306\341\310\",c\200\242$\260\372\276?D\004\235\260\023\000 6\336\023\241@\204@\244k\304V)\312!\374!\330U\002*\350\2751r\337{%J`{.\016\302r`\212\221\"\000\240\212\014\003\322i\021\022\250\252\252\036\265<\021<\347\332\306\317\177\335\nx\215y>\314L\246\324\014\2429\260A\230\047g\036\227\342\313\372\313\036\035\300#\327+\252\371\312\0028\265\307\261\177\263\342=\030#\202\026\270\200\323\013\244\221\031\240-\034\302S\020\311m\016\010\047\240$\254\212\263\026K\000\224G\253\342\261GB8Y#\242\236\343\023~\030\346\r\243\350lb\240\323a \210F-tA\226\311\324\253q\t\250\210\201\220Ky\320\370\215\324\243=\036\217\016\314L\371\235\222r\003\335#k+8\224\315\217|\312\037yh)3\274\300\216\004\243\002\002F\323\333\207o\366]`\024Q\274:\005F\014)G~T5\214v\355u\2121#Wp\033m\264\"\276\004\271\251\304*\214\210%,I\3006e9\364\000\323M\207\006\034^\234W\227*\237\"\272&\2267|\2358\337\237\207KQ\2031\242\002y\351\021n\234x\235\204\322\355[\234\010N\224\026G\253\262\332\337_hq\267=t\276\201A\340n""\314\210\340\022\252\235\033\264k\001\230\035p9s\031\017\253\020\304\047Cl\270Q\214\rN\334\204\342~b,b\3226\030\2346\225\244^\234)\323\365$qK\037\017a\354Q5\303\236f\222Zv3u\247,\207\260\031=\312DW\252\227\261\006i\372\303\306=\002B]\355\030\201\201H\211@\260\rK\213\220\21265\223J\302\315 \215\210\234XYK\201H\310\224\362!\034\375\227D\313\271\024\310\304\047\230\354@C},\034\002-h\300x\314QBtm\202\216\331\227SV\036+\033\326A\0479\220c\202^\024\233\033*\215-!\336(\372P\254\305\004\321\202J\362\230\032\367\343\t\276\252ccY\017f\246\334\256ZF\213.\006\347\234Fq)C$A\017\032\307\007^\362Y\211oa\247_~\335\230\362\315BA\2501\006\306\203i3l\031X\336~\025\225\006*\375\220`[\213r\313\t\264\024#%-\347\036!2{\006@Of\351\307\006\337X\227h\273F\312:\245\234\342C\007\337\272_\227\254\025\034x\214\003(\tJ\003\305}\"b\310\356\254!\334_\245\351\367+\223=\\\316\211\310\366\343\241;\365x\316\212\017\000\374\210l\001\261\210\0042\006BrP\202\360\243\212\343\242\241\030\215\047\"\244V\351\227.j0~\231\263\177P\317Q\230\035\321 >\224\223]}/\243\002\334p\370w\323\216\227\177i\305y\256G\2373r0\277\302\005\341\2664\356\3413\231\327LgH\200\260\037\242\307E]^o\346\225/Lf\247N\231N\325\256\325\346\nL\220&\0260\364\0235\204\263]\230\311\243R\305&\245K\013!\343|\370\314\016\361\221\366\353\355]\316\250\267`\202}\337w\202\033XSP=\271\030\203M|\000/\230\247\200;\rS\245\230bs\307+\017Z\306(\306\257\t\205\3032\364\375\254q\036\3561g\274\374\223\276\226\233C\244\204\251\221\305\330\216Y\027\221\317\257\217\260\"9\"\010\200H\210$\210\223D\234\222\037\"\262\013\023\350\017\371\007\365\222~\350/\357\3252\003\002\252\035\377\241F\004FC\037\235\327\365\213>\247m[\351\260#\367\202\177jB\262\352\303\274\256s\021\250~i\331\204\007\202\037\337G\245\001\320\310,;\240\214Y\0367h\223$\201\t]\324\021\354\347\362\316\204O\312\230\010\262$\223\275\0337\276\r\340\375^&\005ey\003\315v\024)\004?\235^\307\351\347C\336\000z\366\200&\002S\321,\362\344]\\\331\310\20505i\017\341\367\337q\366\313O\207\360*e\t\357*\272|TUb\356""\253\373\243_\253\2731\307\033\252\336>\275\013\205\350Z\301`\352\347\257N\246~\355^P\261\036\357\343$s\250XL2`R\014j\352\222^C\260\321\311$\214\020\231\366\032\272\257\311\355x\036\315\203\322\273-.;;\200\202X0\301$\3659\255sw\375\001\033\037?gg\304<\014?qR\370h\200\001$H\320\221!\344Z\332\0268\034f\320N\267\020l\272\234$\204h\362X\207\2414I$)\032\nA\321\366\277.\027\007c\215\000\035#!\255\214d[\007\203=P\226\230\355d\013\010\016\323\312\201\006\0218\343p<\016A;\214:\246\037\231\031\010\003\346D\026\320B\277\354b\302\314\244d\206\007\001\352OMqE\234\241\213\010\227\326#\007\257lKHj\352\036w\321\253\257e\034h\001\004\025M\377\257\"\216H@\347>\t\3612+/\321BH \342\244\203 \244w\366\276\275\365[\002\030\006\265\030B\235q\204\271l\364rH\325\236!\047KB4\264\353\333{\341p#Mj9\260\205\217\207\247\363\t\035\245\303\024D8{h\217\304|\005\333\276\263\212.\004\007apq<\005w\212U\327\233\032\317)\233\234*=\350nSO:\215r\371s\032$\346]\333\326D\267\3123\256?\322\255S\004/:\010\000y\321\235\340\177\215\232\230\204\233\213\033K\346\320\316\322\335\306\327\221\242\310\346lW\270\310\200.\347\255\207G\355\344\035n\310\3262\266)\206\r\244 \020\031\350\034\247\266\331!\345)\344cf\246i\230\200e\365z8^\002)\247\333\216(\376\227\372$>\215\341\270:8\373\211\366 \305X\235\230u\332\341\3536\337\002\031>\3447\021\362\354s\355l\244\256\376\214\332L\034\336=~}\215\231]\030\315\320\264\366\\\324\r\216\210\020\037\370\206\336\226\203%\320\374\310\245\010\251$\242\234B\213s\372j\210\262f\302|\323/\345]\354\307\257\021\"\023q\010\203V&\346\200\325\207\016\307q\340\216^[\230w\005s\217\021\\\177\207\001\334\255\367\375O\235\3659\335\351\333\314z\034Om\342r\336f\347\221u\332\327\237)\217\"\344l\305\265\343\211\210\215\267\210\357\332\312c.\3271\014\315\273\031g\274\242\216[V\266\361\265\204\032\334\257\201\026\306\317+\354\354\362Y\267\336\265ee\256\261\356\355\276N\246\226>7\237\223!\307\306\373\272\357\212vmIV\264\030\276\346\277B\364\350\370J\332\273k\215T\253\327m\377\207\307\177\215\331]\302Z-\375""\351\331G\324Pt_\244\245\250\274\000p \022\207\221\275l\301;\323\347\260v\303\302\263\002rl\324mZfj\251\264\256\332`W\373\376\257\023y\375_\316\337\244+\374\366\340\205\210\334\343[\035Zl\367\300\227\177\2537Z\373\3509\363?\204\302V\255\017[7\314\232\177\203ss\"\362\006\257\270\344\227Q\264jk\237\201\340\360\335\365sS\206\3175\3653k\323y\260v\251xN\317\341\363\036\376\300w>\276\3766VN\212\326\337x}\313\034\304x\227\343\023K\206\246\354 \363(\"ls%\300\225@%\243\361\360\326\274\027[\263\323\324\003\347P\3634\251\213I\222!j]\3616\265H\177<-*\315\357J\365\227R\370ed\260!e\230\025\020\321@|MaO\261r\3640Ka\3303\276P\003\362\363k%\254\204\251!9X8r@\240B\220\204)\271$N\213\261I\031Z\303\322\3207y\016R\003e\231\205\237\361\203W\353\206[\001\335\241\371\031\254N\264\250\006o\362x</\227\240\333\227%\324aK\345\264\370vD\260\355\353!5<\024\016\371|u\253\007\006\317\365}\331|\210B1\206`C^\356U\003\331\3010\200MK}\321\2267V\270G$\024\261\316\30515#7\221\371\032 Jg\305\230\030y\270\313\003\357\211\252\307\302\324\220\010\311\247{\207kS@\320\332\"\036Z!@\017\016\312\315\361(\324\375Z\304\331a|\361\0008x\276/!B\375\033Xj\177\277\027\273\310\353\273\350\353\n\2441\271{T\254C\036\235TwY\004\032\250\016\301\204\340\361\027rE8P\220\315\324$L";
+    PyObject *data = __Pyx_DecompressString(cstring, 10277, 2);
     #define __Pyx_DecompressString_LZSS_UNUSED
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) == 1 /* compression: zlib (10641 bytes) */
-static const char cstring[] = "x\332\355|I[\033W\332\266\351&\tv\300\006\033O\031:\"\361\2308\304\200\035\017q\322]H\005(\326\204\252\304\020\047_\245\220\nP,$\241\222\300\364\360\276\275d\251\245\226Zj\251\245\226,Y\326\222%?\301?\341\275\237sj85\340t\367\373]\327\267\371|%\250\316\375\234\361\231\317)\351\\\270\020\303\277\\\243\246\027\233\265F\314\3303\252\315X\245V\253\307J5\303\214Uk\315Xy\247^1v\010\327K%\255a\350%\243\021\333\324w\312\225\203Xm3\266c4\267k%3\3260v[\345\206Q\232f=\346\215\255\262\3314\032\345\352VL\257R\313r\263\\\253\352\225\230iT\0146Vs\233\372\212m\342Q\350\330l\325\353\265F\223\367\242\326b\372^\255\\B\335\262\031\333\327\033U\352\257e\032\317\031\231\376\351\346A\265X\256M\233FSc\263\327h\366Z\275V)\027\017\356\255\226\253\245\332\276\251\330c\312T!\005z\216\223\357\337\267\373y\025\323\233\261\207ob\033\007M\254Zo\0301\275R\251\355c5\034z\020\333h5c\265*\226\314\201_\236\307b\265\215\337\320\353\017SKw\265\205r\305H\030f\261Q\256c\230T\371\265q\367^\263a\030\261\315\206\276E\274\273\177?\366\345\203X\261\325\250<\217\335{\020\333iU\232e<MO\307\024\324\332n6\353\346\363o\276!:V\362M\245\274A\217\337\024\235\247\257\215F\243\3260\247\267\233;\225\330f\271a6\031\337vj\230i\311h\352\345\212\371\177\263\253X\256b\350\246\021\253\325\215*\211\257l\232-\224\252\261\305rs\251\265\021k\326b\333F\005:bl\264\266\270pX\257\323\37073\375pfzfv\372\341\363\330\213\027\261\204\244J/b\212\222z\22160\304\301J\331\330\047\255yQ\254U\233\345\255V\255\005vWK\261\022T\007\274\014\302\020\237M0\233\215r\311(\t\225c\230\365\273\350~\314\255\371\303\017lR?\320\244\376,\225P[o\352\320gH\2604M\345\315\262Q)9\300<\261\301xS4\352\244\276\214S\305\003bc\254\256\027_\353[F\034\212\242oT\214WX\372\203X\246V5~\211\203cd8\320S\230RQ\257hu\275\271\315gFcA\325\232\333F\314\324w\214X\263\274cL\243\001\325\327M\263\274U%\346\222-|\315\264m\207qm\017\\\263+\225Zu\250\256\3364b\305J\315\304\342\266\321o\305\355\243n40\307\035f\215\206I*\033]\017\2540\312{Fl\337\3300k\305\327F\223O\355\254\352\246\201\311""\377n]\260e\007\206C\263?\260iS1x\205f\223\314v\263Q\333\211\325\033\265\242a\232\032\365\22006\313U#\366\353\257\236\371\377\372\253\353O\300\206\r,\022\3545Hz1=\266\001\216o5j-L\205;\021\333\205L_`V\234\254\232M\275\212\336I\277\230N\026+`i\014h\003\314E\033(W\311q;\304\345V\225\301\3347\330\036\207\332\331U\250\207\0329\277\246\001Il\227K%X\003[\005\211\017\322m|\307\332`\212l\2364?\356<\250g\260\207\252\3557\364z\035+\360<\353]\323?o\365\240^\246\346\007\324e)\266W\326\301\022(\242\312*\205\\\327\257\277>`\315\310!\025\241i`\222\336l\352\305m\203-J\247\301\231\233\264=#\033\223/n\201\35141\323~B}\357\t\036\224[1\272\336\3344\032\344\323\230\036o2\226Ck\223\325=\275\002o\274S+\031\017`\025u\314\014m\357\026\357\222-\336\205\3425\033z\365\356\203\330V\315\253ln\353u\203\t\360\r\030\232\311\252\261D6#\223\241dj\320\342\3466:\216\037@\346\344f\340Q\340\246\214\206\316XN\366\213\021(T`\24199\367\365\243\247\217\230\0355\014r\275\220mk\203\t\231\013}\243U\206[\005\337\017\352\006\234Xr3vPk\305\252\006__\235)\203\327\000\322\251\262E\223\230\3562=\327\311\31054\007\377\356\332n\204\254\204\361\251b\032\323Y\356\006ZU;L\031\245\347\261\333f\236\264\305\321\000\314\255\331jT1\246ZkT\365R\315\325\260B\325e\031\363 ,\010\220z6\031\177D\323x\020\253\277\323\003_X\205Z\021.\004l\022>\334\227\033\256\331blc8\303\312\3540\376\377\320\200\302\306\303z\371\367\014\310\233*\036\230\021\351\255fm\007\014\340v\265q\340\310\002\343\325\271\377d\2741\267k-\370zRr\322\022\326\033s\277\233\244t\265X\271i+\201\307\243&\215a\352\233L)\366\271\024\016D1\354\227\341\353=\356=\300\n\301\352\326\3266\365\306}\272\376\032<\206K5\371b7}\211\227\311M\002z\343O\276\"\204\030J\302\370\002\266\215\035\310d\017c\334+O\033\323he\247AN\232\047\370\222\373|Yq8k\362\031|\220w9\037,\307\254q\347n\236!\037\233U\253\r\262o\236QM}\357D\234\022G\246i!X\240\341\344o\322\006\254\035\263s\207*\326*48\311iZ\337(\362\250\373\215f\327\327\\\255\253\277);4\226\363\324\017\336\330\345V\223r\031\320K\360\"\257\"r""\264\0071\047z\377R*\233\364iT\351\357Vq\313\200\037\331\204\002\230\034)U\220\315Fu\361K\265\006\237\265\251\303\224c\032$Sj\025\rMC\224f\372Q\255U\277\206\017\203K\257\200Z,W\313M\215f\2769\315\202t\221\007W\ns\265\352\236A\356\204\273\360\034\367\207<\301d\372\201\020\361\272\002\t\361\306\rJ\035\376\243\326\0243\212\250KOp8o\016\274r\255\336\214q\3277-\021\223\027\215*9\342Z\343\0259k;\267i1v\260q*\224\333@\302z\243\241\037\260\224`:\202\312\335?\371l\236\215\231\323\177{\376pv\355\037\364\367\315?^T\364\235\215\222\376\203\244\304\223\311\220\n\234\255\207gS\2465\r\302CDl\224\021!!\213wV\345\022yG\025\317\336~\247\322~\243\334|g%f2\357\2407\220\351\355\031\277?\230]\317\036\257z\300dE\251\227\3730\355*b\221i\002\026(\220 i\026r\242\210H\"\212\2575\226\004\010(4\010}Q\246Zk5=\234V\3153?\017\343\213t\213bH\363P{\005\301\266<\267\324tf\363\361B>%\025\324%M\312\254\213\317\212\264 {\345UES\222\213+\217\\d^R\222q\257$Ky9\357\026\023\311EYQ\003E-\351\365\267\250(R.)\0263\362bVMJ\252W\047\002A:\343\025\324T\332W\320V\347\335r6\223b\213\2215i>\233W\345\2046\277\256\305\245Tj^\212\277\264\t\213R2c?\246\362\262\224@\205l:\227\222\371\200@\251#9\237\317\346yy^J\260.\222\231E-\233O\310\"\234\315\250rF\325\344L<\233\000\335\243$\262\253\231T\026\017yY)\244e\217\260P\310\304\325d6\243I\371E\0202\252G\312I\212\262\212\021\320\235*\347\345\004\247\304\227\n\231\227\332\202\224L\271H6\263\022\006\362\362\262[,\244\022\230\025`\360M\365\203\230O6\265\"kKY\345\014J.\237]\263\231(\307\227\250\337B\322\235\r\037VKf\222v\353\005\224\225\344O\250\273\026\227\345\204[/\351\353\231\026\016\304\246\2519M\212\307\345\234\352[\205\000\253\311\264\234-\250~\\Q\264\204\234I\212\325\317\344\264Cd\323H%\025\241\253\270\204\031-\312\252\300\001\027\316\313>\2361\334^\003\265\240u\206)yY\315\007V\347\220\0244b\2167\2324\237\314H\371\365h\232\272\236\213\352P\315\2365VA\221\211\005\302\324sR\036v\224\n\324\317\301.B|\317a\021!p\271\220Ue\321\022\010\304\236>T\021C\347=\355\205ue\363y\037\023W""\345$\010\263\263O\264\205l>-\205(\324\026\223\317\245\326#(+\321\024\214\271\202a#ilBAJ>\031X\215c\211\3301a^\205\214\275\"x\037\202\226\\{^R\325\334\254\360\010)@\243\323\0362\347=\006;cX\210\3456\n\337(\314\207\201y)\263(\207QY-\3443\260;\201\220$\047\261 \305e_\317\251\204\304t\231\246\001\365\022\321dfEJ%\301\234|J@\025xpX\271\257\217\344|\036z\031\\J*\273\230\314\370L0-\245\270<\031\3039\306\006.$S\252\346x\331L\326\361D\314\355\255`$i\336\321\310\354<\234\216\353z\235\322\314\303@y6P\376\326_\236\r\324\237}\024(?\363\227\347\002\375\315\005\352?\n\364\367h&P\016\326\017\314\347q\240\375\343@\373\307O\374\345o\003\363y\3628Pv\372\267cX6\047\347%\306N\362\224\t\327U\372q\300\216\244\360\250e\027\264\264\234\316:\016\047\354\035r2\254\306v\3600\255\344B2\316:\263\251^X@@\210;2\025U2\3440B\332\314\"\201\257\214O%\211\250\203\264\200EY\027_\361\327KS\327\021a\300\246$\222\n\202d\301k\317P\346\376\3455\370\177%\214\007\324;\257*\260\034E^\366\215K\240\2021\211\247\002\256\310\231D\250L\254\303\010\253\256\331\301\217g\021\315\360?5W\3263\252\264fS\226\2207\301B\310plDYr\036R`D\\\316\253\3012E4OZ\014\007\n\271\300\232\322\002\230\314-9\326\310\312\251$\245\031\376\016\303\302cp>\025\036D\316\300\356e\026\362E/!\220\300I\201\221\002\001\014\0106\261\275\020MGQ%\265\240\010$E)@\003\003sbZI\325\271>\n\023\313%\261\210D\2560\377R^\307\024(\256\010<T\226\n*\345\006>\327\246\312\251\214\034)\021\225b\004i\221\247D\014\022\265\207\001\311TJ^\224\304*\231\254R@\226\346\272@\033\024y\302 \030gZ(\"\255\313`~I\247J6\253\245\220\024\312^1\215t\034\n\225HR4\265\347`\267\262\227\340\307|\253sH\224\323\300\232\311\345\"\3448k+d\224B.\307Sdh\220\232\215g\035J\216eS\"\327\360\307\363\365\021\220\340\376)\013\t\246\010g\305\353@D^\300\344\262\253\232\355\003\354\322B2\217\234\307\316\352m,;/\257#\337\226\005\310\331\264$3\013Yx\t\025\036E\311\306_\312\252\007\346r\216\322\223o<\013\327\274\026q\211>\204bNR\227\274\"i\244\217\236\315$\222L\255\n\231\2640p\344\250g\r\tX\343\n\341\224""\331\376\"\005{\242\375\224\235\352\376\036\335\337\243X\203\013\367\335\324\210\326N2j\203\331\227\330\322-\221oW\002\250\223j3\210^\002\331Y\200W\266c\025\003\220z\244\326\031\252\260Q<\302\302\202\314\204\210\210\245.e\023\021\004;\213\341h\306\253A\276\313\307j\007\020\272gv\235Q\221\342\370D\272\204\340\004\r\025fl#\342\234m\310\331\np\0149\032\337.Sr\023\206a\024\t\037\352n\315l-\366\0100\021\3056^\006\246$R\177\331W\016hv*\213\270\251%s\001\200\214\333\2052RZNAB\205\234_\017\003\270\300\243\2148j\246\220v\246\354I<\253\220\355f<\013\240\204VE\310W\026\300\240@w\264\301\020Ig\022|m\222i\312C\205\2459\220oq\000W\354\300`\227=\177\346\000k\353\021\002\362p\237\204\030\354\371%\001#\317\3062\243u\332l\246\274),\027\344\202\034\234\277\343\271i\213\226\211\200\227\222\264\235[\017\023|\014\362\241Q\275\213\226\220\227\301G9/\22413E\365\253+\346\236\313f\024\332\237\047D\224\014BZP\305\346,\047b\371\003K\215\002\004J\226(S\363\303\266\243\017\327w\362(\301\301)\361%YX+;HH\300\213\2548\347\037\002\034t~>T`\014\303\003\216N\300\304\232\310-\022\021\035\373\340P\375`\327\002(\326\205\252\004\035\240\213\211\016\305K\227\024\037\026\251gH\231\362j\264!\205I\302lTyM(\244\024G\026~\214r*\325\223\276\232U\341G|\203x\220\3209\031\217\267=`\320\032\315\201\3139M)0?\304\262\303LN\316H)u\335UJ^\303\037\212\"\353\244\221\254\t^\310\301\250-\312y\231\035\220\320\326\334O\246\203\036a\013\352\047\346\2229\350\033rU>\260\217\306W\033\325\022i\326j6\377R\343Q\320[\047\262>\010\215d\034\200\234\303\006\027\266\307\265\017\031\002\220cC\363\251H\"\245M\"\251\240,\371\206$ 4 m\332^R:\253\272\220s\342\247.\321\276La\374uh<\310\370\272\345P\250c\322\206\274\257\"C|\365\224E-a\007\024z\246(\346<;\201\206\032J\363\220\237D>-\223\\\323\2748\307h\354h\320\336\327j\\\304\036\356;\202ep\"\221\247\275\242\022\317\346\274\376S\252\262\022\367\227\264\270\312\035(\203r9;\231`\245\002\374\263\347Q\031$\036\210\0230_@J\222w\324\224i\262\2337z%\210+;\357AN\332\301K\264\275[\222\305CO\206\013\t""\246gB\363\213\031M\344\254Gq$\340!lO\032\254\233\312*2\266\001\311\370\272\017\362\213;\000\207:\341\026\021\234\260\017\025$\344$\273N\032/bjV@V\264\205|6\355\032W\304\260v\215\202\272\3604\232\254f\337\321\234\345\255\276\222\263\323\365\220\037\245\274\037pRZ\017\021|\047\007s\353\224\372,\240n\302[4\366&\342\2638\020>\013^\001I@\332\216\323\016\230\220\347\013\213\2420\030\020\\PB^\220\020\034|\371\016\303\223y\232\264\310nll%\266Q\242\235\032%}\354\354\301\323\373DF\211\326B\"\270\047\215\"\350d\235\217\242\300oE\220\3732\305\007-\301j\350U\0137R\331G\244-\344\"\314EJ\361)\271\264\354\222\020\030\235\323\3730\205\016\014\242)\336\201\203C\023X \307]\223\224\027\023~\337\023t.,7\344\226\357Bk9\322\347\231\207\017\265\260\005\320n\030n\316\311(\031$(\204\270ga\345\014;\313\360\231\264\203\005\225\200o\200\211\361~4?\237\244W\"\366\371\222\215\245\265y:\223\260_:0\020\374_\022\337\0241\020\373\026\237#\004\020\324(@N\022n\027\301g\312\245\005\204|\263\223\372\272PJ%\rd{85\353\236\0348\3448\"\021\242[:\t\023C\250\203*+\"\2318\345m\t\035\324Mh\003\312\313\336W\274L\346\370[\004\276\215pq%\025(j\361x\\\204H\017\345\234o\2116\246\254\0041\332\3058\030\177\307Ii\254\274\350\023\312\022\230\212}\305\272\014\325F\272\025V\023T\240,*h\3176\354$\342\336:\370^\324_\022u\206#A\215\341(\236\\\300>\340r\236)\031\360ucc\241\216\200\2633\234`e\006F\325\366\305Z\332\357>|\2461\277$\047Dt\366\341C)\225\224\004\277\300\337\273d\330^/\213\336\327\375\204\234\"\027\022\316\336\\\361\336\322z5\024\031\201)\263\030\350P\310\026=\220\316o\311S\346\022\366\246\322!\315\261\277\001\246\007\360\360\330s\277;\273\271\310\331\315Q\236\001\331\303<\245T\210D\233\2068E\222\0259@\242L\036\331\276\234a{\255\320`\242\211Ry\036l\016/i\321S\347\3505\237\265\332\234\340\226Y\2314W-\300\275\370\344\356\246\373\330\200\372<+#\272\273\230H\252pDBXr1\203$-\260\177p\211\351\034jg3\202$\221S\t\256\227\227\304\364\315C\274\343X\216\007\242 \003R\262\264\342\323\177\017\r\032@2\033WS\276\252\004\204j\345""\354\254\334\005\330\251\270s|\357G|i\345KY\316\261\027\021\354\213\n\302\353\nN\\g/h];{\231\237\177\224\222W<\261\000\360\225Y,\027]\274\013\260\267:\036Jo\005\371\221\263\342\201\253\366\2768\225L\047\3250,F\2734\2756\021\325\222\001\224\347\371\200|\334\363X.@\336\003\275R|U\"\211!\332\232\264\310\224%#@\342\246\322\206\202Z!@~\265\000!\225\\\340\047\214\201n\331\t\215\330)\177\255e3&\320\t\177\205\024EC\317\242UQ9\310o\244\274\371\270\257\340\313/2\362\252\306\017\213\262tv&\347\323\212Hbo\303\374hv>\233X\367J\260\342EJ\324|\310\232P\001\256*#\271\252\343\177\215*\"Of]\004\371Ex\323\341\241A\273p\276^\340\225\3518\017\311\251;)\367u\02067Pw\017\316\311\253\222\247\204\242J\213|\245\347\271\2073b\321\237\321{\210\240\027>\320/8\"\2617\242\"\300t\302\005(\355\027+`\243)/\213\374\340H\210\027y\341u,\007\334\023P^\344\342\362\367\304\261p_<\331PB\000EG\001\024G\263\217M}\200?F\360D&(3\006\212\374g\321a=\047\373\000g\217\022\002s\253\376\256\002[m\021\363yF\207 n\273m\014\362@\324\240\367\340\231\254?]v*\370\266n\034\014\273\344 \0361|\310\003s\370,\255\345\347\315\330:%\343\262\026\342\006K_C\343\333`\210\241\016!bV\240\204GeXd/\300\243;\t\004e\357\270\234\277\215\326\304]\264G\014\270\261\340!\273\270\307\013\322\304]\036\247!\361\231\231\263\307SB$v\314\037\251\220.5\274b\207\022\251\221^\232\222\266\317\321\371\331\233;e\377\211\233\203`\206\211@\226\302`\326\033\373\246PN\312c,UX\205\317K\240^\"\233\3669x_D\016\246\357Q\251;sCa\333\017\300\242\007\010\234\2039/\026T\362x\252\207\372R\027\273\230\347g\323\232\177R>Rx~\364]>_\022 @~?K\357\026\374\316\047\352\265\205\213\007\216Z\242^Y\010\270\370\306\302\203\331\266A+\344\223>\330\225\240\203*\222\3023\233\237\274\016\030\346\205\000E\226_\212|\241r\220\031\356\233\363\350]\356\031da_\031\345F\3307P\334\002B.>}\023\341Ph.\200\225\307\276t\315\206\354m/\022\251h\202=\t\227\230K%\335\0035\027\244\315\216c\212>\224\276\242\233\367\237\273\021L\036\002>\3117q\017\016M\336&i\334\335\222K\326\322\211\307\357\"\203M\263""\217\277\025kD\014w\306P\354K\031\324\241o%v\254f\215\004\023f$w\\?\305\347\352\355\242?\226Dx\376(\237\017\214\277j\n\001\316a\242@\020\342\002/\205\206\014D\211\210\370\020\216\014\316\327\226\242%\032\031/\030\254\256i~\266s,\314\367\210\2151\177\305\306\276\001\203\035L&\032\216\252\235\211\254\254&\305\263A\376m\227\024\\\005y2\021\rD7\376e\246|\272@_zq6\350>\252\355n\222\t\377\301\047#Q\202\255\026\3624\325E:\001YJ+\001z\370\254 :\222F\307\320\263NI\025\025\216\325\253\305=_B\246\323A%\032\325\344\000.\257\305S\005\372\222_\000_\225\223\213K\336\264\n9\246\017\356\253\001\373\274\304\241\253\361\034\370\254\250\264E\0201\332\366J)\241w\007\214{\007\217\016\224L\244B\325\260a_I\211`\006\321<%\271\272\317\277T\025\220%\373\002\327|\352\245\270\025\260\277\366\025\024;\333\352:\337\r\022A\301\205\207]6!+R\252 \207\000\177\360\213Lz\316Jw\242\022\235\263R\034:F\262\2170\261#\365\362dq\220\263\316\231\210\204\315\206\244\370z\263\335)d\354?\025ph\005\205\266\346\364ma\250\376K\221J_a\243o\220\261-V\260)Y\006\315\220|\n1\t\352\233\316\371f\311\025:\030\370\211BG\267\264\003&\363g\337\206\310e\223\202\326\344\351Kl\276\023U\033\nz\035\047\023t^\263\213X\350\345\201\360nS\023w$\364U=XF2N\014\027\003l!\307\216v\330\311\022T@\320\022\357\253\010^)\342\215\244\363\225\276\224\344\371\006\341\315\007\211\036\254\367\026\036\324\205\300\336\313\376\216\237S\204\327\230\317z\242^M\246\022q)\237p\277\216\311\300\3401q\344\0211\003\375\251\034\203\304M\336\252\022q\"\351\003\375\272\010R\300 W\225w\006!\233Lo\314\302\316\236\276\327@\263\021\227\342`\301\325\254eI\210\263\302o\244r\022\261\316\376\202#/\320\261\245Wr\276L\343\225\002\025\024\373\245\214W\362*$s\374\327\0023n)\215\200\236\314\245\3445\027\021~\327\340\346Z\256\350=\204\377\"\314-\013\271\201\213y\277\344r!\047\310\270\000\254z>+q\377\343\202\316\373~\027\020\275\224\007\212\033b\210\304\373\251\014\n\354\325\264\363l/\037\217\031bx\026I\360\242\rd\027\026\024\331\241\346\222..T\311K\253\356\366\rE\307\200\351""\255\374|!c\207\013\332\030\244\354\257K\373\312\374\273=n\321\366\350\374\344\325\375\352\212\363\352\216\364\203\275\t\014\201\256\251\370\320L\326\303\305\203omF{\030\005\316\204\301\331\010H\345.<\200Fu9\313\337\266\260<6%\047x\320\361W\231\213\200\234\267\204~\330\371\312\207\037u\224\301;\366\326\370W+D\340\333\000\260\272\204\230\264\302M\212}\245\331\221\203\375\354\210\201\025\335\021X\311G\242\037\003\254\330D\367\234\215\377p0\010\362\037^\270[i\241\222\0131\223d\220\263\207c\277)\243\202\037uU\300E\354\336\355\2300\317=\272S\024R\005!\235\026mR\204]6\013\030\235.\237Q\235Hg5q9\027\300\241@{\216\nF\222f\316&\315\236M\232\013\222\360\2707\033\005\206j\262\016\"\301\3604\317\230\342\031\323\023\247&\304~A\376\"j\313\321\215m\336+\030\001\343zb\377*>N\267A\320\375+2\375\"8^\253\362K\234\350\327\272\321\2773>\353\047\306\034\3372\232\232s\325\203\346\336\251c\377n\330\320\253\366/\202M\r\037\032\277\203\304\364~U\314\236\330\205C\374\251U\347\325Y\211\272n\030\272\211\301\352\333\r\335tQ\372\025?{.\357\324\321]\255\212i\361\237&\353\r\023\023\254\325^\227\rm\233\375\350\332\024\0104\377\226\251U\312U\247z\313\356\324\276a\307\376%3\226\312\177\274\314~?\317\036[\365\327\206Qg\217{\350\324Y\342\276\251y\353@a\307h\352\316s\303(\3569\317t\325\016=s\236;\017\356o\325\tI\227w\014\3473Z\0106%R\020\214\246\227JXh\323+\263+d\334\242;SV\242+;4\272\001\201\220U~\013\227\363\365\036\376\343\037\231~\227#W*\345\272Y6\331\373\242\245\354\2526\277\256\312Jz]\223T$\216\363\330Y*t\207\000\277CE\257\300\201-$\327d%\227\317J\364\356G[\225\362\364\r\302\234\336\334\016\335T\001\240Y+\326*\224\267C\363sKy\211\345 v\332\254x!\321\315\236\330\0331\236\\\263\257P\302A\333?\246\367\377\264\236\227\\\006\237\001O\277`W9\231?L;w\026\374nE~I\211\266\243W\365-\243\001\2556\3364\203\215\212\265\252\331\3321\264}\375\265\321\010\022\271\202\363k\315\316\240\361k0\202\304F\253z\006\205\335\345r\006\315?\337 \225f\350\336\272\021 z\267$D\020\370M\005\001\002S\260\000\346\273\001!\232\346""\364\265\3332\340\232\024v;J\234\3310\257\247\036\324\215\025\275Q\250B\303\350\252\261i\357\326\261UE\222\221`R\334ZU\026\350\006\r\373#lA\036!d@\253l\277\267Bi8\322\333UC\177\375\3228H\224\331\235\005z\343\200\000\305 3\265\375\034\234f\023b\017\226\303cF\324\010\r\036q\377\210\266\244\233\204Vk\336\323\364&\007TM\313\035\274\301\3774?-\203N\363\306\246\306\365\020\235i\366\225G\006{\336\327\313\014d\227\326x\017\344B\233\306\016\001t\213\n\373\254\025\351\003:\t\245\246\2077\274\345f\253\312\010\376\3537X\331t\206\201\300j\rV\233\033\213\006m+W\331\047Z\271c\357\324J\255\nk\260\323\250\321H\215\262\301\010U\210\205}\032\373\364Qo\030\360b\014\251c\245\354\372\n\230\023/\3019\267*M\376lO\200\036\351r(\376\324\252\262{Q\014M\256:m\\($@F\336kRX\244\341v[z\305\231\214s\353KX\246\016`\274\241\002]Q\350\2641\005\246\204\345\2545\r\223\270\003\220\230\353\006M\341~\016\036L\\\203d1\223\335|\310\357]c\037p\323^\005\237\247\321\354;k4~\373\013\227\255\357\236\2173\242\265\317\047\371\235\220VF\204\2535\320\026A\323\266b\nmz\205O\314sJ\316\207\336\3302\235g\272Z\312\233\254\373\300nDr\213\246\317\1779\016+\340g\003E{\216>\367e3\301\371\334\267\375\212\251\353\033E~\377\010\034\227w\277\211\347\336<\177f\007P\347\236\033;_\241\025\3317\0249\027\033\271,q\010lM\\\262<\352\262\253\257\240\372\230w\275\002yl \177\331\250\325*tQ\022\273,\211\375\321\2325\344)o\274\360\262e\320}b\215\"\027aQ\047\253\047\201i\025t\336`Of\255Vu\037l\306\320\335U\216\\\213,\301+:i\036-d\013\356\262\270\001\356\325\251\327\362f\371\314\324\214\010\r\366\307\311\237x\001vW\253\354\031E\312\235`\346\032\335\351c\260\321H3\213\025\263X+\031\301\333\235j;u\232~\255\272Y\336\322\354\213>M\272\014\222\324\214L\266\310\355\220.\261d\376\276XkU\233E,\010\274\337l5[H\241x\241\251\233\257\351\372\047\215\337\0025\315n\205*\351\210\003U\272\206\206e\220\354\017sXL\247mc\240Y\225\014\267\300\r\304^Z\251l\026\365F\251\204\374\245\304<\010\224\235_\260\344&\242\006B\022\332\033p&\354\002;\243\272Wn\240~\243\301""\340Fc\307\204>6\2525f\277\374\026NcO\333(7w0e\327\302\240\027f\323\334,\2218\231#\207\307\340\016\235\376\232\233\025}\313\244\004\224\376\327\233\366\235{\354F(7Mc\013\203\002\231\2341\266\242\300\240\311\246\235\205!7-o\036\260\253)\315P\372\314\000~\217 SW*;\306#>{\332x\226?\262sp|\324\331\265j\360\210\214O\350\231\356r\264y\307\271l\363\032Z\016;o\320M\246\323\\\330&=kv6].\225\267\252`\240\220\321\227\253%\260\255\332\204P\352\215\032\005,\223\377\371\253\361[\255\\}m\034\230\257\367\3116+5\275\344]\311\311\236\014\232\245\3479\351\326\327\306\0168[\334\3361v\350\342\315\035\3034\341I\350\322CH\220\304\201}\320\016\005Q\204O\260\020jP\253\326\230\354j&\335\n\032\265\265\010\355*\310y\224\365\nM\203M\245\274\301\266\030u\375\200\346ho2\340\016\232\354\263V\257\327 \327\362\033b\"\375\305b\305\313\225\300V\262m\327\331ra\322\266\242a_\304\353\273t\311\227i\371R+\266\243\3417\0306L\3230^s\201\372\375\261Q\331\244]\n\273r\327Q[\223\251\020E\\<m\200\263\257\371}c\266\272\361\375\021\273\014\314dY\033\224\231<.$d\302t\352\374\362\047\337\025P\274P\327\313\rz\332,\231f\005\374\243\350\274gTX\034\340\177\350\302=\026?\351O\271h_\205\3079M\226\0470\335l\322z\301\216\272\211\351@\307\370\r\223\370\333\302\337\026\351S\253\016\346\231\246y@\235Ck\311\351D%\362\034\303\032\361P\333\207o\246\">\030\033\233-\272\364\220\334\004\277P\ri\005&\336\252CT\006\337\036\266\230\255\360\270\277\247WZ\374\217i\253\370>ec\344\005\035O\270\217\274\022\222\337\337\206\350\366\313U\37477\313F\3327\235}\245\275\245\264w\223\366F\362\315\033\223N\264\276\271\367s\351\347\351\237K\367c\367^=\374\372\331/\177\233\373\007\036\247\277\274\317\210\234\026s(\214\220\205\023h~\315u\370y\354\237C\047\303\027\016\277j/\323\303tO\357\355\365\361x:<r\370a{\306\232\274m\335~\322\337=\031\271t\330h\337\350Lv\226;\372\311\310\207\207\217\333\303\355\371\266\321y\322\235\352\316\234\214^i\317\274}\377\334{\343\207\246u\371\253\336\314\311\360\007\377|s\370\246\335\354\314v\n\335\273\275\211\336\275\376""\024\365\361\246\275K\365F\017\237\264\357t\206h\230\017\017\277k\357tg\350\361\263\316\256\025{\330\377p\360\335\321kk9\1772|\305\272\362E\367io\246\047Q\207\177o?\351\240\223\331\376\2245\267pT\265\324\302\tZ\243\345\333\221s\027>&\322D{\262\375\252;\334\225NF\306\333\037\264w;\357w*\275)j\273w\270\332\226i\366\047#\227\333\250y\275\275{\212?\315\316\363\356jO\356_\351\047\006\037\036=9fui\261\326\245\231\376d\177\271\2775xu\374\3011\352\372\220\241\177J\304\203G\207\373\355bg\202\255\376t\354\342\311\3505\353\332\335\356no\030\363\305Zwy\255\247l\332\243c\047#w\254;\317\007S\203\231\223\221\217:_\200/\340\\7\216\372\177\354=\352\265\372\250|\361\260\334\336=\031\275\321\031\262n~\331\233\352=\357/[\337\376x<u<C]\315\365\277?\032:\232<\302\032\256\265\313\235\335.M\343\362L\177\342\344\374\205\223\221\321C\271\215\251\214\267/v\364\216\331\275\325\325\317\3022\235)\177\303d{\271\275\331Iv\327z\313\275\327\203\t\202\262\035\032\362\341\314\351\310\2505\372Ig\201I\231\326\324~\277\255\267\367:\253]\211\321\337^8w~\014=\336\351\016u\0478O\260\000\310\355\313\336\027\275e\002f\016\027\332S\3559\316\250\217;3\047c\027\0177\333R[\351\374\021\205h\344\224\301X%\032u\246:\337v\047\272L\272\023\2444\235\tH\343\360\277:\277\364\260\214S6d\263\215v\223\020\360\304\311x\342(m-\377l\375\374\313\351\350\330)_m\347iw\346\355\305sX,\2440\376\231\365\331\243\276\324W\0077\217\246\216fN\307\257\264\237u\342\235\335\223\311\253\047x~\332y\334\375\240\213\022-\372V\367u\177\242\377\325`\365h\351X:\231\374Sg\273k@\271\047\357\367\256Z\323\013G\372\311\344u\353\372\227\275\273\340\344\215O:\031H\354\t\324\374\346T\367\nT\020\310K\010w\350\324%\335\356\377\rC>;\226N\047o\322\302N\256L\236\214\337\350\274\007\255\234\274z\212\361\047a\001\264\246\321\303\305\366\214\363\360\330\272\001]8q\236\037\366\207\030\205\304\002\245p>9\347\047.\237L\336\352J]\265Gb\267\306?\047\276\021\351\257\235+\2505\356\321\332\243\035\211\372\271t\370\267\316\327]6*Y\017\023\331\223\366]\022\326\r\032\370N""\177\350d\364\022\332_\357\016\235\2143\263\371\377\365\376w\365\230g8\035\371\264\243v?\201\305\351\274\311\255v\tV\364^W\201\373H\364\337\357\377v\204\206\227\251\047T&\275\345\326z\376d\364:\354\217\274\360\245q\346U\306\333C\274\306\345+\247T\343\022\314\341y\347Uo\2507\331{5\000\r\016\367\374\237:\n\306\207\016-\265%\222\376\010\2635>\025\320\307>\351\314t\022n\r\206}\362\351\311\365\033\047\370{\355\372\333k\347\316\177m=\370a\240\017\2320\231\221\317:\315\356\023\322\311\313\355o`\233wz\027\373:\3273\023\316\025\263\276\217\356$\270\345\363\243\207\337w>\200q\215\306\272\243\275\305>\314\364Z\273\326]\356n\3662\203)bL\023\256A?\031\267\035\032\231\363w\355-\370\306[\26042&\267\263\367\2513\242-s~Nt\036\300\235\2153[\353.\237L\300ctR\275!B>\242\226\247x\2308e#<B$\270\324\335\357\3218\314C[\367^\014\244\3012s\330\367\021\234\356X\017\377\002\327:\021\236\020\037\366Y{\221<\323\357\326>e\201\361\003\362\341\\\n\313\235Mx\002\210\335\204\027\342\216E`\300\035\353/9+\267L\241.\324\325?m\366\2711\306\346\003\2133\237Z\237\302{\367oq\256\177\307+\214\221\360\022\355!h\341O\220\317\263^z01\270{\364\311\361\212\245\250\216\250\321\347\305C\315\356\346#\353#x\023D\265\365\201q4C\315\323\314-1M.t\246{C\016v\277\313\310/\301\310\017!\371\333\275\277R\230\340]^\214\232\346\333\361s\027/\321Z\021\332\273\ttt\353\236\373\3476sA\366\007E\010R\3101\360\312\350R\022q~\034}\225\254\217\276\354}\336KX\017\177<\276\217\371[\352\232\265\266\216\321f\317\215]%\025&\2477z\223F\204\230\301\021R\013\364~:r\005\341\366\363\216?>_:<`\372N\366w2A\301w\275[\354\335\354\177\201\225\027\217n\036\177q\274,\320\302\317$\327g\3558\311\025:p\217\231\326Z\177m\260<\320\275\271?g\266<J9\016\244\315\373\030\275\302\202\377\3305>\217\337m|\245\375g\026i\377\365\006\326\225\333\320&\375_o\341\343\005\006\374\236En\2419W\211\265\301\332\321\362QT\363V\373eg\237L\357z\373\277\273\033\020(M\202\362\306\335\177g\2353\207d[c7;\347I|\327\340\374\246:?Pd\272\331\271\326\331=\234\202\033J@\327^\364v\255""\207\211#\251\243[\347&\201\014\331\t\032\357\3575d8uj\027~\353\235\357OX\347nP\035(\225u\356#p\036Y\354H{\350dl\242\315\003\"\230\305\047\203\004\346\004\232\264\334f\223;\337\271\212\014i\227+\315\001y,$6h4\302\202\363\360\225\366\267\035t\375y\367\253\336O\310\205\207\337;\031e\035\275\353\317\3510z?\031\036;\\k\253\260\240\273\335\tJ|G(\023\265&);Z\351?\0310\027\372\000C7\273\263]\226\233\336!\341 \365\370\302\272\375l0\301C\003%=\227\201&!\351\"\034\32070\354{,y\241pp\005\376m\237\315\036\302\331G\"\047u\362\360 \347{L\361\367\332\253\235,\362\313\275\376\252\365\002\336\006\226\364\223\365\223n\351\033\224\355<\261\023\267K\343\247\220A\005\272\367\250\333\3501\201lRR\324}\277[\264\356\177?X\016\365M\351]\257\006\341n\037\351G\273\3260i\223\223\376\215\235\301o\236W\nL\346\221\210X\214\\\374\r\271=;?\355<\"aPf\272\322\231\361=\300\005\331\203\215\036\376H\023\342 \"\2425L\242\047\247d\r\177l}\374\314\366P\3260K_OF\306\016\363\030u\010\352\365\246\273k\007:k\230\034\007\2708A\302\032\0475\234F:\376\270?\214\r\301\360\0009\337\215\316X\267\200P7Nl\346I\"m\033~\350]G`\037\277\331\371\230y\267\361I\213\362\256\267\227\317\215]\204\353Co\t,k\205\202d\357Y\377GX\300\370U\344\267\177\240\215\300\225\366w\035\375\355\215s\023\223\355\031\304\225\271\316\026\304\272\325\323\0062B\n\306\373#\026\277\207]\211\004\006\227\372\367\007O\216n\0375\217\037\035cpZ\367\r\314\370\364\306M\244\213,+\230l\277\264\363Y\353\331\217\307\267\216u$\225p\311\223W-\332N\301\337_\274\334\236\340J\362_\310-\206\230T\246\272\223\030\263\324\273\337\177<xo\240\036M\034\335:*\037\267hG\345\010\313\032\216\2214<\211\006m\205W\210\202\255\330\323\301\020\313T\306\261IL\272\271\n\214\336U\001&\030\324|>\230r2\226\377C\373<k\370s\353s4\007\177\316_\201\342\277\307B\350\002B\201\304\353=\205\035d{3\254\036\242\260\255/<N\375\211\322\355\000\305\316\224\223\335\237zL\350,S\"\214\302\006}\316\365g\330\347\235n\311\372\022\3239\275\370\240G\341\013\333\232\227\355\277\222s\032\243\2404f\215\222\031PM""|R\034%z\263\363\242\273GY\026\327\321\237\371FEx$]\231q\224t\2673\214-A\223f\377\205\365\205t4\001}a\031\022\333\367\\a\371\202~j\347\353\023\320\304\017z\273\375\363\326\263\314q\311\312+\024\305\331N\023\376\356\275\3662\271\330\261\376\253#\204\274\033\235\013\335)\353\2139k.}\274|\254\323t\257\321\004\340\036(:_%\031\330,\277M\233<\276\177\377\243u\345k<\243\313\307\235?X\037}\305\266\331#d\346:&\375=q\022\330)\333k\222>\376\330/\221\260\316\037^o\277g]\245\301\227\201\334=\272F\346\017\377\177z\306\216\370NW\307\232\237\366\335\004\343vg\327\236\3157\3267/\217g\336N\3722\010\246&\037\3011Q\2664\202\330B9\327\255\336v\277z\264p<e\rC\331\211o\227\333\237\320\252\310\013\350\334\321\255tfY\332;A\206l0/J\376\214\362>>\334S\353)\270H\276/0\244\220c\216\221~\342\201e/N\030c.\002\0323i\335\346\276\320\272\3649\235j\320@Bps\317A\306&\254q\332\277\377y\200\371\"z\275\275\027\\\341)O`>\205\251\315#\027\234\357\351<\335\243\\\356\032\266\352_\365\224\376\320\351\350\325\366:\214\007\336x\213Y\321\330$OD\311\204\255)J\001\2478Q\205\236\262\315\036\374A\212\354\357\203\301\356\251P\033&1\333\237\342\351w\250\366\263\301uh\221P;F\2470C\375\211\310\332O\372\373\003\375\364wg\002\306\377\335\232{y\374\004\232\313\023\265\337\235\016o\222:^d\232.6!\351*p\356\343\344\341\377\3031\243\027\305\233\374x|\227%\341\377~\223\377\335\000\360\002p?})\252I\372x\225\371\343w\260\256\214\264a\306\307\272\244UX\t5\271e\335\242\000\261\034\325$s\\\266V\327\3369\261w6\271\301}\027\337\220Q\2163r\216\316 \256\376\213\377\321\351\313\034F\370\033;\037\271\325\337\032(P\305IX\277\025{\014\377\242\323\221H\253\273\010\337$\367\257\017@\262\213\047\343\037aS\362gd\177l\343\267H3\244\203#\300w\273\237!4O\360\264x\034{\034\312M\367\373\372)Kah\377hG\353\323\321\313\326eT\263\356\374y\3208\2328\365v\356\343\355\013\224\301S5\353\326\267}\275\337\034|w\264\303\324\322\227\332\"rz\\s\333|i}I\333K\325\222\362V^\263\264_\377\245Vw\255\273HY\006\267\006\325\343\264\265\376\323\273\332@\327\272C\377\301P""\037R\332\317\303L\231\216\270\376\204\324\003yFp\241z\270\223\323@J\357\271\362\003\2007\310\024E\366\261\t\236r\247\273`-0\217\313c(K\267\020C\377D\247\310\243^\331w\226%|~\306\362@\257>KJ\034\234m\035y\362@\247\033\223\216\263&G\305\223\227w\321\331\331\000\0350\317AO\004\2325\211\210\305\017\016\276\357\376\021\212%\266\313vg\336\331\316\032F\010\306\336\201\302\007T\217\214(18\177t\343\370\023X\246\265\262*l\262\031w^Y\257~>#\030\215\372v\320#\375\213\003}\260\217d\273y\374\324R\220\303\377j\375\n\306\032\226\261im\376f\375\366w\353\357\377\375\366\334\271\277\374A\372CpS\3153\247\031\353\002\035}Pz\363?6\343<v";
-    PyObject *data = __Pyx_DecompressString(cstring, 10641, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) == 1 /* compression: zlib (10658 bytes) */
+static const char cstring[] = "x\332\355|K[\033W\272\256\351&\211\235\200\r6\261\235t\272#\022_\023\207\030\260\343K.\335\205T\200b!\t\225\304%NN\245\220\nP,$\241\222\300\364e\357\0362\324PC\r5\324\220!C\2065d\310O\310O\330\357\367\255\272\254*\025Nw\357\363<gr\374$\250\326\373\255\353w_\253\244\365\356\2731\374\3136jF\261Yk\304\314=\263\332\214Uj\265z\254T3\255X\265\326\214\225w\352\025s\207p\243T\322\033\246Q2\033\261Mc\247\\9\210\3256c;fs\273V\262b\rs\267Un\230\245)\3561gn\225\255\246\331(W\267bF\225Z\226\233\345Z\325\250\304,\263b\362X\315m\352+\266\211G\251c\253U\257\327\032M\321K\276\0263\366j\345\022\352\226\255\330\276\321\250R\177-\313|\316d\372gX\007\325b\2716e\231M\235g\257\323\354\365z\255R.\036\334[-WK\265}Ks\306T\251B\n\364\254 \337\277\357\364\3632f4c\017_\3076\016\232X\265\3210cF\245R\333\307j\004\364 \266\321j\306jU,Y\000?=\217\305j\033\277\240\327\357&\027\357\352\363\345\212\2310\255b\243\\\3070\251\362+\363\356\275f\3034c\233\rc\213xw\377~\354\263\007\261b\253Qy\036\273\367 \266\323\2524\313x\232\232\212i\250\265\335l\326\255\347_~It\254\344\313Jy\203\036\277,\272O_\230\215F\255aMm7w*\261\315r\303j2\337vj\230i\311l\032\345\212\365\177\263\253X\266b\032\226\031\253\325\315*\211\257lY-\224\252\261\205rs\261\265\021k\326b\333f\005:bn\264\266\204p\270\327)\374\233\236z8=5=3\365\360y\354\233ob\t%\257|\023\323\264\3247K&\2068X)\233\373\2445\337\024k\325fy\253Uk\201\335\325R\254\004\325\001/\3030\304\347\020\254f\243\\2KR\345\030f\375&z\020\363j~\367\035O\352;\232\324\237\225\022j\033M\003\372\014\t\226\246\250\274Y6+%\027\230#6\230\257\213f\235\324\2279U< 6\306\352F\361\225\261e\306\241(\306F\305|\211\245?\210\245kU\363\24788F\206\003=\205)\025\215\212^7\232\333bf4\026T\255\271m\306,c\307\2145\313;\346\024\032P}\303\262\312[Ub.\331\302\027\254m;\314\265=p\315\251Tj\325\241\272F\323\214\025+5\013\213\333F\277\025\257\217\272\331\300\034w\330\032M\213T6\272\036Xa\226\367\314\330\276\271a\325\212\257\314\246\230\332y\325-\023\223\377\315\272`\313\016\014\207f\177\340\320&c\360\n\315&""\231\355f\243\266\023\2537jE\323\262t\352!an\226\253f\354\347\237}\363\377\371g\317\237\200\r\033X$\330k\222\364bFl\003\034\337j\324Z\230\212p\"\216\013\231z\227\2558Y\265\232F\025\275\223~\261N\026+`i\014h\003\314E\033(W\311u;\304\345V\225a\341\033\034\217C\355\234*\324C\215\234_\323\204$\266\313\245\022\254\201WA\342\203t\033_s\033L\221\347I\363\023\316\203z\006{\250\332~\303\250\327\261\002\337\263\336\265\202\363\316\037\324\313\324\374\200\272,\305\366\312\006X\002E\314s\245\001\327\365\363\317\017\270\0319\244\"4\rL2\232M\243\270m\362\242\014\032\234\335\244\343\031yL\261\270y\326ib\246\363\204\372\376\023<\250\260bt\275\271i6\310\247\261\036o2\313\241\265\311\352\236Q\2017\336\251\225\314\007\260\212:f\206\266w\213w\311\026\357B\361\232\r\243z\367Al\253\346W\266\266\215\272\311\002|\r\206\2463\371X\"\223V\311P\3225hqs\033\035\307\017 sr3\360(pSf\303`\226\223\375b\004\n\025XhV\315~\361\350\351#\266\243\206I\256\027\262mm\260\220\205\3207Ze\270U\360\375\240n\302\211%7c\007\265V\254j\212\365\325Y\031\374\006\220N\225\027Mb\272\313zn\220\221\353h\016\376\335u\334\010Y\t\363\251b\231S\031\341\006ZU\047L\231\245\347\261\333V\216\264\305\325\000\314\255\331jT1f\276\326\250\032\245\232\247a\205\252\3072\366 \034\004H=\233\314\037\3314\036\304\352o\364\300\357\256B\255\010\227\0026\t\037\356\313\013\327\274\030\307\030\316\2612\047\214\377?4\240A\343\341^\376=\003\362\247\212\0076\"\243\325\254\355\200\001\302\2566\016\\Y`\274\272\360\237\314\033k\273\326\202\257\047%\047-\341\336\330\375n\222\322\325b\345\246\243\004>\217\2324\206el\262R\354\013)\034\310b\330/\303\327\373\334{\200\025\202\325\255\255m\352M\370t\343\025x\014\227j\211\305n\006\022/K\230\004\364&\230|E\010q \t\023\013\3306w \223=\214q\257<eN\241\225\223\006\271i\236\344K\356\213e\305\341\254\311g\210A\336\344|\260\034\253&\234\273u\216|\034V\2556\310\276EF5\371\255\033qJ\002\231\242\205`\201\246\233\277)\033\260v\314\316\033\252X\253\320\340$\247)c\243(\242\356\227\272S_\367\264\256\376\272\354\3228""\347\251\037\274v\312\255&\3452\240\227\340E^F\344h\017bn\364\376\251T\266\350\323\254\322\337\255\342\226\t?\262\t\005\260\004R\252 \233\215\352\342\247j\r>k\323\200)\307tH\246\324*\232\272\216(\315\372Q\255U\277\200\017\203K\257\200Z,W\313M\235f\2769\305A\272(\202+\205\271Zu\317$w\"\\xV\370C\221`\262~ D\274\252@B\242q\203R\207\377\2505\305\214\"\352\322\023\034\316\353\003\277\\\2537c\302\365M)\304\344\005\263J\216\270\326xI\316\332\311mZ\314\016\036\247B\271\r$l4\032\306\001\247\004S\021T\341\376\311g\213l\314\232\372\333\363\2073k\377\240\277\257\377\361M\305\330\331(\031\337)Z<\231\034P\201\363\365\360|\312\224\256Cx\210\210\2152\"$d\361\306\252B\"o\250\342\333\333oT\332o\224\233o\254\304&\363\006z\003\231\336\236\371\333\2039\365\234\361\252\007,+J\275\274\207)O\021\213\254\tX\240D\202\2449\344D\021\221D\024_\351\234\004H(4\010}Q\246Zk5}\234V-2?\037\023\213\364\212rH\363Qg\005\341\266\"\267\324\r\266\371x!\227R\n\371E]I\257\313\317\2322\257\372\345UM\327\222\013+\217<dN\321\222q\277\244*95\347\025\023\311\005U\313\207\212z\322\357oA\323\224lR.\246\325\205L>\251\344\375:\021\010\322\031\277\220O-\005\n\372\352\234W\316\244S\274\030UW\3462\271\274\232\320\347\326\365\270\222J\315)\361\027\016aAI\246\235\307TNU\022\250\220Y\312\246T1 P\352H\315\34529Q\236S\022\334E2\275\240gr\tU\2063\351\274\232\316\353j:\236I\200\356S\022\231\325t*\203\207\234\252\025\226T\2370_H\307\363\311LZWr\013 \244\363>)\253h\332*F@wy5\247&\004%\276XH\277\320\347\225d\312C2\351\225A \247.{\305B*\201Y\001\006\337\362A\020\363\311\244VT}1\243\235C\311\3462k\016\023\325\370\"\365[Hz\263\021\303\352\311t\322i=\217\262\226\374\001u\327\342\252\232\360\352%\003=\323\302\2018\264|VW\342q5\233\017\254B\202\363\311%5S\310\007qM\323\023j:)W?\227\323.\221\247\221JjRWq\0053ZP\363\022\007<8\247\006x\306\270\263\006jA\353\034\244\344\324|.\264:\227\244\241\021;\336h\322\\2\255\344\326\243i\371\365lT\207\371\314yc\0254\225X M=\253\344`G\251P\375,\354b\200\357Y,b\000\\.d\362\252l\t\004bO?P\021C\347|\355""\205uer\271\000\023W\325$\01033O\364\371LnI\031\240P[L>\233Z\217\240\254DS0\346\n\206\215\244\361\204\302\224\\2\264\032\327\022\261c\302\274\nigE\360>\004-z\366\274\230\317gg\244GH\001\032\275\344#\263\376c\2703\306\006X\356\240\360\215\322|\030\314)\351\005u\020U\363\205\\\032v\047\021\222\344$\346\225\270\032\3509\225PX\227i\032P/\031M\246W\224T\022\314\311\245$T\203\007\207\225\007\372H\316\345\240\227\341\245\2442\013\311t\300\004\227\224\224\220\0473\\`<p!\231\312\353\256\227Mg\\O\304no\005#)s\256Ff\346\340t<\327\353\226\246\037\206\3123\241\362W\301\362L\250\376\314\243P\371Y\260<\033\352o6T\377Q\250\277G\323\241r\270~h>\217C\355\037\207\332?~\022,\177\025\232\317\223\307\241\262\333\277\023\3032Y5\2470;\311S&<W\031\304\001\273\222\302\243\236\231\327\227\324\245\214\353p\006\275CV\205\3258\016\036\246\225\234O\306\2713\207\352\207\005\004\204\270+SY%\007\034\306\2006s$\010\224\361\251%\021u\220\026p\224\365\360\225`\275%\352:\"\0148\224DRC\220,\370\355\031e\367\257\256\301\377k\203xH\275sy\r\226\243\251\313\201q\t\3240&\361T\30255\235\030(\023\3530\302\252gv\360\343\031D3\374O\315\265\365t^Ys(\213\310\233`!d8\016\242-\272\017)0\"\256\346\362\3412E4_Z\214\003\205\\`MK\022\230\314.\272\326\310\345T\222\322\214`\207\203\302c8\227\032\034DM\303\356U\016\371\262\227\220H\340\244\304H\211\000\006\204\2338^\210\246\243\345\225|A\223H\232V\200\006\206\346\304ZI\325\205>J\023\313&\261\210D\2660\367B]\307\024(\256H<\324\026\013y\312\r\002\256-\257\246\322j\244D\362\024#H\213|%bH\326\036\006\222\251\224\272\240\310U\322\031\255\200,\315s\201\016(\363\204!\030\347\222TDZ\227\306\374\222n\225LFO!)T\375\342\022\322q(T\"I\321\324\231\203\323\312YB\020\013\254\316%QN\003k&\227\213\220\343\256\255\220\326\n\331\254H\221\241A\371L<\343R\262\234M\311\\\303\037\337\327G@\222\373\247,$\234\"\234\027\257C\021y\036\223\313\254\352\216\017pJ\363\311\034r\036\047\253w\260\314\234\272\216|[\225 w\323\222L\317g\340%\362\360(Z&\376B\315\373`6\353*=\371\306\363p\335o\021W\350C*f\225""\374\242_$\215\014\3203\351D\222\325\252\220^\222\006\216\034\365\274!\001\353B!\3342\357/R\260\047\332O9\251\356o\321\203=\3125\204p\337L\215h\355&\243\016\230y\201-\335\"\371v-\204\272\2516C\364\022\310\311\002\374\262\023\253\030@\352\221ZgT\343Q|\302\374\274\312BD\304\312/f\022\021\004\047\213\021h\332\257A\276+\300j\027\220\272g\273N\347\221\342\004D\272\210\340\004\r\225f\354 \362\234\035\310\335\n\010\0149\232\330.Sr3\010\303(\022\001\324\333\2329Z\354\023`\"\232c\274\014\246\024R\1775P\016iv*\203\270\251\047\263!\200\214\333\203\322\312\222\232\202\204\n\331\240\036\206p\211Giy\324ta\311\235\262/\361\214F\266\233\366-\200\022\332<B\2766\017\006\205\272\243\r\206L:\227\020h\223\\\242<TZ\232\013\005\026\007p\305\t\014N\331\367g.\260\266\036! \037\017H\210a\337/I\030y6\316\214\326i\263\231\362\247\260\\P\013jx\376\256\347\246-Z:\002^L\322vn}\220\020`P\000\215\352]\266\204\234\n>\2529\251\214\231i\371\240\272b\356\331LZ\243\375yBF\311 \224\371\274\334\234s\"\316\03785\n\021(Y\242L-\010;\216~\260\276\233GI\016N\213/\252\322Z\371 !\001/\262\342\236\177Hp\330\371\005P\2111\214\207\034\235\204\3115\221[$\":\016\300\003\365\303]K\240\\\027\252\022v\200\036&;\024?]\322\002X\244\236!e\312\345\243\ri\220$\315&\257\256I\205\224\346\312\"\210QN\225\367\245\237\317\344\341G\002\203\370\220\3249\031\217\277=`h\215\346 \344\274D)\2608\304r\302LVM+\251\374\272\247\224\242F0\024E\326YB\262&y!\027\243\266(\347T> \241\255y\220L\007=\322\0264H\314&\263\3207\344\252b\340\000M\2546\252%\322\254\325L\356\205.\242\240\277Nd}\020\032\3118\004\271\207\r\036\354\214\353\0342\204 \327\206\346R\221DJ\233dRA[\014\014I\300\300\200\264i{A\351l\336\203\334\023\277\374\"\355\3134\346\257K\023A&\320\255\200\006:&m\310\005*2\022\250\247-\350\t\047\240\3203E1\367\331\r4\324P\231\203\374\024\362i\351\344\232\356\3079\246\361\321\240\263\257\325\205\210}<p\004\313p\"\221\243\275\242\026\317d\375\376Sym%\036,\351\361\274p\240\014e\263N2\301\245\002\374\263\357Q\031\222\017\304\t\230+ %\311\271j\312""\232\354\345\215~\t\342\312\314\371\220\233v\210\022m\357\026U\371\320\223q)\301\364Mhn!\255\313\234\365)\256\004|\204\367\244\341\272\251\214\246b\033\220\214\257\007\240\240\270C\360@\047\302\"\302\023\016\240\222\204\334d\327M\343e,\237\221\220\025}>\227Y\362\214+bX\247F!?\3774\232\234\317\274\2419\347\255\201\222\273\323\365\221\357\225\\\020pSZ\037\221|\247\000\263\353\224\372\314\243n\302_4\366&\362\263<\020>\013~\001I\300\222\023\247]0\241\316\025\026da0\020^PB\235W\020\034\002\371\016\343\311\034MZf76\266\no\224h\247FI\037\237=\370z\237Hk\321ZH\004\357\244Q\006\335\254\363Q\024\370\225\014\n_\246\005\240EX\r\275j\021F\252\006\210\264\205\\\200\271()1%\217\226Y\224\002\243{z?H\241\003\203h\212\177\340\340\322$\026\250q\317$\325\205D\320\367\204\235\013\347\206\302\362=h-K\372<\375\360\241>h\001\264\033\206\233s3J\206$\205\220\367,\\N\363YF\300\244],\254\004b\003L\214\017\242\271\271$\275\022q\316\227\034lI\237\2433\t\347\245\003\203\340\377\242\374\246\210A\354[\002\216\020@X\243\000\271I\270S\004\237)\227\226\020\362\315n\352\353A\251<i \357\341\362\031\357\344\300%\307\021\211\020\335\226\22201\204:\250\262&\223\211S\376\226\320E\275\2046\244\274\374\276\342E2+\336\"\210m\204\207k\251PQ\217\307\3432Dz\250f\003Kt0m%\214\321.\306\305\304;NJc\325\205\200P\026\301T\354+\326U\2506\322\255A5A\005\312\242\302\366\354\300n\"\356\257C\354E\203%Yg\004\022\326\030\201\342\311\003\234\003.\367\231\222\201@7\0166\320\021p>\303\tWf0\252v \326\322~\367\3413\235\375\222\232\220\321\231\207\017\225TR\221\374\202x\357\222\346\275^\006\275\257\007\tYM-$\334\275\271\346\277\245\365kh*\002Sz!\324\241\224-\372 \235\337\222\247\314&\234M\245K\232\345\277!\246\207\360\301\261g\177sv\263\221\263\233\245<\003\262\207y*\251\001\022m\032\342\024IV\324\010\022\2354\026\350lm\r9\265\346f\256~\035\312\366=\332\340\204d3\246\362\034D1\270\354\005_\345\243\371r\036G\262\222\353\3462iw\276\000\027\024\320\roK\200Mj\300\3732\321\333\351DR\245c\024\302\222\013i$r\241=\206G\\\002\273\264LZ""\2226\362.\311=\213\222\234\342\371\210\177d+\360P\244d \245*+\001\033\361\321\260\221$3\361|*P\225\200\201ZY\047s\367\000>9w\217\370\203H \365|\241\252Y~Y\301_f\220^i\010\342:\277\304\365l\361En\356QJ]\361\305\002 P\346x/\207\001\017\3407?>Jo\016\305\261\264\346\203\253\316\3369\225\\J\346\007a9\".\321\253\025Y-\031\240\\0\000\344\342\276W\363\000\3620\350\225b\260\026I\034\240\255)\013\254,i\t\2227\236\016\024\326\n\t\n\252\005\010\251\344\2748\205\014u\313\2478r\247\342\325\227\303\230P\047\3425S\024\r=\313VE\3450\277\221\026\347\342\201B \007I\253\253\2728P\312\320\371\032\034\210&\223\370\215Y\020\315\314e\022\353~\tV\274@\311\\\000Y\223*\300\235\245\025Ou\202\257Ze\344\311\214\207 \007\031\334\230\370h\330.\334\257 \370e:\362C\002\353M\312{e\204\r\020\324\335\207\263\352\252\342+\241\254\3222_\351y\366\341\264\\\014f\375>\"\351E\000\014\n\216H\374\326T\006X\047<\200\266\006r\005lF\325e\231\037\002\031\340ENze+\000\357\224T\024\205\270\202=\tl\260/\221\220h\003\000EP\t\224Gs\216V\003@0F\210d\047,3\006e\376stX\317\252\001\300\335\307\014\200\331\325`W\241\355\270\214\005<\243K\220\267\346\016\006y j\320\273\362t&\230R\273\025\002\333;\001\016\272\3440\0361\374\200\007\026\360yZ+\316\244\261\275J\306U}\200\033\234\342\016\214\357\200\003\014u\t\021\263\002epT\306\"{\001\036\335I((\373G\352\342\215\265.\357\264}b\310\215\205\017\342\345}`\230&\357\004\005\r\211\317\364\2543\2366@\342W\001\221\n\351Q\007W\354R\"5\322OS\226\234\263vq>\347M9x*\347\"\230a\"\224\2450\314\275\361\267\211\262J\016c\345\245U\004\274\004\352%2K\001\007\037\210\310\341\024?*\275g74h\373!X\366\000\241\2632\367\345C\236<^\336G\003\251\213S\314\211\363k=8\251\000ip~\364}\277@\022 AA?K\357\037\202\316\047\352\325\206\207\207\216c\242^kH\270\374V\303\207yk\241\027r\311\000\354I\320E5E\023\231\315\017~\007\214\371!@S\325\0272_\250\034f\206\367v=z\047|\016Y\332{F\271\021\376\226\212W@\310\305g`\"\002\032\230\013`\355q ]s gk\214D*\232\340L\302#fSI\357\320\315\003iC\344\232b\000\245\257\361\346\202g""s\004\223\207\200O\nL\334\207\007&\357\220t\341n\311%\353K\211\307o\"\203M3\217\277\222kD\014w\316P\374\305\r\3520\260\022\047Vs#\311\204\231\344\215\033\244\004\\\275S\014\306\222\010\317\037\345\363\201\211\327Q\003\200{\340(\021\244\270 J\003C\206\242DD|\030\214\014\356W\233\242%\032\031/\030\316\257\351A\266\013l\220\357\021\233g\361\032\216\277%\203\035L:\032\216\252\235\216\254\234O\312\347\207\342\0331)\270\n\362d2\032\212no\336\274\363\327\232\004;\222\211\340\341(\223(\301\316\027r4\325\005:%Y\\\322B\364\301\363\204\350H\032\035C\317;I\325\362p\254~-\341\371\022*\235 j\321\250\256\206pu-\236*\320\027\001C\370\252\232\\X\364\247U\310\262>x\257\017\2343\025\227\236\217g\301g-O[\004\031\243m\257\222\222zw\301\270\1778\351B\311Dj\240\0326\354+)\031L#\232\247\024O\367\305\027\257B\262\344/y\315\245^\310[\001\347\253aa\261\363V\327\375\376\220\014J.|\320e\023\262\242\244\n\352\000\020\014~\221I\317y\351NT\242s^\212C\307H\3161\047v\244~\236,\017r\3369\023\221\260\331P\264@o\216;\205\214\203\247\002.\255\240\321\326\234\276Q\014\325\177!S\351kn\364-3\336b\205\233\222e\320\014\311\247\020\223\240\276K\331\300,\205B\207\003?Q\362\271\002\334\275\222\216/f\002\334\343s_\332\032\223_\340\257Rd3II\235r\364\r\270\300q\254\003\205\335\221\233\"\272\357\350el\340\315\203\364bT\227\267*\364=?\230L2N\222\220#o!\313g>|\344\004\335\220\324\307\377\036\203_\212x\235\351~\0370\245\370NCzmB:\001\231\370\013\017+IhS\346|A\320-\302\235\314e|\035XM\246\022q%\227\360\276\313\311`\370\2149\362|\231\301`\216\307\220\274\373[\325\"\216*\003`PIA\nY\352\252\366\306\350\344\220\351u\333`\024\240/E\320l\344\245\270Xx5k\031\022\342\214\364\003\253\254B\254s\276\035)\nt\236\351\227\334o\342\370\245P\005\315y\243\343\227\374\n\311\254\370\251\301\264WZB\244OfS\352\232\207H?\212\360\2220O\364>\"~N\346\225\245\244\301\303\374\237\201y\220\033}<\000\346>\227Q\204c\362@\367\313\002\036 \273/\037\224w\312\020\211\377;\033\024\370\275\266\373\354,\037\217ibx\006\331\361\202\003d\346\3475\325\245f""\223\036.U\311)\253\336\276\016E\327\200\351\225\376\\!\355\304\021\3321\244\234\357Z\007\312\342\213A^\321q\365\342H\326\373\336\213\373\336\217\364\203_#\016\200\236\251\004\320t\306\307\345\023q}Z\177\030\005N\017\2023\021P^\370\366\020\032\325\345\214xU\303\tnJM\210h\024\2542\033\001\271\257\030\203\260\373}\221 \352*\203\177\036\256\213\357e\310\300W!`u\021\301jE\230\024\177\037\332\225\203\363\354\212\201\213\336\010\\\n\220\350\227\004+\016\321;\200\023\277:\014\203\342W\033\336\036[\252\344Al\222\014\271\233;\376A\032\025\202\250\247\002\036\342\364\356\304\2049\341\321\335\242\224CHy\266l\2232\354\261Y\302\350\330\371\234\352D:\257\211\307\271\020\016\005\332sU0\2224}>i\346|\322l\230\204\307\275\231(p\240&w\020\t\016N\363\234)\2363=yjR\354\227\344/\243\216\034\275\330\346\277\233\2210\241\047\316O\352\343t\225\004]\336\242\322\317\211\343\265\252\270\001\212~\352\033\375#\345\363~\237,\360-\263\251\273\367D\350\336\205<\316\217\216M\243\352\374\234\330\322\361\241\213\013L,\377\047\311\374\304\267\025\211\247V]T\347\022u\3350\r\013\203\325\267\033\206\345\241t\005\000?\227w\352\350\256V\305\264\304\357\232\215\206\205\t\326j\257\312\246\276\315\277\330\266$\002\315\277e\351\225r\325\255\336r:u\256\347q~\006\215\245\212_>\363\217\357\371\261U\177e\232u~\334C\247\356\022\367-\335_\007\n;f\323p\237\033fq\317}\246{z\350Y\360\334}\360~\350N\310Ry\307t?\243\205\340P\"\005\3014\243T\302B\233~\231\357\237\361\212\336L\271D\367}\350t}\002!\253\342\n/\367\273A\342\227C*\375\250G\255T\312u\253l\361\213\244\305\314\252>\267\236W\265\245u]\311#q\234\303\226S\243\013\010\304\005,F\005\016l>\271\246j\331\\F\241\227B\372\252\222\243\257\037f\215\346\366\3005\027\000\232\265b\255B\t=4?\273\230S8\007q\362i\315\017\211^\366\304\257\312D\326\315\337\277\204\203v~\211\037\374]\276(y\014>\007\236\372\206\357\201\262\276\233r/<\370\315\212\342\206\023}\307\250\032[f\003Zm\276n\206\033\025kU\253\265c\352\373\306+\263\021&\n\005\027w\242\235C\023wh\204\211\215V\365\034\n_\004s\016-""8\3370\225f\350]\331\021\"\372W,D\020\3045\007!\002+X\010\013\\\237\020Ms\373\332m\231pM\032_\255\022g\033\026\365\362\007us\305h\024\252\3200\272\247l\312\277\262lUST$\230\024\267V\265y\272~\303\371\030\264 \2370`@\253\274\021\\\2414\034\351\355\252i\274za\036$\312|\341\201\3218 @3\311L\035?\007\247\331\204\330\303\345\3011#j\014\014\036qy\211\276hX\204Vk\376\323\324\246\000\362\272\236=x\215\377i~z\032\235\346\314M]\350!:\323\235\373\222L~\3367\312\014\362\2157\376\003\271\320\246\271C\000]\301\302\237\265\"}@\047\241\324\364\360Z\264\334lU\231\020\274\273\203\313\226;\014\004Vkpma,:\264\255\\\345O\264\362\306\336\251\225Z\025n\260\323\250\321H\215\262\311\204*\304\302\237\346>}\324\033&\274\030#u\254\224\357\276\2009\211\022\234s\253\322\024\317\316\004\350\221n\226\022O\255*_\252b\352j\325m\343A\003\002d\362^\223\302\"\r\267\3332*\356d\334+c\006e\352\002\346k*\320\375\206n\033Kb\312\240\234\365\246i\021w\000\022s\275\240)]\356!\202\211g\220\0343\371\332Dqi\033\177\300M\373\025\002\236Fw.\274\321\305\3251B\266\201KB\316\211\326\001\237\024tBz\031\021\256\326@[\004M\307\212)\264\031\02511\337)\271\037Fc\313r\237\351^*\177\262\336\003_\247\344\025\255\200\377r\035V\310\317\206\212\316\034\003\356\313a\202\373\271\357\370\025\31306\212\342\362\0228.\377r\024\337\275\371\376\314\t\240\356%9N\276B+r\2567roE\362X\342\022xMB\262\"\352\362\275YP}\314\273^\201<6\220\277l\324j\025\272e\211oZ\342?z\263\206<\345\265\037^\266L\272\214\254Q\024\",\032d\365$0\275\202\316\033\374d\325jU\357\301a\014]|\345\312\265\310\t^\321M\363h![p\227\305\rp\257N\275\2267\313\347\246fDh\360\0377\177\022\005\330]\255\262g\026)w\202\231\353t!\220\311\243\221f\026+V\261V2\303WC\325v\3524\375Zu\263\274\245;\267\204Zt\223$\251\031\231lQ\330!\335\200\311\376\276XkU\233E,\010\274\337l5[H\241D\241iX\257\350\356(]\\!5\305WJ\225\014\304\201*\335a\303\031$\377a\207\305:\355\030\003\315\252dz\005a \316\322Je\253h4J%\344/%\366 Pvq;\223\227\210\232\010Iho\302\231\360\355wfu\257\334@\375F\203\341Fc\307\202>6""\2525\266_q\205\247\271\247o\224\233;\230\262ga\320\013\253im\226H\234\354\310\3411\204C\247\277\326f\305\330\262(\001\245\377\215\246sa\037_\047\345\245i\2740(\220%\030\343(\n\014\232l\332]\030r\323\362\346\001\337ki\r\244\317\014\210K\010Y]\251\354\032\217\374\354k\343y\376\310\311\301\361Q\347;\331\340\021\231O\350\231.\202tx\047\270\354\360\032Z\016;o\3205\250SB\330\026=\353N6].\225\267\252`\240\224\321\227\253%\260\255\332\204P\352\215\032\005,K\374\371\253\371K\255\\}e\036X\257\366\3116+5\243\344\337\347\311O&\315\322\367\234telc\007\234-n\357\230;tk\347\216iY\360$tc\"$H\342\300>h\207\202(\302\047X\0105\250Uk,\273\232EW\212Fm-\006v\025\344<\312F\205\246\301S)o\360\026\243n\034\320\034\235M\006\334A\223?k\365z\rr-\277&&\322_,V\276\231\tl%\333\366\234\255\020&m+\032\316-\276\201\033\233\002\231V \265\342\035\215\270\376\260aY\246\371J\0104\350\217\315\312&\355R\370\276^Wm-V!\212\270x\332\000g_\211\313\312\034u\023\373#\276I\314\342\254\r\312L\036\027\022\262`:uqsT\340\376(Q\250\033\345\006=m\226,\253\002\376Qt\3363+\034\007\304\037\272\255\217\343\047\375)\027\235{\364\004\247\311\362$\246[MZ/\330Q\2670\035\350\230\270\236\022\177[\370\333\"}j\325\301<\313\262\016\250sh-9\235\250D^`X#\036j\373\360\315T\304\007\263\261\331\242\033\023\311M\210\333\330\220V`\342\255:De\212\355a\213mE\304\375=\243\322\022\177,G\305\367)\033#/\350z\302}\344\225\220\374\3766D\267_\256\342\277\331\031\036i\337r\367\225\316\226\322\331M:\033\311\327\257-:\321\372\362\336\217\245\037\247~,\335\217\335{\371\360\213g?\375m\366\037x\234\372\354>\023\005-\346R\230\220\201\023h~!t\370y\354\237C\247\303\357\036~\336^\246\207\251\236\321\333\353\343\361l\370\342\341{\355i{\342\266}\373I\177\367\364\342\225\303F\373fg\242\263\3341N/\276w\370\270=\334\236k\233\235\047\335\311\356\364\351\310\265\366\364\257o_xk\354\320\262\257~\336\233>\035~\347\237\257\017_\267\233\235\231N\241{\2677\336\273\327\237\244>^\267w\251\336\310\341\223\366\235\316\020\r\363\336\341\327\355\235\3564=~\334\331\265c""\017\373\357\035}}\374\312^\316\235\016_\263\257}\332}\332\233\356)\324\341\337\333O:\350d\246?i\317\316\037W\355|\341\024\255\321\362\327\213\027\336\375\003\221\306\333\023\355\227\335\341\256rzq\254\375N{\267\363v\247\322\233\244\266{\207\253m\225f\177z\361j\0335o\264w\317\360\247\331y\336]\355\251\375k\375\304\321{\307ON\270.-\326\2762\335\237\350/\367\267\216^\236\274s\202\272\001d\350\237\n\361\340\321\341~\273\330\031\347\325\237\215^>\035\271n_\277\333\335\355\rc\276X\353\256\250\365\224\247=2zz\361\216}\347\371\321\344\321\364\351\305\017;\237\202/\340\\7\216\372\277\357=\352\265\372\250|\371\260\334\336=\035\271\331\031\262?\370\2547\331{\336_\266\277\372\376d\362d\232\272\232\355\177{<t<q\2145\\o\227;\273]\232\306\325\351\376\370\351\245wO/\216\034\252mLe\254}\271ct\254\356\255\256q\036\226\356L\006\033&\333\313\355\315N\262\273\326[\356\275:\032\047(\323\241!\037N\237]\034\261G>\352\314\263\224iM\355\267\333F{\257\263\332U\230\376\353\273\027.\215\242\307;\335\241\356\270\340\t\026\000\271}\326\373\264\267L\300\364\341|{\262=+\030\365\207\316\364\351\350\345\303\315\266\322\326:\277G!\0329c\030\253D\243\316d\347\253\356x\227\245;NJ\323\031\2074\016\377\253\363S\017\3138\343!\233m\264\233\200\200\307O\307\022\307K\366\362\217\366\217?\235\215\214\236\211\325v\236v\247\177\275|\001\213\205\024\306>\266?~\324W\372\371\243\017\216\047\217\247\317\306\256\265\237u\342\235\335\323\211\367O\361\374\264\363\270\373N\027%Z\364\255\356\253\376x\377\363\243\325\343\305\023\345t\342O\235\355\256\t\345\236\270\337{\337\236\232?6N\047n\3307>\353\335\005\047o~\324ICbO\240\346\037Lv\257A\005\201\274\200p\207\316<\322\355\376\3370\344\263\023\345l\342\003Z\330\351\265\211\323\261\233\235\267\240\225\023\357\237a\374\tX\000\255i\344p\241=\355><\266oB\027N\335\347\207\375!\246\220X\240\024\356\247\340\374\370\325\323\211[]\245\233\357\221\330\355\261O\210oD\372k\347\032j\215\371\264\366HG\241~\256\034\376\255\363E\227G%\353a\221=i\337%a\335\244\201\357\364\207NG\256\240""\375\215\356\320\351\030\233\315\377\257\367\277\253\307\236\341\354\342\037;\371\356G\2608C4\271\325.\301\212\336\352jp\037\211\376\333\375_\216\321\360*\365\204\312\244\267\302Z/\235\216\334\200\375\221\027\2762\306^e\254=$j\\\275vF5\256\300\034\236w^\366\206z\023\275\227G\240\301\341^\372SG\303\370\320\241\305\266B\322\277\310\266&\246\002\372\350G\235\351N\302\253\301\330G\177<\275q\363\024\177\257\337\370\365\372\205K_\330\017\276;2\216\2320\231\213\037w\232\335\047\244\223W\333_\3026\357\364.\367\r\241g\026\234+f}\037\335)p\313\227F\016\277\355\274\003\343\032\211uGz\013}\230\351\365v\255\273\334\335\354\245\217&\2111M\270\006\343t\314qhd\316_\267\267\340\033o\301\322\310\230\274\316\336\246\316\210\266,\3709\336y\000w6\306\266\326]>\035\207\307\350\244zC\204|H-\317\3600~\306#<B$\270\322\335\357\3218\354\241\355{\337\034)G\313\354\260\357#8\335\261\037\376\005\256u|pBb\330g\355\005\362L\277Y\373\214\003\343;\344\303\205\024\226;\233\360\004\020\273\005/$\034\213\304\200;\366_\262vv\231B\335@W\377t\330\347\305\030\207\017\034g\376h\377\021\336\273\177Kp\375kQa\224\204\227h\017A\013\177\200|\236\365\226\216\306\217\356\036\177t\262bkyW\324\350\363\362\241\356t\363\241\375!\274\t\242\332\372\221y<M\315\227\330-\261&\027:S\275!\027\273\337e\362\0130\362=H\376v\357\257\024&D\227\227\243\246\371\353\330\205\313Wh\255\010\355\335\004:\272u\317\373s\233]\220\363A\021\202\024r\024\2742\273\224D\\\032C_%\373\303\317z\237\364\022\366\303\357O\356c\376v~\315^[\307h3\027F\337\047\025&\2477\362\001\215\0101\203#\244\026\350\375\354\3425\204\333O:\301\370|\345\360\200\365\235\354\357t\234\202\357z\267\330\373\240\377)V^<\376\340\344\323\223e\2116\370Lr}\326\216\223\\\241\003\367\330\264\326\372kG\313G\206?\367\347l\313#\224\343@\332\242\217\221k\034\374G\257\213y\374f\343k\355?s\244\375\327\033\330\327nC\233\214\177\275E\200\027\030\360[\216\334Rs\241\022kGk\307\313\307Q\315[\355\027\235}2\275\033\355\377\356n@\2404\t\312\033w\377\235uN\037\222m\215~\320\271D\342\273\016""\3477\331\371\216\"\323\007\235\353\235\335\303I\270\241\004t\355\233\336\256\3750q\254t\014\373\302\004\220!\047A\023\375\275\202\014\047\317\234\302/\275K\375q\373\302M\252\003\245\262/|\010\316#\213\275\330\036:\035\035o\213\200\010f\211\311 \2019\205&-\267yr\227:\357#C\332\025Js@\036\013\211\r\032]\344\340<|\255\375U\007]\177\322\375\274\367\003r\341\341\267NG\270\2437\3759\033F\357\247\303\243\207k\355<,\350nw\234\022\337\213\224\211\332\023\224\035\255\364\237\034\261\013}\200\241\233\335\231.\347\246wH8H=>\265o?;\032\027\241\201\222\236\253@\223\220t\021\016\350K\030\366=N^(\034\\\203\177\333\347\331C8\373H\344\224N\016\036\344R\217\025\177\257\275\332\311 \277\334\353\257\332\337\300\333\300\222~\260\1770lc\203\262\235\047N\342ve\354\0142\250@\367\036u\033=\026\310&%E\335\267\273E\373\376\267G\313\003}Sz\327\253A\270\333\307\306\361\256=L\332\344\246\177\243\347\360[\344\225\022\223E$\"\026#\027\177Mn\317\311O;\217H\030\224\231\256t\246\003\017pA\316`#\207\337\323\204\004\210\210h\017\223\350\311)\331\303\177\260\377\360\314\361P\3660\247\257\247\027G\017s\030u\010\352\365\272\273\353\004:{\230\034\007\2708N\302\032#5\234B:\376\270?\214\r\301\360\021r\276\233\235\321n\001\241n\214\330,\222D\3326|\327\273\201\300>\366A\347\017\354\335\306&l\312\273~\275za\3642\\\037zK`Y+\024${\317\372\337\303\002\306\336G~\373;\332\010\\k\177\3351~\275ya|\242=\215\2702\333\331\202X\267z\372\221\212\220\202\361~\217\305\357aW\242\200\301\245\376\375\243\047\307\267\217\233\047\217N08\255\373&f|v\363\003\244\213\234\025L\264_8\371\254\375\354\373\223[\047\006\222J\270\344\211\367m\332N\301\337_\276\332\036\027J\362_\310-\206X*\223\335\t\214Y\352\335\357?>z\353(\177<~|\353\270|\322\242\035\225+,{8F\322\360%\032\266\025Q!\n\266cO\217\2068S\031\303&1\351\345*0zO\005X0\250\371\374h\322\315X\376\017\355\363\354\341O\354O\320\034\374\271t\r\212\377\026\207\320y\204\002E\324{\n;\310\364\246\271\036\242\260\243/\"N\375\211\322\355\020\305\311\224\223\335\037z,t\316\224\010\243\260A""\237\263\375i\376\274\323-\331\237a:g\227\037\364(|a[\363\242\375WrN\243\024\224F\355\0212\003\252\211O\212\243Dov\276\351\356Q\226%t\364G\261Q\221\036IW\246]%\335\355\014cK\320\244\331\177j\177\252\034\217C_8C\342}\3175\316\027\2143\047_\037\207&\276\323\333\355_\262\237\245OJvN\243(\316;M\370\273\267\332\313\344bG\373/\217\021\362nv\336\355N\332\237\316\332\263K\047\313\047\006M\367:M\000\356\201\242\363\373$\003\207\345\267i\223\047\366\357\277\267\257}\201gt\371\270\363;\373\303\317y\233}\221\314\334\300\244\277%N\002;\343\275&\351\343\367\375\022\t\353\322\341\215\366[\366\3734\3702\220\273\307\327\311\374\341\377\317\316\331\021\337\351\032X\363\323\276\227`\334\356\354:\263\371\322\376\362\305\311\364\257\023\201\014\202\325\344C8&\312\226.\"\266P\316u\253\267\335\257\036\317\237L\332\303Pv\342\333\325\366G\264*\362\002\206pt+\235\031N{\307\311\220M\366\242\344\317(\357\023\303=\265\237\202\213\344\373BCJ9\346(\351\047\0368{q\303\030\273\010h\314\204}[\370B\373\312\047t\252A\003I\301\315;\007\031\035\267\307h\377\376\347#\314\027\321\353\327{\341\025\236\211\004\346\2170\2659\344\202s=C\244{\224\313]\307V\375\363\236\326\037:\033y\277\275\016\343\2017\336b+\032\235\020\211(\231\260=I)\340\244 \346\241\247\274\331\203?H\221\375\275s\264{&\325\206I\314\364\047E\372=P\373\331\321\rh\221T;F\2470C\375\361\310\332O\372\373G\306\331o\316\004\214\377\273=\373\342\344\t4W$j\2779\035\321$u\262\300\232.7!\351jp\356c\344\341\377\3031\243\027%\232|\177r\227\223\360\177\277\311\377n\000x\001\270\237\276\022\325d\351d\225\375\361\033XWF\3320\035`]\322.\254\0144\271e\337\242\000\261\034\325$}R\266W\327\3368\26176\271)|\227\330\220Q\216s\361\002\235A\274\377/\376G\247/\263\030\341o|>r\253\277u\244A\025\047`\375v\3541\374\213AG\"\255\356\002|\223\332\277q\004\222S<\035\373\020\233\222?#\373\343\215\337\002\315\220\016\216\000\337\355~\214\320<.\322\3421\354q(7\335\357\033g\234\302\320\376\321\211\326g#W\355\253\250f\337\371\363Q\343x\374\314\337\271\217\265\337\245\014\236""\252\331\267\276\352\033\375\346\321\327\307;\254\226\201\324\026\221\323\347\232\327\3463\3733\332^\346m%g\347t[\377\371_ju\327\276\213\224\345\350\326Q\365d\311^\377\341Mm\240k\335\241\377`\250\367(\355\027a\246LG\\\177B\352\201<#\274Pc\260\223\263PJ\357\273\362\003\2007\311\024e\366\361\004\317\204\323\235\267\347\331\343\212\030\312\351\026b\350\237\350\024y\304/\007\316\262\244\317\2179\017\364\353sR\342\342\274u\024\311\003\235nL\270\316\232\034\225H^\336D\347\263\001:`\236\205\236H4{\002\021K\034\034|\333\375=\024Kn\227\351N\277\261\235=\214\020\214\275\003\205\017\250\036\031Q\342\350\322\361\315\223\217`\231\366\312\252\264\311f\356\274\264_\376xN0\032\t\354\240/\366/\037\031G\373H\266\233\047Om\r9\374\317\366\317`\254i\233\233\366\346/\366/\177\267\377\376\337\277^\270\360\227\337)\277\013o\252E\3464m\277KG\037\224\336\374\017\315\047O\233";
+    PyObject *data = __Pyx_DecompressString(cstring, 10658, 1);
     #define __Pyx_DecompressString_LZSS_UNUSED
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) > 0 && (CYTHON_COMPRESS_STRINGS) <= 90 /* compression: lzss (15066 bytes) */
-static const char cstring[] = "\377\n\n    Pr\377oactor e\377vent loo\377p does n\377ot imple\375m\024\001add_re\377ader fam\377ily of m\377ethods r\377equired.\376M\002Registe\377ring an \3767\000itional\337 seleg\002th\346H\001 ft\000N\010sup\357port@\003To \377avoid th\177is warnL\001\317use:\262\002\267\001as\377yncio.se\353t_\271\002_\272\001_po\377licy(Win_dowsSm\004E\333\001\265L\333\000P\031\003))A\004[\377 at 0x b\373yt\363\000are a\317llow\313\000\r\003, ?but on\360\000\036\003\177]:  obj\307\000\377>!H\047_Fil\377eDescrip\376\304 Like\047(t\377ree frag\376\270!)) *, c\377url: (, \337multi\007\000..\373 S#\000https\347://\034\001\307\000/li\355b\047\001/c\002\005-er\377rors.htm\177l first\263\"\373mo\247\000detai\373ls\000H. Ple\177ase ope\271@\277n issu\013\000n\377 GitHub \277to hel\241`e\347bug\227C\234\002...\377.1.01.12\377.0: << D\377ATA< SSL\367<Me\253\000yVie\375w\262a<conti\337guous\235`d \035d\270`ct>\007\r\274@\022\004\177strided\"\010o or \004\031><(\t\326A\006>>\220\002>\221\001?A}dx\000ata f\300 \367ed.\014\001fiel\365d\t\005B\203!exce\331p\273\204\001\250\204\002cy\303A p\177ackageC\246`\337able[\371\000, \377None]Can\372\264\205\002u\277 local\037_path\341\003h\001\350`\377the same? time..\000\345\205\001?assign\331!\341\205\001\225-\351bm\261\"v\263 \036\004d\377uplicate\337 clos\216 ha\367ndl;\006perf\327orm\211\206\002e\243`on\376\022\023receive\377 websock\317et d\203!\027\025se\373nd\n\037urlm \353al\237\207\001y\230\004! q\357uitt\203\207\001fro\377m proces\373s_j\001Definoe ``\316\207\007``\307\207\006\272\341`b\342\000all\363@i\337n a b\357 grSou\210\000\277\207\003 \275\207\003.\277\210\003?Instan[\000\222\210\001\326\254\207\002cl\320  \023\000rt\226<\000se\361`d-\004\341\"u\340R\001\210\210\005\353\207\004\345\207\001\223\210\004is \373co\371\210\001tely \177hidden \301\002\276\273Auser;\271\211\002a\327ll \343@l\234\001s \342\271\207\001rW\000\367 \342Awraopped\317\211\010\047s\252\013\367Typ\316@lly \335u\314Avia\220 AdsdT\233\211\002\252\210\016``,\257\212""\002\336\215\210\001can \242 at\277tached\224\206\001aA z\000\242\211\002\223\211\004\311\212\002\217\212\003F\340\204\002\271 \312 \003\004to \000\007s\374\202`\342\207\002 buffe\351r\320\210\001\374\212\002f\356\"at \377Invalid \377mode, ex\377pected \047\373c\047\210\206\001\047fort\377ran\047, go\276#\007shapep\001a\377xis NOT \357DONE\245\205\001Not\377e that C\357ytho\343\207\001 de?libera\356\"\360\206\001\372_\000r!\001n PEPo-484\252\207\002re\367\211\001\337s sub\340Bes\336\207\214\001buil\350` t\377ypes. If\177 you ne\224#\371p\210b\047\007then \374\361\001\211\206\001\047annot\365a\240\214\001_<\000ing\047\370\215\210\004\242\205\001\243\"lse.O\366\201\207\003un\240\214\004ed: \277%sRead\371F \377returned\377 Tornado\206\351\214\006Un\252&\275\207\002\200\213\002\233\204\001t\334\233\"\217\205\t, p\345\211\032\nW\030\324`\325\215\001\246\216\010to\343\215\001\245\216\007\310\002 \223\"\352\207\001\321\205\022\300\216\004\306\204x \254\205\016\214\220\002\330\223\205+\231\217\001\346\206\003is\277\205\003au\347tom\313@\223\206\001y b\275y\204E; ap\272\211\003i\373on\274`hould\370\341\220\002\242a\207\221\002to re{fe\362`o it\222\214\004\273ly\335\207\005t i\364`a\253fe\201\215\001w\200Cy\254\221\tw\357ith \365\207\007, a\233ltd\000ghJ\001\316\212\003a\377kes sens\025e\371\221\002f\354\221\ns\215\205\003\265`\357\221\013\370\262P\364\221\016\273\003hemse\377lves (i.\037e. ``\200\221\004\337\222\005\376\220\006\367``)\373\222\003Clos\370\247\222\001\244c\341\207\031 also\314\366\213\003\304\210\001e \317\210\017\211\212\004Wr\\\334\206\001\314\221\003!= \353\213\004d\336\221\003\275.\310\223\001note\270\222\005A\177bstract\232\222\006\347col\245\223\001\244A.ab\255c\360\215\003/_\351\222\004_\256\212\006psxi\024\005\272\221\002pyx%\004\363ut\223\221\001\035\000dict\355[\221\222\020, \266\216\005]di\355s\302\216\001en\310\216\001gcg_etinf\376@s\014\003\357dlis.\022]no\377 default\377 __reduc\277e__ du\233bn\377on-trivi\373al\033\000cinit-_\266\001f.\240\216""\002c\360\207\002\276\212\001\177convert\273\212\005\361P\212\211\003\333\223\003\235\225\002pick\177lingsel:\000\371r\267\217\001\t2t cac|g\000\351\212\001proxy\006\007oopt \365\210\003.A\321\225\001wGen\205\212\001or[\322\220\001\322\325\220\004u\234\"\344\213\002l\330\220\001te\277 array\272\217\002.\344\013\020\371\212\003a\260\216\001\275\222\002s.{\337:02X}\002\001x}\377<lambda>\037ASCII\362N\353\214\027\205\215\027\367.__\272@attr\017ibut\211@\016\032\214C3\030\374\351\230\007\006\034writer\370}\030\252\222\002\235\030remov\261e\331\231\004\006\037i\004ny\247BCWurl\000\006.\200\204\006c\323\215\002\373__\017\tsetst\371a\227 \n\020check\371_\347\227\002C\010force\035_\246\224\001out\\\007\212\233\001\367\223\003\020p\007\337\003\217\232\001\216\001.\342\222\t\225\007\343\004\334,\r\202\224\003_ac\245\233\001CU\377RLAUTH_A{NY\000\tSAFE\022\007\377WS_SIGV4\276%\006BASIC\004\007E\357ARERB\006DIG\267EST\000\014_IF\007G\237SSAPIr\006\014\000N\177EGOTIATj\007\356\000\017NON\024\010TLM\272\263\006N\n\000_WB\303\006O\373NL\310\002E_ABO\377RTED_BY_\377CALLBACK\274\356\001\026\000GAIN\004\004L\357READ\036\000OMP\343LE}\0037\000\221!ERR}O\323\002E_BAD>\002\377ING_ORDE\376\013\tONTENT_\037ENCOD\035\000\\\003-\001\277DOWNLO7\000R\337ESUME\017\007FU\377NCTION_A\333RG\026\000NT*\007PA\347SSW_\000L\000TER\373ED\252\003CHUNK\337_FAIL\t\006ON\275V\000\016_REQ*\005OwULD\223\000CON\265 \362Z\004C\016\004\215\000OLVE\357_HOS\003\024PRO\335X\276$ECHT\001UI\274\205\006\202\003_INI\262\004F\376\225\000SIZE_EXOCEED\256\005\023\001_j\007\370\300 %\001\374#FTP_A\237CCEPT\312\n\014\010T\277IMEOUT!\013S?S_DENIY\006C\000r\3216F\026\004\202\002LIS@\010;CA\256@GET\367\010\215\001\006\022\002RE\247*\023\002\306$.\001\344\001\234\271\007\310\047TR_\320\013\345%S\360d\000\364\211\002$\017\027\001BINA{RY\006\023TYPE#\020;TOT\025USE\201`\336\t\177PARTIAL\215\014wPOR\346/PRE\373/\217QUOT\325@\200\205\007\265AS\263SL\245Nx\000R_\265\204\006I\317NCOR\307 \264HWE\377IRD_227_\237FORMA\t\016\366\204""\001_\317REPL\202(.\003PA\373SV\004\023SERVE1R \023\214\002@\rRI\277\014\202\206\005\267NOT\225\000UN\352\205\004G\336\014\000NOTH\307\206\006HT\347TP2\267\207\003\006\002_ST\257REAM\010\0073\023\007_\344>\0148\001_\342.\017\004ST_|\335\207\010&\002RANGE\004\017\177ETURNED#\t\377INTERFAC\375E\217\207\nLDAP_C\303AN\320\001\334`\275\207\004\021\002IN\377VALID_UR\371L\204\211\003\047\002SEARC\375H6\013IBRARY\276\273\rLOGIN\366\205\nM\213AL\312C_\376A\331\211\003t\002U\357ILT_\336\211\005NO_\374\203\210\004\362\210\002VAILAB=L\214\211\004OBSO\361\211\007\006\005S10\246\212\003\007\0062\001\0146\022\013\2552!\01424\021\0149B\0133jA\0143!\0144q\01441\202\013\2514 \r\201\0145\261\01451\0145\2657\322\0136\321\01475\362\0137|\350\005\275\214\004OPERA\301\213\002r\246\211\001D\242\211\006\n\013OUT\275\213\005\377OUT_OF_M\347EMO\351\207\005\214\207\017PEE\375R\342\213\004_VERIF\343IC`\002\262\215\003\214\213\010QUI\201C\314E\266\204\t\240\207\016\275\204\016\354\215\001\350\204\tR\376\347\217\001SIVE_APyI\244\216\002\237\216\003RECV\032\013\261M\210\210\001\262\213\001\370\212\014RE\025\002D\177ISK_FUL\324\204\004\374\017\004\201\214\002EXISTS\360P\005C\002\231\214\002\350\206\014RTSP\237_CSEQ\223\n\021\001S\347ESS\256\216\001\211\217\010SEN\370\200\206\n\013\002\240\216\001_REWI\276\302\207\005SETOP\366 P~\354\216\002SYNTAX\377\217\003\377SHARE_IN\354\265\205\001\013\004SH\001\005L_C\037ACERT\000\r\206\220\001\274\215\007\374\205\212\001\"\001PROBLE\235M2\010IPH\235\220\005 \002L\017IENTB\014\225\217\003\363\207\tK\002\373RLS\017ENGIN\306\251\001IT\372\217\t\205\213\001\024\004NOgTFO\267\211\006\016\010SE\"\016\374\377\207\004\334\001STATUS~\354\007ISSUER\204\r\350\221\204\002\213!\212\204\003E\234\047PIN\377NEDPUBKE\317YNOT\324\213\001\271(SH\363UT\202\222\001\256\221\nTELN\005E\3752T\222\220\001\302a\273g\016\002\262i~\037\002ILLEGA\274\211\004~1\002NOSUCH\371\210\0078\016\004\210)Y\002PER\256\213\004h\002\377UNKNOWNI\376\341\222\004TOO_LAR\371G\245\223\004\013\001MANY_""\217REDI\312\215\001\273\204\004/\004_\201O\320b\315\224\003\014\005\321\n\023\005\320\220\001V\273ER\357\211\001_PO\231\205\005U\337NSUPP\235\225\003PR\337OTOCO\217\213\004UP\004\263\224\002\345\223\tU\224`\343\212\006l\004\007\t\364\212\010P\202\220\001\223\217\r\370\216\003\236\216\017W\204\216\013F\232\000\317OW_A\276\206\003\007\004FI\347RST\316\226\005\033\004OBE\217YCOD\241\230\002.\004\255\230\005I\377NFO_ACTI\177VESOCKE\207\230\002\026\017\003PP\211\225\004_\332\223\001\372\230\001\004\021\315_(\007CAJ\001 \006CA\357PATH\005\007ERT\336\022\013ONDI\325\226\002UN\341Mn\010a\022\177\tg\tONN\351_\213c\305\002C\331\227\004LEN\017GTH_\315\227\005\212\007\n\023D\013 \235\230\002;\004\327C(\025\364DTO\016\205\224\005~\216\004OKIECH\246\220\001\001S\200\010\022\001\343\225\005\203B\226\264\001\377\216\004\006\007|\320\226\004\244BEARLY!\002yS\302\231\001\243GEFFE\300B\035_\307 HOD\245F\017\007\277\220\004\002B\003N\030\007\214\230\001\324J\t\005\317H\375\227\001\277ENTRY_\306JH\037EADER\246\t\013\004\250\t\000\036\004\203\227\005\354b\235\223\001\305\235\003\331\220\001\322f\016\006\017USED\t\n\211\221\005\276\204\005=\006X\364\215\001\350\213\001\226\204\006LA\373\204\001E\003\n\376\313\204\014LOCAL_I\341P*\007\014\002\344\226\001\335\204\006NAM\177ELOOKUP\360\204\013p\t\014\363\204\010\354\235\005\315\205\002NUM\274\222\005\266\350GOS\272\224\001NO\302\205\006P\377OSTTRANS\007FER\340\205\002\302\205\010\335\227\001\017\t+\007\233RE\032\027IM\204\224\001\320\010P\021R\r\003\320\n\022\000V\272\237\004\373\206\002\304\210\t\006\t\005XY\216P\345\234\002\377\240\002\225J\374\234\002\244\220\226\0079\007_\371\230\001\225\221\002Y\323\236\001L>\324\207\007QUEUE\344\r\262\212\005\362\204\235\001N\200\210\007\016\006HIST \210\222\004\263\210\002\047\006\224\210\n\t\n_4\020\376\204\t\303RE\371 \213\242\003L\004\227\000ST\375_\242\204\nRESPON\347SE_\362j\204AY_A\003FT3\t\217\221\002\273\217\002\226\221\002\255\211\006\243\221\007\200\246\222\001\t\013\222\232\004\307\221""\001\t\r\302\221\003\326\210\010S\317CHEM\324\204\007\304\237\002DE\007LIV\370\240\005\314\212\002\021\003\313\241\004\261\212\006\300\t\n\255\212\010\211\240\002\332\210\014\t\010\036\tPE\013ED\304\211\017S\n\n\037\016K\r@\002\000\252\211\016\244\235\001\361\210\r\013\006\371\210\t\276\221\007\303\211\007\317v\017STAR\326\205\013\205\047\n\016\301\214\010\367TEX\201\215\007TLS_\370\315\224\004\376\214\006\017\002SL_PT\275R\n\007OTAL\240\215\013TH\n\006\236\215\010\333\210\001_\255\243\006\376\215\002X\377\206\001\342\324\220\003M\377\224\001\277\244\003\300\214\004PEN\017ALTY\214\204\006\034\003\335\214\013\017\022\007MAX\315\244\004\312\226\002U\002\021\000\333\233\001\017CURR\206\246\001\225\236\003\021\013\347\244\001\334\370\233\010.\013PIP\355`NE\201_\336\215\003\222\251\001O\006\350\003\263\234\007l\007N\177ETWORK_\200\215\003}D-\006NOTIF\316\214\002\200\004\014\357\246\005W\006q\004\256\247\004\240\"\t\007_6\326\240\004BL\035\020_S\305\240\001\017\t\007USH\202\303\001R\007\016\000`\016\261\232\001\217K_EX\263\246\003\221B\204\247\005T\035H\204\251\001S_M\231\230\003\255B\271\221\003\020J\n\314\221\003\271\016\251\246\001Rs\n\r\002\345\n/SG_D\276\252\004M\t\000\322\214\001\360\345\"\025\000\325\252\005\246\231\001ABST\377RACT_UNI\303X_\270\222\007\027\002\255\247\002\223\247\004_M\360\314\232\002\016\007\366\251\nF\002DDRE?SS_SCO\303\245\003[\002\317LTSV\271\254\002\004\007_C9T\213\241\003|\002PPE\202\243\003\212\002\207UTO\307\211\010\235\002\205\255\t\331\232\001B\037UFFER\222\247\005\347\204\002\257\223\006\036\004\007_BLO\241\254\002\033\003\302\223\005\004)\003\353\232\001H\270\213\003\356\250\004\256\205\002\326\223\010\271\205\007\017BGN_\300i\323\205\007\372E\345\205\007\374\240\234\001\033\016LOSEPO\007LIC\360\256\002\227\206\002\017\001\341K\010\014\000`\016\323\253\003\233\252\010\337\206\002\t\n\227H\360\225\005\225\256\005\346\"\010_T\272\217\0028\004V_F\217ROM_\325\205\005d\020\033\004UoTF8_\n\022TO$\030\016\263\224\002URL\250\003\302\224\001""\215\254\005\010\007\003JA\312\260\002\031\007\266\253\005+\007\261\211\010\362\003\373PY\367\220\001FIELD>\216\204\006CRLFCd\005\t\000yI\354\244\003\210\211\002URLU\023\006\177USTOMRE\243\216\002>)\005DEBUG\305I\014\002\376\350MDEFAULT9_\264\232\t\354\237\001DIR\357\254\001\343)\377DISALLOWp\244\246\002\211\223\001\367\237\002\356\204\007DNS\360s\240\025\001\341\247\006\226\006+\000\356\223\0054\001\0216\364\036\t\243\252\003S\006\nHUFF/LE_A\237\206\003E\020\n\305\254\001\337GLOBA\203\241\002HE\006\214&OH\366\221\010\270\260\005\354\002\r\n\303\244\001\350\036\023\347\237\007.\005U\361\206\007ECH\016\250EEGD\356\207\013\324\262\t\316\242\001\231\263\002\374\364\206\003+\006XPECT_\317100_\222\210\017\272\262\001ON\240\313\263\006\221\243\001\356i\250\230\t\027\002N\307\240\002_\002\307\206\tF\r\004\355\206\r\260\235\003\200\227\001\322\263\001\352e\377FORBID_R\357EUSE\t\010M_B\370\244\242\001\356\257\004\202\002RESH_\334\237\263\010\227\002TPA\374\210\nFT\235P\302mFTP\332\227\005,\004S1S\313\267\002z\006\340\262\003OU\335\264\003Q\004\377_ALTERNA\316\236\236\001_TO\260\253\006\027\005CR\377EATE_MIS=S\354\265\001DIRSE\t\352\263\001\340\211\233\007L\005\310\224\006\203\210\014\253\260\002KIPr\230\260\001V\233\231\004\200\005SSL\236\tf\311\245\002CC\261\t\315\261\001EP\201\246\003\014\266\005\016\003SV\030\r\274\261\001\346\206\005\336\270\003\247_DE\244\243\001\211IH\322 Y\377_EYEBALL\301S\224p\036\000\370\265\001\300\206\r\020\004_C\000\203\226\003\344\232\003\325\247\001\253\234\003\336\207\005\271\234\003\373\212\t\313\234\003\034\237\213\r\341\234\003OPT0\006\230\251\004N\002\207STS\221\271\001:\n\r\0048\016S\003TS\277\242\002\035\r\324\242\002\032\021\337\215\n\323\261\001\03309\354\242\001OW\347\270\003\317\002\351\261\001\17700ALIAS\216\207\007\376\362\261\003NO_PRIO\347RIT\264\214\006\213\262\003PSE/UDO_\273\236\003S\234\272\007H\006\377_SETTING`\255\217\006\275\262\t\006\014\274\252\001\246\211\001PD\217\274\004\346\217\0053_\206\263\001\346,TTP,\014\tj\0173_""~\0353\211\022\023\000\377IG_HASH_\353AL\253\0133\204\234\002EC_oCURV\227+3_\332\226\001\037EXTEN\257\254\002\250\274\006\324%<\357\276\001\251fTTPB\344 \301\017\007GET\031\t\342\017\222\241\005\210\275\005\263E\361P\320\273\004\007\006\311\273\001TUNNkELj\t_\322\244\005DE\260\275\007\322\367E_\274\237\006\t\022V\353\221\001ON\376\325\215\005IGNORE_\374\235\245\013\024\006MPERSO\rN\277HIN\351\216\t\010\003\263\222\t\010\007\360\205\252\007\302\256\001\365\214\016\374\265\002LEAV\361E\357\221\t\014\007\227\222\rIOCT\021L\036\n\r\001\025\016P\233\276\004\327\006\221\255\002\360\210\257\005\205\002\t\006\312\223\nKEEP\331_\225\260\001\244\300\002N_\342\213\nKE\365Y\332\277\002D\214\220\005KRB4\007LEV\215G\016\000\003\n\322\243\002\327\212\t\000\010\006\237\270\002\324\220\005\220\267\003\210\254\003\213\226\006\346\217\001\300\235\003\017LIMI\340\207\006\r\007\373\251\005\233\261\001\037MAIL_\213\204\t\014\002\206\223\001\214\270\221\005\035\002RC\250\210\007\010\006\252\253\001L\213OW\232\301\001S\035\016\325\207\003\r\014XCAG\250b\267f\306\233\014\214\003X\317\300\005\370y\007\n\006\211kMAXLI\203FE\256\300\001\342\270\002&\010\265\256\002\214\010XA_\322\264\002\222$\343\256\005j\004\265B_\010\021\367IME\312\205\tMIME=_\341,NETR\316\230\006\010\002\275_\316\224\tNEW_\277\257\003OF\360\250\001ER\264\231\007\027\001\247\302\002P\t\n\357OBOD\230\227\006NOPGROG\312\231\001\311\224\005\r\002X\026\010\037SIGNA\310\215\006\315\272\005\301\271\003\354\376\264\002\340\272\00472\214\225\005OPE\201N\343\227\017\014\007\325\230\r\225\305\005\314\225\005\211\256\001_\317AS_I\200\233\006\206\263\006LIgCKE\326\230\006\335\236\001WA\373g\270\252\220\t\242\210\t\272\250\001301W\006OsST\304\226\013\332\226\007IZE\025\017\002\200\305\001L\311I\213\251\001\276\301\002G\t\311\262\002\273\006\266\363\226\001OTC\007RE\302\306\001A\273TA\027\010REQ\373\016R\001E\346\241\007\336\267\001\367\250\010\t\003\251C\207\233\t\273E\220:\017\367\262\003\275\047\207\263\004S\343\300\001\240\007O\200""\345G\256\251\006\021\n\377\217\013\300\307\002\243N\331\220\002O0\311\221\007\346\307\002\342\304\005\263\004XY\313\303\001\255\254\001\334p\n\340\303\001PWD\204\n_C\200\336\235\n\262\252\003\261\262\003\344\235\n\021\005\353\235\t&\004RoEDEN\241\305\002NO\241\225\013\022\031\005L\230\233\t\225\253\003I\202\212\016\010\rl\020\340\361\211\016\341\253\003\236\204\025\201\312\001\202\243\002ICE\301_\375\016\206\254\001\207\213\t\255\254\003\320\224\001ERqT\300.&\005\2020SSL\240\205\t8p\003\017\0021\022KEY/\023\206\216\014\026\207\006_C\211\274\002_\272\235\t\023\007\250\213\014\300,\007\337\255\003\330\232\t\014\r\332\232\t\253\256\003TL\327S13i\004S\232kTL\tS\346\320\002\374r_\026\005\246/0\005\375r\022\235\220\007M\206\270\004\206\206\002U\317\225\006\344\245\013\206\277\001\206\263\301\003ID\342\247\010\016\006\265\261\002\230\312\002P\177ARAMETE\361\230\007~\272\207\nRANDOM\324\212\n\000\205\216\n\257\226\r\340\320\001\243\243\r\320\273\002\260\237\006\303\245\006\010\014\030\366\206\t\371\244\014\252\240\004_T\256\274\001\301\227\006\254\220\014\006\345\317\004R_\262\254\002\302\234\n\014\014\216\017\262\321\001\201_\371\216\t\303\321\003\234\243\003\333\211\n\265\302\001\374\230\013R\000\244\260\020\205\302\001\336\302\002\334\241\014\362\302\002\244\260\014#\006\362\302\005\361I\256\221\006)\003\373\312\002_URIp\332\242\005\270\303\002\271F\360\242\005SAS\324\220\003\351Z7\007\017\002I\333\243\006SEE\001K\256\246\t\014\001\320\246\r\341\314\006\260\262\004\351\245\014\010\024\340\230\251\010\247\315\001\267\207\r\375\303\002\240\006OCK\307OPT|\n\r\003{\016OC\227KS5\242\222\nS\r\003\360\234\004N\203ECJ\t)\000\211\235\004~\004\223&P?LIT_CO\310\273\001\303\252\006\341S\351\230\001\220\330\001\372\320\001\t\nCOM\340\225\225\001\224\271\005\323\305\001)\001\302\324\001KEY\216\265*SH_\020\004\270.\024\004_\177PUBLIC_\312\210\001\347MD5\246F\014\020SHA\347256\026\t\\\020KEY\000W\021\332\302\002\344\325\001\323\n\247\270\004y\001\362\247\t\367\001\004\215\007\014\013L""\362\226\t\336\212\004\300\226\013\347\212\020\206\213\004\216\355\253\nSSL\310\306\003\351\007\n\004_\340\306\247\004\016\010\271\221\010\240\213\003b\016KEY\240\261\216\t\306\213\003a\r\240\232\014\257\310\005_\275RL\214\234\213\021\345\310\002TX\202\245\n\014\005\321OL\361_\210\235\016\245\310\003\375\304\002ALPN\256\362\010_EN\017\005S\004\020N\306\030\022TI\322\303\005\201\204\003\215\325\001LSAE\227\266\002P\t\206\231\014\266\325\001\377\306\001U\321\325\001\030\231\236\005i\n\342\313\004ID\214\257\003\234\t\334\225\002\317TURE\211\237\001\376\240\001HM\000-\013\230\237\021\245\274\007\242\251\t\273\274\007\236\251\t\321\274\007\230\251\013\237STDER\245\210\007\364\210\003D\021E\243\261\001\255\206\007\t\n_\251\252\006\242\325\003\226\333\001\343LU\341\316\001\217\211\006\272\211\003WEI\003GH\375\243\006\214\310\001\255\262\002\237\306\005\307\242\004\275\255\005\337TCP_F\212\301\001PEIN\010\t\363\234\001A\256\273\001\005\rC\357\247\007\3148\001\233\235\001ID\374\255\007\013\006NT\373VLY\tNODEL\341A\226\261\006\255\313\003\322\234\014\251\313\002BLK\000\354\262\t\205\313\004\214\232\r\351\307\002\224\307\005\304\006\327\334\007\236\317\001|\304\264\017\376\334\001VALUE&\t\000\014\002\210\240\013\340\220\022\327\220\025\325\220\021\313\220\025\241\273\001\274\250\004\017ED_C\237\225\006\357\265\006\315\243\030\335\273\001\017GREA\362\253\007\357\273\001\270\223\001\363\320\0023S_\211\237\n\024\005US\227\236\001\252\327\0013HE\247\342\003\226\"LS\263\235\001\223\341\001p\342\337\002*\016\367\233\001\236\001ERT\325\312\002\237STAMP\231\n\342\317\003_\360\325\261\014\202\275\001\260\335\001\231\235\001ALPS\256\211\301\002POI\253hR\361\341\001R\002\315\265\tT\r\003\362\265\r\356\304\005\337\275\005\317B\202\305\005\364\255\257\r\321\270\010_\375\266\tUNRE\237STRIC\263\344\001\233\246\tU9P\326\242\002\354\332\002VAL\361\270\010\305\312\0070\344\323\001\263\316\004\200\270\017\313\316\005LA\367\250\007\357\260\010\016\273\336\001AGE\236\256\007\361\231\r\355\231\014""\335\316\004\276\326\264\005VERBO\335\257\007W\177ILDCARD\206\322\006\000\377\324\001\226\253\016\216\253\022\214\317\002\307\254\013\237\317\002\200\316\005E\002eS\363\251\020W\t\t\361\252\013WS\235\241\r\016\317\350\001SL_\336\325\001\361\213\021\030\004\256\265\001\003BL\320\306\001\341\212\t\324\300\001\340\317\001\341\271\t\014\005v\207\272\rXO\333\351\0012_B\233\351\006\003PA\241\342\001\332\320\004\007\003\336\316\001\206\352\001\025\003\024\305\305\005\004\007_\023\013S\227\274\004D\003\201\330\002\2169\006IPE\234\254\002\247\334\002\323\300\001_\377MULTIPLE\000\360\327\002\r\002\315\340\010\343\221\006\362F\010\007\214\353\003\205\222\006\300\221\217\010\231\222\006\300\352\007\254\222\006\313\347\005\275\222\006KE\007YBO\210`\347\353\001\322\222\006\305\352\005\343\222\006p\316\242\t\013\007\235\222\002\300\242\004WS_\241\345\007\237WS_CL\351d\010\001O\336\275\351\003WS_N\355!OP\347ONG\330\354\001\365AFFS>\375\322\003WS_PI\017\006\030\010\357RAW_\267\232\005WS_\376\240\305\005_CA_BUN\004\250\213\004\223\333\001L\332\266\001\203\215\004\007\006\303\353\003\026\006\010\254\350\004\317\342\003\353\311\006_\264\266\004\366\352\001\303\352\002\366\355\001\030\010\n\261\330\006\036\nNO\016\007\302\343\002\362\254\004\027_1_\232\341\002_\006\014\237\340\002\007\013\214\261\344\002\004\014TL\207\335\002\032\014?\0212:\350\261\003_\243\330\001LED\224\330\003h\013\200\365\344\002\004\014\374\355\005\222\013\353\302\005\250\013\322\356\005_\205I\357\254\005_\346\357\003\005\t\350\342\002\027\010W\037HATEV\361\357\003\316\330\002\344\343\004\010\004\005\377%\352\330\001_Y\006\t\002\016\n\267\337\001\rV\347\360\002_P\365\245\002\235B\264\357\002\236B*\n\010O\270\357\002_\303\235\005_\033\007\n\006\020\330\206\002\326B\274\232\005\204\346\001T\335\232\001\010\013\307\356\001@\032\013W\004\254\330\003\354\357\001A\003\274\330\002_\201\355\010\340\374\317\001\375E\245\226\010\013\t\336&SSL\200\250e\237\311\001\030\024\272\311\001\033\025\223F<\014T\007LSv\373e\006\022""\203\204\003!\022\213\204\003x<\022\305c\254\010SSLv\037\016\200\021\001\031\016\215\002\365#\354\007\220\024\270\0031\002\030\0232/\023\340\204\003\361\216\010\365H\n\t\237d\344\366\270\006\324\352\007_\n\007\242call\376\212\375\001Cancell\377edErrorC\357ondi\227\366\002url\340\332\366\002\327\367\016\017\004\322\367\016(\003get\333_cX\000ba\341\367\001xc\373epF\005.clea\373n_\310\367\003s_and\377_buffers\370\302\367\002\266\371\002\314\367\002debug\306\004\003up\367\367\003\344\367\002W\001re\377ason_phr\307ase\016\005\302\376\001\206\370\002im\275pL\000onat\026\003p\377arse_coo\377kie_head\370e\005\023\003\237\371\001us_li\205n\047\005uN\004D\000\271\376\001\333\370\002r\357eset\345\370\002set\373op\005\003upkeeup\373\370\002v\277\000ion\207\371\002\347ws_\276\007\n\000met\275a\021\005recv\035\005s\347end\313\372\001\356#url\316\370\".__\270\377\003\346\372\001MiKme\000\005.\3602\036\001.\347\377\001\\\335\372\014-\006add\377\000t\006\007\037ttachL\006\351&D\002\257from\210 s\346\002W?arning\327\306\005\207\347\003\377EBADFEll\337ipsis\361\320\001SH\377OW_BYTES\377MY_ATTRI\323BU\n\000\306\377\001O\362Bal\377PREFIXES\337PROAC\266\363\001WA\377RNINGPat\377hProacto\377rEventLo\373op\016\000tocol\376\264\226\001ON_PHRA\204\315\363\002\224\310\004S\211\215\007\272\236\006\367\366\002\300\346\002_\375L\237\347\001RESele\026R\001Th\251`d\000\013\330&\000\024\377.<locals\375>\006\000ambda>\372\010\036tb\002_mana\377ger_anex\375te\rconsum\177e_waker\202\r&\330\375\003_e\201!\005\024s\316\002\273\r\357run_\004\023sta\203rt\005\024\242\013\217-\236\001N\004o\350\232\r\207\377\001\317!e\005\021wri\001t\313\016\244\377\002\363,\221\377\0044\022\255\377\004D\005\377quenceSi\237mpleC\277\206\002\316CT\377ypeVarUn\377ionView.\277Memory\007\001W\277SAENOT\365\345\001W?SFrame\000\004\260\205\017\324\017\007\271\210\016W\353\232\002V\365\377\001EN\377DWeakKeywDic\224\211\001ary\r\001\277Set__C\341\210\004C\007ont\364@\000\r\244\206\017\017\020\266\211\016\377_FileDes\377criptorL""\177ike_Has\022\001\233no\000\007.f$\000\016\000T\237__Pyx\001\000\234\001_\275N\373`Ref_\202\204\003_\375_\005\001notate\356\007\002wai\264\000__c\317lass\032\001\003\003ge\225t\273@m+\001d\343\000\003\002oUc:\001e\326\000r\004\002x4\003\267fun\024\002geR\000toribuU\003ge\376\207\004>q\000imporc\002\310\210\003?__main\211\001\213\211\001\276s\006modul\223\002m_ro_enK\000e\220\002\271n\264@\267\001new\276\001p_repar\274\002p\347\000\177checksu\253\000>\n\001resul\210@\026\001is\342\003!\001t\240`__+\001\277unpicke\000Ean,\005\n\006\260N-\002vt\223\215\001\336\270!qual\205\005re\347duc\301\"\003\004cyt\263ho\321\002\024\004ex\354!s\227et_\271\005s\212(\326O_Wtes\212Aa\271`i\252\215\010\206\334\002_e\212\216\001\307\213\003\210\206\006\257\215\002l\327oop\337\213\003d\347\213\002in\371g\027\007\335\207\n_defa\376\232!cacert_\356\327Bfor\304\000tim_eout_\230\216\023_\210\210\t\374\005\005\377\207\003_is_co\275r9\000ine_\211\207\003s\306\004\001l_\224\002\213\210\007\225\210\004_a\367rgs\004\005cond\314\304\007\321\210\003or5\002\034\005or\004+\000\265\210\010_\332\211\004\331\211\014\350\211\014\276\211\004\262\210\n\266\351\211\003_r\001\004w_\236\210\003sgaab\216 \307\206\002dd\321\210\001`\214\220\003\325\210\007\345\210\001\312\210\003\272\215\004al\223\213\001\363te\251\220\004\316\001asynWcio\000\004.\212&s\022\004\344\211\"\324Ca\361\215\002\214\221\001sla\277shrepl\215@b\377aseboolb\327yte\000\001s\000\002_t\337o_hex\376\213\007ge\277nexprc\275Cc\371a\362\206\001\333\221\001_late=r\005\002soon\000\006\250$\257safe\376\221\005c\334\222\002c\376\337\222\005categor\177ycb_map\225a\047ifi\202\222\026\260\222\001r\000\002\270\221\005\376\007\003resolve\375c\270\221\001_in_tr\366\317\002ck\302\222\002clsc\277odecol\210\216\001i\357ons.\362 com\367pil\023\000nfig\363_w\335\217\003&\000nten\353t_\257\206\001c\303\211\003lib\376\256\222\003countcr\375e\274\210\001future\376\006\004taskcurol_cy\003\001._\t\001\377daemonda\023ta\275\223\002\302\223\002_\255\210\001\314""\224\001\205\205\005\306\222\001de\223\205\004\231\205\005\224\223\004di\377scarddon\373ed\275\207\002is_ob\337jectd\201\224\005ee\375n\326\001enumer\273at\014\000vir-\000r\375r\022\002rrmsge\317rrno\273\206\002\300\206\002se\277v_bitm\260\000e\376\210\225\005existsf9d\301\212\001\304\212\002ame\313\212\003\323\212\001?sflags\375\223\001\201\224\001\337atfor\335 nf\220\314\214\001\236\222\006\324\002\276`s\223#\242dg\363et\376\225\001\362\206\005veri\377fy_paths\014\256\225\016\313\225\002un\345\222\001\270\206\002\267\226\001\214\206\005\360\000\t\214\221\007\370\207\025\275\213\001nfog\377etprefer\371r\336 \244!inggr\361o\275\226\005\373\225\003\200\226\004hex_\377strhttp.\352\233\226\003s\010\001_\307\225\004idi\337gnore\307\226\010in\375d\264 ntis_p\353ro\255\214\001s\000\002ize\377joinkeys\375k\322`gsload\310\303\222\002\363\002\315\222\002e\262\211\001\260\211\007lo\377wermmatc\377hmemview\377messagem\347ode\277@\376\213\001ndi\235m\311\222\001not\300 \204`o\373no\307\230\002ospacqk\307\227\021\305\227\016\372\225\001ial\373!\376\377!libpaus\317epay\240\001\336\227\004pl\376\335Bmpoppos\317tfix\301!\002\001in\026\315 oc\230\000_\322\204\001\324 \317\224\001\307rea\347\211\003\206\231\003\323\227\001reyg\315`\364!move\334\231\004\370\335\221\n\316\221\n\315\230\002retur\177nrsseek\333\223\003\016\202\212\013elf\242\230\001\314\214\001\256\204\006\331\214\001\376\354\215\003setbloc\177kingset\342\213\004~\232\231\003shapes\261\222\002\357filt\232\231\001zes\337leeps.\000et\346\000\003_a\312\221\002\r\003pai\375r\031\001fdssls[ta\255\216\001ve\006\001r\330\230\001\236\002\000with\333\216\002\260\232\001i\177cmethod\271\232\004\364\347\207\001\300\232\010s\214\000rrst\316m\000top\341`\344`ic\325t\352`u\003\000u\236\233\001up\333pr\356@sy\246\225\001ge\361t\272\222\001\265\226\021\327\226\003ingt\277hrowto\354\214\002t}o\304\213\003tuple\344\217\002\377typingun~\224aupdate\231\233\003\357use_\237\235\005val+ue\000\002s\252\233\004w\212\222\001\202\211\001\376\202""\211\005weakref\377wherewin6\000\00032\323\225\002ws\320\233\005\314\233\004\335w\357\215\001cvw\325\215\001nd\367xxs\373\366\001/(\\d\377\\.\\d) ([\1770-9]{3}\010\000\247.*)\030\002\026\003 \022\005 \375(\026\000Oaset-\376\231\235\003: \200\001\330\004\n\357\210+\220Q\005\001.\250a\367\250v\260\010\000\340\004\010\210\377\013\2201\320\024%\320%\3777\260q\330\010\017\210r\377\220\030\230\024\230Q\230a\377\330\010\013\2105\220\004\220\377B\220e\2307\240!\240\3771\330\014\023\2201\360\006\377\000\005\020\210s\320\022+\377\2501\330\004\007\200x\210\377x\220t\2302\230U\240\177\047\250\021\250(\260!@\001\367x\220q$\001\014\2107\220\377&\230\001\200\001\340\004\013\277\210;\220m\2401\007\001\037\377\230q\320 0\260\013\270\377;\300k\320QR\330\004\377\023\320\023#\2408\2501{\250AM\001|\2207\230B\000\3772\260!\3203F\300n\317\320TU\330;\0007\000\360\010\367\000\n\033\027\001\021\220\024\220\377[\240\004\240A\330\010\020\377\220\007\220q\230\006\230l\373\250!\211\001v\210W\220E\336\272\001\330\010\022\220\207\000\027\220\357q\340\010\027\235\000:\240W\377\250E\260\023\260D\270\013\347\3007\310\047\002\351\001\320\0171\377\260\024\260Q\260g\270[\327\310\007\310)\000\017\006\t\001\200\376_\000\013\2104\210w\220c\373\230\021\371\002\340\r\016\330\014\377\026\320\026\047\240q\250\004\324\255\000\255 q \0038\262\002\014\r\377\330\010&\320&:\270!\177\2701\330\010\032\230#\225 \366\267 \240C-\000\003\2504\250\373u\260\262\000\016\210i\220q\377\330\014\030\230\001\320\031*\377\250!\250:\260Q\3206\337J\310!\3101m\0013\260\377=\300\001\300\024\300Q\330\177\010\026\220i\230q\240\203\001\377\0221\260\021\330\t\n\330\337\010\014\210E\220\210\000\020\220\377\016\230a\230s\240$\2409a\000\021$\001N\230!\275\000.\010\377I\220Q\220f\230I\240\177X\250Q\250k\270\021H\001\373O\230o\00101\340\010\014\237\320\014\034\230F\341B\320\001\220\377\006\220a\220v\230W\240\375A\201 01\360\n\000\t\377\r\210N\230&\240\001\240\3606\000\220!\276\000\265@*\250#\250\376\246\000\013\2101\210F\220!\373\2203\243#""\033\2301\330\r\377\016\210f\220A\220S\230%\003\n\000\014\000\017!\000\340\022\002\343\000\376\333 \230!\2306\240\021\240\356\273`\021\220\021\261a\230\021\340\177\010\017\210~\230]\250\304\000\373\340\010\203At\2201\330\014\375\024\336@\021\330\020D\300M\377\320Q\\\320\\]\340\014\371\r\273\000\231\000!\2308\2401\347\360\016\000\243 \203@\020\037\320\377\0374\260A\260T\270\031\377\300!\3001\340\020\023\220\3779\230C\230q\330\024\025\375\330\t\0008\2305\240\007\240\374\013\000\361\001$\240k\260\021\260\377+\270W\300H\310A\330\377\024\036\230h\240e\2501\377\330\024)\250\025\320.F\377\300a\330\024\027\320\027*{\250\047\200@\030\034\230N\257@\3777\260!\330\031!\240\023\327\240A\330\017\000K\212`\001\340\356\022\006%\260{p\0009\310A\377\340\024\031\230\021\230!\330\377\023\024\330\020\030\230\005\230uQz\000\340}\000\024\037\230\262`\346\262\001G\220\360@\003\0035\320\030l\211`\335AG\220\t\0000\260\373`\346\220DA\330\231C\207\204\004q\330\021\377\022\330\024$\240A\240T\235\250\207a\320\020\"\264!\245\204\001z\277\230\023\230A\330\020\022\007\220\363\014\230\277@\306!{\230-\240\270q\002\272\205\001\256B7\220\047\322\204\001\030\376u\001&\260\001\330\014\017\210\177z\230\027\240\001\330\020\262\205\002\260\000%\000M\000\235\230\201%\017\210\340B\035\177\230T\240\034\250Q\250\312\211\002\3777\220$\220d\230&\240\377\005\240S\250\004\250D\260\257\006\260j\300\366 \022\206A\200\363A\340\264\204\001\341\206\003\t\330\014\027\273\220v\201\212\002\017\020\330\322\207\001\020\273\220\001\034\003\022\023\340\205\207\001\017\377\210t\220:\230[\250\001\377\250\024\250[\270\001\200A\177\360\006\000\t\036\230S\275@\377\010\014\210H\220A\330\014\347\020\220\010\371\205\002\237\210\003\360\006\000?\r\034\2301\230D\031\006/\002\277\034\035\330\027\030\330\003\000\026\377\027\360\026\000\t-\320,\377>\270a\270t\3001\340\377\010\037\230t\2407\250!\376\310\211\001/\240\021\240&\250\016\375\260\220\213\0024\210s\220!\330\357\014\022\220)L\000A\360\010\377\000\t\014\210=\230\007\230\377q\330""\014 \240\014\250G\377\2601\330\014\026\220o\240?Q\240f\250N\270\047\000\250\001\2373\220a\330\020\312\210\004\313\206\001;\377\220g\230U\240$\240e\261\250\311\205\001D\006\302\000\014\210\030\001Q\236\212\204\003\021\230,\2406\000\347\205\002\240\357Q\330\021\033\277\000L\250\001_\330\020!\240\0326\001\340\006\000\367\021\340\014\212!4\220q\230\327\017\240w\347 \020\234\212\003\320(\337<\270A\270Q\254\212\002)\250\377\021\250&\3200@\300\001\233\300\021\346\204\001t\220\205\t\270!\014\357\2109\220G\250\210\001\026\320\026\344\020\033\212\210\0015\365\213\001C\003:\230Q\357\230f\240A\263\205\001s\230!\374\322\207\004\366\010&\320@P\320P\025Q\347\214\001\014\372\r\200\270$\333\213\006\316$\376\343\213\002\035\320\0351\260\021\260\325$\360#;\377\213\003\r\200\213\001D\220\337\001\220\024\220Z\235@9\250\377M\270\021\270\047\300\034\310\237V\320ST\330\344D\220@\016\357\210_\230A\252\214\002\032\320\032\3770\260\001\260\024\260Y\270We\3001\277\213\001M\222\210\002\010\304\215\001wU\230.\313 \010\014\210\020\001\373)\240\032\002K\220q\230\013\216\367@%\250z\243\213\001\304\204\002\325\211\001\014}\210\227\r\360\020\000\016\017\351A\337m\2401\240D\224@$(\324\000\002\006\001%\232\210\002$\001\003\010\013\373\2101\215\204\001\r\230Q\230e\375\240\301\217\001\t\020\210w\220d\377\320\032*\250\"\250D\320\3570J\310)\275\000\320TX\377\320XY\200A\3602\000\373\r\025\277\204\001\034\230A\330\014\375\031\371\215\001!\240\021\330\014\035\371\230\224``\000\340\010\023\2207w\230\"\230\222\216\013\017\210y\351\213\002\366\274\210\001\330\021\371\215\001Y\240c\250\367\031\260#\367\000c\300\031\310\017#\310Q\330\022\007\000\t\022\003\342\213\001\3679\220C\230\216\001\026\320\026(\376\326\205\002X\260X\270Q\270a\372\262\007:\307\206\002\014\017\210x\220\364\353@J\003\014\212\001!\330\r\026\234\242\217\003\034\036\023\220?\313\221\002\007\047\320?\023%\240Q\240a9\047\377\n\217\014\023\220=\265\216\002\227\010\215cX\337\270X\300Q\300\313\021u\220\367K\230w\367\205\001\027\220\177\240\377b\250""\001\330\014\023\320\023\272\264\223\001q\274\200)1\210\001\364\207\001\031\373\230\t\273A\026\220d\230!\373\230>\262\214\001\031\230\026\230q\277\210!\210H\220D\351`<\377\250q\3200D\300A\230\257a\320\000\024\017\000\001\326\223\001q\364\333\222\001\255ak\301@!\340\010\020\375\220\272aj\250\t\260\021\320\357\000\030\230\001\222\223\002\320\000\032\377\230!\330\004\010\210\010\220o\001\330\r\021\227\221\002\320\020\252 \336\350cW\240A\330\307`Q\220\376\275B\t\230\025\230a\230q\372\325\224\0014\251`\007\230q\360\n\365\0002\000\010\230\216\002\004\023\2206\375\230X\000\"\240+\250Z\260?q\330\004\005\330\014D\002I\002\374\000\007\007\n\340\004\025\220Q\330\377\004\r\210X\220T\230\021\357\230\047\240\021\235\225\001\010\200v\357\210W\320\024\232\221\001V\2607\375\270\276\211\002,\230a\230t\240\3272\240Q\230\224\001&\223\221\001\230F_\240#\320%9\207\222\001\013\244\225\003\377\230\022\2301\230I\240Q\377\240c\250\021\250/\270\021\333\270(\270\220\002\010\t\367\225\0014\220\375w\271\002\014\017\210w\220f\377\230A\230R\230q\240\t\376\377\216\001\017\210v\220W\230O\377\2504\250v\260W\320<\377P\320PT\320TZ\320_Za\320ab\352\220\0017\262\222\004\377\017\020\340\014\026\220l\240\337!\2404\240r\270\217\001\026\220\375f\221\221\001\240\006\240c\320)\361=\247\211\001M\014\333\222\001\250o\270Q\377\270h\300a\300q\320\004\313\027\220\267$q\221\214\001\3323\010\014\217\210O\2301\332(\204\214\003\374\220\001\010g\027\220x\316\224\001\231\224\004\2304\211A\237\014\210I\220V-\001\000\006\014w\210K\220e\005\014\210J\351\001\232\366\224\001K\216\215\001\320\004\367A\364\225\001\320\337\004\033\320\0339\233\210\004\320\004\376\272\224\002\330\010\r\210R\210y{\230\001\334`x\240q\330\205\215\003S\320\004\265\207\001\303 \021\251A\020\203\204\001\377.\250\003\2505\260\004\260\377D\270\004\270A\330\024\030\277\230\r\240U\250!\227\223\0014\371\220\237\223\003\263\227\001>\250\027\260\001\337\330\020\031\230\033\331\210\002\020\024\375\320\364\221\001\360\022\000\r\016\360\373\020\000K\000D\230""\005\230V\376\241\215\001\2509\260J\270a\330\377\020\025\220S\230\002\230!\376\247\231\001;\230a\360\030\000\021\377\024\2201\220G\2303\230\377g\240Q\240g\250_\270\327E\300\021l\001\003\372\000v\240\377W\250A\250Q\250d\260\377)\2707\300%\300t\310\3374\310q\330\024\341!\030\035\377\230Q\340\030\031\340\024\025\356\221\217\002\024\220K\311\224\004\3209J\377\310$\310a\330\023\024\360\377\016\000\024\025\320\004\037\230\277q\360\010\000\016\022\223\227\001\023\277\2204\220~\240S\252\206\001\020\377\320\020!\240\024\240Q\240\377d\250)\2605\270\005\270\377T\300\021\300$\300i\310\365u\316\231\001\014\311\205\001W\240A\320\023\004 \255\217\001\312\226\004\r\232\205\017\033\003\262\205\016~5\000\320 8\270\001\330\227\204\001\337\020\220\004\220I\243\220\006\023\220\2211\324\227\004\211\214\002%\002:\377\204\001\254\220\003^>\344\232\001\320\004\"\320\"<\000\235 \357\t\023\220&\230\225\001\230f\240\367F\250\"\315\231\003t\2208\230\3371\230O\2501#\002@\300\211\001\311\230\004\266\214\003\036\353\225\001\013\014\272\230\004I\007\240Z\250\360B\307\221\002\321\230\001\263\213\001\331\230\001\3733\260\366\214\001\320\014&\240d\377\320*:\270!\340\016,\357\250A\360\020\323\230\001K\220z:\330\213\001\r\275\221\001\r\320\014\203\205\001\213\231\001\367=\270Q\327\220\001\r\210K\220\237t\230<\240v\342\221\001\374\231\001IC\220\\\243\230\003\264\204\001\004\004\337\233\0011\212\214\001~\265\204\002\230\004\230K\240t\272\001?#\320#A\300\021\255`\235\221\002\326\205\231\002\023\220\254\217\001a\314\230\003z\230\377\021\230.\250\007\250q\260\377\t\3209N\310d\320RqS\302\216\001\344\235\001\354\210\001\005\220Q\204\214\001\377\r\260[\300\001\340\010\030\377\230\n\240!\320#3\320\2773M\310Q\310a\354\222\001\026.\210\001\340\010\t\363\230\001\025\200A\354$\371%\341\232\001\272\236\003\003\320\023-\250\375Q\267\236\0015\230\002\320\032+\372\342\235\002\010\277\207\001a\220t\230=\377\250\001\320\004+\2501\340\334\347\233\002\214\204\001J\260d\254\210\001\t\210\377\027\220\005\320\025(\250\r\273""\260Q\017\000\047\300\026\373\206\001.\271\250\262\004\200\235\017&\240a\361\0008\365\260\330\217\006%\345\211\001\017\210q\320\377\004/\320/K\3101\360\321\024\244\223\001\301\235\t\235\235\001&\202\232\002\010\023\373\320\023\236\222\001$\250h\260n\377\300F\310!\320\0044\260}A\264!\022\220\034\230Q\363\234\001\271J\277\212\001\345\210\001V\2302\362\224\002\021.\313\223\001e\2301\261\234\0024\363\222\002\220\207\003\2078\3208\303 \370\210\001d\014\251\224\005\006F\311\234\001O\230\307\240\001\271\220\002\344\216\005Q\311\204\002\337!\240\024\320%\206\211\003\320\017\341\"\322\240\001\264\224\001\367\216\010\377\240\006\r\021\320\355\020\274\236\001?\270\255\000D\300A\333\360(\322\r\340\014\274\220\002\035\230\377W\240B\240f\250B\250\371a\250\225\003\310\222\001\026\230s\240+\377\250S\260\001\340\014\025\220\327Y\230a\260\225\001g\363\241\002\r\024\254\203\224\003\277\206\001\320!\377\222\001!\027\003T\367\240\021\330\350\232\002\020\024\220L\336\374\205\001\007\270q\340#\010\"\320o\"2\260!\371\225\003g\230\037\014\2479\270\027\303`Q\010 \202\242\001\001\373\260\021G\0227\260w\270a\375\340i\036\2404\240|\3203?K\3107\320RS\243\222\003n\036\016-\003L\310G\345\204\002\330\222\001\350\005\303\214\001wS\230\001\251\235\001\001\330\014\345\0268W\032\277\023\241\003J\310\047\200\226\002h\t\307\020\320\020\020 \225>D\032#\320?#3\2601\260A\267K\265#\307M\310W\213\212\002\205\014\276Ii\230\347t\2401\363B\263%I\320U\235V\335.$\320$\355\240\001\353\230\001\220~#\rN\310i\320WX\220N\304\215\t\026\032\030\300\242\003\235\237\001\336\220\003\010\000\002\200\240\001\025\312\241\001\315\240\001\000\006\000\017 \001\372\241\001\3373\220i\230{\266\241\002$\260\377g\270S\300\001\340\024\032\377\230&\320 5\260Q\260\377a\330\024\037\230u\240G\177\2501\250E\260\027\270\030\000\376\010\004\330\020\032\230)\240?\027\260!\340\364\232\002G\204!\265\243\001\024\000\177\047\240\037\260\001\330\021\221\225\003\357\020\032\320\032\320\250\001w\260a~\210\233\001w\220g\230Q\330\247\216\004\377\340""\014\022\320\022%\240Q\177\320&?\270r\300\021\307\243\001\276\363\240\004\020\220\n\230!!\003\320\377$6\260a\260t\270;\363\300m\374\211\002\363\226\nT\300\021\330\334\213\206\006+\006*\320*\333\233\001T\320\377AR\320R_\320_`\370\224\247\002\254\227\007 \023\047\320\0479\270\377\021\270$\270n\310M\320\033YZ\030\031\320\020\230\216\001\360\217\001=+\323\013\230\253`\341\213\003i\337\244\001\036\230ig\344\217\001\331\ra\236\017\340\014\352\230\013\376\244\233\005%\230y\250\001\250\030\213\260\021\206@\010\247\224\001\264\243\002\267\205\001\240;\001\340\205\222\003F\320F\355\211\002\330\211\001)\320\243\232\002\317\247\001\036\302\253\001\014\006\007\313\232\001h\303\244\006\356\247\002\326\244\003\037\203\223\002\320\014(\005\016\220\220\002\014\320\014\023\002\266\233\002\351\240\003\332\240\001Y\024\223\232\003\334A\220L\267\220\0031\201\236\005x\r\020\227\237\002\335\253\0013\240a\3301\010\357\320\024&\240\250bt\220=\357\240\003\2401\020\t\220O\240\3751\033\032\320\004M\310Q\360\335\n\370\234\002\032\320\032\332\206\001D\270\377\t\300\030\310\034\320UV\347\320VW\332\235\010\375\214\002[\320[\365\\\366\213\024\014\265\235\n\010\260\016\270\377a\270w\300a\300t\310\3778\320SZ\320Z`\320\377`a\320ae\320ef\377\320fj\320j|\320|\377\177\360\000\000@\002A\002\371\330\306\235\014\271\256\001t\2201\320\n\017\047\240q\320\333\220\001";
-    PyObject *data = __Pyx_DecompressString_LZSS(cstring, 15066, 29209);
+    #elif (CYTHON_COMPRESS_STRINGS) > 0 && (CYTHON_COMPRESS_STRINGS) <= 90 /* compression: lzss (15085 bytes) */
+static const char cstring[] = "\377\n\n    Pr\377oactor e\377vent loo\377p does n\377ot imple\375m\024\001add_re\377ader fam\377ily of m\377ethods r\377equired.\376M\002Registe\377ring an \3767\000itional\337 seleg\002th\346H\001 ft\000N\010sup\357port@\003To \377avoid th\177is warnL\001\317use:\262\002\267\001as\377yncio.se\353t_\271\002_\272\001_po\377licy(Win_dowsSm\004E\333\001\265L\333\000P\031\003))A\004[\377 at 0x b\373yt\363\000are a\317llow\313\000\r\003, ?but on\360\000\036\003\177]:  obj\307\000\377>!H\047_Fil\377eDescrip\376\304 Like\047(t\377ree frag\376\270!)) *, c\377url: (, \337multi\007\000..\373 S#\000https\347://\034\001\307\000/li\355b\047\001/c\002\005-er\377rors.htm\177l first\263\"\373mo\247\000detai\373ls\000H. Ple\177ase ope\271@\277n issu\013\000n\377 GitHub \277to hel\241`e\347bug\227C\234\002...\377.1.01.12\377.0: << D\377ATA< SSL\367<Me\253\000yVie\375w\262a<conti\337guous\235`d \035d\270`ct>\007\r\274@\022\004\177strided\"\010o or \004\031><(\t\326A\006>>\220\002>\221\001?A}dx\000ata f\300 \367ed.\014\001fiel\365d\t\005B\203!exce\331p\273\204\001\250\204\002cy\303A p\177ackageC\246`\337able[\371\000, \377None]Can\372\264\205\002u\277 local\037_path\341\003h\001\350`\377the same? time..\000\345\205\001?assign\331!\341\205\001\225-\351bm\261\"v\263 \036\004d\377uplicate\337 clos\216 ha\367ndl;\006perf\327orm\211\206\002e\243`on\376\022\023receive\377 websock\317et d\203!\027\025se\373nd\n\037urlm \353al\237\207\001y\230\004! q\357uitt\203\207\001fro\377m proces\373s_j\001Definoe ``\316\207\007``\307\207\006\272\341`b\342\000all\363@i\337n a b\357 grSou\210\000\277\207\003 \275\207\003.\277\210\003?Instan[\000\222\210\001\326\254\207\002cl\320  \023\000rt\226<\000se\361`d-\004\341\"u\340R\001\210\210\005\353\207\004\345\207\001\223\210\004is \373co\371\210\001tely \177hidden \301\002\276\273Auser;\271\211\002a\327ll \343@l\234\001s \342\271\207\001rW\000\367 \342Awraopped\317\211\010\047s\252\013\367Typ\316@lly \335u\314Avia\220 AdsdT\233\211\002\252\210\016``,\257\212""\002\336\215\210\001can \242 at\277tached\224\206\001aA z\000\242\211\002\223\211\004\311\212\002\217\212\003F\340\204\002\271 \312 \003\004to \000\007s\374\202`\342\207\002 buffe\351r\320\210\001\374\212\002f\356\"at \377Invalid \377mode, ex\377pected \047\373c\047\210\206\001\047fort\377ran\047, go\276#\007shapep\001a\377xis NOT \357DONE\245\205\001Not\377e that C\357ytho\343\207\001 de?libera\356\"\360\206\001\372_\000r!\001n PEPo-484\252\207\002re\367\211\001\337s sub\340Bes\336\207\214\001buil\350` t\377ypes. If\177 you ne\224#\371p\210b\047\007then \374\361\001\211\206\001\047annot\365a\240\214\001_<\000ing\047\370\215\210\004\242\205\001\243\"lse.O\366\201\207\003un\240\214\004ed: \277%sRead\371F \377returned\377 Tornado\206\351\214\006Un\252&\275\207\002\200\213\002\233\204\001t\334\233\"\217\205\t, p\345\211\032\nW\030\324`\325\215\001\246\216\010to\343\215\001\245\216\007\310\002 \223\"\352\207\001\321\205\022\300\216\004\306\204x \254\205\016\214\220\002\330\223\205+\231\217\001\346\206\003is\277\205\003au\347tom\313@\223\206\001y b\275y\204E; ap\272\211\003i\373on\274`hould\370\341\220\002\242a\207\221\002to re{fe\362`o it\222\214\004\273ly\335\207\005t i\364`a\253fe\201\215\001w\200Cy\254\221\tw\357ith \365\207\007, a\233ltd\000ghJ\001\316\212\003a\377kes sens\025e\371\221\002f\354\221\ns\215\205\003\265`\357\221\013\370\262P\364\221\016\273\003hemse\377lves (i.\037e. ``\200\221\004\337\222\005\376\220\006\367``)\373\222\003Clos\370\247\222\001\244c\341\207\031 also\314\366\213\003\304\210\001e \317\210\017\211\212\004Wr\\\334\206\001\314\221\003!= \353\213\004d\336\221\003\275.\310\223\001note\270\222\005A\177bstract\232\222\006\347col\245\223\001\244A.ab\255c\360\215\003/_\351\222\004_\256\212\006psxi\024\005\272\221\002pyx%\004\363ut\223\221\001\035\000dict\355[\221\222\020, \266\216\005]di\355s\302\216\001en\310\216\001gcg_etinf\376@s\014\003\357dlis.\022]no\377 default\377 __reduc\277e__ du\233bn\377on-trivi\373al\033\000cinit-_\266\001f.\240\216""\002c\360\207\002\276\212\001\177convert\273\212\005\361P\212\211\003\333\223\003\235\225\002pick\177lingsel:\000\371r\267\217\001\t2t cac|g\000\351\212\001proxy\006\007oopt \365\210\003.A\321\225\001wGen\205\212\001or[\322\220\001\322\325\220\004u\234\"\344\213\002l\330\220\001te\277 array\272\217\002.\344\013\020\371\212\003a\260\216\001\275\222\002s.{\337:02X}\002\001x}\377<lambda>\037ASCII\362N\353\214\027\205\215\027\367.__\272@attr\017ibut\211@\016\032\214C3\030\374\351\230\007\006\034writer\370}\030\252\222\002\235\030remov\261e\331\231\004\006\037i\004ny\247BCWurl\000\006.\200\204\006c\323\215\002\373__\017\tsetst\371a\227 \n\020check\371_\347\227\002C\010force\035_\246\224\001out\\\007\212\233\001\367\223\003\020p\007\337\003\217\232\001\216\001.\342\222\t\225\007\343\004\334,\r\202\224\003_ac\245\233\001CU\377RLAUTH_A{NY\000\tSAFE\022\007\377WS_SIGV4\276%\006BASIC\004\007E\357ARERB\006DIG\267EST\000\014_IF\007G\237SSAPIr\006\014\000N\177EGOTIATj\007\356\000\017NON\024\010TLM\272\263\006N\n\000_WB\303\006O\373NL\310\002E_ABO\377RTED_BY_\377CALLBACK\274\356\001\026\000GAIN\004\004L\357READ\036\000OMP\343LE}\0037\000\221!ERR}O\323\002E_BAD>\002\377ING_ORDE\376\013\tONTENT_\037ENCOD\035\000\\\003-\001\277DOWNLO7\000R\337ESUME\017\007FU\377NCTION_A\333RG\026\000NT*\007PA\347SSW_\000L\000TER\373ED\252\003CHUNK\337_FAIL\t\006ON\275V\000\016_REQ*\005OwULD\223\000CON\265 \362Z\004C\016\004\215\000OLVE\357_HOS\003\024PRO\335X\276$ECHT\001UI\274\205\006\202\003_INI\262\004F\376\225\000SIZE_EXOCEED\256\005\023\001_j\007\370\300 %\001\374#FTP_A\237CCEPT\312\n\014\010T\277IMEOUT!\013S?S_DENIY\006C\000r\3216F\026\004\202\002LIS@\010;CA\256@GET\367\010\215\001\006\022\002RE\247*\023\002\306$.\001\344\001\234\271\007\310\047TR_\320\013\345%S\360d\000\364\211\002$\017\027\001BINA{RY\006\023TYPE#\020;TOT\025USE\201`\336\t\177PARTIAL\215\014wPOR\346/PRE\373/\217QUOT\325@\200\205\007\265AS\263SL\245Nx\000R_\265\204\006I\317NCOR\307 \264HWE\377IRD_227_\237FORMA\t\016\366\204""\001_\317REPL\202(.\003PA\373SV\004\023SERVE1R \023\214\002@\rRI\277\014\202\206\005\267NOT\225\000UN\352\205\004G\336\014\000NOTH\307\206\006HT\347TP2\267\207\003\006\002_ST\257REAM\010\0073\023\007_\344>\0148\001_\342.\017\004ST_|\335\207\010&\002RANGE\004\017\177ETURNED#\t\377INTERFAC\375E\217\207\nLDAP_C\303AN\320\001\334`\275\207\004\021\002IN\377VALID_UR\371L\204\211\003\047\002SEARC\375H6\013IBRARY\276\273\rLOGIN\366\205\nM\213AL\312C_\376A\331\211\003t\002U\357ILT_\336\211\005NO_\374\203\210\004\362\210\002VAILAB=L\214\211\004OBSO\361\211\007\006\005S10\246\212\003\007\0062\001\0146\022\013\2552!\01424\021\0149B\0133jA\0143!\0144q\01441\202\013\2514 \r\201\0145\261\01451\0145\2657\322\0136\321\01475\362\0137|\350\005\275\214\004OPERA\301\213\002r\246\211\001D\242\211\006\n\013OUT\275\213\005\377OUT_OF_M\347EMO\351\207\005\214\207\017PEE\375R\342\213\004_VERIF\343IC`\002\262\215\003\214\213\010QUI\201C\314E\266\204\t\240\207\016\275\204\016\354\215\001\350\204\tR\376\347\217\001SIVE_APyI\244\216\002\237\216\003RECV\032\013\261M\210\210\001\262\213\001\370\212\014RE\025\002D\177ISK_FUL\324\204\004\374\017\004\201\214\002EXISTS\360P\005C\002\231\214\002\350\206\014RTSP\237_CSEQ\223\n\021\001S\347ESS\256\216\001\211\217\010SEN\370\200\206\n\013\002\240\216\001_REWI\276\302\207\005SETOP\366 P~\354\216\002SYNTAX\377\217\003\377SHARE_IN\354\265\205\001\013\004SH\001\005L_C\037ACERT\000\r\206\220\001\274\215\007\374\205\212\001\"\001PROBLE\235M2\010IPH\235\220\005 \002L\017IENTB\014\225\217\003\363\207\tK\002\373RLS\017ENGIN\306\251\001IT\372\217\t\205\213\001\024\004NOgTFO\267\211\006\016\010SE\"\016\374\377\207\004\334\001STATUS~\354\007ISSUER\204\r\350\221\204\002\213!\212\204\003E\234\047PIN\377NEDPUBKE\317YNOT\324\213\001\271(SH\363UT\202\222\001\256\221\nTELN\005E\3752T\222\220\001\302a\273g\016\002\262i~\037\002ILLEGA\274\211\004~1\002NOSUCH\371\210\0078\016\004\210)Y\002PER\256\213\004h\002\377UNKNOWNI\376\341\222\004TOO_LAR\371G\245\223\004\013\001MANY_""\217REDI\312\215\001\273\204\004/\004_\201O\320b\315\224\003\014\005\321\n\023\005\320\220\001V\273ER\357\211\001_PO\231\205\005U\337NSUPP\235\225\003PR\337OTOCO\217\213\004UP\004\263\224\002\345\223\tU\224`\343\212\006l\004\007\t\364\212\010P\202\220\001\223\217\r\370\216\003\236\216\017W\204\216\013F\232\000\317OW_A\276\206\003\007\004FI\347RST\316\226\005\033\004OBE\217YCOD\241\230\002.\004\255\230\005I\377NFO_ACTI\177VESOCKE\207\230\002\026\017\003PP\211\225\004_\332\223\001\372\230\001\004\021\315_(\007CAJ\001 \006CA\357PATH\005\007ERT\336\022\013ONDI\325\226\002UN\341Mn\010a\022\177\tg\tONN\351_\213c\305\002C\331\227\004LEN\017GTH_\315\227\005\212\007\n\023D\013 \235\230\002;\004\327C(\025\364DTO\016\205\224\005~\216\004OKIECH\246\220\001\001S\200\010\022\001\343\225\005\203B\226\264\001\377\216\004\006\007|\320\226\004\244BEARLY!\002yS\302\231\001\243GEFFE\300B\035_\307 HOD\245F\017\007\277\220\004\002B\003N\030\007\214\230\001\324J\t\005\317H\375\227\001\277ENTRY_\306JH\037EADER\246\t\013\004\250\t\000\036\004\203\227\005\354b\235\223\001\305\235\003\331\220\001\322f\016\006\017USED\t\n\211\221\005\276\204\005=\006X\364\215\001\350\213\001\226\204\006LA\373\204\001E\003\n\376\313\204\014LOCAL_I\341P*\007\014\002\344\226\001\335\204\006NAM\177ELOOKUP\360\204\013p\t\014\363\204\010\354\235\005\315\205\002NUM\274\222\005\266\350GOS\272\224\001NO\302\205\006P\377OSTTRANS\007FER\340\205\002\302\205\010\335\227\001\017\t+\007\233RE\032\027IM\204\224\001\320\010P\021R\r\003\320\n\022\000V\272\237\004\373\206\002\304\210\t\006\t\005XY\216P\345\234\002\377\240\002\225J\374\234\002\244\220\226\0079\007_\371\230\001\225\221\002Y\323\236\001L>\324\207\007QUEUE\344\r\262\212\005\362\204\235\001N\200\210\007\016\006HIST \210\222\004\263\210\002\047\006\224\210\n\t\n_4\020\376\204\t\303RE\371 \213\242\003L\004\227\000ST\375_\242\204\nRESPON\347SE_\362j\204AY_A\003FT3\t\217\221\002\273\217\002\226\221\002\255\211\006\243\221\007\200\246\222\001\t\013\222\232\004\307\221""\001\t\r\302\221\003\326\210\010S\317CHEM\324\204\007\304\237\002DE\007LIV\370\240\005\314\212\002\021\003\313\241\004\261\212\006\300\t\n\255\212\010\211\240\002\332\210\014\t\010\036\tPE\013ED\304\211\017S\n\n\037\016K\r@\002\000\252\211\016\244\235\001\361\210\r\013\006\371\210\t\276\221\007\303\211\007\317v\017STAR\326\205\013\205\047\n\016\301\214\010\367TEX\201\215\007TLS_\370\315\224\004\376\214\006\017\002SL_PT\275R\n\007OTAL\240\215\013TH\n\006\236\215\010\333\210\001_\255\243\006\376\215\002X\377\206\001\342\324\220\003M\377\224\001\277\244\003\300\214\004PEN\017ALTY\214\204\006\034\003\335\214\013\017\022\007MAX\315\244\004\312\226\002U\002\021\000\333\233\001\017CURR\206\246\001\225\236\003\021\013\347\244\001\334\370\233\010.\013PIP\355`NE\201_\336\215\003\222\251\001O\006\350\003\263\234\007l\007N\177ETWORK_\200\215\003}D-\006NOTIF\316\214\002\200\004\014\357\246\005W\006q\004\256\247\004\240\"\t\007_6\326\240\004BL\035\020_S\305\240\001\017\t\007USH\202\303\001R\007\016\000`\016\261\232\001\217K_EX\263\246\003\221B\204\247\005T\035H\204\251\001S_M\231\230\003\255B\271\221\003\020J\n\314\221\003\271\016\251\246\001Rs\n\r\002\345\n/SG_D\276\252\004M\t\000\322\214\001\360\345\"\025\000\325\252\005\246\231\001ABST\377RACT_UNI\303X_\270\222\007\027\002\255\247\002\223\247\004_M\360\314\232\002\016\007\366\251\nF\002DDRE?SS_SCO\303\245\003[\002\317LTSV\271\254\002\004\007_C9T\213\241\003|\002PPE\202\243\003\212\002\207UTO\307\211\010\235\002\205\255\t\331\232\001B\037UFFER\222\247\005\347\204\002\257\223\006\036\004\007_BLO\241\254\002\033\003\302\223\005\004)\003\353\232\001H\270\213\003\356\250\004\256\205\002\326\223\010\271\205\007\017BGN_\300i\323\205\007\372E\345\205\007\374\240\234\001\033\016LOSEPO\007LIC\360\256\002\227\206\002\017\001\341K\010\014\000`\016\323\253\003\233\252\010\337\206\002\t\n\227H\360\225\005\225\256\005\346\"\010_T\272\217\0028\004V_F\217ROM_\325\205\005d\020\033\004UoTF8_\n\022TO$\030\016\263\224\002URL\250\003\302\224\001""\215\254\005\010\007\003JA\312\260\002\031\007\266\253\005+\007\261\211\010\362\003\373PY\367\220\001FIELD>\216\204\006CRLFCd\005\t\000yI\354\244\003\210\211\002URLU\023\006\177USTOMRE\243\216\002>)\005DEBUG\305I\014\002\376\350MDEFAULT9_\264\232\t\354\237\001DIR\357\254\001\343)\377DISALLOWp\244\246\002\211\223\001\367\237\002\356\204\007DNS\360s\240\025\001\341\247\006\226\006+\000\356\223\0054\001\0216\364\036\t\243\252\003S\006\nHUFF/LE_A\237\206\003E\020\n\305\254\001\337GLOBA\203\241\002HE\006\214&OH\366\221\010\270\260\005\354\002\r\n\303\244\001\350\036\023\347\237\007.\005U\361\206\007ECH\016\250EEGD\356\207\013\324\262\t\316\242\001\231\263\002\374\364\206\003+\006XPECT_\317100_\222\210\017\272\262\001ON\240\313\263\006\221\243\001\356i\250\230\t\027\002N\307\240\002_\002\307\206\tF\r\004\355\206\r\260\235\003\200\227\001\322\263\001\352e\377FORBID_R\357EUSE\t\010M_B\370\244\242\001\356\257\004\202\002RESH_\334\237\263\010\227\002TPA\374\210\nFT\235P\302mFTP\332\227\005,\004S1S\313\267\002z\006\340\262\003OU\335\264\003Q\004\377_ALTERNA\316\236\236\001_TO\260\253\006\027\005CR\377EATE_MIS=S\354\265\001DIRSE\t\352\263\001\340\211\233\007L\005\310\224\006\203\210\014\253\260\002KIPr\230\260\001V\233\231\004\200\005SSL\236\tf\311\245\002CC\261\t\315\261\001EP\201\246\003\014\266\005\016\003SV\030\r\274\261\001\346\206\005\336\270\003\247_DE\244\243\001\211IH\322 Y\377_EYEBALL\301S\224p\036\000\370\265\001\300\206\r\020\004_C\000\203\226\003\344\232\003\325\247\001\253\234\003\336\207\005\271\234\003\373\212\t\313\234\003\034\237\213\r\341\234\003OPT0\006\230\251\004N\002\207STS\221\271\001:\n\r\0048\016S\003TS\277\242\002\035\r\324\242\002\032\021\337\215\n\323\261\001\03309\354\242\001OW\347\270\003\317\002\351\261\001\17700ALIAS\216\207\007\376\362\261\003NO_PRIO\347RIT\264\214\006\213\262\003PSE/UDO_\273\236\003S\234\272\007H\006\377_SETTING`\255\217\006\275\262\t\006\014\274\252\001\246\211\001PD\217\274\004\346\217\0053_\206\263\001\346,TTP,\014\tj\0173_""~\0353\211\022\023\000\377IG_HASH_\353AL\253\0133\204\234\002EC_\217CURV\227+\025\003\346\247\001U\236\270\266\001XTEN\270\254\001\353\n3\205_\376\226\001E\024\005\235/\223\277\001\315fT\347TPB\210@\345\017GET \031\t\206/\266\241\005\254\275\005\327EP\364\273\004\007\006~\355\273\001TUNNELj\tM_\366\244\005DE\324\275\007\233e_\340\237\006\332\t\022V\217\222\001ON\371\215\005IG\237NORE_\301\245\013\024\006M\277PERSON\343HI\001N\215\217\t\010\003\327\222\t\010\007\251\252\007\346\256\001\231\215\016>\240\266\002LEAVE\223\222\t\014\007>\273\222\rIOCTL\036\n\r\001\002\025\016P\277\276\004\327\006\265\255\002\254\257\005\205\002\t\006>\356\223\nKEEP_\271\260\001\310\300\002\273N_\206\214\nKEY\376\277\002D\376\260\220\005KRB4LEV\000\215G\016\000\003\n\366\243\002\373\212\t\010\006\303\270\002\370\220\005\340\264\267\003\254\254\003\257\226\006\212\220\001\344\235\003LIM\341I\204\210\006\r\007\237\252\005\277\261\001MAI\203L_\213\204\t\014\002\252\223\001\334\221\005\035\002RqC\314\210\007\010\006\316\253\001LOW\276\301\001qS\035\016\371\207\003\r\014XAG\250b\010\267f\352\233\014\214\003X\363\300\005y\007\n\006\211k\177MAXLIFE\322\300\0010\206\271\002&\010\331\256\002\214\010X_\366\264\002\222$\350\207\257\005j\004\265B_\010\021IME\276\312\205\tMIME_\341,N\247ETR\362\230\006\010\002_\362\224\tN\327EW_\343\257\003O\224\251\001ER\350\330\231\007\027\001\313\302\002P\t\nOBO\375D\274\227\006NOPROG\350\356\231\001\355\224\005\r\002X\026\010SIG\203NA\354\215\006\361\272\005\345\271\003\242\265\002\204\273\0047=2\260\225\005OPEN\207\230\017\014\007\360\371\230\r\271\305\005\360\225\005\255\256\001_AS_\371I\244\233\006\252\263\006LICKE\014\372\230\006\201\237\001WA\373g\316\220\t\242\210\t\336\250\001w301W\006OST\350\226\013N\376\226\007IZE\025\017\244\305\001L\311I\300\257\251\001\342\301\002G\t\355\262\002\273\006\227\227\001OTvC\007RE\346\306\001ATA\027\0107REQ\373\016RE\212\242\007\202\270\001\000\233\251\010\t\003\251C\253\233\t\273E:\017\233\263\003\275\047\022\253\263\004S""\207\301\001\240\007O\345G\322\251\006\021\n\020\243\220\013\344\307\002\243N\375\220\002O\355\221\007\212\310\002\206\305\005\206\263\004XY\357\303\001\321\254\001p\n\204\304\001P\033WD\204\n_C\202\236\n\326\252\003\325\262\003\360\210\236\n\021\005\217\236\t&\004REDEMN\305\305\002NO\305\225\013\031\005L\274\233\t\002\271\253\003I\202\212\016\010\rl\020\361\211\016\205\254\003\236\204\025<\245\312\001\246\243\002ICE_\375\016\252\254\0018\207\213\t\321\254\003\364\224\001ERT\300.&\005\016\2020SSL\240\205\tp\003\017\0021\022\307KEY/\023\206\216\014\207\006_C\002\255\274\002_\336\235\t\023\007\250\213\014,\007\203\256\003\374\232\t\370\014\r\376\232\t\317\256\003TLS13:i\004S\232kTLS\212\321\002\374rA_\026\005\246/0\005\375r\235\220\007M\252\270\004\302\206\206\002U\363\225\006\210\246\013\252\277\001\327\301\003ID\360\206\250\010\016\006\331\261\002\274\312\002PARA\317METE\225\231\007\272\207\nRA\017NDOM\324\212\n\205\216\n\323\226\r\204\321\001\000\307\243\r\364\273\002\324\237\006\347\245\006\010\014\366\206\t\235\245\014\316\240\004\303_T\322\274\001\345\227\006\254\220\014\211\320\004R_ \326\254\002\346\234\n\014\014\216\017\326\321\001_\371\216\t\347\321\003\020\300\243\003\333\211\n\331\302\001\240\231\013R\310\260\020\251\302\001\202\303\002 \200\242\014\226\303\002\310\260\014#\006\226\303\005I\256\221\006)\003\036\237\313\002_URI\376\242\005\334\303\002\271F.\224\243\005SAS\324\220\003Z7\007\017\002=I\377\243\006SEEK\322\246\t\014\001\000\364\246\r\205\315\006\324\262\004\215\246\014\010\024\274\251\010\313\315\001\267\207\r\374\241\304\002\240\006OCKOPT\370|\n\r\003{\016OCKS5r\242\222\nS\r\003\224\235\004NECJ\t\360)\000\255\235\004~\004\223&PLIT\047_CO\354\273\001\347\252\006S\215\231\001\264\330\001\034\236\321\001\t\nCOM\225\225\001\270\271\005\367\305\001\334)\001\346\324\001KEY\265*SH\361_\020\004\270.\024\004_PUB\357LIC_\312\210\001MD5\374\246F\014\020SHA256\034\026\t\\\020KEYW\021\376\302\002\210\326\001\200\323\n\313\270\004y\001\226\250\t\367\001""\215\007\014\013L\300\362\226\t\336\212\004\300\226\013\347\212\020\206\213\004\221\254\nSS\021L\354\306\003\351\007\n\004_\352\247\004\016\010\271\221\010\034\240\213\003b\016KEY\261\216\t\306\213\003a\r\224\240\232\014\323\310\005_\275RL\234\213\021\211\311\002T1X\246\245\n\014\005\321OL_\254\235\016\311\310\003\336\241\305\002ALPN\362\010_E\325N\017\005S\004\020N\030\022TI8\366\303\005\201\204\003\261\325\001LSE\273\266\002P\t`\206\231\014\332\325\001\243\236\027\370\325\001\206\314\004ID\260\257\003<\234\t\334\225\002TURE\255\237\001\242\241\001\007HMS\021\014\276\237\017\311\274\007\306\251\t\337\274\007\370\302\251\t\365\274\007\274\251\013STDER\214\245\210\007\364\210\003DE\307\261\001\255\206\007\t\n_\030\315\252\006\306\325\003\272\333\001LU\205\317\001\217\211\006\272\211\003\037WEIGH\241\244\006\260\310\001\321\262\002\370\303\306\005\353\242\004\341\255\005TCP_FN\256\301\001PEN\010\t\363\234\001A\322\273\001b\005\rC\223\250\0078\001\233\235\001ID\240\256\007\336\013\006NTVLY\tNO\017DELA\272\261\006\321\313\003\322\234\014\315\313\002\007BLK\220\263\t\251\313\004\214\232\r\215\310\002\270\307\005\340\304\006\373\334\007\302\317\001\350\264\017\242\335\001VAL\003UE&\t\014\002\210\240\013\340\220\022\327\220\025\325\220\021x\313\220\025\305\273\001\340\250\004ED_C\237\225\006x\223\266\006\315\243\030\201\274\001GREA\226\254\007\230\223\274\001\270\223\001\227\321\002S_\211\237\n\024\005U\231S\227\236\001\316\327\001HE\313\342\003\226\"L\201S\263\235\001\267\341\001\206\340\002*\016\367\233\001\236\001E\373RT\371\312\002STAMP\344\231\n\206\320\003_\371\261\014\246\275\001TRU\377ST_ANCHO\361R\314\n\355\335\001\262\235\001ALPS\256\306\301\002POI\304hR\256\342\001R\002\212\266\tT\r\003\257\266\r\253\305\005\234\276\005\350B\277\305\005\364\352\257\r\216\271\010_\272\267\tUNRE\237STRIC\360\344\001\264\246\tU9P\357\242\002\251\333\002VAL\256\271\010\202\313\0070\241\324\001\360\316\004\275\270\017\210\317\005LA\264\251\007\254\261\010\016\370\336\001AGE\333\256""\007\212\232\r\206\232\014\232\317\004\276\223\265\005VERBO\232\260\007W\177ILDCARD\303\322\006\000\274\325\001\323\253\016\313\253\022\311\317\002\204\255\013\334\317\002\275\316\005E\002eS\260\252\020W\t\t\256\253\013WS\266\241\r\016\214\351\001SL_\233\326\001\212\214\021\030\004\353\265\001\003BL\215\307\001\372\212\t\221\301\001\235\320\001\236\272\t\014\005v\304\272\rXO\230\352\0012_B\330\351\006\003PA\336\342\001\227\321\004\007\003\233\317\001\303\352\001\025\003\024\202\306\005\004\007_\023\013S\324\274\004D\003\276\330\002\2169\006IPE\331\254\002\344\334\002\220\301\001_\377MULTIPLE\000\255\330\002\r\002\212\341\010\374\221\006\362F\010\007\311\353\003\236\222\006\300\252\217\010\262\222\006\375\352\007\305\222\006\210\350\005\326\222\006KE\007YBO\210`\244\354\001\353\222\006\202\353\005\374\222\006p\347\242\t\013\007\266\222\002\331\242\004WS_\336\345\007\237WS_CL\351d\010\001O\336\372\351\003WS_N\355!OP\347ONG\225\355\001\365AFFS>\272\323\003WS_PI\017\006\030\010\357RAW_\320\232\005WS_\376\335\305\005_CA_BUN\004\301\213\004\320\333\001L\227\267\001\234\215\004\007\006\200\354\003\026\006\010\351\350\004\214\343\003\250\312\006_\361\266\004\263\353\001\200\353\002\263\356\001\030\010\n\356\330\006\036\nNO\016\007\377\343\002\213\255\004\027_1_\327\341\002_\006\014\334\340\002\007\013\214\356\344\002\004\014TL\304\335\002\032\014?\0212:\245\262\003_\340\330\001LED\321\330\003h\013\200\262\345\002\004\014\271\356\005\222\013\250\303\005\250\013\217\357\005_\205I\210\255\005_\243\360\003\005\t\245\343\002\027\010W\037HATEV\256\360\003\213\331\002\241\344\004\010\004\005\377%\247\331\001_Y\006\t\002\016\n\364\337\001\rV\244\361\002_P\216\246\002\235B\361\357\002\236B*\n\010O\365\357\002_\334\235\005_\033\007\n\006\020\330\206\002\326B\325\232\005\301\346\001T\366\232\001\010\013\204\357\001@\032\013W\004\351\330\003\251\360\001A\003\371\330\002_\276\355\010\340\271\320\001\375E\276\226\010\013\t\336&SSL\200\250e\334\311\001\030\024\367\311\001\033\025\223F<""\014T\007LSv\373e\006\022\203\204\003!\022\213\204\003x<\022\305c\254\010SSLv\037\016\200\021\001\031\016\215\002\365#\354\007\220\024\270\0031\002\030\0232/\023\340\204\003\361\216\010\365H\n\t\237d\344\263\271\006\221\353\007_\n\007\242call\376\307\375\001Cancell\377edErrorC\357ondi\324\366\002url\340\227\367\002\224\370\016\017\004\217\370\016(\003get\333_cX\000ba\236\370\001xc\373epF\005.clea\373n_\205\370\003s_and\377_buffers\370\377\367\002\363\371\002\211\370\002debug\306\004\003up\264\370\003\241\370\002W\001re\377ason_phr\307ase\016\005\377\376\001\303\370\002im\275pL\000onat\026\003p\377arse_coo\377kie_head\370e\005\023\003\334\371\001us_li\205n\047\005uN\004D\000\366\376\001\230\371\002r\357eset\242\371\002set\373op\005\003upkeeup\270\371\002v\277\000ion\304\371\002\347ws_\276\007\n\000met\275a\021\005recv\035\005s\347end\210\373\001\356#url\316\370\".__\365\377\003\243\373\001Mi\313me\000\005.\3602\036\001._\271_\3642\027\002add\377\000t~=\006attachL\006\274\351&D\002from\210 s\376\346\002Warning\374\224\307\005\304\347\003EBADFE\177llipsis\256\321\001\377SHOW_BYT\377ESMY_ATT\357RIBU\n\000Non\373eO\362BalPRE\377FIXESPRO\373AC\363\363\001WARNI\377NGPathPr\377oactorEv\177entLoop\016\000\337tocol\315\226\001ON\237_PHRA\212\364\002\321\310\004S\260\211\215\007\323\236\006\264\367\002\375\346\002_L\334\347\001R\337ESeleR\001Th\342\251`d\000\013\330&\000\024.<l\277ocals>\006\000a_mbda>\010\036tb\002\377_manager\277_anexte\rc\377onsume_w\317aker\202\r\225\376\003_e\344\201!\005\024s\316\002\273\rrun}_\004\023start\005\024\020\242\013\217-\236\001N\004o\232\r\304\377\001\317!=e\005\021writ\313\016\341\377\002\340\363,\316\377\0044\022\352\377\004D\005que\377nceSimpl\363eC\277\206\002\316CType\377VarUnion\377View.Mem\367ory\007\001WSAE\367NOT\262\346\001WSFr\207ame\000\004\260\205\017\017\007\271\210\016W\372\204\233\002V\241\322\001ENDWe\377akKeyDic\356\224\211\001ary\r\001Set\367__C\341\210\004Cont\340\364@\000\r\244\206\017\017\020\266\211\016_Fi\377leDescri""\377ptorLikeo_Has\022\001no\000\007\363.f$\000\016\000T__P\263yx\001\000\234\001_N\373`R\267ef_\202\204\003__\005\001n\337otate\007\002wa\375i\264\000__clas\271s\032\001\003\003get\273@m\262+\001d\343\000\003\002oc:\001e\352\326\000r\004\002x4\003fun\366\024\002geR\000trib\275uU\003gets_\005i\317mporc\002\310\210\003__\217main\211\001\213\211\001s\006m\357odul\223\002mroW_enK\000e\220\002n\264@\356\267\001new\276\001pre\327par\274\002p\347\000ch\237ecksu\253\000\n\001r\017esul\210@\026\001z\004!\001\355t\240`__+\001unp7icke\000En,\005\n\006\314\260N-\002vt\223\215\001\270!qu\373al\205\005reduc|\301\"\003\004cytho\321\002\366\024\004ex\354!set_\362\271\005s\212(\326O_tes\312\212Aa\271`i\252\215\010\334\002_e\360\212\216\001\307\213\003\210\206\006\257\215\002loop:\337\213\003d\347\213\002ing\027\007\335\207\n\337_defa\232!ca\337cert_\327Bfo\375r\304\000timeou\213t_\230\216\023_\210\210\t\005\005\377\207\003_\277is_cor9\000i\327ne_\211\207\003s\004\001l_\370\224\002\213\210\007\225\210\004_args\236\004\005cond\304\007\321\210\003o\231r5\002\034\005or+\000\265\210\010_\300\332\211\004\331\211\014\350\211\014\276\211\004\262\210\n\351\211\003_r\366\001\004w_\236\210\003saab\014\216 \307\206\002dd\321\210\001\214\220\003\325\210\007\345\210\001l\312\210\003\272\215\004al\223\213\001te\251\220\004\376\316\001asyncio\n\000\004.\212&s\022\004\211\"\324C\360\215\003\376\214\221\001slashre\373pl\215@baseb\177oolbyte\000\001\375s\000\002_to_he\375x\376\213\007genexp\233rc\275Cca\362\206\001\333\221\001_\337later\005\002so\363on\000\006\250$safe\352\376\221\005c\334\222\002c\337\222\005cat\377egorycb_wmap\225aifi\202\222\026\342\260\222\001r\000\002\270\221\005\007\003res\337olvec\270\221\001_ion_tr\317\002ck\302\222\002\377clscodec\373ol\210\216\001ions.~\362 compil\023\000?nfig_w\335\217\003&\000\277ntent_\257\206\001c\356\303\211\003lib\256\222\003cou\337ntcre\274\210\001fu\357ture\006\004tas\377kcurl_cy\366\003\001._\t\001daem?ondata\275\223\002\302\223\002a_\255\210\001""\314\224\001\205\205\005\222\001de\223\205\004\374\231\205\005\224\223\004discar\277ddoned\275\207\002i\377s_object\335d\201\224\005een\326\001en\277umerat\014\000v\177ironerr\022\002\377rrmsgerr\363no\273\206\002\300\206\002sev_\257bitm\260\000e\210\225\005e\177xistsfd\301\212\001\316\304\212\002ame\313\212\003\323\212\001sf\317lags\375\223\001\201\224\001at7for\335 nf\314\214\001\236\222\006\344\324\002\276`s\223#\242dget\374\376\225\001\362\206\005verify?_paths\256\225\016\313\225\002\003un\345\222\001\270\206\002\267\226\001\214\206\005\000\t\214\221\007\374\370\207\025\275\213\001nfoget\177preferr\336 ~\244!inggro\275\226\005\374\373\225\003\200\226\004hex_st\277rhttp.\233\226\003s\372\010\001_\307\225\004idignwore\307\226\010ind\264 \377ntis_pro\372\255\214\001s\000\002izejo\177inkeysk\322`?gsload\303\222\002\363\002\362\315\222\002e\262\211\001\260\211\007lowe\377rmmatchm\377emviewme\377ssagemodye\277@\376\213\001ndim\311\222\001\347not\300 \204`ono~\307\230\002ospack\307\227\021\234\305\227\016\372\225\001ial\373!\377!l\377ibpausep\263ay\240\001\336\227\004pl\335Bm\377poppostf\263ix\301!\002\001in\315 o\305c\230\000_\322\204\001\324 \317\224\001reqa\347\211\003\206\231\003\323\227\001reg\315`\036\364!move\334\231\004\335\221\n\316\221\n\376\315\230\002returnr\237sseek\333\223\003\202\212\013e\203lf\242\230\001\314\214\001\256\204\006\331\214\001\354\215\003s\377etblocki\237ngset\342\213\004\232\231\003s\337hapes\261\222\002fi\373lt\232\231\001zesle\267eps.\000et\000\003_ya\312\221\002\r\003pair\031\001\377fdsslsta\226\255\216\001ve\006\001r\323\217\001\002\000w\347ith\334\217\002\260\232\001icm\037ethod\271\232\004\347\207\001\300\232\010\275s\214\000rrstm\000tsop\341`\344`ict\352`\365u\003\000u\236\233\001upprv\356@sy\246\225\001get\272\222\001\374\265\226\021\327\226\003ingthroowto\354\214\002to\304\213\003\337tuple\344\217\002ty\277pingun\224au\337pdate\231\233\003us}e\225\232\006value\000\002\305s\252\233\004w\212\222\001\202\211\001\202\211\005we\377akr""efwhe\337rewin\000\00032\246\323\225\002ws\320\233\005\314\233\004w\357\215\001c\373vw\325\215\001ndxxs\376\270\367\001/(\\d\\.\\\377d) ([0-9\357]{3}\010\000.*)\264\030\002\026\003 \022\005 (\026\000O\337aset-\231\235\003: \377\200\001\330\004\n\210+\220\375Q\005\001.\250a\250v\260\376\010\000\340\004\010\210\013\2201\377\320\024%\320%7\260q\377\330\010\017\210r\220\030\230\377\024\230Q\230a\330\010\013\377\2105\220\004\220B\220e\377\2307\240!\2401\330\014\377\023\2201\360\006\000\005\020\377\210s\320\022+\2501\330\377\004\007\200x\210x\220t\377\2302\230U\240\047\250\021\357\250(\260!@\001x\220q\376$\001\014\2107\220&\230\001\377\200\001\340\004\013\210;\220\367m\2401\007\001\037\230q\320\377 0\260\013\270;\300k\377\320QR\330\004\023\320\023\177#\2408\2501\250AM\001\357|\2207\230B\0002\260!\377\3203F\300n\320TU\371\330;\0007\000\360\010\000\n\033\376\027\001\021\220\024\220[\240\004\377\240A\330\010\020\220\007\220\177q\230\006\230l\250!\211\001\337v\210W\220E\272\001\330\010\373\022\220\207\000\027\220q\340\010\375\027\235\000:\240W\250E\260\377\023\260D\270\013\3007\310\374\047\002\351\001\320\0171\260\024\260\377Q\260g\270[\310\007\310\332)\000\017\006\t\001\200_\000\013\210\1774\210w\220c\230\021\371\002\377\340\r\016\330\014\026\320\026\237\047\240q\250\004\255\000\255 q\372 \0038\262\002\014\r\330\010&\377\320&:\270!\2701\330\317\010\032\230#\225 \267 \240C~-\000\003\2504\250u\260\262\000\377\016\210i\220q\330\014\030\377\230\001\320\031*\250!\250\377:\260Q\3206J\310!\373\3101m\0013\260=\300\001\377\300\024\300Q\330\010\026\220\357i\230q\240\203\001\0221\260\377\021\330\t\n\330\010\014\210\373E\220\210\000\020\220\016\230a?\230s\240$\240a\000\021$\001\347N\230!\275\000.\010I\220Q\377\220f\230I\240X\250Qo\250k\270\021H\001O\230o\001\37701\340\010\014\320\014\034\363\230F\341B\320\001\220\006\220a\277\220v\230W\240A\201 0\3771\360\n\000\t\r\210N\037\230&\240\001\2406\000\220!\276\000\336\265@*\250#\250\246\000\013\210\1771\210F\220!\2203\243#\377\033\2301\330""\r\016\210f\277\220A\220S\230\003\n\000\014\304\000\017!\000\340\022\002\343\000\333 \230!\337\2306\240\021\240\273`\021\220\375\021\261a\230\021\340\010\017\210o~\230]\250\304\000\340\010\203A\277t\2201\330\014\024\336@\021\377\330\020D\300M\320Q\\?\320\\]\340\014\r\273\000\231\000\377!\2308\2401\360\016\000\374\243 \203@\020\037\320\0374\260\377A\260T\270\031\300!\300\3771\340\020\023\2209\230C\277\230q\330\024\025\330\t\0008\237\2305\240\007\240\013\000\361\001$\377\240k\260\021\260+\270W\377\300H\310A\330\024\036\230\377h\240e\2501\330\024)\377\250\025\320.F\300a\330\177\024\027\320\027*\250\047\200@\357\030\034\230N\257@7\260!\377\330\031!\240\023\240A\330\332\017\000K\212`\001\340\022\006%\260\375{p\0009\310A\340\024\031\377\230\021\230!\330\023\024\330\277\020\030\230\005\230Qz\000\340\316}\000\024\037\230\262`\262\001G\220\234\360@\003\0035\320\030\211`\335AG\315\220\t\0000\260\373`\220DA\330\374\231C\207\204\004q\330\021\022\330\024\277$\240A\240T\250\207a\320\363\020\"\264!\245\204\001z\230\023\230wA\330\020\022\007\220\014\230\277@\036\306!{\230-\240q\002\272\205\001\256B\3277\220\047\322\204\001\030u\001&\260\377\001\330\014\017\210z\230\027\017\240\001\330\020\262\205\002\000%\000M\000\235\366\230\201%\017\210\340B\035\230T\240\357\034\250Q\250\312\211\0027\220$\377\220d\230&\240\005\240S\377\250\004\250D\260\006\260ju\300\366 \022\206A\200A\340\264\204\001~\341\206\003\t\330\014\027\220v\201\212\002w\017\020\330\322\207\001\020\220\001\034\003\367\022\023\340\205\207\001\017\210t\220\377:\230[\250\001\250\024\250\377[\270\001\200A\360\006\000\357\t\036\230S\275@\010\014\210\377H\220A\330\014\020\220\010\374\371\205\002\237\210\003\360\006\000\r\034\230\3471\230D\031\006/\002\034\035\330\367\027\030\330\003\000\026\027\360\026\377\000\t-\320,>\270a\377\270t\3001\340\010\037\230\337t\2407\250!\310\211\001/\240\277\021\240&\250\016\260\220\213\0024\377\210s\220!\330\014\022\220\375)L\000A\360\010\000\t\014\377\210=\230\007\230q\330\014\377 \240\014\250G""\2601\330\377\014\026\220o\240Q\240f\347\250N\270\047\000\250\0013\220a\363\330\020\312\210\004\313\206\001;\220g\230?U\240$\240e\250\311\205\001D\006\326\302\000\014\210\030\001Q\212\204\003\021\230\363,\2406\000\347\205\002\240Q\330\021\375\033\277\000L\250\001\330\020!\353\240\0326\001\340\006\000\021\340\014\376\212!4\220q\230\017\240w\372\347 \020\234\212\003\320(<\270A\373\270Q\254\212\002)\250\021\250&\177\3200@\300\001\300\021\346\204\001\363t\220\205\t\270!\014\2109\220\235G\250\210\001\026\320\026\020\033\212\210\0015\374\365\213\001C\003:\230Q\230f\240\235A\263\205\001s\230!\322\207\004\366\010&\277\320@P\320PQ\347\214\001\014\302\372\r\200\270$\333\213\006\316$\343\213\002\035\320\277\0351\260\021\260$\360#;\372\377\213\003\r\200\213\001D\220\001\220\024\373\220Z\235@9\250M\270\021\377\270\047\300\034\310V\320S\363T\330\344D\220@\016\210_\230\375A\252\214\002\032\320\0320\260\001\377\260\024\260Y\270e\3001\352\277\213\001M\222\210\002\010\304\215\001U\230.n\313 \010\014\210\020\001)\240\032\002\337K\220q\230\013\367@%\250\261z\243\213\001\304\204\002\325\211\001\014\210\227\r\360\357\020\000\016\017\351Am\2401\233\240D\224@$(\000\002\006\001%z\232\210\002$\001\003\010\013\2101\215\204\001\277\r\230Q\230e\240\301\217\001\t\377\020\210w\220d\320\032*\377\250\"\250D\3200J\310\375)\275\000\320TX\320XY\177\200A\3602\000\r\025\277\204\001\277\034\230A\330\014\031\371\215\001!?\240\021\330\014\035\230\224``\000\377\340\010\023\2207\230\"\230\316\222\216\013\017\210y\351\213\002\274\210\001\330\021\376\371\215\001Y\240c\250\031\260#\376\367\000c\300\031\310#\310Q\341\330\022\007\000\t\022\003\342\213\0019\220C\336\230\216\001\026\320\026(\326\205\002X\260_X\270Q\270a\262\007:\307\206\002\237\014\017\210x\220\353@J\003\014\236\212\001!\330\r\026\242\217\003\034\036\023\363\220?\313\221\002\007\047\320\023%\240\347Q\240a9\047\377\n\014\023\220\361=\265\216\002\227\010\215cX\270X\300\373Q\300\313\021u\220K\230w\376\367\205\001\027\220\177\240b\250\001_\330\014\023""\320\023\264\223\001q\274\200)w1\210\001\364\207\001\031\230\t\273A\177\026\220d\230!\230>\262\214\001\377\031\230\026\230q\210!\210\367H\220D\351`<\250q\320\3770D\300A\230a\320\000\225\024\017\000\001\326\223\001q\333\222\001\255ak\276\301@!\340\010\020\220\272aj\377\250\t\260\021\320\000\030\230\375\001\222\223\002\320\000\032\230!\330\377\004\010\210\010\220\001\330\r\315\021\227\221\002\320\020\252 \350cW\240\333A\330\307`Q\220\275B\t\230_\025\230a\230q\325\224\0014\251`\277\007\230q\360\n\0002\000\010\276\230\216\002\004\023\2206\230X\000\"\377\240+\250Z\260q\330\004\207\005\330\014D\002I\002\000\007\007\n\340\377\004\025\220Q\330\004\r\210\377X\220T\230\021\230\047\240\375\021\235\225\001\010\200v\210W\320\275\024\232\221\001V\2607\270\276\211\002,\377\230a\230t\2402\240Q\372\230\224\001&\223\221\001\230F\240#\320\353%9\207\222\001\013\244\225\003\230\022\230\3771\230I\240Q\240c\250\177\021\250/\270\021\270(\270\220\002\273\010\t\367\225\0014\220w\271\002\014\377\017\210w\220f\230A\230\337R\230q\240\t\377\216\001\017\210\377v\220W\230O\2504\250\377v\260W\320<P\320P\377T\320TZ\320Za\320\353ab\352\220\0017\262\222\004\017\020\340\377\014\026\220l\240!\2404\273\240r\270\217\001\026\220f\221\221\001\240?\006\240c\320)=\247\211\001M\014\376\333\222\001\250o\270Q\270h\300\177a\300q\320\004\027\220\267$\371q\221\214\001\3323\010\014\210O\230\3611\332(\204\214\003\374\220\001\010\027\220x\354\316\224\001\231\224\004\2304\211A\014\210I\363\220V-\001\000\006\014\210K\220Ne\005\014\210J\351\001\366\224\001K\216\215\001\363\320\004\367A\364\225\001\320\004\033\320\333\0339\233\210\004\320\004\272\224\002\330\010\177\r\210R\210y\230\001\334`ox\240q\330\205\215\003\320\004\265\207\001\352\303 \021\251A\020\203\204\001.\250\003\377\2505\260\004\260D\270\004\377\270A\330\024\030\230\r\2407U\250!\227\223\0014\220\237\223\003\263\227\001\377>\250\027\260\001\330\020\031\273\230\033\331\210\002\020\024\320\364\221\001\360\177\022\000\r\016\360\020\000K\000\337D\230\005\230V\241""\215\001\2509\377\260J\270a\330\020\025\220\337S\230\002\230!\247\231\001;\230\377a\360\030\000\021\024\2201\377\220G\2303\230g\240Q\377\240g\250_\270E\300\021\372l\001\003\372\000v\240W\250A\377\250Q\250d\260)\2707\377\300%\300t\3104\310q\373\330\024\341!\030\035\230Q\340\337\030\031\340\024\025\221\217\002\024\220\375K\311\224\004\3209J\310$\310\377a\330\023\024\360\016\000\024\377\025\320\004\037\230q\360\010\367\000\016\022\223\227\001\023\2204\220\367~\240S\252\206\001\020\320\020!\377\240\024\240Q\240d\250)\377\2605\270\005\270T\300\021\277\300$\300i\310u\316\231\001\014~\311\205\001W\240A\320\004 \255\217\001\302\312\226\004\r\232\205\017\033\003\262\205\0165\000\320 \3578\270\001\330\227\204\001\020\220\004;\220I\243\220\006\023\2201\324\227\004\211\214\002\322%\002:\377\204\001\254\220\003^\344\232\001\320\004\347\"\320\"<\000\235 \t\023\220\375&\230\225\001\230f\240F\250\"\376\315\231\003t\2208\2301\230O;\2501#\002@\300\001\311\230\004\266\214\003\361\036\353\225\001\013\014\272\230\004I\240Z\250`\360B\307\221\002\321\230\001\263\213\001\331\230\0013\260\366\214\001\377\320\014&\240d\320*:\377\270!\340\016,\250A\360]\020\323\230\001K\220z\330\213\001\r\275\221\001\347\r\320\014\203\205\001\213\231\001=\270Q\376\327\220\001\r\210K\220t\230<s\240v\342\221\001\374\231\001I\220\\\243\230\003\310\264\204\001\004\004\337\233\0011\212\214\001\265\204\002\230\004\357\230K\240t\272\001#\320#\307A\300\021\255`\235\221\002\205\231\002\023\220\372\254\217\001a\314\230\003z\230\021\230.\377\250\007\250q\260\t\3209?N\310d\320RS\302\216\001\344\235\001\356\354\210\001\005\220Q\204\214\001\r\260[\377\300\001\340\010\030\230\n\240\377!\320#3\3203M\310\327Q\310a\354\222\001\026\210\001\340\010%\t\363\230\001\025\200A\354$%\341\232\001\272\236\003\277\003\320\023-\250Q\267\236\0015_\230\002\320\032+\342\235\002\010\277\207\001\377a\220t\230=\250\001\320\237\004+\2501\340\347\233\002\214\204\001J\373\260d\254\210\001\t\210\027\220\005\177\320\025(\250\r\260Q\017\0007\047\300""\026\373\206\001.\250\262\004\200\235\017\267&\240a\361\0008\260\330\217\006%\376\345\211\001\017\210q\320\004/\320?/K\3101\360\024\244\223\001\301\235\tz\235\235\001&\202\232\002\010\023\320\023\236\222\001\377$\250h\260n\300F\310\277!\320\0044\260A\264!\022/\220\034\230Q\363\234\001J\277\212\001\345\210\001\327V\2302\362\224\002\021\313\223\001e\230\3451\261\234\0024\363\222\002\220\207\0038\3208\320\303 \370\210\001d\014\251\224\005\006\311\234\001O\230\350\307\240\001\271\220\002\344\216\005Q\311\204\002!\240\024;\320%\206\211\003\320\017\"\322\240\001\264\224\001\274\367\216\010\377\240\006\r\021\320\020\274\236\001?}\270\255\000D\300A\360(\322\r\373\340\014\274\220\002\035\230W\240B?\240f\250B\250a\250\225\003\310\222\001\377\026\230s\240+\250S\260\377\001\340\014\025\220Y\230a\232\260\225\001g\363\241\002\r\024\203\224\003\277\206\001\320\365!\377\222\001!\027\003T\240\021\330\336\350\232\002\020\024\220L\374\205\001\007\270\373q\340#\010\"\320\"2\260\355!\371\225\003g\230\037\0149\270\027t\303`Q\010 \202\242\001\001\260\021G\022\2777\260w\270a\340i\036\240\3774\240|\3203K\3107\307\320RS\243\222\003n\036-\003L\310\341G\345\204\002\330\222\001\350\005\303\214\001S\230\001\016\251\235\001\001\330\014\345\026W\032\277\023\241\003\347J\310\047\200\226\002h\t\020\320\020\370\020 \225>D\032#\320#3\260\3471\260A\267K\265#M\310W\370\213\212\002\205\014\276Ii\230t\2401\274\363B\263%I\320UV\335.$\323\320$\355\240\001\353\230\001\220#\rN\310\217i\320WX\220N\215\t\026\032\030X\300\242\003\235\237\001\336\220\003\010\000\200\240\001\025\312\241\001\340\315\240\001\000\006\000\017 \001\372\241\0013\220i\373\230{\266\241\002$\260g\270S\377\300\001\340\024\032\230&\320\377 5\260Q\260a\330\024\377\037\230u\240G\2501\250\317E\260\027\270\030\000\010\004\330\020\377\032\230)\240?\260!\340\342\364\232\002G\204!\265\243\001\024\000\047\240\037\357\260\001\330\021\221\225\003\020\032\320\335\032\320\250\001w\260a\210\233\001w\220\357g\230Q\330\247\216\004\340\014\022\377\320\022%""\240Q\320&?\317\270r\300\021\307\243\001\363\240\004\020\220\367\n\230!!\003\320$6\260\177a\260t\270;\300m\374\211\002\236\363\226\nT\300\021\330\213\206\006+\006*\373\320*\333\233\001T\320AR\320\037R_\320_`\224\247\002\254\227\007 \023\377\047\320\0479\270\021\270$\177\270n\310M\320YZ\030\031c\320\020\230\216\001\360\217\001=+\013\230\253`:\341\213\003i\337\244\001\036\230g\344\217\001\331\r\315a\236\017\340\014\352\230\013\244\233\005%\230\177y\250\001\250\030\260\021\206@q\010\247\224\001\264\243\002\267\205\001\240\001\340\205\222\003\047F\320F\355\211\002\330\211\001\320\243\232\002\317\247\001\005\036\302\253\001\014\006\007\313\232\001\303\244\006\356\247\002\326\244\003\315\037\203\223\002\320\014(\005\220\220\002\014\320!\014\023\002\266\233\002\351\240\003\332\240\001\024\223\232\003\334A\013\220L\267\220\0031\201\236\005\r\020\227\237\002\335\253\001\3573\240a\3301\010\320\024&\375\240\250bt\220=\240\003\240\2751\020\t\220O\2401\033\032\320\277\004M\310Q\360\n\370\234\002\032\373\320\032\332\206\001D\270\t\300\030\377\310\034\320UV\320VW\274\332\235\010\375\214\002[\320[\\\366\213\024\014\376\265\235\n\010\260\016\270a\270w\377\300a\300t\3108\320S\377Z\320Z`\320`a\320\377ae\320ef\320fj\377\320j|\320|\177\360\000?\000@\002A\002\330\306\235\014\271\256\001\377t\2201\320\n\047\240q\001\320\333\220\001";
+    PyObject *data = __Pyx_DecompressString_LZSS(cstring, 15085, 29270);
     #define __Pyx_DecompressString_UNUSED
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #else /* compression: none (29209 bytes) */
-static const char bytes[] = "\n\n    Proactor event loop does not implement add_reader family of methods required.\n    Registering an additional selector thread for add_reader support.\n    To avoid this warning use:\n        asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())\n      [ at 0x bytes are allowed. bytes, but only  bytes]:  object>!H\047_FileDescriptorLike\047(tree fragment)) *, curl: (, multi: (.. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.. See https://curl.se/libcurl/c/libcurl-errors.html first for more details. Please open an issue on GitHub to help debug this error....1.01.12.0: << DATA< SSL<MemoryView of <contiguous and direct><contiguous and indirect><strided and direct or indirect><strided and direct><strided and indirect>>> DATA> SSL?Add data failed.Add field failed.Base exception for cycurl packageCallable[..., None]Can not use local_path and data at the same time.Cannot assign to read-only memoryviewCannot duplicate closed handle.Cannot perform request on closed handle.Cannot receive websocket data on closed handle.Cannot send websocket data on closed handle.Curlm already closed! quitting from process_dataDefine ``add_reader`` methods to be called in a background select thread.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user;\n    all callbacks are run on the wrapped event loop\047s thread.\n\n    Typically used via ``AddThreadSelectorEventLoop``,\n    but can be attached to a running asyncio loop.\n    Failed in Failed to Failed to set error bufferFile not found at Invalid mode, expected \047c\047 or \047fortran\047, got Invalid shape in axis NOT DONENoneNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the \047annotation_typing\047 directive to False.Option unsupported: %sRead callback returned Tornado selectorUnexpected curl multi state in process_data, please open an"" issue on GitHub\nWrap an event loop to add implementations of the ``add_reader`` method family.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user; all callbacks are\n    run on the wrapped event loop\047s thread.\n\n    This class is used automatically by Tornado; applications should not need\n    to refer to it directly.\n\n    It is safe to wrap any event loop with this class, although it only makes sense\n    for event loops that do not implement the ``add_reader`` family of methods\n    themselves (i.e. ``WindowsProactorEventLoop``)\n\n    Closing the ``AddThreadSelectorEventLoop`` also closes the wrapped event loop.\n\n    Wrote bytes != received bytes.add_noteasyncio.AbstractEventLoopcollections.abccycurl/_asyncio_selector.pxicycurl/_curl.pyxcycurl/utils.pxidict[_FileDescriptorLike, Callable]disableenablegcgetinfo isenabledlist[_FileDescriptorLike]no default __reduce__ due to non-trivial __cinit__self.form cannot be converted to a Python object for picklingself.frame cannot be converted to a Python object for picklingset cacertset proxy cacertsetopt typing.AsyncGenerator[None, None]unable to allocate array data.unable to allocate shape and strides.{:02X}{:02x}<lambda>ASCIIAbstractEventLoopAddThreadSelectorEventLoopAddThreadSelectorEventLoop.__getattribute__AddThreadSelectorEventLoop.__init__AddThreadSelectorEventLoop.add_readerAddThreadSelectorEventLoop.add_writerAddThreadSelectorEventLoop.closeAddThreadSelectorEventLoop.remove_readerAddThreadSelectorEventLoop.remove_writerAnyAsyncCurlAsyncCurl.__reduce_cython__AsyncCurl.__setstate_cython__AsyncCurl._check_errorAsyncCurl._force_timeoutAsyncCurl.add_handleAsyncCurl.closeAsyncCurl.process_dataAsyncCurl.remove_handleAsyncCurl.socket_actionCURLAUTH_ANYCURLAUTH_ANYSAFECURLAUTH_AWS_SIGV4CURLAUTH_BASICCURLAUTH_BEARERCURLAUTH_DIGESTCURLAUTH_DIGEST_IECURLAUTH_GSSAPICURLAUTH_GSSNEGOTIATECURLAUTH_NEGOTIATECURLAUTH_NONECURLAUTH_NTLMCURLAUTH_NTLM_WB""CURLAUTH_ONLYCURLE_ABORTED_BY_CALLBACKCURLE_AGAINCURLE_ALREADY_COMPLETECURLE_AUTH_ERRORCURLE_BAD_CALLING_ORDERCURLE_BAD_CONTENT_ENCODINGCURLE_BAD_DOWNLOAD_RESUMECURLE_BAD_FUNCTION_ARGUMENTCURLE_BAD_PASSWORD_ENTEREDCURLE_CHUNK_FAILEDCURLE_CONV_FAILEDCURLE_CONV_REQDCURLE_COULDNT_CONNECTCURLE_COULDNT_RESOLVE_HOSTCURLE_COULDNT_RESOLVE_PROXYCURLE_ECH_REQUIREDCURLE_FAILED_INITCURLE_FILESIZE_EXCEEDEDCURLE_FILE_COULDNT_READ_FILECURLE_FTP_ACCEPT_FAILEDCURLE_FTP_ACCEPT_TIMEOUTCURLE_FTP_ACCESS_DENIEDCURLE_FTP_BAD_DOWNLOAD_RESUMECURLE_FTP_BAD_FILE_LISTCURLE_FTP_CANT_GET_HOSTCURLE_FTP_CANT_RECONNECTCURLE_FTP_COULDNT_GET_SIZECURLE_FTP_COULDNT_RETR_FILECURLE_FTP_COULDNT_SET_ASCIICURLE_FTP_COULDNT_SET_BINARYCURLE_FTP_COULDNT_SET_TYPECURLE_FTP_COULDNT_STOR_FILECURLE_FTP_COULDNT_USE_RESTCURLE_FTP_PARTIAL_FILECURLE_FTP_PORT_FAILEDCURLE_FTP_PRET_FAILEDCURLE_FTP_QUOTE_ERRORCURLE_FTP_SSL_FAILEDCURLE_FTP_USER_PASSWORD_INCORRECTCURLE_FTP_WEIRD_227_FORMATCURLE_FTP_WEIRD_PASS_REPLYCURLE_FTP_WEIRD_PASV_REPLYCURLE_FTP_WEIRD_SERVER_REPLYCURLE_FTP_WEIRD_USER_REPLYCURLE_FTP_WRITE_ERRORCURLE_FUNCTION_NOT_FOUNDCURLE_GOT_NOTHINGCURLE_HTTP2CURLE_HTTP2_STREAMCURLE_HTTP3CURLE_HTTP_NOT_FOUNDCURLE_HTTP_PORT_FAILEDCURLE_HTTP_POST_ERRORCURLE_HTTP_RANGE_ERRORCURLE_HTTP_RETURNED_ERRORCURLE_INTERFACE_FAILEDCURLE_LDAP_CANNOT_BINDCURLE_LDAP_INVALID_URLCURLE_LDAP_SEARCH_FAILEDCURLE_LIBRARY_NOT_FOUNDCURLE_LOGIN_DENIEDCURLE_MALFORMAT_USERCURLE_NOT_BUILT_INCURLE_NO_CONNECTION_AVAILABLECURLE_OBSOLETECURLE_OBSOLETE10CURLE_OBSOLETE12CURLE_OBSOLETE16CURLE_OBSOLETE20CURLE_OBSOLETE24CURLE_OBSOLETE29CURLE_OBSOLETE32CURLE_OBSOLETE34CURLE_OBSOLETE40CURLE_OBSOLETE41CURLE_OBSOLETE44CURLE_OBSOLETE46CURLE_OBSOLETE50CURLE_OBSOLETE51CURLE_OBSOLETE57CURLE_OBSOLETE62CURLE_OBSOLETE75CURLE_OBSOLETE76CURLE_OKCURLE_OPERATION_TIMEDOUTCURLE_OPERATION_TIMEOUTEDCURLE_OUT_OF_MEMORYCURLE_PARTIAL_FILECURLE_PEER_FAILED_VERIFICATIONCURLE_PROXYCURLE_QUIC_CONNECT_ERRORCURLE_QUOTE_ERRORCURLE_RANGE_ERRORCURLE_READ_ERRORCURLE_RECURSIVE_API_CALLCURLE""_RECV_ERRORCURLE_REMOTE_ACCESS_DENIEDCURLE_REMOTE_DISK_FULLCURLE_REMOTE_FILE_EXISTSCURLE_REMOTE_FILE_NOT_FOUNDCURLE_RTSP_CSEQ_ERRORCURLE_RTSP_SESSION_ERRORCURLE_SEND_ERRORCURLE_SEND_FAIL_REWINDCURLE_SETOPT_OPTION_SYNTAXCURLE_SHARE_IN_USECURLE_SSHCURLE_SSL_CACERTCURLE_SSL_CACERT_BADFILECURLE_SSL_CERTPROBLEMCURLE_SSL_CIPHERCURLE_SSL_CLIENTCERTCURLE_SSL_CONNECT_ERRORCURLE_SSL_CRL_BADFILECURLE_SSL_ENGINE_INITFAILEDCURLE_SSL_ENGINE_NOTFOUNDCURLE_SSL_ENGINE_SETFAILEDCURLE_SSL_INVALIDCERTSTATUSCURLE_SSL_ISSUER_ERRORCURLE_SSL_PEER_CERTIFICATECURLE_SSL_PINNEDPUBKEYNOTMATCHCURLE_SSL_SHUTDOWN_FAILEDCURLE_TELNET_OPTION_SYNTAXCURLE_TFTP_DISKFULLCURLE_TFTP_EXISTSCURLE_TFTP_ILLEGALCURLE_TFTP_NOSUCHUSERCURLE_TFTP_NOTFOUNDCURLE_TFTP_PERMCURLE_TFTP_UNKNOWNIDCURLE_TOO_LARGECURLE_TOO_MANY_REDIRECTSCURLE_UNKNOWN_OPTIONCURLE_UNKNOWN_TELNET_OPTIONCURLE_UNRECOVERABLE_POLLCURLE_UNSUPPORTED_PROTOCOLCURLE_UPLOAD_FAILEDCURLE_URL_MALFORMATCURLE_URL_MALFORMAT_USERCURLE_USE_SSL_FAILEDCURLE_WEIRD_SERVER_REPLYCURLE_WRITE_ERRORCURLFOLLOW_ALLCURLFOLLOW_FIRSTONLYCURLFOLLOW_OBEYCODECURLFOLLOW_SAFECURLINFO_ACTIVESOCKETCURLINFO_APPCONNECT_TIMECURLINFO_APPCONNECT_TIME_TCURLINFO_CAINFOCURLINFO_CAPATHCURLINFO_CERTINFOCURLINFO_CONDITION_UNMETCURLINFO_CONNECT_TIMECURLINFO_CONNECT_TIME_TCURLINFO_CONN_IDCURLINFO_CONTENT_LENGTH_DOWNLOADCURLINFO_CONTENT_LENGTH_DOWNLOAD_TCURLINFO_CONTENT_LENGTH_UPLOADCURLINFO_CONTENT_LENGTH_UPLOAD_TCURLINFO_CONTENT_TYPECURLINFO_COOKIECHANGESCURLINFO_COOKIELISTCURLINFO_DATA_INCURLINFO_DATA_OUTCURLINFO_EARLYDATA_SENT_TCURLINFO_EFFECTIVE_METHODCURLINFO_EFFECTIVE_URLCURLINFO_ENDCURLINFO_FILETIMECURLINFO_FILETIME_TCURLINFO_FTP_ENTRY_PATHCURLINFO_HEADER_INCURLINFO_HEADER_OUTCURLINFO_HEADER_SIZECURLINFO_HTTPAUTH_AVAILCURLINFO_HTTPAUTH_USEDCURLINFO_HTTP_CONNECTCODECURLINFO_HTTP_VERSIONCURLINFO_LASTONECURLINFO_LASTSOCKETCURLINFO_LOCAL_IPCURLINFO_LOCAL_PORTCURLINFO_NAMELOOKUP_TIMECURLINFO_NAMELOOKUP_TIME_TCURLINFO_NONECURLINFO_NUM_CONNECTSCURLINFO_OS_ERRNOCURLINFO_POSTTRANSFER_TIME_TCURLINF""O_PRETRANSFER_TIMECURLINFO_PRETRANSFER_TIME_TCURLINFO_PRIMARY_IPCURLINFO_PRIMARY_PORTCURLINFO_PRIVATECURLINFO_PROTOCOLCURLINFO_PROXYAUTH_AVAILCURLINFO_PROXYAUTH_USEDCURLINFO_PROXY_ERRORCURLINFO_PROXY_SSL_VERIFYRESULTCURLINFO_QUEUE_TIME_TCURLINFO_REDIRECT_COUNTCURLINFO_REDIRECT_HISTORYCURLINFO_REDIRECT_TIMECURLINFO_REDIRECT_TIME_TCURLINFO_REDIRECT_URLCURLINFO_REFERERCURLINFO_REQUEST_SIZECURLINFO_RESPONSE_CODECURLINFO_RETRY_AFTERCURLINFO_RTSP_CLIENT_CSEQCURLINFO_RTSP_CSEQ_RECVCURLINFO_RTSP_SERVER_CSEQCURLINFO_RTSP_SESSION_IDCURLINFO_SCHEMECURLINFO_SIZE_DELIVEREDCURLINFO_SIZE_DOWNLOADCURLINFO_SIZE_DOWNLOAD_TCURLINFO_SIZE_UPLOADCURLINFO_SIZE_UPLOAD_TCURLINFO_SPEED_DOWNLOADCURLINFO_SPEED_DOWNLOAD_TCURLINFO_SPEED_UPLOADCURLINFO_SPEED_UPLOAD_TCURLINFO_SSL_DATA_INCURLINFO_SSL_DATA_OUTCURLINFO_SSL_ENGINESCURLINFO_SSL_VERIFYRESULTCURLINFO_STARTTRANSFER_TIMECURLINFO_STARTTRANSFER_TIME_TCURLINFO_TEXTCURLINFO_TLS_SESSIONCURLINFO_TLS_SSL_PTRCURLINFO_TOTAL_TIMECURLINFO_TOTAL_TIME_TCURLINFO_USED_PROXYCURLINFO_XFER_IDCURLMOPT_CHUNK_LENGTH_PENALTY_SIZECURLMOPT_CONTENT_LENGTH_PENALTY_SIZECURLMOPT_MAXCONNECTSCURLMOPT_MAX_CONCURRENT_STREAMSCURLMOPT_MAX_HOST_CONNECTIONSCURLMOPT_MAX_PIPELINE_LENGTHCURLMOPT_MAX_TOTAL_CONNECTIONSCURLMOPT_NETWORK_CHANGEDCURLMOPT_NOTIFYDATACURLMOPT_NOTIFYFUNCTIONCURLMOPT_PIPELININGCURLMOPT_PIPELINING_SERVER_BLCURLMOPT_PIPELINING_SITE_BLCURLMOPT_PUSHDATACURLMOPT_PUSHFUNCTIONCURLMOPT_QUICK_EXITCURLMOPT_RESOLVE_THREADS_MAXCURLMOPT_SOCKETDATACURLMOPT_SOCKETFUNCTIONCURLMOPT_TIMERDATACURLMOPT_TIMERFUNCTIONCURLMSG_DONECURLMSG_LASTCURLMSG_NONECURLOPT_ABSTRACT_UNIX_SOCKETCURLOPT_ACCEPTTIMEOUT_MSCURLOPT_ACCEPT_ENCODINGCURLOPT_ADDRESS_SCOPECURLOPT_ALTSVCCURLOPT_ALTSVC_CTRLCURLOPT_APPENDCURLOPT_AUTOREFERERCURLOPT_AWS_SIGV4CURLOPT_BUFFERSIZECURLOPT_CAINFOCURLOPT_CAINFO_BLOBCURLOPT_CAPATHCURLOPT_CA_CACHE_TIMEOUTCURLOPT_CERTINFOCURLOPT_CHUNK_BGN_FUNCTIONCURLOPT_CHUNK_DATACURLOPT_CHUNK_END_FUNCTIONCURLOPT_CLOSEPOLICYCURLOPT_CLOSESOCKETDATACURLOPT_CLOSESOCKETFUNCTIONCURLOPT_C""ONNECTTIMEOUTCURLOPT_CONNECTTIMEOUT_MSCURLOPT_CONNECT_ONLYCURLOPT_CONNECT_TOCURLOPT_CONV_FROM_NETWORK_FUNCTIONCURLOPT_CONV_FROM_UTF8_FUNCTIONCURLOPT_CONV_TO_NETWORK_FUNCTIONCURLOPT_COOKIECURLOPT_COOKIEFILECURLOPT_COOKIEJARCURLOPT_COOKIELISTCURLOPT_COOKIESESSIONCURLOPT_COPYPOSTFIELDSCURLOPT_CRLFCURLOPT_CRLFILECURLOPT_CURLUCURLOPT_CUSTOMREQUESTCURLOPT_DEBUGDATACURLOPT_DEBUGFUNCTIONCURLOPT_DEFAULT_PROTOCOLCURLOPT_DIRLISTONLYCURLOPT_DISALLOW_USERNAME_IN_URLCURLOPT_DNS_CACHE_TIMEOUTCURLOPT_DNS_INTERFACECURLOPT_DNS_LOCAL_IP4CURLOPT_DNS_LOCAL_IP6CURLOPT_DNS_SERVERSCURLOPT_DNS_SHUFFLE_ADDRESSESCURLOPT_DNS_USE_GLOBAL_CACHECURLOPT_DOH_SSL_VERIFYHOSTCURLOPT_DOH_SSL_VERIFYPEERCURLOPT_DOH_SSL_VERIFYSTATUSCURLOPT_DOH_URLCURLOPT_ECHCURLOPT_EGDSOCKETCURLOPT_ENCODINGCURLOPT_ERRORBUFFERCURLOPT_EXPECT_100_TIMEOUT_MSCURLOPT_FAILONERRORCURLOPT_FILECURLOPT_FILETIMECURLOPT_FNMATCH_DATACURLOPT_FNMATCH_FUNCTIONCURLOPT_FOLLOWLOCATIONCURLOPT_FORBID_REUSECURLOPT_FORM_BOUNDARYCURLOPT_FRESH_CONNECTCURLOPT_FTPAPPENDCURLOPT_FTPLISTONLYCURLOPT_FTPPORTCURLOPT_FTPSSLAUTHCURLOPT_FTP_ACCOUNTCURLOPT_FTP_ALTERNATIVE_TO_USERCURLOPT_FTP_CREATE_MISSING_DIRSCURLOPT_FTP_FILEMETHODCURLOPT_FTP_RESPONSE_TIMEOUTCURLOPT_FTP_SKIP_PASV_IPCURLOPT_FTP_SSLCURLOPT_FTP_SSL_CCCCURLOPT_FTP_USE_EPRTCURLOPT_FTP_USE_EPSVCURLOPT_FTP_USE_PRETCURLOPT_GSSAPI_DELEGATIONCURLOPT_HAPPY_EYEBALLS_TIMEOUT_MSCURLOPT_HAPROXYPROTOCOLCURLOPT_HAPROXY_CLIENT_IPCURLOPT_HEADERCURLOPT_HEADERDATACURLOPT_HEADERFUNCTIONCURLOPT_HEADEROPTCURLOPT_HSTSCURLOPT_HSTSREADDATACURLOPT_HSTSREADFUNCTIONCURLOPT_HSTSWRITEDATACURLOPT_HSTSWRITEFUNCTIONCURLOPT_HSTS_CTRLCURLOPT_HTTP09_ALLOWEDCURLOPT_HTTP200ALIASESCURLOPT_HTTP2_NO_PRIORITYCURLOPT_HTTP2_PSEUDO_HEADERS_ORDERCURLOPT_HTTP2_SETTINGSCURLOPT_HTTP2_STREAMSCURLOPT_HTTP2_WINDOW_UPDATECURLOPT_HTTP3_HTTPHEADERCURLOPT_HTTP3_HTTPHEADER_ORDERCURLOPT_HTTP3_PSEUDO_HEADERS_ORDERCURLOPT_HTTP3_SETTINGSCURLOPT_HTTP3_SIG_HASH_ALGSCURLOPT_HTTP3_SSL_EC_CURVESCURLOPT_HTTP3_TLS_EXTENSION_ORDERCURLOPT_HTTPAUTHCURLOPT_HTTPBASEH""EADERCURLOPT_HTTPGETCURLOPT_HTTPHEADERCURLOPT_HTTPHEADER_ORDERCURLOPT_HTTPPOSTCURLOPT_HTTPPROXYTUNNELCURLOPT_HTTP_CONTENT_DECODINGCURLOPT_HTTP_TRANSFER_DECODINGCURLOPT_HTTP_VERSIONCURLOPT_IGNORE_CONTENT_LENGTHCURLOPT_IMPERSONATECURLOPT_INFILECURLOPT_INFILESIZECURLOPT_INFILESIZE_LARGECURLOPT_INTERFACECURLOPT_INTERLEAVEDATACURLOPT_INTERLEAVEFUNCTIONCURLOPT_IOCTLDATACURLOPT_IOCTLFUNCTIONCURLOPT_IPRESOLVECURLOPT_ISSUERCERTCURLOPT_ISSUERCERT_BLOBCURLOPT_KEEP_SENDING_ON_ERRORCURLOPT_KEYPASSWDCURLOPT_KRB4LEVELCURLOPT_KRBLEVELCURLOPT_LOCALPORTCURLOPT_LOCALPORTRANGECURLOPT_LOGIN_OPTIONSCURLOPT_LOW_SPEED_LIMITCURLOPT_LOW_SPEED_TIMECURLOPT_MAIL_AUTHCURLOPT_MAIL_FROMCURLOPT_MAIL_RCPTCURLOPT_MAIL_RCPT_ALLLOWFAILSCURLOPT_MAIL_RCPT_ALLOWFAILSCURLOPT_MAXAGE_CONNCURLOPT_MAXCONNECTSCURLOPT_MAXFILESIZECURLOPT_MAXFILESIZE_LARGECURLOPT_MAXLIFETIME_CONNCURLOPT_MAXREDIRSCURLOPT_MAX_RECV_SPEED_LARGECURLOPT_MAX_SEND_SPEED_LARGECURLOPT_MIMEPOSTCURLOPT_MIME_OPTIONSCURLOPT_NETRCCURLOPT_NETRC_FILECURLOPT_NEW_DIRECTORY_PERMSCURLOPT_NEW_FILE_PERMSCURLOPT_NOBODYCURLOPT_NOPROGRESSCURLOPT_NOPROXYCURLOPT_NOSIGNALCURLOPT_OBSOLETE40CURLOPT_OBSOLETE72CURLOPT_OPENSOCKETDATACURLOPT_OPENSOCKETFUNCTIONCURLOPT_PASSWORDCURLOPT_PATH_AS_ISCURLOPT_PINNEDPUBLICKEYCURLOPT_PIPEWAITCURLOPT_PORTCURLOPT_POSTCURLOPT_POST301CURLOPT_POSTFIELDSCURLOPT_POSTFIELDSIZECURLOPT_POSTFIELDSIZE_LARGECURLOPT_POSTQUOTECURLOPT_POSTREDIRCURLOPT_PREQUOTECURLOPT_PREREQDATACURLOPT_PREREQFUNCTIONCURLOPT_PRE_PROXYCURLOPT_PRIVATECURLOPT_PROGRESSDATACURLOPT_PROGRESSFUNCTIONCURLOPT_PROTOCOLSCURLOPT_PROTOCOLS_STRCURLOPT_PROXYCURLOPT_PROXYAUTHCURLOPT_PROXYHEADERCURLOPT_PROXYPASSWORDCURLOPT_PROXYPORTCURLOPT_PROXYTYPECURLOPT_PROXYUSERNAMECURLOPT_PROXYUSERPWDCURLOPT_PROXY_CAINFOCURLOPT_PROXY_CAINFO_BLOBCURLOPT_PROXY_CAPATHCURLOPT_PROXY_CREDENTIAL_NO_REUSECURLOPT_PROXY_CRLFILECURLOPT_PROXY_ISSUERCERTCURLOPT_PROXY_ISSUERCERT_BLOBCURLOPT_PROXY_KEYPASSWDCURLOPT_PROXY_PINNEDPUBLICKEYCURLOPT_PROXY_SERVICE_NAMECURLOPT_PROXY_SSLCERTCURLOPT_PROXY_SSLCERTTY""PECURLOPT_PROXY_SSLCERT_BLOBCURLOPT_PROXY_SSLKEYCURLOPT_PROXY_SSLKEYTYPECURLOPT_PROXY_SSLKEY_BLOBCURLOPT_PROXY_SSLVERSIONCURLOPT_PROXY_SSL_CIPHER_LISTCURLOPT_PROXY_SSL_OPTIONSCURLOPT_PROXY_SSL_VERIFYHOSTCURLOPT_PROXY_SSL_VERIFYPEERCURLOPT_PROXY_TLS13_CIPHERSCURLOPT_PROXY_TLSAUTH_PASSWORDCURLOPT_PROXY_TLSAUTH_TYPECURLOPT_PROXY_TLSAUTH_USERNAMECURLOPT_PROXY_TRANSFER_MODECURLOPT_PUTCURLOPT_QUICK_EXITCURLOPT_QUIC_CID_LENGTHCURLOPT_QUIC_TRANSPORT_PARAMETERSCURLOPT_QUOTECURLOPT_RANDOM_FILECURLOPT_RANGECURLOPT_READDATACURLOPT_READFUNCTIONCURLOPT_REDIR_PROTOCOLSCURLOPT_REDIR_PROTOCOLS_STRCURLOPT_REFERERCURLOPT_REQUEST_TARGETCURLOPT_RESOLVECURLOPT_RESOLVER_START_DATACURLOPT_RESOLVER_START_FUNCTIONCURLOPT_RESUME_FROMCURLOPT_RESUME_FROM_LARGECURLOPT_RTSPHEADERCURLOPT_RTSP_CLIENT_CSEQCURLOPT_RTSP_REQUESTCURLOPT_RTSP_SERVER_CSEQCURLOPT_RTSP_SESSION_IDCURLOPT_RTSP_STREAM_URICURLOPT_RTSP_TRANSPORTCURLOPT_SASL_AUTHZIDCURLOPT_SASL_IRCURLOPT_SEEKDATACURLOPT_SEEKFUNCTIONCURLOPT_SERVER_RESPONSE_TIMEOUTCURLOPT_SERVER_RESPONSE_TIMEOUT_MSCURLOPT_SERVICE_NAMECURLOPT_SHARECURLOPT_SOCKOPTDATACURLOPT_SOCKOPTFUNCTIONCURLOPT_SOCKS5_AUTHCURLOPT_SOCKS5_GSSAPI_NECCURLOPT_SOCKS5_GSSAPI_SERVICECURLOPT_SPLIT_COOKIESCURLOPT_SSH_AUTH_TYPESCURLOPT_SSH_COMPRESSIONCURLOPT_SSH_HOSTKEYDATACURLOPT_SSH_HOSTKEYFUNCTIONCURLOPT_SSH_HOST_PUBLIC_KEY_MD5CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256CURLOPT_SSH_KEYDATACURLOPT_SSH_KEYFUNCTIONCURLOPT_SSH_KNOWNHOSTSCURLOPT_SSH_PRIVATE_KEYFILECURLOPT_SSH_PUBLIC_KEYFILECURLOPT_SSLCERTCURLOPT_SSLCERTPASSWDCURLOPT_SSLCERTTYPECURLOPT_SSLCERT_BLOBCURLOPT_SSLENGINECURLOPT_SSLENGINE_DEFAULTCURLOPT_SSLKEYCURLOPT_SSLKEYPASSWDCURLOPT_SSLKEYTYPECURLOPT_SSLKEY_BLOBCURLOPT_SSLVERSIONCURLOPT_SSL_CERT_COMPRESSIONCURLOPT_SSL_CIPHER_LISTCURLOPT_SSL_CTX_DATACURLOPT_SSL_CTX_FUNCTIONCURLOPT_SSL_EC_CURVESCURLOPT_SSL_ENABLE_ALPNCURLOPT_SSL_ENABLE_ALPSCURLOPT_SSL_ENABLE_NPNCURLOPT_SSL_ENABLE_TICKETCURLOPT_SSL_FALSESTARTCURLOPT_SSL_OPTIONSCURLOPT_SSL_PERMUTE_EXTENSIONSCURLOPT_SSL_SESSIONID_CACHECURLOPT_SS""L_SIGNATURE_ALGORITHMSCURLOPT_SSL_SIG_HASH_ALGSCURLOPT_SSL_VERIFYHOSTCURLOPT_SSL_VERIFYPEERCURLOPT_SSL_VERIFYSTATUSCURLOPT_STDERRCURLOPT_STREAM_DEPENDSCURLOPT_STREAM_DEPENDS_ECURLOPT_STREAM_EXCLUSIVECURLOPT_STREAM_WEIGHTCURLOPT_SUPPRESS_CONNECT_HEADERSCURLOPT_TCP_FASTOPENCURLOPT_TCP_KEEPALIVECURLOPT_TCP_KEEPCNTCURLOPT_TCP_KEEPIDLECURLOPT_TCP_KEEPINTVLCURLOPT_TCP_NODELAYCURLOPT_TELNETOPTIONSCURLOPT_TFTP_BLKSIZECURLOPT_TFTP_NO_OPTIONSCURLOPT_TIMECONDITIONCURLOPT_TIMEOUTCURLOPT_TIMEOUT_MSCURLOPT_TIMEVALUECURLOPT_TIMEVALUE_LARGECURLOPT_TLS13_CIPHERSCURLOPT_TLSAUTH_PASSWORDCURLOPT_TLSAUTH_TYPECURLOPT_TLSAUTH_USERNAMECURLOPT_TLS_DELEGATED_CREDENTIALSCURLOPT_TLS_EXTENSION_ORDERCURLOPT_TLS_GREASECURLOPT_TLS_KEY_SHARES_LIMITCURLOPT_TLS_KEY_USAGE_NO_CHECKCURLOPT_TLS_RECORD_SIZE_LIMITCURLOPT_TLS_SIGNED_CERT_TIMESTAMPSCURLOPT_TLS_STATUS_REQUESTCURLOPT_TLS_USE_NEW_ALPS_CODEPOINTCURLOPT_TRAILERDATACURLOPT_TRAILERFUNCTIONCURLOPT_TRANSFERTEXTCURLOPT_TRANSFER_ENCODINGCURLOPT_UNIX_SOCKET_PATHCURLOPT_UNRESTRICTED_AUTHCURLOPT_UPKEEP_INTERVAL_MSCURLOPT_UPLOADCURLOPT_UPLOAD_BUFFERSIZECURLOPT_UPLOAD_FLAGSCURLOPT_URLCURLOPT_USERAGENTCURLOPT_USERNAMECURLOPT_USERPWDCURLOPT_USE_SSLCURLOPT_VERBOSECURLOPT_WILDCARDMATCHCURLOPT_WRITEDATACURLOPT_WRITEFUNCTIONCURLOPT_WRITEHEADERCURLOPT_WRITEINFOCURLOPT_WS_HTTPHEADERCURLOPT_WS_HTTPHEADER_ORDERCURLOPT_WS_OPTIONSCURLOPT_WS_SSL_CERT_COMPRESSIONCURLOPT_WS_SSL_DISABLE_TICKETCURLOPT_XFERINFODATACURLOPT_XFERINFOFUNCTIONCURLOPT_XOAUTH2_BEARERCURLPAUSE_ALLCURLPAUSE_CONTCURLPAUSE_RECVCURLPAUSE_RECV_CONTCURLPAUSE_SENDCURLPAUSE_SEND_CONTCURLPIPE_HTTP1CURLPIPE_MULTIPLEXCURLPIPE_NOTHINGCURLSSH_AUTH_AGENTCURLSSH_AUTH_ANYCURLSSH_AUTH_DEFAULTCURLSSH_AUTH_GSSAPICURLSSH_AUTH_HOSTCURLSSH_AUTH_KEYBOARDCURLSSH_AUTH_NONECURLSSH_AUTH_PASSWORDCURLSSH_AUTH_PUBLICKEYCURLWS_BINARYCURLWS_CLOSECURLWS_CONTCURLWS_NOAUTOPONGCURLWS_OFFSETCURLWS_PINGCURLWS_PONGCURLWS_RAW_MODECURLWS_TEXTCURL_CA_BUNDLECURL_CSELECT_ERRCURL_CSELECT_INCURL_CSELECT_OUTCURL_ERROR_SIZECURL_FNMATCHFUNC_FAILCU""RL_FNMATCHFUNC_MATCHCURL_FNMATCHFUNC_NOMATCHCURL_HTTP_VERSION_1_0CURL_HTTP_VERSION_1_1CURL_HTTP_VERSION_2CURL_HTTP_VERSION_2TLSCURL_HTTP_VERSION_2_0CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGECURL_HTTP_VERSION_3CURL_HTTP_VERSION_3ONLYCURL_HTTP_VERSION_LASTCURL_HTTP_VERSION_NONECURL_IPRESOLVE_V4CURL_IPRESOLVE_V6CURL_IPRESOLVE_WHATEVERCURL_POLL_INCURL_POLL_INOUTCURL_POLL_NONECURL_POLL_OUTCURL_POLL_REMOVECURL_PREREQFUNC_ABORTCURL_PREREQFUNC_OKCURL_READFUNC_ABORTCURL_READFUNC_PAUSECURL_SEEKFUNC_CANTSEEKCURL_SEEKFUNC_FAILCURL_SEEKFUNC_OKCURL_SOCKET_BADCURL_SOCKET_TIMEOUTCURL_SSLVERSION_DEFAULTCURL_SSLVERSION_LASTCURL_SSLVERSION_MAX_DEFAULTCURL_SSLVERSION_MAX_LASTCURL_SSLVERSION_MAX_NONECURL_SSLVERSION_MAX_TLSv1_0CURL_SSLVERSION_MAX_TLSv1_1CURL_SSLVERSION_MAX_TLSv1_2CURL_SSLVERSION_MAX_TLSv1_3CURL_SSLVERSION_SSLv2CURL_SSLVERSION_SSLv3CURL_SSLVERSION_TLSv1CURL_SSLVERSION_TLSv1_0CURL_SSLVERSION_TLSv1_1CURL_SSLVERSION_TLSv1_2CURL_SSLVERSION_TLSv1_3CURL_TRAILERFUNC_ABORTCURL_TRAILERFUNC_OKCURL_WRITEFUNC_ERRORCURL_WRITEFUNC_PAUSECallableCancelledErrorConditionCurlCurl.__reduce_cython__Curl.__setstate_cython__Curl._get_callback_exceptionCurl.clean_handles_and_buffersCurl.closeCurl.debugCurl.duphandleCurl.get_reason_phraseCurl.getinfoCurl.impersonateCurl.parse_cookie_headersCurl.parse_status_lineCurl.pauseCurl.performCurl.resetCurl.setoptCurl.upkeepCurl.versionCurl.ws_closeCurl.ws_metaCurl.ws_recvCurl.ws_sendCurlErrorCurlError.__init__CurlMimeCurlMime.__reduce_cython__CurlMime.__setstate_cython__CurlMime.addpartCurlMime.attachCurlMime.closeCurlMime.from_listCurlWarningDEFAULT_CACERTEBADFEllipsisMAX_SHOW_BYTESMY_ATTRIBUTESNoneOptionalPREFIXESPROACTOR_WARNINGPathProactorEventLoopProtocolREASON_PHRASE_REREQUESTS_CA_BUNDLESSL_CERT_FILESTATUS_LINE_RESelectorThreadSelectorThread.__init__SelectorThread.__init__.<locals>.<lambda>SelectorThread.__init__.<locals>.thread_manager_anextSelectorThread._consume_wakerSelectorThread._handle_eventSelectorThread._handle_selectSelectorThread._run_selectSele""ctorThread._start_selectSelectorThread._thread_managerSelectorThread._wake_selectorSelectorThread.add_readerSelectorThread.add_writerSelectorThread.closeSelectorThread.remove_readerSelectorThread.remove_writerSequenceSimpleCookieThreadTypeVarUnionView.MemoryViewWSAENOTSOCKWSFrameWSFrame.__reduce_cython__WSFrame.__setstate_cython__WS_RECVWS_SENDWeakKeyDictionaryWeakSet__CallbackContext_CallbackContext.__reduce_cython___CallbackContext.__setstate_cython___FileDescriptorLike_HasFileno_HasFileno.fileno_T__Pyx_PyDict_NextRef__anext____annotate____await____class____class_getitem____dict____doc____enter____exit____func____getattribute____getstate____import____init____main____metaclass____module____mro_entries____name____new____prepare____pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_unpickle__CallbackContext__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex____set_name____setstate____setstate_cython____test___atexit_callback_check_error_close_selector_and_loop_closed_closing_selector_consume_waker_default_cacert_dict_force_timeout_get_callback_exception_handle_event_handle_select_is_coroutine_readers_real_loop_run_select_select_args_select_cond_selector_selector_loops_selectors_start_select_thread_thread_manager_thread_manager_handle_wake_selector_waker_r_waker_w_writersaabcactionaddadd_handleadd_readeradd_writeraddpartallocate_bufferargsasyncioasyncio.coroutinesasyncio_loopatexitattachbackslashreplacebaseboolbytebytesbytes_to_hex.<locals>.genexprccacertcafilecall_latercall_sooncall_soon_threadsafecallbackcancelcancelledcategorycb_mapcertificlean_handles_and_buffersclearclear_headersclear_resolvecline_in_tracebackcloseclscodecollections.abccompileconfig_warningscontent_typecontextlibcookiecountcreate_futurecreate_taskcurl_cycurl._curldaemondatadebugdebug_function_defaultdecodedefaultdefault_headersdiscarddonedtype_is_objectduphandleeencodeenumerateenvironerrcodeerrmsgerrnoerrorerrorsev_bitmaskexceptionexistsfdfilefilenamefilenofilesfla""gsformformatfortranframefrom_listfunctoolsfuturegenexprgetget_default_verify_pathsget_reason_phraseget_running_loopget_selectorget_selector.<locals>._close_selector_and_loopgetinfogetpreferredencodinggrouphandleheaderheadershex_strhttp.cookieshttp_versionidignoreimpersonateindexintis_proitemsitemsizejoinkeyskwargsloadlocal_pathlocalelooploop_closelowermmatchmemviewmessagemodemsgnamendimnextnotifyobjonoptionospackparse_cookie_headersparse_status_linepartialpathpathlibpausepayloadperformplatformpoppostfixprefixprintprocess_datarrereadreal_loopreasonrecvregisterremove_handleremove_readerremove_writerresetreturnrsseekselectselector_loopselfsendset_exceptionset_resultsetblockingsetdefaultsetoptshapesimplefiltersizesleepsocketsocket_actionsocketpairsockfdsslstacklevelstartstartswithstatestaticmethodstatus_codestatus_linestderrstepstopstrstrictstructsupersuppresssystargettextthread_manager_anextthreadingthrowto_readto_writetupletype_typingunpackupdateupkeepuse_setstatevaluevaluesversionwwaitwarnwarningsweakrefwherewinwin32writewsws_closews_metaws_recvws_sendxxsHTTP/(\\d\\.\\d) ([0-9]{3}) (.*)HTTP/\\d\\.\\d [0-9]{3} (.*)Oaset-cookie: \200\001\330\004\n\210+\220Q\200\001\330\004.\250a\250v\260Q\200\001\340\004\010\210\013\2201\320\024%\320%7\260q\330\010\017\210r\220\030\230\024\230Q\230a\330\010\013\2105\220\004\220B\220e\2307\240!\2401\330\014\023\2201\360\006\000\005\020\210s\320\022+\2501\330\004\007\200x\210x\220t\2302\230U\240\047\250\021\250(\260!\330\010\017\210x\220q\360\006\000\005\014\2107\220&\230\001\200\001\340\004\013\210;\220m\2401\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\320\023#\2408\2501\250A\330\004\007\200|\2207\230!\330\0102\260!\3203F\300n\320TU\330\004\013\2101\200\001\360\010\000\n\033\230!\330\010\021\220\024\220[\240\004\240A\330\010\020\220\007\220q\230\006\230l\250!\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\230:\240W\250E\260\023\260D\270\013\3007\310!\330\004\007\200q""\330\010\017\320\0171\260\024\260Q\260g\270[\310\007\310q\340\010\017\320\0171\260\024\260Q\260g\270[\310\001\200A\330\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026\047\240q\250\004\250A\330\010\017\210q\200A\330\010\013\2108\2207\230!\330\014\r\330\010&\320&:\270!\2701\330\010\032\230#\230U\240!\2401\240C\240q\250\003\2504\250u\260A\330\010\016\210i\220q\330\014\030\230\001\320\031*\250!\250:\260Q\3206J\310!\3101\200A\330\0103\260=\300\001\300\024\300Q\330\010\026\220i\230q\240\001\200A\330\0221\260\021\330\t\n\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210N\230!\200A\330\0221\260\021\330\t\n\330\010\014\210I\220Q\220f\230I\240X\250Q\250k\270\021\330\010\014\210O\2301\200A\33001\340\010\014\320\014\034\230F\240!\2401\330\010\017\210q\220\006\220a\220v\230W\240A\200A\33001\360\n\000\t\r\210N\230&\240\001\240\021\330\010\013\2104\210q\330\014\023\320\023*\250#\250Q\330\010\013\2101\210F\220!\2203\220c\230\021\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\340\014\033\2301\330\010\026\220c\230\021\230!\2306\240\021\240!\330\010\021\220\021\220&\230\001\230\021\340\010\017\210~\230]\250!\200A\340\010\013\2104\210t\2201\330\014\024\220E\230\021\330\020D\300M\320Q\\\320\\]\340\014\r\340\010\014\210N\230!\2308\2401\360\016\000\t\n\330\014\r\330\020\037\320\0374\260A\260T\270\031\300!\3001\340\020\023\2209\230C\230q\330\024\025\330\020\023\2208\2305\240\007\240q\330\024\034\230F\240$\240k\260\021\260+\270W\300H\310A\330\024\036\230h\240e\2501\330\024)\250\025\320.F\300a\330\024\027\320\027*\250\047\260\021\330\030\034\230N\250!\2507\260!\330\031!\240\023\240A\330\030\034\230K\240q\250\001\340\030\034\230N\250!\2507\260%\260{\300!\3009\310A\340\024\031\230\021\230!\330\023\024\330\020\030\230\005\230Q\330\024\025\340\024\025\330\024\037\230q\200A\340\010\014\210G""\2201\200A\340\010\014\210G\2205\320\030*\250!\330\010\014\210G\2205\320\0300\260\001\200A\340\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\013\2104\210q\330\021\022\330\024$\240A\240T\250\021\330\014\020\320\020\"\240!\330\010\013\2104\210z\230\023\230A\330\020$\240A\240T\250\021\330\014\020\220\014\230A\200A\340\010\017\210{\230-\240q\200A\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\017\210q\200A\340\010\035\230T\240\034\250Q\250a\330\010\013\2107\220$\220d\230&\240\005\240S\250\004\250D\260\006\260j\300\001\330\014\022\220\047\230\021\200A\340\014\r\330\020\021\330\t\n\330\010\t\330\014\027\220v\230Q\230a\330\017\020\330\014\r\330\010\020\220\001\200A\340\014\r\330\022\023\340\t\n\330\010\017\210t\220:\230[\250\001\250\024\250[""\270\001\200A\360\006\000\t\036\230S\240\001\330\010\014\210H\220A\330\014\020\220\010\230\003\2301\330\010\017\210q\200A\360\006\000\r\034\2301\230D\240\001\330\010\014\210H\220A\200A\360\006\000\034\035\330\027\030\330\034\035\330\026\027\360\026\000\t-\320,>\270a\270t\3001\340\010\037\230t\2407\250!\330\010\022\220/\240\021\240&\250\016\260a\330\010\013\2104\210s\220!\330\014\022\220)\2301\230A\360\010\000\t\014\210=\230\007\230q\330\014 \240\014\250G\2601\330\014\026\220o\240Q\240f\250N\270!\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\210;\220g\230U\240$\240e\2507\260!\330\014\022\220)\2301\230A\360\006\000\t\014\210;\220g\230Q\330\014\017\210z\230\021\230,\240a\330\020!\240\023\240A\240Q\330\021\033\2301\230L\250\001\330\020!\240\032\2507\260!\340\020!\240\021\340\014\017\210t\2204\220q\230\017\240w\250a\330\020\026\320\026\047\240q\320(<\270A\270Q\330\014\026\320\026)\250\021\250&\3200@\300\001\300\021\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\360\006\000\t\014\2109\220G\2301\330\014\026\320\026)\250\021\250&\3200@\300\001\300\021\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\2105\220\007\220q\330\014\017\210t\220:\230Q\230f\240A\330\020\027\220s\230!\2305\240\007\240q\330\014\026\220o\240Q\240f\250N\270&\320@P\320PQ\320QR\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\200A\360\010\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\r\016\330\014\035\320\0351\260\021\260$\260a\330\010\013\210;\220c\230\021\330\014\r\330\010\014\210D\220\001\220\024\220Z\230t\2409\250M\270\021\270\047\300\034\310V\320ST\330\010\017\210q\200A\360\010\000\t\016\210_\230A\340\r\016\330\014\032\320\0320\260\001\260\024\260Y\270e\3001\330\010\014\210M\230\021\230!\330\010\021\220\024\220U\230.\250\001\330\010\014\210M\230\021\230)\2401\330\010\014\210K\220q\230\013\2407\250%\250z\270\021\330\010\017\210q\200A\360\016\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\020\000\016\017""\330\014\026\220m\2401\240D\250\001\330$(\250\001\330$(\250\001\330$%\240T\250\021\330$%\240T\250\021\330\010\013\2101\330\014\020\220\r\230Q\230e\2401\360\006\000\t\020\210w\220d\320\032*\250\"\250D\3200J\310)\320ST\320TX\320XY\200A\3602\000\r\025\220A\330\014\034\230A\330\014\031\230\021\330\014!\240\021\330\014\035\230Q\330\014(\250\001\340\010\023\2207\230\"\230A\330\010\013\2104\210w\220c\230\021\330\014\017\210y\230\003\2301\330\020\027\220q\330\021\032\230#\230Y\240c\250\031\260#\260Y\270c\300\031\310#\310Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\340\010\013\2109\220C\220q\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210x\220s\230!\330\020\027\220q\330\014\023\2207\230!\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\220?\240!\2401\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\320\023%\240Q\240a\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210y\230\003\2301\330\020\027\220q\330\014\023\220=\240\001\240\021\330\r\026\220c\230\021\330\014\026\320\0260\260\001\260\024\260X\270X\300Q\300a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210u\220K\230w\240a\330\020\027\220\177\240b\250\001\330\014\023\320\023.\250a\250q\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\2201\210\001\360\006\000\r\031\230\t\240\021\330\014\026\220d\230!\230>\250\021\330\014\031\230\026\230q\210!\210H\220D\230\013\240<\250q\3200D\300A\230a\320\000\024\220D\230\001\330\004\007\200q\330\010\020\220\r\230Q\230k\250\031\260!\340\010\020\220\r\230Q\230j\250\t\260\021\320\000\030\230\001\330\004\013\2101\320\000\032""\230!\330\004\010\210\010\220\001\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\330\010\013\2104\210y\230\007\230q\360\n\000\r\021\220\010\230\005\230Q\330\004\023\2206\230\021\320\000\"\240+\250Z\260q\330\004\005\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\340\004\025\220Q\330\004\r\210X\220T\230\021\230\047\240\021\360\006\000\005\010\200v\210W\320\024*\250#\250V\2607\270!\330\010\022\220,\230a\230t\2402\240Q\330\010\022\220&\230\003\2301\230F\240#\320%9\270\021\330\010\013\2107\220&\230\001\230\022\2301\230I\240Q\240c\250\021\250/\270\021\270(\300!\3001\340\010\t\330\014\023\2204\220w\230a\230q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\330\014\017\210v\220W\230O\2504\250v\260W\320<P\320PT\320TZ\320Za\320ab\330\020\023\2207\230&\240\001\240\021\330\017\020\340\014\026\220l\240!\2404\240r\250\021\330\014\026\220f\230C\230q\240\006\240c\320)=\270Q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\250#\250Q\250o\270Q\270h\300a\300q\320\004\027\220q\330\010\013\2104\210q\330\014\r\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\010\014\210O\2301\330\010\013\2104\210y\230\007\230q\330\014\020\220\010\230\005\230Q\330\010\027\220x\230q\240\001\330\010\014\210N\230!\2304\230q\330\010\014\210I\220V\2301\330\010\014\210I\220V\2301\330\010\014\210K\220q\320\004\027\220q\330\010\014\210J\220f\230A\330\010\014\210K\220v\230Q\320\004\030\230\001\330\010\017\210q\320\004\033\320\0339\270\021\330\010\017\210q\320\004\034\230F\240!\330\010\r\210R\210y\230\001\230\026\230x\240q\330\010\014\210H\220A\320\004\035\230Q\330\010\t\330\021\025\220Q\330\020\026\220d\230.\250\003\2505\260\004\260D\270\004\270A\330\024\030\230\r\240U\250!\330\020\023\2204\220q\330\024\025\330\020\027\220t\230>\250\027\260\001\330\020\031\230\033\240D\250\001\330\020\024\320\024$\240A\360\022\000\r\016\360\020\000\021\025\220D\230\005""\230V\2407\250!\2509\260J\270a\330\020\025\220S\230\002\230!\330\014\023\220;\230a\360\030\000\021\024\2201\220G\2303\230g\240Q\240g\250_\270E\300\021\330\024\030\230\003\2304\230v\240W\250A\250Q\250d\260)\2707\300%\300t\3104\310q\330\024\027\220q\330\030\035\230Q\340\030\031\340\024\025\340\014\r\330\020\024\220K\320\0374\260A\260T\3209J\310$\310a\330\023\024\360\016\000\024\025\320\004\037\230q\360\010\000\016\022\220\021\330\014\023\2204\220~\240S\250\001\330\014\020\320\020!\240\024\240Q\240d\250)\2605\270\005\270T\300\021\300$\300i\310u\320TU\330\014\020\220\r\230W\240A\320\004 \240\001\330\010\013\2104\210q\330\014\r\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004 \240\001\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004 \320 8\270\001\330\010\t\330\014\020\220\004\220I\230Q\230a\330\017\020\330\014\023\2201\330\010\014\210O\2301\330\010\017\210q\320\004 \320 :\270!\330\010\017\210t\220:\230^\2501\250A\320\004\"\320\"8\270\001\360\030\000\t\023\220&\230\005\230Q\230f\240F\250\"\250A\330\010\017\210t\2208\2301\230O\2501\320\004\"\320\"@\300\001\330\010\014\210N\230!\330\010\014\210M\230\036\240q\250\001\320\004\"\320\"@\300\001\330\010\014\210N\230!\340\010\014\320\014\034\230I\240Z\250q\330\010\014\210A\340\014\r\330\010\014\320\014!\240\021\330\010\014\320\0143\2601\330\010\014\320\014&\240d\320*:\270!\340\016,\250A\360\020\000\t\r\210K\220z\240\021\330\014\r\360\006\000\t\r\320\014=\270Q\330\010\014\320\014=\270Q\360\010\000\t\r\210K\220t\230<\240v\250[\270\001\330\010\014\210I\220\\\240\021\240!\330\010\014\210I\220\\\240\021\240!\330\010\027\220t\2301\230A\330\010\014\210K\220q\230\004\230K\240t\2501\320\004#\320#A\300\021\360\022\000\t\014\210=\230\003\2301\330\014\023\220:\230Q\230a\340\010\013\2104\210z\230\021\230.\250\007\250q\260\t\3209N\310d\320RS\320ST\330\014\023\2201\340\010\020\220\005\220Q\320\026(\250\r\260[\300\001\340\010\030\230\n\240!\320#3\3203M\310Q\310a\360\006\000\t\026\220\\\240\021\340\010\t\360\016""\000\t\025\220I\230Q\330\010\017\210q\320\004%\240X\250Q\330\010\013\2105\220\003\320\023-\250Q\330\014\023\2205\230\002\320\032+\2501\250A\330\010\017\210w\220a\220t\230=\250\001\320\004+\2501\340\010\026\220i\230v\240W\250J\260d\270!\330\010\t\210\027\220\005\320\025(\250\r\260Q\260d\270\047\300\026\300q\320\004.\250a\340\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026&\240a\240t\2508\2601\330\010\014\210M\230\021\230%\230q\330\010\017\210q\320\004/\320/K\3101\360\024\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\032\230&\240\007\240q\330\010\023\320\023)\250\021\250$\250h\260n\300F\310!\320\0044\260A\360\022\000\t\022\220\034\230Q\330\010\014\210J\220a\330\014\017\210v\220V\2302\230[\250\001\250\021\330\020\026\220e\2301\230F\240!\2404\240w\250a\330\010\017\210q\320\0048\3208S\320Sa\320ab\360\024\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\006\000\t\r\210O\2301\360\006\000\016\017\330\014\026\320\026(\250\001\250\024\250Q\330\010\t\330\014!\240\024\320%=\270Q\330\014\017\320\017\"\240\047\250\021\330\020\026\220a\330\014\020\220\r\230Q\230e\2401\330\014\023\2201\360\006\000\r\021\320\020*\250!\250?\270!\320\004D\300A\360(\000\t\014\2104\210w\220c\230\021\330\014\023\2201\340\014\034\230A\330\014\035\230W\240B\240f\250B\250a\360\010\000\t\014\210;\220c\230\026\230s\240+\250S\260\001\340\014\025\220Y\230a\330\014\026\220g\230Q\230a\330\r\024\220G\2301\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 8\270\007\270q\340\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 9\270\027\300\001\340\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 7\260w\270a\340\r\024\220G\2301\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330""\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203L\310G\320ST\330\014\031\230\021\330\r\024\220G\2301\330\014\017\210v\220S\230\001\330\020\030\230\001\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020#\320#3\2601\260A\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203M\310W\320TU\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203L\310I\320UV\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020$\320$4\260A\260Q\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020#\320#3\2601\260A\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\030\230\003\2301\330\014\017\210z\230\021\230\047\240\021\360\010\000\021\022\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\340\020\023\2203\220i\230{\250!\2507\260$\260g\270S\300\001\340\024\032\230&\320 5\260Q\260a\330\024\037\230u\240G\2501\250E\260\027\270\001\340\024\037\230u\240G\2501\330\020\032\230)\240?\260!\340\021\033\2301\230G\2401\330\020\033\2301\340\020\032\230\047\240\037\260\001\330\021%\240Q\240a\330\020\032\320\032.\250a\250w\260a\340\014\017\210w\220g""\230Q\330\020\024\320\024$\240A\340\014\022\320\022%\240Q\320&?\270r\300\021\340\010\013\2107\220\047\230\021\330\014\020\220\n\230!\330\020\024\320\024$\320$6\260a\260t\270;\300m\320ST\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\n\230!\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\n\230!\330\020\024\320\024\047\320\0479\270\021\270$\270n\310M\320YZ\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\320\020 \240\001\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\013\2301\330\020\023\220:\230Q\230i\240q\330\024\036\230g\240W\250A\330\020\024\320\024$\320$6\260a\260t\270;\300a\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\340\014\026\320\026(\250\001\250\024\250X\260X\270Q\330\010\014\210M\230\021\230%\230y\250\001\250\030\260\021\260!\340\010\013\2107\220\047\230\021\330\014\020\320\020 \240\001\340\010\017\210q\320\004F\320Fa\320ab\360\006\000\t\r\320\014\035\230Q\330\010\014\320\014\036\230a\330\010\014\320\014\035\230Q\330\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\014\320\014\037\230q\330\010\014\320\014\036\230a\330\010\014\320\014 \240\001\330\010\014\320\014\037\230q\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\340\014\017\210t\220=\240\003\2401\330\024(\250\001\250\024\250Q\330\020\024\220O\2401\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\320\004M\310Q\360\n\000\016\017\330\014\032\320\0323\2601""\260D\270\t\300\030\310\034\320UV\320VW\330\010\014\210M\230\021\230!\330\010\017\210q\320\004[\320[\\\360\024\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\014\000\016\017\330\014\026\220m\2401\240D\250\010\260\016\270a\270w\300a\300t\3108\320SZ\320Z`\320`a\320ae\320ef\320fj\320j|\320|\177\360\000\000@\002A\002\330\010\013\2101\330\014\020\220\r\230Q\230e\2401\330\010\017\210t\2201\320\n\047\240q\320\016,\250A";
+    #else /* compression: none (29270 bytes) */
+static const char bytes[] = "\n\n    Proactor event loop does not implement add_reader family of methods required.\n    Registering an additional selector thread for add_reader support.\n    To avoid this warning use:\n        asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())\n      [ at 0x bytes are allowed. bytes, but only  bytes]:  object>!H\047_FileDescriptorLike\047(tree fragment)) *, curl: (, multi: (.. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.. See https://curl.se/libcurl/c/libcurl-errors.html first for more details. Please open an issue on GitHub to help debug this error....1.01.12.0: << DATA< SSL<MemoryView of <contiguous and direct><contiguous and indirect><strided and direct or indirect><strided and direct><strided and indirect>>> DATA> SSL?Add data failed.Add field failed.Base exception for cycurl packageCallable[..., None]Can not use local_path and data at the same time.Cannot assign to read-only memoryviewCannot duplicate closed handle.Cannot perform request on closed handle.Cannot receive websocket data on closed handle.Cannot send websocket data on closed handle.Curlm already closed! quitting from process_dataDefine ``add_reader`` methods to be called in a background select thread.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user;\n    all callbacks are run on the wrapped event loop\047s thread.\n\n    Typically used via ``AddThreadSelectorEventLoop``,\n    but can be attached to a running asyncio loop.\n    Failed in Failed to Failed to set error bufferFile not found at Invalid mode, expected \047c\047 or \047fortran\047, got Invalid shape in axis NOT DONENoneNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the \047annotation_typing\047 directive to False.Option unsupported: %sRead callback returned Tornado selectorUnexpected curl multi state in process_data, please open an"" issue on GitHub\nWrap an event loop to add implementations of the ``add_reader`` method family.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user; all callbacks are\n    run on the wrapped event loop\047s thread.\n\n    This class is used automatically by Tornado; applications should not need\n    to refer to it directly.\n\n    It is safe to wrap any event loop with this class, although it only makes sense\n    for event loops that do not implement the ``add_reader`` family of methods\n    themselves (i.e. ``WindowsProactorEventLoop``)\n\n    Closing the ``AddThreadSelectorEventLoop`` also closes the wrapped event loop.\n\n    Wrote bytes != received bytes.add_noteasyncio.AbstractEventLoopcollections.abccycurl/_asyncio_selector.pxicycurl/_curl.pyxcycurl/utils.pxidict[_FileDescriptorLike, Callable]disableenablegcgetinfo isenabledlist[_FileDescriptorLike]no default __reduce__ due to non-trivial __cinit__self.form cannot be converted to a Python object for picklingself.frame cannot be converted to a Python object for picklingset cacertset proxy cacertsetopt typing.AsyncGenerator[None, None]unable to allocate array data.unable to allocate shape and strides.{:02X}{:02x}<lambda>ASCIIAbstractEventLoopAddThreadSelectorEventLoopAddThreadSelectorEventLoop.__getattribute__AddThreadSelectorEventLoop.__init__AddThreadSelectorEventLoop.add_readerAddThreadSelectorEventLoop.add_writerAddThreadSelectorEventLoop.closeAddThreadSelectorEventLoop.remove_readerAddThreadSelectorEventLoop.remove_writerAnyAsyncCurlAsyncCurl.__reduce_cython__AsyncCurl.__setstate_cython__AsyncCurl._check_errorAsyncCurl._force_timeoutAsyncCurl.add_handleAsyncCurl.closeAsyncCurl.process_dataAsyncCurl.remove_handleAsyncCurl.socket_actionCURLAUTH_ANYCURLAUTH_ANYSAFECURLAUTH_AWS_SIGV4CURLAUTH_BASICCURLAUTH_BEARERCURLAUTH_DIGESTCURLAUTH_DIGEST_IECURLAUTH_GSSAPICURLAUTH_GSSNEGOTIATECURLAUTH_NEGOTIATECURLAUTH_NONECURLAUTH_NTLMCURLAUTH_NTLM_WB""CURLAUTH_ONLYCURLE_ABORTED_BY_CALLBACKCURLE_AGAINCURLE_ALREADY_COMPLETECURLE_AUTH_ERRORCURLE_BAD_CALLING_ORDERCURLE_BAD_CONTENT_ENCODINGCURLE_BAD_DOWNLOAD_RESUMECURLE_BAD_FUNCTION_ARGUMENTCURLE_BAD_PASSWORD_ENTEREDCURLE_CHUNK_FAILEDCURLE_CONV_FAILEDCURLE_CONV_REQDCURLE_COULDNT_CONNECTCURLE_COULDNT_RESOLVE_HOSTCURLE_COULDNT_RESOLVE_PROXYCURLE_ECH_REQUIREDCURLE_FAILED_INITCURLE_FILESIZE_EXCEEDEDCURLE_FILE_COULDNT_READ_FILECURLE_FTP_ACCEPT_FAILEDCURLE_FTP_ACCEPT_TIMEOUTCURLE_FTP_ACCESS_DENIEDCURLE_FTP_BAD_DOWNLOAD_RESUMECURLE_FTP_BAD_FILE_LISTCURLE_FTP_CANT_GET_HOSTCURLE_FTP_CANT_RECONNECTCURLE_FTP_COULDNT_GET_SIZECURLE_FTP_COULDNT_RETR_FILECURLE_FTP_COULDNT_SET_ASCIICURLE_FTP_COULDNT_SET_BINARYCURLE_FTP_COULDNT_SET_TYPECURLE_FTP_COULDNT_STOR_FILECURLE_FTP_COULDNT_USE_RESTCURLE_FTP_PARTIAL_FILECURLE_FTP_PORT_FAILEDCURLE_FTP_PRET_FAILEDCURLE_FTP_QUOTE_ERRORCURLE_FTP_SSL_FAILEDCURLE_FTP_USER_PASSWORD_INCORRECTCURLE_FTP_WEIRD_227_FORMATCURLE_FTP_WEIRD_PASS_REPLYCURLE_FTP_WEIRD_PASV_REPLYCURLE_FTP_WEIRD_SERVER_REPLYCURLE_FTP_WEIRD_USER_REPLYCURLE_FTP_WRITE_ERRORCURLE_FUNCTION_NOT_FOUNDCURLE_GOT_NOTHINGCURLE_HTTP2CURLE_HTTP2_STREAMCURLE_HTTP3CURLE_HTTP_NOT_FOUNDCURLE_HTTP_PORT_FAILEDCURLE_HTTP_POST_ERRORCURLE_HTTP_RANGE_ERRORCURLE_HTTP_RETURNED_ERRORCURLE_INTERFACE_FAILEDCURLE_LDAP_CANNOT_BINDCURLE_LDAP_INVALID_URLCURLE_LDAP_SEARCH_FAILEDCURLE_LIBRARY_NOT_FOUNDCURLE_LOGIN_DENIEDCURLE_MALFORMAT_USERCURLE_NOT_BUILT_INCURLE_NO_CONNECTION_AVAILABLECURLE_OBSOLETECURLE_OBSOLETE10CURLE_OBSOLETE12CURLE_OBSOLETE16CURLE_OBSOLETE20CURLE_OBSOLETE24CURLE_OBSOLETE29CURLE_OBSOLETE32CURLE_OBSOLETE34CURLE_OBSOLETE40CURLE_OBSOLETE41CURLE_OBSOLETE44CURLE_OBSOLETE46CURLE_OBSOLETE50CURLE_OBSOLETE51CURLE_OBSOLETE57CURLE_OBSOLETE62CURLE_OBSOLETE75CURLE_OBSOLETE76CURLE_OKCURLE_OPERATION_TIMEDOUTCURLE_OPERATION_TIMEOUTEDCURLE_OUT_OF_MEMORYCURLE_PARTIAL_FILECURLE_PEER_FAILED_VERIFICATIONCURLE_PROXYCURLE_QUIC_CONNECT_ERRORCURLE_QUOTE_ERRORCURLE_RANGE_ERRORCURLE_READ_ERRORCURLE_RECURSIVE_API_CALLCURLE""_RECV_ERRORCURLE_REMOTE_ACCESS_DENIEDCURLE_REMOTE_DISK_FULLCURLE_REMOTE_FILE_EXISTSCURLE_REMOTE_FILE_NOT_FOUNDCURLE_RTSP_CSEQ_ERRORCURLE_RTSP_SESSION_ERRORCURLE_SEND_ERRORCURLE_SEND_FAIL_REWINDCURLE_SETOPT_OPTION_SYNTAXCURLE_SHARE_IN_USECURLE_SSHCURLE_SSL_CACERTCURLE_SSL_CACERT_BADFILECURLE_SSL_CERTPROBLEMCURLE_SSL_CIPHERCURLE_SSL_CLIENTCERTCURLE_SSL_CONNECT_ERRORCURLE_SSL_CRL_BADFILECURLE_SSL_ENGINE_INITFAILEDCURLE_SSL_ENGINE_NOTFOUNDCURLE_SSL_ENGINE_SETFAILEDCURLE_SSL_INVALIDCERTSTATUSCURLE_SSL_ISSUER_ERRORCURLE_SSL_PEER_CERTIFICATECURLE_SSL_PINNEDPUBKEYNOTMATCHCURLE_SSL_SHUTDOWN_FAILEDCURLE_TELNET_OPTION_SYNTAXCURLE_TFTP_DISKFULLCURLE_TFTP_EXISTSCURLE_TFTP_ILLEGALCURLE_TFTP_NOSUCHUSERCURLE_TFTP_NOTFOUNDCURLE_TFTP_PERMCURLE_TFTP_UNKNOWNIDCURLE_TOO_LARGECURLE_TOO_MANY_REDIRECTSCURLE_UNKNOWN_OPTIONCURLE_UNKNOWN_TELNET_OPTIONCURLE_UNRECOVERABLE_POLLCURLE_UNSUPPORTED_PROTOCOLCURLE_UPLOAD_FAILEDCURLE_URL_MALFORMATCURLE_URL_MALFORMAT_USERCURLE_USE_SSL_FAILEDCURLE_WEIRD_SERVER_REPLYCURLE_WRITE_ERRORCURLFOLLOW_ALLCURLFOLLOW_FIRSTONLYCURLFOLLOW_OBEYCODECURLFOLLOW_SAFECURLINFO_ACTIVESOCKETCURLINFO_APPCONNECT_TIMECURLINFO_APPCONNECT_TIME_TCURLINFO_CAINFOCURLINFO_CAPATHCURLINFO_CERTINFOCURLINFO_CONDITION_UNMETCURLINFO_CONNECT_TIMECURLINFO_CONNECT_TIME_TCURLINFO_CONN_IDCURLINFO_CONTENT_LENGTH_DOWNLOADCURLINFO_CONTENT_LENGTH_DOWNLOAD_TCURLINFO_CONTENT_LENGTH_UPLOADCURLINFO_CONTENT_LENGTH_UPLOAD_TCURLINFO_CONTENT_TYPECURLINFO_COOKIECHANGESCURLINFO_COOKIELISTCURLINFO_DATA_INCURLINFO_DATA_OUTCURLINFO_EARLYDATA_SENT_TCURLINFO_EFFECTIVE_METHODCURLINFO_EFFECTIVE_URLCURLINFO_ENDCURLINFO_FILETIMECURLINFO_FILETIME_TCURLINFO_FTP_ENTRY_PATHCURLINFO_HEADER_INCURLINFO_HEADER_OUTCURLINFO_HEADER_SIZECURLINFO_HTTPAUTH_AVAILCURLINFO_HTTPAUTH_USEDCURLINFO_HTTP_CONNECTCODECURLINFO_HTTP_VERSIONCURLINFO_LASTONECURLINFO_LASTSOCKETCURLINFO_LOCAL_IPCURLINFO_LOCAL_PORTCURLINFO_NAMELOOKUP_TIMECURLINFO_NAMELOOKUP_TIME_TCURLINFO_NONECURLINFO_NUM_CONNECTSCURLINFO_OS_ERRNOCURLINFO_POSTTRANSFER_TIME_TCURLINF""O_PRETRANSFER_TIMECURLINFO_PRETRANSFER_TIME_TCURLINFO_PRIMARY_IPCURLINFO_PRIMARY_PORTCURLINFO_PRIVATECURLINFO_PROTOCOLCURLINFO_PROXYAUTH_AVAILCURLINFO_PROXYAUTH_USEDCURLINFO_PROXY_ERRORCURLINFO_PROXY_SSL_VERIFYRESULTCURLINFO_QUEUE_TIME_TCURLINFO_REDIRECT_COUNTCURLINFO_REDIRECT_HISTORYCURLINFO_REDIRECT_TIMECURLINFO_REDIRECT_TIME_TCURLINFO_REDIRECT_URLCURLINFO_REFERERCURLINFO_REQUEST_SIZECURLINFO_RESPONSE_CODECURLINFO_RETRY_AFTERCURLINFO_RTSP_CLIENT_CSEQCURLINFO_RTSP_CSEQ_RECVCURLINFO_RTSP_SERVER_CSEQCURLINFO_RTSP_SESSION_IDCURLINFO_SCHEMECURLINFO_SIZE_DELIVEREDCURLINFO_SIZE_DOWNLOADCURLINFO_SIZE_DOWNLOAD_TCURLINFO_SIZE_UPLOADCURLINFO_SIZE_UPLOAD_TCURLINFO_SPEED_DOWNLOADCURLINFO_SPEED_DOWNLOAD_TCURLINFO_SPEED_UPLOADCURLINFO_SPEED_UPLOAD_TCURLINFO_SSL_DATA_INCURLINFO_SSL_DATA_OUTCURLINFO_SSL_ENGINESCURLINFO_SSL_VERIFYRESULTCURLINFO_STARTTRANSFER_TIMECURLINFO_STARTTRANSFER_TIME_TCURLINFO_TEXTCURLINFO_TLS_SESSIONCURLINFO_TLS_SSL_PTRCURLINFO_TOTAL_TIMECURLINFO_TOTAL_TIME_TCURLINFO_USED_PROXYCURLINFO_XFER_IDCURLMOPT_CHUNK_LENGTH_PENALTY_SIZECURLMOPT_CONTENT_LENGTH_PENALTY_SIZECURLMOPT_MAXCONNECTSCURLMOPT_MAX_CONCURRENT_STREAMSCURLMOPT_MAX_HOST_CONNECTIONSCURLMOPT_MAX_PIPELINE_LENGTHCURLMOPT_MAX_TOTAL_CONNECTIONSCURLMOPT_NETWORK_CHANGEDCURLMOPT_NOTIFYDATACURLMOPT_NOTIFYFUNCTIONCURLMOPT_PIPELININGCURLMOPT_PIPELINING_SERVER_BLCURLMOPT_PIPELINING_SITE_BLCURLMOPT_PUSHDATACURLMOPT_PUSHFUNCTIONCURLMOPT_QUICK_EXITCURLMOPT_RESOLVE_THREADS_MAXCURLMOPT_SOCKETDATACURLMOPT_SOCKETFUNCTIONCURLMOPT_TIMERDATACURLMOPT_TIMERFUNCTIONCURLMSG_DONECURLMSG_LASTCURLMSG_NONECURLOPT_ABSTRACT_UNIX_SOCKETCURLOPT_ACCEPTTIMEOUT_MSCURLOPT_ACCEPT_ENCODINGCURLOPT_ADDRESS_SCOPECURLOPT_ALTSVCCURLOPT_ALTSVC_CTRLCURLOPT_APPENDCURLOPT_AUTOREFERERCURLOPT_AWS_SIGV4CURLOPT_BUFFERSIZECURLOPT_CAINFOCURLOPT_CAINFO_BLOBCURLOPT_CAPATHCURLOPT_CA_CACHE_TIMEOUTCURLOPT_CERTINFOCURLOPT_CHUNK_BGN_FUNCTIONCURLOPT_CHUNK_DATACURLOPT_CHUNK_END_FUNCTIONCURLOPT_CLOSEPOLICYCURLOPT_CLOSESOCKETDATACURLOPT_CLOSESOCKETFUNCTIONCURLOPT_C""ONNECTTIMEOUTCURLOPT_CONNECTTIMEOUT_MSCURLOPT_CONNECT_ONLYCURLOPT_CONNECT_TOCURLOPT_CONV_FROM_NETWORK_FUNCTIONCURLOPT_CONV_FROM_UTF8_FUNCTIONCURLOPT_CONV_TO_NETWORK_FUNCTIONCURLOPT_COOKIECURLOPT_COOKIEFILECURLOPT_COOKIEJARCURLOPT_COOKIELISTCURLOPT_COOKIESESSIONCURLOPT_COPYPOSTFIELDSCURLOPT_CRLFCURLOPT_CRLFILECURLOPT_CURLUCURLOPT_CUSTOMREQUESTCURLOPT_DEBUGDATACURLOPT_DEBUGFUNCTIONCURLOPT_DEFAULT_PROTOCOLCURLOPT_DIRLISTONLYCURLOPT_DISALLOW_USERNAME_IN_URLCURLOPT_DNS_CACHE_TIMEOUTCURLOPT_DNS_INTERFACECURLOPT_DNS_LOCAL_IP4CURLOPT_DNS_LOCAL_IP6CURLOPT_DNS_SERVERSCURLOPT_DNS_SHUFFLE_ADDRESSESCURLOPT_DNS_USE_GLOBAL_CACHECURLOPT_DOH_SSL_VERIFYHOSTCURLOPT_DOH_SSL_VERIFYPEERCURLOPT_DOH_SSL_VERIFYSTATUSCURLOPT_DOH_URLCURLOPT_ECHCURLOPT_EGDSOCKETCURLOPT_ENCODINGCURLOPT_ERRORBUFFERCURLOPT_EXPECT_100_TIMEOUT_MSCURLOPT_FAILONERRORCURLOPT_FILECURLOPT_FILETIMECURLOPT_FNMATCH_DATACURLOPT_FNMATCH_FUNCTIONCURLOPT_FOLLOWLOCATIONCURLOPT_FORBID_REUSECURLOPT_FORM_BOUNDARYCURLOPT_FRESH_CONNECTCURLOPT_FTPAPPENDCURLOPT_FTPLISTONLYCURLOPT_FTPPORTCURLOPT_FTPSSLAUTHCURLOPT_FTP_ACCOUNTCURLOPT_FTP_ALTERNATIVE_TO_USERCURLOPT_FTP_CREATE_MISSING_DIRSCURLOPT_FTP_FILEMETHODCURLOPT_FTP_RESPONSE_TIMEOUTCURLOPT_FTP_SKIP_PASV_IPCURLOPT_FTP_SSLCURLOPT_FTP_SSL_CCCCURLOPT_FTP_USE_EPRTCURLOPT_FTP_USE_EPSVCURLOPT_FTP_USE_PRETCURLOPT_GSSAPI_DELEGATIONCURLOPT_HAPPY_EYEBALLS_TIMEOUT_MSCURLOPT_HAPROXYPROTOCOLCURLOPT_HAPROXY_CLIENT_IPCURLOPT_HEADERCURLOPT_HEADERDATACURLOPT_HEADERFUNCTIONCURLOPT_HEADEROPTCURLOPT_HSTSCURLOPT_HSTSREADDATACURLOPT_HSTSREADFUNCTIONCURLOPT_HSTSWRITEDATACURLOPT_HSTSWRITEFUNCTIONCURLOPT_HSTS_CTRLCURLOPT_HTTP09_ALLOWEDCURLOPT_HTTP200ALIASESCURLOPT_HTTP2_NO_PRIORITYCURLOPT_HTTP2_PSEUDO_HEADERS_ORDERCURLOPT_HTTP2_SETTINGSCURLOPT_HTTP2_STREAMSCURLOPT_HTTP2_WINDOW_UPDATECURLOPT_HTTP3_HTTPHEADERCURLOPT_HTTP3_HTTPHEADER_ORDERCURLOPT_HTTP3_PSEUDO_HEADERS_ORDERCURLOPT_HTTP3_SETTINGSCURLOPT_HTTP3_SIG_HASH_ALGSCURLOPT_HTTP3_SSL_EC_CURVESCURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONSCURLOPT_HTTP3_TLS_EXTENSION_OR""DERCURLOPT_HTTPAUTHCURLOPT_HTTPBASEHEADERCURLOPT_HTTPGETCURLOPT_HTTPHEADERCURLOPT_HTTPHEADER_ORDERCURLOPT_HTTPPOSTCURLOPT_HTTPPROXYTUNNELCURLOPT_HTTP_CONTENT_DECODINGCURLOPT_HTTP_TRANSFER_DECODINGCURLOPT_HTTP_VERSIONCURLOPT_IGNORE_CONTENT_LENGTHCURLOPT_IMPERSONATECURLOPT_INFILECURLOPT_INFILESIZECURLOPT_INFILESIZE_LARGECURLOPT_INTERFACECURLOPT_INTERLEAVEDATACURLOPT_INTERLEAVEFUNCTIONCURLOPT_IOCTLDATACURLOPT_IOCTLFUNCTIONCURLOPT_IPRESOLVECURLOPT_ISSUERCERTCURLOPT_ISSUERCERT_BLOBCURLOPT_KEEP_SENDING_ON_ERRORCURLOPT_KEYPASSWDCURLOPT_KRB4LEVELCURLOPT_KRBLEVELCURLOPT_LOCALPORTCURLOPT_LOCALPORTRANGECURLOPT_LOGIN_OPTIONSCURLOPT_LOW_SPEED_LIMITCURLOPT_LOW_SPEED_TIMECURLOPT_MAIL_AUTHCURLOPT_MAIL_FROMCURLOPT_MAIL_RCPTCURLOPT_MAIL_RCPT_ALLLOWFAILSCURLOPT_MAIL_RCPT_ALLOWFAILSCURLOPT_MAXAGE_CONNCURLOPT_MAXCONNECTSCURLOPT_MAXFILESIZECURLOPT_MAXFILESIZE_LARGECURLOPT_MAXLIFETIME_CONNCURLOPT_MAXREDIRSCURLOPT_MAX_RECV_SPEED_LARGECURLOPT_MAX_SEND_SPEED_LARGECURLOPT_MIMEPOSTCURLOPT_MIME_OPTIONSCURLOPT_NETRCCURLOPT_NETRC_FILECURLOPT_NEW_DIRECTORY_PERMSCURLOPT_NEW_FILE_PERMSCURLOPT_NOBODYCURLOPT_NOPROGRESSCURLOPT_NOPROXYCURLOPT_NOSIGNALCURLOPT_OBSOLETE40CURLOPT_OBSOLETE72CURLOPT_OPENSOCKETDATACURLOPT_OPENSOCKETFUNCTIONCURLOPT_PASSWORDCURLOPT_PATH_AS_ISCURLOPT_PINNEDPUBLICKEYCURLOPT_PIPEWAITCURLOPT_PORTCURLOPT_POSTCURLOPT_POST301CURLOPT_POSTFIELDSCURLOPT_POSTFIELDSIZECURLOPT_POSTFIELDSIZE_LARGECURLOPT_POSTQUOTECURLOPT_POSTREDIRCURLOPT_PREQUOTECURLOPT_PREREQDATACURLOPT_PREREQFUNCTIONCURLOPT_PRE_PROXYCURLOPT_PRIVATECURLOPT_PROGRESSDATACURLOPT_PROGRESSFUNCTIONCURLOPT_PROTOCOLSCURLOPT_PROTOCOLS_STRCURLOPT_PROXYCURLOPT_PROXYAUTHCURLOPT_PROXYHEADERCURLOPT_PROXYPASSWORDCURLOPT_PROXYPORTCURLOPT_PROXYTYPECURLOPT_PROXYUSERNAMECURLOPT_PROXYUSERPWDCURLOPT_PROXY_CAINFOCURLOPT_PROXY_CAINFO_BLOBCURLOPT_PROXY_CAPATHCURLOPT_PROXY_CREDENTIAL_NO_REUSECURLOPT_PROXY_CRLFILECURLOPT_PROXY_ISSUERCERTCURLOPT_PROXY_ISSUERCERT_BLOBCURLOPT_PROXY_KEYPASSWDCURLOPT_PROXY_PINNEDPUBLICKEYCURLOPT_PROXY_SERVICE_NAMECURLOPT_""PROXY_SSLCERTCURLOPT_PROXY_SSLCERTTYPECURLOPT_PROXY_SSLCERT_BLOBCURLOPT_PROXY_SSLKEYCURLOPT_PROXY_SSLKEYTYPECURLOPT_PROXY_SSLKEY_BLOBCURLOPT_PROXY_SSLVERSIONCURLOPT_PROXY_SSL_CIPHER_LISTCURLOPT_PROXY_SSL_OPTIONSCURLOPT_PROXY_SSL_VERIFYHOSTCURLOPT_PROXY_SSL_VERIFYPEERCURLOPT_PROXY_TLS13_CIPHERSCURLOPT_PROXY_TLSAUTH_PASSWORDCURLOPT_PROXY_TLSAUTH_TYPECURLOPT_PROXY_TLSAUTH_USERNAMECURLOPT_PROXY_TRANSFER_MODECURLOPT_PUTCURLOPT_QUICK_EXITCURLOPT_QUIC_CID_LENGTHCURLOPT_QUIC_TRANSPORT_PARAMETERSCURLOPT_QUOTECURLOPT_RANDOM_FILECURLOPT_RANGECURLOPT_READDATACURLOPT_READFUNCTIONCURLOPT_REDIR_PROTOCOLSCURLOPT_REDIR_PROTOCOLS_STRCURLOPT_REFERERCURLOPT_REQUEST_TARGETCURLOPT_RESOLVECURLOPT_RESOLVER_START_DATACURLOPT_RESOLVER_START_FUNCTIONCURLOPT_RESUME_FROMCURLOPT_RESUME_FROM_LARGECURLOPT_RTSPHEADERCURLOPT_RTSP_CLIENT_CSEQCURLOPT_RTSP_REQUESTCURLOPT_RTSP_SERVER_CSEQCURLOPT_RTSP_SESSION_IDCURLOPT_RTSP_STREAM_URICURLOPT_RTSP_TRANSPORTCURLOPT_SASL_AUTHZIDCURLOPT_SASL_IRCURLOPT_SEEKDATACURLOPT_SEEKFUNCTIONCURLOPT_SERVER_RESPONSE_TIMEOUTCURLOPT_SERVER_RESPONSE_TIMEOUT_MSCURLOPT_SERVICE_NAMECURLOPT_SHARECURLOPT_SOCKOPTDATACURLOPT_SOCKOPTFUNCTIONCURLOPT_SOCKS5_AUTHCURLOPT_SOCKS5_GSSAPI_NECCURLOPT_SOCKS5_GSSAPI_SERVICECURLOPT_SPLIT_COOKIESCURLOPT_SSH_AUTH_TYPESCURLOPT_SSH_COMPRESSIONCURLOPT_SSH_HOSTKEYDATACURLOPT_SSH_HOSTKEYFUNCTIONCURLOPT_SSH_HOST_PUBLIC_KEY_MD5CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256CURLOPT_SSH_KEYDATACURLOPT_SSH_KEYFUNCTIONCURLOPT_SSH_KNOWNHOSTSCURLOPT_SSH_PRIVATE_KEYFILECURLOPT_SSH_PUBLIC_KEYFILECURLOPT_SSLCERTCURLOPT_SSLCERTPASSWDCURLOPT_SSLCERTTYPECURLOPT_SSLCERT_BLOBCURLOPT_SSLENGINECURLOPT_SSLENGINE_DEFAULTCURLOPT_SSLKEYCURLOPT_SSLKEYPASSWDCURLOPT_SSLKEYTYPECURLOPT_SSLKEY_BLOBCURLOPT_SSLVERSIONCURLOPT_SSL_CERT_COMPRESSIONCURLOPT_SSL_CIPHER_LISTCURLOPT_SSL_CTX_DATACURLOPT_SSL_CTX_FUNCTIONCURLOPT_SSL_EC_CURVESCURLOPT_SSL_ENABLE_ALPNCURLOPT_SSL_ENABLE_ALPSCURLOPT_SSL_ENABLE_NPNCURLOPT_SSL_ENABLE_TICKETCURLOPT_SSL_FALSESTARTCURLOPT_SSL_OPTIONSCURLOPT_SSL_PERMUTE_EXTENSIONSC""URLOPT_SSL_SESSIONID_CACHECURLOPT_SSL_SIGNATURE_ALGORITHMSCURLOPT_SSL_SIG_HASH_ALGSCURLOPT_SSL_VERIFYHOSTCURLOPT_SSL_VERIFYPEERCURLOPT_SSL_VERIFYSTATUSCURLOPT_STDERRCURLOPT_STREAM_DEPENDSCURLOPT_STREAM_DEPENDS_ECURLOPT_STREAM_EXCLUSIVECURLOPT_STREAM_WEIGHTCURLOPT_SUPPRESS_CONNECT_HEADERSCURLOPT_TCP_FASTOPENCURLOPT_TCP_KEEPALIVECURLOPT_TCP_KEEPCNTCURLOPT_TCP_KEEPIDLECURLOPT_TCP_KEEPINTVLCURLOPT_TCP_NODELAYCURLOPT_TELNETOPTIONSCURLOPT_TFTP_BLKSIZECURLOPT_TFTP_NO_OPTIONSCURLOPT_TIMECONDITIONCURLOPT_TIMEOUTCURLOPT_TIMEOUT_MSCURLOPT_TIMEVALUECURLOPT_TIMEVALUE_LARGECURLOPT_TLS13_CIPHERSCURLOPT_TLSAUTH_PASSWORDCURLOPT_TLSAUTH_TYPECURLOPT_TLSAUTH_USERNAMECURLOPT_TLS_DELEGATED_CREDENTIALSCURLOPT_TLS_EXTENSION_ORDERCURLOPT_TLS_GREASECURLOPT_TLS_KEY_SHARES_LIMITCURLOPT_TLS_KEY_USAGE_NO_CHECKCURLOPT_TLS_RECORD_SIZE_LIMITCURLOPT_TLS_SIGNED_CERT_TIMESTAMPSCURLOPT_TLS_STATUS_REQUESTCURLOPT_TLS_TRUST_ANCHORSCURLOPT_TLS_USE_NEW_ALPS_CODEPOINTCURLOPT_TRAILERDATACURLOPT_TRAILERFUNCTIONCURLOPT_TRANSFERTEXTCURLOPT_TRANSFER_ENCODINGCURLOPT_UNIX_SOCKET_PATHCURLOPT_UNRESTRICTED_AUTHCURLOPT_UPKEEP_INTERVAL_MSCURLOPT_UPLOADCURLOPT_UPLOAD_BUFFERSIZECURLOPT_UPLOAD_FLAGSCURLOPT_URLCURLOPT_USERAGENTCURLOPT_USERNAMECURLOPT_USERPWDCURLOPT_USE_SSLCURLOPT_VERBOSECURLOPT_WILDCARDMATCHCURLOPT_WRITEDATACURLOPT_WRITEFUNCTIONCURLOPT_WRITEHEADERCURLOPT_WRITEINFOCURLOPT_WS_HTTPHEADERCURLOPT_WS_HTTPHEADER_ORDERCURLOPT_WS_OPTIONSCURLOPT_WS_SSL_CERT_COMPRESSIONCURLOPT_WS_SSL_DISABLE_TICKETCURLOPT_XFERINFODATACURLOPT_XFERINFOFUNCTIONCURLOPT_XOAUTH2_BEARERCURLPAUSE_ALLCURLPAUSE_CONTCURLPAUSE_RECVCURLPAUSE_RECV_CONTCURLPAUSE_SENDCURLPAUSE_SEND_CONTCURLPIPE_HTTP1CURLPIPE_MULTIPLEXCURLPIPE_NOTHINGCURLSSH_AUTH_AGENTCURLSSH_AUTH_ANYCURLSSH_AUTH_DEFAULTCURLSSH_AUTH_GSSAPICURLSSH_AUTH_HOSTCURLSSH_AUTH_KEYBOARDCURLSSH_AUTH_NONECURLSSH_AUTH_PASSWORDCURLSSH_AUTH_PUBLICKEYCURLWS_BINARYCURLWS_CLOSECURLWS_CONTCURLWS_NOAUTOPONGCURLWS_OFFSETCURLWS_PINGCURLWS_PONGCURLWS_RAW_MODECURLWS_TEXTCURL_CA_BUNDLECURL_CSELECT_ERRCURL_CSE""LECT_INCURL_CSELECT_OUTCURL_ERROR_SIZECURL_FNMATCHFUNC_FAILCURL_FNMATCHFUNC_MATCHCURL_FNMATCHFUNC_NOMATCHCURL_HTTP_VERSION_1_0CURL_HTTP_VERSION_1_1CURL_HTTP_VERSION_2CURL_HTTP_VERSION_2TLSCURL_HTTP_VERSION_2_0CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGECURL_HTTP_VERSION_3CURL_HTTP_VERSION_3ONLYCURL_HTTP_VERSION_LASTCURL_HTTP_VERSION_NONECURL_IPRESOLVE_V4CURL_IPRESOLVE_V6CURL_IPRESOLVE_WHATEVERCURL_POLL_INCURL_POLL_INOUTCURL_POLL_NONECURL_POLL_OUTCURL_POLL_REMOVECURL_PREREQFUNC_ABORTCURL_PREREQFUNC_OKCURL_READFUNC_ABORTCURL_READFUNC_PAUSECURL_SEEKFUNC_CANTSEEKCURL_SEEKFUNC_FAILCURL_SEEKFUNC_OKCURL_SOCKET_BADCURL_SOCKET_TIMEOUTCURL_SSLVERSION_DEFAULTCURL_SSLVERSION_LASTCURL_SSLVERSION_MAX_DEFAULTCURL_SSLVERSION_MAX_LASTCURL_SSLVERSION_MAX_NONECURL_SSLVERSION_MAX_TLSv1_0CURL_SSLVERSION_MAX_TLSv1_1CURL_SSLVERSION_MAX_TLSv1_2CURL_SSLVERSION_MAX_TLSv1_3CURL_SSLVERSION_SSLv2CURL_SSLVERSION_SSLv3CURL_SSLVERSION_TLSv1CURL_SSLVERSION_TLSv1_0CURL_SSLVERSION_TLSv1_1CURL_SSLVERSION_TLSv1_2CURL_SSLVERSION_TLSv1_3CURL_TRAILERFUNC_ABORTCURL_TRAILERFUNC_OKCURL_WRITEFUNC_ERRORCURL_WRITEFUNC_PAUSECallableCancelledErrorConditionCurlCurl.__reduce_cython__Curl.__setstate_cython__Curl._get_callback_exceptionCurl.clean_handles_and_buffersCurl.closeCurl.debugCurl.duphandleCurl.get_reason_phraseCurl.getinfoCurl.impersonateCurl.parse_cookie_headersCurl.parse_status_lineCurl.pauseCurl.performCurl.resetCurl.setoptCurl.upkeepCurl.versionCurl.ws_closeCurl.ws_metaCurl.ws_recvCurl.ws_sendCurlErrorCurlError.__init__CurlMimeCurlMime.__reduce_cython__CurlMime.__setstate_cython__CurlMime.addpartCurlMime.attachCurlMime.closeCurlMime.from_listCurlWarningDEFAULT_CACERTEBADFEllipsisMAX_SHOW_BYTESMY_ATTRIBUTESNoneOptionalPREFIXESPROACTOR_WARNINGPathProactorEventLoopProtocolREASON_PHRASE_REREQUESTS_CA_BUNDLESSL_CERT_FILESTATUS_LINE_RESelectorThreadSelectorThread.__init__SelectorThread.__init__.<locals>.<lambda>SelectorThread.__init__.<locals>.thread_manager_anextSelectorThread._consume_wakerSelectorThread._handle_eve""ntSelectorThread._handle_selectSelectorThread._run_selectSelectorThread._start_selectSelectorThread._thread_managerSelectorThread._wake_selectorSelectorThread.add_readerSelectorThread.add_writerSelectorThread.closeSelectorThread.remove_readerSelectorThread.remove_writerSequenceSimpleCookieThreadTypeVarUnionView.MemoryViewWSAENOTSOCKWSFrameWSFrame.__reduce_cython__WSFrame.__setstate_cython__WS_RECVWS_SENDWeakKeyDictionaryWeakSet__CallbackContext_CallbackContext.__reduce_cython___CallbackContext.__setstate_cython___FileDescriptorLike_HasFileno_HasFileno.fileno_T__Pyx_PyDict_NextRef__anext____annotate____await____class____class_getitem____dict____doc____enter____exit____func____getattribute____getstate____import____init____main____metaclass____module____mro_entries____name____new____prepare____pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_unpickle__CallbackContext__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex____set_name____setstate____setstate_cython____test___atexit_callback_check_error_close_selector_and_loop_closed_closing_selector_consume_waker_default_cacert_dict_force_timeout_get_callback_exception_handle_event_handle_select_is_coroutine_readers_real_loop_run_select_select_args_select_cond_selector_selector_loops_selectors_start_select_thread_thread_manager_thread_manager_handle_wake_selector_waker_r_waker_w_writersaabcactionaddadd_handleadd_readeradd_writeraddpartallocate_bufferargsasyncioasyncio.coroutinesasyncio_loopatexitattachbackslashreplacebaseboolbytebytesbytes_to_hex.<locals>.genexprccacertcafilecall_latercall_sooncall_soon_threadsafecallbackcancelcancelledcategorycb_mapcertificlean_handles_and_buffersclearclear_headersclear_resolvecline_in_tracebackcloseclscodecollections.abccompileconfig_warningscontent_typecontextlibcookiecountcreate_futurecreate_taskcurl_cycurl._curldaemondatadebugdebug_function_defaultdecodedefaultdefault_headersdiscarddonedtype_is_objectduphandleeencodeenumerateenvironerrcodeerrmsgerrnoerr""orerrorsev_bitmaskexceptionexistsfdfilefilenamefilenofilesflagsformformatfortranframefrom_listfunctoolsfuturegenexprgetget_default_verify_pathsget_reason_phraseget_running_loopget_selectorget_selector.<locals>._close_selector_and_loopgetinfogetpreferredencodinggrouphandleheaderheadershex_strhttp.cookieshttp_versionidignoreimpersonateindexintis_proitemsitemsizejoinkeyskwargsloadlocal_pathlocalelooploop_closelowermmatchmemviewmessagemodemsgnamendimnextnotifyobjonoptionospackparse_cookie_headersparse_status_linepartialpathpathlibpausepayloadperformplatformpoppostfixprefixprintprocess_datarrereadreal_loopreasonrecvregisterremove_handleremove_readerremove_writerresetreturnrsseekselectselector_loopselfsendset_exceptionset_resultsetblockingsetdefaultsetoptshapesimplefiltersizesleepsocketsocket_actionsocketpairsockfdsslstacklevelstartstartswithstatestaticmethodstatus_codestatus_linestderrstepstopstrstrictstructsupersuppresssystargettextthread_manager_anextthreadingthrowto_readto_writetupletype_typingunpackupdateupkeepuse_setstatevaluevaluesversionwwaitwarnwarningsweakrefwherewinwin32writewsws_closews_metaws_recvws_sendxxsHTTP/(\\d\\.\\d) ([0-9]{3}) (.*)HTTP/\\d\\.\\d [0-9]{3} (.*)Oaset-cookie: \200\001\330\004\n\210+\220Q\200\001\330\004.\250a\250v\260Q\200\001\340\004\010\210\013\2201\320\024%\320%7\260q\330\010\017\210r\220\030\230\024\230Q\230a\330\010\013\2105\220\004\220B\220e\2307\240!\2401\330\014\023\2201\360\006\000\005\020\210s\320\022+\2501\330\004\007\200x\210x\220t\2302\230U\240\047\250\021\250(\260!\330\010\017\210x\220q\360\006\000\005\014\2107\220&\230\001\200\001\340\004\013\210;\220m\2401\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\320\023#\2408\2501\250A\330\004\007\200|\2207\230!\330\0102\260!\3203F\300n\320TU\330\004\013\2101\200\001\360\010\000\n\033\230!\330\010\021\220\024\220[\240\004\240A\330\010\020\220\007\220q\230\006\230l\250!\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\230:""\240W\250E\260\023\260D\270\013\3007\310!\330\004\007\200q\330\010\017\320\0171\260\024\260Q\260g\270[\310\007\310q\340\010\017\320\0171\260\024\260Q\260g\270[\310\001\200A\330\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026\047\240q\250\004\250A\330\010\017\210q\200A\330\010\013\2108\2207\230!\330\014\r\330\010&\320&:\270!\2701\330\010\032\230#\230U\240!\2401\240C\240q\250\003\2504\250u\260A\330\010\016\210i\220q\330\014\030\230\001\320\031*\250!\250:\260Q\3206J\310!\3101\200A\330\0103\260=\300\001\300\024\300Q\330\010\026\220i\230q\240\001\200A\330\0221\260\021\330\t\n\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210N\230!\200A\330\0221\260\021\330\t\n\330\010\014\210I\220Q\220f\230I\240X\250Q\250k\270\021\330\010\014\210O\2301\200A\33001\340\010\014\320\014\034\230F\240!\2401\330\010\017\210q\220\006\220a\220v\230W\240A\200A\33001\360\n\000\t\r\210N\230&\240\001\240\021\330\010\013\2104\210q\330\014\023\320\023*\250#\250Q\330\010\013\2101\210F\220!\2203\220c\230\021\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\340\014\033\2301\330\010\026\220c\230\021\230!\2306\240\021\240!\330\010\021\220\021\220&\230\001\230\021\340\010\017\210~\230]\250!\200A\340\010\013\2104\210t\2201\330\014\024\220E\230\021\330\020D\300M\320Q\\\320\\]\340\014\r\340\010\014\210N\230!\2308\2401\360\016\000\t\n\330\014\r\330\020\037\320\0374\260A\260T\270\031\300!\3001\340\020\023\2209\230C\230q\330\024\025\330\020\023\2208\2305\240\007\240q\330\024\034\230F\240$\240k\260\021\260+\270W\300H\310A\330\024\036\230h\240e\2501\330\024)\250\025\320.F\300a\330\024\027\320\027*\250\047\260\021\330\030\034\230N\250!\2507\260!\330\031!\240\023\240A\330\030\034\230K\240q\250\001\340\030\034\230N\250!\2507\260%\260{\300!\3009\310A\340\024\031\230\021\230!\330\023\024\330\020\030\230\005\230Q\330\024""\025\340\024\025\330\024\037\230q\200A\340\010\014\210G\2201\200A\340\010\014\210G\2205\320\030*\250!\330\010\014\210G\2205\320\0300\260\001\200A\340\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\013\2104\210q\330\021\022\330\024$\240A\240T\250\021\330\014\020\320\020\"\240!\330\010\013\2104\210z\230\023\230A\330\020$\240A\240T\250\021\330\014\020\220\014\230A\200A\340\010\017\210{\230-\240q\200A\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\017\210q\200A\340\010\035\230T\240\034\250Q\250a\330\010\013\2107\220$\220d\230&\240\005\240S\250\004\250D\260\006\260j\300\001\330\014\022\220\047\230\021\200A\340\014\r\330\020\021\330\t\n\330\010\t\330\014\027\220v\230Q\230a\330\017\020\330\014\r\330\010\020\220\001\200A\340\014\r\330\022\023""\340\t\n\330\010\017\210t\220:\230[\250\001\250\024\250[\270\001\200A\360\006\000\t\036\230S\240\001\330\010\014\210H\220A\330\014\020\220\010\230\003\2301\330\010\017\210q\200A\360\006\000\r\034\2301\230D\240\001\330\010\014\210H\220A\200A\360\006\000\034\035\330\027\030\330\034\035\330\026\027\360\026\000\t-\320,>\270a\270t\3001\340\010\037\230t\2407\250!\330\010\022\220/\240\021\240&\250\016\260a\330\010\013\2104\210s\220!\330\014\022\220)\2301\230A\360\010\000\t\014\210=\230\007\230q\330\014 \240\014\250G\2601\330\014\026\220o\240Q\240f\250N\270!\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\210;\220g\230U\240$\240e\2507\260!\330\014\022\220)\2301\230A\360\006\000\t\014\210;\220g\230Q\330\014\017\210z\230\021\230,\240a\330\020!\240\023\240A\240Q\330\021\033\2301\230L\250\001\330\020!\240\032\2507\260!\340\020!\240\021\340\014\017\210t\2204\220q\230\017\240w\250a\330\020\026\320\026\047\240q\320(<\270A\270Q\330\014\026\320\026)\250\021\250&\3200@\300\001\300\021\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\360\006\000\t\014\2109\220G\2301\330\014\026\320\026)\250\021\250&\3200@\300\001\300\021\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\2105\220\007\220q\330\014\017\210t\220:\230Q\230f\240A\330\020\027\220s\230!\2305\240\007\240q\330\014\026\220o\240Q\240f\250N\270&\320@P\320PQ\320QR\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\200A\360\010\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\r\016\330\014\035\320\0351\260\021\260$\260a\330\010\013\210;\220c\230\021\330\014\r\330\010\014\210D\220\001\220\024\220Z\230t\2409\250M\270\021\270\047\300\034\310V\320ST\330\010\017\210q\200A\360\010\000\t\016\210_\230A\340\r\016\330\014\032\320\0320\260\001\260\024\260Y\270e\3001\330\010\014\210M\230\021\230!\330\010\021\220\024\220U\230.\250\001\330\010\014\210M\230\021\230)\2401\330\010\014\210K\220q\230\013\2407\250%\250z\270\021\330\010\017\210q\200A\360\016\000\t\014\2104\210w\220c""\230\021\330\014\022\220)\2301\230A\360\020\000\016\017\330\014\026\220m\2401\240D\250\001\330$(\250\001\330$(\250\001\330$%\240T\250\021\330$%\240T\250\021\330\010\013\2101\330\014\020\220\r\230Q\230e\2401\360\006\000\t\020\210w\220d\320\032*\250\"\250D\3200J\310)\320ST\320TX\320XY\200A\3602\000\r\025\220A\330\014\034\230A\330\014\031\230\021\330\014!\240\021\330\014\035\230Q\330\014(\250\001\340\010\023\2207\230\"\230A\330\010\013\2104\210w\220c\230\021\330\014\017\210y\230\003\2301\330\020\027\220q\330\021\032\230#\230Y\240c\250\031\260#\260Y\270c\300\031\310#\310Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\340\010\013\2109\220C\220q\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210x\220s\230!\330\020\027\220q\330\014\023\2207\230!\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\220?\240!\2401\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\320\023%\240Q\240a\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210y\230\003\2301\330\020\027\220q\330\014\023\220=\240\001\240\021\330\r\026\220c\230\021\330\014\026\320\0260\260\001\260\024\260X\270X\300Q\300a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210u\220K\230w\240a\330\020\027\220\177\240b\250\001\330\014\023\320\023.\250a\250q\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\2201\210\001\360\006\000\r\031\230\t\240\021\330\014\026\220d\230!\230>\250\021\330\014\031\230\026\230q\210!\210H\220D\230\013\240<\250q\3200D\300A\230a\320\000\024\220D\230\001\330\004\007\200q\330\010\020\220\r\230Q\230k\250\031\260!\340\010\020\220\r\230Q\230j\250\t\260""\021\320\000\030\230\001\330\004\013\2101\320\000\032\230!\330\004\010\210\010\220\001\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\330\010\013\2104\210y\230\007\230q\360\n\000\r\021\220\010\230\005\230Q\330\004\023\2206\230\021\320\000\"\240+\250Z\260q\330\004\005\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\340\004\025\220Q\330\004\r\210X\220T\230\021\230\047\240\021\360\006\000\005\010\200v\210W\320\024*\250#\250V\2607\270!\330\010\022\220,\230a\230t\2402\240Q\330\010\022\220&\230\003\2301\230F\240#\320%9\270\021\330\010\013\2107\220&\230\001\230\022\2301\230I\240Q\240c\250\021\250/\270\021\270(\300!\3001\340\010\t\330\014\023\2204\220w\230a\230q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\330\014\017\210v\220W\230O\2504\250v\260W\320<P\320PT\320TZ\320Za\320ab\330\020\023\2207\230&\240\001\240\021\330\017\020\340\014\026\220l\240!\2404\240r\250\021\330\014\026\220f\230C\230q\240\006\240c\320)=\270Q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\250#\250Q\250o\270Q\270h\300a\300q\320\004\027\220q\330\010\013\2104\210q\330\014\r\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\010\014\210O\2301\330\010\013\2104\210y\230\007\230q\330\014\020\220\010\230\005\230Q\330\010\027\220x\230q\240\001\330\010\014\210N\230!\2304\230q\330\010\014\210I\220V\2301\330\010\014\210I\220V\2301\330\010\014\210K\220q\320\004\027\220q\330\010\014\210J\220f\230A\330\010\014\210K\220v\230Q\320\004\030\230\001\330\010\017\210q\320\004\033\320\0339\270\021\330\010\017\210q\320\004\034\230F\240!\330\010\r\210R\210y\230\001\230\026\230x\240q\330\010\014\210H\220A\320\004\035\230Q\330\010\t\330\021\025\220Q\330\020\026\220d\230.\250\003\2505\260\004\260D\270\004\270A\330\024\030\230\r\240U\250!\330\020\023\2204\220q\330\024\025\330\020\027\220t\230>\250\027\260\001\330\020\031\230\033\240D\250\001\330\020\024\320\024$\240A""\360\022\000\r\016\360\020\000\021\025\220D\230\005\230V\2407\250!\2509\260J\270a\330\020\025\220S\230\002\230!\330\014\023\220;\230a\360\030\000\021\024\2201\220G\2303\230g\240Q\240g\250_\270E\300\021\330\024\030\230\003\2304\230v\240W\250A\250Q\250d\260)\2707\300%\300t\3104\310q\330\024\027\220q\330\030\035\230Q\340\030\031\340\024\025\340\014\r\330\020\024\220K\320\0374\260A\260T\3209J\310$\310a\330\023\024\360\016\000\024\025\320\004\037\230q\360\010\000\016\022\220\021\330\014\023\2204\220~\240S\250\001\330\014\020\320\020!\240\024\240Q\240d\250)\2605\270\005\270T\300\021\300$\300i\310u\320TU\330\014\020\220\r\230W\240A\320\004 \240\001\330\010\013\2104\210q\330\014\r\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004 \240\001\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004 \320 8\270\001\330\010\t\330\014\020\220\004\220I\230Q\230a\330\017\020\330\014\023\2201\330\010\014\210O\2301\330\010\017\210q\320\004 \320 :\270!\330\010\017\210t\220:\230^\2501\250A\320\004\"\320\"8\270\001\360\030\000\t\023\220&\230\005\230Q\230f\240F\250\"\250A\330\010\017\210t\2208\2301\230O\2501\320\004\"\320\"@\300\001\330\010\014\210N\230!\330\010\014\210M\230\036\240q\250\001\320\004\"\320\"@\300\001\330\010\014\210N\230!\340\010\014\320\014\034\230I\240Z\250q\330\010\014\210A\340\014\r\330\010\014\320\014!\240\021\330\010\014\320\0143\2601\330\010\014\320\014&\240d\320*:\270!\340\016,\250A\360\020\000\t\r\210K\220z\240\021\330\014\r\360\006\000\t\r\320\014=\270Q\330\010\014\320\014=\270Q\360\010\000\t\r\210K\220t\230<\240v\250[\270\001\330\010\014\210I\220\\\240\021\240!\330\010\014\210I\220\\\240\021\240!\330\010\027\220t\2301\230A\330\010\014\210K\220q\230\004\230K\240t\2501\320\004#\320#A\300\021\360\022\000\t\014\210=\230\003\2301\330\014\023\220:\230Q\230a\340\010\013\2104\210z\230\021\230.\250\007\250q\260\t\3209N\310d\320RS\320ST\330\014\023\2201\340\010\020\220\005\220Q\320\026(\250\r\260[\300\001\340\010\030\230\n\240!\320#3\3203M\310Q\310a""\360\006\000\t\026\220\\\240\021\340\010\t\360\016\000\t\025\220I\230Q\330\010\017\210q\320\004%\240X\250Q\330\010\013\2105\220\003\320\023-\250Q\330\014\023\2205\230\002\320\032+\2501\250A\330\010\017\210w\220a\220t\230=\250\001\320\004+\2501\340\010\026\220i\230v\240W\250J\260d\270!\330\010\t\210\027\220\005\320\025(\250\r\260Q\260d\270\047\300\026\300q\320\004.\250a\340\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026&\240a\240t\2508\2601\330\010\014\210M\230\021\230%\230q\330\010\017\210q\320\004/\320/K\3101\360\024\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\032\230&\240\007\240q\330\010\023\320\023)\250\021\250$\250h\260n\300F\310!\320\0044\260A\360\022\000\t\022\220\034\230Q\330\010\014\210J\220a\330\014\017\210v\220V\2302\230[\250\001\250\021\330\020\026\220e\2301\230F\240!\2404\240w\250a\330\010\017\210q\320\0048\3208S\320Sa\320ab\360\024\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\006\000\t\r\210O\2301\360\006\000\016\017\330\014\026\320\026(\250\001\250\024\250Q\330\010\t\330\014!\240\024\320%=\270Q\330\014\017\320\017\"\240\047\250\021\330\020\026\220a\330\014\020\220\r\230Q\230e\2401\330\014\023\2201\360\006\000\r\021\320\020*\250!\250?\270!\320\004D\300A\360(\000\t\014\2104\210w\220c\230\021\330\014\023\2201\340\014\034\230A\330\014\035\230W\240B\240f\250B\250a\360\010\000\t\014\210;\220c\230\026\230s\240+\250S\260\001\340\014\025\220Y\230a\330\014\026\220g\230Q\230a\330\r\024\220G\2301\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 8\270\007\270q\340\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 9\270\027\300\001\340\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 7\260w\270a\340\r\024\220G\2301\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!""\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203L\310G\320ST\330\014\031\230\021\330\r\024\220G\2301\330\014\017\210v\220S\230\001\330\020\030\230\001\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020#\320#3\2601\260A\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203M\310W\320TU\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203L\310I\320UV\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020$\320$4\260A\260Q\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020#\320#3\2601\260A\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\030\230\003\2301\330\014\017\210z\230\021\230\047\240\021\360\010\000\021\022\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\340\020\023\2203\220i\230{\250!\2507\260$\260g\270S\300\001\340\024\032\230&\320 5\260Q\260a\330\024\037\230u\240G\2501\250E\260\027\270\001\340\024\037\230u\240G\2501\330\020\032\230)\240?\260!\340\021\033\2301\230G\2401\330\020\033\2301\340\020\032\230\047\240\037\260\001\330\021%\240Q\240a\330\020""\032\320\032.\250a\250w\260a\340\014\017\210w\220g\230Q\330\020\024\320\024$\240A\340\014\022\320\022%\240Q\320&?\270r\300\021\340\010\013\2107\220\047\230\021\330\014\020\220\n\230!\330\020\024\320\024$\320$6\260a\260t\270;\300m\320ST\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\n\230!\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\n\230!\330\020\024\320\024\047\320\0479\270\021\270$\270n\310M\320YZ\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\320\020 \240\001\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\013\2301\330\020\023\220:\230Q\230i\240q\330\024\036\230g\240W\250A\330\020\024\320\024$\320$6\260a\260t\270;\300a\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\340\014\026\320\026(\250\001\250\024\250X\260X\270Q\330\010\014\210M\230\021\230%\230y\250\001\250\030\260\021\260!\340\010\013\2107\220\047\230\021\330\014\020\320\020 \240\001\340\010\017\210q\320\004F\320Fa\320ab\360\006\000\t\r\320\014\035\230Q\330\010\014\320\014\036\230a\330\010\014\320\014\035\230Q\330\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\014\320\014\037\230q\330\010\014\320\014\036\230a\330\010\014\320\014 \240\001\330\010\014\320\014\037\230q\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\340\014\017\210t\220=\240\003\2401\330\024(\250\001\250\024\250Q\330\020\024\220O\2401\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\320\004M""\310Q\360\n\000\016\017\330\014\032\320\0323\2601\260D\270\t\300\030\310\034\320UV\320VW\330\010\014\210M\230\021\230!\330\010\017\210q\320\004[\320[\\\360\024\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\014\000\016\017\330\014\026\220m\2401\240D\250\010\260\016\270a\270w\300a\300t\3108\320SZ\320Z`\320`a\320ae\320ef\320fj\320j|\320|\177\360\000\000@\002A\002\330\010\013\2101\330\014\020\220\r\230Q\230e\2401\330\010\017\210t\2201\320\n\047\240q\320\016,\250A";
     PyObject *data = NULL;
     #define __Pyx_DecompressString_UNUSED
     #define __Pyx_DecompressString_LZSS_UNUSED
     #endif
     PyObject **stringtab = __pyx_mstate->__pyx_string_tab;
     Py_ssize_t pos = 0;
-    for (int i = 0; i < 1220; i++) {
+    for (int i = 0; i < 1222; i++) {
       Py_ssize_t bytes_length = str_length_index[i].length;
       PyObject *string = PyUnicode_DecodeUTF8(bytes + pos, bytes_length, NULL);
       if (likely(string) && i >= 89) PyUnicode_InternInPlace(&string);
@@ -71027,8 +71053,8 @@ static const char bytes[] = "\n\n    Proactor event loop does not implement add_
       stringtab[i] = string;
       pos += bytes_length;
     }
-    for (int i = 1220; i < 1290; i++) {
-      Py_ssize_t bytes_length = bytes_length_index[i-1220].length;
+    for (int i = 1222; i < 1292; i++) {
+      Py_ssize_t bytes_length = bytes_length_index[i-1222].length;
       PyObject *string = PyBytes_FromStringAndSize(bytes + pos, bytes_length);
       stringtab[i] = string;
       pos += bytes_length;
@@ -71038,14 +71064,14 @@ static const char bytes[] = "\n\n    Proactor event loop does not implement add_
       }
     }
     Py_XDECREF(data);
-    for (Py_ssize_t i = 0; i < 1290; i++) {
+    for (Py_ssize_t i = 0; i < 1292; i++) {
       if (unlikely(PyObject_Hash(stringtab[i]) == -1)) {
         __PYX_ERR(0, 1, __pyx_L1_error)
       }
     }
     #if CYTHON_IMMORTAL_CONSTANTS
     {
-      PyObject **table = stringtab + 1220;
+      PyObject **table = stringtab + 1222;
       for (Py_ssize_t i=0; i<70; ++i) {
         #if PY_VERSION_HEX >= 0x030F0000
         PyUnstable_SetImmortal(table[i]);
