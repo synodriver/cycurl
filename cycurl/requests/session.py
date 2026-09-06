@@ -83,7 +83,11 @@ else:
     R = TypeVar("R", bound=Response)
 
 if TYPE_CHECKING:
-    from typing_extensions import Unpack
+    if sys.version_info >= (3, 11):
+        from typing import Unpack
+    else:
+        from typing_extensions import Unpack
+
     from cycurl.fingerprints import Fingerprint
 
     class ProxySpec(TypedDict, total=False):

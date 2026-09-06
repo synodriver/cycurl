@@ -446,7 +446,9 @@ def _apply_fingerprint(
     # Explicit extension orders are also allowlists in our BoringSSL fork, so
     # enable browser capabilities here and let the selected order suppress them.
     curl.setopt(m.CURLOPT_TLS_STATUS_REQUEST, 1)
-    curl.setopt(m.CURLOPT_TLS_SIGNED_CERT_TIMESTAMPS, 1)
+    curl.setopt(
+        m.CURLOPT_TLS_SIGNED_CERT_TIMESTAMPS, int(fingerprint.tls_signed_cert_timestamps)
+        )
     curl.setopt(m.CURLOPT_TLS_KEY_SHARES_LIMIT, fingerprint.tls_key_shares_limit)
 
     if fingerprint.tls_cert_compression:
@@ -481,6 +483,11 @@ def _apply_fingerprint(
 
     if fingerprint.tls_ech is not None:
         curl.setopt(m.CURLOPT_ECH, fingerprint.tls_ech)
+
+    if fingerprint.tls_trust_anchors is not None:
+        curl.setopt(
+            CurlOpt.TLS_TRUST_ANCHORS, ",".join(fingerprint.tls_trust_anchors)
+        )
 
     # http2 settings
     if fingerprint.http2_settings:
