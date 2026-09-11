@@ -136,7 +136,7 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
         size_t total
         _CallbackContext context
         object callback
-        ssize_t wrote
+        size_t wrote
     total = size*nmemb
     context = <_CallbackContext>userdata
     callback = context.callback
@@ -452,7 +452,7 @@ cdef class Curl:
                                     self._ws_recv_buffer,
                                     self._WS_RECV_BUFFER_SIZE,
                                     &self._ws_recv_n_recv,
-                                    &self._ws_recv_p_frame)
+                                    <const curl.curl_ws_frame **>&self._ws_recv_p_frame)
         if ret:
             self._check_error(ret, "WS_RECV")
         # Frame meta explained: https://curl.se/libcurl/c/curl_ws_meta.html

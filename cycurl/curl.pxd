@@ -73,7 +73,7 @@ cdef extern from "curl/curl.h" nogil:
       size_t len           # size of the current data chunk
     int curl_ws_recv(CURL *curl, void *buffer, size_t buflen,
                           size_t *recv,
-                          curl_ws_frame ** metap)
+                          const curl_ws_frame ** metap)
     int curl_ws_send(CURL *curl, const void *buffer,
                                   size_t buflen, size_t *sent,
                                   long long framesize,
