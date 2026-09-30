@@ -792,7 +792,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURL_ERROR_SIZE
     #CURL_WRITEFUNC_
     int CURL_WRITEFUNC_PAUSE
-    int CURL_WRITEFUNC_ERROR
+    unsigned int CURL_WRITEFUNC_ERROR
     #CURL_POLL_
     int CURL_POLL_NONE
     int CURL_POLL_IN

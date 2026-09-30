@@ -141,7 +141,7 @@ cdef size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
     context = <_CallbackContext>userdata
     callback = context.callback
     try:
-        wrote = callback(<bytes>ptr[:total])
+        wrote = <size_t>callback(<bytes>ptr[:total]) # fuck, fuck, fuck, cython doesn't allow cast from negative to size_t while c can
     except BaseException as e:
         context.exception = e
         return curl.CURL_WRITEFUNC_ERROR
