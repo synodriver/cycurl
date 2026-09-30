@@ -468,10 +468,12 @@ cdef class Curl:
             The number of bytes sent.
         Raises:
             CurlError: if failed.
+        Notes:
+            Memoryview payloads must be byte-format for ``len()`` to work correctly.
         """
         if self._curl == NULL:
             raise CurlError("Cannot send websocket data on closed handle.")
-        
+
         # cdef size_t n_sent
         cdef int ret
         # n_sent = ffi.new("int *")
@@ -533,6 +535,9 @@ cdef class Curl:
     cdef _get_error(self, int errcode, str args):
         if errcode != 0:
             errmsg = (<bytes>self._error_buffer).decode(errors="backslashreplace")
+            if not errmsg:
+                # # libcurl can leave the buffer empty; curl(1) then prints this too
+                errmsg = PyUnicode_FromString(curl.curl_easy_strerror(errcode))
             return CurlError(
                 f"Failed to {args}, curl: ({errcode}) {errmsg}. "
                 "See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
@@ -1010,11 +1015,11 @@ cdef class Curl:
         m = STATUS_LINE_RE.match(status_line)
         if not m:
             return CURL_HTTP_VERSION_1_0, 0, b""
-        if m.group(1) == "2.0":
+        if m.group(1) == b"2.0":
             http_version = CURL_HTTP_VERSION_2_0
-        elif m.group(1) == "1.1":
+        elif m.group(1) == b"1.1":
             http_version = CURL_HTTP_VERSION_1_1
-        elif m.group(1) == "1.0":
+        elif m.group(1) == b"1.0":
             http_version = CURL_HTTP_VERSION_1_0
         else:
             http_version = CURL_HTTP_VERSION_NONE
@@ -1319,7 +1324,7 @@ cdef class CurlMime:
     def __init__(self, Curl curl_ = None):
         """
         Args:
-            curl: Curl instance to use.
+            curl_: Curl instance to use.
         """
         self._curl = curl_ if curl_ else Curl()
         self.form = curl.curl_mime_init(self._curl._curl)

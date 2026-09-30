@@ -16,6 +16,7 @@ cdef extern from "curl/curl.h" nogil:
     CURL *curl_easy_duphandle(CURL *curl)
     int curl_easy_upkeep(CURL *curl)
     int curl_easy_pause(CURL *curl, int action)
+    const char *curl_easy_strerror(int error)
 
     char *curl_version()
 
@@ -403,6 +404,10 @@ cdef extern from "curl/curl.h" nogil:
     int CURLOPT_TCP_KEEPCNT
     int CURLOPT_UPLOAD_FLAGS
     int CURLOPT_SSL_SIGNATURE_ALGORITHMS
+    int CURLOPT_HTTPSIG_ALGORITHM
+    int CURLOPT_HTTPSIG_KEY
+    int CURLOPT_HTTPSIG_KEYID
+    int CURLOPT_HTTPSIG_HEADERS
     int CURLOPT_IMPERSONATE
     int CURLOPT_HTTPBASEHEADER
     int CURLOPT_SSL_SIG_HASH_ALGS
@@ -444,6 +449,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURLOPT_QUIC_CID_LENGTH
     int CURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONS
     int CURLOPT_TLS_TRUST_ANCHORS
+    int CURLOPT_QUIC_INITIAL_PACKET_NUMBER
     int CURLOPT_ENCODING
     int CURLOPT_FILE
     int CURLOPT_INFILE
@@ -769,6 +775,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURLAUTH_NTLM_WB
     int CURLAUTH_BEARER
     int CURLAUTH_AWS_SIGV4
+    int CURLAUTH_HTTPSIG
     int CURLAUTH_ONLY
     int CURLAUTH_ANY
     int CURLAUTH_ANYSAFE

@@ -6,7 +6,7 @@ __title__ = "cycurl"
 # __description__ = metadata.metadata("curl_cffi")["Summary"]
 # __version__ = metadata.version("curl_cffi")
 __description__ = "libcurl cython bindings for Python, with impersonation support"
-__version__ = "0.16.3"
+__version__ = "0.16.4b1"
 
 
 def _resolve_curl_version() -> str:

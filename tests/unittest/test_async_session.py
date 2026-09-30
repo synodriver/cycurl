@@ -11,7 +11,7 @@ from cycurl import _curl as m
 from cycurl import AsyncCurl, Headers
 from cycurl.requests import AsyncSession, RequestsError
 from cycurl.requests.errors import SessionClosed
-from cycurl.requests.exceptions import CertificateVerifyError, TooManyRedirects, UnrewindableBodyError
+from cycurl.requests.exceptions import CertificateVerifyError, HTTPError, TooManyRedirects, UnrewindableBodyError
 from cycurl.requests.models import Response
 
 
@@ -698,3 +698,26 @@ async def test_shared_async_curl_not_closed_by_session(server):
     await s2.close()
 
     await pool.close()
+
+
+async def test_dropped_http2_connection_error_names_the_failure():
+    preface = b"PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n"
+
+    async def drop(reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
+        await reader.readexactly(len(preface))
+        await asyncio.sleep(0.05)  # let the client send SETTINGS and HEADERS
+        writer.transport.abort()
+
+    server = await asyncio.start_server(drop, "127.0.0.1", 0)
+    port = server.sockets[0].getsockname()[1]
+    try:
+        async with AsyncSession() as s:
+            with pytest.raises(HTTPError, match=r"curl: \(16\) Error in the HTTP2 "):
+                await s.get(
+                    f"http://127.0.0.1:{port}/",
+                    http_version="v2_prior_knowledge",
+                    timeout=5,
+                )
+    finally:
+        server.close()
+        await server.wait_closed()

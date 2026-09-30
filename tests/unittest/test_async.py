@@ -1,3 +1,5 @@
+import pytest
+
 import cycurl as m
 from cycurl import AsyncCurl, Curl
 
@@ -43,3 +45,10 @@ async def test_socket_action(server):
 
 
 async def test_process_data(server): ...
+
+
+async def test_multi_error_message_carries_the_libcurl_text():
+    ac = AsyncCurl()
+    with pytest.raises(m.CurlError, match=r"multi: \(1\) Invalid multi handle\. "):
+        ac._check_error(1, "perform")
+    await ac.close()
