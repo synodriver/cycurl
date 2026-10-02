@@ -530,7 +530,11 @@ cdef class Curl:
             return 0
         error = self._get_error(errcode, args)
         if error is not None:
-            raise error
+            try:
+                raise error
+            finally:
+                # error.__traceback__ holds this frame, don't keep error in it
+                del error
 
     cdef _get_error(self, int errcode, str args):
         if errcode != 0:
