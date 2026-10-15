@@ -3,7 +3,7 @@
 # With our own addtions
 
 import json
-from typing import Literal, Union
+from typing import Any, Literal, Union
 
 from cycurl._curl import *
 
@@ -17,8 +17,8 @@ class RequestException(CurlError, OSError):
         msg,
         code: Union[int, Literal[0]] = 0,
         response=None,
-        *args,
-        **kwargs,
+        *args: Any,
+        **kwargs: Any,
     ):
         super().__init__(msg, code, *args, **kwargs)
         self.response = response

@@ -1,7 +1,7 @@
 
 #include "shim.h"
 
-int _curl_easy_setopt(CURL* curl, int option, void* parameter) {
+int _curl_easy_setopt(void* curl, int option, void* parameter) {
     // printf("****** hijack test begins: \n");
     // int val = curl_easy_setopt(instance->curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
     // printf("****** hijack test ends. opt: %d, val: %d, result is: %d\n", CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0, val);
@@ -17,7 +17,15 @@ int _curl_easy_setopt(CURL* curl, int option, void* parameter) {
     return (int)curl_easy_setopt(curl, (CURLoption)option, parameter);
 }
 
-int _curl_easy_getinfo_socket(CURL* curl, int option, uintptr_t* result) {
+int _curl_share_setopt(void* share, int option, void* parameter) {
+    // SHARE/UNSHARE read an int via va_arg; callbacks and userdata are pointers.
+    if (option == CURLSHOPT_SHARE || option == CURLSHOPT_UNSHARE) {
+        return (int)curl_share_setopt((CURLSH*)share, (CURLSHoption)option, *(int*)parameter);
+    }
+    return (int)curl_share_setopt((CURLSH*)share, (CURLSHoption)option, parameter);
+}
+
+int _curl_easy_getinfo_socket(void* curl, int option, uintptr_t* result) {
     curl_socket_t socket;
     CURLcode ret = curl_easy_getinfo(curl, (CURLINFO)option, &socket);
     if (ret == CURLE_OK) {

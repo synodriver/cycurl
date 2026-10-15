@@ -1875,7 +1875,7 @@ struct __pyx_opt_args_6cycurl_5_curl_4Curl_clean_handles_and_buffers {
   int clear_resolve;
 };
 
-/* "cycurl/_curl.pyx":1483
+/* "cycurl/_curl.pyx":1487
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -1890,7 +1890,7 @@ struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_addpart {
   PyObject *data;
 };
 
-/* "cycurl/_curl.pyx":1554
+/* "cycurl/_curl.pyx":1558
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -2009,7 +2009,7 @@ struct __pyx_obj_6cycurl_5_curl_CurlShare {
 };
 
 
-/* "cycurl/_curl.pyx":1461
+/* "cycurl/_curl.pyx":1465
  *         self._cleanup()
  * 
  * @cython.freelist(8)             # <<<<<<<<<<<<<<
@@ -2329,7 +2329,7 @@ struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare {
 static struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *__pyx_vtabptr_6cycurl_5_curl_CurlShare;
 
 
-/* "cycurl/_curl.pyx":1461
+/* "cycurl/_curl.pyx":1465
  *         self._cleanup()
  * 
  * @cython.freelist(8)             # <<<<<<<<<<<<<<
@@ -3372,6 +3372,11 @@ static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key);
 #define __Pyx_PyObject_Dict_GetItem(obj, name)  PyObject_GetItem(obj, name)
 #endif
 
+/* WriteUnraisableException.proto */
+static void __Pyx_WriteUnraisable(const char *name, int clineno,
+                                  int lineno, const char *filename,
+                                  int full_traceback, int nogil);
+
 /* PyAttributeError_Check.proto */
 #define __Pyx_PyExc_AttributeError_Check(obj)  __Pyx_TypeCheck(obj, PyExc_AttributeError)
 
@@ -3384,11 +3389,6 @@ static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x);
 #else
 #define __Pyx_PyList_Append(L,x) PyList_Append(L,x)
 #endif
-
-/* WriteUnraisableException.proto */
-static void __Pyx_WriteUnraisable(const char *name, int clineno,
-                                  int lineno, const char *filename,
-                                  int full_traceback, int nogil);
 
 /* PyObjectVectorcallMethodKwds.proto */
 #if CYTHON_VECTORCALL
@@ -4558,14 +4558,15 @@ static int __pyx_pf_6cycurl_5_curl_9AsyncCurl_7_cacert_4__del__(struct __pyx_obj
 static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_9AsyncCurl_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_AsyncCurl *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_6cycurl_5_curl_9CurlShare___cinit__(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_connect, int __pyx_v_dns, int __pyx_v_ssl_session); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_2_setopt(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_option, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_4share(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_6unshare(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_8_cleanup(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_10close(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self); /* proto */
-static void __pyx_pf_6cycurl_5_curl_9CurlShare_12__dealloc__(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_14__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_16__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_2get_curl_share(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_4_setopt(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_option, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_6share(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_8unshare(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_10_cleanup(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_12close(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self); /* proto */
+static void __pyx_pf_6cycurl_5_curl_9CurlShare_14__dealloc__(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5_curl_CurlMime *__pyx_v_self, struct __pyx_obj_6cycurl_5_curl_Curl *__pyx_v_curl_); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_obj_6cycurl_5_curl_CurlMime *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(struct __pyx_obj_6cycurl_5_curl_CurlMime *__pyx_v_self, PyObject *__pyx_v_name, PyObject *__pyx_v_content_type, PyObject *__pyx_v_filename, PyObject *__pyx_v_local_path, PyObject *__pyx_v_data); /* proto */
@@ -5077,8 +5078,8 @@ namespace {
     unsigned int __pyx_k__12;
     PyObject *__pyx_slice[2];
     PyObject *__pyx_tuple[15];
-    PyObject *__pyx_codeobj_tab[83];
-    PyObject *__pyx_string_tab[1351];
+    PyObject *__pyx_codeobj_tab[84];
+    PyObject *__pyx_string_tab[1354];
     PyObject *__pyx_number_tab[12];
 /* #### Code section: module_state_contents ### */
 /* PyFrozenDict.module_state_decls */
@@ -6121,448 +6122,451 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_CurlShare__cleanup __pyx_string_tab[906]
 #define __pyx_n_u_CurlShare__setopt __pyx_string_tab[907]
 #define __pyx_n_u_CurlShare_close __pyx_string_tab[908]
-#define __pyx_n_u_CurlShare_share __pyx_string_tab[909]
-#define __pyx_n_u_CurlShare_unshare __pyx_string_tab[910]
-#define __pyx_n_u_CurlWarning __pyx_string_tab[911]
-#define __pyx_n_u_DEFAULT_CACERT __pyx_string_tab[912]
-#define __pyx_n_u_EBADF __pyx_string_tab[913]
-#define __pyx_n_u_Ellipsis __pyx_string_tab[914]
-#define __pyx_n_u_Lock __pyx_string_tab[915]
-#define __pyx_n_u_MAX_SHOW_BYTES __pyx_string_tab[916]
-#define __pyx_n_u_MY_ATTRIBUTES __pyx_string_tab[917]
-#define __pyx_n_u_None __pyx_string_tab[918]
-#define __pyx_n_u_Optional __pyx_string_tab[919]
-#define __pyx_n_u_PREFIXES __pyx_string_tab[920]
-#define __pyx_n_u_PROACTOR_WARNING __pyx_string_tab[921]
-#define __pyx_n_u_Path __pyx_string_tab[922]
-#define __pyx_n_u_ProactorEventLoop __pyx_string_tab[923]
-#define __pyx_n_u_Protocol __pyx_string_tab[924]
-#define __pyx_n_u_REASON_PHRASE_RE __pyx_string_tab[925]
-#define __pyx_n_u_REQUESTS_CA_BUNDLE __pyx_string_tab[926]
-#define __pyx_n_u_SSL_CERT_FILE __pyx_string_tab[927]
-#define __pyx_n_u_STATUS_LINE_RE __pyx_string_tab[928]
-#define __pyx_n_u_SelectorThread __pyx_string_tab[929]
-#define __pyx_n_u_SelectorThread___init __pyx_string_tab[930]
-#define __pyx_n_u_SelectorThread___init___locals_l __pyx_string_tab[931]
-#define __pyx_n_u_SelectorThread___init___locals_t __pyx_string_tab[932]
-#define __pyx_n_u_SelectorThread__consume_waker __pyx_string_tab[933]
-#define __pyx_n_u_SelectorThread__handle_event __pyx_string_tab[934]
-#define __pyx_n_u_SelectorThread__handle_select __pyx_string_tab[935]
-#define __pyx_n_u_SelectorThread__run_select __pyx_string_tab[936]
-#define __pyx_n_u_SelectorThread__start_select __pyx_string_tab[937]
-#define __pyx_n_u_SelectorThread__thread_manager __pyx_string_tab[938]
-#define __pyx_n_u_SelectorThread__wake_selector __pyx_string_tab[939]
-#define __pyx_n_u_SelectorThread_add_reader __pyx_string_tab[940]
-#define __pyx_n_u_SelectorThread_add_writer __pyx_string_tab[941]
-#define __pyx_n_u_SelectorThread_close __pyx_string_tab[942]
-#define __pyx_n_u_SelectorThread_remove_reader __pyx_string_tab[943]
-#define __pyx_n_u_SelectorThread_remove_writer __pyx_string_tab[944]
-#define __pyx_n_u_Sequence __pyx_string_tab[945]
-#define __pyx_n_u_SimpleCookie __pyx_string_tab[946]
-#define __pyx_n_u_Thread __pyx_string_tab[947]
-#define __pyx_n_u_TypeVar __pyx_string_tab[948]
-#define __pyx_n_u_Union __pyx_string_tab[949]
-#define __pyx_n_u_View_MemoryView __pyx_string_tab[950]
-#define __pyx_n_u_WSAENOTSOCK __pyx_string_tab[951]
-#define __pyx_n_u_WSFrame __pyx_string_tab[952]
-#define __pyx_n_u_WSFrame___reduce_cython __pyx_string_tab[953]
-#define __pyx_n_u_WSFrame___setstate_cython __pyx_string_tab[954]
-#define __pyx_n_u_WS_RECV __pyx_string_tab[955]
-#define __pyx_n_u_WS_SEND __pyx_string_tab[956]
-#define __pyx_n_u_WeakKeyDictionary __pyx_string_tab[957]
-#define __pyx_n_u_WeakSet __pyx_string_tab[958]
-#define __pyx_n_u__15 __pyx_string_tab[959]
-#define __pyx_n_u_CallbackContext __pyx_string_tab[960]
-#define __pyx_n_u_CallbackContext___reduce_cython __pyx_string_tab[961]
-#define __pyx_n_u_CallbackContext___setstate_cyth __pyx_string_tab[962]
-#define __pyx_n_u_FileDescriptorLike __pyx_string_tab[963]
-#define __pyx_n_u_HasFileno __pyx_string_tab[964]
-#define __pyx_n_u_HasFileno_fileno __pyx_string_tab[965]
-#define __pyx_n_u_T __pyx_string_tab[966]
-#define __pyx_n_u_Pyx_PyDict_NextRef __pyx_string_tab[967]
-#define __pyx_n_u_anext __pyx_string_tab[968]
-#define __pyx_n_u_annotate __pyx_string_tab[969]
-#define __pyx_n_u_await __pyx_string_tab[970]
-#define __pyx_n_u_class __pyx_string_tab[971]
-#define __pyx_n_u_class_getitem __pyx_string_tab[972]
-#define __pyx_n_u_dict __pyx_string_tab[973]
-#define __pyx_n_u_doc __pyx_string_tab[974]
-#define __pyx_n_u_enter __pyx_string_tab[975]
-#define __pyx_n_u_exit __pyx_string_tab[976]
-#define __pyx_n_u_func __pyx_string_tab[977]
-#define __pyx_n_u_getattribute __pyx_string_tab[978]
-#define __pyx_n_u_getstate __pyx_string_tab[979]
-#define __pyx_n_u_import __pyx_string_tab[980]
-#define __pyx_n_u_init __pyx_string_tab[981]
-#define __pyx_n_u_main __pyx_string_tab[982]
-#define __pyx_n_u_metaclass __pyx_string_tab[983]
-#define __pyx_n_u_module __pyx_string_tab[984]
-#define __pyx_n_u_mro_entries __pyx_string_tab[985]
-#define __pyx_n_u_name_2 __pyx_string_tab[986]
-#define __pyx_n_u_new __pyx_string_tab[987]
-#define __pyx_n_u_prepare __pyx_string_tab[988]
-#define __pyx_n_u_pyx_checksum __pyx_string_tab[989]
-#define __pyx_n_u_pyx_result __pyx_string_tab[990]
-#define __pyx_n_u_pyx_state __pyx_string_tab[991]
-#define __pyx_n_u_pyx_type __pyx_string_tab[992]
-#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[993]
-#define __pyx_n_u_pyx_unpickle__CallbackContext __pyx_string_tab[994]
-#define __pyx_n_u_pyx_vtable __pyx_string_tab[995]
-#define __pyx_n_u_qualname __pyx_string_tab[996]
-#define __pyx_n_u_reduce __pyx_string_tab[997]
-#define __pyx_n_u_reduce_cython __pyx_string_tab[998]
-#define __pyx_n_u_reduce_ex __pyx_string_tab[999]
-#define __pyx_n_u_set_name __pyx_string_tab[1000]
-#define __pyx_n_u_setstate __pyx_string_tab[1001]
-#define __pyx_n_u_setstate_cython __pyx_string_tab[1002]
-#define __pyx_n_u_test __pyx_string_tab[1003]
-#define __pyx_n_u_atexit_callback __pyx_string_tab[1004]
-#define __pyx_n_u_check_error __pyx_string_tab[1005]
-#define __pyx_n_u_cleanup __pyx_string_tab[1006]
-#define __pyx_n_u_close_selector_and_loop __pyx_string_tab[1007]
-#define __pyx_n_u_closed __pyx_string_tab[1008]
-#define __pyx_n_u_closing_selector __pyx_string_tab[1009]
-#define __pyx_n_u_consume_waker __pyx_string_tab[1010]
-#define __pyx_n_u_default_cacert __pyx_string_tab[1011]
-#define __pyx_n_u_dict_2 __pyx_string_tab[1012]
-#define __pyx_n_u_force_timeout __pyx_string_tab[1013]
-#define __pyx_n_u_get_callback_exception __pyx_string_tab[1014]
-#define __pyx_n_u_handle_event __pyx_string_tab[1015]
-#define __pyx_n_u_handle_select __pyx_string_tab[1016]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[1017]
-#define __pyx_n_u_readers __pyx_string_tab[1018]
-#define __pyx_n_u_real_loop_2 __pyx_string_tab[1019]
-#define __pyx_n_u_run_select __pyx_string_tab[1020]
-#define __pyx_n_u_select_args __pyx_string_tab[1021]
-#define __pyx_n_u_select_cond __pyx_string_tab[1022]
-#define __pyx_n_u_selector __pyx_string_tab[1023]
-#define __pyx_n_u_selector_loops __pyx_string_tab[1024]
-#define __pyx_n_u_selectors __pyx_string_tab[1025]
-#define __pyx_n_u_setopt_2 __pyx_string_tab[1026]
-#define __pyx_n_u_start_select __pyx_string_tab[1027]
-#define __pyx_n_u_thread __pyx_string_tab[1028]
-#define __pyx_n_u_thread_manager __pyx_string_tab[1029]
-#define __pyx_n_u_thread_manager_handle __pyx_string_tab[1030]
-#define __pyx_n_u_wake_selector __pyx_string_tab[1031]
-#define __pyx_n_u_waker_r __pyx_string_tab[1032]
-#define __pyx_n_u_waker_w __pyx_string_tab[1033]
-#define __pyx_n_u_writers __pyx_string_tab[1034]
-#define __pyx_n_u_a __pyx_string_tab[1035]
-#define __pyx_n_u_abc __pyx_string_tab[1036]
-#define __pyx_n_u_acquire __pyx_string_tab[1037]
-#define __pyx_n_u_action __pyx_string_tab[1038]
-#define __pyx_n_u_add __pyx_string_tab[1039]
-#define __pyx_n_u_add_handle __pyx_string_tab[1040]
-#define __pyx_n_u_add_reader __pyx_string_tab[1041]
-#define __pyx_n_u_add_writer __pyx_string_tab[1042]
-#define __pyx_n_u_addpart __pyx_string_tab[1043]
-#define __pyx_n_u_allocate_buffer __pyx_string_tab[1044]
-#define __pyx_n_u_args __pyx_string_tab[1045]
-#define __pyx_n_u_asyncio __pyx_string_tab[1046]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[1047]
-#define __pyx_n_u_asyncio_loop __pyx_string_tab[1048]
-#define __pyx_n_u_atexit __pyx_string_tab[1049]
-#define __pyx_n_u_attach __pyx_string_tab[1050]
-#define __pyx_n_u_backslashreplace __pyx_string_tab[1051]
-#define __pyx_n_u_base __pyx_string_tab[1052]
-#define __pyx_n_u_bool __pyx_string_tab[1053]
-#define __pyx_n_u_byte __pyx_string_tab[1054]
-#define __pyx_n_u_bytes_2 __pyx_string_tab[1055]
-#define __pyx_n_u_bytes_to_hex_locals_genexpr __pyx_string_tab[1056]
-#define __pyx_n_u_c __pyx_string_tab[1057]
-#define __pyx_n_u_cacert __pyx_string_tab[1058]
-#define __pyx_n_u_cafile __pyx_string_tab[1059]
-#define __pyx_n_u_call_later __pyx_string_tab[1060]
-#define __pyx_n_u_call_soon __pyx_string_tab[1061]
-#define __pyx_n_u_call_soon_threadsafe __pyx_string_tab[1062]
-#define __pyx_n_u_callback __pyx_string_tab[1063]
-#define __pyx_n_u_cancel __pyx_string_tab[1064]
-#define __pyx_n_u_cancelled __pyx_string_tab[1065]
-#define __pyx_n_u_category __pyx_string_tab[1066]
-#define __pyx_n_u_cb_map __pyx_string_tab[1067]
-#define __pyx_n_u_certifi __pyx_string_tab[1068]
-#define __pyx_n_u_clean_handles_and_buffers __pyx_string_tab[1069]
-#define __pyx_n_u_clear __pyx_string_tab[1070]
-#define __pyx_n_u_clear_headers __pyx_string_tab[1071]
-#define __pyx_n_u_clear_resolve __pyx_string_tab[1072]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[1073]
-#define __pyx_n_u_close __pyx_string_tab[1074]
-#define __pyx_n_u_cls __pyx_string_tab[1075]
-#define __pyx_n_u_code __pyx_string_tab[1076]
-#define __pyx_n_u_collections_abc __pyx_string_tab[1077]
-#define __pyx_n_u_compile __pyx_string_tab[1078]
-#define __pyx_n_u_config_warnings __pyx_string_tab[1079]
-#define __pyx_n_u_connect __pyx_string_tab[1080]
-#define __pyx_n_u_content_type __pyx_string_tab[1081]
-#define __pyx_n_u_contextlib __pyx_string_tab[1082]
-#define __pyx_n_u_cookie __pyx_string_tab[1083]
-#define __pyx_n_u_count __pyx_string_tab[1084]
-#define __pyx_n_u_create_future __pyx_string_tab[1085]
-#define __pyx_n_u_create_task __pyx_string_tab[1086]
-#define __pyx_n_u_curl_2 __pyx_string_tab[1087]
-#define __pyx_n_u_cycurl__curl __pyx_string_tab[1088]
-#define __pyx_n_u_daemon __pyx_string_tab[1089]
-#define __pyx_n_u_data __pyx_string_tab[1090]
-#define __pyx_n_u_debug __pyx_string_tab[1091]
-#define __pyx_n_u_debug_function_default __pyx_string_tab[1092]
-#define __pyx_n_u_decode __pyx_string_tab[1093]
-#define __pyx_n_u_default __pyx_string_tab[1094]
-#define __pyx_n_u_default_headers __pyx_string_tab[1095]
-#define __pyx_n_u_discard __pyx_string_tab[1096]
-#define __pyx_n_u_dns __pyx_string_tab[1097]
-#define __pyx_n_u_done __pyx_string_tab[1098]
-#define __pyx_n_u_dtype_is_object __pyx_string_tab[1099]
-#define __pyx_n_u_duphandle __pyx_string_tab[1100]
-#define __pyx_n_u_e __pyx_string_tab[1101]
-#define __pyx_n_u_encode __pyx_string_tab[1102]
-#define __pyx_n_u_enumerate __pyx_string_tab[1103]
-#define __pyx_n_u_environ __pyx_string_tab[1104]
-#define __pyx_n_u_errcode __pyx_string_tab[1105]
-#define __pyx_n_u_errmsg __pyx_string_tab[1106]
-#define __pyx_n_u_errno __pyx_string_tab[1107]
-#define __pyx_n_u_error __pyx_string_tab[1108]
-#define __pyx_n_u_errors __pyx_string_tab[1109]
-#define __pyx_n_u_ev_bitmask __pyx_string_tab[1110]
-#define __pyx_n_u_exception __pyx_string_tab[1111]
-#define __pyx_n_u_exists __pyx_string_tab[1112]
-#define __pyx_n_u_fd __pyx_string_tab[1113]
-#define __pyx_n_u_file __pyx_string_tab[1114]
-#define __pyx_n_u_filename __pyx_string_tab[1115]
-#define __pyx_n_u_fileno __pyx_string_tab[1116]
-#define __pyx_n_u_files __pyx_string_tab[1117]
-#define __pyx_n_u_flags __pyx_string_tab[1118]
-#define __pyx_n_u_form __pyx_string_tab[1119]
-#define __pyx_n_u_format __pyx_string_tab[1120]
-#define __pyx_n_u_fortran __pyx_string_tab[1121]
-#define __pyx_n_u_frame __pyx_string_tab[1122]
-#define __pyx_n_u_from_list __pyx_string_tab[1123]
-#define __pyx_n_u_functools __pyx_string_tab[1124]
-#define __pyx_n_u_future __pyx_string_tab[1125]
-#define __pyx_n_u_genexpr __pyx_string_tab[1126]
-#define __pyx_n_u_get __pyx_string_tab[1127]
-#define __pyx_n_u_get_default_verify_paths __pyx_string_tab[1128]
-#define __pyx_n_u_get_reason_phrase __pyx_string_tab[1129]
-#define __pyx_n_u_get_running_loop __pyx_string_tab[1130]
-#define __pyx_n_u_get_selector __pyx_string_tab[1131]
-#define __pyx_n_u_get_selector_locals__close_selec __pyx_string_tab[1132]
-#define __pyx_n_u_getinfo_2 __pyx_string_tab[1133]
-#define __pyx_n_u_getpreferredencoding __pyx_string_tab[1134]
-#define __pyx_n_u_group __pyx_string_tab[1135]
-#define __pyx_n_u_handle __pyx_string_tab[1136]
-#define __pyx_n_u_header __pyx_string_tab[1137]
-#define __pyx_n_u_headers __pyx_string_tab[1138]
-#define __pyx_n_u_hex_str __pyx_string_tab[1139]
-#define __pyx_n_u_http_cookies __pyx_string_tab[1140]
-#define __pyx_n_u_http_version __pyx_string_tab[1141]
-#define __pyx_n_u_id __pyx_string_tab[1142]
-#define __pyx_n_u_ignore __pyx_string_tab[1143]
-#define __pyx_n_u_impersonate __pyx_string_tab[1144]
-#define __pyx_n_u_index __pyx_string_tab[1145]
-#define __pyx_n_u_int __pyx_string_tab[1146]
-#define __pyx_n_u_is_pro __pyx_string_tab[1147]
-#define __pyx_n_u_items __pyx_string_tab[1148]
-#define __pyx_n_u_itemsize __pyx_string_tab[1149]
-#define __pyx_n_u_join __pyx_string_tab[1150]
-#define __pyx_n_u_keys __pyx_string_tab[1151]
-#define __pyx_n_u_kwargs __pyx_string_tab[1152]
-#define __pyx_n_u_load __pyx_string_tab[1153]
-#define __pyx_n_u_local_path __pyx_string_tab[1154]
-#define __pyx_n_u_locale __pyx_string_tab[1155]
-#define __pyx_n_u_loop __pyx_string_tab[1156]
-#define __pyx_n_u_loop_close __pyx_string_tab[1157]
-#define __pyx_n_u_lower __pyx_string_tab[1158]
-#define __pyx_n_u_m __pyx_string_tab[1159]
-#define __pyx_n_u_match __pyx_string_tab[1160]
-#define __pyx_n_u_memview __pyx_string_tab[1161]
-#define __pyx_n_u_message __pyx_string_tab[1162]
-#define __pyx_n_u_mode __pyx_string_tab[1163]
-#define __pyx_n_u_msg __pyx_string_tab[1164]
-#define __pyx_n_u_name __pyx_string_tab[1165]
-#define __pyx_n_u_ndim __pyx_string_tab[1166]
-#define __pyx_n_u_next __pyx_string_tab[1167]
-#define __pyx_n_u_notify __pyx_string_tab[1168]
-#define __pyx_n_u_obj __pyx_string_tab[1169]
-#define __pyx_n_u_on __pyx_string_tab[1170]
-#define __pyx_n_u_option __pyx_string_tab[1171]
-#define __pyx_n_u_os __pyx_string_tab[1172]
-#define __pyx_n_u_pack __pyx_string_tab[1173]
-#define __pyx_n_u_parse_cookie_headers __pyx_string_tab[1174]
-#define __pyx_n_u_parse_status_line __pyx_string_tab[1175]
-#define __pyx_n_u_partial __pyx_string_tab[1176]
-#define __pyx_n_u_path __pyx_string_tab[1177]
-#define __pyx_n_u_pathlib __pyx_string_tab[1178]
-#define __pyx_n_u_pause __pyx_string_tab[1179]
-#define __pyx_n_u_payload __pyx_string_tab[1180]
-#define __pyx_n_u_perform __pyx_string_tab[1181]
-#define __pyx_n_u_platform __pyx_string_tab[1182]
-#define __pyx_n_u_pop __pyx_string_tab[1183]
-#define __pyx_n_u_postfix __pyx_string_tab[1184]
-#define __pyx_n_u_prefix __pyx_string_tab[1185]
-#define __pyx_n_u_print __pyx_string_tab[1186]
-#define __pyx_n_u_process_data __pyx_string_tab[1187]
-#define __pyx_n_u_r __pyx_string_tab[1188]
-#define __pyx_n_u_re __pyx_string_tab[1189]
-#define __pyx_n_u_read __pyx_string_tab[1190]
-#define __pyx_n_u_real_loop __pyx_string_tab[1191]
-#define __pyx_n_u_reason __pyx_string_tab[1192]
-#define __pyx_n_u_recv __pyx_string_tab[1193]
-#define __pyx_n_u_register __pyx_string_tab[1194]
-#define __pyx_n_u_release __pyx_string_tab[1195]
-#define __pyx_n_u_remove_handle __pyx_string_tab[1196]
-#define __pyx_n_u_remove_reader __pyx_string_tab[1197]
-#define __pyx_n_u_remove_writer __pyx_string_tab[1198]
-#define __pyx_n_u_reset __pyx_string_tab[1199]
-#define __pyx_n_u_return __pyx_string_tab[1200]
-#define __pyx_n_u_rs __pyx_string_tab[1201]
-#define __pyx_n_u_seek __pyx_string_tab[1202]
-#define __pyx_n_u_select __pyx_string_tab[1203]
-#define __pyx_n_u_selector_loop __pyx_string_tab[1204]
-#define __pyx_n_u_self __pyx_string_tab[1205]
-#define __pyx_n_u_send __pyx_string_tab[1206]
-#define __pyx_n_u_set_exception __pyx_string_tab[1207]
-#define __pyx_n_u_set_result __pyx_string_tab[1208]
-#define __pyx_n_u_setblocking __pyx_string_tab[1209]
-#define __pyx_n_u_setdefault __pyx_string_tab[1210]
-#define __pyx_n_u_setopt_3 __pyx_string_tab[1211]
-#define __pyx_n_u_shape __pyx_string_tab[1212]
-#define __pyx_n_u_share __pyx_string_tab[1213]
-#define __pyx_n_u_simplefilter __pyx_string_tab[1214]
-#define __pyx_n_u_size __pyx_string_tab[1215]
-#define __pyx_n_u_sleep __pyx_string_tab[1216]
-#define __pyx_n_u_socket __pyx_string_tab[1217]
-#define __pyx_n_u_socket_action __pyx_string_tab[1218]
-#define __pyx_n_u_socketpair __pyx_string_tab[1219]
-#define __pyx_n_u_sockfd __pyx_string_tab[1220]
-#define __pyx_n_u_ssl __pyx_string_tab[1221]
-#define __pyx_n_u_ssl_session __pyx_string_tab[1222]
-#define __pyx_n_u_stacklevel __pyx_string_tab[1223]
-#define __pyx_n_u_start __pyx_string_tab[1224]
-#define __pyx_n_u_startswith __pyx_string_tab[1225]
-#define __pyx_n_u_state __pyx_string_tab[1226]
-#define __pyx_n_u_staticmethod __pyx_string_tab[1227]
-#define __pyx_n_u_status_code __pyx_string_tab[1228]
-#define __pyx_n_u_status_line __pyx_string_tab[1229]
-#define __pyx_n_u_stderr __pyx_string_tab[1230]
-#define __pyx_n_u_step __pyx_string_tab[1231]
-#define __pyx_n_u_stop __pyx_string_tab[1232]
-#define __pyx_n_u_str __pyx_string_tab[1233]
-#define __pyx_n_u_strict __pyx_string_tab[1234]
-#define __pyx_n_u_struct __pyx_string_tab[1235]
-#define __pyx_n_u_super __pyx_string_tab[1236]
-#define __pyx_n_u_suppress __pyx_string_tab[1237]
-#define __pyx_n_u_sys __pyx_string_tab[1238]
-#define __pyx_n_u_target __pyx_string_tab[1239]
-#define __pyx_n_u_text __pyx_string_tab[1240]
-#define __pyx_n_u_thread_manager_anext __pyx_string_tab[1241]
-#define __pyx_n_u_threading __pyx_string_tab[1242]
-#define __pyx_n_u_throw __pyx_string_tab[1243]
-#define __pyx_n_u_to_read __pyx_string_tab[1244]
-#define __pyx_n_u_to_write __pyx_string_tab[1245]
-#define __pyx_n_u_tuple __pyx_string_tab[1246]
-#define __pyx_n_u_type __pyx_string_tab[1247]
-#define __pyx_n_u_typing __pyx_string_tab[1248]
-#define __pyx_n_u_unpack __pyx_string_tab[1249]
-#define __pyx_n_u_unshare __pyx_string_tab[1250]
-#define __pyx_n_u_update __pyx_string_tab[1251]
-#define __pyx_n_u_upkeep __pyx_string_tab[1252]
-#define __pyx_n_u_use_setstate __pyx_string_tab[1253]
-#define __pyx_n_u_value __pyx_string_tab[1254]
-#define __pyx_n_u_values __pyx_string_tab[1255]
-#define __pyx_n_u_version __pyx_string_tab[1256]
-#define __pyx_n_u_w __pyx_string_tab[1257]
-#define __pyx_n_u_wait __pyx_string_tab[1258]
-#define __pyx_n_u_warn __pyx_string_tab[1259]
-#define __pyx_n_u_warnings __pyx_string_tab[1260]
-#define __pyx_n_u_weakref __pyx_string_tab[1261]
-#define __pyx_n_u_where __pyx_string_tab[1262]
-#define __pyx_n_u_win __pyx_string_tab[1263]
-#define __pyx_n_u_win32 __pyx_string_tab[1264]
-#define __pyx_n_u_write __pyx_string_tab[1265]
-#define __pyx_n_u_ws __pyx_string_tab[1266]
-#define __pyx_n_u_ws_close __pyx_string_tab[1267]
-#define __pyx_n_u_ws_meta __pyx_string_tab[1268]
-#define __pyx_n_u_ws_recv __pyx_string_tab[1269]
-#define __pyx_n_u_ws_send __pyx_string_tab[1270]
-#define __pyx_n_u_x __pyx_string_tab[1271]
-#define __pyx_n_u_xs __pyx_string_tab[1272]
-#define __pyx_kp_b__8 __pyx_string_tab[1273]
-#define __pyx_kp_b_1_0 __pyx_string_tab[1274]
-#define __pyx_kp_b_1_1 __pyx_string_tab[1275]
-#define __pyx_kp_b_2_0 __pyx_string_tab[1276]
-#define __pyx_kp_b_HTTP_d_d_0_9_3_2 __pyx_string_tab[1277]
-#define __pyx_kp_b_HTTP_d_d_0_9_3 __pyx_string_tab[1278]
-#define __pyx_n_b_O __pyx_string_tab[1279]
-#define __pyx_n_b_a __pyx_string_tab[1280]
-#define __pyx_kp_b_set_cookie __pyx_string_tab[1281]
-#define __pyx_kp_b_iso88591_Q __pyx_string_tab[1282]
-#define __pyx_kp_b_iso88591_avQ __pyx_string_tab[1283]
-#define __pyx_kp_b_iso88591_1_7q_r_Qa_5_Be7_1_1_s_1_xxt2U_x __pyx_string_tab[1284]
-#define __pyx_kp_b_iso88591_m1 __pyx_string_tab[1285]
-#define __pyx_kp_b_iso88591_q_0_kQR_81A_7_2_3FnTU_1 __pyx_string_tab[1286]
-#define __pyx_kp_b_iso88591_A_q_l_vWE_Q_q_t_WE_D_7_q_1_Qg_q __pyx_string_tab[1287]
-#define __pyx_kp_b_iso88591_A_4wc_1_q_A_q __pyx_string_tab[1288]
-#define __pyx_kp_b_iso88591_A_87_1_U_1Cq_4uA_iq_Q6J_1 __pyx_string_tab[1289]
-#define __pyx_kp_b_iso88591_A_3_Q_iq __pyx_string_tab[1290]
-#define __pyx_kp_b_iso88591_A_1_E_as_a_E_as_a_N __pyx_string_tab[1291]
-#define __pyx_kp_b_iso88591_A_1_IQfIXQk_O1 __pyx_string_tab[1292]
-#define __pyx_kp_b_iso88591_A01_F_1_q_avWA __pyx_string_tab[1293]
-#define __pyx_kp_b_iso88591_A01_N_4q_Q_1F_3c_1_fAS_1_1_fAS_1 __pyx_string_tab[1294]
-#define __pyx_kp_b_iso88591_A_4t1_E_DMQ_N_81_4AT_1_9Cq_85_q __pyx_string_tab[1295]
-#define __pyx_kp_b_iso88591_A_G1 __pyx_string_tab[1296]
-#define __pyx_kp_b_iso88591_A_G5_G5_0 __pyx_string_tab[1297]
-#define __pyx_kp_b_iso88591_A_HE_1 __pyx_string_tab[1298]
-#define __pyx_kp_b_iso88591_A_HE_Q __pyx_string_tab[1299]
-#define __pyx_kp_b_iso88591_A_A_A_4q_AT_4z_A_AT_A __pyx_string_tab[1300]
-#define __pyx_kp_b_iso88591_A_q __pyx_string_tab[1301]
-#define __pyx_kp_b_iso88591_A_Q_7_z_q_Q_7_z_q_Q_7_z_q_Q_7_z __pyx_string_tab[1302]
-#define __pyx_kp_b_iso88591_A_T_Qa_7_d_S_D_j __pyx_string_tab[1303]
-#define __pyx_kp_b_iso88591_A_vQa __pyx_string_tab[1304]
-#define __pyx_kp_b_iso88591_A_t __pyx_string_tab[1305]
-#define __pyx_kp_b_iso88591_A_A_6_6_q_U_gQa_7_4_XQ_5_q_5QfG1 __pyx_string_tab[1306]
-#define __pyx_kp_b_iso88591_A_t4y_D_at1_5_q_1_Kq_O1_1 __pyx_string_tab[1307]
-#define __pyx_kp_b_iso88591_A_S_HA_1_q __pyx_string_tab[1308]
-#define __pyx_kp_b_iso88591_A_1D_HA __pyx_string_tab[1309]
-#define __pyx_kp_b_iso88591_A_at1_t7_a_4s_1A_q_G1_oQfN_t3a_i __pyx_string_tab[1310]
-#define __pyx_kp_b_iso88591_A_4wc_1A_1_a_c_D_Zt9M_VST_4xwa_W __pyx_string_tab[1311]
-#define __pyx_kp_b_iso88591_A__A_0_Ye1_M_U_M_1_Kq_7_z_q __pyx_string_tab[1312]
-#define __pyx_kp_b_iso88591_A_4wc_1A_m1D_T_A_a_1_Qe1_wd_D0J __pyx_string_tab[1313]
-#define __pyx_kp_b_iso88591_A_t9A_5_q_5QfG1_1_AZuA __pyx_string_tab[1314]
-#define __pyx_kp_b_iso88591_A2_A_A_Q_7_A_4wc_y_1_q_Yc_Yc_Q_q __pyx_string_tab[1315]
-#define __pyx_kp_b_iso88591_d_q __pyx_string_tab[1316]
-#define __pyx_kp_b_iso88591__14 __pyx_string_tab[1317]
-#define __pyx_kp_b_iso88591_HD_q0DA __pyx_string_tab[1318]
-#define __pyx_kp_b_iso88591_a_2 __pyx_string_tab[1319]
-#define __pyx_kp_b_iso88591_D_q_Qk_Qj __pyx_string_tab[1320]
-#define __pyx_kp_b_iso88591_1 __pyx_string_tab[1321]
-#define __pyx_kp_b_iso88591_Q_WA_Qa_aq_4y_q_Q_6 __pyx_string_tab[1322]
-#define __pyx_kp_b_iso88591_Zq_Q_Q_Q_Q_Q_Q_Q_Q_XT_vW_V7_at2 __pyx_string_tab[1323]
-#define __pyx_kp_b_iso88591_q_4q_Q_WA_O1_4y_q_Q_xq_N_4q_IV1 __pyx_string_tab[1324]
-#define __pyx_kp_b_iso88591_q_JfA_KvQ __pyx_string_tab[1325]
-#define __pyx_kp_b_iso88591_q_2 __pyx_string_tab[1326]
-#define __pyx_kp_b_iso88591_9_q __pyx_string_tab[1327]
-#define __pyx_kp_b_iso88591_E_q_Ry_xq_HA __pyx_string_tab[1328]
-#define __pyx_kp_b_iso88591_Q_Q_d_5_D_A_U_4q_t_D_A_D_V7_9Ja __pyx_string_tab[1329]
-#define __pyx_kp_b_iso88591_q_4_S_Qd_5_T_iuTU_WA __pyx_string_tab[1330]
-#define __pyx_kp_b_iso88591_4q_Qa_aq __pyx_string_tab[1331]
-#define __pyx_kp_b_iso88591_Qa_aq __pyx_string_tab[1332]
-#define __pyx_kp_b_iso88591_8_IQa_1_O1_q __pyx_string_tab[1333]
-#define __pyx_kp_b_iso88591_t_1A __pyx_string_tab[1334]
-#define __pyx_kp_b_iso88591_8_QfF_A_t81O1 __pyx_string_tab[1335]
-#define __pyx_kp_b_iso88591_N_M_q __pyx_string_tab[1336]
-#define __pyx_kp_b_iso88591_N_IZq_A_31_d_A_Kz_Q_Q_Kt_v_I_I __pyx_string_tab[1337]
-#define __pyx_kp_b_iso88591_A_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I __pyx_string_tab[1338]
-#define __pyx_kp_b_iso88591_XQ_5_Q_5_1A_wat __pyx_string_tab[1339]
-#define __pyx_kp_b_iso88591_1_ivWJd_Qd_q __pyx_string_tab[1340]
-#define __pyx_kp_b_iso88591_a_4wc_1_at81_M_q_q __pyx_string_tab[1341]
-#define __pyx_kp_b_iso88591_K1_4wc_1_q_hnF __pyx_string_tab[1342]
-#define __pyx_kp_b_iso88591_4A_Q_Ja_vV2_e1F_4wa_q __pyx_string_tab[1343]
-#define __pyx_kp_b_iso88591_88SSaab_4wc_1A_O1_Q_Q_a_Qe1_1 __pyx_string_tab[1344]
-#define __pyx_kp_b_iso88591_DA_4wc_1_A_WBfBa_c_s_S_Ya_gQa_G __pyx_string_tab[1345]
-#define __pyx_kp_b_iso88591_FFaab_Q_a_Q_A_A_A_q_a_q_1_t_S_Q __pyx_string_tab[1346]
-#define __pyx_kp_b_iso88591_MQ_31D_UVVW_M_q __pyx_string_tab[1347]
-#define __pyx_kp_b_iso88591_4wc_1A_m1D_awat8SZZ_aaeeffjj_A __pyx_string_tab[1348]
-#define __pyx_kp_b_iso88591_q __pyx_string_tab[1349]
-#define __pyx_kp_b_iso88591_A __pyx_string_tab[1350]
+#define __pyx_n_u_CurlShare_get_curl_share __pyx_string_tab[909]
+#define __pyx_n_u_CurlShare_share __pyx_string_tab[910]
+#define __pyx_n_u_CurlShare_unshare __pyx_string_tab[911]
+#define __pyx_n_u_CurlWarning __pyx_string_tab[912]
+#define __pyx_n_u_DEFAULT_CACERT __pyx_string_tab[913]
+#define __pyx_n_u_EBADF __pyx_string_tab[914]
+#define __pyx_n_u_Ellipsis __pyx_string_tab[915]
+#define __pyx_n_u_Lock __pyx_string_tab[916]
+#define __pyx_n_u_MAX_SHOW_BYTES __pyx_string_tab[917]
+#define __pyx_n_u_MY_ATTRIBUTES __pyx_string_tab[918]
+#define __pyx_n_u_None __pyx_string_tab[919]
+#define __pyx_n_u_Optional __pyx_string_tab[920]
+#define __pyx_n_u_PREFIXES __pyx_string_tab[921]
+#define __pyx_n_u_PROACTOR_WARNING __pyx_string_tab[922]
+#define __pyx_n_u_Path __pyx_string_tab[923]
+#define __pyx_n_u_ProactorEventLoop __pyx_string_tab[924]
+#define __pyx_n_u_Protocol __pyx_string_tab[925]
+#define __pyx_n_u_REASON_PHRASE_RE __pyx_string_tab[926]
+#define __pyx_n_u_REQUESTS_CA_BUNDLE __pyx_string_tab[927]
+#define __pyx_n_u_SSL_CERT_FILE __pyx_string_tab[928]
+#define __pyx_n_u_STATUS_LINE_RE __pyx_string_tab[929]
+#define __pyx_n_u_SelectorThread __pyx_string_tab[930]
+#define __pyx_n_u_SelectorThread___init __pyx_string_tab[931]
+#define __pyx_n_u_SelectorThread___init___locals_l __pyx_string_tab[932]
+#define __pyx_n_u_SelectorThread___init___locals_t __pyx_string_tab[933]
+#define __pyx_n_u_SelectorThread__consume_waker __pyx_string_tab[934]
+#define __pyx_n_u_SelectorThread__handle_event __pyx_string_tab[935]
+#define __pyx_n_u_SelectorThread__handle_select __pyx_string_tab[936]
+#define __pyx_n_u_SelectorThread__run_select __pyx_string_tab[937]
+#define __pyx_n_u_SelectorThread__start_select __pyx_string_tab[938]
+#define __pyx_n_u_SelectorThread__thread_manager __pyx_string_tab[939]
+#define __pyx_n_u_SelectorThread__wake_selector __pyx_string_tab[940]
+#define __pyx_n_u_SelectorThread_add_reader __pyx_string_tab[941]
+#define __pyx_n_u_SelectorThread_add_writer __pyx_string_tab[942]
+#define __pyx_n_u_SelectorThread_close __pyx_string_tab[943]
+#define __pyx_n_u_SelectorThread_remove_reader __pyx_string_tab[944]
+#define __pyx_n_u_SelectorThread_remove_writer __pyx_string_tab[945]
+#define __pyx_n_u_Sequence __pyx_string_tab[946]
+#define __pyx_n_u_SimpleCookie __pyx_string_tab[947]
+#define __pyx_n_u_Thread __pyx_string_tab[948]
+#define __pyx_n_u_TypeVar __pyx_string_tab[949]
+#define __pyx_n_u_Union __pyx_string_tab[950]
+#define __pyx_n_u_View_MemoryView __pyx_string_tab[951]
+#define __pyx_n_u_WSAENOTSOCK __pyx_string_tab[952]
+#define __pyx_n_u_WSFrame __pyx_string_tab[953]
+#define __pyx_n_u_WSFrame___reduce_cython __pyx_string_tab[954]
+#define __pyx_n_u_WSFrame___setstate_cython __pyx_string_tab[955]
+#define __pyx_n_u_WS_RECV __pyx_string_tab[956]
+#define __pyx_n_u_WS_SEND __pyx_string_tab[957]
+#define __pyx_n_u_WeakKeyDictionary __pyx_string_tab[958]
+#define __pyx_n_u_WeakSet __pyx_string_tab[959]
+#define __pyx_n_u__15 __pyx_string_tab[960]
+#define __pyx_n_u_CallbackContext __pyx_string_tab[961]
+#define __pyx_n_u_CallbackContext___reduce_cython __pyx_string_tab[962]
+#define __pyx_n_u_CallbackContext___setstate_cyth __pyx_string_tab[963]
+#define __pyx_n_u_FileDescriptorLike __pyx_string_tab[964]
+#define __pyx_n_u_HasFileno __pyx_string_tab[965]
+#define __pyx_n_u_HasFileno_fileno __pyx_string_tab[966]
+#define __pyx_n_u_T __pyx_string_tab[967]
+#define __pyx_n_u_Pyx_PyDict_NextRef __pyx_string_tab[968]
+#define __pyx_n_u_anext __pyx_string_tab[969]
+#define __pyx_n_u_annotate __pyx_string_tab[970]
+#define __pyx_n_u_await __pyx_string_tab[971]
+#define __pyx_n_u_class __pyx_string_tab[972]
+#define __pyx_n_u_class_getitem __pyx_string_tab[973]
+#define __pyx_n_u_dict __pyx_string_tab[974]
+#define __pyx_n_u_doc __pyx_string_tab[975]
+#define __pyx_n_u_enter __pyx_string_tab[976]
+#define __pyx_n_u_exit __pyx_string_tab[977]
+#define __pyx_n_u_func __pyx_string_tab[978]
+#define __pyx_n_u_getattribute __pyx_string_tab[979]
+#define __pyx_n_u_getstate __pyx_string_tab[980]
+#define __pyx_n_u_import __pyx_string_tab[981]
+#define __pyx_n_u_init __pyx_string_tab[982]
+#define __pyx_n_u_main __pyx_string_tab[983]
+#define __pyx_n_u_metaclass __pyx_string_tab[984]
+#define __pyx_n_u_module __pyx_string_tab[985]
+#define __pyx_n_u_mro_entries __pyx_string_tab[986]
+#define __pyx_n_u_name_2 __pyx_string_tab[987]
+#define __pyx_n_u_new __pyx_string_tab[988]
+#define __pyx_n_u_prepare __pyx_string_tab[989]
+#define __pyx_n_u_pyx_checksum __pyx_string_tab[990]
+#define __pyx_n_u_pyx_result __pyx_string_tab[991]
+#define __pyx_n_u_pyx_state __pyx_string_tab[992]
+#define __pyx_n_u_pyx_type __pyx_string_tab[993]
+#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[994]
+#define __pyx_n_u_pyx_unpickle__CallbackContext __pyx_string_tab[995]
+#define __pyx_n_u_pyx_vtable __pyx_string_tab[996]
+#define __pyx_n_u_qualname __pyx_string_tab[997]
+#define __pyx_n_u_reduce __pyx_string_tab[998]
+#define __pyx_n_u_reduce_cython __pyx_string_tab[999]
+#define __pyx_n_u_reduce_ex __pyx_string_tab[1000]
+#define __pyx_n_u_set_name __pyx_string_tab[1001]
+#define __pyx_n_u_setstate __pyx_string_tab[1002]
+#define __pyx_n_u_setstate_cython __pyx_string_tab[1003]
+#define __pyx_n_u_test __pyx_string_tab[1004]
+#define __pyx_n_u_atexit_callback __pyx_string_tab[1005]
+#define __pyx_n_u_check_error __pyx_string_tab[1006]
+#define __pyx_n_u_cleanup __pyx_string_tab[1007]
+#define __pyx_n_u_close_selector_and_loop __pyx_string_tab[1008]
+#define __pyx_n_u_closed __pyx_string_tab[1009]
+#define __pyx_n_u_closing_selector __pyx_string_tab[1010]
+#define __pyx_n_u_consume_waker __pyx_string_tab[1011]
+#define __pyx_n_u_default_cacert __pyx_string_tab[1012]
+#define __pyx_n_u_dict_2 __pyx_string_tab[1013]
+#define __pyx_n_u_force_timeout __pyx_string_tab[1014]
+#define __pyx_n_u_get_callback_exception __pyx_string_tab[1015]
+#define __pyx_n_u_handle_event __pyx_string_tab[1016]
+#define __pyx_n_u_handle_select __pyx_string_tab[1017]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[1018]
+#define __pyx_n_u_readers __pyx_string_tab[1019]
+#define __pyx_n_u_real_loop_2 __pyx_string_tab[1020]
+#define __pyx_n_u_run_select __pyx_string_tab[1021]
+#define __pyx_n_u_select_args __pyx_string_tab[1022]
+#define __pyx_n_u_select_cond __pyx_string_tab[1023]
+#define __pyx_n_u_selector __pyx_string_tab[1024]
+#define __pyx_n_u_selector_loops __pyx_string_tab[1025]
+#define __pyx_n_u_selectors __pyx_string_tab[1026]
+#define __pyx_n_u_setopt_2 __pyx_string_tab[1027]
+#define __pyx_n_u_start_select __pyx_string_tab[1028]
+#define __pyx_n_u_thread __pyx_string_tab[1029]
+#define __pyx_n_u_thread_manager __pyx_string_tab[1030]
+#define __pyx_n_u_thread_manager_handle __pyx_string_tab[1031]
+#define __pyx_n_u_wake_selector __pyx_string_tab[1032]
+#define __pyx_n_u_waker_r __pyx_string_tab[1033]
+#define __pyx_n_u_waker_w __pyx_string_tab[1034]
+#define __pyx_n_u_writers __pyx_string_tab[1035]
+#define __pyx_n_u_a __pyx_string_tab[1036]
+#define __pyx_n_u_abc __pyx_string_tab[1037]
+#define __pyx_n_u_acquire __pyx_string_tab[1038]
+#define __pyx_n_u_action __pyx_string_tab[1039]
+#define __pyx_n_u_add __pyx_string_tab[1040]
+#define __pyx_n_u_add_handle __pyx_string_tab[1041]
+#define __pyx_n_u_add_reader __pyx_string_tab[1042]
+#define __pyx_n_u_add_writer __pyx_string_tab[1043]
+#define __pyx_n_u_addpart __pyx_string_tab[1044]
+#define __pyx_n_u_allocate_buffer __pyx_string_tab[1045]
+#define __pyx_n_u_args __pyx_string_tab[1046]
+#define __pyx_n_u_asyncio __pyx_string_tab[1047]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[1048]
+#define __pyx_n_u_asyncio_loop __pyx_string_tab[1049]
+#define __pyx_n_u_atexit __pyx_string_tab[1050]
+#define __pyx_n_u_attach __pyx_string_tab[1051]
+#define __pyx_n_u_backslashreplace __pyx_string_tab[1052]
+#define __pyx_n_u_base __pyx_string_tab[1053]
+#define __pyx_n_u_bool __pyx_string_tab[1054]
+#define __pyx_n_u_byte __pyx_string_tab[1055]
+#define __pyx_n_u_bytes_2 __pyx_string_tab[1056]
+#define __pyx_n_u_bytes_to_hex_locals_genexpr __pyx_string_tab[1057]
+#define __pyx_n_u_c __pyx_string_tab[1058]
+#define __pyx_n_u_cacert __pyx_string_tab[1059]
+#define __pyx_n_u_cafile __pyx_string_tab[1060]
+#define __pyx_n_u_call_later __pyx_string_tab[1061]
+#define __pyx_n_u_call_soon __pyx_string_tab[1062]
+#define __pyx_n_u_call_soon_threadsafe __pyx_string_tab[1063]
+#define __pyx_n_u_callback __pyx_string_tab[1064]
+#define __pyx_n_u_cancel __pyx_string_tab[1065]
+#define __pyx_n_u_cancelled __pyx_string_tab[1066]
+#define __pyx_n_u_category __pyx_string_tab[1067]
+#define __pyx_n_u_cb_map __pyx_string_tab[1068]
+#define __pyx_n_u_certifi __pyx_string_tab[1069]
+#define __pyx_n_u_clean_handles_and_buffers __pyx_string_tab[1070]
+#define __pyx_n_u_clear __pyx_string_tab[1071]
+#define __pyx_n_u_clear_headers __pyx_string_tab[1072]
+#define __pyx_n_u_clear_resolve __pyx_string_tab[1073]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[1074]
+#define __pyx_n_u_close __pyx_string_tab[1075]
+#define __pyx_n_u_cls __pyx_string_tab[1076]
+#define __pyx_n_u_code __pyx_string_tab[1077]
+#define __pyx_n_u_collections_abc __pyx_string_tab[1078]
+#define __pyx_n_u_compile __pyx_string_tab[1079]
+#define __pyx_n_u_config_warnings __pyx_string_tab[1080]
+#define __pyx_n_u_connect __pyx_string_tab[1081]
+#define __pyx_n_u_content_type __pyx_string_tab[1082]
+#define __pyx_n_u_contextlib __pyx_string_tab[1083]
+#define __pyx_n_u_cookie __pyx_string_tab[1084]
+#define __pyx_n_u_count __pyx_string_tab[1085]
+#define __pyx_n_u_create_future __pyx_string_tab[1086]
+#define __pyx_n_u_create_task __pyx_string_tab[1087]
+#define __pyx_n_u_curl_2 __pyx_string_tab[1088]
+#define __pyx_n_u_cycurl__curl __pyx_string_tab[1089]
+#define __pyx_n_u_daemon __pyx_string_tab[1090]
+#define __pyx_n_u_data __pyx_string_tab[1091]
+#define __pyx_n_u_debug __pyx_string_tab[1092]
+#define __pyx_n_u_debug_function_default __pyx_string_tab[1093]
+#define __pyx_n_u_decode __pyx_string_tab[1094]
+#define __pyx_n_u_default __pyx_string_tab[1095]
+#define __pyx_n_u_default_headers __pyx_string_tab[1096]
+#define __pyx_n_u_discard __pyx_string_tab[1097]
+#define __pyx_n_u_dns __pyx_string_tab[1098]
+#define __pyx_n_u_done __pyx_string_tab[1099]
+#define __pyx_n_u_dtype_is_object __pyx_string_tab[1100]
+#define __pyx_n_u_duphandle __pyx_string_tab[1101]
+#define __pyx_n_u_e __pyx_string_tab[1102]
+#define __pyx_n_u_encode __pyx_string_tab[1103]
+#define __pyx_n_u_enumerate __pyx_string_tab[1104]
+#define __pyx_n_u_environ __pyx_string_tab[1105]
+#define __pyx_n_u_errcode __pyx_string_tab[1106]
+#define __pyx_n_u_errmsg __pyx_string_tab[1107]
+#define __pyx_n_u_errno __pyx_string_tab[1108]
+#define __pyx_n_u_error __pyx_string_tab[1109]
+#define __pyx_n_u_errors __pyx_string_tab[1110]
+#define __pyx_n_u_ev_bitmask __pyx_string_tab[1111]
+#define __pyx_n_u_exception __pyx_string_tab[1112]
+#define __pyx_n_u_exists __pyx_string_tab[1113]
+#define __pyx_n_u_fd __pyx_string_tab[1114]
+#define __pyx_n_u_file __pyx_string_tab[1115]
+#define __pyx_n_u_filename __pyx_string_tab[1116]
+#define __pyx_n_u_fileno __pyx_string_tab[1117]
+#define __pyx_n_u_files __pyx_string_tab[1118]
+#define __pyx_n_u_flags __pyx_string_tab[1119]
+#define __pyx_n_u_form __pyx_string_tab[1120]
+#define __pyx_n_u_format __pyx_string_tab[1121]
+#define __pyx_n_u_fortran __pyx_string_tab[1122]
+#define __pyx_n_u_frame __pyx_string_tab[1123]
+#define __pyx_n_u_from_list __pyx_string_tab[1124]
+#define __pyx_n_u_functools __pyx_string_tab[1125]
+#define __pyx_n_u_future __pyx_string_tab[1126]
+#define __pyx_n_u_genexpr __pyx_string_tab[1127]
+#define __pyx_n_u_get __pyx_string_tab[1128]
+#define __pyx_n_u_get_curl_share __pyx_string_tab[1129]
+#define __pyx_n_u_get_default_verify_paths __pyx_string_tab[1130]
+#define __pyx_n_u_get_reason_phrase __pyx_string_tab[1131]
+#define __pyx_n_u_get_running_loop __pyx_string_tab[1132]
+#define __pyx_n_u_get_selector __pyx_string_tab[1133]
+#define __pyx_n_u_get_selector_locals__close_selec __pyx_string_tab[1134]
+#define __pyx_n_u_getinfo_2 __pyx_string_tab[1135]
+#define __pyx_n_u_getpreferredencoding __pyx_string_tab[1136]
+#define __pyx_n_u_group __pyx_string_tab[1137]
+#define __pyx_n_u_handle __pyx_string_tab[1138]
+#define __pyx_n_u_header __pyx_string_tab[1139]
+#define __pyx_n_u_headers __pyx_string_tab[1140]
+#define __pyx_n_u_hex_str __pyx_string_tab[1141]
+#define __pyx_n_u_http_cookies __pyx_string_tab[1142]
+#define __pyx_n_u_http_version __pyx_string_tab[1143]
+#define __pyx_n_u_id __pyx_string_tab[1144]
+#define __pyx_n_u_ignore __pyx_string_tab[1145]
+#define __pyx_n_u_impersonate __pyx_string_tab[1146]
+#define __pyx_n_u_index __pyx_string_tab[1147]
+#define __pyx_n_u_int __pyx_string_tab[1148]
+#define __pyx_n_u_is_pro __pyx_string_tab[1149]
+#define __pyx_n_u_items __pyx_string_tab[1150]
+#define __pyx_n_u_itemsize __pyx_string_tab[1151]
+#define __pyx_n_u_join __pyx_string_tab[1152]
+#define __pyx_n_u_keys __pyx_string_tab[1153]
+#define __pyx_n_u_kwargs __pyx_string_tab[1154]
+#define __pyx_n_u_load __pyx_string_tab[1155]
+#define __pyx_n_u_local_path __pyx_string_tab[1156]
+#define __pyx_n_u_locale __pyx_string_tab[1157]
+#define __pyx_n_u_loop __pyx_string_tab[1158]
+#define __pyx_n_u_loop_close __pyx_string_tab[1159]
+#define __pyx_n_u_lower __pyx_string_tab[1160]
+#define __pyx_n_u_m __pyx_string_tab[1161]
+#define __pyx_n_u_match __pyx_string_tab[1162]
+#define __pyx_n_u_memview __pyx_string_tab[1163]
+#define __pyx_n_u_message __pyx_string_tab[1164]
+#define __pyx_n_u_mode __pyx_string_tab[1165]
+#define __pyx_n_u_msg __pyx_string_tab[1166]
+#define __pyx_n_u_name __pyx_string_tab[1167]
+#define __pyx_n_u_ndim __pyx_string_tab[1168]
+#define __pyx_n_u_next __pyx_string_tab[1169]
+#define __pyx_n_u_notify __pyx_string_tab[1170]
+#define __pyx_n_u_obj __pyx_string_tab[1171]
+#define __pyx_n_u_on __pyx_string_tab[1172]
+#define __pyx_n_u_option __pyx_string_tab[1173]
+#define __pyx_n_u_os __pyx_string_tab[1174]
+#define __pyx_n_u_pack __pyx_string_tab[1175]
+#define __pyx_n_u_parse_cookie_headers __pyx_string_tab[1176]
+#define __pyx_n_u_parse_status_line __pyx_string_tab[1177]
+#define __pyx_n_u_partial __pyx_string_tab[1178]
+#define __pyx_n_u_path __pyx_string_tab[1179]
+#define __pyx_n_u_pathlib __pyx_string_tab[1180]
+#define __pyx_n_u_pause __pyx_string_tab[1181]
+#define __pyx_n_u_payload __pyx_string_tab[1182]
+#define __pyx_n_u_perform __pyx_string_tab[1183]
+#define __pyx_n_u_platform __pyx_string_tab[1184]
+#define __pyx_n_u_pop __pyx_string_tab[1185]
+#define __pyx_n_u_postfix __pyx_string_tab[1186]
+#define __pyx_n_u_prefix __pyx_string_tab[1187]
+#define __pyx_n_u_print __pyx_string_tab[1188]
+#define __pyx_n_u_process_data __pyx_string_tab[1189]
+#define __pyx_n_u_r __pyx_string_tab[1190]
+#define __pyx_n_u_re __pyx_string_tab[1191]
+#define __pyx_n_u_read __pyx_string_tab[1192]
+#define __pyx_n_u_real_loop __pyx_string_tab[1193]
+#define __pyx_n_u_reason __pyx_string_tab[1194]
+#define __pyx_n_u_recv __pyx_string_tab[1195]
+#define __pyx_n_u_register __pyx_string_tab[1196]
+#define __pyx_n_u_release __pyx_string_tab[1197]
+#define __pyx_n_u_remove_handle __pyx_string_tab[1198]
+#define __pyx_n_u_remove_reader __pyx_string_tab[1199]
+#define __pyx_n_u_remove_writer __pyx_string_tab[1200]
+#define __pyx_n_u_reset __pyx_string_tab[1201]
+#define __pyx_n_u_return __pyx_string_tab[1202]
+#define __pyx_n_u_rs __pyx_string_tab[1203]
+#define __pyx_n_u_seek __pyx_string_tab[1204]
+#define __pyx_n_u_select __pyx_string_tab[1205]
+#define __pyx_n_u_selector_loop __pyx_string_tab[1206]
+#define __pyx_n_u_self __pyx_string_tab[1207]
+#define __pyx_n_u_send __pyx_string_tab[1208]
+#define __pyx_n_u_set_exception __pyx_string_tab[1209]
+#define __pyx_n_u_set_result __pyx_string_tab[1210]
+#define __pyx_n_u_setblocking __pyx_string_tab[1211]
+#define __pyx_n_u_setdefault __pyx_string_tab[1212]
+#define __pyx_n_u_setopt_3 __pyx_string_tab[1213]
+#define __pyx_n_u_shape __pyx_string_tab[1214]
+#define __pyx_n_u_share __pyx_string_tab[1215]
+#define __pyx_n_u_simplefilter __pyx_string_tab[1216]
+#define __pyx_n_u_size __pyx_string_tab[1217]
+#define __pyx_n_u_sleep __pyx_string_tab[1218]
+#define __pyx_n_u_socket __pyx_string_tab[1219]
+#define __pyx_n_u_socket_action __pyx_string_tab[1220]
+#define __pyx_n_u_socketpair __pyx_string_tab[1221]
+#define __pyx_n_u_sockfd __pyx_string_tab[1222]
+#define __pyx_n_u_ssl __pyx_string_tab[1223]
+#define __pyx_n_u_ssl_session __pyx_string_tab[1224]
+#define __pyx_n_u_stacklevel __pyx_string_tab[1225]
+#define __pyx_n_u_start __pyx_string_tab[1226]
+#define __pyx_n_u_startswith __pyx_string_tab[1227]
+#define __pyx_n_u_state __pyx_string_tab[1228]
+#define __pyx_n_u_staticmethod __pyx_string_tab[1229]
+#define __pyx_n_u_status_code __pyx_string_tab[1230]
+#define __pyx_n_u_status_line __pyx_string_tab[1231]
+#define __pyx_n_u_stderr __pyx_string_tab[1232]
+#define __pyx_n_u_step __pyx_string_tab[1233]
+#define __pyx_n_u_stop __pyx_string_tab[1234]
+#define __pyx_n_u_str __pyx_string_tab[1235]
+#define __pyx_n_u_strict __pyx_string_tab[1236]
+#define __pyx_n_u_struct __pyx_string_tab[1237]
+#define __pyx_n_u_super __pyx_string_tab[1238]
+#define __pyx_n_u_suppress __pyx_string_tab[1239]
+#define __pyx_n_u_sys __pyx_string_tab[1240]
+#define __pyx_n_u_target __pyx_string_tab[1241]
+#define __pyx_n_u_text __pyx_string_tab[1242]
+#define __pyx_n_u_thread_manager_anext __pyx_string_tab[1243]
+#define __pyx_n_u_threading __pyx_string_tab[1244]
+#define __pyx_n_u_throw __pyx_string_tab[1245]
+#define __pyx_n_u_to_read __pyx_string_tab[1246]
+#define __pyx_n_u_to_write __pyx_string_tab[1247]
+#define __pyx_n_u_tuple __pyx_string_tab[1248]
+#define __pyx_n_u_type __pyx_string_tab[1249]
+#define __pyx_n_u_typing __pyx_string_tab[1250]
+#define __pyx_n_u_unpack __pyx_string_tab[1251]
+#define __pyx_n_u_unshare __pyx_string_tab[1252]
+#define __pyx_n_u_update __pyx_string_tab[1253]
+#define __pyx_n_u_upkeep __pyx_string_tab[1254]
+#define __pyx_n_u_use_setstate __pyx_string_tab[1255]
+#define __pyx_n_u_value __pyx_string_tab[1256]
+#define __pyx_n_u_values __pyx_string_tab[1257]
+#define __pyx_n_u_version __pyx_string_tab[1258]
+#define __pyx_n_u_w __pyx_string_tab[1259]
+#define __pyx_n_u_wait __pyx_string_tab[1260]
+#define __pyx_n_u_warn __pyx_string_tab[1261]
+#define __pyx_n_u_warnings __pyx_string_tab[1262]
+#define __pyx_n_u_weakref __pyx_string_tab[1263]
+#define __pyx_n_u_where __pyx_string_tab[1264]
+#define __pyx_n_u_win __pyx_string_tab[1265]
+#define __pyx_n_u_win32 __pyx_string_tab[1266]
+#define __pyx_n_u_write __pyx_string_tab[1267]
+#define __pyx_n_u_ws __pyx_string_tab[1268]
+#define __pyx_n_u_ws_close __pyx_string_tab[1269]
+#define __pyx_n_u_ws_meta __pyx_string_tab[1270]
+#define __pyx_n_u_ws_recv __pyx_string_tab[1271]
+#define __pyx_n_u_ws_send __pyx_string_tab[1272]
+#define __pyx_n_u_x __pyx_string_tab[1273]
+#define __pyx_n_u_xs __pyx_string_tab[1274]
+#define __pyx_kp_b__8 __pyx_string_tab[1275]
+#define __pyx_kp_b_1_0 __pyx_string_tab[1276]
+#define __pyx_kp_b_1_1 __pyx_string_tab[1277]
+#define __pyx_kp_b_2_0 __pyx_string_tab[1278]
+#define __pyx_kp_b_HTTP_d_d_0_9_3_2 __pyx_string_tab[1279]
+#define __pyx_kp_b_HTTP_d_d_0_9_3 __pyx_string_tab[1280]
+#define __pyx_n_b_O __pyx_string_tab[1281]
+#define __pyx_n_b_a __pyx_string_tab[1282]
+#define __pyx_kp_b_set_cookie __pyx_string_tab[1283]
+#define __pyx_kp_b_iso88591_Q __pyx_string_tab[1284]
+#define __pyx_kp_b_iso88591_avQ __pyx_string_tab[1285]
+#define __pyx_kp_b_iso88591_1_7q_r_Qa_5_Be7_1_1_s_1_xxt2U_x __pyx_string_tab[1286]
+#define __pyx_kp_b_iso88591_m1 __pyx_string_tab[1287]
+#define __pyx_kp_b_iso88591_q_0_kQR_81A_7_2_3FnTU_1 __pyx_string_tab[1288]
+#define __pyx_kp_b_iso88591_A_q_l_vWE_Q_q_t_WE_D_7_q_1_Qg_q __pyx_string_tab[1289]
+#define __pyx_kp_b_iso88591_A_4wc_1_q_A_q __pyx_string_tab[1290]
+#define __pyx_kp_b_iso88591_A_87_1_U_1Cq_4uA_iq_Q6J_1 __pyx_string_tab[1291]
+#define __pyx_kp_b_iso88591_A_3_Q_iq __pyx_string_tab[1292]
+#define __pyx_kp_b_iso88591_A_1_E_as_a_E_as_a_N __pyx_string_tab[1293]
+#define __pyx_kp_b_iso88591_A_1_IQfIXQk_O1 __pyx_string_tab[1294]
+#define __pyx_kp_b_iso88591_A01_F_1_q_avWA __pyx_string_tab[1295]
+#define __pyx_kp_b_iso88591_A01_N_4q_Q_1F_3c_1_fAS_1_1_fAS_1 __pyx_string_tab[1296]
+#define __pyx_kp_b_iso88591_A_4t1_E_DMQ_N_81_4AT_1_9Cq_85_q __pyx_string_tab[1297]
+#define __pyx_kp_b_iso88591_A_G1 __pyx_string_tab[1298]
+#define __pyx_kp_b_iso88591_A_G5_G5_0 __pyx_string_tab[1299]
+#define __pyx_kp_b_iso88591_A_HE_1 __pyx_string_tab[1300]
+#define __pyx_kp_b_iso88591_A_HE_Q __pyx_string_tab[1301]
+#define __pyx_kp_b_iso88591_A_A_A_4q_AT_4z_A_AT_A __pyx_string_tab[1302]
+#define __pyx_kp_b_iso88591_A_q __pyx_string_tab[1303]
+#define __pyx_kp_b_iso88591_A_AT_vQ __pyx_string_tab[1304]
+#define __pyx_kp_b_iso88591_A_Q_7_z_q_Q_7_z_q_Q_7_z_q_Q_7_z __pyx_string_tab[1305]
+#define __pyx_kp_b_iso88591_A_T_Qa_7_d_S_D_j __pyx_string_tab[1306]
+#define __pyx_kp_b_iso88591_A_vQa __pyx_string_tab[1307]
+#define __pyx_kp_b_iso88591_A_t __pyx_string_tab[1308]
+#define __pyx_kp_b_iso88591_A_A_6_6_q_U_gQa_7_4_XQ_5_q_5QfG1 __pyx_string_tab[1309]
+#define __pyx_kp_b_iso88591_A_t4y_D_at1_5_q_1_Kq_O1_1 __pyx_string_tab[1310]
+#define __pyx_kp_b_iso88591_A_S_HA_1_q __pyx_string_tab[1311]
+#define __pyx_kp_b_iso88591_A_1D_HA __pyx_string_tab[1312]
+#define __pyx_kp_b_iso88591_A_at1_t7_a_4s_1A_q_G1_oQfN_t3a_i __pyx_string_tab[1313]
+#define __pyx_kp_b_iso88591_A_4wc_1A_1_a_c_D_Zt9M_VST_4xwa_W __pyx_string_tab[1314]
+#define __pyx_kp_b_iso88591_A__A_0_Ye1_M_U_M_1_Kq_7_z_q __pyx_string_tab[1315]
+#define __pyx_kp_b_iso88591_A_4wc_1A_m1D_T_A_a_1_Qe1_wd_D0J __pyx_string_tab[1316]
+#define __pyx_kp_b_iso88591_A_t9A_5_q_5QfG1_1_AZuA __pyx_string_tab[1317]
+#define __pyx_kp_b_iso88591_A2_A_A_Q_7_A_4wc_y_1_q_Yc_Yc_Q_q __pyx_string_tab[1318]
+#define __pyx_kp_b_iso88591_d_q __pyx_string_tab[1319]
+#define __pyx_kp_b_iso88591__14 __pyx_string_tab[1320]
+#define __pyx_kp_b_iso88591_HD_q0DA __pyx_string_tab[1321]
+#define __pyx_kp_b_iso88591_a_2 __pyx_string_tab[1322]
+#define __pyx_kp_b_iso88591_D_q_Qk_Qj __pyx_string_tab[1323]
+#define __pyx_kp_b_iso88591_1 __pyx_string_tab[1324]
+#define __pyx_kp_b_iso88591_Q_WA_Qa_aq_4y_q_Q_6 __pyx_string_tab[1325]
+#define __pyx_kp_b_iso88591_Zq_Q_Q_Q_Q_Q_Q_Q_Q_XT_vW_V7_at2 __pyx_string_tab[1326]
+#define __pyx_kp_b_iso88591_q_4q_Q_WA_O1_4y_q_Q_xq_N_4q_IV1 __pyx_string_tab[1327]
+#define __pyx_kp_b_iso88591_q_JfA_KvQ __pyx_string_tab[1328]
+#define __pyx_kp_b_iso88591_q_2 __pyx_string_tab[1329]
+#define __pyx_kp_b_iso88591_9_q __pyx_string_tab[1330]
+#define __pyx_kp_b_iso88591_E_q_Ry_xq_HA __pyx_string_tab[1331]
+#define __pyx_kp_b_iso88591_Q_Q_d_5_D_A_U_4q_t_D_A_D_V7_9Ja __pyx_string_tab[1332]
+#define __pyx_kp_b_iso88591_q_4_S_Qd_5_T_iuTU_WA __pyx_string_tab[1333]
+#define __pyx_kp_b_iso88591_4q_Qa_aq __pyx_string_tab[1334]
+#define __pyx_kp_b_iso88591_Qa_aq __pyx_string_tab[1335]
+#define __pyx_kp_b_iso88591_8_IQa_1_O1_q __pyx_string_tab[1336]
+#define __pyx_kp_b_iso88591_t_1A __pyx_string_tab[1337]
+#define __pyx_kp_b_iso88591_8_QfF_A_t81O1 __pyx_string_tab[1338]
+#define __pyx_kp_b_iso88591_N_M_q __pyx_string_tab[1339]
+#define __pyx_kp_b_iso88591_N_IZq_A_31_d_A_Kz_Q_Q_Kt_v_I_I __pyx_string_tab[1340]
+#define __pyx_kp_b_iso88591_A_1_Qa_4z_q_9NdRSST_1_Q_33MQa_I __pyx_string_tab[1341]
+#define __pyx_kp_b_iso88591_XQ_5_Q_5_1A_wat __pyx_string_tab[1342]
+#define __pyx_kp_b_iso88591_1_ivWJd_Qd_q __pyx_string_tab[1343]
+#define __pyx_kp_b_iso88591_a_4wc_1_at81_M_q_q __pyx_string_tab[1344]
+#define __pyx_kp_b_iso88591_K1_4wc_1_q_hnF __pyx_string_tab[1345]
+#define __pyx_kp_b_iso88591_4A_Q_Ja_vV2_e1F_4wa_q __pyx_string_tab[1346]
+#define __pyx_kp_b_iso88591_88SSaab_4wc_1A_O1_Q_Q_a_Qe1_1 __pyx_string_tab[1347]
+#define __pyx_kp_b_iso88591_DA_4wc_1_A_WBfBa_c_s_S_Ya_gQa_G __pyx_string_tab[1348]
+#define __pyx_kp_b_iso88591_FFaab_Q_a_Q_A_A_A_q_a_q_1_t_S_Q __pyx_string_tab[1349]
+#define __pyx_kp_b_iso88591_MQ_31D_UVVW_M_q __pyx_string_tab[1350]
+#define __pyx_kp_b_iso88591_4wc_1A_m1D_awat8SZZ_aaeeffjj_A __pyx_string_tab[1351]
+#define __pyx_kp_b_iso88591_q __pyx_string_tab[1352]
+#define __pyx_kp_b_iso88591_A __pyx_string_tab[1353]
 #define __pyx_float_0_0 __pyx_number_tab[0]
 #define __pyx_float_0_1 __pyx_number_tab[1]
 #define __pyx_int_0 __pyx_number_tab[2]
@@ -6633,8 +6637,8 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_umethod_PyUnicode_Type__format.method);
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_slice[i]); }
   for (int i=0; i<15; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
-  for (int i=0; i<83; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<1351; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<84; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<1354; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<12; ++i) { Py_CLEAR(clear_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_clear_contents ### */
 /* CommonTypesMetaclass.module_state_clear */
@@ -6715,8 +6719,8 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_umethod_PyUnicode_Type__format.method);
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_slice[i]); }
   for (int i=0; i<15; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
-  for (int i=0; i<83; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<1351; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<84; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<1354; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<12; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_traverse_contents ### */
 /* CommonTypesMetaclass.module_state_traverse */
@@ -25489,7 +25493,7 @@ static size_t __pyx_f_6cycurl_5_curl_read_callback(char *__pyx_v_buffer, size_t 
  *         context.exception = e
  *         return curl.CURL_READFUNC_ABORT             # <<<<<<<<<<<<<<
  * 
- * cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) with gil:
+ * cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) noexcept with gil:
 */
         {
 
@@ -25585,7 +25589,7 @@ static size_t __pyx_f_6cycurl_5_curl_read_callback(char *__pyx_v_buffer, size_t 
 /* "cycurl/_curl.pyx":201
  *         return curl.CURL_READFUNC_ABORT
  * 
- * cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) with gil:             # <<<<<<<<<<<<<<
+ * cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) noexcept with gil:             # <<<<<<<<<<<<<<
  *     """ffi callback for ``curl_lock_function``, acquires the per-data mutex."""
  *     cdef dict locks = <dict>clientp
 */
@@ -25609,7 +25613,7 @@ static void __pyx_f_6cycurl_5_curl_lock_function(CYTHON_UNUSED CURL *__pyx_v_han
 
 
   /* "cycurl/_curl.pyx":203
- * cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) with gil:
+ * cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) noexcept with gil:
  *     """ffi callback for ``curl_lock_function``, acquires the per-data mutex."""
  *     cdef dict locks = <dict>clientp             # <<<<<<<<<<<<<<
  *     cdef object lock = locks[data]
@@ -25655,7 +25659,7 @@ static void __pyx_f_6cycurl_5_curl_lock_function(CYTHON_UNUSED CURL *__pyx_v_han
  *     if lock is not None:
  *         lock.acquire()             # <<<<<<<<<<<<<<
  * 
- * cdef void unlock_function(curl.CURL *handle, int data, void *clientp) with gil:
+ * cdef void unlock_function(curl.CURL *handle, int data, void *clientp) noexcept with gil:
 */
     __pyx_t_1 = __pyx_v_lock;
     __Pyx_INCREF(__pyx_t_1);
@@ -25681,7 +25685,7 @@ static void __pyx_f_6cycurl_5_curl_lock_function(CYTHON_UNUSED CURL *__pyx_v_han
   /* "cycurl/_curl.pyx":201
  *         return curl.CURL_READFUNC_ABORT
  * 
- * cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) with gil:             # <<<<<<<<<<<<<<
+ * cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) noexcept with gil:             # <<<<<<<<<<<<<<
  *     """ffi callback for ``curl_lock_function``, acquires the per-data mutex."""
  *     cdef dict locks = <dict>clientp
 */
@@ -25691,7 +25695,7 @@ static void __pyx_f_6cycurl_5_curl_lock_function(CYTHON_UNUSED CURL *__pyx_v_han
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("cycurl._curl.lock_function", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_WriteUnraisable("cycurl._curl.lock_function", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_locks);
   __Pyx_XDECREF(__pyx_v_lock);
@@ -25707,7 +25711,7 @@ static void __pyx_f_6cycurl_5_curl_lock_function(CYTHON_UNUSED CURL *__pyx_v_han
 /* "cycurl/_curl.pyx":208
  *         lock.acquire()
  * 
- * cdef void unlock_function(curl.CURL *handle, int data, void *clientp) with gil:             # <<<<<<<<<<<<<<
+ * cdef void unlock_function(curl.CURL *handle, int data, void *clientp) noexcept with gil:             # <<<<<<<<<<<<<<
  *     """ffi callback for ``curl_unlock_function``, releases the per-data mutex."""
  *     cdef dict locks = <dict>clientp
 */
@@ -25730,7 +25734,7 @@ static void __pyx_f_6cycurl_5_curl_unlock_function(CYTHON_UNUSED CURL *__pyx_v_h
 
 
   /* "cycurl/_curl.pyx":210
- * cdef void unlock_function(curl.CURL *handle, int data, void *clientp) with gil:
+ * cdef void unlock_function(curl.CURL *handle, int data, void *clientp) noexcept with gil:
  *     """ffi callback for ``curl_unlock_function``, releases the per-data mutex."""
  *     cdef dict locks = <dict>clientp             # <<<<<<<<<<<<<<
  *     cdef object lock = locks[data]
@@ -25802,7 +25806,7 @@ static void __pyx_f_6cycurl_5_curl_unlock_function(CYTHON_UNUSED CURL *__pyx_v_h
   /* "cycurl/_curl.pyx":208
  *         lock.acquire()
  * 
- * cdef void unlock_function(curl.CURL *handle, int data, void *clientp) with gil:             # <<<<<<<<<<<<<<
+ * cdef void unlock_function(curl.CURL *handle, int data, void *clientp) noexcept with gil:             # <<<<<<<<<<<<<<
  *     """ffi callback for ``curl_unlock_function``, releases the per-data mutex."""
  *     cdef dict locks = <dict>clientp
 */
@@ -25812,7 +25816,7 @@ static void __pyx_f_6cycurl_5_curl_unlock_function(CYTHON_UNUSED CURL *__pyx_v_h
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("cycurl._curl.unlock_function", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_WriteUnraisable("cycurl._curl.unlock_function", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_locks);
   __Pyx_XDECREF(__pyx_v_lock);
@@ -53466,7 +53470,7 @@ static int __pyx_pf_6cycurl_5_curl_9CurlShare___cinit__(struct __pyx_obj_6cycurl
  *         if ssl_session:
  *             self.share(curl.CURL_LOCK_DATA_SSL_SESSION)             # <<<<<<<<<<<<<<
  * 
- *     cpdef object _setopt(self, int option, object value):
+ *     def get_curl_share(self):
 */
     __pyx_t_3 = ((struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *)__pyx_v_self->__pyx_vtab)->share(__pyx_v_self, CURL_LOCK_DATA_SSL_SESSION, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1408, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -53510,12 +53514,111 @@ static int __pyx_pf_6cycurl_5_curl_9CurlShare___cinit__(struct __pyx_obj_6cycurl
 /* "cycurl/_curl.pyx":1410
  *             self.share(curl.CURL_LOCK_DATA_SSL_SESSION)
  * 
+ *     def get_curl_share(self):             # <<<<<<<<<<<<<<
+ *         """Get the underlying ``CURLSH`` pointer as a PyCapsule."""
+ *         return PyCapsule_New(self._curl_share, NULL, NULL)
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_3get_curl_share(PyObject *__pyx_v_self, 
+#if CYTHON_VECTORCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_2get_curl_share, "CurlShare.get_curl_share(self)\n\nGet the underlying ``CURLSH`` pointer as a PyCapsule.");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_3get_curl_share = {"get_curl_share", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_3get_curl_share, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_2get_curl_share};
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_3get_curl_share(PyObject *__pyx_v_self, 
+#if CYTHON_VECTORCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  #if !CYTHON_VECTORCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("get_curl_share (wrapper)", 0);
+  #if !CYTHON_VECTORCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  if (unlikely(__pyx_nargs > 0)) { __Pyx_RaiseArgtupleInvalid("get_curl_share", 1, 0, 0, __pyx_nargs); return NULL; }
+  const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+  if (unlikely(__pyx_kwds_len < 0)) return NULL;
+  if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("get_curl_share", __pyx_kwds); return NULL;}
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_2get_curl_share(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_2get_curl_share(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("get_curl_share", 0);
+
+  /* "cycurl/_curl.pyx":1412
+ *     def get_curl_share(self):
+ *         """Get the underlying ``CURLSH`` pointer as a PyCapsule."""
+ *         return PyCapsule_New(self._curl_share, NULL, NULL)             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef object _setopt(self, int option, object value):
+*/
+  __pyx_t_1 = PyCapsule_New(__pyx_v_self->_curl_share, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1412, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  {
+    PyObject *__pyx_temp;
+    {
+      __pyx_temp = __pyx_r;
+      __pyx_r = __pyx_t_1;
+    }
+    __Pyx_XDECREF(__pyx_temp);
+  }
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "cycurl/_curl.pyx":1410
+ *             self.share(curl.CURL_LOCK_DATA_SSL_SESSION)
+ * 
+ *     def get_curl_share(self):             # <<<<<<<<<<<<<<
+ *         """Get the underlying ``CURLSH`` pointer as a PyCapsule."""
+ *         return PyCapsule_New(self._curl_share, NULL, NULL)
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("cycurl._curl.CurlShare.get_curl_share", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "cycurl/_curl.pyx":1414
+ *         return PyCapsule_New(self._curl_share, NULL, NULL)
+ * 
  *     cpdef object _setopt(self, int option, object value):             # <<<<<<<<<<<<<<
  *         cdef:
  *             void* c_value = NULL
 */
 
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_3_setopt(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_5_setopt(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -53563,13 +53666,13 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_setopt_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1410, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_setopt_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1414, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_3_setopt)) {
+      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_5_setopt)) {
         __pyx_t_3 = NULL;
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; 
-        __pyx_t_5 = __Pyx_PyLong_From_int(__pyx_v_option); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1410, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyLong_From_int(__pyx_v_option); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1414, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __pyx_t_6 = 1;
         #if CYTHON_UNPACK_METHODS
@@ -53589,7 +53692,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1410, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1414, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
         {
@@ -53617,7 +53720,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
     #endif
   }
 
-  /* "cycurl/_curl.pyx":1412
+  /* "cycurl/_curl.pyx":1416
  *     cpdef object _setopt(self, int option, object value):
  *         cdef:
  *             void* c_value = NULL             # <<<<<<<<<<<<<<
@@ -53626,7 +53729,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
 */
   __pyx_v_c_value = NULL;
 
-  /* "cycurl/_curl.pyx":1414
+  /* "cycurl/_curl.pyx":1418
  *             void* c_value = NULL
  *             int intval
  *         if option==curl.CURLSHOPT_SHARE or option==curl.CURLSHOPT_UNSHARE:             # <<<<<<<<<<<<<<
@@ -53652,18 +53755,18 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
   if (__pyx_t_7) {
 
 
-    /* "cycurl/_curl.pyx":1415
+    /* "cycurl/_curl.pyx":1419
  *             int intval
  *         if option==curl.CURLSHOPT_SHARE or option==curl.CURLSHOPT_UNSHARE:
  *             intval = <int>value             # <<<<<<<<<<<<<<
  *             c_value = <void*>&intval
  *         else:
 */
-    __pyx_t_9 = __Pyx_PyLong_As_int(__pyx_v_value); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1415, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyLong_As_int(__pyx_v_value); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1419, __pyx_L1_error)
     __pyx_v_intval = ((int)__pyx_t_9);
 
 
-    /* "cycurl/_curl.pyx":1416
+    /* "cycurl/_curl.pyx":1420
  *         if option==curl.CURLSHOPT_SHARE or option==curl.CURLSHOPT_UNSHARE:
  *             intval = <int>value
  *             c_value = <void*>&intval             # <<<<<<<<<<<<<<
@@ -53672,7 +53775,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
 */
     __pyx_v_c_value = ((void *)(&__pyx_v_intval));
 
-    /* "cycurl/_curl.pyx":1414
+    /* "cycurl/_curl.pyx":1418
  *             void* c_value = NULL
  *             int intval
  *         if option==curl.CURLSHOPT_SHARE or option==curl.CURLSHOPT_UNSHARE:             # <<<<<<<<<<<<<<
@@ -53682,7 +53785,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
     goto __pyx_L3;
   }
 
-  /* "cycurl/_curl.pyx":1418
+  /* "cycurl/_curl.pyx":1422
  *             c_value = <void*>&intval
  *         else:
  *             c_value = PyCapsule_GetPointer(value, NULL)             # <<<<<<<<<<<<<<
@@ -53690,12 +53793,12 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
  *         with nogil:
 */
   /*else*/ {
-    __pyx_t_10 = PyCapsule_GetPointer(__pyx_v_value, NULL); if (unlikely(__pyx_t_10 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 1418, __pyx_L1_error)
+    __pyx_t_10 = PyCapsule_GetPointer(__pyx_v_value, NULL); if (unlikely(__pyx_t_10 == ((void *)NULL) && PyErr_Occurred())) __PYX_ERR(0, 1422, __pyx_L1_error)
     __pyx_v_c_value = __pyx_t_10;
   }
   __pyx_L3:;
 
-  /* "cycurl/_curl.pyx":1420
+  /* "cycurl/_curl.pyx":1424
  *             c_value = PyCapsule_GetPointer(value, NULL)
  *         cdef int code
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -53708,7 +53811,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":1421
+        /* "cycurl/_curl.pyx":1425
  *         cdef int code
  *         with nogil:
  *             code = curl._curl_share_setopt(self._curl_share, option, c_value)             # <<<<<<<<<<<<<<
@@ -53718,7 +53821,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
         __pyx_v_code = _curl_share_setopt(__pyx_v_self->_curl_share, __pyx_v_option, __pyx_v_c_value);
       }
 
-      /* "cycurl/_curl.pyx":1420
+      /* "cycurl/_curl.pyx":1424
  *             c_value = PyCapsule_GetPointer(value, NULL)
  *         cdef int code
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -53735,7 +53838,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
       }
   }
 
-  /* "cycurl/_curl.pyx":1422
+  /* "cycurl/_curl.pyx":1426
  *         with nogil:
  *             code = curl._curl_share_setopt(self._curl_share, option, c_value)
  *         if code != curl.CURLSHE_OK:             # <<<<<<<<<<<<<<
@@ -53747,7 +53850,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
   if (unlikely(__pyx_t_7)) {
 
 
-    /* "cycurl/_curl.pyx":1423
+    /* "cycurl/_curl.pyx":1427
  *             code = curl._curl_share_setopt(self._curl_share, option, c_value)
  *         if code != curl.CURLSHE_OK:
  *             errmsg = <bytes>(curl.curl_share_strerror(code)).decode()             # <<<<<<<<<<<<<<
@@ -53756,18 +53859,18 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
 */
 
     __pyx_t_11 = curl_share_strerror(__pyx_v_code);
-    __pyx_t_12 = __Pyx_ssize_strlen(__pyx_t_11); if (unlikely(__pyx_t_12 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1423, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_decode_c_string(__pyx_t_11, 0, __pyx_t_12, NULL, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1423, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_ssize_strlen(__pyx_t_11); if (unlikely(__pyx_t_12 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1427, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_decode_c_string(__pyx_t_11, 0, __pyx_t_12, NULL, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1427, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
 
-    if (!(likely(PyUnicode_CheckExact(__pyx_t_1)) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_1))) __PYX_ERR(0, 1423, __pyx_L1_error)
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_1)) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_1))) __PYX_ERR(0, 1427, __pyx_L1_error)
     __pyx_t_2 = __pyx_t_1;
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_errmsg = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":1424
+    /* "cycurl/_curl.pyx":1428
  *         if code != curl.CURLSHE_OK:
  *             errmsg = <bytes>(curl.curl_share_strerror(code)).decode()
  *             raise CurlError(f"Failed to set share option {option}: {errmsg}", code=code)             # <<<<<<<<<<<<<<
@@ -53775,11 +53878,11 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
  *     cpdef share(self, int data):
 */
     __pyx_t_1 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1424, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1424, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyUnicode_From_int(__pyx_v_option, 0, ' ', 'd'); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_errmsg, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1424, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_errmsg, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_13[0] = __pyx_mstate_global->__pyx_kp_u_Failed_to_set_share_option;
     __pyx_t_13[1] = __pyx_t_5;
@@ -53794,11 +53897,11 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
     __pyx_t_9 |= __Pyx_PyUnicode_KIND_04(__pyx_t_13[3]);
     #endif
     __pyx_t_14 = __Pyx_PyUnicode_Join(__pyx_t_13, 4, __pyx_t_12, __pyx_t_9);
-    if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 1424, __pyx_L1_error)
+    if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 1428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_code); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1424, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_code); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_6 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -53816,13 +53919,13 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
       PyObject *__pyx_callargs[3] = {__pyx_t_1, __pyx_t_14, __pyx_t_3};
       #if CYTHON_VECTORCALL
       __pyx_t_5 = __pyx_mstate_global->__pyx_tuple[6];
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1424, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1428, __pyx_L1_error)
       __Pyx_INCREF(__pyx_t_5);
       #else
       {
         PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_code};
         __pyx_t_5 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1424, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1428, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
       }
       #endif
@@ -53832,14 +53935,14 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1424, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1428, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1424, __pyx_L1_error)
+    __PYX_ERR(0, 1428, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":1422
+    /* "cycurl/_curl.pyx":1426
  *         with nogil:
  *             code = curl._curl_share_setopt(self._curl_share, option, c_value)
  *         if code != curl.CURLSHE_OK:             # <<<<<<<<<<<<<<
@@ -53848,8 +53951,8 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
 */
   }
 
-  /* "cycurl/_curl.pyx":1410
- *             self.share(curl.CURL_LOCK_DATA_SSL_SESSION)
+  /* "cycurl/_curl.pyx":1414
+ *         return PyCapsule_New(self._curl_share, NULL, NULL)
  * 
  *     cpdef object _setopt(self, int option, object value):             # <<<<<<<<<<<<<<
  *         cdef:
@@ -53879,16 +53982,16 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare__setopt(struct __pyx_obj_6cyc
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_3_setopt(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_5_setopt(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_2_setopt, "CurlShare._setopt(self, int option, value)");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_3_setopt = {"_setopt", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_3_setopt, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_2_setopt};
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_3_setopt(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_4_setopt, "CurlShare._setopt(self, int option, value)");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_5_setopt = {"_setopt", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_5_setopt, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_4_setopt};
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_5_setopt(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -53919,39 +54022,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_option,&__pyx_mstate_global->__pyx_n_u_value,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1410, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1414, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1410, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1414, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1410, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1414, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_setopt", 0) < (0)) __PYX_ERR(0, 1410, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_setopt", 0) < (0)) __PYX_ERR(0, 1414, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_setopt", 1, 2, 2, i); __PYX_ERR(0, 1410, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_setopt", 1, 2, 2, i); __PYX_ERR(0, 1414, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1410, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1414, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1410, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1414, __pyx_L3_error)
     }
-    __pyx_v_option = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1410, __pyx_L3_error)
+    __pyx_v_option = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_option == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1414, __pyx_L3_error)
     __pyx_v_value = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_setopt", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 1410, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_setopt", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 1414, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -53962,7 +54065,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_2_setopt(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self), __pyx_v_option, __pyx_v_value);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_4_setopt(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self), __pyx_v_option, __pyx_v_value);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -53973,7 +54076,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_2_setopt(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_option, PyObject *__pyx_v_value) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_4_setopt(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_option, PyObject *__pyx_v_value) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -53981,7 +54084,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_2_setopt(struct __pyx_obj_6c
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_setopt", 0);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare__setopt(__pyx_v_self, __pyx_v_option, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1410, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare__setopt(__pyx_v_self, __pyx_v_option, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   {
     PyObject *__pyx_temp;
@@ -54005,7 +54108,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_2_setopt(struct __pyx_obj_6c
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1426
+/* "cycurl/_curl.pyx":1430
  *             raise CurlError(f"Failed to set share option {option}: {errmsg}", code=code)
  * 
  *     cpdef share(self, int data):             # <<<<<<<<<<<<<<
@@ -54013,7 +54116,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_2_setopt(struct __pyx_obj_6c
  *         self._setopt(curl.CURLSHOPT_SHARE, data)
 */
 
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_5share(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_7share(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -54049,265 +54152,9 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_share(struct __pyx_obj_6cycur
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_share); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1426, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_share); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1430, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_5share)) {
-        __pyx_t_3 = NULL;
-        __Pyx_INCREF(__pyx_t_1);
-        __pyx_t_4 = __pyx_t_1; 
-        __pyx_t_5 = __Pyx_PyLong_From_int(__pyx_v_data); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1426, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = 1;
-        #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_4))) {
-          __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-          assert(__pyx_t_3);
-          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-          __Pyx_INCREF(__pyx_t_3);
-          __Pyx_INCREF(__pyx__function);
-          __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-          __pyx_t_6 = 0;
-        }
-        #endif
-        {
-          PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_t_5};
-          __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-          __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1426, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_2);
-        }
-        {
-          PyObject *__pyx_temp;
-          {
-            __pyx_temp = __pyx_r;
-            __pyx_r = __pyx_t_2;
-          }
-          __Pyx_XDECREF(__pyx_temp);
-        }
-        __pyx_t_2 = 0;
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        goto __pyx_L0;
-      }
-      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
-      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
-      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
-      if (unlikely(__pyx_typedict_guard != __pyx_tp_dict_version)) {
-        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
-      }
-      #endif
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
-    }
-    #endif
-  }
-
-  /* "cycurl/_curl.pyx":1428
- *     cpdef share(self, int data):
- *         """Start sharing the given ``CurlLockData`` across attached handles."""
- *         self._setopt(curl.CURLSHOPT_SHARE, data)             # <<<<<<<<<<<<<<
- * 
- *     cpdef unshare(self, int data):
-*/
-  __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1428, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = ((struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *)__pyx_v_self->__pyx_vtab)->_setopt(__pyx_v_self, CURLSHOPT_SHARE, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1428, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "cycurl/_curl.pyx":1426
- *             raise CurlError(f"Failed to set share option {option}: {errmsg}", code=code)
- * 
- *     cpdef share(self, int data):             # <<<<<<<<<<<<<<
- *         """Start sharing the given ``CurlLockData`` across attached handles."""
- *         self._setopt(curl.CURLSHOPT_SHARE, data)
-*/
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("cycurl._curl.CurlShare.share", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_5share(PyObject *__pyx_v_self, 
-#if CYTHON_VECTORCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_4share, "CurlShare.share(self, int data)\n\nStart sharing the given ``CurlLockData`` across attached handles.");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_5share = {"share", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_5share, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_4share};
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_5share(PyObject *__pyx_v_self, 
-#if CYTHON_VECTORCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-) {
-  int __pyx_v_data;
-  #if !CYTHON_VECTORCALL
-  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
-  #endif
-  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[1] = {0};
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("share (wrapper)", 0);
-  #if !CYTHON_VECTORCALL
-  #if CYTHON_ASSUME_SAFE_SIZE
-  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
-  #else
-  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
-  #endif
-  #endif
-  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
-  {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_data,0};
-    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1426, __pyx_L3_error)
-    if (__pyx_kwds_len > 0) {
-      switch (__pyx_nargs) {
-        case  1:
-        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1426, __pyx_L3_error)
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "share", 0) < (0)) __PYX_ERR(0, 1426, __pyx_L3_error)
-      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("share", 1, 1, 1, i); __PYX_ERR(0, 1426, __pyx_L3_error) }
-      }
-    } else if (unlikely(__pyx_nargs != 1)) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1426, __pyx_L3_error)
-    }
-    __pyx_v_data = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_data == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1426, __pyx_L3_error)
-  }
-  goto __pyx_L6_skip;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("share", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1426, __pyx_L3_error)
-  __pyx_L6_skip:;
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L3_error:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_AddTraceback("cycurl._curl.CurlShare.share", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_4share(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self), __pyx_v_data);
-
-  /* function exit code */
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_4share(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("share", 0);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare_share(__pyx_v_self, __pyx_v_data, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1426, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  {
-    PyObject *__pyx_temp;
-    {
-      __pyx_temp = __pyx_r;
-      __pyx_r = __pyx_t_1;
-    }
-    __Pyx_XDECREF(__pyx_temp);
-  }
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("cycurl._curl.CurlShare.share", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "cycurl/_curl.pyx":1430
- *         self._setopt(curl.CURLSHOPT_SHARE, data)
- * 
- *     cpdef unshare(self, int data):             # <<<<<<<<<<<<<<
- *         """Stop sharing the given ``CurlLockData``."""
- *         self._setopt(curl.CURLSHOPT_UNSHARE, data)
-*/
-
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_7unshare(PyObject *__pyx_v_self, 
-#if CYTHON_VECTORCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_unshare(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data, int __pyx_skip_dispatch) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  size_t __pyx_t_6;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("unshare", 0);
-  /* Check if called by wrapper */
-  if (unlikely(__pyx_skip_dispatch)) ;
-  /* Check if overridden in Python */
-  else if (
-  #if !CYTHON_USE_TYPE_SLOTS
-  unlikely(Py_TYPE(((PyObject *)__pyx_v_self)) != __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare &&
-  __Pyx_PyType_HasFeature(Py_TYPE(((PyObject *)__pyx_v_self)), Py_TPFLAGS_HAVE_GC))
-  #else
-  unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0 || __Pyx_PyType_HasFeature(Py_TYPE(((PyObject *)__pyx_v_self)), (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))
-  #endif
-  ) {
-    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
-    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
-    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
-      PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
-      #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_unshare); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1430, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_7unshare)) {
+      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_7share)) {
         __pyx_t_3 = NULL;
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; 
@@ -54360,20 +54207,276 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_unshare(struct __pyx_obj_6cyc
   }
 
   /* "cycurl/_curl.pyx":1432
+ *     cpdef share(self, int data):
+ *         """Start sharing the given ``CurlLockData`` across attached handles."""
+ *         self._setopt(curl.CURLSHOPT_SHARE, data)             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef unshare(self, int data):
+*/
+  __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1432, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = ((struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *)__pyx_v_self->__pyx_vtab)->_setopt(__pyx_v_self, CURLSHOPT_SHARE, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1432, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "cycurl/_curl.pyx":1430
+ *             raise CurlError(f"Failed to set share option {option}: {errmsg}", code=code)
+ * 
+ *     cpdef share(self, int data):             # <<<<<<<<<<<<<<
+ *         """Start sharing the given ``CurlLockData`` across attached handles."""
+ *         self._setopt(curl.CURLSHOPT_SHARE, data)
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("cycurl._curl.CurlShare.share", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_7share(PyObject *__pyx_v_self, 
+#if CYTHON_VECTORCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_6share, "CurlShare.share(self, int data)\n\nStart sharing the given ``CurlLockData`` across attached handles.");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_7share = {"share", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_7share, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_6share};
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_7share(PyObject *__pyx_v_self, 
+#if CYTHON_VECTORCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  int __pyx_v_data;
+  #if !CYTHON_VECTORCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("share (wrapper)", 0);
+  #if !CYTHON_VECTORCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_data,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1430, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1430, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "share", 0) < (0)) __PYX_ERR(0, 1430, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("share", 1, 1, 1, i); __PYX_ERR(0, 1430, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1430, __pyx_L3_error)
+    }
+    __pyx_v_data = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_data == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1430, __pyx_L3_error)
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("share", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1430, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("cycurl._curl.CurlShare.share", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_6share(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self), __pyx_v_data);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_6share(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("share", 0);
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare_share(__pyx_v_self, __pyx_v_data, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1430, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  {
+    PyObject *__pyx_temp;
+    {
+      __pyx_temp = __pyx_r;
+      __pyx_r = __pyx_t_1;
+    }
+    __Pyx_XDECREF(__pyx_temp);
+  }
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("cycurl._curl.CurlShare.share", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "cycurl/_curl.pyx":1434
+ *         self._setopt(curl.CURLSHOPT_SHARE, data)
+ * 
+ *     cpdef unshare(self, int data):             # <<<<<<<<<<<<<<
+ *         """Stop sharing the given ``CurlLockData``."""
+ *         self._setopt(curl.CURLSHOPT_UNSHARE, data)
+*/
+
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_9unshare(PyObject *__pyx_v_self, 
+#if CYTHON_VECTORCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_unshare(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data, int __pyx_skip_dispatch) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("unshare", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (
+  #if !CYTHON_USE_TYPE_SLOTS
+  unlikely(Py_TYPE(((PyObject *)__pyx_v_self)) != __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare &&
+  __Pyx_PyType_HasFeature(Py_TYPE(((PyObject *)__pyx_v_self)), Py_TPFLAGS_HAVE_GC))
+  #else
+  unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0 || __Pyx_PyType_HasFeature(Py_TYPE(((PyObject *)__pyx_v_self)), (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))
+  #endif
+  ) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_unshare); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1434, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_9unshare)) {
+        __pyx_t_3 = NULL;
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_4 = __pyx_t_1; 
+        __pyx_t_5 = __Pyx_PyLong_From_int(__pyx_v_data); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1434, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __pyx_t_6 = 1;
+        #if CYTHON_UNPACK_METHODS
+        if (unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+          assert(__pyx_t_3);
+          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+          __Pyx_INCREF(__pyx_t_3);
+          __Pyx_INCREF(__pyx__function);
+          __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+          __pyx_t_6 = 0;
+        }
+        #endif
+        {
+          PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_t_5};
+          __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+          __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1434, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+        }
+        {
+          PyObject *__pyx_temp;
+          {
+            __pyx_temp = __pyx_r;
+            __pyx_r = __pyx_t_2;
+          }
+          __Pyx_XDECREF(__pyx_temp);
+        }
+        __pyx_t_2 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_typedict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "cycurl/_curl.pyx":1436
  *     cpdef unshare(self, int data):
  *         """Stop sharing the given ``CurlLockData``."""
  *         self._setopt(curl.CURLSHOPT_UNSHARE, data)             # <<<<<<<<<<<<<<
  * 
  *     cpdef int _cleanup(self):
 */
-  __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1432, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = ((struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *)__pyx_v_self->__pyx_vtab)->_setopt(__pyx_v_self, CURLSHOPT_UNSHARE, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1432, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *)__pyx_v_self->__pyx_vtab)->_setopt(__pyx_v_self, CURLSHOPT_UNSHARE, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cycurl/_curl.pyx":1430
+  /* "cycurl/_curl.pyx":1434
  *         self._setopt(curl.CURLSHOPT_SHARE, data)
  * 
  *     cpdef unshare(self, int data):             # <<<<<<<<<<<<<<
@@ -54399,16 +54502,16 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_unshare(struct __pyx_obj_6cyc
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_7unshare(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_9unshare(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_6unshare, "CurlShare.unshare(self, int data)\n\nStop sharing the given ``CurlLockData``.");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_7unshare = {"unshare", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_7unshare, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_6unshare};
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_7unshare(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_8unshare, "CurlShare.unshare(self, int data)\n\nStop sharing the given ``CurlLockData``.");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_9unshare = {"unshare", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_9unshare, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_8unshare};
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_9unshare(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -54438,32 +54541,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_data,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1430, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1434, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1430, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1434, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "unshare", 0) < (0)) __PYX_ERR(0, 1430, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "unshare", 0) < (0)) __PYX_ERR(0, 1434, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("unshare", 1, 1, 1, i); __PYX_ERR(0, 1430, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("unshare", 1, 1, 1, i); __PYX_ERR(0, 1434, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1430, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1434, __pyx_L3_error)
     }
-    __pyx_v_data = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_data == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1430, __pyx_L3_error)
+    __pyx_v_data = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_data == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1434, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("unshare", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1430, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("unshare", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1434, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -54474,7 +54577,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_6unshare(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self), __pyx_v_data);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_8unshare(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self), __pyx_v_data);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -54485,7 +54588,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_6unshare(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_8unshare(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, int __pyx_v_data) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -54493,7 +54596,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_6unshare(struct __pyx_obj_6c
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("unshare", 0);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare_unshare(__pyx_v_self, __pyx_v_data, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1430, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare_unshare(__pyx_v_self, __pyx_v_data, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   {
     PyObject *__pyx_temp;
@@ -54517,7 +54620,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_6unshare(struct __pyx_obj_6c
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1434
+/* "cycurl/_curl.pyx":1438
  *         self._setopt(curl.CURLSHOPT_UNSHARE, data)
  * 
  *     cpdef int _cleanup(self):             # <<<<<<<<<<<<<<
@@ -54525,7 +54628,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_6unshare(struct __pyx_obj_6c
  *         with nogil:
 */
 
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_9_cleanup(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_11_cleanup(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -54564,9 +54667,9 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_cleanup); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1434, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_cleanup); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1438, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_9_cleanup)) {
+      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_11_cleanup)) {
         __pyx_t_3 = NULL;
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; 
@@ -54587,10 +54690,10 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
           __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1434, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1438, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1434, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1438, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         {
           __pyx_r = __pyx_t_6;
@@ -54611,7 +54714,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
     #endif
   }
 
-  /* "cycurl/_curl.pyx":1436
+  /* "cycurl/_curl.pyx":1440
  *     cpdef int _cleanup(self):
  *         cdef int code
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -54624,7 +54727,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "cycurl/_curl.pyx":1437
+        /* "cycurl/_curl.pyx":1441
  *         cdef int code
  *         with nogil:
  *             if not self._closed and self._curl_share:             # <<<<<<<<<<<<<<
@@ -54650,7 +54753,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
         if (__pyx_t_7) {
 
 
-          /* "cycurl/_curl.pyx":1438
+          /* "cycurl/_curl.pyx":1442
  *         with nogil:
  *             if not self._closed and self._curl_share:
  *                 code = curl.curl_share_cleanup(self._curl_share)             # <<<<<<<<<<<<<<
@@ -54659,7 +54762,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
 */
           __pyx_v_code = curl_share_cleanup(__pyx_v_self->_curl_share);
 
-          /* "cycurl/_curl.pyx":1439
+          /* "cycurl/_curl.pyx":1443
  *             if not self._closed and self._curl_share:
  *                 code = curl.curl_share_cleanup(self._curl_share)
  *                 if code != curl.CURLSHE_OK:             # <<<<<<<<<<<<<<
@@ -54671,7 +54774,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
           if (__pyx_t_7) {
 
 
-            /* "cycurl/_curl.pyx":1440
+            /* "cycurl/_curl.pyx":1444
  *                 code = curl.curl_share_cleanup(self._curl_share)
  *                 if code != curl.CURLSHE_OK:
  *                     return code             # <<<<<<<<<<<<<<
@@ -54684,7 +54787,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
             }
             goto __pyx_L3_return;
 
-            /* "cycurl/_curl.pyx":1439
+            /* "cycurl/_curl.pyx":1443
  *             if not self._closed and self._curl_share:
  *                 code = curl.curl_share_cleanup(self._curl_share)
  *                 if code != curl.CURLSHE_OK:             # <<<<<<<<<<<<<<
@@ -54693,7 +54796,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
 */
           }
 
-          /* "cycurl/_curl.pyx":1441
+          /* "cycurl/_curl.pyx":1445
  *                 if code != curl.CURLSHE_OK:
  *                     return code
  *                 self._closed = True             # <<<<<<<<<<<<<<
@@ -54702,7 +54805,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
 */
           __pyx_v_self->_closed = 1;
 
-          /* "cycurl/_curl.pyx":1442
+          /* "cycurl/_curl.pyx":1446
  *                     return code
  *                 self._closed = True
  *                 self._curl_share = NULL             # <<<<<<<<<<<<<<
@@ -54711,7 +54814,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
 */
           __pyx_v_self->_curl_share = NULL;
 
-          /* "cycurl/_curl.pyx":1437
+          /* "cycurl/_curl.pyx":1441
  *         cdef int code
  *         with nogil:
  *             if not self._closed and self._curl_share:             # <<<<<<<<<<<<<<
@@ -54721,7 +54824,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
         }
       }
 
-      /* "cycurl/_curl.pyx":1436
+      /* "cycurl/_curl.pyx":1440
  *     cpdef int _cleanup(self):
  *         cdef int code
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -54743,7 +54846,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
       }
   }
 
-  /* "cycurl/_curl.pyx":1443
+  /* "cycurl/_curl.pyx":1447
  *                 self._closed = True
  *                 self._curl_share = NULL
  *         return curl.CURLSHE_OK             # <<<<<<<<<<<<<<
@@ -54756,7 +54859,7 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
   }
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":1434
+  /* "cycurl/_curl.pyx":1438
  *         self._setopt(curl.CURLSHOPT_UNSHARE, data)
  * 
  *     cpdef int _cleanup(self):             # <<<<<<<<<<<<<<
@@ -54780,16 +54883,16 @@ static int __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(struct __pyx_obj_6cycurl_5
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_9_cleanup(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_11_cleanup(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_8_cleanup, "CurlShare._cleanup(self) -> int");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_9_cleanup = {"_cleanup", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_9_cleanup, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_8_cleanup};
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_9_cleanup(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_10_cleanup, "CurlShare._cleanup(self) -> int");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_11_cleanup = {"_cleanup", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_11_cleanup, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_10_cleanup};
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_11_cleanup(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -54815,14 +54918,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("_cleanup", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_8_cleanup(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_10_cleanup(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_8_cleanup(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_10_cleanup(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -54831,8 +54934,8 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_8_cleanup(struct __pyx_obj_6
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_cleanup", 0);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(__pyx_v_self, 1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1434, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1434, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare__cleanup(__pyx_v_self, 1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1438, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
   {
@@ -54857,7 +54960,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_8_cleanup(struct __pyx_obj_6
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1445
+/* "cycurl/_curl.pyx":1449
  *         return curl.CURLSHE_OK
  * 
  *     cpdef close(self):             # <<<<<<<<<<<<<<
@@ -54865,7 +54968,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_8_cleanup(struct __pyx_obj_6
  * 
 */
 
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_11close(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_13close(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -54908,9 +55011,9 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_close); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1445, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_close); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1449, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_11close)) {
+      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_6cycurl_5_curl_9CurlShare_13close)) {
         __pyx_t_3 = NULL;
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; 
@@ -54931,7 +55034,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
           __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1445, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1449, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
         {
@@ -54959,17 +55062,17 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
     #endif
   }
 
-  /* "cycurl/_curl.pyx":1452
+  /* "cycurl/_curl.pyx":1456
  *         the share open so cleanup can be retried after closing those handles.
  *         """
  *         code = self._cleanup()             # <<<<<<<<<<<<<<
  *         if code != curl.CURLSHE_OK:
  *             errmsg = <bytes>(curl.curl_share_strerror(code)).decode()
 */
-  __pyx_t_6 = ((struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *)__pyx_v_self->__pyx_vtab)->_cleanup(__pyx_v_self, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1452, __pyx_L1_error)
+  __pyx_t_6 = ((struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *)__pyx_v_self->__pyx_vtab)->_cleanup(__pyx_v_self, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1456, __pyx_L1_error)
   __pyx_v_code = __pyx_t_6;
 
-  /* "cycurl/_curl.pyx":1453
+  /* "cycurl/_curl.pyx":1457
  *         """
  *         code = self._cleanup()
  *         if code != curl.CURLSHE_OK:             # <<<<<<<<<<<<<<
@@ -54981,7 +55084,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
   if (unlikely(__pyx_t_7)) {
 
 
-    /* "cycurl/_curl.pyx":1454
+    /* "cycurl/_curl.pyx":1458
  *         code = self._cleanup()
  *         if code != curl.CURLSHE_OK:
  *             errmsg = <bytes>(curl.curl_share_strerror(code)).decode()             # <<<<<<<<<<<<<<
@@ -54990,18 +55093,18 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
 */
 
     __pyx_t_8 = curl_share_strerror(__pyx_v_code);
-    __pyx_t_9 = __Pyx_ssize_strlen(__pyx_t_8); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1454, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_decode_c_string(__pyx_t_8, 0, __pyx_t_9, NULL, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1454, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_ssize_strlen(__pyx_t_8); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1458, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_decode_c_string(__pyx_t_8, 0, __pyx_t_9, NULL, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1458, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
 
-    if (!(likely(PyUnicode_CheckExact(__pyx_t_1)) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_1))) __PYX_ERR(0, 1454, __pyx_L1_error)
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_1)) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_1))) __PYX_ERR(0, 1458, __pyx_L1_error)
     __pyx_t_2 = __pyx_t_1;
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_errmsg = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":1455
+    /* "cycurl/_curl.pyx":1459
  *         if code != curl.CURLSHE_OK:
  *             errmsg = <bytes>(curl.curl_share_strerror(code)).decode()
  *             raise CurlError(f"Failed to close share handle: {errmsg}", code=code)             # <<<<<<<<<<<<<<
@@ -55009,14 +55112,14 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
  *     def __dealloc__(self):
 */
     __pyx_t_1 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1455, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1459, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_errmsg, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1455, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_errmsg, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1459, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_10 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_Failed_to_close_share_handle, __pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1455, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_Failed_to_close_share_handle, __pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1459, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_code); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1455, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_code); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1459, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -55034,13 +55137,13 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
       PyObject *__pyx_callargs[3] = {__pyx_t_1, __pyx_t_10, __pyx_t_3};
       #if CYTHON_VECTORCALL
       __pyx_t_11 = __pyx_mstate_global->__pyx_tuple[6];
-      if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1455, __pyx_L1_error)
+      if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1459, __pyx_L1_error)
       __Pyx_INCREF(__pyx_t_11);
       #else
       {
         PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_code};
         __pyx_t_11 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-        if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1455, __pyx_L1_error)
+        if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1459, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
       }
       #endif
@@ -55050,14 +55153,14 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1455, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1459, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1455, __pyx_L1_error)
+    __PYX_ERR(0, 1459, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":1453
+    /* "cycurl/_curl.pyx":1457
  *         """
  *         code = self._cleanup()
  *         if code != curl.CURLSHE_OK:             # <<<<<<<<<<<<<<
@@ -55066,7 +55169,7 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
 */
   }
 
-  /* "cycurl/_curl.pyx":1445
+  /* "cycurl/_curl.pyx":1449
  *         return curl.CURLSHE_OK
  * 
  *     cpdef close(self):             # <<<<<<<<<<<<<<
@@ -55095,16 +55198,16 @@ static PyObject *__pyx_f_6cycurl_5_curl_9CurlShare_close(struct __pyx_obj_6cycur
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_11close(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_13close(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_10close, "CurlShare.close(self)\n\nCleanup the share handle, wrapper for ``curl_share_cleanup``.\n\nOnly call this once every attached easy handle has been closed,\notherwise raises ``CurlError`` with ``CurlShareCode.IN_USE`` and keeps\nthe share open so cleanup can be retried after closing those handles.");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_11close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_11close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_10close};
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_11close(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_12close, "CurlShare.close(self)\n\nCleanup the share handle, wrapper for ``curl_share_cleanup``.\n\nOnly call this once every attached easy handle has been closed,\notherwise raises ``CurlError`` with ``CurlShareCode.IN_USE`` and keeps\nthe share open so cleanup can be retried after closing those handles.");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_13close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_13close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_12close};
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_13close(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -55130,14 +55233,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("close", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_10close(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_12close(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_10close(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_12close(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -55145,7 +55248,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_10close(struct __pyx_obj_6cy
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("close", 0);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare_close(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1445, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_9CurlShare_close(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1449, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   {
     PyObject *__pyx_temp;
@@ -55169,7 +55272,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_10close(struct __pyx_obj_6cy
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1457
+/* "cycurl/_curl.pyx":1461
  *             raise CurlError(f"Failed to close share handle: {errmsg}", code=code)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -55178,24 +55281,24 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_10close(struct __pyx_obj_6cy
 */
 
 /* Python wrapper */
-static void __pyx_pw_6cycurl_5_curl_9CurlShare_13__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_6cycurl_5_curl_9CurlShare_13__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_6cycurl_5_curl_9CurlShare_15__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_6cycurl_5_curl_9CurlShare_15__dealloc__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_pf_6cycurl_5_curl_9CurlShare_12__dealloc__(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self));
+  __pyx_pf_6cycurl_5_curl_9CurlShare_14__dealloc__(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_6cycurl_5_curl_9CurlShare_12__dealloc__(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self) {
+static void __pyx_pf_6cycurl_5_curl_9CurlShare_14__dealloc__(struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self) {
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "cycurl/_curl.pyx":1458
+  /* "cycurl/_curl.pyx":1462
  * 
  *     def __dealloc__(self):
  *         self._finalizing = True             # <<<<<<<<<<<<<<
@@ -55204,16 +55307,16 @@ static void __pyx_pf_6cycurl_5_curl_9CurlShare_12__dealloc__(struct __pyx_obj_6c
 */
   __pyx_v_self->_finalizing = 1;
 
-  /* "cycurl/_curl.pyx":1459
+  /* "cycurl/_curl.pyx":1463
  *     def __dealloc__(self):
  *         self._finalizing = True
  *         self._cleanup()             # <<<<<<<<<<<<<<
  * 
  * @cython.freelist(8)
 */
-  ((struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *)__pyx_v_self->__pyx_vtab)->_cleanup(__pyx_v_self, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1459, __pyx_L1_error)
+  ((struct __pyx_vtabstruct_6cycurl_5_curl_CurlShare *)__pyx_v_self->__pyx_vtab)->_cleanup(__pyx_v_self, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1463, __pyx_L1_error)
 
-  /* "cycurl/_curl.pyx":1457
+  /* "cycurl/_curl.pyx":1461
  *             raise CurlError(f"Failed to close share handle: {errmsg}", code=code)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -55236,16 +55339,16 @@ static void __pyx_pf_6cycurl_5_curl_9CurlShare_12__dealloc__(struct __pyx_obj_6c
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_15__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_17__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_14__reduce_cython__, "CurlShare.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_15__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_15__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_14__reduce_cython__};
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_15__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_16__reduce_cython__, "CurlShare.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_17__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_17__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_16__reduce_cython__};
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_17__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -55271,14 +55374,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__reduce_cython__", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_14__reduce_cython__(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_16__reduce_cython__(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_14__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -55318,16 +55421,16 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_14__reduce_cython__(CYTHON_U
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_17__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_19__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_16__setstate_cython__, "CurlShare.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_17__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_17__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_16__setstate_cython__};
-static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_17__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_6cycurl_5_curl_9CurlShare_18__setstate_cython__, "CurlShare.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_6cycurl_5_curl_9CurlShare_19__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_19__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_18__setstate_cython__};
+static PyObject *__pyx_pw_6cycurl_5_curl_9CurlShare_19__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -55393,7 +55496,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_16__setstate_cython__(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_6cycurl_5_curl_9CurlShare_18__setstate_cython__(((struct __pyx_obj_6cycurl_5_curl_CurlShare *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -55403,7 +55506,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_16__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_6cycurl_5_curl_CurlShare *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -55435,7 +55538,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_9CurlShare_16__setstate_cython__(CYTHON
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1471
+/* "cycurl/_curl.pyx":1475
  *         curl.curl_mime *form
  * 
  *     def __init__(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -55485,24 +55588,24 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_curl_2,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL_TPNEW(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1471, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1475, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL_TPNEW(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1471, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1475, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__init__", 0) < (0)) __PYX_ERR(0, 1471, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__init__", 0) < (0)) __PYX_ERR(0, 1475, __pyx_L3_error)
       if (!values[0]) values[0] = __Pyx_NewRef((PyObject *)((struct __pyx_obj_6cycurl_5_curl_Curl *)Py_None));
     } else {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL_TPNEW(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1471, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1475, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
@@ -55513,7 +55616,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 1471, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 1475, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -55524,7 +55627,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1471, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1475, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime___init__(((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_v_self), __pyx_v_curl_);
 
   /* function exit code */
@@ -55557,14 +55660,14 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "cycurl/_curl.pyx":1476
+  /* "cycurl/_curl.pyx":1480
  *             curl_: Curl instance to use.
  *         """
  *         self._curl = curl_ if curl_ else Curl()             # <<<<<<<<<<<<<<
  *         self.form = curl.curl_mime_init(self._curl._curl)
  * 
 */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_curl_)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 1476, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_curl_)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 1480, __pyx_L1_error)
   if (__pyx_t_2) {
     __Pyx_INCREF((PyObject *)__pyx_v_curl_);
     __pyx_t_1 = ((PyObject *)__pyx_v_curl_);
@@ -55575,7 +55678,7 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
       PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
       __pyx_t_3 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1476, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1480, __pyx_L1_error)
       __Pyx_GOTREF((PyObject *)__pyx_t_3);
     }
     __pyx_t_1 = ((PyObject *)__pyx_t_3);
@@ -55588,7 +55691,7 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
   __pyx_v_self->_curl = ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1477
+  /* "cycurl/_curl.pyx":1481
  *         """
  *         self._curl = curl_ if curl_ else Curl()
  *         self.form = curl.curl_mime_init(self._curl._curl)             # <<<<<<<<<<<<<<
@@ -55597,7 +55700,7 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
 */
   __pyx_v_self->form = curl_mime_init(__pyx_v_self->_curl->_curl);
 
-  /* "cycurl/_curl.pyx":1471
+  /* "cycurl/_curl.pyx":1475
  *         curl.curl_mime *form
  * 
  *     def __init__(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -55620,7 +55723,7 @@ static int __pyx_pf_6cycurl_5_curl_8CurlMime___init__(struct __pyx_obj_6cycurl_5
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1479
+/* "cycurl/_curl.pyx":1483
  *         self.form = curl.curl_mime_init(self._curl._curl)
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -55652,14 +55755,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "cycurl/_curl.pyx":1481
+  /* "cycurl/_curl.pyx":1485
  *     @property
  *     def _form(self):
  *         return PyCapsule_New(self.form, NULL, NULL)             # <<<<<<<<<<<<<<
  * 
  *     cpdef inline addpart(
 */
-  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1481, __pyx_L1_error)
+  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1485, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   {
     PyObject *__pyx_temp;
@@ -55672,7 +55775,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_o
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":1479
+  /* "cycurl/_curl.pyx":1483
  *         self.form = curl.curl_mime_init(self._curl._curl)
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -55691,7 +55794,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_5_form___get__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1483
+/* "cycurl/_curl.pyx":1487
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -55708,7 +55811,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct __pyx_obj_6cycurl_5_curl_CurlMime *__pyx_v_self, PyObject *__pyx_v_name, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_addpart *__pyx_optional_args) {
 
-  /* "cycurl/_curl.pyx":1486
+  /* "cycurl/_curl.pyx":1490
  *         self,
  *         str name,
  *         str content_type = None,             # <<<<<<<<<<<<<<
@@ -55717,7 +55820,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   PyObject *__pyx_v_content_type = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":1487
+  /* "cycurl/_curl.pyx":1491
  *         str name,
  *         str content_type = None,
  *         str filename = None,             # <<<<<<<<<<<<<<
@@ -55726,7 +55829,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   PyObject *__pyx_v_filename = ((PyObject*)Py_None);
 
-  /* "cycurl/_curl.pyx":1488
+  /* "cycurl/_curl.pyx":1492
  *         str content_type = None,
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]             # <<<<<<<<<<<<<<
@@ -55735,7 +55838,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   PyObject *__pyx_v_local_path = ((PyObject *)Py_None);
 
-  /* "cycurl/_curl.pyx":1489
+  /* "cycurl/_curl.pyx":1493
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]
  *         object data = None,             # <<<<<<<<<<<<<<
@@ -55782,7 +55885,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   }
   __Pyx_INCREF(__pyx_v_data);
 
-  /* "cycurl/_curl.pyx":1500
+  /* "cycurl/_curl.pyx":1504
  *             data: file content to upload.
  *         """
  *         cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)             # <<<<<<<<<<<<<<
@@ -55791,7 +55894,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   __pyx_v_part = curl_mime_addpart(__pyx_v_self->form);
 
-  /* "cycurl/_curl.pyx":1502
+  /* "cycurl/_curl.pyx":1506
  *         cdef curl.curl_mimepart *part = curl.curl_mime_addpart(self.form)
  *         cdef int ret
  *         cdef bytes bytesname = name.encode()             # <<<<<<<<<<<<<<
@@ -55800,25 +55903,25 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   if (unlikely(__pyx_v_name == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "\047NoneType\047 object has no attribute \047%.30s\047", "encode");
-    __PYX_ERR(0, 1502, __pyx_L1_error)
+    __PYX_ERR(0, 1506, __pyx_L1_error)
   }
-  __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_name, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1502, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_name, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1506, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_bytesname = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1503
+  /* "cycurl/_curl.pyx":1507
  *         cdef int ret
  *         cdef bytes bytesname = name.encode()
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)             # <<<<<<<<<<<<<<
  *         if ret != 0:
  *             raise CurlError("Add field failed.")
 */
-  __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_bytesname); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 1503, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_bytesname); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 1507, __pyx_L1_error)
   __pyx_v_ret = curl_mime_name(__pyx_v_part, ((char const *)__pyx_t_2));
 
 
-  /* "cycurl/_curl.pyx":1504
+  /* "cycurl/_curl.pyx":1508
  *         cdef bytes bytesname = name.encode()
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -55830,7 +55933,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   if (unlikely(__pyx_t_3)) {
 
 
-    /* "cycurl/_curl.pyx":1505
+    /* "cycurl/_curl.pyx":1509
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)
  *         if ret != 0:
  *             raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
@@ -55838,7 +55941,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         # mime type
 */
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1505, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1509, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -55857,14 +55960,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1505, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1509, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 1505, __pyx_L1_error)
+    __PYX_ERR(0, 1509, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":1504
+    /* "cycurl/_curl.pyx":1508
  *         cdef bytes bytesname = name.encode()
  *         ret = curl.curl_mime_name(part, <const char *>bytesname)
  *         if ret != 0:             # <<<<<<<<<<<<<<
@@ -55873,7 +55976,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1509
+  /* "cycurl/_curl.pyx":1513
  *         # mime type
  *         cdef bytes bytescontent_type
  *         if content_type is not None:             # <<<<<<<<<<<<<<
@@ -55884,7 +55987,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   if (__pyx_t_3) {
 
 
-    /* "cycurl/_curl.pyx":1510
+    /* "cycurl/_curl.pyx":1514
  *         cdef bytes bytescontent_type
  *         if content_type is not None:
  *             bytescontent_type = content_type.encode()             # <<<<<<<<<<<<<<
@@ -55893,25 +55996,25 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     if (unlikely(__pyx_v_content_type == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "\047NoneType\047 object has no attribute \047%.30s\047", "encode");
-      __PYX_ERR(0, 1510, __pyx_L1_error)
+      __PYX_ERR(0, 1514, __pyx_L1_error)
     }
-    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_content_type, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1510, __pyx_L1_error)
+    __pyx_t_1 = PyUnicode_AsEncodedString(__pyx_v_content_type, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1514, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_bytescontent_type = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cycurl/_curl.pyx":1511
+    /* "cycurl/_curl.pyx":1515
  *         if content_type is not None:
  *             bytescontent_type = content_type.encode()
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")
 */
-    __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_bytescontent_type); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 1511, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_bytescontent_type); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 1515, __pyx_L1_error)
     __pyx_v_ret = curl_mime_type(__pyx_v_part, ((char const *)__pyx_t_7));
 
 
-    /* "cycurl/_curl.pyx":1512
+    /* "cycurl/_curl.pyx":1516
  *             bytescontent_type = content_type.encode()
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -55923,7 +56026,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     if (unlikely(__pyx_t_3)) {
 
 
-      /* "cycurl/_curl.pyx":1513
+      /* "cycurl/_curl.pyx":1517
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
@@ -55931,7 +56034,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         if local_path is not None and data is not None:
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1513, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1517, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -55950,14 +56053,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1513, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1517, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 1513, __pyx_L1_error)
+      __PYX_ERR(0, 1517, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1512
+      /* "cycurl/_curl.pyx":1516
  *             bytescontent_type = content_type.encode()
  *             ret = curl.curl_mime_type(part, <const char *>bytescontent_type)
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -55966,7 +56069,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1509
+    /* "cycurl/_curl.pyx":1513
  *         # mime type
  *         cdef bytes bytescontent_type
  *         if content_type is not None:             # <<<<<<<<<<<<<<
@@ -55975,7 +56078,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1515
+  /* "cycurl/_curl.pyx":1519
  *                 raise CurlError("Add field failed.")
  * 
  *         if local_path is not None and data is not None:             # <<<<<<<<<<<<<<
@@ -55999,7 +56102,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   if (unlikely(__pyx_t_3)) {
 
 
-    /* "cycurl/_curl.pyx":1516
+    /* "cycurl/_curl.pyx":1520
  * 
  *         if local_path is not None and data is not None:
  *             raise CurlError("Can not use local_path and data at the same time.")             # <<<<<<<<<<<<<<
@@ -56007,7 +56110,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         # this is a filename
 */
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1516, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1520, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -56026,14 +56129,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1516, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1520, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 1516, __pyx_L1_error)
+    __PYX_ERR(0, 1520, __pyx_L1_error)
 
-    /* "cycurl/_curl.pyx":1515
+    /* "cycurl/_curl.pyx":1519
  *                 raise CurlError("Add field failed.")
  * 
  *         if local_path is not None and data is not None:             # <<<<<<<<<<<<<<
@@ -56042,7 +56145,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1519
+  /* "cycurl/_curl.pyx":1523
  * 
  *         # this is a filename
  *         if local_path is not None:             # <<<<<<<<<<<<<<
@@ -56053,33 +56156,33 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   if (__pyx_t_3) {
 
 
-    /* "cycurl/_curl.pyx":1520
+    /* "cycurl/_curl.pyx":1524
  *         # this is a filename
  *         if local_path is not None:
  *             if isinstance(local_path, Path):             # <<<<<<<<<<<<<<
  *                 local_path_str = str(local_path)
  *             elif isinstance(local_path, bytes):
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1520, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1524, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PyObject_IsInstance(__pyx_v_local_path, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 1520, __pyx_L1_error)
+    __pyx_t_3 = PyObject_IsInstance(__pyx_v_local_path, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 1524, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_3) {
 
 
-      /* "cycurl/_curl.pyx":1521
+      /* "cycurl/_curl.pyx":1525
  *         if local_path is not None:
  *             if isinstance(local_path, Path):
  *                 local_path_str = str(local_path)             # <<<<<<<<<<<<<<
  *             elif isinstance(local_path, bytes):
  *                 local_path_str = local_path.decode()
 */
-      __pyx_t_1 = __Pyx_PyObject_Unicode(__pyx_v_local_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1521, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Unicode(__pyx_v_local_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1525, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_v_local_path_str = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "cycurl/_curl.pyx":1520
+      /* "cycurl/_curl.pyx":1524
  *         # this is a filename
  *         if local_path is not None:
  *             if isinstance(local_path, Path):             # <<<<<<<<<<<<<<
@@ -56089,7 +56192,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       goto __pyx_L10;
     }
 
-    /* "cycurl/_curl.pyx":1522
+    /* "cycurl/_curl.pyx":1526
  *             if isinstance(local_path, Path):
  *                 local_path_str = str(local_path)
  *             elif isinstance(local_path, bytes):             # <<<<<<<<<<<<<<
@@ -56100,7 +56203,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     if (__pyx_t_3) {
 
 
-      /* "cycurl/_curl.pyx":1523
+      /* "cycurl/_curl.pyx":1527
  *                 local_path_str = str(local_path)
  *             elif isinstance(local_path, bytes):
  *                 local_path_str = local_path.decode()             # <<<<<<<<<<<<<<
@@ -56114,13 +56217,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
         __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_decode, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1523, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1527, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __pyx_v_local_path_str = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "cycurl/_curl.pyx":1522
+      /* "cycurl/_curl.pyx":1526
  *             if isinstance(local_path, Path):
  *                 local_path_str = str(local_path)
  *             elif isinstance(local_path, bytes):             # <<<<<<<<<<<<<<
@@ -56130,7 +56233,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       goto __pyx_L10;
     }
 
-    /* "cycurl/_curl.pyx":1525
+    /* "cycurl/_curl.pyx":1529
  *                 local_path_str = local_path.decode()
  *             else:
  *                 local_path_str = local_path             # <<<<<<<<<<<<<<
@@ -56143,7 +56246,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     }
     __pyx_L10:;
 
-    /* "cycurl/_curl.pyx":1527
+    /* "cycurl/_curl.pyx":1531
  *                 local_path_str = local_path
  * 
  *             if not Path(local_path_str).exists():             # <<<<<<<<<<<<<<
@@ -56151,7 +56254,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *             ret = curl.curl_mime_filedata(part, PyUnicode_AsUTF8(local_path_str))
 */
     __pyx_t_9 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1527, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1531, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_t_6 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -56170,7 +56273,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1527, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1531, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     __pyx_t_5 = __pyx_t_4;
@@ -56181,10 +56284,10 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_exists, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1527, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1531, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1527, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 1531, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_8 = (!__pyx_t_3);
 
@@ -56192,7 +56295,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     if (unlikely(__pyx_t_8)) {
 
 
-      /* "cycurl/_curl.pyx":1528
+      /* "cycurl/_curl.pyx":1532
  * 
  *             if not Path(local_path_str).exists():
  *                 raise FileNotFoundError(f"File not found at {local_path_str}")             # <<<<<<<<<<<<<<
@@ -56200,9 +56303,9 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *             if ret != 0:
 */
       __pyx_t_4 = NULL;
-      __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_v_local_path_str, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1528, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_v_local_path_str, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1532, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_10 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_File_not_found_at, __pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1528, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_File_not_found_at, __pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1532, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_6 = 1;
@@ -56211,14 +56314,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_FileNotFoundError)), __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1528, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1532, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 1528, __pyx_L1_error)
+      __PYX_ERR(0, 1532, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1527
+      /* "cycurl/_curl.pyx":1531
  *                 local_path_str = local_path
  * 
  *             if not Path(local_path_str).exists():             # <<<<<<<<<<<<<<
@@ -56227,18 +56330,18 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1529
+    /* "cycurl/_curl.pyx":1533
  *             if not Path(local_path_str).exists():
  *                 raise FileNotFoundError(f"File not found at {local_path_str}")
  *             ret = curl.curl_mime_filedata(part, PyUnicode_AsUTF8(local_path_str))             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")
 */
-    __pyx_t_11 = PyUnicode_AsUTF8(__pyx_v_local_path_str); if (unlikely(__pyx_t_11 == ((void *)NULL))) __PYX_ERR(0, 1529, __pyx_L1_error)
+    __pyx_t_11 = PyUnicode_AsUTF8(__pyx_v_local_path_str); if (unlikely(__pyx_t_11 == ((void *)NULL))) __PYX_ERR(0, 1533, __pyx_L1_error)
     __pyx_v_ret = curl_mime_filedata(__pyx_v_part, __pyx_t_11);
 
 
-    /* "cycurl/_curl.pyx":1530
+    /* "cycurl/_curl.pyx":1534
  *                 raise FileNotFoundError(f"File not found at {local_path_str}")
  *             ret = curl.curl_mime_filedata(part, PyUnicode_AsUTF8(local_path_str))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -56250,7 +56353,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     if (unlikely(__pyx_t_8)) {
 
 
-      /* "cycurl/_curl.pyx":1531
+      /* "cycurl/_curl.pyx":1535
  *             ret = curl.curl_mime_filedata(part, PyUnicode_AsUTF8(local_path_str))
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
@@ -56258,7 +56361,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         # remote file name
 */
       __pyx_t_10 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1531, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1535, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -56277,14 +56380,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1531, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1535, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 1531, __pyx_L1_error)
+      __PYX_ERR(0, 1535, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1530
+      /* "cycurl/_curl.pyx":1534
  *                 raise FileNotFoundError(f"File not found at {local_path_str}")
  *             ret = curl.curl_mime_filedata(part, PyUnicode_AsUTF8(local_path_str))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -56293,7 +56396,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1519
+    /* "cycurl/_curl.pyx":1523
  * 
  *         # this is a filename
  *         if local_path is not None:             # <<<<<<<<<<<<<<
@@ -56302,7 +56405,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1534
+  /* "cycurl/_curl.pyx":1538
  * 
  *         # remote file name
  *         if filename is not None:             # <<<<<<<<<<<<<<
@@ -56313,18 +56416,18 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   if (__pyx_t_8) {
 
 
-    /* "cycurl/_curl.pyx":1535
+    /* "cycurl/_curl.pyx":1539
  *         # remote file name
  *         if filename is not None:
  *             ret = curl.curl_mime_filename(part, PyUnicode_AsUTF8(filename))             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")
 */
-    __pyx_t_11 = PyUnicode_AsUTF8(__pyx_v_filename); if (unlikely(__pyx_t_11 == ((void *)NULL))) __PYX_ERR(0, 1535, __pyx_L1_error)
+    __pyx_t_11 = PyUnicode_AsUTF8(__pyx_v_filename); if (unlikely(__pyx_t_11 == ((void *)NULL))) __PYX_ERR(0, 1539, __pyx_L1_error)
     __pyx_v_ret = curl_mime_filename(__pyx_v_part, __pyx_t_11);
 
 
-    /* "cycurl/_curl.pyx":1536
+    /* "cycurl/_curl.pyx":1540
  *         if filename is not None:
  *             ret = curl.curl_mime_filename(part, PyUnicode_AsUTF8(filename))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -56336,7 +56439,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     if (unlikely(__pyx_t_8)) {
 
 
-      /* "cycurl/_curl.pyx":1537
+      /* "cycurl/_curl.pyx":1541
  *             ret = curl.curl_mime_filename(part, PyUnicode_AsUTF8(filename))
  *             if ret != 0:
  *                 raise CurlError("Add field failed.")             # <<<<<<<<<<<<<<
@@ -56344,7 +56447,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *         if data is not None:
 */
       __pyx_t_4 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1537, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1541, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -56363,14 +56466,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1537, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1541, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 1537, __pyx_L1_error)
+      __PYX_ERR(0, 1541, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1536
+      /* "cycurl/_curl.pyx":1540
  *         if filename is not None:
  *             ret = curl.curl_mime_filename(part, PyUnicode_AsUTF8(filename))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -56379,7 +56482,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1534
+    /* "cycurl/_curl.pyx":1538
  * 
  *         # remote file name
  *         if filename is not None:             # <<<<<<<<<<<<<<
@@ -56388,7 +56491,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1539
+  /* "cycurl/_curl.pyx":1543
  *                 raise CurlError("Add field failed.")
  * 
  *         if data is not None:             # <<<<<<<<<<<<<<
@@ -56399,7 +56502,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
   if (__pyx_t_8) {
 
 
-    /* "cycurl/_curl.pyx":1540
+    /* "cycurl/_curl.pyx":1544
  * 
  *         if data is not None:
  *             if not isinstance(data, bytes):             # <<<<<<<<<<<<<<
@@ -56413,22 +56516,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     if (__pyx_t_3) {
 
 
-      /* "cycurl/_curl.pyx":1541
+      /* "cycurl/_curl.pyx":1545
  *         if data is not None:
  *             if not isinstance(data, bytes):
  *                 data = str(data).encode()             # <<<<<<<<<<<<<<
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:
 */
-      __pyx_t_1 = __Pyx_PyObject_Unicode(__pyx_v_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1541, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Unicode(__pyx_v_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1545, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_10 = PyUnicode_AsEncodedString(((PyObject*)__pyx_t_1), NULL, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1541, __pyx_L1_error)
+      __pyx_t_10 = PyUnicode_AsEncodedString(((PyObject*)__pyx_t_1), NULL, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1545, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF_SET(__pyx_v_data, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "cycurl/_curl.pyx":1540
+      /* "cycurl/_curl.pyx":1544
  * 
  *         if data is not None:
  *             if not isinstance(data, bytes):             # <<<<<<<<<<<<<<
@@ -56437,18 +56540,18 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1542
+    /* "cycurl/_curl.pyx":1546
  *             if not isinstance(data, bytes):
  *                 data = str(data).encode()
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))             # <<<<<<<<<<<<<<
  *             if ret != 0:
  *                 raise CurlError("Add data failed.")
 */
-    __pyx_t_12 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_12) && PyErr_Occurred())) __PYX_ERR(0, 1542, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_12) && PyErr_Occurred())) __PYX_ERR(0, 1546, __pyx_L1_error)
     __pyx_v_ret = curl_mime_data(__pyx_v_part, ((char const *)__pyx_t_12), PyBytes_GET_SIZE(__pyx_v_data));
 
 
-    /* "cycurl/_curl.pyx":1543
+    /* "cycurl/_curl.pyx":1547
  *                 data = str(data).encode()
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -56460,7 +56563,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
     if (unlikely(__pyx_t_3)) {
 
 
-      /* "cycurl/_curl.pyx":1544
+      /* "cycurl/_curl.pyx":1548
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:
  *                 raise CurlError("Add data failed.")             # <<<<<<<<<<<<<<
@@ -56468,7 +56571,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
  *     @classmethod
 */
       __pyx_t_1 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1544, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_CurlError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1548, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -56487,14 +56590,14 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
         __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1544, __pyx_L1_error)
+        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1548, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
       }
       __Pyx_Raise(__pyx_t_10, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __PYX_ERR(0, 1544, __pyx_L1_error)
+      __PYX_ERR(0, 1548, __pyx_L1_error)
 
-      /* "cycurl/_curl.pyx":1543
+      /* "cycurl/_curl.pyx":1547
  *                 data = str(data).encode()
  *             ret = curl.curl_mime_data(part, <const char *>data, PyBytes_GET_SIZE(data))
  *             if ret != 0:             # <<<<<<<<<<<<<<
@@ -56503,7 +56606,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
     }
 
-    /* "cycurl/_curl.pyx":1539
+    /* "cycurl/_curl.pyx":1543
  *                 raise CurlError("Add field failed.")
  * 
  *         if data is not None:             # <<<<<<<<<<<<<<
@@ -56512,7 +56615,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_addpart(struct _
 */
   }
 
-  /* "cycurl/_curl.pyx":1483
+  /* "cycurl/_curl.pyx":1487
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -56587,36 +56690,36 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_name,&__pyx_mstate_global->__pyx_n_u_content_type,&__pyx_mstate_global->__pyx_n_u_filename,&__pyx_mstate_global->__pyx_n_u_local_path,&__pyx_mstate_global->__pyx_n_u_data,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1483, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1487, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1487, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1487, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1487, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1487, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1487, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "addpart", 0) < (0)) __PYX_ERR(0, 1483, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "addpart", 0) < (0)) __PYX_ERR(0, 1487, __pyx_L3_error)
 
-      /* "cycurl/_curl.pyx":1486
+      /* "cycurl/_curl.pyx":1490
  *         self,
  *         str name,
  *         str content_type = None,             # <<<<<<<<<<<<<<
@@ -56625,7 +56728,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)Py_None));
 
-      /* "cycurl/_curl.pyx":1487
+      /* "cycurl/_curl.pyx":1491
  *         str name,
  *         str content_type = None,
  *         str filename = None,             # <<<<<<<<<<<<<<
@@ -56634,7 +56737,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
 
-      /* "cycurl/_curl.pyx":1488
+      /* "cycurl/_curl.pyx":1492
  *         str content_type = None,
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]             # <<<<<<<<<<<<<<
@@ -56643,7 +56746,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)Py_None));
 
-      /* "cycurl/_curl.pyx":1489
+      /* "cycurl/_curl.pyx":1493
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]
  *         object data = None,             # <<<<<<<<<<<<<<
@@ -56652,34 +56755,34 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[4]) values[4] = __Pyx_NewRef(((PyObject *)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, i); __PYX_ERR(0, 1483, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, i); __PYX_ERR(0, 1487, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1487, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1487, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1487, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1487, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1483, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1487, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
 
-      /* "cycurl/_curl.pyx":1486
+      /* "cycurl/_curl.pyx":1490
  *         self,
  *         str name,
  *         str content_type = None,             # <<<<<<<<<<<<<<
@@ -56688,7 +56791,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)Py_None));
 
-      /* "cycurl/_curl.pyx":1487
+      /* "cycurl/_curl.pyx":1491
  *         str name,
  *         str content_type = None,
  *         str filename = None,             # <<<<<<<<<<<<<<
@@ -56697,7 +56800,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
 
-      /* "cycurl/_curl.pyx":1488
+      /* "cycurl/_curl.pyx":1492
  *         str content_type = None,
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]             # <<<<<<<<<<<<<<
@@ -56706,7 +56809,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)Py_None));
 
-      /* "cycurl/_curl.pyx":1489
+      /* "cycurl/_curl.pyx":1493
  *         str filename = None,
  *         object local_path = None,  # Optional[Union[str, bytes, Path]]
  *         object data = None,             # <<<<<<<<<<<<<<
@@ -56723,7 +56826,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, __pyx_nargs); __PYX_ERR(0, 1483, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("addpart", 0, 1, 5, __pyx_nargs); __PYX_ERR(0, 1487, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -56734,12 +56837,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 1485, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_content_type), (&PyUnicode_Type), 1, "content_type", 1))) __PYX_ERR(0, 1486, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_filename), (&PyUnicode_Type), 1, "filename", 1))) __PYX_ERR(0, 1487, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 1489, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_content_type), (&PyUnicode_Type), 1, "content_type", 1))) __PYX_ERR(0, 1490, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_filename), (&PyUnicode_Type), 1, "filename", 1))) __PYX_ERR(0, 1491, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_v_self), __pyx_v_name, __pyx_v_content_type, __pyx_v_filename, __pyx_v_local_path, __pyx_v_data);
 
-  /* "cycurl/_curl.pyx":1483
+  /* "cycurl/_curl.pyx":1487
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -56778,7 +56881,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(struct __pyx_obj_6cy
   __pyx_t_2.filename = __pyx_v_filename;
   __pyx_t_2.local_path = __pyx_v_local_path;
   __pyx_t_2.data = __pyx_v_data;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->addpart(__pyx_v_self, __pyx_v_name, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1483, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->addpart(__pyx_v_self, __pyx_v_name, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1487, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   {
     PyObject *__pyx_temp;
@@ -56802,7 +56905,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_2addpart(struct __pyx_obj_6cy
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1546
+/* "cycurl/_curl.pyx":1550
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -56850,32 +56953,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_files,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1546, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1550, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1546, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1550, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "from_list", 0) < (0)) __PYX_ERR(0, 1546, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "from_list", 0) < (0)) __PYX_ERR(0, 1550, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, i); __PYX_ERR(0, 1546, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, i); __PYX_ERR(0, 1550, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1546, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1550, __pyx_L3_error)
     }
     __pyx_v_files = ((PyObject*)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1546, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("from_list", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 1550, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -56886,7 +56989,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_files), (&PyList_Type), 1, "files", 1))) __PYX_ERR(0, 1547, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_files), (&PyList_Type), 1, "files", 1))) __PYX_ERR(0, 1551, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(((PyTypeObject*)__pyx_v_cls), __pyx_v_files);
 
   /* function exit code */
@@ -56922,7 +57025,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("from_list", 0);
 
-  /* "cycurl/_curl.pyx":1549
+  /* "cycurl/_curl.pyx":1553
  *     def from_list(cls, list files):  # files: List[dict]
  *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  *         cdef CurlMime form = cls()             # <<<<<<<<<<<<<<
@@ -56935,14 +57038,14 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_v_cls, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1549, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1553, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime))))) __PYX_ERR(0, 1549, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime))))) __PYX_ERR(0, 1553, __pyx_L1_error)
   __pyx_v_form = ((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1550
+  /* "cycurl/_curl.pyx":1554
  *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  *         cdef CurlMime form = cls()
  *         for file in files:             # <<<<<<<<<<<<<<
@@ -56951,7 +57054,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
 */
   if (unlikely(__pyx_v_files == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "\047NoneType\047 object is not iterable");
-    __PYX_ERR(0, 1550, __pyx_L1_error)
+    __PYX_ERR(0, 1554, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_files; __Pyx_INCREF(__pyx_t_1);
   __pyx_t_4 = 0;
@@ -56959,44 +57062,44 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
     {
       Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
       #if !CYTHON_ASSUME_SAFE_SIZE
-      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1550, __pyx_L1_error)
+      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1554, __pyx_L1_error)
       #endif
       if (__pyx_t_4 >= __pyx_temp) break;
     }
     __pyx_t_2 = __Pyx_PyList_GET_ITEM_REF(__pyx_t_1, __pyx_t_4, __Pyx_ReferenceSharing_OwnStrongReference);
     ++__pyx_t_4;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1550, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1554, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XDECREF_SET(__pyx_v_file, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cycurl/_curl.pyx":1551
+    /* "cycurl/_curl.pyx":1555
  *         cdef CurlMime form = cls()
  *         for file in files:
  *             form.addpart(**file)             # <<<<<<<<<<<<<<
  *         return form
  * 
 */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_form), __pyx_mstate_global->__pyx_n_u_addpart); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1551, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_form), __pyx_mstate_global->__pyx_n_u_addpart); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1555, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (unlikely(__pyx_v_file == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-      __PYX_ERR(0, 1551, __pyx_L1_error)
+      __PYX_ERR(0, 1555, __pyx_L1_error)
     }
     if (likely(PyDict_CheckExact(__pyx_v_file))) {
-      __pyx_t_5 = PyDict_Copy(__pyx_v_file); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1551, __pyx_L1_error)
+      __pyx_t_5 = PyDict_Copy(__pyx_v_file); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1555, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
     } else {
-      __pyx_t_5 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_v_file); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1551, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_v_file); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1555, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
     }
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1551, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1555, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "cycurl/_curl.pyx":1550
+    /* "cycurl/_curl.pyx":1554
  *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
  *         cdef CurlMime form = cls()
  *         for file in files:             # <<<<<<<<<<<<<<
@@ -57006,7 +57109,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1552
+  /* "cycurl/_curl.pyx":1556
  *         for file in files:
  *             form.addpart(**file)
  *         return form             # <<<<<<<<<<<<<<
@@ -57024,7 +57127,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   }
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":1546
+  /* "cycurl/_curl.pyx":1550
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -57048,7 +57151,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_4from_list(PyTypeObject *__py
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1554
+/* "cycurl/_curl.pyx":1558
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -57081,7 +57184,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_attach(struct __
     }
   }
 
-  /* "cycurl/_curl.pyx":1556
+  /* "cycurl/_curl.pyx":1560
  *     cpdef inline attach(self, Curl curl_ = None):
  *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl             # <<<<<<<<<<<<<<
@@ -57100,20 +57203,20 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_attach(struct __
   __pyx_v_c = ((struct __pyx_obj_6cycurl_5_curl_Curl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1557
+  /* "cycurl/_curl.pyx":1561
  *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))             # <<<<<<<<<<<<<<
  * 
  *     cpdef inline close(self):
 */
-  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1557, __pyx_L1_error)
+  __pyx_t_1 = PyCapsule_New(__pyx_v_self->form, NULL, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1561, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_c, CURLOPT_MIMEPOST, __pyx_t_1, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 1557, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_6cycurl_5_curl_4Curl_setopt(__pyx_v_c, CURLOPT_MIMEPOST, __pyx_t_1, 0); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 1561, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
 
-  /* "cycurl/_curl.pyx":1554
+  /* "cycurl/_curl.pyx":1558
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -57175,24 +57278,24 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_curl_2,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1554, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1558, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1554, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1558, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "attach", 0) < (0)) __PYX_ERR(0, 1554, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "attach", 0) < (0)) __PYX_ERR(0, 1558, __pyx_L3_error)
       if (!values[0]) values[0] = __Pyx_NewRef((PyObject *)((struct __pyx_obj_6cycurl_5_curl_Curl *)Py_None));
     } else {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1554, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1558, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
@@ -57203,7 +57306,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("attach", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 1554, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("attach", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 1558, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -57214,7 +57317,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1554, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_curl_), __pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_Curl, 1, "curl_", 0))) __PYX_ERR(0, 1558, __pyx_L1_error)
   __pyx_r = __pyx_pf_6cycurl_5_curl_8CurlMime_6attach(((struct __pyx_obj_6cycurl_5_curl_CurlMime *)__pyx_v_self), __pyx_v_curl_);
 
   /* function exit code */
@@ -57245,7 +57348,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_6attach(struct __pyx_obj_6cyc
   __Pyx_RefNannySetupContext("attach", 0);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.curl_ = __pyx_v_curl_;
-  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->attach(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1554, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_6cycurl_5_curl_CurlMime->attach(__pyx_v_self, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1558, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   {
     PyObject *__pyx_temp;
@@ -57269,7 +57372,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_6attach(struct __pyx_obj_6cyc
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1559
+/* "cycurl/_curl.pyx":1563
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     cpdef inline close(self):             # <<<<<<<<<<<<<<
@@ -57289,7 +57392,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_close(struct __p
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("close", 0);
 
-  /* "cycurl/_curl.pyx":1562
+  /* "cycurl/_curl.pyx":1566
  *         """Close the mime instance and underlying files. This method must be called after
  *         ``perform`` or ``request``."""
  *         curl.curl_mime_free(self.form)             # <<<<<<<<<<<<<<
@@ -57298,7 +57401,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_close(struct __p
 */
   curl_mime_free(__pyx_v_self->form);
 
-  /* "cycurl/_curl.pyx":1563
+  /* "cycurl/_curl.pyx":1567
  *         ``perform`` or ``request``."""
  *         curl.curl_mime_free(self.form)
  *         self.form = NULL             # <<<<<<<<<<<<<<
@@ -57307,7 +57410,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_8CurlMime_close(struct __p
 */
   __pyx_v_self->form = NULL;
 
-  /* "cycurl/_curl.pyx":1559
+  /* "cycurl/_curl.pyx":1563
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     cpdef inline close(self):             # <<<<<<<<<<<<<<
@@ -57373,7 +57476,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_8close(struct __pyx_obj_6cycu
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("close", 0);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_8CurlMime_close(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1559, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_8CurlMime_close(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1563, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   {
     PyObject *__pyx_temp;
@@ -57397,7 +57500,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_8close(struct __pyx_obj_6cycu
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1565
+/* "cycurl/_curl.pyx":1569
  *         self.form = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -57426,18 +57529,18 @@ static void __pyx_pf_6cycurl_5_curl_8CurlMime_10__dealloc__(struct __pyx_obj_6cy
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "cycurl/_curl.pyx":1566
+  /* "cycurl/_curl.pyx":1570
  * 
  *     def __dealloc__(self):
  *         self.close()             # <<<<<<<<<<<<<<
  * 
  * cpdef inline bytes version():
 */
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_8CurlMime_close(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1566, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_8CurlMime_close(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1570, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cycurl/_curl.pyx":1565
+  /* "cycurl/_curl.pyx":1569
  *         self.form = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -57661,7 +57764,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_8CurlMime_14__setstate_cython__(CYTHON_
   return __pyx_r;
 }
 
-/* "cycurl/_curl.pyx":1568
+/* "cycurl/_curl.pyx":1572
  *         self.close()
  * 
  * cpdef inline bytes version():             # <<<<<<<<<<<<<<
@@ -57679,12 +57782,12 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_version(CYTHON_UNUSED int 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("version", 0);
 
-  /* "cycurl/_curl.pyx":1570
+  /* "cycurl/_curl.pyx":1574
  * cpdef inline bytes version():
  *     """Get the underlying libcurl version."""
  *     return <bytes>curl.curl_version()             # <<<<<<<<<<<<<<
 */
-  __pyx_t_1 = __Pyx_PyBytes_FromString(curl_version()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1570, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBytes_FromString(curl_version()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1574, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   {
     PyObject *__pyx_temp;
@@ -57698,7 +57801,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6cycurl_5_curl_version(CYTHON_UNUSED int 
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cycurl/_curl.pyx":1568
+  /* "cycurl/_curl.pyx":1572
  *         self.close()
  * 
  * cpdef inline bytes version():             # <<<<<<<<<<<<<<
@@ -57742,7 +57845,7 @@ static PyObject *__pyx_pf_6cycurl_5_curl_14version(CYTHON_UNUSED PyObject *__pyx
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("version", 0);
-  __pyx_t_1 = __pyx_f_6cycurl_5_curl_version(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1568, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6cycurl_5_curl_version(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1572, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   {
     PyObject *__pyx_temp;
@@ -59160,7 +59263,7 @@ static void __pyx_tp_dealloc_6cycurl_5_curl_CurlShare(PyObject *o) {
     PyObject *etype, *eval, *etb;
     __Pyx_PyErr_FetchException(&etype, &eval, &etb);
     __Pyx_DeallocKeepAliveBegin(o);
-    __pyx_pw_6cycurl_5_curl_9CurlShare_13__dealloc__(o);
+    __pyx_pw_6cycurl_5_curl_9CurlShare_15__dealloc__(o);
     __Pyx_DeallocKeepAliveEnd(o);
     __Pyx_PyErr_RestoreException(etype, eval, etb);
   }
@@ -59202,8 +59305,9 @@ static int __pyx_tp_clear_6cycurl_5_curl_CurlShare(PyObject *o) {
 }
 
 static PyMethodDef __pyx_methods_6cycurl_5_curl_CurlShare[] = {
-  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_15__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_14__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_17__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_16__setstate_cython__},
+  {"get_curl_share", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_3get_curl_share, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_2get_curl_share},
+  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_17__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_16__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6cycurl_5_curl_9CurlShare_19__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_6cycurl_5_curl_9CurlShare_18__setstate_cython__},
   {0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
@@ -62651,14 +62755,14 @@ static int __Pyx_modinit_Exttype___pyx_obj_6cycurl_5_curl_CurlMime(__pyx_mstatet
   __pyx_vtable_6cycurl_5_curl_CurlMime.attach = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_CurlMime *, int __pyx_skip_dispatch, struct __pyx_opt_args_6cycurl_5_curl_8CurlMime_attach *__pyx_optional_args))__pyx_f_6cycurl_5_curl_8CurlMime_attach;
   __pyx_vtable_6cycurl_5_curl_CurlMime.close = (PyObject *(*)(struct __pyx_obj_6cycurl_5_curl_CurlMime *, int __pyx_skip_dispatch))__pyx_f_6cycurl_5_curl_8CurlMime_close;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_CurlMime_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime)) __PYX_ERR(0, 1461, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_6cycurl_5_curl_CurlMime_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime)) __PYX_ERR(0, 1465, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime = &__pyx_type_6cycurl_5_curl_CurlMime;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1461, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1465, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime);
@@ -62670,7 +62774,7 @@ static int __Pyx_modinit_Exttype___pyx_obj_6cycurl_5_curl_CurlMime(__pyx_mstatet
   #endif
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 1461, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 1465, __pyx_L1_error)
     if (Py_IS_TYPE(wrapper, &PyWrapperDescr_Type)) {
       __pyx_wrapperbase_6cycurl_5_curl_8CurlMime___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
       __pyx_wrapperbase_6cycurl_5_curl_8CurlMime___init__.doc = __pyx_doc_6cycurl_5_curl_8CurlMime___init__;
@@ -62678,9 +62782,9 @@ static int __Pyx_modinit_Exttype___pyx_obj_6cycurl_5_curl_CurlMime(__pyx_mstatet
     }
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_vtabptr_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1461, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_CurlMime, (PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1461, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1461, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_vtabptr_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1465, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_CurlMime, (PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1465, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_6cycurl_5_curl_CurlMime) < (0)) __PYX_ERR(0, 1465, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -75057,76 +75161,91 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   /* "cycurl/_curl.pyx":1410
  *             self.share(curl.CURL_LOCK_DATA_SSL_SESSION)
  * 
- *     cpdef object _setopt(self, int option, object value):             # <<<<<<<<<<<<<<
- *         cdef:
- *             void* c_value = NULL
+ *     def get_curl_share(self):             # <<<<<<<<<<<<<<
+ *         """Get the underlying ``CURLSH`` pointer as a PyCapsule."""
+ *         return PyCapsule_New(self._curl_share, NULL, NULL)
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_3_setopt, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare__setopt, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[68])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1410, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_3get_curl_share, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare_get_curl_share, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[68])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1410, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_setopt_2, __pyx_t_11) < (0)) __PYX_ERR(0, 1410, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_get_curl_share, __pyx_t_11) < (0)) __PYX_ERR(0, 1410, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1426
+  /* "cycurl/_curl.pyx":1414
+ *         return PyCapsule_New(self._curl_share, NULL, NULL)
+ * 
+ *     cpdef object _setopt(self, int option, object value):             # <<<<<<<<<<<<<<
+ *         cdef:
+ *             void* c_value = NULL
+*/
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_5_setopt, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare__setopt, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[69])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1414, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_11);
+  #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
+  PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
+  #endif
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_setopt_2, __pyx_t_11) < (0)) __PYX_ERR(0, 1414, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+
+  /* "cycurl/_curl.pyx":1430
  *             raise CurlError(f"Failed to set share option {option}: {errmsg}", code=code)
  * 
  *     cpdef share(self, int data):             # <<<<<<<<<<<<<<
  *         """Start sharing the given ``CurlLockData`` across attached handles."""
  *         self._setopt(curl.CURLSHOPT_SHARE, data)
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_5share, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare_share, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[69])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1426, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_7share, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare_share, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[70])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1430, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_share, __pyx_t_11) < (0)) __PYX_ERR(0, 1426, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_share, __pyx_t_11) < (0)) __PYX_ERR(0, 1430, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1430
+  /* "cycurl/_curl.pyx":1434
  *         self._setopt(curl.CURLSHOPT_SHARE, data)
  * 
  *     cpdef unshare(self, int data):             # <<<<<<<<<<<<<<
  *         """Stop sharing the given ``CurlLockData``."""
  *         self._setopt(curl.CURLSHOPT_UNSHARE, data)
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_7unshare, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare_unshare, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[70])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1430, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_9unshare, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare_unshare, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[71])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_unshare, __pyx_t_11) < (0)) __PYX_ERR(0, 1430, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_unshare, __pyx_t_11) < (0)) __PYX_ERR(0, 1434, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1434
+  /* "cycurl/_curl.pyx":1438
  *         self._setopt(curl.CURLSHOPT_UNSHARE, data)
  * 
  *     cpdef int _cleanup(self):             # <<<<<<<<<<<<<<
  *         cdef int code
  *         with nogil:
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_9_cleanup, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare__cleanup, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[71])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1434, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_11_cleanup, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare__cleanup, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[72])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_cleanup, __pyx_t_11) < (0)) __PYX_ERR(0, 1434, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_cleanup, __pyx_t_11) < (0)) __PYX_ERR(0, 1438, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1445
+  /* "cycurl/_curl.pyx":1449
  *         return curl.CURLSHE_OK
  * 
  *     cpdef close(self):             # <<<<<<<<<<<<<<
  *         """Cleanup the share handle, wrapper for ``curl_share_cleanup``.
  * 
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_11close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[72])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1445, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_13close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[73])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1449, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_11) < (0)) __PYX_ERR(0, 1445, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlShare, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_11) < (0)) __PYX_ERR(0, 1449, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
   /* "(tree fragment)":1
@@ -75134,7 +75253,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_15__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[73])); if (unlikely(!__pyx_t_11)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_17__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[74])); if (unlikely(!__pyx_t_11)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
@@ -75148,7 +75267,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_17__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[74])); if (unlikely(!__pyx_t_11)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_9CurlShare_19__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlShare___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[75])); if (unlikely(!__pyx_t_11)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
@@ -75156,73 +75275,73 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_11) < (0)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1483
+  /* "cycurl/_curl.pyx":1487
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
  *         self,
  *         str name,
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_3addpart, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_addpart, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[75])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1483, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_3addpart, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_addpart, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[76])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1487, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_11, __pyx_mstate_global->__pyx_tuple[13]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_addpart, __pyx_t_11) < (0)) __PYX_ERR(0, 1483, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_addpart, __pyx_t_11) < (0)) __PYX_ERR(0, 1487, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "cycurl/_curl.pyx":1546
+  /* "cycurl/_curl.pyx":1550
  *                 raise CurlError("Add data failed.")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def from_list(cls, list files):  # files: List[dict]
  *         """Create a multipart instance from a list of dict, for keys, see ``addpart``"""
 */
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_5from_list, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_from_list, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[76])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1546, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_5from_list, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_from_list, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[77])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1550, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list, __pyx_t_11) < (0)) __PYX_ERR(0, 1546, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list, __pyx_t_11) < (0)) __PYX_ERR(0, 1550, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  __Pyx_GetNameInClass(__pyx_t_11, (PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1546, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_11, (PyObject*)__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1550, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1546, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1550, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list, __pyx_t_4) < (0)) __PYX_ERR(0, 1546, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_from_list, __pyx_t_4) < (0)) __PYX_ERR(0, 1550, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":1554
+  /* "cycurl/_curl.pyx":1558
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
  *         """Attach the mime instance to a curl instance."""
  *         cdef Curl c = curl_ if curl_ is not None else self._curl
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_7attach, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_attach, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[77])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1554, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_7attach, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_attach, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[78])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1558, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_mstate_global->__pyx_tuple[14]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_attach, __pyx_t_4) < (0)) __PYX_ERR(0, 1554, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_attach, __pyx_t_4) < (0)) __PYX_ERR(0, 1558, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":1559
+  /* "cycurl/_curl.pyx":1563
  *         c.setopt(curl.CURLOPT_MIMEPOST, PyCapsule_New(self.form, NULL, NULL))
  * 
  *     cpdef inline close(self):             # <<<<<<<<<<<<<<
  *         """Close the mime instance and underlying files. This method must be called after
  *         ``perform`` or ``request``."""
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_9close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[78])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1559, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_9close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime_close, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[79])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1563, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_4) < (0)) __PYX_ERR(0, 1559, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_6cycurl_5_curl_CurlMime, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_4) < (0)) __PYX_ERR(0, 1563, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":1
@@ -75230,7 +75349,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  *     raise TypeError, "self.form cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[79])); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[80])); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
@@ -75244,7 +75363,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.form cannot be converted to a Python object for pickling"
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[80])); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_8CurlMime_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_CurlMime___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[81])); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
@@ -75252,19 +75371,19 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_4) < (0)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cycurl/_curl.pyx":1568
+  /* "cycurl/_curl.pyx":1572
  *         self.close()
  * 
  * cpdef inline bytes version():             # <<<<<<<<<<<<<<
  *     """Get the underlying libcurl version."""
  *     return <bytes>curl.curl_version()
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_15version, 0, __pyx_mstate_global->__pyx_n_u_version, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[81])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1568, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_15version, 0, __pyx_mstate_global->__pyx_n_u_version, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[82])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1572, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_version, __pyx_t_4) < (0)) __PYX_ERR(0, 1568, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_version, __pyx_t_4) < (0)) __PYX_ERR(0, 1572, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":4
@@ -75274,7 +75393,7 @@ __Pyx_RefNannySetupContext("PyInit__curl", 0);
  *     cdef object __pyx_result
  *     __Pyx_CheckUnpickleChecksum(__pyx_checksum, 0x10f6b18, 0x1598191, 0xd00f929, b'callback, exception')
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_17__pyx_unpickle__CallbackContext, 0, __pyx_mstate_global->__pyx_n_u_pyx_unpickle__CallbackContext, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[82])); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 4, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6cycurl_5_curl_17__pyx_unpickle__CallbackContext, 0, __pyx_mstate_global->__pyx_n_u_pyx_unpickle__CallbackContext, NULL, __pyx_mstate_global->__pyx_n_u_cycurl__curl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[83])); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
@@ -75573,7 +75692,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   }
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[12]);
 
-  /* "cycurl/_curl.pyx":1483
+  /* "cycurl/_curl.pyx":1487
  *         return PyCapsule_New(self.form, NULL, NULL)
  * 
  *     cpdef inline addpart(             # <<<<<<<<<<<<<<
@@ -75582,12 +75701,12 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 */
   {
     PyObject* __pyx_temp[4] = {Py_None, Py_None, Py_None, Py_None};
-    __pyx_mstate_global->__pyx_tuple[13] = __Pyx_PyTuple_FromArray(__pyx_temp, 4); if (unlikely(!__pyx_mstate_global->__pyx_tuple[13])) __PYX_ERR(0, 1483, __pyx_L1_error)
+    __pyx_mstate_global->__pyx_tuple[13] = __Pyx_PyTuple_FromArray(__pyx_temp, 4); if (unlikely(!__pyx_mstate_global->__pyx_tuple[13])) __PYX_ERR(0, 1487, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[13]);
   }
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[13]);
 
-  /* "cycurl/_curl.pyx":1554
+  /* "cycurl/_curl.pyx":1558
  *         return form
  * 
  *     cpdef inline attach(self, Curl curl_ = None):             # <<<<<<<<<<<<<<
@@ -75596,7 +75715,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 */
   {
     PyObject* __pyx_temp[1] = {Py_None};
-    __pyx_mstate_global->__pyx_tuple[14] = __Pyx_PyTuple_FromArray(__pyx_temp, 1); if (unlikely(!__pyx_mstate_global->__pyx_tuple[14])) __PYX_ERR(0, 1554, __pyx_L1_error)
+    __pyx_mstate_global->__pyx_tuple[14] = __Pyx_PyTuple_FromArray(__pyx_temp, 1); if (unlikely(!__pyx_mstate_global->__pyx_tuple[14])) __PYX_ERR(0, 1558, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[14]);
   }
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[14]);
@@ -75660,47 +75779,47 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   int __pyx_clineno = 0;
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 10; } str_length_index[] = {{0},{1},{260},{1},{2},{6},{19},{17},{9},{8},{2},{21},{15},{2},{1},{9},{10},{1},{75},{132},{3},{2},{1},{6},{5},{15},{23},{25},{32},{20},{22},{1},{6},{5},{1},{16},{17},{33},{19},{49},{37},{31},{40},{47},{44},{48},{369},{10},{10},{30},{60},{26},{27},{18},{45},{22},{8},{4},{179},{22},{23},{16},{76},{675},{30},{8},{25},{15},{28},{16},{16},{35},{7},{6},{2},{8},{9},{25},{50},{61},{62},{10},{16},{7},{33},{30},{37},{6},{6},{8},{5},{17},{26},{43},{35},{37},{37},{32},{40},{40},{3},{9},{27},{29},{22},{24},{20},{15},{22},{23},{23},{12},{16},{18},{14},{15},{15},{18},{15},{21},{16},{18},{13},{13},{16},{13},{25},{11},{22},{16},{23},{26},{25},{27},{26},{18},{17},{15},{21},{26},{27},{18},{17},{23},{28},{23},{24},{23},{29},{23},{23},{24},{26},{27},{27},{28},{26},{27},{26},{22},{21},{21},{21},{20},{33},{26},{26},{26},{28},{26},{21},{24},{17},{11},{18},{11},{20},{22},{21},{22},{25},{22},{22},{22},{24},{23},{18},{20},{18},{29},{14},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{8},{24},{25},{19},{18},{30},{11},{24},{17},{17},{16},{24},{16},{26},{22},{24},{27},{21},{24},{16},{22},{26},{18},{9},{16},{24},{21},{16},{20},{23},{21},{27},{25},{26},{27},{22},{26},{30},{25},{26},{19},{17},{18},{21},{19},{15},{20},{15},{24},{20},{27},{24},{26},{19},{19},{24},{20},{24},{17},{14},{20},{19},{15},{21},{24},{26},{15},{15},{17},{24},{21},{23},{16},{32},{34},{30},{32},{21},{22},{19},{16},{17},{25},{25},{22},{12},{17},{19},{23},{18},{19},{20},{23},{22},{25},{21},{16},{19},{17},{19},{24},{26},{13},{21},{17},{28},{25},{27},{19},{21},{16},{17},{24},{23},{20},{31},{21},{23},{25},{22},{24},{21},{16},{21},{22},{20},{25},{23},{25},{24},{15},{23},{22},{24},{20},{22},{23},{25},{21},{23},{20},{21},{20},{25},{27},{29},{13},{20},{20},{19},{21},{19},{16},{34},{36},{20},{31},{29},{28},{30},{24},{19},{23},{19},{29},{27},{17},{21},{19},{28},{19},{23},{18},{22},{12},{12},{12},{28},{24},{23},{21},{14},{19},{14},{19},{17},{18},{14},{19},{14},{24},{16},{26},{18},{26},{19},{23},{27},{22},{25},{20},{18},{34},{31},{32},{14},{18},{17},{18},{21},{22},{12},{15},{13},{21},{17},{21},{24},{19},{32},{25},{21},{21},{21},{19},{29},{28},{26},{26},{28},{15},{11},{17},{16},{19},{29},{19},{12},{16},{20},{24},{22},{20},{21},{21},{17},{19},{15},{18},{19},{31},{31},{22},{28},{24},{15},{19},{20},{20},{20},{25},{33},{23},{25},{14},{18},{22},{17},{12},{20},{24},{21},{25},{17},{22},{22},{25},{34},{22},{21},{27},{24},{30},{34},{22},{27},{27},{36},{33},{16},{22},{15},{18},{24},{16},{23},{25},{23},{19},{21},{29},{30},{20},{29},{19},{14},{18},{24},{17},{22},{26},{17},{21},{17},{18},{23},{29},{17},{17},{16},{17},{22},{21},{23},{22},{17},{17},{17},{29},{28},{19},{19},{19},{25},{24},{17},{28},{28},{16},{20},{13},{18},{27},{22},{14},{18},{15},{16},{18},{18},{22},{26},{16},{18},{23},{16},{12},{12},{15},{18},{21},{27},{17},{17},{16},{18},{22},{17},{15},{20},{24},{17},{21},{13},{17},{19},{21},{17},{17},{21},{20},{20},{25},{20},{33},{21},{24},{29},{23},{29},{26},{21},{25},{26},{20},{24},{25},{24},{29},{25},{28},{28},{27},{30},{26},{30},{27},{11},{18},{23},{34},{33},{13},{19},{13},{16},{20},{23},{27},{15},{22},{15},{27},{31},{19},{25},{18},{24},{20},{24},{23},{23},{22},{20},{15},{16},{20},{31},{34},{20},{13},{19},{23},{19},{25},{29},{21},{22},{23},{23},{27},{31},{34},{19},{23},{22},{27},{26},{15},{21},{19},{20},{17},{25},{14},{20},{18},{19},{18},{28},{23},{20},{24},{21},{23},{23},{22},{25},{22},{19},{30},{27},{32},{25},{22},{22},{24},{14},{22},{24},{24},{21},{32},{20},{21},{19},{20},{21},{19},{21},{20},{23},{21},{15},{18},{17},{23},{21},{24},{20},{24},{33},{27},{18},{28},{30},{29},{34},{26},{25},{34},{19},{23},{20},{25},{24},{25},{26},{14},{25},{20},{11},{17},{16},{15},{15},{15},{21},{17},{21},{19},{17},{21},{27},{18},{31},{29},{20},{24},{22},{13},{14},{14},{19},{14},{19},{14},{18},{16},{18},{15},{14},{12},{13},{20},{10},{14},{18},{14},{15},{20},{17},{18},{18},{16},{20},{19},{17},{21},{17},{21},{22},{13},{12},{11},{17},{13},{11},{11},{15},{11},{14},{16},{15},{16},{15},{21},{22},{24},{21},{21},{19},{22},{21},{35},{19},{23},{22},{22},{17},{17},{23},{21},{21},{23},{23},{22},{21},{18},{19},{19},{19},{18},{20},{26},{12},{15},{14},{13},{16},{21},{18},{19},{19},{22},{18},{16},{15},{19},{23},{20},{27},{24},{24},{27},{27},{27},{27},{21},{21},{21},{23},{23},{23},{23},{22},{19},{20},{20},{8},{14},{9},{4},{22},{24},{28},{30},{10},{10},{14},{22},{12},{16},{25},{22},{10},{12},{10},{11},{11},{12},{13},{12},{12},{12},{9},{18},{8},{26},{28},{16},{15},{14},{18},{9},{27},{29},{18},{17},{15},{15},{17},{11},{14},{5},{8},{4},{14},{13},{4},{8},{8},{16},{4},{17},{8},{16},{18},{13},{14},{14},{23},{41},{53},{29},{28},{29},{26},{28},{30},{29},{25},{25},{20},{28},{28},{8},{12},{6},{7},{5},{15},{11},{7},{25},{27},{7},{7},{17},{7},{1},{16},{34},{36},{19},{10},{17},{2},{20},{9},{12},{9},{9},{17},{8},{7},{9},{8},{8},{16},{12},{10},{8},{8},{13},{10},{15},{8},{7},{11},{14},{12},{11},{10},{19},{31},{14},{12},{10},{17},{13},{12},{12},{19},{8},{16},{12},{8},{24},{7},{17},{14},{15},{5},{14},{23},{13},{14},{13},{8},{10},{11},{12},{12},{9},{15},{10},{7},{13},{7},{15},{22},{14},{8},{8},{8},{1},{3},{7},{6},{3},{10},{10},{10},{7},{15},{4},{7},{18},{12},{6},{6},{16},{4},{4},{4},{5},{29},{1},{6},{6},{10},{9},{20},{8},{6},{9},{8},{6},{7},{25},{5},{13},{13},{18},{5},{3},{4},{15},{7},{15},{7},{12},{10},{6},{5},{13},{11},{5},{12},{6},{4},{5},{22},{6},{7},{15},{7},{3},{4},{15},{9},{1},{6},{9},{7},{7},{6},{5},{5},{6},{10},{9},{6},{2},{4},{8},{6},{5},{5},{4},{6},{7},{5},{9},{9},{6},{7},{3},{24},{17},{16},{12},{46},{7},{20},{5},{6},{6},{7},{7},{12},{12},{2},{6},{11},{5},{3},{6},{5},{8},{4},{4},{6},{4},{10},{6},{4},{10},{5},{1},{5},{7},{7},{4},{3},{4},{4},{4},{6},{3},{2},{6},{2},{4},{20},{17},{7},{4},{7},{5},{7},{7},{8},{3},{7},{6},{5},{12},{1},{2},{4},{9},{6},{4},{8},{7},{13},{13},{13},{5},{6},{2},{4},{6},{13},{4},{4},{13},{10},{11},{10},{6},{5},{5},{12},{4},{5},{6},{13},{10},{6},{3},{11},{10},{5},{10},{5},{12},{11},{11},{6},{4},{4},{3},{6},{6},{5},{8},{3},{6},{4},{20},{9},{5},{7},{8},{5},{5},{6},{6},{7},{6},{6},{12},{5},{6},{7},{1},{4},{4},{8},{7},{5},{3},{5},{5},{2},{8},{7},{7},{7},{1},{2}};
-    const struct { const unsigned int length: 11; } bytes_length_index[] = {{0},{3},{3},{3},{29},{25},{1},{1},{12},{9},{11},{103},{11},{58},{116},{38},{75},{22},{57},{36},{32},{131},{212},{9},{26},{14},{14},{72},{11},{367},{45},{34},{28},{120},{65},{32},{20},{387},{130},{83},{112},{56},{460},{29},{2},{15},{2},{38},{10},{81},{284},{109},{23},{10},{13},{31},{219},{63},{33},{23},{42},{21},{40},{26},{164},{120},{46},{42},{54},{53},{58},{118},{1279},{240},{46},{110},{5},{5}};
+    const struct { const unsigned int length: 10; } str_length_index[] = {{0},{1},{260},{1},{2},{6},{19},{17},{9},{8},{2},{21},{15},{2},{1},{9},{10},{1},{75},{132},{3},{2},{1},{6},{5},{15},{23},{25},{32},{20},{22},{1},{6},{5},{1},{16},{17},{33},{19},{49},{37},{31},{40},{47},{44},{48},{369},{10},{10},{30},{60},{26},{27},{18},{45},{22},{8},{4},{179},{22},{23},{16},{76},{675},{30},{8},{25},{15},{28},{16},{16},{35},{7},{6},{2},{8},{9},{25},{50},{61},{62},{10},{16},{7},{33},{30},{37},{6},{6},{8},{5},{17},{26},{43},{35},{37},{37},{32},{40},{40},{3},{9},{27},{29},{22},{24},{20},{15},{22},{23},{23},{12},{16},{18},{14},{15},{15},{18},{15},{21},{16},{18},{13},{13},{16},{13},{25},{11},{22},{16},{23},{26},{25},{27},{26},{18},{17},{15},{21},{26},{27},{18},{17},{23},{28},{23},{24},{23},{29},{23},{23},{24},{26},{27},{27},{28},{26},{27},{26},{22},{21},{21},{21},{20},{33},{26},{26},{26},{28},{26},{21},{24},{17},{11},{18},{11},{20},{22},{21},{22},{25},{22},{22},{22},{24},{23},{18},{20},{18},{29},{14},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{16},{8},{24},{25},{19},{18},{30},{11},{24},{17},{17},{16},{24},{16},{26},{22},{24},{27},{21},{24},{16},{22},{26},{18},{9},{16},{24},{21},{16},{20},{23},{21},{27},{25},{26},{27},{22},{26},{30},{25},{26},{19},{17},{18},{21},{19},{15},{20},{15},{24},{20},{27},{24},{26},{19},{19},{24},{20},{24},{17},{14},{20},{19},{15},{21},{24},{26},{15},{15},{17},{24},{21},{23},{16},{32},{34},{30},{32},{21},{22},{19},{16},{17},{25},{25},{22},{12},{17},{19},{23},{18},{19},{20},{23},{22},{25},{21},{16},{19},{17},{19},{24},{26},{13},{21},{17},{28},{25},{27},{19},{21},{16},{17},{24},{23},{20},{31},{21},{23},{25},{22},{24},{21},{16},{21},{22},{20},{25},{23},{25},{24},{15},{23},{22},{24},{20},{22},{23},{25},{21},{23},{20},{21},{20},{25},{27},{29},{13},{20},{20},{19},{21},{19},{16},{34},{36},{20},{31},{29},{28},{30},{24},{19},{23},{19},{29},{27},{17},{21},{19},{28},{19},{23},{18},{22},{12},{12},{12},{28},{24},{23},{21},{14},{19},{14},{19},{17},{18},{14},{19},{14},{24},{16},{26},{18},{26},{19},{23},{27},{22},{25},{20},{18},{34},{31},{32},{14},{18},{17},{18},{21},{22},{12},{15},{13},{21},{17},{21},{24},{19},{32},{25},{21},{21},{21},{19},{29},{28},{26},{26},{28},{15},{11},{17},{16},{19},{29},{19},{12},{16},{20},{24},{22},{20},{21},{21},{17},{19},{15},{18},{19},{31},{31},{22},{28},{24},{15},{19},{20},{20},{20},{25},{33},{23},{25},{14},{18},{22},{17},{12},{20},{24},{21},{25},{17},{22},{22},{25},{34},{22},{21},{27},{24},{30},{34},{22},{27},{27},{36},{33},{16},{22},{15},{18},{24},{16},{23},{25},{23},{19},{21},{29},{30},{20},{29},{19},{14},{18},{24},{17},{22},{26},{17},{21},{17},{18},{23},{29},{17},{17},{16},{17},{22},{21},{23},{22},{17},{17},{17},{29},{28},{19},{19},{19},{25},{24},{17},{28},{28},{16},{20},{13},{18},{27},{22},{14},{18},{15},{16},{18},{18},{22},{26},{16},{18},{23},{16},{12},{12},{15},{18},{21},{27},{17},{17},{16},{18},{22},{17},{15},{20},{24},{17},{21},{13},{17},{19},{21},{17},{17},{21},{20},{20},{25},{20},{33},{21},{24},{29},{23},{29},{26},{21},{25},{26},{20},{24},{25},{24},{29},{25},{28},{28},{27},{30},{26},{30},{27},{11},{18},{23},{34},{33},{13},{19},{13},{16},{20},{23},{27},{15},{22},{15},{27},{31},{19},{25},{18},{24},{20},{24},{23},{23},{22},{20},{15},{16},{20},{31},{34},{20},{13},{19},{23},{19},{25},{29},{21},{22},{23},{23},{27},{31},{34},{19},{23},{22},{27},{26},{15},{21},{19},{20},{17},{25},{14},{20},{18},{19},{18},{28},{23},{20},{24},{21},{23},{23},{22},{25},{22},{19},{30},{27},{32},{25},{22},{22},{24},{14},{22},{24},{24},{21},{32},{20},{21},{19},{20},{21},{19},{21},{20},{23},{21},{15},{18},{17},{23},{21},{24},{20},{24},{33},{27},{18},{28},{30},{29},{34},{26},{25},{34},{19},{23},{20},{25},{24},{25},{26},{14},{25},{20},{11},{17},{16},{15},{15},{15},{21},{17},{21},{19},{17},{21},{27},{18},{31},{29},{20},{24},{22},{13},{14},{14},{19},{14},{19},{14},{18},{16},{18},{15},{14},{12},{13},{20},{10},{14},{18},{14},{15},{20},{17},{18},{18},{16},{20},{19},{17},{21},{17},{21},{22},{13},{12},{11},{17},{13},{11},{11},{15},{11},{14},{16},{15},{16},{15},{21},{22},{24},{21},{21},{19},{22},{21},{35},{19},{23},{22},{22},{17},{17},{23},{21},{21},{23},{23},{22},{21},{18},{19},{19},{19},{18},{20},{26},{12},{15},{14},{13},{16},{21},{18},{19},{19},{22},{18},{16},{15},{19},{23},{20},{27},{24},{24},{27},{27},{27},{27},{21},{21},{21},{23},{23},{23},{23},{22},{19},{20},{20},{8},{14},{9},{4},{22},{24},{28},{30},{10},{10},{14},{22},{12},{16},{25},{22},{10},{12},{10},{11},{11},{12},{13},{12},{12},{12},{9},{18},{8},{26},{28},{16},{15},{14},{18},{9},{27},{29},{18},{17},{15},{24},{15},{17},{11},{14},{5},{8},{4},{14},{13},{4},{8},{8},{16},{4},{17},{8},{16},{18},{13},{14},{14},{23},{41},{53},{29},{28},{29},{26},{28},{30},{29},{25},{25},{20},{28},{28},{8},{12},{6},{7},{5},{15},{11},{7},{25},{27},{7},{7},{17},{7},{1},{16},{34},{36},{19},{10},{17},{2},{20},{9},{12},{9},{9},{17},{8},{7},{9},{8},{8},{16},{12},{10},{8},{8},{13},{10},{15},{8},{7},{11},{14},{12},{11},{10},{19},{31},{14},{12},{10},{17},{13},{12},{12},{19},{8},{16},{12},{8},{24},{7},{17},{14},{15},{5},{14},{23},{13},{14},{13},{8},{10},{11},{12},{12},{9},{15},{10},{7},{13},{7},{15},{22},{14},{8},{8},{8},{1},{3},{7},{6},{3},{10},{10},{10},{7},{15},{4},{7},{18},{12},{6},{6},{16},{4},{4},{4},{5},{29},{1},{6},{6},{10},{9},{20},{8},{6},{9},{8},{6},{7},{25},{5},{13},{13},{18},{5},{3},{4},{15},{7},{15},{7},{12},{10},{6},{5},{13},{11},{5},{12},{6},{4},{5},{22},{6},{7},{15},{7},{3},{4},{15},{9},{1},{6},{9},{7},{7},{6},{5},{5},{6},{10},{9},{6},{2},{4},{8},{6},{5},{5},{4},{6},{7},{5},{9},{9},{6},{7},{3},{14},{24},{17},{16},{12},{46},{7},{20},{5},{6},{6},{7},{7},{12},{12},{2},{6},{11},{5},{3},{6},{5},{8},{4},{4},{6},{4},{10},{6},{4},{10},{5},{1},{5},{7},{7},{4},{3},{4},{4},{4},{6},{3},{2},{6},{2},{4},{20},{17},{7},{4},{7},{5},{7},{7},{8},{3},{7},{6},{5},{12},{1},{2},{4},{9},{6},{4},{8},{7},{13},{13},{13},{5},{6},{2},{4},{6},{13},{4},{4},{13},{10},{11},{10},{6},{5},{5},{12},{4},{5},{6},{13},{10},{6},{3},{11},{10},{5},{10},{5},{12},{11},{11},{6},{4},{4},{3},{6},{6},{5},{8},{3},{6},{4},{20},{9},{5},{7},{8},{5},{5},{6},{6},{7},{6},{6},{12},{5},{6},{7},{1},{4},{4},{8},{7},{5},{3},{5},{5},{2},{8},{7},{7},{7},{1},{2}};
+    const struct { const unsigned int length: 11; } bytes_length_index[] = {{0},{3},{3},{3},{29},{25},{1},{1},{12},{9},{11},{103},{11},{58},{116},{38},{75},{22},{57},{36},{32},{131},{212},{9},{26},{14},{14},{72},{11},{17},{367},{45},{34},{28},{120},{65},{32},{20},{387},{130},{83},{112},{56},{460},{29},{2},{15},{2},{38},{10},{81},{284},{109},{23},{10},{13},{31},{219},{63},{33},{23},{42},{21},{40},{26},{164},{120},{46},{42},{54},{53},{58},{118},{1279},{240},{46},{110},{5},{5}};
     #ifndef CYTHON_COMPRESS_STRINGS
       #define CYTHON_COMPRESS_STRINGS 90
     #endif
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (10635 bytes) */
-static const char cstring[] = "BZh91AY&SY\n\242EE\000\001#\177\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\300@@@@@@@@@@@@\000@\000`0W\274\372h\322\2407\003}|\022\366\356\007\334-\334\034\337\000\004\367=m\342u\246\231\273\267w]\250SCU6\325\026\306*.\332\351\212\245\313%n\3319I\020+\350z\361\350\265j6\311\253o\253\036\340]c\275\246m\261\350:\363\331\241 t\002\235\275\332\024\352\252 \365\331\227\271\365\200hR\034R\267\317@\t$D\323F\020\002b\0004\323\t&h5<\251\370\243\302d\246\236\320\247\224\365\036\223\321\244\364\312x\221\247\224\362G\242h44\036\240\032h\010\020\211\210\024\364M(\007\244\311\246\203#@4\006\2154\321\240\365\000\001\240\000\321\240\365\000mM\000%4\"\nL\243\020\320\320\032\006\201\243C\324zC4\324\017S\311\232a\023P\321\220\320\032hz\200\302\0320\217\325\000\022iD\010 F\251\3412S\365OM\252\017H\000\030\215\000\000\036\240\000\000h\000\320\003@=@\000\304\223EOM4\3243Q\3514\006C@44\331F\236\220\362\230\232i\261\244\206\201\243M\03112\003j\006\200\311\221\246@H\210M\001\001\000L\215\000D\364\214\320\212y\244\236\243\305\036\240\007\250\000\r\000\001\240\003A\240\000\177\365\047\030\355\344\313\356\304\036\365\035\271\2725,Y\230yDK\375\251\026\354\257\"\361\177\374I?\032_\010\003\200\206HH\024\210\001 \020\326\331\375\3775\366\034\317,v\000!\340\354\226\031?\355v\324\034\335\007M`f\346\355\245HgL\016\0136\226]ni\266s\377\232\347\3619\360~+\003m\347?\375\223\377\230\261\362\021d*\006\3716\330\330\333>*\326E\251>\257@\004V\270U\024\n\005\025\360\343p45i\261\rU\026(\242$\025A\020F@R,F\021H(\014EQ\200\310\261EQ\031\355\344xs\234<\303(\220m\236eJ\021J\262\204\031F\372i\263FN\361\220\t\"\205::#N\274\210\367Z>\177\031\343\3650\307\202\300\203\350\323C\313\343\343\350\236\204\021F\n\014H\241\000RAd\005\010\262)\010\263\244\032P\261\202\260\025\234\311\351a\322\0209zl\003Sby\312(\024E\010h\031`\247\263s\270\226\335\305\212\002\325\027F\271\327\360\031\344c\276\211j\2575\000\346E\210\310\261I\023\245\247\264:\315z \260\010\260\330\226\325\211\005\214\024\036\356\246\333""\243 \"\004\372\311\333\2520\2733\323\0064\215\322\221\3007\213x\270\207\244\212\336\325\033=\265+K\033`w-\245\001\3164\014\222W\t\2402U\300\220\270\316s4\210c\342\263\3423\227\035\216(\031\214}E\214\000\265\252\203a\247\321\023*\033W\320\332\324\263>mNz$\271\214LboP\030\232\332\230s@l\203\220-\306\356B\r\341\312\310)\3624\307NP\271N\032\206\213\350\325\244\034xf\010\316\374\364FR4)\200\205\r\031-\267\357\241f\001\303<\327g\002\310\334\304h\330\357\021\242\r\372u[\017\217\025\323\260\336\311\026\351\333^YF\350\341\273\216(>\3154\014\257T\214\256o\307\343tm\324l\336X\235/3\003\327\201*\316\275/\216\374\3617\340\005]\336\253\216\273\275\330\337\005\206\370\342\377tv\301\241\303\0221\240\357&\234>\t$m\010#\367q\303W7:\216\342l\263B\265v\304\210>\\\210;\235\355\r=M\242cw\020\261\227`\036\375!\047,\047\270\377\256:ZU40`(U\350\337n\342?\333\337\343\374\277\336\303\3758\350I\375\\N\241\033{\373\366\347\013\306\234\255\016^<u\277\324\353\237]\345\273\305?z\363\003e\335,\316\034-\2647Qq]&\326\022\236\365\t\371J&\371\305\221\257\236\347\361\205\034\003l \267f\027h\000\361\220\242\203\242\203r\224\372\246\007\306\240#\033\rv\006\370\033j\276\013\343e\266\311\327\352F\340\245\013\363\024\0242u]\262\273\215\353\263\376t\257\320^Q\264|\0206\336\025El\242*Tf\250\210\204\372|\241\207\002V|\017y\334`@q\3417\274\005\026Qv%vA2~\213Rra\021\203w\303J\226\230\214v\225\247\227\317\367\237\300\206\020_\332\216\353\302\341p\370\376|1yy\221:\362\300,\003I\270\274F\342\017V\255&\267V\220\240\212D\223L\251B\225\244\220\235j\241\0226U\233\nn%\372?%\311\\U\202\301\302\241Td\210\212\236\362\2154\260\355\250B8\311\247)\305\021IX\230\233\177\212\"\272_\035i\347\232YJ\250\2248\340)V\215\004;\316+\351}\371\372\262\372\255\2552\240)\025N\006\234\232b\255\325\327\301 L\347x\333\247N\212\031\"\351o\257\337\202i\275\376\036-\207w:\025\276c0\014\303\004\245lS\352T\273\300\\\225Y\245\036\016o\3154\317A\023\215\230\250b\305\244U\275\202\253m\027\034h\336\367\354\336\275\370\217\257\310g\357\032Y\"\267\177""\342\257C`c \333\205;E\002\3146\007\2209\307,^^\373nsA\330w\005>\263\325\035\337\252?\350q\250\362\216\302\253\224\020\242#ZJjZ\344K\302[\241Id\023:P\3751\373\322\327\251q\213(\202\370\267\n\357\007\207\236dXw.\337\351\373}\357\366<\270\213N\244\033\206\371(\374\035ZZ\006\206\206\217\233\204\234\232s\014Ty\374\355\252\024)\264[}V\r\273\215\273~\323\331!}B\223c\014\270\206\272\010$\014\376\205\365\275\265\262\020\047\002^`\0023\225@b\037r\365\345\201\221\221\014\311\326\325rQ\261\376j`J\030\320\254T\212X!\210w\013!\205N\316\261\023Ihw\204\364\214\335>\363y\332\357W+\275y\247\003\351\372\255;tf\267\305E\314\210\240\234\237\316\273>\t\276\026\216\221#`\004\325\010\000\367\026\205,\247\320`\347\235\376\231\221\351\373\263-`|\355\354\322\004TEB\240-\025\335\375\206\326\235Bv\320\372\262)Q))\047C!\206\022\226m\231,\345\265\2414sMd\221Q\255\020\224H\212\322\242/Uj\270\314v\312\365?t\262\222\313,\232\355v\235Jfq\206BB\235>\327\222\306\364\325\367\177\307\026\367/\206\023p\331*%\231TU}\223w\273\0075\244G\240\277N\345\037\2675\337\207\303\302\207*\265{\265\014\356\205B\241\026\337\207E\330\244\255\333\274\014\017nr3\313jJ\327\357\347\346`1\236\252\034\\E?\344\276\346\334\342\000\332=I\23087`\376\224i$\047I\247\3134\030B\304\230\241kk\0208\2315~,t\371\223\241\003Pk\367\020\377\341\262?\353\033\352\263\016\214W\013\224\033Zn\211\032\377\226\220\262.[\215\214\025 \2118\330\r\316e+\321r\031f\220\324\255\241hKMke\372\024_\367:/dPg04\306\234\347\021\206\331\275v}\207\226Yr\343\206\304\361+\250-\3109\2701\331!\032\244fp\347M\361\323\264i\220\260+\270\3037\305\032\033\n\340y{n\337\354\206\027\030\263\010\252\252,\357(\216s\203L\207Q)\306\251\014\220G*x\225]\237\352\337$gT\333g\371\207n\302;b\201\260\336H\365\361lq\260\346\224\267\007\313oL56-\255KN\232H\204\026\313D\322J:\232\047\241m\363\rF\007\341d\262J2\001\266\313E\353\235{\373\271\371\230\207\341\350\237\232@\203\317\021\203_\366g\331J@\250* \365V\201Zz(\204R\2242\030U\235};\371zj\222\310M/\205\311\225A\346\221O~\232{\212\225""\373\367\t\366\340t\023\222\207\244\023B\n\005\205K\223\225\333QC\334\311Y\321\034\247\047\2050\0320\235\203\021\245,\204\320\206P\rzy\343CE\210\356\004\242Z\033\026\003&\312\222NNu\241:\343\244\340\231\000\3019\352I(\257Js\033\241H\214\002\277\225\326\376\027>|\363\315\372d\363\375G\037\027n\234\033^<A6\265\303S\273\"\371r\024\225PHDW[3\034\224do\223>e\371\366\355\276\357\261/\031\036\031\276||\373ON\355\273\243e\334\016\014/\232\262\037J\371\027^\262\305\245)\232^\255&^\306\243\002C\336\227\n\353B\t\364\311V4\t+u\271\017c\rP\255\020\256_\324T\232\2631r\264+\016\230\205\207`~\237\260\323\221$\222NNK\220\324\315ya)\242\336\273y\3503_\22317rmM\352\265\365\345\034\375[\345\265\261\341U\367xt\260\304\264\375\304{\221y\337\005\347o\014\006|\264\354\374\342\014\214\344.k\222\255\315Z\033\266W\261\304\274Vbe\230\231\263\342\224eQ@97 \327|U\266\030\276\020e\211\\t\325\264\0362\253}3\213\230\n\252\031z\262\215\211\267\247\236\367\325V\023\321\260\233\233Z\231\232\03677\275\202\370r\227\020\321N\345\331V\357su\251G\026\210t\3053\211\210\216M\036Ro\355\262\275\254\367\260w\307s\300x>\236\014\317\002\330]\313p\354\362\"\226\211,\024A\013\245%\203+\263\036\267\2061\n\300\335B\322\277\241rM\351{\370\021{.e\235\226-lt\"\355xW\263\370\234\036\336\233Z6\236\367\341\272\300\047f\346{\033\301\367 3\344\220\252ye\233\227A\345\317\313\253O\263WoO-\235\371\0257\n\273\035\303)\047\251Us.\201\365\276\373\222\254Y\242\263}\273\266Co \021\276\202\032\222\016\314\243\207\253`a\216\017\314\233KC\240\024\370\375%r\022\361\327\261Nr1(D\235\r\027ZV\323\217\313\254\347rk\232]\320\210H\276`Ky\332\350qM\274\272\3136\201\261\213OFwcs\360\351\024\250t\261C\026\010i\217\216?y\317H\201\215\252z\361)\031.\341\025b*8\243\365G,\344\313\220\267\006n>W1\032R\353u\316M4\207 \332\030\241\355p\223\002]4V\"\212,\352\300+R\242\274\313\023\032a\005\331\204\201\232C\t|\255\000cO\260\314\35762\236K\321\351y\355^\226\351h\216[\205b\343\023.\014\024p\367\250\036(\024\020;N\360p\234\027\325\373\341\273\276\266\276?""\\\026\201\023\032\010C\000y\377\031\333+\254\267\237\264\353\352\300\312\207\226*\311\264}\304\020\217(\316TD6C\004\227\276C\232\223\360-\210r7!}y\305\205\033=\330\232.\352\212\034B\342\343\356\366Z\326\003V\253\344-:\244*\312b-*\310u\01761\276 [c\256.#os5\235\341Tc@\256\367\233@n\026\216l\254\211\240\334Az\007\013b\021\321\302,W\037Ty\331V#]\026#u\"\260\246\360\247\206\340(/`\241\032\213%\270\3322\334\326J\272\031Sf\305}E\225\261(\030*\031\204\221u\330s|-\353\016\241\270\202\247\002!]*\306\006\363\336\34059q\300\276\003\241a\261e\224kt\226;\030\214\301\021\205q8\005\212\005\220\230\340\330/@\036\361\310\206\321\267W\220\201\273\341\230\200\267\331\273\252\361(.\214\225X+$T\251\242.\210\264\017d#sXN\266\210\221%r\3647%-\001lR-\253*n\230\303\022 -f\3242Q\303J\224\341\244F\375\310\324\316\246I>\321\n1\206\227\264\024\357\316y\351\335\026\245\003\307V\\\220Y\253\t\025\231PI\263\332\270\0202\007\n,\347\t\240\341\321^\245\314\r6\246+\211V\212\246\030\362`C@R\214\266P\2674qut\327E\247\t\236\372!\2400\242K\272\216J\212,\025\020$\234n\240\013\234\316V\330N\032R\213\224\274\337#6\263\323\035\020\210\024\215\024\023u\321@\300\240#zQ+*Aa\241\004\r\023S3\246\014\241\321m\210\263T\237k#e\003\033!\265\rCS<\342z\267aSHp\302\317\031g\ny\314\361\312\363\020t(b\360\361\251\324\036\372\032\006h\261l\347\271\303\364\016s\210\210\021\243\321\206@u\004c\r\314\004\220\244\317[!\224\202\252\002H\000\224A\354K\372?8\nS\326[m\rO\303\356\212\314d5\357\315\205\355\026\231\034\304.\202\030j\202\243\325\306\246\276\356\303J\035B\252\315\315\014]\r\316,wk*\327\301g>\321,\033:b\303\261\357\257\002\265\035\355\"\352\035d>n\2432\225vPP\275\004\364\021\321N\256\3440\340\352Z,\2554\202\325\243WT\343\374zre*\047$\306\273\261\220R\014\271\363\374g\332\327\00014\013\r$\242\315L\241\210\246K&\270\265KZR\366}\377\327(\022\266\"v\030\301\210hdA\021\n\010\306A[\351\230\202\206O\220x\223\331\230z\223\323}\317\200\347\361V*\274\345\270^\"\224M7\307U\311\375\024\265xz)\360\301\225L\334\014\2401\353\243\030""\215\336\223\256\026,\014\317J;s\000\200\006\301\211V\027\001\213\023$\205\367\330\233\021\242\266\341\331\245\030\235\301V\335\025l\333\327\022\312F\222\021\267\336\341\010\216<)\211\025\265\006\262VO\265\212\032\320h\272\270\310,\213\005\005\021\005\021\024\026 \"H\240\301\241\346H\252\007\024RC\226q\260\241.-raFr\204l\226\377\211\301\327\214A\270\r\354\253\036$]\252A\2645\235\211\0227\207\257\357\014k\350\3265\226\235\210\r^\217\303\311\215`\325\315\317f)0\327\302\253@\000\303\026\206\264\364\314\3642\210a\321S\000\272\t\241\322\252@\325\252B)\326\341\003c\264\221\373\034\205\322t\237\337\342M\317gv\302\t\315%\273t\2450\274^\3677\227\034\007,\264F\013\017l\326\367\207\212\345\036I\030\206\003R\031\260^\047\252\004\275l\316\305\24734\020\202\357`G[\205\3720\246\234\034\215\"\2556\t\r\246\326\004\266\300\2022\007|\356\353a\317I\311\230\236\200\367\364\235\257\004\"/*X\311\320\302\233\222\306N&pk0\262tC\0325\310\004\361]\274\325`\305W\311\314\016\244\362:2N\273\034B\022C\270:\201\240\345\006\242\320\014\rI\227D\221\t\022V\0226\025[\007a\332M\366;H\010\031\201\317\266\014.\372T\332\330\025,d\213)f\022\034\214\346bQ\222\\8-\241\210T\271\224\315\263\020H\020\0148C\035 \350\342I@\\/]\034\252\240\244U\314}I\321(<\003\314\321\313\207\016v\367bN\032\\b\226\030\t\262\265\255\022\014\253KQT\244$f18\2044&6\r\027@x/\t\264pw<k6\213\255\374\357\255\373\022\364\013\333\317\344\375^\376!\347f\356\r\261\217\221\276+\300\337\200Z@\006Y1RC\312$\236\263JL\212\351\000\250\246!\202\232\347 q\200\221dQ\245\n\370\363\265*[\235\020\306\240HJ[\304X\212A\240h\361)*qh\314E@u\027\222\"\000TQ\204\334\301\244\264g\314\305\364g\254\213/\212 Y\231$w\260\321\004\334PE\022\304\241\047\247\214m\024\203H\233\216\370\337\001\213dk%\217=\r&\260\324\030\2071<\262\275\t\3609\0470\016T>\212U\251\033\227E\244^1\336-\\\020`\327\255(7Va\010\224\265Bc\023B\365\001\300\356,\311k\322v/\276V\022\323+<L\327hxQ\035i\027\r\220\212\027CD\204\210\312\343\220\327\032*\354\222EU\254\354\300y\334\266vl\337t\n\211\025""\010\020P\2322N\020\230\201\261\261]\001\340\345\356\231\223(j@\355dRBN\344X\025\203\021Aee\020\313,B\021\025\000X\006)@\001\030B\252E\200o\331\271!\332\213\200\312_.\343J\253\242\331l\227\020h\327%}\"\272\206\230]4\323\004ET\275]g\256r\0210\035\2039\000\201zHs\352Jwr\315@\236\016\000x\327eV\313 dj\321/1$b\005[i\005\006\2276\r\2332\214M\2006!C\372}]\375\341\355<\307\013\241\035\047\031\230^\202\0346\007\241\261\207\001P+\326`\035~lN-.\360\031\310\324\023;\033\224\366&a\350\333`\3478B\303N\247\024\026\035Q\200\332\363Vp\202\310+\262\213\204\311\220\010\332WN\356\341\213J\301D\3202\311\267\037o\262\250\3246YH,\357\254\2436\"\0322\264\n\032\005\246\274`\336\013\234\355\356$\232f\206\004\220\225\213\000 (Bu\354UJ;Jg\210\031\263Q\210cY3*J%\0334\252\312VP\360j\203\234\311#6\276\367K\177#\352\3027\363\307\"\n\350a@\223Sg\047\270\277\323\303\001\340\010\374IH\212\013\361\013\343\361\266\030[\262iv\314%\004\335\215\230R%\271+\204\310\251D\331k\311F\335g\035\033\016\255a\246\221\357\367\324\247\315\346su\241\266\222\345`\240(\210\231r\230H>\254\342)_u\202\3474(h\300t\242\013\352\331g\036\312n\007\257\343\3732{\375yI\3203\047\\8\324\343B{Y\330\372\030p\303u\236\375+3\306#C\037\005\242i\206\307\255\310D\355\354 0uM6\275\232R\231\001\0026+)\031\021>A\re\214\311\003D]\004\222\001\335\022I\016\366H$+\314\t\001`\252\033\024S}\321\271\025\224\221\"B\200\265\254\t\272\241\204\222a\230OdL\315-\210\273\331Q\243\013\322\022\340`8-\267\233\003q\231\310\231F\334\001\214Q@\270\305\r\047s\327\370=\336\377\023#\361\243\264\363-9\364p\341O2$\300O\021\361\263;\211>~ \217/\010\227c/\346\304-A\300\226i\031\326*$,\330X\370\310|f\367\201\013zV\250\203|\353\t\267\212\222\202\035\003\371\242\200!BB\004dA\226\255Jl\321\217l%\261|\330\027h\200X\361[,\025\030R\270\244\331163!\311\201x\347\240Tc\236\324EC\202\300\261!FLql\035\316\357&2\031\231\263\301w\t\303!9\240\002\300Vl\341l\034\347\021\020\005<\020\212\010\312\365\002\256\201a\310\227$@Sr\006\221\244\210\367\032\320B%\210\025\252\214R(\206\326\366h""\034x\230\303\235[un\002\266\333\202\260\315\047~:\352WM;)\010\302\207\214\2730\243\233\262X\3170\243\212$\\1\327s\310\262D\024/\321\203\255J\267s\016\231d\201Xa9\324\013T\021\310\024\242\322V]\225X1\n\014\303\332J\346\350\031\314T\355;?\246\300\301\225\2527OP\010$A\256\032K\\\303\357\351\375\226v\365v\241(Q\311\210\352($\332\017]\005JLx\367A-\332n/[\022\223\n\013C!\344\267(!\227\3358\265\244(%q{\302\277\266e\205;)`\010\206\206w8ge\366Zh;d\321F\006\312\254\362\343\005E\301\302[\233,\246\262\010\246\204\0145\033\314\2566\253\240\265Y\206\210=\214Z\347\036\234\362\276OL\330\333\251\005H\233\352\025,\202V\326\300\3658!\221\021]M\315M\263\r\0205\020\004A\020\347\310v\334\330\315,\335\202\207\307H\214\n\213&L\034r;\202Q\222n\314#\"\231$\355B^\24331\003\3651#D\016\250c\327Q\306\r\321\032B\035\335\226B\211XY\004d\212\010\212\240\260B$\320\310e\r\264\026\227\263B\2602\354i\236nL\305L<\267\202\201\352@W\027\201\305!+U\354\316\021V\217%\234\253\223\303S\r\234DA\251[j\006\217\026=\036\320\023\006\020\nM- \264e\331A\225e@\024\303\245)\235\332)7\004\002\352P44\262\001\252nf\201\242\002D\204\356\"Ct\3311\2450\267|a\2046B\006\343\t\270\310\214RF&q`\023\003\n\222\260\262e\032\263%1&\302i2\003f\303R\322Z|\027\202K\316!\371\247\322R4\360\360H\360_?\200\233+\243\006\223\343\300p\217\202Q>\345\334\312\t\217\251#\274\347s\240>\014\231<Y\025\000VJ\347R2C<\030P\315\020\n\347\300\254\366\244\230\230!\010\351`\t\"\006 %\204B{\207\260\321\223^,\033R41\261\234N7\357\304\331\005X\261{\271\030\344$\212%\342y\216\323\265v\350\272\314LWZ\344o\361]\\\233|\314\035\333\233\027\213\233!\272j *\002\311dD\301TEB\317\035\3433Y\216\037\207\346\374\357\212\343\353\370\372{_\036&\264i\362\224\230\3128I@N\324\247$N\025\223om\013\004\022*\206\3440t\301a% \236\201\342\335ZG\340\370p~\243\263\261\036p\367S\337\335\314\337\300h~\216\205$\203\210\206\227!$s\236\326\332V\032>|\365<\0225\005\261\177\250\370\255O.\351\365@8\202#\325$\274-\337hc[\257\030a\363\311\rC-\n\017!\251\305\005\023\217K\222\354\367\311a\235""\031{\350P\2535k\033B\254(x\304\231\020\200\207\337\337\310\353\022>\033\035v\353\271r\304\270\273\3306u2K\321%\254JV\230\337\367\212;\207\301%$t\270:\325C\200\237\322\330\200\016\177\231\235\215z\017S\201\203\037\301zj\275j>A\037zi\347\217W\341\210>1^\016\twd\204k\006\311{\374O\235\302\272X\242M*/0\010\210L\002\2209\361?\\~\306kw$nO\304]\310\370\243\233n\344+\346\321bG\303\234v\"fof]\241\230\013n\356\233\234O\340\202\231\031\314\245+sq\366X\221O\034-\347\233\r>Z\0017\370\334Fnt5e\242\327\222T1\243\022WN\270\036\002\367.\207>Z\032`\037\205\330 \356\344\374\330\r\354\241UQ\323;\327}\243]e`\364\024;W\226\227\235\372\262 \212~\250\252\274\241\263p\341\324\002\2347\047\002\263aV7`\246\025B\366\366rh\324\367\307~\237\270\355\270\273\r\305\375w\023\275&\r\270\326\360\373\313\276\312\341\203\343y\254\367-7|\205\336h\037\nK\241\324\300X\214\203\263A\004b-\265\274~G\272\335U\303\366}\047m\212\0357\047\300\210]\203\006\366C\263\242\315\221\332\223*\305\026\006\202z\336-\251\252\031t\203_\002\037\017\247\310zZ\235o\223\326\256\013\265L\273i\255h\313\322a\251%wu\311!h\243s`\236;\215\256\254\364\342\303S\003\225\206\201\366\216\014q~\027\245\304\2017#\304\2435\224\275\n\022X\215\350U\200\"\034\355EV\214\233\032`\367}w\221\343\337\"a\323\003\327\335\t\334\360\303G\246\357S\322[\213t\327IL\340\252\220E76E\366S`V\275\234\341\000r\210Jl\2528Jn\010q\262\365V\310\315\344R\3644\244\30753V+\303.S4`\362\201\260\265\254*Y\306t\266\216j\004\272\0100\3642u\266d\327&sg{y\047LS\252\264\330\313\200\230@\026\026\354\335\226%Q\373]\367\225\213ZD\021\033]Pd\3011\350p\315\373\356\213\r\270\025>|\320\341\252\266\262\204h\240\374\304\005\205\207k\272\230U%US\261\013za),\352\232\344\335\240`Xx\360\263\201)\201\327\254\245\021\2334\351\256\nR\306\227\334\356F\313fk\225\214a\302(p\266\362Jj\3222cm\3430K\033m\273\200IG:Ef\023,SYD\321Y\313-\021X\213m2\235\372\333k\2761\342`\3557\310\235\365g4\324\362\3319\035\245\244\240\221H\306\364\2246\206\260\306\036\327\275,\014\217\325zP\013\334\231\213\353-\266""\323\265\2075g/\005Un\3462xc&\343\311\342\371\272d\357\236\272i\271t\252\017U\226\346\301K+y\225y\205a\227\0167\204%A\261\275\210\310,1\311\221]DT\027\013\020\026n\334\331a\224\2479M\206\216\020\227\233\270K\216C\304\003\242& \206\031\220\362\2708\337\006{\275\007+XKI\004w\360E\177k/\303\364\213J\340DR\202\206/\250\2033Uw?T\376\274\276\262\241\217\350\335\204\343~\254!\355V\315.\0472}y\031\244)]\332\340f\225!8\366\254\223\021\233v\352\224\270\316\" \026u\301\026@\313\233\247p\274=e\332\341P\177u\2052\300\374]\016O\260K\322lI\000\215F\001\022\211<\337\213\255\260\242\314\314.\311\275\362\321Y#l\253\004\207G\2158%\255h\314\013\255:\273\006\322\325\241\024f\354I=\373|\257\277\321:\350$\244\230\314\023\326gn\301\001\363\326s&C\023\214\254w\253\226KJ\027B\324\326\325\360\013.\3007\265\021\t\304\324\333\245\364(HF\355w8\031\305R\0146\254\316UH/a\300_m\306\235\321\2021\337\365\213\304\320\363q\3556\030\246:r \325x\234\277T\257\212l\032Rf\340\377v3!\264\0277\033\3705\2507\301\177\037\014Z\326\333\215\350\255\036\342\300v\005\301\r^\326\030p\374\231\027\261\226*\024\3755X\311T\330\216\206\264\322\375\007\320\326\025\300\030\330\306o\373\347\36041\361q\360\351\277\n)Y1fO\207\351\353\340\353\305\267\342#.f\217.2\022\322\223t\3225\256\0179\240\215\331\030\035\n\216\216\213\344a^J!\345\330\035B\0163\211.\306\020\346\\\3079\0148\265t<z\333e\317i\004%z\020R\366!\246\025\0214\nKkV\310&\307\207\262\204/\330,[Az\263\213\357\310\250\030\221t\210\035\177E\024\020fQ\205\215\362(\223\302;\235G\243G\242\274\362_\017\221\351H\331\351\307#\331\276\313<<\366\272\244-\305\202>;\340\337J\263\327\037,\2654\351\021\047\023R\213\344\211=L\2230\371I\301>1T\245\025w\032!&\365!\214%\357\016\250{\036\333bm\304\307\033*\264\316r\201A!\352WV\205\323\361\332\341\204\233(\341\276p\201\364 q\302\231\3476k\200HdglE\221\275\215\301S\026\222*\222Lyv\361\346<\374\345$t\344\353urg|\364\310\227\250A\334y;\207\360\232\336\315\356;\232\205\337\331M2\02540t\327\005T\314\231\031]\260\024\031#\206\310jA\311\2239)""\230X\026\331\336;v\207U5}\033\373\247\t\006I\314>\321\033_\313\324\376qHRr\344aY\367\017@$\020\225\0226\370O\353\302\274\325\006\004\221\357z\233D\004\032\226\225\030Y\221\002\005\220\266Y\254\210)\267\331\252|\023\247\325\354&}\233s\365\2061\325\247c~\270\202\206\034 e\253N\337\"\013\031T\227\217\327\201\267\216\306Y\364\047]|\337\033\214\007;\321\025\030\251f=6\257\251*\366qJ4H\200\0347\271nU2t\252\263v(b\352\256\\Q\270u$\222Km\272\221\033\031\031cz)\300\313\021\265|L+\221u\217\332\304\"\214F\346\333\006\217\221\362\202\202\032\311\254\214\352p\n\333\216\006+;\3402\332\357\303\377#\244B \016\023RJ\r!\022\341tic\025\216T\305H]I\234\027D\227f\301U*\352=\356\314p\207\"\212\332\331\275\225\033\304\315q;\325\243\020\270\222\371a\030\322#\231\037\373\322y\322\342[\222\033\000bZ\324\306xr\214\302\213\253\317\373\263\206\200c\235\312t\222S-\331\367Eh`\317\323\251\200M6I\214A\234z\375\271\022=\273/\023\207\024G*\033\025\357\300\231n{wR\215\220Km\310M3\361\322\230\343\277\2275\227\034;\361\322j\367\356\365\234\217g\304\337|Y\213\206h\247R_AA\252C\277\n\034\340\245\236\017\273\221\034\037\210jS\013O\231\346\035Y\317vF\232P\245u\030\273)\3431\021g\006\345.\016\303\030\202\030\206\226\333`<\270\232\267<E:\022\350[\203[\305\360\353\263\302\014\336\270\366\340ZT\037\274\210lm\376\253\373O\251\006\271\227\016\245\364\271l\2323\241\222\261$C\364\006b\340[\212\255\0131l4\254P,;^X\324%\266\013\204wK\361:\226\323DP\215\311\324\353\323\247\023R\206\241\300]E\322\352\310P\230-\024$\221fn\361\303*\014\350m\r\035\337W<\233\352\252#\302gm\\km\026\353\347\356\\b\027\210X\034\322\\\316|\327<_6h.\047&&5\274^@4T\263\021\302\253s\240^\247\266\230P\374\325\0065f\222(\362\030\024HL\007\262\266F\370\211\366t\242\3556\021\263R\214t\217\0304\237\245\205\212\016j\006\323\032\030H\002\236o\024eH\374\306\255\351G^Z\311\371\303\362\"\273\374\200\202F\240\254z}\252\177\002L\307\267\307\317\257z\3660\303\321\257\242\365_#wqv\333\\\372\343H\34627\305\216\270\232\350-\336]\375\332q\242Z\243W\233\002\032L""\326\301\325\250\017\267\237\003N\360\346\233cyp4\310\252\320\364\216\362m\364\215\032R\006_\216{\320q4>\2369_\254\302\261\031\261\204F\266\346\311 F6XqR\274\211\231\230\t2\003\314\341\221\000\240\264\342\310\231(\030\221\2244\262c\251\025\343X\262=\204\204\324\334\"\007\204oz%\237p\256\250<kd\214w\035\231q\350;@w\211\t=%\242\202\315+~\\n4\031\214\022\"\032L\303\007\2550\232o\225DJp\263\272\357\374\201\036\232\233\314N\033\231\211\264h\352\220Xx\237\236\005\305\357\373\275X\355\320\032.UK]\355\032\271f\360G\347xT\324\346\230Q\360{\253\322\225\251\0042\n\323\315x \261\023\035>\217\nt]\261\341\221\047\273~\361e\337{l\032\215\266\206\030\214\277Df{]\213z\364\325\342\034\264\311lF5\312\356\006\221&\265\204A\021ZKU\037\005\343l\027\027\251u1s\027\003bd\316pvb\350\326\000\241D\320p\301R1*\2102\341\265\261\252\355H\306)tQ((\245&\350I\001\006R\324H\"\t\034\266\014\347\231;\024\254\301\244~\272\0279\272YC\020F8\215\230Q\005\003\"\310>\354V\017;j\362\t\006\2336\343\222\255\330w\343\024\031\366\214\211\022N!\245\251\036\017b\305I\275\246\277\227\331\366uj\007\332\317\007\301\373\036o\203Cj\n9\244\232\326\255\270]\244\363\\\373q\250\213\007\3134\247\037\036\357\000l\200\215q\321(\333\350\374\272\365\013\047\357\365\311;\252\215\250\271h\207\271A\032\264H\2230/\010\202,\267z\377\0328i{<\317\272w\3236\224\254A\242\0340\367n\251\315.\204\206\r6\322\334\220\263\032\342\302\310\2361\035\033\2348B\314*\304\220\026\024\3604\316s\047\234\352d\313\304\320\330\367\236bF5\244\t[\234\021\327\322c9\277#\316A\240\032\035d\236\303\347\362+\314\027\026\030\345\003a-s\351\341K}\177;\256\3050\277\237\223\321\337\267\r\260\332\016\204}\047b\201\253\355\330^\327\240\311\240\375\302\342\231 i\203\220\2143k;\022.\004\010=/\205\3705\247\035\216\234\256\330\023\335\350R?r\213\\\005\273\034\267%\270=\r\336o\013\206\340\353~\016\301\001\277\361&\205\004B\nB\247\213\025Q/\t\324\362\211\261Z\214\212\301FR\316\262\241\374\242\244\251h>gCx\264hcl\211\020\005\004P`\036f\242\"Z[h\367\331\345\214\362?\022r}""\277PW\310k\326\373\3623\243P0\016\333#\251\202\rA;\270\364\277&e\332\260<q\002\276N5\2173\0238a\211\353\307\343\302\270\371\3701\262/\302\244\332\261\307\\\031cJb\027\264\204\320C\047xrAMP\200\301\026fL\222\3411\036\237\212\311\035H\345\202GU}\346G\033\345\2406\217\300\330\305\240\305\014\005\260\344\31759\366\347SU\2662\333D\246<\0173\345\033\261Vy\374\376=\331\032t\235\322\344\017|\233\331jD\320\334\370\320\251\367\030AZ\036\005\310\344L{\261$(p/\337\375\207|\206\240\335Z\"\024\222a\007fPN\006;\367\272\305\214H\323\270\r\270\333Dv\257l;#\252\201 \205P\315\200\352\006\314\351N\240\032i\260\344\303\233\327\205\3747\336\336\0164Y\351w\\\255\243-\303ww\237J\261\213\205\251`\204\367j\"\272s\364;\211)\235f\353\230\335\370;\010\014zd\213\037\n\364_|\357\371\215\333\367k\246:\020=\346\351\224\250\r\304(\313\224t\232\330\231\007\t\313\270d_f!\212\047CYp\243\030\033\035\371\t\304\374tX\3050\340`t\336Z\261\215yW\257\352H\346\226^>\323\332\242\213\227N\206\262\265\356g\014)9\236\262W\312\351\025\355iz,TM\243\254<c\330$%\336\240\342\006\005\221\022\300\260\016\312\351D1cF5\r\"]\2301\222\026\366\226WA\014T]\2362\211\007\353\372&\235\310\273#\020\236\047r\201\r\366\240\340\021U\231\310\211x\261\000\235\211hQ\337C\025E\200\362Yci\tt\241\006WK\306\264ce\221\256\022<b\257\255\013\006((\213\2401\232\001\267\206P\233\354\256X\033H\367lo\317\023\t5Y\361\\\036\221\032D\3142H!\345h\344\355\340N\200\034Z5\355\360\337\273.\215\021\t\006\300\304\033\232\r\345\r\360g\201\304\374\266\232\214V\372\340\271\2076\347;\321\210\251\031\251\342s\346\024)\270j\002\233\270R96\373@;\322\276-c\036E\257\262D]\367r\226\311\304Yp\350\013\206\000\"g\247Ab\203#\\s\237{\036\"\374>\237\202\304\241\352\352+\357\354\265LN\334\366+zyR\252\0178}\250l\001D@H\204\030\331\260\207#\273\336\245O)\240\237*\231\360.g\031\267\272_\201\006\331R\275\221\2152P3\234\360:)&W\263\032\345\022+4q\347\303fX\333\250YZ\312\321\255l\252\2121\343p\264j:\\\352\360\026\213\320\322\202\0278\"\003\232\"\335\007g\243\372&\270\361\022""\342q\342q\367\373\377\207\227ci\260h~\22274\273\233\373\320\221\354\337\317\273\200p\341\341\353yc\247:\001\3402>\315\275\353\314\354\214;\204\024\363~?\0246\257\014\300a\246R\022\246\353`WEz\366\307\241>\376#C\315\014Y\373\367\264DovL\356\314y\331\313\374\337\341?}\261g\273\363\037\214\363\022\251I?Z\034\n\315%\315\230\312\333\210\253\237\225y\177\311\047\360\221$REDI\252N\304\047\304\254\202\304\372\365O\361\017\352$\371\240\277\273k%a,\013a\356c\363\360Q\021\220\317\346\367~\250p\323\3333\212\232\210\005R\010|\220\"\325g\362\340\306W\236a\nw\3351!\0021\334\177\237\313\365\340\251\020\365Z\2134\037\242\375\3132\250\250\"\374?0O\364\371\277\275\272\211~X\343\260\023\341V\263\311@\177p\336\356W\226\005\301^I\236\363R\204A\007\355\006O\347\361\317jz \262\325\201\330\210\177\305J\334r\310\261\025\227\030t\301bt\034\375\005\303\\\"\020\215mHj l\364\226\343\275\230\\w\244\313\312~\223m\365\364\023s\017B\234I\313B\302=\032\324\213f\226Z\371kJ\273\363\366\267\n\243O\355tqhTL2`U\030\321\321+|i\265+Z\260E\333\206\216\213\373\335w\203\255\352\035\037\275\365\332\352\3316\204\021\027I\"Iu\255\230\3744\2771\272\274\337\353\263\344-:\226\364\212\335\025\325\224\000\222\034\326N\"iZ\353U\\\263\025Y-\236A\235\325\325\325\231\033]}24\321\344BD9\255\016,\032\177~\246\246X\366\230\037\002r\221\226\364Yl\333+\254Da?\274\302\243\020B\336\250\244\330\230a|_\325\212i\370G\352\3129a\371\016\"4H\254\360\307\267\257\331\254*\243\213\343\030\312\213\023\365ch\331\261\350\244\276\346y\332E\323mn\215s&5\322\346\343\344\326\033m\202\010\"\217gc\223t\255\261\313:\373k\251\223\323\311\264\360{c\025\217lA\355)\214\034\334yz1\353\014m\254l\2326\313^^e~\233\244d}lN\353\016\006\303Ja\2369`6(\311/Q\242\376F/\200saa\231#\016\315\\\257\304y\206,]3\034\340@j,\030\340\214X\354\304\371\217W\202\314u\352*\264\303\377\320GQ\240\323\221\227\001mL\\8\347\234\\J\306\235H\253k;\322\201\030\232\244\002\327\326\301\323\305\324\3312\\:\260\253\275b\177\n\035\326\307\240\333\357\2365\317\263-1\312\030,\227\353""\333=O\353\350\\\347\332\203e>,\221\221\n]\201\304\271\313\356\377\260\276L{\021\033\017\222\231\034\227\036\204\"F\372:\202\2563:\010\336\370\037\240\331\360\212\031\370`\323\257\335\355&\205\304L\201\211\014\252U\346\201\203M\002\233\t\330H_\321\314\352\212I(\333T\233\322\006foS6\215(\253\333\232\352\205&\035 (\345\2708g;\034\014\036\217@\245]\206c9\302\203w\315\0058\320\347\340e?|rl\303^\267\227\237u\277\310C\230\047\317/\236H\202r\213\327\275\036\253\273\271\336\346.C#\"\363\201\2178\264\356\365\302\234\334\353Vqw\352\372\\t~\227\037\223?.GO\334vW@\345\227\036C\320\333\301\213\327\3270\243\320\337\"\310\334\236x\021\001\312\357C\341?><(\305\217\314?\0476n\301\356*\261\342\305\213\232\256\247\010\301\303\342t\020q\362x\235\311\311\362\3412\030\177/)\217\023cn\231\367\367\271\037\204\341\337\326\324\325\366|\257p\355^\016\007|\032\247g$Y\227\336\2139\223PX\237\036\236X\266\277\354.\372\334niY!Vvt\333\233u\214$!u\357LS\371i\314\204\324\232\213A\341\003\266\3003?\320\276\304\202Oo\2634\357\207\221\261\204\214\266X\345\304\222\262\310\336;\273\010\033z\333\034\377_\225{\t\217\007\315\227\332\027\274y\036\303h\257i\346\026Q\355\215u\235vE\255\375\216\004\315\001\235\310\361H\021R\227\244NR2\262i\323\271\260p\243\2543\374\262&\033\351\227\343\346*U\354\351V\316\261\007_\261f\301\313\366Q8\316\345ns\237\037\214\367s\005\237\237\301\247\203[u\272\337\023\237\353m3A\3207\333\002\242\3766tF\255\362\214\312]m\025\036\260\301\021L\027\305\227QK\335\023l\333AwnMkj\246*L\221\013iw\304\325T\207\016iV\"\254\257Xu/vVJ\004K\026`TCE\222\330_\231\027\030}\213\237\331\214\213\222\372v\014\357\262\000~.\325\264\333h\265I\335\261\223*\033\211R%y*`\327\256=\214\311\315m\207\262\330\033\272\244\207\205B\037,\314)\376hj\3302\320\036\032>\326m\211\333\027d\0038\372\316g\232\372\375\206\257\311v\030R\371m|\275\321(xu\220\233\036e\003\276_\035mA\301\247\177\245\361\324>D%\224c\016\300\206\306\034\252\007\263\202a\000\233\313|\223,W\014\267\010\344\202\224q\271LM\244f\362?+H\022\314\370\246C""\0177\031`\177\010M\255\217\227dx\n2l\357\177\023\014\366\273\270\033\033DC\313D(\001\341\331Y\276b\215\317\322\266&\226\027\325\017\002\001\030Q/\207\274\205\013\357U\r\317\277\213\335\344v\341\364\353\n\2441\271z\264\254C\021\327\262\217\032Q\231\371\276\356u#\377\305\334\221N\024$\002\250\221Q@";
-    PyObject *data = __Pyx_DecompressString(cstring, 10635, 2);
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (10695 bytes) */
+static const char cstring[] = "BZh91AY&SY\005\027\245 \000\001#\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\300@@@@@@@@@@@@\000@\000`0w\272\373\345\024\250<\350\033{\276\036\355\354\300\373\302\335\335}\233\270\000\047\274v\366;V\215f\313w\\eSlT%QB(\256\332=\203K\226#K\263\202BJ\201\345\347E\253h\266Z\233{\327\033\207\247\241\356\324\322\331\240\333\334\001N\204R)\313\335\235i\252.\355\324\365\331\213\356\217\265\227U\260((\337W\241\240\224\"M44\010\3102\r\003S1\022zi\204\323\010\311\246#d\310\205<\223\323OT\364\311\204i\224\336\246\246\3112=#\324\321\3524\032h\010\021\000\223\024\364\324\322\206\215\224\323\322\003\3224h6\220h=A\352\017P\000\032\003 \031\017P\006\324\320\003M4\"$$\332\21524\032d\323e=@\017Q\352i\351\033P\304\332j`\312m#F\232\032\000\000d\320\003#F\200I\250\210 A\032\214\320S\324lR<\241\261G\246\240m@\007\250\006\200\000\003!\220\000\000\014\200\002DI\244B\217D\007\251\262\201\351=5\000z\206#\324\323\324\375S\311\017P4\304\364\236\247\246\247\251\352\006\217)\204z\203\324d\304=\252h\375&P\022\"\020\002\004\r\023#@i4\322\232{I2\237\210\232\217\322G\250\310\375P\000\003@\032\000\000\320z\215\000\037\375I\303\035\274\031}\230\203\334\243\267\047F\245\2133\017\010\211\177\270\"\335\225\344^/\377\211\047\355\261r\201{,\372\006\304\332\001\260g\367\277\203\267\273\2751b\205\274\010\260[\352\010\035\202m@\030y\006i\200\207\207\264\271\014\"P(;Y\235\236\236\034[Jo\326\237\006\035\323\226\320[qa\377\251\177\3156\237v&\322!\201r\205\266\226\232\345\301Z\310\265\047\325\350\000\212\326\352\242\201@\242\276\356\027\201\231\243M\210j\250\261E\021 \252\010\2022\002\221b0\212A@A\025F\003\"\305\025Dg\253\201\333\306aUm\022\027mV\232\027i\255\205\242\373z\327\026\262\363C\006\332g\355~o\363\237\247\375\030}\374\377\233\305\335;\276d/\265`A\361\347\047\207\273\273\307<h\"\214\024\030\221B\000\244\202\310\n\021dR\021g(4PT`\254\005g\022w\260\345\010\034;\352\001\241\251<E\n\005\010\241\r\003,\024\366l\357\022\327\264\261@Z\"\364i\225\177\001\226&\033\250\226\213i\240\007""\022,FE\212H\316UG\2509\3159 \260\010\260\324\225T\261 \261\202\203\327\314\327dd\004@\236\374\352\321\214/fY\334\306\221\264\244o\r\302\334.\001\351\"\267\332\243g\266\245i\241\255\216\305U\024\003\213\310`\222\233L\203%-\211\n\274b\223H\206>\013.\0038\360\324\340\201\230G\322X\270\013Z\2505\032}\0212\241\265~f\266\245\231\363hr\315%\310bc\023z\000\304\326\264\273\222\003T\034Alm\304A\2708\331\005>Fxg\306\027\031\273@\315}\0324\203\206\374\201\031_\3134c#B\230\010P\321\212\327v\352\026`\033\362\311vo,\215\230\214\333\035\361\031\240\335\237U\256\370\360]:\215\352\221n\235t\343\214m\033\366\341\202\003\334\326\200\305\241\020b\303\215\375\273 \337\3207\047\027\035\307\"\207\306\240\311&;\217>9\270\343@\0106;\047=\270|{\332\222\270\2573\362\307\212\215\016Z\300l@7a\034\275\244D\227x\204`\341\361\036^]\371\361\367\342*\373\\\024\212u\274\272||\376\236\345\373\216\027\243i\211\213\204Yg\3543\226\023\314\377\256:ZU40`(U\350\337t\342?\333\341\341\376_\357a\376\234:\022\177_\023\250F\336\377\r\271B\360\323\225\241\307\277\207[\375n\271\363\274\267p\247\356^@l\273\245\231\303\205\266\206\352.+\244\332\302S\340\241?5D\3378\2625\363\315\373\341G\000m\204\026\354\302\355\000\036\031\n(:(7)O\252`{\352\0021\260\327`o\201\266\253\342\2766[l\235~\264n\nP\277!AC\047U\333+\270\336\273?\350J\375\005\343\033G\305\003m\341TV\312\"\245Fj\210\210O\253\306\030p\022\263\350=\307q\201\001\307\242ox\n,\242\354\332\354\202d\374\366\244\342\302\"\346\357\273:\226\230\2145\225\237\217\303\347~\362\030A\177\265\031\031^o\237\353\361\345\030F\021\244\341\346\000Z\006z\316\315Y\244UV\312V\355l\227$\312AF1\002&\020v3,\354\020$I\031\201\225\3037\013N\3416kP\022\007\272\220\226\325\n\317\337\245\320\355\037x\220\005\3567\3403T0\235w\033\376\007\316\241\321\023\365h\316\23568\312\010F\035\207\222\250\304\201\006\313\027\331\037\034l\270\375\230\t\222O\004\230\223\366\326q6iC\r;5\346\004\326o\032\364\345\311AQ\0143\003\263\336|\331\275M\315\334\346\275\321\243\314a\001\204W\214\243bvT\374=\263\0064""\245**\374\035\371\263\\\201\013\032\020\310\261c \241R\275\005\3220X\255S\251J\245N#\335\3441\266L\213P\340U\355\337H\316\024\264.\271.\231 \245\005\370\341\354\306\374>^\362\353\360?\205\266\362\374ODv\376\210\377\251\302\243\306;\n\2560B\210\215))\251k\211.\351n\205$\207\te@\341\277\240*\346E\301\r\213\270\276\004\273\\\321\266\351 \326\334\267o\317\337g\256\326F\351M\245\006\271\264F:\276\244\254s\037\036\267\233p\234M\234f\303&\347\235r\302D\265\207[QC7\0322,\271\370]}\221\341\342W\026\323u\214l^\226nvN>;(\344J\305@\346.\206\230\326\034\006\336\343a\210\3049\030\231\251(A \352E\202`A`\324$<P\016\301;\201d\300\317eID\303\047t^V_\023\272\315\333vg\235\335\274N\357\345\371\2567\nF\275\271,\250B\371\304\357:[\360M\353\254R\211\213\\\021g\217\003\344S\0228\317I^\344\347z\346\241\353\370aS\256\351\313\317\220\010OBy<\022\262r\375\306\226L\362r\343\376\026\2224##&tm\031\260\022\261)L\245\237O\036lSf\322&$\2320\210\220\241\r4\222\047\262\215\013%\234\002\372\177\2668\310\343\216gAp\345\317\226b\231\263\t\204\271|~K\375\231\267\335_\365\273\263\277\341\200\3274\t\350\230T\004\241\3177\271\302pSB,t\372\365\344\377\\F\355xw\020d\241C\226y\213\321\236O!\326\360\326k\023(\335\250\n\016[\204G\226\234\3125j\343aW,\236\311\033\273\244\277\321>\013\257\272\001\244{\021T6\372\257\376\362e\"\022\244\317\333\031\030B\242K\240\252j\230\201\274\301\243\365/\227\3059\020,\r~\224?\370\352\217\336\215\325Y\007F\013}\345\006\326{D\215\177\3178X\227\226\341b\345H\"N\026\003g2\225\364\\FY\2445+XY\222\323ZY~u\027\376\236\213\354\212\014\344\006xS\224\3400\327\047\246\257\260\361\307\036<.\324\236\005t\005\262\016N\0145HF\211\031\033\371Stt\353\031\342+\212\354]\223\340\214\315I\260\036\036\252\327\352\241kwR\321UTY\330P\2161fp\021\212K\211%\n\210\021F\216\021(h~\253\364Dj\032\312\3570\335X\006\316\220g/\222.\205\214\356\021\016\332\220\331\336#i\201\305\344^\250\\}\344\220\210\027\206Q0%\314Iy\027\306\222\250\320~&K$\243 \033l\264_\\\253\335\333\313\314\304>\377D\374\322\005\036\212\255Y""\365S\346\343\024L\023\020=9\300g\037\047\020\2061\203\200\206S\305\323\273\217\246\251,D\322\367\336L\252\017$\212yg\237\270\251_\324\274\047\333q\320N*\016\2243\205\016\004\204{\006\305\211Eq\361\310d\313\240\350\3304\364\n\nm\303q\222\322\243\010&\000\347\354xw\301\312n;\001p\266\nMD\232\252I88\322\202s\276Sr`\002\311\307BIB\274\250\3428\251\002c@C\376^\221\3739e\2252\177\006u\374p\375\355\253\201ta\320\014\272!\242\345\335\210\306\034#\002\212\020\002U\255\223\227\002X\215\271g\311\216\215\366_k\326\207o}a\233\337\217~\323\323\236\334\343e\334\016\006\027\305Y\017\225|\253\257Yb\322\224\315/V\223/cQ\201!\357K\205u\241\004\371d\253\032\004\225\272\334\207\261\206\250V\210W/\351*MY\230\271Z\025\207LB\303\260?W\324i\310\222I\047\047%\310jf\274\260\224\321o;x\3503_\21317rmM\351\265\365\341\034\275;\345\265\261\340\252\373\274:XbZ~\356=\210\274\357\202\363\267\243\001\237-;?(\203#9\013\232\342\253sV\206\355\225\354q/\025\230\231f&l\370\245\031TP\016M\3105\335\025m\206/\204\031bW\0355m\007\214\252\337L\342\346\002\252\206^\254\243bm\345\343\275\365U\204\362l&\346\326\246f\207\215\315\357`\276\2162\342\032)\334\273*\335\356n\265(\342\321\016\230\246q1\021\305\243\302M\375vW\265\236\366\016\370\346\360\036\017\227\241\231\340[\013\271n\016\317\")h\222\301D\020\272RX2\2731\353xc\020\254\r\324-+\371\027$\336\227\273\200\213\331s,\354\261kc\241\027k\302\275\237\274\340\366\362\332\321\264\367?\006\353\000\235\233\221\354o\007\330\200\317\222B\251\343\226n=\007\207/\016\255>\255]\274\2746w\342T\334*\354w\014\244\236\245U\314\272\007\326\373\356J\261f\233d\306\373V!\263P\004m\320M0\003\263\025\342\352\330\016J\316\370\013jit\300\237w\3148\020N\201\341\317\304G(\242 t\374\347:\227\236\017>\2433\231Yc\016\232D\214a19\273m]\203[?11$\031\3262kNk,\354\334\202T\216\225\210!\257\004\261\321E\3633\221\007\251\245/\241\nLd\353\021V\"\243t>\351\303\0300\340*\254\305_\332\361\021\242\212\322\264\306\014\346\034\003X]\007\251\264\226%g*\304QE\234\330\006rd\233]\244F!F\311\255\201\306A""\013|\032P\027\177p:r\024\034\216\213\243\245\315)\322\254*\202\013\225bJ\022\314\216X8a\2079\036\341\036\217{d\324\r\303n\252U\252\035]\244\322\371\376\367\323\004&\230\350 \300<\377Y\316WYo?3\257\252\343\032\0368+&\321\366\220B<c)Q\020\330R\t/|\2075\047\342[\020\344nB\371\347\026\024l\367bh\273\252(q\013\213\217\276\331kX\rZ\257\224\264\352\220\253)\210\264\253!\324<\330\306\370\201m\216\270\\F\336\306k;\302\250\306\201]\3576\200\334\026\216l\254\211\240\334 \275\003\205\262G\rCC;\372k\320\231Hs\3457\027%f\245\355R\373:\200\301=b\204h,V\306\261\216\315b\253\231\2155lW\350,m\201@\271P\310$\255\247C\213\333U\316\034\303a\005M\304B\234\322\306\006\323\345n\032\030\341\274\276\341\320\260\330\261\3064\275%\206\246\003.D]\\\r\341b\201d\020\216\006\301z\000\367\216$6\215\272\274\204\r\335\014\304\005\276\315\316\257\022\202\350\312\353\256VH\251S4^\210\264\017T#f\256\235-\021\"J\362\372\033%-\001l\022-\243*m1v\004@Z\315\250d\243~u)\2778\215\333#B\226(%\366\260\201\246\212\306\300\331\276\224\312\273\223p\310\003\242\315V\n4f\204\206n\345\026tzgR\204\241\251Z7\255\340i\304\332\245\345\306z\323\005\300\253ES\0148\260!\240)F[\030[4puo\266\226\234&{\250\206\200\302\211.\3528\252(\260T@\222q\272\200.s9[a84\245\027)y\276Fmg\246:!\020)\032(&\353\242\201\201A6\242\204\246RAa\222\010\031M\014NVa\016KU\030\333\335\267\313\347\177\020>\r\017\324z\217W\201\367J\352\344\262H\201\213\300k\274[lx\016W\230\203\241C\027\177\205N\240\362\241\230d\213\026\312{\\?@\347(\210\202\031y0\300\016\200\214a\261a$(\230\347R\030H*H\004\220\001(\203\324\227\362~P\024\247\231m\2645?#\234Vc!\257~L/h$\310\230\312@\317\202\n\000\222u,\244\332\255\302\261\206\231A11\002\307G_v\316\035\024\243T\023\026zI`\331\323\026\035\217*\357+Q\337i\027P\353!\363u\031\024\253\262\202\204\227\210\344\010\244\243_2\n0i\323)&J S\246e\345\235\216L\231\231\344\364dE>\262\257\000\244\031X\361{\017\251\246\300bd*\031\222\205\232\030B\344\2734\214\355f4\322\344\365\373\277\225p$\323r:\010\202A\202U\021\020\240F2\n\327|\270(`""\367\016\342z1\017*w\327\223\336e\361V*\274\345\267\337\021J&\233\341\242\342\376\212Z\273\375\024\367\334\312\246l\014\2401\351\233\030\215\275\047\\,\030\031\036\224s\310\002\000\033\006%X]\202M\316\022\023\335H\2449M:\207FJ\334\362\006U\304\316\212\363\334\262\221\244\204k\363\357\204G\r\364\300\212\332\203X\253\047\315\212\032\314h\275l$\026E\202\202\210\202\210\212\013\020\021$l\0304<\211\025@\340\212Hq\3125\024%\301\256,(\3160\215R\335\3617\272\360\2106\003s*\307\201\027\265H5\206\262\261\"F\340\365\374\342\213U\014\30312o\336e\350\365\367\254\245|\274LeRR\213T(+\300\024R\230\264\356)\362S\020C\273&\241\264\013\301\354L\2243L\225\014x\232\200\243\264\221\371x\213\244\351?s\2017\236\316\335D\023\222Km\245)\205\340\3679\276\\o\034\262\321\027+\275\263[\357\207\202\343\036)\030\005\303R\0310^\007\252\004\275l\312\305\247#$\020\202\367\250#\255\302\374\367S=\356F\221V\233\004\206\305\246\004\252\250\020F@\354\235|\352\034s82\347\214=9\235N\342\022/\225,d\346]M\222\302N\006Pi0\261tC\0324\304\004\367\235\374U`\305W\301\304\016d\3609d\234\3657\204$\207Xs\003#p9\223\220\032\234\313\267\022B\244,\315Ht&T\035\007K6\324\352  b\007\036\2500\255\263I\255T\nJ\214\221e\025-!\300\306%\312\031%[eU\005\302\222\261(\305T\2701\005\006@\206}!\372\2772J\207Y\333\314\205\275\006&\376\311\335\2624\t\000\3634q\337\277\225\275\330\023vw\214R\302\3416V\265\242A\215ij*\224\251\014F&\360\206Iz\206W \356V\351\254l\353w\322k\027H\376\177\323\370R\364\013\333\313\344\375^\\\003\316\315\267\266\306>&\350\256\363u\301i\000\031\244EI\017\010\222y\214\3210+\230\005\"\227\013(\323\030\003\013\204\213\"\215(W\341\312\324\251nTC\032\201!)o\001`)\006\201\243\300\244\251\301\243!\025\001\324^(\210\001QE\323ysIf\317\231\213\350\313I\026?\024@\2621H\356a\232\t\274PE\022\300\241g\265\275\353\024\203DM\207k\332\302\352\244i\222\243\307&f\220\320\032D3m4\224)\244%\014\010V\375\314xb}|\305\342v\237\016\323\247\254A\355\367p\224\033Va\010\224\264Bc\023B\365\001\274\355,\311k\322v/\324+\tg\215\236\006K\230w""\321\035i\027\206\250E\013\320\321!\"1\274r\032aE]RH\252\265\235\230\017+\313ef\315\327\240TH\250A\002\202e\222n\204\270\032\232\224\344\035\316\036s\022a\r\010\035L\212HI\326\213\002\2301\024\026S(C\014\250\204\"*\000\260\013\242\200\001\030B\225\"\3006\351\260\221\315\027\200\312_\217i\235U\350\266:\245\300\0324\305_\234W@\316\353\323LA\021U+\233\244\363N\002%\207A\234\000@\256R\034y\222\217\047\203\214\242:\264\003\276zL\251\244\004\256l-\342I\r\300\312\262\006\006O\n\ntL$P\005!)\367\375>_(|\263\314o\275\010\3518L\302\364\020\341\260=\r\2147\212\201^\262\340\353\363`pjy@g\003@LjlQ\350LC\307\256\241\306n\205C<\315\350\025\006\310\300my\2538Ad\025\331E\302d\310\004m+\247wp\305\245`\242\3141\305\267\037\255\354\2524\rV2\013+\364\224d\304CF6\201CA9s\336\315\240\270\306\276D\2238\240\261$%1`\004\005\010-;\025R\216e2\300\014\231\240\3041\254Y\215%\022\215ZUe+(\220{\210\206\222<\334\177\047\323\371~y\337Q\377\313\341\232\016(b\242O\047\n`\356\372\274\234\007x#\361\245A\024\027\343\027\307\343k\256\267d\322\366\313\245\004\336\306\313C\242P\233$\032!\211\025t \223+\014\242@\333\345\271b\3143\363\344G\271\346n\264\240\3272\260\260P\024DL8KH>\\\\R\237;\005\306((2\300sB\013\345\325f\376\2126\003\315\355z0zy\360\223\220bNv\336\206\371\047\251\235\037\033\r\330l\263\323E3\033\334h/\333\252#\020\350z\233\n\276\236\262\203W1\213=|\261\216\000Q\016\206nC\002\047\270CIQ\230 e\027\"I\000\353\211$\207cI\t\n\371\201 ,\025Cb\212n\275\033\"\262\222$HP\032iP&\312\205\244\222\331i\350\211\211\232\250\213\265JF\206\025\312\022\254`6UUq`l3\030\023\010\325X\027t6\005\343\0244\235\347\257\360{\274\274\014O\255\034\3172\317\227F\375\364\363\"K\204\360\0379#\231\047\307\274\021\341\350\211v2\376,B\324\034\tf\221\235b\242B\315\205\217|\207\306ox\020\267\245j\2107\316\260\233w\251(!\320?\212(\002\024$ R\220\313V\2455h\303\234%\251~L\013\332 \026\034\026\252\345F\024\256\362,\22751!\301\201[\361\310R1\307R\"\241\271P*$(d\275\352\240\354u\370/\001\211\212\235\253\260M\331\t\305\000\026\004\321N""\3155o\215UP\030\363\302\030!\303l\201\227\001\240\331\027\024@Sd\r#9\021\3564\240\204K\020+U\030$Q\r\255\314\250a\320L\272Y\304Y\304\2048\210\211!\242\220-\363\245\210u\256\260\".\241\341.\314(\346\366K\031\346\024pD\213~\032l\361,\221\005\005\273S\255J\2676\0352\311\002\260\302s\250\026\250#\210)E\244\254\273*\260\226@6K\317\211\366\001\336\315\337|x}L\030|^\347\365z\220S4\036\340\361^\343\313\313\247\366\331\317\253\232\022\205\034X\216\242\202M\240\365\320T\244\307\207l\022\334\265\202\365\261)0\240\2642\036+r\202\031}\223\213ZB\202W\027\274+\372\346P\264\047(\002%J\2108\250O\272\275XB\310lY\003wu\025\003\022\346\003\272[\233,f\262\010\246d\0144\033\310\256\026\253\240\264Y\006h=\214Ze\036\234\261\277\027\236Lm\324\202\244M\372\005K \225\255\256=N\010eUS\241\261\241\256!\224\r\004\001\020D8\360\035v51EM\230({I\021\201H\262`\263~\007XJ\031&\314\264dbY}0[\314N&\340|i!\312\003\230#\317\230\326\253\210r\204:\372T\205\tL*A\031\"\202\"\250,\020\2112`0\206\271\026\212\351\222\230\030u3\216.\014EKq\275\n\007\241\001\\\035\307\004\204\255W\2537\305Z<VR\257\047~\205\332\270\210\203B\266\320\014\336\014y\275`&\013\240\024\231\332Af\313\331A\231J@\024\2674Q\215\232\024\233\002\001Z\024\006L\324\200h\233\030\2402\200\221!:\310\220\3315K\315\026\265\265\333\010j\204\r\206\023a\221\030\244\214L]@%\214)%!\244L3D\270\222(^.\300S\240\313d\234\275\271\347Iy\304?4\372JF}\375\340\273\327\303\274M\225\315\203I\360\3368G\275(\237r\355e\004\307\324\221\334r\274\350\017{&O\006E@\025\222\274\352F(O:\0308\302\202l{fo\276H\221\010B\036\302\001$(H\005\241U\036\241\3500\340\317\220\202\313\030\"\211\332v\355\345\334\325\005X\260{q0\304I\024K\300\363\034\316k\236k\254\300\301u\256&\357\005\325\305\257\204\263\257cR\267\254T\206\311\240\200\250\013%H\211e(\306\241e\206\341\231,\207\017\277\363}\317\202\341\353\370\372y\276\034\r(\323\343)1\224p\222\242[\223\226\322\376\026\261\337\311@\306\323\373:\210\047\240\307&\307V//\243\227\337\375\037\365\372\276\223\263\261\036p\367S\313\267\221\273x""\320\375\035\nI\007\021\r.\"H\345<\333iXh\370e\241\336\221\240-K\376\223\342\264<{g\325\000\342\010\217T\222\356\267u\241\215m|]w\302Hj\031hPx\215N\010(\234z\\\227\263\312K\014\350\307\312\205\n\263F\260\264*\302\207\204I\211\010\010}\335\334N\261#\337\251\203#\007\007\006\376;\035\312\372\031V\243\321#\242FQ\232m|\304\235s\2552R\035-\275Z\001\266N\365\255\200\002\345\2050\225+\031J\302\202\213\234\2310&Z6\2205\247?\035\262\265Y\214\366\202\202\261.\371USy9:a\363\375\373E\025\355+]\n7\203+U\210\325M\373[\330\376\316kw$nO\332.\344|\221\311\267r\025\363h\261#\344N;\02137\263.\320\314\005\267wM\316\047\335\00523\231JV\344\343\333\304\212x\340\267\236L4\371h\004\337\336\352\317\032\306M\031T-<\022\220\274\261%9\347c\270WZ\344\343\302\0040>\327`\203\237\027\344\300oe\n\252\216\231\336\273\255\032\353+\007\240\241\332\2744\274\257\325\221\004S\365EU\343\r\233\207\016\240\024\340\334\\\n\315\205X\335\202\230U\013\333\325\305\243S\335\035\332~gm\305\330n/\347q;\322`\333\206\267\207\336]\366W\014\037\207M5\307Z\321\263\340+i\220\371\351+\0472\302\2422\016\255\002\010\323\026\272_\037c\332\335U\273\366\375\047;\024:o\047\274\210]\203\006\365C\263\242\311+\275&\025\212,\014\211\346w\252\244\321\0149\203Oi\017\237\337\304\346\352u\276/J\270/j\230\363\246\225\243/\244\303RJ\355\353\222B\321F\346@n\034\315\256\254\364\342\303S\003\215\206\201\365\216\014p\277\005\351q M\310\357(\327\265/#\005\232\025\327\t\232\002\251\276\230\231a\301F \365|\033X\337\311\202a\323\003\317\234\0477\206\032=7z\236\222\334-\323]%3\202\252A\024\334\231\027\325M\201Z\365r\204\001\312!)\262\250\340\224\334\010q\262\365V\310\315\344R\3644\244\307%3V+\301\227)\2320x\300\330Z\326\025,\343:[G%\002]\0049\306\243\047:\251\203L\030\305N\306\270\047+\243\232\264ja\260\226\2006\213vm\216\005Q\376^\353\345`\326q\004F\267\252\014\230&=\016\031\273u\350\220K\201S\343\311\016\032\253k(F\212\017\310@XXv\273\251\205RUU;\020\267\246\022\222\316\251\256-\332\006\005\207\177\005\234\tL\016\275e(\214\331\247Mp\325\321""\031\337\263\274\215V\254\323\033\030C\204P\337m\304\224\321\244b\306\333\302h\264U]\200,\303|\2537Q41\316\341x\2326\232Uf\252\332\314\263}\242\"\035\363=\004\233\027\320f\370md\313\034\241,M\210\201@%b\267\333\027\005\2035\336\236\233m\215\001+\343\333\030\003m\213\272\333\235\252\251\324\303\212\263\207j\252\265\261x;o\006\303\301\336\275\236X;\047\232\210\260]*\203\325e\2710R\312\336%^aXe\303\215\341\tPlob290\305\221]\004T\026\373\020\026n\334\231a\224\247)M\206n\020\233\271\334\202x!:@9\n\022\t\2031\017\007;\226\374}\027y\016*\221:\204\035Y\206\203\331+WDI\220B3=\3422\211\322\030\226F\222U\335\047rJ\351\220\004]\215\245\226\030\352\242\036\346\3618\010\311\"xR\031\244\n\235\251\335\345\212\010\270{\235xKk\352\"\346q\021\000\263\256\010\262\006\\\3359\213\303\326]\256\025\007\367XS,\017\305\320\342\373\004\275&\304\220\010\324`\021(\223\311\370]m\205\026favM\357\226\212\311\033eX$:\007\2158%\255h\314\013\255:\273\006\322\325\241\024f\354UV\234}}\272\307e\002d\244S\010G&\025\333\361\347\325E\225\025\005\047\n\227\375\313\342\221MV*\362Z\327\274,\273\000\334\324D\047\023S^\227\320\241!\033i\263\201\234\025 \273Z\314\343T\202\373\016\002\375v3\355\213\221\206\357\250^\006g\233\2073Q\212c\247\022\r\027\201\307\364J\370\246\301\245&N\017\367\3412\032\301y\261\273{Z\003{\327\361\356\301\255-\261\271\025\243\330\260\035\201x!\253\355a\206\377\263\022\373\030\357*_\277\231\275\231\212\023\271\016\\\266\356>c5\316\240\212\"u\373\247\341r0\360q\357\351\277}\024\254X\262\047\277\366:\367\272\360m\370\010\307\221\233\307\204\204\264\244\332i\032V\347\226\264\302>v\021U\205\376\211\315\213\265+\2119\322-O\316}\311\177\017\310?B\342\216@\231\320\336\351hU\355\203\334 \211\304\202\004\342\3014#$D\2010\332\325i)tL]j\317\274\345\324\203\267\204\035\323\363\253\03729\227\004wz\021d\035\227\325\237\224\272\345!\035\256\243\315\243\321^X\257\177\310\364\244j\363\341\211\354\335e\225\336{^\251\013b\301\037\035\320n\245Y\353\217\226:\031\364\210\223\201\241E\362D\236\246I\220|\244""\336\237\010\252R\212\273\306\210I\275\010c\t{\203\252\036\247\266\330\032\3600\302\311\005\010\352\310\024\022\036\245uh]?\016\327\014$\331G\006\374\301\003\350@\341\301L\366i\265\356\t\014\014\352\210\2625\321\253).\250\221T\222_\207^\214\207\227Y\004\216\234k\014\275^L\356\236\231\022\365\010;O\027x~\313[\231\271\257#*y|x\316\002\223%\234\264\262\2251&\006S\255\205\003$r\341\"\302\035\n\024\241\005\021\010\"!o\035\333\006\215\226}\227\367\2301\r%\220\373Y\246\035\236js\255\311\253eFc\023MJ\\\n\254WV\306\236\323\371\341^j\203\002H\370=-\242\002\rKJ\214,\310\201\002\310[,\326D.\235t\233\255\324\272}^\302g\331\257/Xa\035Y\3667\353\210(]\276\006Z\264\347\342Ac\032\222\360\372\256.\350\270\243^\203Kut\341!\224f\306\330\323mB\236q\r\371\020\244\357u\024h\224\200\0347\261n52t\252\263v(b\352\256\\Q\271\212UUU\311U\320\340p\337lK\324\341\270\263m\315s\300\332o\360\242\021F#f\333\006\217\221\362\202\202\032\305\254L\252o\n\333\205\306\013+\356\031m7]\377\221\322!\020\006\371\251%\006\220\211p\2723\261\202\303\032`\244\013#\014\250\261\016/\263\t.o\013\205D\036\330P\320m5\321\313s(\227\024\342\377,\313\374t\203\033\243\nDr#\377y\317*^%\262C`\014KJ\230N\3761\220Quy\377\\\337\230\030eyN\222Jc\266]\261Z\0273\3664.\t\246\2511\2102\217_\267\022G\257e\3617pDq\241\251^\353\211\226\347\236\324\243d\022\333r\023L\2743\246\030n\343\311c\302\356\3543\232\275\333z\316\047\263\342n\277\006`\341\231\251\320\227\320Pj\220\357\337C\224\024\263\271\366\361#{\360\r\n]i\363<\203\253)\355\304\317\226\014g\230\223\307Gt.\"\315\315\212*\316\205\334\020\270f\252\252\220\003\213\244\225{\253\366D\354\234\000\332\313j\357\223J2v\277\215\tdQ\363UI\025W\202Ms\244\201\3203\363r\252\242o\322+NAQ/\346B;\034U0C\002\032\022)C\234\364e\216Q\356\323\005S\251\207Y\2073\272\350\307\344\356-\204(\313\216Y\\\361\256\343\365\316h\346s_9mC\245\246\333/\231\3516\230FY\224\322\261H\341\351\266\351\361\272\265\352\265\264\317\003=3s\313\237\243\003\000\276!\\rIr9r\\\260|\231\230\270\034X\230\326\341x\240iT\263\021""\276\253g@\276\247\266\227P\374\325\0065f\222(\361\030\024HL\tk\250\302n6\372<n\373\337\220\374\311`Fr0\361\237\037&Z\035\217\223<\376E\002\236o\004cH\374\306\215\347G^:I\367\007\330\212\356\361\002\t\032\202\261\351\366\251\374\t3\016~\036};\227\261\205\336\215=\027\325|\215\273K\333mr\353\214\343\220\310\335\026:\342k\230\266\361\356\355\317\205\022\321\032<\230\020\322f\226\016\255\000|\371o3\356\016I\2667\216\363<J\254\317H\357\223_\325\0323\244\014\277\206[\220(\223\r\0322\244\340\220\321\"3\263D35\364\t\201\020\271\360X\225Q\t\252\252\004\313A\047x\321AS\246\016\2014\250\314\332\256\077\077\303u\335\247\260\350%\211\t\345\t\024\220\302T\243M\276\262\272 \360\255\2220\330\354\307\207A\314\007|HI\351-X\047\0314\370\267\330`q\020\220\252dMuy\343[\307]\314B\343S+\327w\330\021\351\251\270\300\337\26305\214\335R\013\017\003\356\201p{\276\337V\032\364\006k\215R\323sF\216Y\270\021\367;\252hrL(\367\275\253\322\225\251\0042\n\323\315|\020X\211\216\237G}:/lwbI\356\335\270X\367_mCA\266\320\303\001\227\364FG\265\330\267\257=\036\001\307<V\244a\\op4\2114\254\"\010\254\342\331\221\354\237#Mf\365\314\255\013\254E\261\250\2301\213:]e\246\000\241Bdm\243%nf\024p\354\351\246\371\235\362\033\3266\206$\243\022\344\\\026PQ\302\331V\020\242\306\324\023\303\304\276\2063tr\257\344\320\274\344\351e\014A\030`6]D\024\014K \373pW<\255\243\304$\030\247N\336\023;!\345\336\260\047\302%Y$j\2319\225\347z\032\031/m/?\027\257\346\373<\300\370S\316\366>\267\213\330\301e\030o\026s\316U\251\336_%\313\236\025\021`\371d\224\341\341\333\336\r\220\021\246\031\245\032\375\037\223N\241b\374\275rN\325F\264\\sC\331A\0324H\223./\204A\026[z\376\264o\316\373<\217\266wS&\224\254\001\242\0340\367mS\222]\t\014\032m\245\262B\310gj\032B\373j\273\272\233m\n\226\253\022@XQ\332g\030\304\235f\205\n<\025K\217\027\220\221\205i\002V\345\004u\364\230NO\304\363\220f\006gY\047\260\370x\225\344\013\203\0141\201\260\226\271t\357\245\276\257\203\256\245.\277\317\305\346\355\343[\326\352; \373q\340\2205}\273\013\332\364\0314""\037\230\270\246H\032`\344#\014\332\316\304\213\201\002\016\227\232\373R\242\373\230\302\323\002<\364\024!\367H%K\002\"\343\033\305\021\047c\303\351\370\376\010\010}\241\010$;}\264\251Q\222\302\262\347=QP\350\271\216pT&A\017. \210\243)\234\371\017!2,\006\203\203\254\234\230\"\244H\200(\"\203\000\366ZDD\210\"\"\007\276\027$\317\023\361\247\047\353}!_\021\257[\356\304\312\215@\304\034\354\216\246\0104\004\357q\351~,\307\232\270\360\300\n\370\270\322<\314L\337v\007\256\374=\276S\217W2\t\013~p\032am\265\021#Op-,\0038@Cq\003\212\nh\002\013\221fb\311/\t\210\364\374V(\352G\033\222:\253\344bp\333\207 X{\312$\310\305\013\n\250pg\263G\036\254hh\265Q\221\021\003 \236\007S\3447b\254\363\371\374;q3\351;e\310\036Rne\251\023Cg\302\205O\264\272\n\320\357/#\2111\356\300\220\241\274\277\273\373.\374F\240\332\264AQ\203\nQ\341\205\rF;\267\272\305\214H\323\270\r\270\333Dv\257\\;#\252\205\206D\0238\224\200l\312\224\352\001\246\233\016,9=7\337\337\272\373w\265\322gV1\211\321\023\313\207?\036\225c\027\013R\301\t\347\250\212\351\313\310\356$\245\363\2500\214\253\2556z\025%\361\310\213\036\372\364_\272w|\306\333\266\323<3 {\215\246R\2407\020\243\0361\322ibdx\255\334\014\2144\226KK\213\273*\020c\211\243\327qlm\370TW\033\244\330\304\343\270\265c\n\361\257_\322\221\311,|=\247\265E\027\036\234\315%6\365\210\345N\331\037\0302}\315\221\025\355iz,TM\243\254<c\324$%\336\240\342F\"\354\315pP\020\236\032\304\"\215\214\345J\241P\220E\250\207\302\364\253\020\315\264ox\317\0312\374\277\004\345\214&\367-\047\211\350\302;\363\324\300%Vg\"%\342\304\002v$\240E\362qtt\240p\230\274\260\014]\302\214^\227\205h\306\313#K\244xE_Z\025\314PQ\027\2400\232\001\257~*\204\370F(n\300\360\334q\315\3050\3313\3159\035*\351Y\224\206\n\024\342W\243\267y9\200ph\323\237~\355\261\350\315\020\220j\014A\263A\270\241\272\014\2568\037\222\323Q\212\337T\027\227rnr\276\214EH\311O\003\227 \241M\206\240\037:\203\332\371Up\300*\242U\0230\263i:\032\004&\037\313|\300\047\010Ra\236`\236\320.r\242\234\254\321\356\"\037s\036\002\374^\237z""\300\241\352\352+\345\331j\230\034\362\324\316\330\371X\314\243\320\037\014\024\001D@H\302\014\032\232\210p\047\3440\312_\220\nu\030}\023\007\024\304\251\322\330@\326\047\337R\024\311#\003\025\234\006\212\"*T\302\\\031$4\244\331\306\202\224q.\231I3\022\231\231\200\224\020\223\025\226\022\264\366\217\026\371\347I\333\\iX\200\270\017\321q\325gg\233\372&\270p\022\340p\340p\362\362\375\254{\033M\203C\364\221\263K\265\277\236\022=\233\271v\357\r\373\373\375o\0343\345@;\306G\341\327\311y\235\221wh\202\236o\257\301\r\253\353\250\036Y\030\211e\035@qG\036=D\241M[\006?\232\010q\266\252V\020\331\266b\333\210\2335\177\355N3\343\336\027\246\315\342m\226{\236\260@\366_\355\001\223ZV\220s\247\002\332e`\353\327_tK\250&$\330\223lc\025X\272!>\242\262\013\023\340T\377 \376\242O\242\013\373\325L\224\302T\n\204c\316\254\2201\214\02558\0379&\347\006%<f\201=\001\235f#\300},\312i\2767\330U\317\360\341!\210\326\223s\221\340\311\014L2\"\030\332\260|M\230Tm\215\260c|\337Xe\375\216\216$\3225\310!\001L\252\326\232l\r\351Z\330\036\030\003\234|\021\242\361BBA\017\325\r\177\353\245\242\323\277\000\365\351\200v\t?H\301\376:5\275SLQ\n`j\322\037O\354\337y\373\002\321?\023\343\271\224\047\300\257\320\357nK\207y\210x/\324m\236\256\221odyS\345\307^E\202\337\325\005x\233]\372\3655\021\323\370\266\212\263G\361\206gXThM\003\250\213\327\212\341N\212\262\265\252\t\273\264^\275\037/\365\022_\320:\277\234r\225\332\333K\201$\315\332\024\033n\375\312N\336\177`[\237Wo\201\306<J\027\352\n\301V\254\020\000$\207\032\305\301\0215Z\324p9\r1;\034a\320\235\360\355v\240x\226\327\355x\217\201\236(\2529\216\0470\2677\371\370x\177gw\320\032\342\261\003\272\370\221k\305\340\376\341.P\354d\024\030DR\371\355\223)\255S\177\364\353\267\037\236?\234\276V\320OA\310]TB\364\003\047w\375\362\3368\32599\216B@\267\233\340\356\351\334\205\240W\222\242F\177uL\"\365\202\343\215\215s\324\350\353\354\322nk\000\202\n^\335m\234 \363C\213uy\247\363\330\340ls\035\032\242+:\243\016{\241<\276\206\226\016\254\373\0025\036\222ju\013\221H\245\037g""\021\234\350\345^f[\267\022\354\020]~\331\010%\347r\275\244\010\351]\253\277\310b\342\361\275\343\270\373\222\030\221\3444K\267}\345\347\333P8\026\335\347\016\273z\033\255.\005\351\227\307\005\265\271\304A\373\277\216\333?\341\027\225\350\337\255\356\036=D\275\333\272\234V\341\273\361w\334\242\035\277\362\200/\027n\337\276\357\351\312rD2\302Hf\220\347\373`*\334\324L\017C\270\217\347\373Ay\352 B\366\377\022_\372\177\317\261}-\334q\312\255w\221\334\212+\331\001\205_J\363\376\374m\311z\343\235q\271 \344a\354z\224\205Sc\216\331s\272\316\177\034\020>\017\265\2752\016\257\247\204N/\303\370r\253Hr\024\236\310\203-\273\232!\275\304\242+o\273}M\336\267\327\270u\327\201\243\231\035\244\271\01066s\366t96\355\360\326\333\316\344\301x4>\271$\373gX4}_Q7\267\006\3039\306\303x\023au\023c[{\352\203\0319\257\206\327o\036\267D\307\361)\242j\352\244\032\250\203\365\026\037^)\367iij{Y\034\247\213\305\247[\303\246\215\247\340\311]6\322\302f0\375\276\2464}Lw\261\263\3554\356F\317g\262g\331\264z\027h,}\373\346j\036\205\361%\245\354\371\336\203\316\006\364:\003\303g5\013\026|\303\255p\342g\037\"\202\234\326,pP\312\334\02479\231\357\354os6\366\367\323\232Z3{\373\345\233\013ezg\307\273\274\354\323sk3+/\237\351s\r\227\267\266\335l\262\335\250p\252\271\n^l\025\027\267\356\332\362\2257{K\363\255<\016\274\325.q\3728\331y/L\272\317;\364p\235\231\216a\230\315\273\216\232\340sX\r\317Iu\322\t\236\356|C\274\036U\262\023\0254\024\337\260\210\224\225\r\223\2279\001vp\024\271\357\372\323\234\232x9\263\377\020\251\343\264\345\026\262~\047\234L\361\313e5[\016,-\331\235\212_i\350\263\364DC\327\235\371\"}J\221\363qqW\224\343\255\361>\317\034T\223b\226\351\371\026\356r{\356\371\357\337\331\341\245~o\373\344\235\202\365\033\205\313>3\345\300\006\333\243\353o7\335\366\231\322\326u\366\035\340\335<\037\306\032\353\315\314KW\030#$\341y2\364\230\004\321\357a\252\360]n\317g\264\003\351P\3636T\305I\222!m.\370\232\252\220\342\r\235\346mw\213c\016c\004\351\254\010\244R\005\304\251\273_\027\326\234\0061\261s\373q\221r_""N\301\235\366@\017\311\332\251*\220\225$\047\032\016\034\220,%$Jx*Y\247;\3643\007\032\333\2066\255\207|T\320\306j&8\2630\247\367\203V\301\226\200\364h\372\331\266\047l]\220\014\343\3549\036K\347\3525~+\260\302\227\313k\347\356\211C\321\326Bly\024\016\371|u\265\007\006\235\376\247\270\241\362!,\243\030v\00460\345P=\234\023\010\004\336[\345\231b\270e\270G$\024\243\215\312bm#7\221\371z@\226g\3052\030y\270\313\003\363\204\332\330\371\366G\200\243&\321\030n\014\250\276\021\000e\233\314\314\nS.\000\211\204\351k8\314?u\361\253<\277\246\036\004\0020\242_\017y\n\027\340\252\033\237\207\027\273\310\355\301\364\353\n\2441\271z\264\254C\021\327\262\216\372Q\231\367\275\234\352G\377\213\271\"\234(H\002\213\322\220\000";
+    PyObject *data = __Pyx_DecompressString(cstring, 10695, 2);
     #define __Pyx_DecompressString_LZSS_UNUSED
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) == 1 /* compression: zlib (11104 bytes) */
-static const char cstring[] = "x\332\355|\311[\033W\326\267\335M\022\333\001\007l<\245\223\216H<\246\035b\300\216\207\014\335\205T\200b!\t\225\304\020\047_\245\220\nP,$\241\222\300\364\360\276\275d\251\245\226Zj\251%K\226,k\311\222?!\177\302\373;\347\326p\253T8\335\375~\317\363m>?X\252\373;\267\356p\356\031o\225\356\245K1\374\3136jF\261Yk\304\314]\263\332\214Uj\265z\254T3\255X\265\326\214\225\267\353\025s\233p\243T\322\033\246Q2\033\261\rc\273\\\331\217\3256b\333fs\253V\262b\rs\247Un\230\245In1gn\226\255\246\331(W7cF\225\356,7\313\265\252Q\211Yf\305\344\276\232[\324Vl\003\227R\303V\253^\2575\232\242\225|-f\354\326\312%\324-[\261=\243Q\245\366Z\226\371\202\311\364\317\260\366\253\305rm\3222\233:\217^\247\321\353\365Z\245\\\334\277\277R\256\226j{\226\346\364\251R\205\024\350YA~\360\300i\347U\314h\306\036\275\211\255\35771k\243a\306\214J\245\266\207\331\010\350al\275\325\214\325\252\230\262\000~z\021\213\325\326\177A\253\337M,\334\323\347\312\0253aZ\305F\271\216nR\345\327\346\275\373\315\206i\3066\032\306&\361\356\301\203\330\347\017c\305V\243\362\"v\377al\273Ui\226q59\031\323Pk\253\331\254[/\276\374\222\350\230\311\227\225\362:]~Yt\257\2760\033\215Z\303\232\334jnWb\033\345\206\325d\276m\3270\322\222\3314\312\025\353\377fS\261l\3054,3V\253\233UZ\276\262e\265P\252\306\346\313\315\205\326z\254Y\213m\231\025\310\210\271\336\332\024\213\303\255N\342\337\213\3307\337\304\022J^\371&\246i\251o\026M\264\274\277\\6\367HX\276)\326\252\315\362f\253\326\002\227\253\245X\t\022\003\026\206a\254\232C\260\232\215r\311,I\225c\030\354\333\350A\314\253\371\335w<\250\357hP\177VJ\250m4\r\2101\026\2564I\345\215\262Y)\271\300,\315\336|S4\353$\265\314\240\342>q/V7\212\257\215M3\016\3710\326+\346+\314\370a,]\253\232?\305\301(\322\027\210\0474\250hT\364\272\321\334\022#\243\276 a\315-3f\031\333f\254Y\3366\047q\003\3257,\253\274Y%\236\222\n|\301B\266\315\\\333\005\327\234J\245V\035\022k4\315X\261R\2630\271-\264[\361\332\250\233\r\214q\233\225\320\264HR\243\353\201\025fy\327\214\355\231\353V\255\370\332l\212\241\235U\33521""\370\337\254\013\266lC_h\364\373\016m\"\006c\320l\222\266n4j\333\261z\243V4-K\247\026\022\346F\271j\306~\376\331\327\372\237\177\366\314\010\330\260\216I\202\275&\255^\314\210\255\203\343\233\215Z\013C\021\266\303\261\034\223\227Xy\223U\253iT\321:\311\027\213b\261\002\226\306\2006\300\\\334\003\341*\271\326\206\270\334\2522,L\202ch\350>\247\n\265P#\233\3274\261\022[\345R\tJ\300\263\240\345\303\3526\276\346{0D\036\047\215O\330\014j\031\354\241j{\r\243^\307\014|\203z\317\n\216;\277_/\323\355\373\324d)\266[6\300\022\010b\236+\rX\254\237\177~\310\267\221\035*B\322\300$\243\3314\212[&O\312\240\316\331::\006\221\373\024\223\233c\231&f:W\250\357_\361\202\305\254-\232\200X\321\0272\025\203i\006\311\302\214\351\014\351\345j\231\244\252\331jTqC\272\220J\371\367\302$\013\263\200Aol\230\215 E4Y\023\nF\366\223\225g\203\327\031\252\222\254\356\032\025X\376\355Z\t=\232o\352`\007n\276W\274G\006\340\036\244\275\3310\252\367\036\3066k~e\264Y7Yj\336`\025\323\231|,\221I\253\244\235\351\032f\321\334B\303\361}\010\032\2314X/\230D\263a\360:\223\321@\017\344\226\300\335\254\232\375\342\361\263\307\254\274\r\223\314<\004\252\265\316\222%$m\275U\206\t\307b\357\327M\030\314\344Fl\277\326\212UM1\301:K\240\177\003D\242\312\263&\331\270\307\312e\320\304u\334\216E\273\347\330.RM^\234\212eNf\004kZU\307%\232\245\027\261;V\216D\324\025;\237\363\371Z\243j\224j\236X\027\252\036\313\330l\261\303!\235h2\177d}|\030\253\277\325\332_Z\201,\023.\005\007$q\260\231^h\300\223q4\360\014\325vB\206\377\207Z;\250\261\334\312\277\247\265\376Pq\301\232k\264\232\265m0@(\363\372\276\273\026\350\257.\2146\363\306\332\252\265\340`H\310IJ\2705\266\371\033$t\265\030\364H\010\201\317\243&\365a\031\033,\024{b\025\366\345e\330+\303\301\370\334{\210\031\202\325\255\315-jM8\022\3435x\014;n\211\311n\004\202<K\250\004\344&\030\350E,\342@\300\047&\260encMv\321\307\375\362\2449\211\273\234\220\313\r)%\003\366@L+\016\203C\206Jt\3626\213\207\351X\216\201\262\316X\037\207U+\r\322o\021\275M|\353\272\271\222@&i\"\230\240\351\306\212""\312:\264\035\243\363\272*\326*\3249\255\323\244\261^\024\256\376K\335\251\257{RW\177Svi\034_\325\367\3378\345V\223\342&\320K\260\"\257\"\342\301\20717d\370\251T\266\350\333\254\322\347fq\323\204\035\331\200\000X\002)U\0209G5\361S\265\006\233\265a@\225c:V\246\324*\232\272\216\320\200\345\243Z\253~\001\033\006?R\001\265H\206Y\247\221oLrdP\024\036\235|k\255\272k\2229\021~#+\354\241\010fY>\340\227^W\260B\342\346\006\305+\377\321\335\344\250\212\250KW08o\366\3752\314~L\230\276I\205\230<oV\311\020\327\032\257\310X;\001U\213\331\301\375T(\240\302\n\033\215\206\261\317q\310d\004U\230\177\262\331\"\004\264&\377\366\342\321\364\352?\350\363\315?\276\251\030\333\353%\343;E\213\047\223\003\"p\266\034\236M\231\324u,\036\334p\243\014\267\214\265xkU\261\"o\251\342\353\333oT\332k\224\233o\255\304*\363\026z\003\341\345\256\371\333\2359\365\234\376\252\373\274V\024\357y\027\223\236 \026Y\0220A\211\204\225f\227\023ED\344R|\255s| \241\220 \264E\341q\255\325\364q\232\265\210>|LL\322+\312.\315G\235\031\204\357\025\001\255n\260\316\307\013\271\224R\310/\350JzM\276\326\2249\325/\257h\272\226\234_~\354!\263\212\226\214\373%U\311\2519\257\230H\316\253Z>T\324\223~{\363\232\246d\223r1\255\316g\362I%\357\327Y\310\347\263\350\323+\017\326H#\274\361\013\371\324b\240\240\257\314z\345L:\305\223Sue6\223\313\253\t}vM\217+\251\324\254\022\177\351\020\346\225d\332\271L\345T%\201\n\231\305lJ\025\035\002\245\206\324\\.\223\023\345Y%\301M$\323\363z&\227Pe8\223\316\253\351\274\256\246\343\231\004\350>%\221YI\2472\270\310\251ZaQ\365\ts\205t<\237\314\244u%7\017B:\357\223\262\212\246\255\240\0074\227WsjBP\342\013\205\364K}NI\246<$\223^\036\004r\352\222W,\244\022\030\025`\360-\037\0041\236LjY\325\0272\332\031\224l.\263\3520Q\215/P\273\205\2447\032\321\255\236L\047\235\273\347P\326\222?\240\356j\\U\023^\275d\240e\2328\020\207\226\317\352J<\256f\363\201YHp>\271\250f\n\371 \256izBM\047\345\352gr\332%\3620RIMj*\256`D\363j^\342\200\007\347\324\000\317\030w\346@w\320<\007)95\237\013\315\316%i\270\211\rq4i6\231Vrk""\321\264\374Z6\252\301|\346\254\276\n\232J,\220\206\236Ur\320\243T\250~\026z1\300\367,&1\000.\0252yU\326\004\0025-5P\021]\347|\351\205ver\271\000\023W\324$\010\323\323O\365\271LnQ\031\240\320\275\030|6\265\026AY\216\246\240\317et\033I\343\001\205)\271dh6\256&\"\203\302\270\nigF\260>\004-x\372L\006jZ\272\304*@\242\027}d\306\277\0147\306\330\000\313\035\024\266R\032\017\2039%=\257\016\242j\276\220KC\357$B\222\214\304\234\022W\003-\247\022\n\3132\r\003\342%\243\311\364\262\222J\2029\271\224\204j\260\350\320\362@\033\311\331\034\3442<\225Tf>\231\016\250\340\242\222\022\353\311\014\027\030w\\H\246\362\272ke\323\031\327\022\261\331[FO\312\254+\221\231Y\030\035\317\364\272\245\251G\241\362t\250\374U\260<\035\252?\3758T~\036,\317\204\332\233\t\325\177\034j\357\361T\250\034\256\037\032\317\223\320\375OB\367?y\032,\177\025\032\317\323\047\241\262\333\276\343\3032Y5\2470;\311R&<S\031\304\001\273+\205K=3\247/\252\213\031\327\340\014Z\207\254\n\255q\014<T+9\227\214sc\016\325w\013p\010qwMe\221\0340\030\003\322\314\236 P\306\267\226\204\327A\230\300^\326\303\227\203\365\026\251\351\0107\340P\022I\rN\262\340\337\317(\233\177u\025\366_\033\304C\342\235\313k\320\034M]\n\364K\240\206>\211\247\022\256\251\351\304@\231X\207\036V<\265\203\035\317\300\233\341?\335\256\255\245\363\312\252CY@\034\005\r!\305q\020m\301\275H\201\021q5\227\017\227\311\243\371\253\3058P\254\013\264iQ\002\223\331\005W\033\271\234JR\230\021lpp\361\030\316\245\006;Q\323\320{\225]\276l%$\0228)1R\"\200\001\341[\034+D\303\321\362J\276\240I$M+@\002Ccb\251\244\352B\036\245\201e\223\230D\"[\230}\251\256a\010\344W$\036j\013\205<\305\006\001\323\226WSi5rE\362\344#H\212|!bH\226\036\006\222\251\224:\257\310U\322\031\255\200(\3153\201\016(\363\204!(\347\242TDX\227\306\370\222n\225LFO!(T\375\342\"\302s\010T\"I\336\324\031\203s\2273\205 \026\230\235K\242\230\006\332L&\027.\307\235[!\255\025\262Y\021\"C\202\362\231x\306\245d9\232\222\271\206\017\337\326G@\222\371\247($\034\"\234\345\257C\036y\016\203\313\254\350\216\rpJs\311""\034b\036\047\252w\260\314\254\272\206x[\225 7\211I\246\3472\260\022yX\024-\023\177\251\346}0\233u\205\236l\343Y\270\356\337\021W\350K*f\225\374\202_$\211\014\3203\351D\222\305\252\220^\224:\216\354\365\254.\001\353B \3342\347\027)\350\023\345WN\250\373[\364`\213r\r\261\270o\247F\334\355\006\243\016\230y\211\024o\201l\273\026B\335P\233!z\022\345D\001~\331\361U\014 \364H\2551\252q/>anN\345E\204\307\312/d\022\021\004\047\212\021h\332\257A\266+\300j\027\220\232g\275N\347\021\342\004\226t\001\316\t\022*\215\330A\3441;\220\233\n\010\0141\232H\237)\270\031\204\241\024\211\000\352\245f\216\024\373\004\250\210\346(/\203)\205\304_\r\224C\222\235\312\300o\352\311l\010 \345\366\240\264\262\250\246\260B\205lP\016C\270\304\243\264\334k\272\260\350\016\331_\361\214F\272\233\3665\200\002\332<\\\2766\007\006\205\232\243\004C&\235I\010\334\223\\\2448T\232\232\013\005&\007p\331q\014N\331\267g.\260\272\026\261@>\036X!\206}\273$ad\33182Z\243d3\345\017a\251\240\026\324\360\370]\313M)Z:\002^HR:\2676H\0100(\200F\265.kBN\005\037\325\234T\306\310\264|P\\1\366l&\255Q~\236\220QR\010e./\337\3161\021\307\017\034\032\205\010\024,Q\244\026\204\035C?X\337\215\243$\003\247\305\027Ti\256\274\221\220\200\025Yv\367?$8l\374\002\250\304\030\306C\206N\302\344\232\210-\022\021\r\007\340\201\372\341\246%P\256\013Q\t\033@\017\223\r\212\037.i\001,R\316\0202\345\362\321\2124H\222F\223WW\245BJs\327\"\210QL\225\367W?\237\311\303\216\004:\361!\251qR\036?=`h\225\306 \326y\221B`\261\211\345\270\231\254\232VR\3715O(E\215\240+\212\254\263\210`M\262B.F\367\242\234Sy\203\204R\363 \2316z\244\0244H\314&\263\2207\304\252\242\343\000M\3146\352N\204Y+\231\334K]xA\177\236\210\372\260h\264\306!\310\335l\360`\247_g\223!\004\271:4\233\212$R\330$\223\n\332B\240K\002\006:\244\244\355%\205\263y\017rw\374\362\013\224\227i\314_\227&\234L\240Y\001\r4L\322\220\013Td$PO\233\327\023\216C\241k\362b\356\265\353h\350Fe\026\353\247\220MK\047Wu\337\3171\215\267\006\235\274V\027K\354\343\201-X\206\023\211\034\345\212Z<\223\365\333O\345\265""\345x\260\244\307\363\302\2002\224\315:\301\004\227\n\260\317\276EeH\336 \047`\266\200\220$\347\212)K\262\0277\372%,Wf\326\207\334\260C\224(\275[P\345MO\306\245\000\323W\241\331\371\264.s\326\247\270+\340#\234\223\206\353\2462\232\2124 \031_\013@\301\345\016\301\003\215\010\215\010\0178\200J+\344\006\273n\030/c\371\214\204,\353s\271\314\242\247\\\021\335:5\n\371\271g\321\344|\346-\267s\334\032(\271\231\256\217|\257\344\202\200\033\322\372\210d;\005\230]\243\320g\016u\023\376\244\221\233\310\327rG\370.\370\005\004\001\213\216\237v\301\204:[\230\227\027\203\201\360\204\022\352\234\002\347\020\210w\030O\346h\3202\273\221\330*\234(Q\246FA\037\357=\370r\237Hk\321RH\004o\247Q\006\335\250\363q\024\370\225\014\n[\246\005\240\005h\r=j\021J\252\006\210\224B\316C]\224\224\030\222G\313,H\216\321\335\275\037\244\320\206A4\305\337ppi\022\013\324\270\247\222\352|\"h{\302\306\205cC\241\371\036\264\232%y\236z\364H\037\324\000\312\206a\346\334\210\222!I \344\234\205\313i\336\313\010\250\264\213\205\205@$\300\304\370 \232\233M\322#\021g\177\311\301\026\365Y\332\223p\036:0\010\376/\310O\212\030D\336\0220\204\000\302\022\005\310\r\302\235\"\370L\261\264\204\220mvC_\017J\345I\0029\207\313g\274\235\003\227\034\207\047\202w[LB\305\340\352 \312\232L&N\371)\241\213z\001mHx\371y\305\313dV<E\020i\204\207k\251PQ\217\307\3432Dr\250f\003St0m9\214Q\026\343b\342\231\047\205\261\352|`Q\026\300T\344\025k*D\033\341\326\240\230\240\002EQa}v`7\020\367\347!r\321`I\226\031\201\204%F\240\270\362\000g\203\313\275\246` \320\214\203\r4\004\234\367p\302\225\031\214\252\035\360\265\224\357>z\256\263]R\0232:\375\350\221\222J*\222]\020\317]\322\234\353e\320\372Z\220\220\325\324B\302\315\3155\377)\255_CS\341\230\322\363\241\006\245h\321\007i\377\226,e6\341$\225.i\206?CL\017\341\203}\317\374\346\350f\"G7Cq\006\326\036\352\251\244\006H\2244\304\311\223,\253\021$\332i,\320\336\332*bj\315\215\\\375:\024\355{\264\301\001\311jL\345Y,\305\340\264\347}\221\217\346\313Y\034\311J\246\233\313$\335\371\002LP@6h\372\2309-\367""\302b\230\34003\014\277T\327\"\240d@\272\274T\003\311o\300\2523\321\313\240\"\251\322\366\014a\311\3714\002\304P\356\342\021\027\261\014Z&-I\021\3429\311\354\213\222\034:\372\210\277\025,\360\220\007f \245*\313\001\335\363\321\260\362%3\361|*P\225\200\201ZY\047#\360\000\336\221w\037\035\004\221@H\373RU\263\374\020\204_\222\220\036\225\010\342\032?\034\366V\341en\366qJ]\366\227\033@\240\314q\204\354^<\200\237(\371(=\221\024\333\335\232\017\25689y*\271\230\314\017\302\262\247]\244G6\262\2703@1f\000\310\305}k\351\001d\271\320*\371v-\2228@[U\346YX\322\022$\047\264\016\024\226\n\t\n\212\005\010\251\344\234\330\335\0145\313\273Cr\243\342\221\232\303\230P#\342\361U\024\r-\313\332J\3450\277\021n\347\342\201B \266I\253+\272\330\250\312\320\276\035\014\223&\223\370I\\\020\315\314f\022k~\t\326a\236\202\304\000\262*U\200\222\247\025Ot\202\217pe\344\351\264\207 \266\031Lx|4\254\027\356\253\r~\231\266\022\021\030{\203\362\036E!\261\222l\020%\355+\212/\204\262H\313|\245\353\231GSr1\230M\370\210$\027\0010\270pD\342\247\2612\3002\341\001\224r\310\025\220\344\252K2?\0042\300\213\234\364(X\000\336\356\253(\212\345\n\266$\260\301\266D\240\243\r\000\344\231%P\356\315\331\262\r\000A\337#\202\250\360\2321(\363\237\275\316ZV\r\000n~4\000fW\202M\205\322|\031\013XF\227 \247\374\016\206\365\200\327\240g\360\351L0Tw+\004\322F\001\016\232\3440\036\321\375\200\005\026\360YR+\366\272\221\266%\343\252>\300\r\016\235\007\372w\300\001\206\272\204\210Q\2012\330+c\221\255\000\217n$\344\224\375\255z\361$\\\2273x\237\0302c\341\r~9\277\014\323\344\014S\320\020PM\3158\375i\003$~\304\020)\220\036up\306.%R\"\3750e\321\331\303\027\373~\336\220\203\273}.\202\021&BQ\n\303\364l\237\3440\253\220\371\243\307=\263\376\014\271\006\367\307\3571e\225\034F\223\227\346\031\260#\250\227\310,\006\\@\300g\207\223\213\250\304\202\r\325\240u\010\301\262\215\010\355\322\271\217=\362d\023\363>\032\010n\234bN\354\234\353\301A\005H\203\343\2437\r\003a\202\004\005-1=\371\010\232\247\250\207*\036\036\332\010\212z\240\"\341\362""\363\024\037\346\244F/\344\222\001\330[A\027\325\024M\304>?\370\r0\346;\tMU_\312|\241r\230\031\336s\375\350\034\374\014\262\224\365F\031\032~?\306+\300)\343;0\020\001\r\214\005\260\366$\020\3209\220\223\224#\324\212&8\203\360\210\331T\322\333\356\363@J\305\\e\r\240\364\002q.\270+H0\331\020X\255\300\300}x`\360\016I\027\006\231\214\266\276\230x\36262\3304\375\344+\271FDwgt\305\257\214P\203\201\2318\336\234o\222T\230I^\277AJ\300\0318\305\240\267\211\360\rQ^\001\230x\0206\000\270[\235\022A\362\034\2424\320e\310\217Dx\220A\337\341\276T\025\275\242\221\036\205\341\374\252\036d\273\300\006\371\036\221\266\213\007\200\374~\016r\234t4\034U;\035Y9\237\224w.\305\2738)\230\n\262d2\032\362\177o\3376\340\027\252\004;\222\211\340\266,\223(\004\317\027r\252\237\260k!\372\340NF\264\257\215\366\262g\355\341jy\030V\277\226\260|\t\225\366.\265hTWC\270\272\032O\025\350\025\304\020\276\242&\347\027\374a\025\262,\017\336\203\213\320\006D>\236\005\237\265<%\0212F\211\261\222\222Zw\301\270\277-\352B\311Dj\240\032R\372\345\224\014\246\341\357S\212\047\373\342\225\257\320Z\362\353e\263\251\227r\262\340\274\224\026^vN\206\3357\227dP2\341\203&\233\220e%UP\007\200\240\363\213\014\213\316\n\210\242B\241\263\202 \332\300r6X\221\263\372\221\264\334\311Y;\\DB:\242h\201\326\034s\2125\016\356\033\270\264\202F\311;\275\313\014\321\177)S\351\005;z\277\215\223\260\360\255\244\0314B\262)\304$\210\357b60J!\320a\307O\224|\256\000s\257\244\343\013\231\000\367x\307\231\222g\262\013\374\022G6\223\224\304)G\357\336\0056\202\035(l\216\334 \322};@\306\006\236yH\217du9\231\2417\014\2412\3118\255\204\354y\013Y\336\025\342M)\310\206$>\376\033\024~)\342A\252\373&bJ\361\215\206\364\300\206d\002k\342O<,$\241\264\315y5\321-\302\234\314f|\031XI\246\022q%\227\360\336\"e0\274\273\035\271\263\315`0\306cH\316\017W\264\210M\322\000\030\024R\220B\232\272\242\275\325;9dz\3207\350\005\350u\014\032\215<\025\027\013\317f5C\2138-\375\324+\253\020\353\234\3672E\201v<\375\222\373\016\220_\nU\320\234gI~\311\257\220\314\212\0379Ly\245E""x\372d6\245\256z\210\364s\014mA\374X\312\177\311\225\020\367\255b\257\350\276XM%\367m\003\272Ng\026\305\273\322\242\020\374\255\002a\342\025{m\201\367\014\275\033\235=H\016~}\304}uA\224\274\230U\024\013\351\301\033\n\351p%\315WT/\274\364\204\332G\304O\366\274\262\024\016y\230\377S;\017r\375\252\007\300\220\315f\024ar=\320\233\205\013\310\206\331\007\345]\002\010\233\377\333%\024\370]\001\367\332YX\\\246I\2242\210\373\347\035 37\247\251.5\233\364p\251JNY\361rZ\024]\323D\257I\314\026\322\216\207\244\\(\345\274\277\036(\213u\364\212\216\023\023\333\321\336\273D\356\263TZ\033~4;\000zF \200Bv<\\~\032\240O\351\217\242\300\251Ap:\002\312\013\257\025B\243\232\234\026\217\2778tO\251\t\341g\203Uf\" \367\261m\020v\205;\210\272\302\340?\013\320\305\273.2\360U\010XY\200\033^\026\306\202\325\304\375\241\206\327\207\014z]\310 \353Eb\020\206\214\244\244\332\374\366\234\364\264:\200\272\257wH`B\330O\tq\037vJPp\224\014\005\307\310PV\270\016\t\361tY\306\374@\231)\364\306\275+\225\316\265+\224\\\364:\342R\200D\277UYv\210\336V\254\370]k\030\024F\313\333K\221*y\020\233^\206\334$\236\177\362H\205 \352)\204\2078\255;\276\177Vxn\267(\305\212R>%[(\031\366X-a\364\000\342\214\352D:\353\026\217s!\034\352\264\353*d$i\352l\322\364\331\244\2310\t\227\273\323Q\340@Mn \022\034\034\346\031C<cx\362\320\244\030OZ\177\031u\326\321\213a\374\247t\022&\344\3049\304!N\207\227\320\031E*\375\200=^\253\212\363\315\350\307\345\321?\213?\353\027\361\002\3374\233\272{2\211\356\235;\345\374\314\3354\252\316\017\330-\035_\2728M\307\362\177\004\317W|\026\227\270j\325Eu.Q\323\r\323\260\320Y}\253aX\036J\207N\360uy\273\216\346jU\014K\374\222\336hX\030`\255\366\272l\352[|F\200%\021h\374-K\257\224\253n\365\226\323\250s\n\225\363\303{LU\374\326\236\217{\340\313V\375\265i\326\371r\027\215\272S\334\263t\177\036(l\233M\303\275n\230\305]\367\232\216\243\242k\301s\367\302;Z\201\220\305\362\266\351~G/\202C\211\\\010\246\031\245\022&\332\364\313|\314\222W\364F\312%:aF\247\003;\010\321\350H#\357\"\272{\227\024\331\277C\344%o\325%""\304\347\241\000\274A\210\242\025\354\270U\365\200\025qf\236\373B\234\370\271\234J\277dS+\225r\335*[\251Z\3615?\351\\\310\254\350\263kyU[\\\323\225<\362\226\331\002\nt\022\2078\211\310\250\300\256\316%WU-\233\313(\364\324R_Qr\364\336m\326hn\r\234\367\002\240Y+\326*\224OB!\263\0139\205C`\047\235\323\374\270\305\013\336\371Y\256H\372\370\305cxQ\347H\212\340\001\025\242\344\255\373\031\360\3447|\n\233\365\335\244{\362\307oV\024G\375\350\333F\325\3304\033P6\363M3|S\261V\265Z\333\246\276g\2746\033a\242\320;q\020\341\0314q\230L\230\330hU\317\240\360\211Hg\320\202\343\rSi\204\336\3315!\242\177\326H\004A\234\367\021\"\260\310\205\260\3009\"\3214\267\255\235\226\t\213\251\361\031Cq6-\242^~\277n.\033\215B\025\022F\247\004N\372\007\006\256h\212\212D\204\334\351\2126G\347\3208_\203\232\345\023\006\364j\205\367!\226)\013Dv\265b\032\257_\232\373\2112\237\374a4\366\t\320L\262\036\216\371\205-ob\331\303\345\301>#j\014t\036q\212\217\276`X\204Vk\376\325\344\206\000\362\272\236\335\177\203\3774>=\215Fs\346\206.\344\020\215\351\316\301a&_\357\031e\006\371\350\047\377\202,{\323\334&\200\316\"\342\357Z\221\276 \223\020j\272x#\356\334hU\231\020<\304\206\313\226\333\r\026\254\326\340\332BYtH[\271\312\337\270\313\353{\273VjU\370\206\355F\215zj\224M&T\261,\374m\356\321W\275a\326\351\3348\272\304L\371\020\030\250\223(\301g\264*Mq\355\014\200.\351\2105q\325\252\362\351B\246\256V\335{<h`\001\231\274\333$oM\335\355\264\214\212;\030\367\354\244\3015u\001\363\r\025\350PQ\367\036Kb\312\340:\353M\323\"\356\000$\346z\276\\:\345\3065\353\302\327y\212\311.\235\317,\025G\047\362\027L\266_!`qt\347\004(]\234\245$\3268pj\316\031\301D\3006\005\215\221^\206\003\2565p/|\272\243\315\344y\215\212\030\230o\234\334/\243\261i\271\327tP\233?X\357\202\317\027\363\212\226\343\302\002\346\314\265_!\263\033*:C\rX3\207\027\356\367\236cf,\303X\007_\370 Zq\266\017\314\231\177v\220o\364|+\347x{\367\014)\047\270\242\3719\247\177\271\207\206y\014r\t<C\261\336\"D\340c\345\240\020\030~\275\202\325YG\260\265^\253U\350\0202>""\210\214?\364f\rA\325\033\337\351l\232tV_\243(\026\264h\220-\240\345\323+h\274\301WV\255V\365.\034\376\320\271p\356*\0279\032-\2721)Md\023F\264\270\016&\326\251\325\362F\371\3148\222\010\r\376p\203=Q\2006\326*\273f\221\002=(\277N\347e\231\334\033\311i\261b\025k%3|rZm\273N\303\257U7\312\233\272s`/*V\253\250D\207\274\222\354\221>\027\205\222\322\231\264\354\014\212\265V\265)\016\233\204Yj\266\020\366\211B\323\260^\363y\223\342\240\265I>x\255d\300IT\351\244\047\216z\371\203\255\031\013\272\243!4\270\222\351\025\204\32683,\225\255\242\321(\225\252V\t\361M\211-\014\224@\034c\346\305\317&\\\026\2320al\370\230H\263\272[n\240~\243\301p\243\261mA@\033\325\032\353\2678W\327\334\325\327\313\315m\214\332\323<H\210\325\2646J\264\260l\350aQ\204\301\247Ok\243blZ\0247\323\177\243\351\234l\311\347\256y\321%\317\r\242d\t\3368\"\003E\047]w\347\206\220\272\274\261\317\247\316Z\003Q?\003\342\210P\026\\*\273\332$_\373ry\226\235rR\007|\325\371\360BXL\346\023Z\246cZ\035\336\tF;\354\206\274C\361\033t6\361\244Xo\213\256u\047\t(\227\312\233U0PJD\312\325\022\330VmbQ\352\215\03294K|\374\325\374\245V\256\2766\367\255\327{\244\245\225\232Q\362O\333\345+\223F\351[T:\307\271\261\r\316\026\267\266\315m:Sw\333\264,\230\026:Z\024+H\313\201\364m\233\234,\334+X\0101\250U\305\311\2445\213\016\374\215\312\210\006\222!2#e\243B\303\340\241\224\32793\252\033\3734F\0477\202ah\362w\255^\257a]\313o\210\211\364\211\311\312G\230\201\255\244\345\236\021\026\213I\331P\3039Z\273a\362\261\235\201\023\316\002\001Y \002\343|L\034\027\332\260,\323|-\3265h\256\315\312\006\345X|\226\266+\275\026K\0229f\\\255\203\301\257\305\341~\216\324\t\263\316\047\357q\322aq\204\007\301&s\214\325\262\240Fuq\334Z\340\3205Q\250\033\345\006]m\224,\253\202?H\233E\022\001\266\222S\3375+\354/\304\007\235v\311n\227>\312E\347\034J\261\000\244\220\322ZXM\232?\270T\2670<\210\2368\336\025\237-|\266H\314Zu\360\324\262\254}j\034\302L\346(*\376\027\030\346\214\213\332\036\2147\025\361\305lm\266\350\304Q\262\036\3424CD#\030\270\223\177\265\352XHS""\344\274-\326$\0215\354\032\225\226\370\260\034\005\330\243X\216\254\245k1\367\020\225B.\366\266\260\242{\345*\376f\246\271\303=\313M\226\235<\331I\221\235\354\370\315\033kj\362\321\324\344\324\364\344#\332\275\374\362\376\217\245\037\047\177,=\210\335\177\365\350\213\347?\375m\346\037\270\234\374\374\001\023\005-\346R\230\220\201H5\277\020\242\376\"\366\317\363\047C\227\016\376\324^\242\213\311\236\321\333\355\343\362t\350\302\301\373\355){\374\216}\347i\177\347\344\302\007\007\215\366\315\316xg\251c\234\\x\377\340I{\250=\3336;O\273\023\335\251\223\341\253\355\251_\337=\367\316\350\201e_\371So\352d\350\275\177\2769x\323nv\246;\205\356\275\336X\357~\177\202\332x\323\336\241z\303\007O\333w;\347\251\233\367\017\276now\247\350\362\223\316\216\035{\324\177\377\360\353\243\327\366R\356d\350\252}\365\263\356\263\336TO\241\006\377\336~\332A#\323\375\t{f\356\250j\347\013\047\270\033w\376z\341\334\245?\020i\254=\336~\325\035\352*\047\027F\333\357\265w:\357v*\275\t\272w\367`\245\255\322\350O.\\i\243\346\215\366\316)>\232\235\027\335\225\236\332\277\332O\034\276\177\364\364\230\353\322d\355\017\246\372\343\375\245\376\346\341\253\343\367\216Q7\200\234\377\247B<x|\260\327.v\306x\366\247#\227O\206\257\333\327\357uwzC\030/\346\272#j=\343a\017\217\234\\\270k\337}q8q8ur\341\303\316g\340\0138\327\215\243\376\357{\217{\255>*_>(\267wN\206ov\316\333\267>\357M\364^\364\227\354\257\276?\2368\236\242\246f\372\337\036\235?\032?\302\034\256\267\313\235\235.\r\343\312T\177\354\344\342\245\223\013\303\007j\033C\031m_\356\030\035\253{\273k\234\205\245;\023\301\033\223\355\245\366F\047\331]\355-\365^\037\216\021\224\351P\227\217\246N/\014\333\303\037u\346x\225iN\355w\333F{\267\263\322U\230\376\353\245s\027G\320\342\335\356\371\356\230\340\t&\200u\373\274\367Yo\211\200\251\203\271\366D{F0\352\017\235\251\223\221\313\007\033m\245\255u~\217B4r\3120f\211\233:\023\235\257\272c]^\3351\022\232\316\030V\343\340\277:?\3650\215S\356\262\331\306}\343X\340\261\223\321\304\321\242\275\364\243\375\343O\247""\303#\247b\266\235g\335\251_/\237\303d\261\n\243\237\330\237<\356+\375\374\341\255\243\211\243\251\323\321\253\355\347\235xg\347d\374\332\t\256\237u\236t\337\353\242D\223\276\335}\335\037\353\377\351p\345h\341X9\031\377cg\253kB\270\307\037\364\256\331\223sG\306\311\370\r\373\306\347\275{\340\344\315\217:i\254\330S\210\371\255\211\356U\210 \220\227X\334\363\247\036\351N\377o\350\362\371\261r:~\213&vru\374d\364f\347\035H\345\370\265S\364?\016\r\2409\r\037\314\267\247\334\213\047\366M\310\302\211{\375\250\177^P\026\332\252}\013\272&\225\276\350-q\211\226\014\002\343~\213U\031\273r2~\273\253t\363=\022\t{\364S\342)\221\376\332\271\212Z\243>\255=\334Q\250\235\017\016\376\326\371\242\313#\"\315\342\345|\332\276G\013y\223\006u\267\177\376d\370\003\334\177\243{\376d\224U\352\377\327\373\337\325c\253qz\341\343N\276\373\021\264\321\020\267\334n\227\240a\357t5\230\226D\377\335\376/G\270\361\n\265\204\312$\323B\223/\236\014\337\200n\222\205\376`\224-\316h\373\274\250q\345\352)\325\370\000\252\362\242\363\252w\2767\336{u\3104H\010)\321W\355\353\366\215\3730E_\365\257\303\334\017_k\027\310j]ooR{\247d\332>\027\362\315\226\216\345~\002v\353\277\016W\217\226\204Cx\257\315\367\375hO<\201\235\3348\234?\232\242Q>\350L\331\037=?\034;|p4u\364\375\261iky\364K\215\320h\036\267\367a\260\023=0\340\017\366\037\310\3754\373S\244\210O:\357\221R\222!\030\035o\277\3045\2762d\205\256\222n\300\213\\\374cG\003\343X\370\025\022\333\013l@\004\017A\037\371\2503\325Ix5\030\373\350\343\223\0337O\360y\375\306\257\327\317]\374\302~\370\335\241q\330\204\035\270\360I\247\331}J\212v\245\375%\014\316\335\336\345\276!\024\304\202\307\020\023\351(\3605\027\207\017\276\345\301\r\307\272\303\275y\014\027l\252u\227\272\033\275\364\341\204\230\326L\3338\031u\2544\261\367k\360\261\000{b\262\205\360\032{\227\032#\332\222\020\204\261\316C\330\350Q6 \335\245\2231\314\276\223\"\336Lt?d\336\343b\354\324a\334N\347\203\356^\217\372a\267c\337\377\346P9\\b/\364\000\036\367\256\375\350/\360\027c\203\003\022\335>o\317\223\271""\375\315\332\247\376\342\n\361Y\352l\300\274A^-\230Va-%\006\334\265\377\222\265\263K\344\277\007\232\372\247\303>\317q:|`i\370\330\376\030.\251\177[p\375kQa\204\026/\321>\017\365\371\001\353\363\274\267\010A\272w\364\321\3612\304H\030\3777\355=\010\374\360\010yx\373\326\203\336\307}\243\337<|z4ig\227\355\345\025\242\374\000G\357\t\006Fp\371@w:\375\320\376\020\006\025\216}\355\320\204\270\242\263E\266\314\254\260\205\316d\357\274\213=\3502\371%\330\376>\344\344N\357\257\344)E\223\227\243&\365\353\350\271\313\037\020g\020\335\260\200\337\276\357}\334aK{[9\032;\272}\304\363\235\"\001\036\001o\315.ER\027G\321Z\311\376\360\363\336\247\275\204\375\350\373\343\007\230\257\235_\265W\327D\177\243`\355sa\334\337\256y$\024?\034\265\216I\376\247\317\215\\#U!\2570|\213\306\nq\002\347I\3740\256S\250\326\323\316\247\235`p\363\301\301>\353\025\031\250\2231\212\\\326\272\305\336\255\376g\340Y\361\350\326\361g\307K\022m\360\232V\351y;NC\204\254\335g\333\263\332_=\\:4\3749\277`c7L\001\"\244J\2641|\225#\247\221\353b\034\277y\363\325\366\2379L\371\327o\260\257\336\201\324\032\377\372\035\001^\240\303o9\354\221n\027\302\264JF\361(\352\366\026,\331\036\251\370\215\366\177w\327!\n4\010\262z;\377\316<\247\016H\207Gnu.\322\362]\207w\230\350|G\256\373V\347zg\347`\002\346.\001)\375\246\267c?J\034)\035\303>7\016\344\274\023\335\212\366^c\r\047N\235\302/\275\213\3751\373\334M\252\003a\264\317}\010\316#\005\270\320>\17722\326\026\021\003\230%\006\203\350\357\004\222\264\324\346\301]\354\\Cx\271#\204f\237,#\242B\334t\201#\233\241\253\355\257:h\372\323\356\237z?\300\263\014\275s2\314\r\275\355\343t\010\255\237\014\215\034\254\266\363\320\275{\3351\312\032.P\030o\217Sh\271\334\177z\310\246\372!\272nv\247\273\034\330\337\245\305A\334\366\231}\347\371\341\230\360\235\0241^\001\232\304J\027a\350\276\204\001\271\317\221\037\371\313\253\260\243{<z,\316\036\242`\245\223\203\245\272\330c\301\337m\257t2pr\273\375\025\373\033X5h\340\017\366\017\206m\254\223\207z\352D\275\037\214\302=\266+\220\275\307\335F""\217\027d\203\"\312\356\273\335\242\375\340\333\303\245\201\266)6\356\325\260\270[G\306\321\216=D\322\344\306\316#g\360[\004\345\022\223\205\307#\026#\221yC\346\325\t\356;\217i1(\254_\356L\005.`\274\234\316\206\017\276\247\001\t\020!\203=DKO\346\314\036\202\037~\356\3306{\350\243\216\332\275\016\013\177a\344 \207~\317C\300\336tw\034\227j\017\221\351\000\037\307h\271FI\020\047\021B<\351\017!\237\032:D\310|\2633\322-\300\251\216\022\243E\214MY\327w\275\033\210}Fou\376 \\\377\270M\241\351\257W\316\215\\\206\331Dk\tLl\231\334q\357y\377{\350\300\3505\244\007\277\243\210\344j\373\353\216\361\353\315sc\343\355)x\260\231\316&\026v\263\247\037\252p^\350\357\367\230\376.\222:\005,.\365\037\300\021\3349j\036?>F\3474\363\233\030\361\351\315[\210\2669pBd\341\244\003\366\363\357\217o\037\033\210\311a^\307\257\331\224\215\302W\\\276\322\036\023b\362_\010\277\316\363\272Lt\307\321g\251\367\240\377\344\360\235\303<\033\361\362q\213\022Rw\271\354\241\030\255\207\277\246am\021\025\242`;\366\354\360<\007s\243\310\261\223^8\007\265\367\204\200\227\0065_\034N\270A\335\377\2414\331\036\372\324\376\024\267\203?\027\257B\364\337ag=\007\047\242\210z\317\240\t\231\336\024\327\203\277w$F\370\270?R\266\022\2428\311D\262\373C\217\027\235\203I\302\310q\320\367L\177\212\277\357vK\366\347\030\316\351\345\207=r}\310\n_\266\377J\346i\204\334\331\210=L\212@5\361M>\230\350\315\3167\335]\nD\205\224\376(\362<\351\222de\312\025\323\235\316\0202\252&\215\3763\3733\370N\310\013\307b\2346^\345\310\3048uR\2321H\342{\275\235\376E\373y\372\270d\3474\370O\221\250\303\342\275\323^\"#;\322\177u\004\247w\263s\251;a\1776c\317,\036/\035\0334\334\3534\000\030\010\362\264\327h\r\034\226\337\241\034Y\370\334\337\333W\221nQ\223O:\277\263?\374\023\357R\\ E70\350o\211\223\300N9U\047y\374\276_\242\305\272xp\243\375\216}\215:_\002r\357\350:\031\000x\200\32336\024\356v\r\314\371Y\337\013N\356tv\234\321|i\177\371\362x\352\327\361@\364\301b\362!L\023\305e\027\340](\272\273\335\333\352W\217\346\216\047\354!\010;\361\355J\373#""\232\025\331\001C\230\272\345\3164g\006c\244\310&\333Q\262h\024a\212\356\236\331\317\300E\262~\241.\245hv\204\344\023\027\034\371\270\216\214M\004$f\334\276#\254\241\375\301\247\264)D\035I\356\315\333F\032\031\263G)\273\370\363!\306\013\377\365\353\375\360\014OE\010\3631Tm\026Q\347l\317\020\201%E\215\327;\026\\\215\326?\177\212\220h\215BC\047\2119\031\031\027!/\251\260=A\301\246\223\341\344!\247\234\017\303\036\244H\377\336;\3349\225jC%\246\373\023\"\320\037\250\375\374\360\006\244H\252\035\243M\254\363\375\261\310\332O\373{\207\306\351o\216\004\214\377\273=\363\362\370)$W\204j\2779\034qK\352x\236%]\276\205VW\203y\037%\033\377\037\366\031=)q\313\367\307\3678\334\377\367o\371\337u\000+\000\363\323W\242nY<^a{\374\026\326\225\0218L\005X\227\264\013\313\003\267\334\266o\223\203X\212\272%}\\\266WV\337:\260\267\336rS\330.\221\372Q\224s\341\034m\323\\\373\027\377h\363j\006=\374\2153\363\333\375\315C\r\2428\016\355\267c\224\t\030\264\243\324\352\316\3036\251\375\033\207 9\305\223\321\017\221\320\374\031\361\037\247\230\3634B\332w\003|\257\373\t\\\363\230\010\214G\221\037Qt\272\3277N9\210\241L\325\361\326\247\303W\354+\250f\337\375\363a\343h\354\324\337\334\030m_\242\030\236\252\331\267\277\342t\354\353\243m\026\313@p\013\317\351s\315\273\347s\373s\312Y\362\266\222\263s\272\255\377\374/\335u\317\276G{\014\267\017\253\307\213\366\332\017o\273\007\262\326=\377\037t\365~\2077&\310\315\224i\207\360\217\010=\020g\204\047j\0146r\032\n\352}S\276\017\360&\251\242\314>\036\340\2510\272s\366\034[\\\341C9\334\202\017\375#m\302\017\373\345\300v\237\364\375\tG\202~}\016J\\\234\223N\021<\320>\312\270k\254\311P\211\340\345mt\336\205\240\375\371\031\310\211D\263\307\341\261\304\026\305\267\335\337C\260\344\3732\335\251\267\336g\017\301\005#{ \367\001\321#%J\034^<\272y\374\0214\223\222y?Ag\356\274\262_\375H\261N\2043\032\016d\337\027\372\227\017\215\303=\204\333\315\343g\266\206(\376g\373g0\326\264\315\r{\343\027\373\227\277\333\177\377\357_\317\235\373\313\357\224\337\205\323q\0219M\331""\227h\223\205\302\233\377\001\336\014\017\324";
-    PyObject *data = __Pyx_DecompressString(cstring, 11104, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) == 1 /* compression: zlib (11119 bytes) */
+static const char cstring[] = "x\332\355|\311[\033W\272\276\335M\022;\001\033l\342!\235A$\036\323\0161`\307C\206\356B*@\261\220\204Jb\210\223[)\244\002\024\013I\250$0=\335^\262\324RK-\265\324\222%K\226\265d\311\237\220?\341\276\337wj8U*\234\356\276\277\347\371m\256\037,\325y\277Sg\370\3167\236*\235w\337\215\341_\266Q3\212\315Z#f\356\232\325f\254R\253\325c\245\232i\305\252\265f\254\274]\257\230\333\204\033\245\222\3360\215\222\331\210m\030\333\345\312~\254\266\021\3336\233[\265\222\025k\230;\255r\303,Mr\2139s\263l5\315F\271\272\0313\252tg\271Y\256U\215J\3142+&\367\325\334\242\266b\033\270\224\032\266Z\365z\255\321\024\255\344k1c\267V.\241n\331\212\355\031\215*\265\327\262\314\347L\246\177\206\265_-\226k\223\226\331\324y\364:\215^\257\327*\345\342\376\275\225r\265T\333\2634\247O\225*\244@\317\n\362\375\373N;/cF3\366\360ul}\277\211Y\033\r3fT*\265=\314F@\017b\353\255f\254V\305\224\005\360\323\363X\254\266\376\013Z\375nb\341\256>W\256\230\t\323*6\312ut\223*\2772\357\336k6L3\266\32106\211w\367\357\307>\177\020+\266\032\225\347\261{\017b\333\255J\263\214\253\311\311\230\206Z[\315f\335z\376\345\227D\307L\276\254\224\327\351\362\313\242{\365\205\331h\324\032\326\344Vs\273\022\333(7\254&\363m\273\206\221\226\314\246Q\256X\377/\233\212e+\246a\231\261Z\335\254\322\362\225-\253\205R56_n.\264\326c\315Zl\313\254@F\314\365\326\246X\034nu\022\377\236\307\276\371&\226P\362\31271MK}\263h\242\345\375\345\262\271G\302\362M\261Vm\2267[\265\026\270\\-\305J\220\030\2600\014c\325\034\202\325l\224KfI\252\034\303`\337D\017b^\315\357\276\343A}G\203\372\223RBm\243i@\214\261p\245I*o\224\315J\311\005fi\366\346\353\242Y\047\251e\006\025\367\211{\261\272Q|el\232q\310\207\261^1_b\306\017b\351Z\325\374)\016F\221\276@<\241AE\243\242\327\215\346\226\030\031\365\005\tkn\2311\313\3306c\315\362\2669\211\033\250\276aY\345\315*\361\224T\340\013\026\262m\346\332.\270\346T*\265\352\220X\243i\306\212\225\232\205\311m\241\335\212\327F\335l`\214\333\254\204\246E\222\032]\017\2540\313\273fl\317\\\267j\305WfS\014\355\254\352\226\211\301\377f]""\260e\033\372B\243\337wh\0231\030\203f\223\264u\243Q\333\216\325\033\265\242iY:\265\22007\312U3\366\363\317\276\326\377\374\263gF\300\206uL\022\3545i\365bFl\035\034\337l\324Z\030\212\260\035\216\345\230|\227\2257Y\265\232F\025\255\223|\261(\026+`i\014h\003\314\305=\020\256\222km\210\313\255*\303\302$8\206\206\356s\252P\0135\262yM\023+\261U.\225\240\004<\013Z>\254n\343k\276\007C\344q\322\370\204\315\240\226\301\036\252\266\3270\352u\314\3007\250w\255\340\270\363\373\3652\335\276OM\226b\273e\003,\201 \346\271\322\200\305\372\371\347\007|\033\331\241\"$\rL2\232M\243\270e\362\244\014\352\234\255\243c\020\271O1\2719\226ib\246s\205\372\376\025/X\314\332\242\t\210\025}.S1\230f\220,\314\230\316\220^\256\226I\252\232\255F\0257\244\013\251\224\177/L\2620\013\030\364\306\206\331\010RD\2235\241`d?Yy6x\235\241*\311\352\256Q\201\345\337\256\225\320\243\371\272\016v\340\346\273\305\273d\000\356B\332\233\r\243z\367Al\263\346WF\233u\223\245\3465V1\235\311\307\022\231\264J\332\231\256a\026\315-4\034\337\207\240\221I\203\365\202I4\033\006\2573\031\r\364@n\t\334\315\252\331/\036=}\304\312\3330\311\314C\240Z\353,YB\322\326[e\230p,\366~\335\204\301Ln\304\366k\255X\325\024\023\254\263\004\3727@$\252<k\222\215\273\254\\\006M\\\307\355X\264\273\216\355\"\325\344\305\251X\346dF\260\246Uu\\\242Yz\036\273m\345HD]\261\3639\237\2575\252F\251\346\211u\241\352\261\214\315\026;\034\322\211&\363G\326\307\007\261\372\033\255\375\273+\220e\302\245\340\200$\0166\323\013\rx2\216\006\236\241\332N\310\360\377Qk\0075\226[\371\367\264\326\037*.Xs\215V\263\266\r\006\010e^\337w\327\002\375\325\205\321f\336X[\265\026\034\014\t9I\t\267\3066\177\203\204\256\026\203\036\t!\360y\324\244>,c\203\205bO\254\302\276\274\014{e8\030\237{\0170C\260\272\265\271E\255\tGb\274\002\217a\307-1\331\215@\220g\t\225\200\334\004\003\275\210E\034\010\370\304\004\266\314m\254\311.\372\270W\2364\047q\227\023r\271!\245d\300\356\213i\305ap\310P\211N\336d\3610\035\3131P\326\031\353\343\260j\245A\372-\242\267\211o]7W\022\310$M\004\0234""\335XQY\207\266ct^W\305Z\205:\247u\2324\326\213\302\325\177\251;\365uO\352\352\257\313.\215\343\253\372\376k\247\334jR\334\004z\tV\344eD<\370 \346\206\014?\225\312\026}\233U\372\334,n\232\260#\033\020\000K \245\n\"\347\250&~\252\326`\2636\014\250rL\307\312\224ZES\327\021\032\260|Tk\325/`\303\340G*\240\026\3110\3534\362\215I\216\014\212\302\243\223o\255UwM2\047\302od\205=\024\301,\313\007\374\322\253\nVH\334\334\240x\345?\272\233\034U\021u\351\n\006\347\365\276_\206\331\217\t\3237\251\020\223\347\315*\031\342Z\343%\031k\047\240j1;\270\237\n\005TXa\243\3210\3669\016\231\214\240\n\363O6[\204\200\326\344_\237?\234^\375;}\276\376\3737\025c{\275d|\247h\361dr@\004\316\226\303\263)\223\272\216\305\203\033n\224\341\226\261\026o\254*V\344\rU|}\373\215J{\215r\363\215\225Xe\336@o \274\3345\177\2733\247\236\323_u\237\327\212\342=\357b\322\023\304\"K\002&(\221\260\322\354r\242\210\210\\\212\257t\216\017$\024\022\204\266(<\256\265\232>N\263\026\321\207\217\211IzE\331\245\371\2503\203\360\275\"\240\325\r\326\371x!\227R\n\371\005]I\257\311\327\2322\247\372\345\025M\327\222\363\313\217<dV\321\222q\277\244*95\347\025\023\311yU\313\207\212z\322oo^\323\224lR.\246\325\371L>\251\344\375:\013\371|\026}z\345\301\032i\2047~!\237Z\014\024\364\225Y\257\234I\247xr\252\256\314fry5\241\317\256\351q%\225\232U\342/\034\302\274\222L;\227\251\234\252$P!\263\230M\251\242C\240\324\220\232\313er\242<\253$\270\211dz^\317\344\022\252\014g\322y5\235\327\325t<\223\000\335\247$2+\351T\006\0279U+,\252>a\256\220\216\347\223\231\264\256\344\346AH\347}RV\321\264\025\364\200\346\362jNM\010J|\241\220~\241\317)\311\224\207d\322\313\203@N]\362\212\205T\002\243\002\014\276\345\203 \306\223I-\253\372BF;\203\222\315eV\035&\252\361\005j\267\220\364F#\272\325\223\351\244s\367\034\312Z\362\007\324]\215\253j\302\253\227\014\264L\023\007\342\320\362Y]\211\307\325l>0\013\t\316\047\027\325L!\037\3045MO\250\351\244\\\375LN\273D\036F*\251IM\305\025\214h^\315K\034\360\340\234\032\340\031\343\316\034\350\016\232\347 %\247\346s""\241\331\271$\r7\261!\216&\315&\323Jn-\232\226_\313F5\230\317\234\325WAS\211\005\322\320\263J\016z\224\n\325\317B/\006\370\236\305$\006\300\245B&\257\312\232@\240\246\245\006*\242\353\234/\275\320\256L.\027`\342\212\232\004az\372\211>\227\311-*\003\024\272\027\203\317\246\326\"(\313\321\024\364\271\214n#i<\2400%\227\014\315\306\325DdP\030W!\355\314\010\326\207\240\005O\237\311@MK\227X\005H\364\242\217\314\370\227\341\306\030\033`\271\203\302VJ\343a0\247\244\347\325AT\315\027ri\350\235DH\222\221\230S\342j\240\345TBaY\246a@\274d4\231^VRI0\047\227\222P\r\026\035Z\036h#9\233\203\\\206\247\222\312\314\047\323\001\025\\TRb=\231\341\002\343\216\013\311T^w\255l:\343Z\"6{\313\350I\231u%23\013\243\343\231^\2674\3650T\236\016\225\277\n\226\247C\365\247\037\205\312\317\202\345\231P{3\241\372\217B\355=\232\n\225\303\365C\343y\034\272\377q\350\376\307O\202\345\257B\343y\3628Tv\333w|X&\253\346\024f\047Y\312\204g*\2038`w\245p\251g\346\364Eu1\343\032\234A\353\220U\2415\216\201\207j%\347\222qn\314\241\372n\001\016!\356\256\251,\222\003\006c@\232\331\023\004\312\370\326\222\360:\010\023\330\313z\370r\260\336\"5\035\341\006\034J\"\251\301I\026\374\373\031e\363\257\256\302\376k\203xH\274sy\r\232\243\251K\201~\t\324\320\047\361T\30255\235\030(\023\353\320\303\212\247v\260\343\031x3\374\247\333\265\265t^Yu(\013\210\243\240!\2448\016\242-\270\027)0\"\256\346\362\3412y4\177\265\030\007\212u\2016-J`2\273\340j#\227SI\n3\202\r\016.\036\303\271\324`\047j\032z\257\262\313\227\255\204D\002\047%FJ\0040 |\213c\205h8Z^\311\0274\211\244i\005H`hL,\225T]\310\2434\260l\022\223Hd\013\263/\3245\014\201\374\212\304Cm\241\220\247\330 `\332\362j*\255F\256H\236|\004I\221/D\014\311\322\303@2\225R\347\025\271J:\243\025\020\245y&\320\001e\2360\004\345\\\224\212\010\353\322\030_\322\255\222\311\350)\004\205\252_\\Dx\016\201J$\311\233:cp\356r\246\020\304\002\263sI\024\323@\233\311\344\302\345\270s+\244\265B6+BdHP>\023\317\270\224,GS2\327\360\341\333\372\010H2\377\024\205\204C\204\263\374u\310#\317ap\231\025\335""\261\001Ni.\231C\314\343D\365\016\226\231U\327\020o\253\022\344&1\311\364\\\006V\"\017\213\242e\342/\324\274\017f\263\256\320\223m<\013\327\375;\342\n}I\305\254\222_\360\213$\221\001z&\235H\262X\025\322\213R\307\221\275\236\325%`]\010\204[\346\374\"\005}\242\374\312\tu\177\213\036lQ\256!\026\367\315\324\210\273\335`\324\0013/\220\342-\220m\327B\250\033j3DO\242\234(\300/;\276\212\001\204\036\2515F5\356\305\047\314\315\251\274\210\360X\371\205L\"\202\340D1\002M\3735\310v\005X\355\002R\363\254\327\351<B\234\300\222.\3009AB\245\021;\210<f\007rS\001\201!F\023\3513\0057\2030\224\"\021@\275\324\314\221b\237\000\025\321\034\345e0\245\220\370\253\201rH\262S\031\370M=\231\r\001\244\334\036\224V\026\325\024V\250\220\r\312a\010\227x\224\226{M\027\026\335!\373+\236\321Hw\323\276\006P@\233\207\313\327\346\300\240Ps\224`\310\2443\t\201{\222\213\024\207JSs\241\300\344\000.;\216\301)\373\366\314\005V\327\"\026\310\307\003+\304\260o\227$\214,\033GFk\224l\246\374!,\025\324\202\032\036\277k\271)EKG\300\013IJ\347\326\006\t\001\006\005\320\250\326eM\310\251\340\243\232\223\312\030\231\226\017\212+\306\236\315\2445\312\317\0232J\n\241\314\345\345\3339&\342\370\201C\243\020\201\202%\212\324\202\260c\350\007\353\273q\224d\340\264\370\202*\315\2257\022\022\260\"\313\356\376\207\004\207\215_\000\225\030\303x\310\320I\230\\\023\261E\"\242\341\000<P?\334\264\004\312u!*a\003\350a\262A\361\303%-\200E\312\031B\246\\>Z\221\006I\322h\362\352\252THi\356Z\0041\212\251\362\376\352\3473y\330\221@\047>$5N\312\343\247\007\014\255\322\030\304:/R\010,6\261\0347\223U\323J*\277\346\t\245\250\021tE\221u\026\021\254IV\310\305\350^\224s*o\220Pj\036$\323F\217\224\202\006\211\331d\026\362\206XUt\034\240\211\331F\335\2110k%\223{\241\013/\350\317\023Q\037\026\215\3268\004\271\233\r\036\354\364\353l2\204 W\207fS\221D\n\233dRA[\010tI\300@\207\224\264\275\240p6\357A\356\216_~\201\3622\215\371\353\322\204\223\t4+\240\201\206I\032r\201\212\214\004\352i\363z\302q(tM^\314\275v\035\r\335\250\314b\375\024\262i\351\344\252""\356\3739\246\361\326\240\223\327\352b\211}<\260\005\313p\"\221\243\\Q\213g\262~\373\251\274\266\034\017\226\364x^\030P\206\262Y\047\230\340R\001\366\331\267\250\014\311\033\344\004\314\026\020\222\344\\1eI\366\342F\277\204\345\312\314\372\220\033v\210\022\245w\013\252\274\351\311\270\024`\372*4;\237\326e\316\372\024w\005|\204s\322p\335TFS\221\006$\343k\001(\270\334!x\240\021\241\021\341\001\007Pi\205\334`\327\r\343e,\237\221\220e}.\227Y\364\224+\242[\247F!?\3674\232\234\317\274\341v\216[\003%7\323\365\221\357\225\\\020pCZ\037\221l\247\000\263k\024\372\314\241n\302\2374r\023\371Z\356\010\337\005\277\200 `\321\361\323.\230Pg\013\363\362b0\020\236PB\235S\340\034\002\361\016\343\311\034\rZf7\022[\205\023%\312\324(\350\343\275\007_\356\023i-Z\n\211\340\3554\312\240\033u>\212\002\277\222Aa\313\264\000\264\000\255\241G-BI\325\000\221R\310y\250\213\222\022C\362h\231\005\3111\272\273\367\203\024\3320\210\246\370\033\016.Mb\201\032\367TR\235O\004mO\330\270pl(4\337\203V\263$\317S\017\037\352\203\032@\3310\314\234\033Q2$\t\204\234\263p9\315{\031\001\225v\261\260\020\210\004\230\030\037Ds\263Iz$\342\354/9\330\242>K{\022\316C\007\006\301\377\005\371I\021\203\310[\002\206\020@X\242\000\271A\270S\004\237)\226\226\020\262\315n\350\353A\251<I \347p\371\214\267s\340\222\343\360D\360n\213I\250\030\\\035DY\223\311\304)?%tQ/\240\r\t/?\257x\221\314\212\247\010\"\215\360p-\025*\352\361x\\\206H\016\325l`\212\016\246-\2071\312b\\L<\363\2440V\235\017,\312\002\230\212\274bM\205h#\334\032\024\023T\240(*\254\317\016\354\006\342\376<D.\032,\3112#\220\260\304\010\024W\036\340lp\271\327\024\014\004\232q\260\201\206\200\363\036N\2702\203Q\265\003\276\226\362\335\207\317t\266KjBF\247\037>TRIE\262\013\342\271K\232s\275\014Z_\013\022\262\232ZH\270\271\271\346?\245\365kh*\034Sz>\324\240\024-\372 \355\337\222\245\314&\234\244\322%\315\360g\210\351!|\260\357\231\337\034\335L\344\350f(\316\300\332C=\225\324\000\211\222\2068y\222e5\202D;\215\005\332[[EL\255\271\221\253_\207\242}\21768 Y\215\251<\213\245""\030\234\366\274/\362\321|9\213#Y\311ts\231\244;_\200\t\n\310\006M\0373\247\345^X\014\023\034f\206\341\027\352Z\004\224\014H\227\227j \371\rXu&z\031T$U\332\236!,9\237F\200\030\312]<\342\"\226A\313\244%)B<\047\231}Q\222CG\037\361\267\202\005\036\362\300\014\244Te9\240{>\032V\276d&\236O\005\252\0220P+\353d\004\036\300;\362\356\243\203 \022\010i_\250j\226\037\202\360K\022\322\243\022A\\\343\207\303\336*\274\310\315>J\251\313\376r\003\010\2249\216\220\335\213\007\360\023%\037\245\047\222b\273[\363\301\025\047\047O%\027\223\371AX\366\264\213\364\310F\026w\006(\306\014\000\271\270o-=\200,\027Z%\337\256E\022\007h\253\312<\013KZ\202\344\204\326\201\302R!AA\261\000!\225\234\023\273\233\241fywHnT<Rs\030\023jD<\276\212\242\241eY[\251\034\3467\302\355\\<P\010\3046iuE\027\033U\031\332\267\203a\322d\022?\211\013\242\231\331Lb\315/\301:\314S\220\030@V\245\nP\362\264\342\211N\360\021\256\214<\231\366\020\3046\203\t\217\217\206\365\302}\265\301/\323V\"\002coP\336\243($V\222\r\242\244}E\361\205P\026i\231\257t=\363pJ.\006\263\t\037\221\344\"\000\006\027\216H\3744V\006X&<\200R\016\271\002\222\\uI\346\207@\006x\221\223\036\005\013\300\333}\025E\261\\\301\226\0046\330\226\010t\264\001\200<\263\004\312\2759[\266\001 \350{D\020\025^3\006e\376\263\327Y\313\252\001\300\315\217\006\300\354J\260\251P\232/c\001\313\350\022\344\224\337\301\260\036\360\032\364\014>\235\t\206\352n\205@\332(\300A\223\034\306#\272\037\260\300\002>Kj\305^7\322\266d\\\325\007\270\301\241\363@\377\0168\300P\227\0201*P\006{e,\262\025\340\321\215\204\234\262\277U/\236\204\353r\006\357\023Cf,\274\301/\347\227a\232\234a\n\032\002\252\251\031\247?m\200\304\217\030\"\005\322\243\016\316\330\245DJ\244\037\246,:{\370b\337\317\033rp\267\317E0\302D(Ja\230\236\355\223\034f\0252\177\364\270g\326\237!\327\340\376\370=\246\254\222\303h\362\322<\003v\004\365\022\231\305\200\013\010\370\354pr\021\225X\260\241\032\264\016!X\266\021\241]:\367\261G\236lb\336G\003\301\215S\314\211\235s=8\250\000ip|\364\246a L\220\240\240%\246\047\037A""\363\024\365P\305\303C\033AQ\017T$\\~\236\342\303\234\324\350\205\\2\000{+\350\242\232\242\211\330\347\007\277\001\306|\047\241\251\352\013\231/T\0163\303{\256\037\235\203\237A\226\262\336(C\303\357\307x\0058e|\007\006\"\240\201\261\000\326\036\007\002:\007r\222r\204Z\321\004g\020\0361\233Jz\333}\036H\251\230\253\254\001\224^ \316\005w\005\t&\033\002\253\025\030\270\017\017\014\336!\351\302 \223\321\326\027\023\217\337D\006\233\246\037\177%\327\210\350\356\214\256\370\225\021j00\023\307\233\363M\222\n3\311\3537H\t8\003\247\030\3646\021\276!\312+\000\023\017\302\006\000w\253S\"H\236C\224\006\272\014\371\221\010\0172\350;\334\227\252\242W4\322\2430\234_\325\203l\027\330 \337#\322v\361\000\220\337\317A\216\223\216\206\243j\247#+\347\223\362\316\245x\027\047\005SA\226LFC\376\357\315\333\006\374B\225`G2\021\334\226e\022\205\340\371BN\365\023v-D\037\334\311\210\366\265\321^\366\254=\\-\017\303\352\327\022\226/\241\322\336\245\026\215\352j\010WW\343\251\002\275\202\030\302W\324\344\374\202?\254B\226\345\301{p\021\332\200\310\307\263\340\263\226\247$B\306(1VRR\353.\030\367\267E](\231H\rTCJ\277\234\222\3014\374}J\361d_\274\362\025ZK~\275l6\365BN\026\234\227\322\302\313\316\311\260\373\346\222\014J&|\320d\023\262\254\244\n\352\000\020t~\221a\321Y\001QT(tV\020D\033X\316\006+rV?\222\226;9k\207\213HHG\024-\320\232cN\261\306\301}\003\227V\320(y\247w\231!\372/d*\275`G\357\267q\022\026\276\2254\203FH6\205\230\004\361]\314\006F)\004:\354\370\211\222\317\025`\356\225t|!\023\340\036\3578S\362Lv\201_\342\310f\222\2228\345\350\335\273\300F\260\003\205\315\221\033D\272o\007\310\330\3003\017\351\221\254.\0473\364\206!T&\031\247\225\220=o!\313\273B\274)\005\331\220\304\307\177\203\302/E<Hu\337DL)\276\321\220\036\330\220L`M\374\211\207\205$\224\2669\257&\272E\230\223\331\214/\003+\311T\"\256\344\022\336[\244\014\206w\267#w\266\031\014\306x\014\311\371\341\212\026\261I\032\000\203B\nRHSW\2647z\047\207L\017\372\006\275\000\275\216A\243\221\247\342b\341\331\254fh\021\247\245\237ze\025b\235""\363^\246(\320\216\247_r\337\001\362K\241\n\232\363,\311/\371\025\222Y\361#\207)\257\264\010O\237\314\246\324U\017\221~\216\241-\210\037K\371/\271\022\342\276U\354\025\335\027\253\251\344\276m@\327\351\314\242xWZ\024\202\277U L\274b\257-\360\236\241w\243\263\007\311\301\257\217\270\257.\210\222\027\263\212b!=xC!\035\256\244\371\212\352\205\227\236P\373\210\370\311\236W\226\302!\017\363\177j\347A\256_\365\000\030\262\331\214\"L\256\007z\263p\001\3310\373\240\274K\000a\363\177\273\204\002\277+\340^;\013\213\3134\211R\006q\377\274\003d\346\3464\325\245f\223\036.U\311)+^N\213\242k\232\3505\211\331B\332\361\220\224\013\245\234\367\327\003e\261\216^\321qbb;\332{\227\310}\226Jk\303\217f\007@\317\010\004P\310\216\207\313O\003\364)\375a\02485\010NG@y\341\265BhT\223\323\342\361\027\207\356)5!\374l\260\312L\004\344>\266\r\302\256p\007QW\030\374g\001\272x\327E\006\276\n\001+\013p\303\313\302X\260\232\270?\324\360\372\220A\257\013\031d\275H\014\302\220\221\224T\233\337\236\223\236V\007P\367\365\016\tL\010\373)!\356\303N\t\n\216\222\241\340\030\031\312\n\327!!\236.\313\230\037(3\205\336\270w\245\322\271v\205\222\213^G\\\n\220\350\267*\313\016\321\333\212\025\277k\r\203\302hy{)R%\017b\323\313\220\233\304\363O\036\251\020D=\205\360\020\247u\307\367\317\n\317\355\026\245XQ\312\247d\013%\303\036\253%\214\036@\234Q\235Hg\335\342q.\204C\235v]\205\214$M\235M\232>\2334\023&\341rw:\n\034\250\311\rD\202\203\303<c\210g\014O\036\232\024\343I\353/\243\316:z1\214\377\224N\302\204\2348\2078\304\351\360\022:\243H\245\037\260\307kUq\276\031\375\270<\372g\361g\375\"^\340\233fSwO&\321\275s\247\234\237\271\233F\325\371\001\273\245\343K\027\247\351X\376\217\340\371\212\317\342\022W\255\272\250\316%j\272a\032\026:\253o5\014\313C\351\320\t\276.o\327\321\\\255\212a\211_\322\033\r\013\003\254\325^\225M}\213\317\010\260$\002\215\277e\351\225r\325\255\336r\032uN\241r~x\217\251\212\337\332\363q\017|\331\252\2772\315:_\356\242Qw\212{\226\356\317\003\205m\263i\270\327\r\263\270\353^\323qTt-x\356^xG+\020\262X""\3366\335\357\350Ep(\221\013\3014\243T\302D\233~\231\217Y\362\212\336H\271D\047\314\350t`\007!\032\035i\344]Dw\357\222\"\373w\210\274\344\255\272\204\370<\024\2007\010Qd\361\361\016e\362\361P\261U\365\200\025q\226\236\373\242\234\370\031\235J\277pS+\225r\335*[\251Z\361\025?\001]\310\254\350\263kyU[\\\323\225<\362\231\331\002\ntB\2078\241\310\250\300\336\316%WU-\233\313(\3644S_Qr\364>n\326hn\r\234\003\003\240Y+\326*\224gBQ\263\0139\205Cc\047\315\323\374x\306\013\352\371\031\257H\006\371\205dxW\347\250\212\340\301\025\242\344\311\303\031\360\3447|:\233\365\335\244{\"\310oV\024G\000\351\333F\325\3304\033PB\363u3|S\261V\265Z\333\246\276g\2742\033a\242\320Gq@\341\0314q\310L\230\330hU\317\240\360IIg\320\202\343\rSi\204\336\2316!\242\177\006I\004A\234\003\022\"\260(\206\260\300\371\"\3214\267\255\235\226\tK\252\361\331Cq69\242^~\277n.\033\215B\025\022F\247\007N\372\007\t\256h\212\212\004\205\334\354\2126G\347\3238_\203\032\347\023\006\364m\205\367\047\226);D\326\265b\032\257^\230\373\2112\237\010b4\366\t\320L\262*\216Y\206\215ob\331\303\345\301>#j\014t\036q\272\217\276`X\204Vk\376\325\344\206\000\362\272\236\335\177\215\3774>=\215Fs\346\206.\344\020\215\351\316\201b&_\357\031e\006\371H(\377\202,~\323\334&\200\316(\342\357Z\221\276 \223\020j\272x-\356\334hU\231\020<\334\206\313\226\333\r\026\254\326\340\332BYtH[\271\312\337\270\313\353{\273VjU\370\206\355F\215zj\224M&T\261,\374m\356\321W\275a\326\351<9\272\304L\371p\030\250\223(\301\227\264*Mq\355\014\200.\351\3505q\325\252\362\251C\246\256V\335{<h`\001\231\274\333$/N\335\355\264\214\212;\030\367L\245\3015u\001\3635\025\350\260Q\367\036Kb\312\340:\353M\323\"\356\000$\346z>^:\375\3065\367\302\007z\212\311\256\236\3172\025G*\362\027L\266_!`qt\347d(]\234\261$\3268p\232\316\031AF\3006\005\215\221^\206c\2565p/|\275\243\315\344\221\215\212\030\230o\234\334/\243\261i\271\327t\200\233?X\357\202\317\035\363\212\226\343\332\002\346\314\265_!\263\033*:C\rX3\207\027\356\367\236cf,\303X\007_\370\200Zq\346\017\314\231\177\246\220o\364|+""\347D\001\356\331RN\320E\363sN\005s\017\023\363\030\344\022x\206b\275E\350\300\307\315A!0\374z\005\253\263\216 l\275V\253\320\341d|@\031\177\350\315\032\202\255\327\276\323\3314\351\014\277FQ,h\321 [@\313\247W\320x\203\257\254Z\255\352]8\374\241\363\342\334U.r\224ZtcU\232\310&\214hq\035L\254S\253\345\215\362\231\361%\021\032\374\341\006\201\242\000m\254Uv\315\"\005\200P~\235\316\3212\2717\222\323b\305*\326Jf\370D\265\332v\235\206_\253n\2247u\347 _T\254VQ\211\016\177%\331#}.\n%\245\263j\331\031\024k\255jS\034B\t\263\324l!\034\024\205\246a\275\342\220G\034\3006\311\361O\311\200\223\250\322\tP\034\r\363\007[3\026tGChp%\323+\010\255qfX*[E\243Q*U\255\022\342\233\022[\030(\2018\336\314\213\253M\270,4a\302\330\360\361\221fu\267\334@\375F\203\341Fc\333\202\2006\2525\326oq\336\256\271\253\257\227\233\333\030\265\247y\220\020\253im\224ha\331\320\303\242\010\203O\237\326F\305\330\264(\236\246\377F\3239\361\222\317c\363\242N\236\033D\311\022\274qD\006\212\036\214\010\251\344\316\024\201wyc\237\317\246\265\006r\003\006\304A\242,\306TvuK\276\366\245\364,\253\345$\030\370\252\363\021\207\260\237\3145\264L\207\271:\234\024lw\230\017\351\207\031h\320\t\306\223b\365-\272\326\235T\241\\*oV\301N)])WK`b\265\211%\2527j\344\336,\361\361\027\363\227Z\271\372\312\334\267^\355\221\316VjF\311?\223\227\257L\032\245o_\351\264\347\3066\370\\\334\3326\267\351\344\335m\323\262`h\350\000R\254\047-\016\222\274mr\271p\266`!\204\242V\025\347\227\326,:\0268*o\032H\231\310\250\224\215\n\r\203\207R^\347\374\251n\354\323\030\235\014\nf\242\311\337\265z\275\206U.\277&&\322\047&+\037t\006\266\222\316{&Y,&\345L\r\347\000\356\206\311\207{\006\316A\013\204g\201x\214\2636q\250h\303\262L\363\225X\327\240\3616+\033\224\211\361\211\333\256,[,I\344\246q\265\016\006\277\022G\000:R\047\214<\237\317\307\002iq\274\0071\047\343\214\325\262\240Tuq([\340h6Q\250\033\345\006]m\224,\253\202?H\233E\022\001\266\222\213\3375+\354=\304\007\235\211\311N\230>\312E\347\264J\261\000\244\236\322ZXM\232?\270T\2670<\210\2368\004\026""\237-|\266H\314Zu\360\324\262\254}j\034\302L\306)*\033\020\030\346\214\213\332\036L9\025\361\305lm\266\350\\R\262%\342\314C\304&\030\270\223\215\265\352XHSd\306-\326$\021C\354\032\225\226\370\260\034\005\330\243\310\216l\247k?\367\020\243B.\366\266\260\242{\345*\376f\246\271\303=\313M\251\235l\332I\244\235\034\372\365kkj\362\341\324\344\324\364\344C\332\343\374\362\336\217\245\037\047\177,\335\217\335{\371\360\213g?\375u\346\357\270\234\374\374>\023\005-\346R\230\220\201H5\277\020\242\376<\366\317\363\047C\357\036\374\261\275D\027\223=\243\267\333\307\345\351\320\205\203\367\332S\366\370m\373\366\223\376\316\311\205\313\007\215\366\215\316xg\251c\234\\x\357\340q{\250=\3336;O\272\023\335\251\223\341\253\355\251_\337>\367\326\350\201e_\371co\352d\350\235\177\276>x\335nv\246;\205\356\335\336X\357^\177\202\332x\335\336\241z\303\007O\332w:\347\251\233\367\016\276now\247\350\362\223\316\216\035{\330\177\357\360\353\243W\366R\356d\350\252}\365\263\356\323\336TO\241\006\377\326~\322A#\323\375\t{f\356\250j\347\013\047\270\033w\376z\341\334\273\177 \322X{\274\375\262;\324UN.\214\266\337i\357t\336\356Tz\023t\357\356\301J[\245\321\237\\\270\322F\315\353\355\235S|4;\317\273+=\265\177\265\2378|\357\350\3111\327\245\311\332\227\247\372\343\375\245\376\346\341\313\343w\216Q7\200\234\377\247B<xt\260\327.v\306x\366\247#\227N\206\257\331\327\356vwzC\030/\346\272#j=\345a\017\217\234\\\270c\337y~8q8ur\341\203\316g\340\0138\327\215\243\376\357{\217z\255>*_:(\267wN\206ot\316\3337?\357M\364\236\367\227\354\257\276?\2368\236\242\246f\372\337\036\235?\032?\302\034\256\265\313\235\235.\r\343\312T\177\354\344\342\273\047\027\206\017\3246\2062\332\276\3241:V\367V\3278\013Kw&\2027&\333K\355\215N\262\273\332[\352\275:\034#(\323\241.\037N\235^\030\266\207?\354\314\361*\323\234\332o\267\215\366ng\245\2530\375\327w\317]\034A\213w\272\347\273c\202\047\230\000\326\355\363\336g\275%\002\246\016\346\332\023\355\031\301\250?t\246NF.\035l\264\225\266\326\371=\n\321\310)\303\230%n\352Lt\276\352\216uyu\307H""h:cX\215\203\177t~\352a\032\247\334e\263\215\373\306\261\300c\047\243\211\243E{\351G\373\307\237N\207GN\305l;O\273S\277^:\207\311b\025F?\261?y\324W\372\371\303\233G\023GS\247\243W\333\317:\361\316\316\311\370\373\047\270~\332y\334}\247\213\022M\372V\367U\177\254\377\307\303\225\243\205c\345d\374\343\316V\327\204p\217\337\357\275oO\316\035\031\047\343\327\355\353\237\367\356\202\2237>\354\244\261bO \3467\047\272W!\202@^`q\317\237z\244\333\375\277\242\313g\307\312\351\370M\232\330\311\325\361\223\321\033\235\267 \225\343\357\237\242\377qh\000\315i\370`\276=\345^<\266o@\026N\334\353\207\375\363\202\262\320V\355\233\3205\251\364Eo\211K\264d\020\030\367[\254\312\330\225\223\361[]\245\233\357\221H\330\243\237\022O\211\364\227\316U\324\032\365i\355\341\216B\355\\>\370k\347\213\356\216\270\374{G\351\344\273\037\263u\000@\252\306\353\373\244}\227V\366\006\215\362N\377\374\311\360e4x\275{\376d\224u\354\377\352\375\357\352\261\0319\275\360\021x\377!\324\323\020\267\334j\227\240rou5\330\232D\377\355\376/G\270\361\n\265\204\312$\344B\265/\236\014_\207\262\222\311\276<\312&h\264}^\324\270r\365\224j\\\206\356<\357\274\354\235\357\215\367^\0362\r\"CZ\365U\373\232}\375\036l\323W\375k\260\377\303\357\267\013d\306\256\2657\251\275S\262u\237\013\201g\323\307\2120\001C\366\217\303\325\243%\341!\336i\363}?\332\023\217a87\016\347\217\246h\224\367;S\366\207\317\016\307\016\357\037M\035}\177l\332Z\036\375R#4\232G\355}X\360D\017\014\370\203\375\007\362G\315\376\024i\346\343\316;\244\245d\031F\307\333/p\215\257\014\231\245\253\244,p+\027?\356h`\034k\203Br|\201-\212\340!\350#\037v\246:\t\257\006c\037~tr\375\306\t>\257]\377\365\332\271\213_\330\017\276;4\016\2330\014\027>\3514\273OH\363\256\264\277\204\005\272\323\273\3247\204\306Xp!b\"\035\005\316\347\342\360\301\267<\270\341Xw\2707\217\341\202M\265\356Rw\243\227>\234\020\323\232i\033\047\243\216\331&\366~\r>\026``L6\031^coScD[\022\2020\326y\000\243=\312\026\245\273t2\206\331wR\304\233\211\356\007\314{\\\214\235:\214\333\351\\\356\356\365\250""\037\366C\366\275o\016\225\303%vK\367\341\202\357\330\017\377\014\007268 \321\355\263\366<\331\337\337\254}\352/\256\020\237\245\316\006\354\035\344\325\202\255\025\346Sb\300\035\373\317Y;\273D\016}\240\251\177:\354\363<\251\303\007\226\206\217\354\217\340\243\372\267\004\327\277\026\025Fh\361\022\355\363P\237\037\260>\317z\213\020\244\273G\037\036/C\214\2047x\335\336\203\300\017\217\220\313\267o\336\357}\3247\372\315\303\047G\223vv\331^^!\312\017\360\374\236``\004\227\016t\247\323\017\354\017`a\341\351\327\016M\210+:[dS\315\n[\350L\366\316\273\330\375.\223_\200\355\357ANn\367\376B\256S4y)jR\277\216\236\273t\2318\203p\207\005\374\326=\357\3436\233\336[\312\321\330\321\255#\236\357\024\t\360\010xkv)\264\2728\212\326J\366\007\237\367>\355%\354\207\337\037\337\307|\355\374\252\275\272&\372\033\005k\237\tk\377f\315#\241\370\341\250uL\362?}n\344}R\025r\023\3037i\254\020\047p\236\304\017\343:\205j=\351|\332\tF;\227\017\366Y\257\310@\235\214Q(\263\326-\366n\366?\003\317\212G7\217?;^\222h\203\327\264J\317\332q\032\"d\355\036\333\236\325\376\352\341\322\241\341\317\3719\033\273a\212\030!U\242\215\341\253\034J\215\\\023\343\370\315\233\257\266\377\304q\313\277~\203}\3656\244\326\370\327\357\010\360\002\035~\313q\220t\273\020\246U2\212GQ\267\267`\311\366H\305\257\267\377\273\273\016Q\240A\220\325\333\371w\3469u@:<r\263s\221\226\357\032\274\303D\347;\362\3457;\327:;\007\0230w\tH\3517\275\035\373a\342H\351\030\366\271q \347\235pW\264\367\nk8q\352\024~\351]\354\217\331\347nP\035\010\243}\356\003p\0369\301\205\366\371\223\221\261\266\010!\300,1\030\204\203\047\220\244\2456\017\356b\347}\304\233;Bh\366\3112\"L\304M\0278\324\031\272\332\376\252\203\246?\355\376\261\367\003<\313\320[\047\303\334\320\233>N\207\320\372\311\320\310\301j;\017\335\273\333\035\2434\342\002\305\365\3668\305\232\313\375\047\207l\252\037\240\353fw\272\313\221\376\035Z\034\004r\237\331\267\237\035\216\t\337I!\344\025\240I\254t\021\206\356K\030\220{\034\n\222\277\274\n;\272\307\243\307\342\354!,V:9X\252\213=""\026\374\335\366J\047\003\047\267\333_\261\277\201U\203\006\376`\377`\330\306:y\250\047N\030|y\024\356\261]\201\354=\3526z\274 \033\024bv\337\356\026\355\373\337\036.\r\264M\301r\257\206\305\335:2\216v\354!\222&7\230\0369\203\337\"J\227\230,<\036\261\030\231\315k2\257N\264\337yD\213Aq\376rg*p\001\343\345t6|\360=\rH\200\010\031\354!Zz2g\366\020\374\3603\307\266\331C\037v\324\3565X\370\013#\0079\364{\036\002\366\272\273\343\270T{\210L\007\3708F\3135J\2028\211\020\342q\177\010\t\326\320!b\350\033\235\221n\001Nu\224\030-\202nJ\303\276\353]G\3543z\263\363\007\341\372\307m\212U\177\275rn\344\022\314&ZK`b\313\344\216{\317\372\337C\007F\337G\276\360;\212H\256\266\277\356\030\277\336876\336\236\202\007\233\351lba7{\372\241\n\347\205\376~\217\351\357\"\313S\300\342R\377>\034\301\355\243\346\361\243ctN3\277\201\021\237\336\270\211\360\233\003\047D\026N~`?\373\376\370\326\261\201 \035\346u\374}\233\322S\370\212KW\332cBL\376\201\360\353<\257\313Dw\034}\226z\367\373\217\017\337:\314\263\021/\037\267(Cu\227\313\036\212\321z\370k\032\326\026Q!\n\266cO\017\317s07\212\244;\351\205sP{O\010xiP\363\371\341\204\033\324\375\027\345\315\366\320\247\366\247\270\035\374\271x\025\242\377\026;\35398\021E\324{\nM\310\364\246\270\036\374\275#1\302\307}L\351K\210\342d\027\311\356\017=^t\016&\t#\307A\3373\375)\376\276\323-\331\237c8\247\227\036\364\310\365!M|\321\376\013\231\247\021rg#\3660)\002\325\3047\371`\2427;\337tw)\020\025R\372\243H\374\244K\222\225)WLw:CH\261\2324\372\317\354\317\340;!/\034\213q\036y\225#\023\343\324\311q\306 \211\357\364v\372\027\355g\351\343\222\235\323\340?E\346\016\213\367V{\211\214\354H\377\345\021\234\336\215\316\273\335\t\373\263\031{f\361x\351\330\240\341^\243\001\300@\220\247}\237\326\300a\371mJ\232\205\317\375\275}\025\371\0275\371\270\363;\373\203?\362\266\305\005Rt\003\203\376\2268\t\354\224sw\222\307\357\373%Z\254\213\007\327\333o\331\357S\347K@\356\036]#\003\000\017pz\306\016\303\235\256\2019?\355{\301\311\355\316\2163\232/\355/_\034O\375:\036\210>XL>\200i""\242\270\354\002\274\013Ew\267z[\375\352\321\334\361\204=\004a\047\276]i\177H\263\";`\010S\267\334\231\346\314`\214\024\331d;J\026\215\"L\321\335S\373)\270H\326/\324\245\024\315\216\220|\342\202#\037\327\221\261\211\200\304\214\333\267\2055\264/\177J\273D\324\221\344\336\274}\245\2211{\224\262\213?\035b\274\360_\277\336\013\317\360T\2040\037A\325f\021u\316\366\014\021XR\324x\255c\301\325h\375\363\247\010\211\326(4t\222\230\223\221q\021\362\222\n\333\023\024l:\031N\036r\312\t2\354A\212\364\357\235\303\235S\2516Tb\272?!\002\375\201\332\317\016\257C\212\244\3321\332\325:\337\037\213\254\375\244\277wh\234\376\346H\300\370\277\3313/\216\237@rE\250\366\233\303\021\267\244\216\347Y\322\345[hu5\230\367Q\262\361\377a\237\321\223\022\267|\177|\227\303\375\177\377\226\377]\007\260\0020?}%\352\226\305\343\025\266\307o`]\031\201\303T\200uI\273\260<p\313-\373\0269\210\245\250[\322\307e{e\365\215\003{\343-7\204\355\022\251\037E9\027\316\321\276\315\373\377\342\037\355f\315\240\207\277rf~\253\277y\250A\024\307\241\375v\2142\001\203\266\230Z\335y\330&\265\177\375\020$\247x2\372\001\022\232?!\376\343\024s\236FH\033q\200\357v?\201k\036\023\201\361(\362#\212N\367\372\306)\0071\224\251:\336\372t\370\212}\005\325\354;\177:l\034\215\235\372\233\033\243\355w)\206\247j\366\255\2578\035\373\372h\233\3052\020\334\302s\372\\\363\356\371\334\376\234r\226\274\255\344\354\234n\353?\377Kw\335\265\357\322\036\303\255\303\352\361\242\275\366\303\233\356\201\254u\317\377\007]\275\327\341\215\tr3e\3322\374\030\241\007\342\214\360D\215\301FNCA\275o\312\367\001\336 U\224\331\307\003<\025Fw\316\236c\213+|(\207[\360\241\037\323\256\374\260_\016\354\377I\337\237p$\350\327\347\240\304\3059\351\024\301\003\355\243\214\273\306\232\014\225\010^\336D\347]\010\332\260\237\201\234H4{\034\036KlQ|\333\375=\004K\276/\323\235z\343}\366\020\\0\262\007r\037\020=R\242\304\341\305\243\033\307\037B3)\231\367\023t\346\316K\373\345\217\024\353D8\243\341@\366}\241\177\351\3208\334C\270\335<~jk\210\342\177\266\177\006cM\333""\334\2607~\261\177\371\233\375\267\377\376\365\334\271?\377N\371]8\035\027\221\323\224\375.m\262Px\363?\250\275&x";
+    PyObject *data = __Pyx_DecompressString(cstring, 11119, 1);
     #define __Pyx_DecompressString_LZSS_UNUSED
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) > 0 && (CYTHON_COMPRESS_STRINGS) <= 90 /* compression: lzss (15760 bytes) */
-static const char cstring[] = "\377\n\n    Pr\377oactor e\377vent loo\377p does n\377ot imple\375m\024\001add_re\377ader fam\377ily of m\377ethods r\377equired.\376M\002Registe\377ring an \3767\000itional\337 seleg\002th\346H\001 ft\000N\010sup\357port@\003To \377avoid th\177is warnL\001\317use:\262\002\267\001as\377yncio.se\353t_\271\002_\272\001_po\377licy(Win_dowsSm\004E\333\001\265L\333\000P\031\003))A\004[\377 at 0x b\373yt\363\000are a\317llow\313\000\r\003, ?but on\360\000\036\003\177]:  obj\307\000\377>!H\047_Fil\377eDescrip\376\304 Like\047(t\377ree frag\376\270!)) *, c\377url: (, \337multi\007\000..\373 S#\000https\347://\034\001\307\000/li\355b\047\001/c\002\005-er\377rors.htm\177l first\263\"\373mo\247\000detai\373ls\000H. Ple\177ase ope\271@\277n issu\013\000n\377 GitHub \277to hel\241`e\347bug\227C\234\002...\377.: << DA\377TA< SSL<\373Me\242\000yView\376\251a<contig\357uous\224`d d\216\257`ct>\007\r\263@\022\004s\277trided\"\010 7or \004\031><(\tA\006\353>>\220\002>\221\001?Ad\276x\000ata f\267 e\373d.\014\001field\372\t\005B\372\001excep\354\262\204\001\237\204\002cy\272A pa\277ckageC\235`a\357ble[\360\000, N\177one]Can\253\205\002\375u\266 local_\217path\341\003h\001\337`t\377he same \237time..\000\334\205\001a\237ssign\320!\330\205\001-\312\340bm\261\"v\263 \036\004du\377plicate \357clos\216 han\373dl;\006perfokrm\200\206\002e\232`on\022\023\377receive \377websocke\347t d\203!\027\025sen\375d\n\037urlm a\365l\226\207\001y\230\004! qu\367itt\372\206\001from\377 process\375_j\001Define7 ``\305\207\007``\276\207\006\330`\335b\342\000all\363@in\357 a b\357 gro\251u\210\000\266\207\003 \264\207\003.\266\210\003I\037nstan[\000\211\210\001\243\207\002kcl\320  \023\000rt<\000Kse\361`d-\004\341\"uR\001\360\377\207\005\342\207\004\334\207\001\212\210\004is c\375o\360\210\001tely h?idden \301\002\273A\337user;\260\211\002alkl \343@l\234\001s \260\207\001\361rW\000\367 \342Awrap\267ped\306\211\010\047s\252\013T\373yp\316@lly u\356\314Avia\220 Add9T\222\211\002\241\210\016``,\246\212\002""\204\210\001\357can \242 att\337ached\213\206\001a \240z\000\231\211\002\212\211\004\300\212\002\206\212\003F\340\204\002 \234\312 \003\004to \000\007\313b \323sh\361\210\001\317c:\022\tre\350\361a\023\t\301\210\003_-\002_in\377it retur\377ned NULL\362Z\007s\334`\263\210\002 buf\047fer\014\013l\003o\333\205\003\274\211\001\372\350\213\002f\343Bat In\377valid mo\377de, expe\377cted \047c\047\376\375\206\001\047fortra?n\047, go#\007\303\000\373pe\345\001axis \377NOT DONE\376\232\206\001Note th\377at Cytho\376\317\210\001 delibe\243ra\343B\345\207\001_\000r!\001n\377 PEP-484\366\237\210\002re\343\212\001s su\355b\325bes\363\214\001bui\377ltin typ\377es. If y_ou ne\211Cp\375b>\047\007then \214!\376\206\001\177\047annota\214\215\001=_<\000ing\047\202\211\004\227\206\001\276\230Blse.O\366\207\003u\375n\214\215\004ed: %s\317Read\356f\360\047To\337rnado\325\215\006Un\220\252&\262\210\002\354\213\002\220\205\001t\233\"\204\206\t,\373 p\321\212\032\nWrap\014\301\216\001\222\217\010to\317\216\001\221\217\007\310\002\223\"\020\337\210\001\306\206\022\254\217\004\273\205x \241\206\016\370\220\002\210\206+\354\205\220\001\333\207\003is\264\206\003aut\363om\313@\210\207\001y by\275 \205D; ap\257\212\003i\373on\274`hould\370\315\221\002\242a\363\221\002to re{fe\362`o it\207\215\004\273ly\322\210\005t i\364`a\253fe\355\215\001w\200Cy\230\222\tw\357ith \352\210\007, a\233ltd\000ghJ\001\303\213\003a\377kes sens\025e\345\222\002f\330\222\ns\215\205\003\265`\333\222\013\370\262P\340\222\016\273\003hemse\377lves (i.\037e. ``\354\221\004\313\223\005\352\221\006\367``)\347\223\003Clos\370\223\223\001\244c\326\210\031 also\314\353\214\003\271\211\001e \304\211\017\376\212\004Wr\\\334\206\001\270\222\003!= \340\214\004d\312\222\003\275.\264\224\001note\244\223\005A\177bstract\206\223\006\347col\221\224\001\244A.ab\255c\345\216\003/_\325\223\004_\243\213\006psxi\024\005\246\222\002pyx%\004\363ut\377\221\001\035\000dict\355[\375\222\020, \253\217\005]di\355s\267\217\001en\275\217\001gcg_etinf""\376@s\014\003\357dlis.\022]no\377 default\377 __reduc\277e__ du\233bn\377on-trivi\253al\033\000c\225\212\001_\266\001f\345.\225\217\002c\360\207\002\263\213\001con/vert\260\213\005P\212\211\003\307\224\003\376\211\226\002picklin/gsel:\000r\254\220\001\t2\237t cacg\000\204\213\001p\357roxy\006\007opt\355 \365\210\003.A\275\226\001GenN\205\212\001or[\307\221\001\312\221\004u\234\"\372\331\214\002l\315\221\001te ar\227ray\257\220\002.\013\020\371\212\003a\374\245\217\001\262\223\002s.{:02\373X}\002\001x}<la\377mbda>ASC\343II\362N\340\215\027\372\215\027.__\376\272@attribu\201t\211@\016\032\214C3\030\325\231\007\006\034w\037riter}\030\237\223\002\235\030?remove\305\232\004\006\037\366i\004ny\247BCurlj\000\006.\200\204\006c\323\215\002__\017\t?setsta\227 \n\020?check_\323\230\002C\010\277force_\233\225\001o\003ut\\\007\366\233\001\354\224\003p\007\337\003\373\232\001\202\216\001.\327\223\t\225\007\343\004,\r\367\224\003_\373ac\221\234\001CURLA\177UTH_ANY\000\t\357SAFE\022\007WS_\337SIGV4%\006BA\367SIC\004\007EARE\375RB\006DIGEST\366\000\014_IF\007GSSA\363PIr\006\014\000NEGO\357TIATj\007HTTqPq\000\227\006\020\017NON\231\007\317NTLM\"\007\n\000_W\335B\323\006ONL\330\002E_\377ABORTED_\377BY_CALLB\347ACK\376\001\026\000GAI}N\004\004LREAD\036\000\037OMPLE\215\0037\000\241!\357ERRO\343\002E_B\373AD>\002ING_O\367RDE\013\tONTE\377NT_ENCOD\370\035\000\\\003-\001DOWNL\375O7\000RESUME\376\017\007FUNCTIO\337N_ARG\026\000NT>*\007PASSW_\000L\000\337TERED\252\003CH\377UNK_FAIL\356\t\006ONV\000\016_RE\275Q*\005OULD\223\000C\223ON\265 Z\004C\016\004\215\000O\177LVE_HOS\003\024\357PROX\276$ECH\346T\001UI\205\006\202\003_IN\365I\262\004F\225\000SIZE\177_EXCEED\256\005\302\023\001_j\007\300 %\001\374#FT\377P_ACCEPT\374\312\n\014\010TIMEOU\375T!\013SS_DEN\221IY\006C\000\3216F\026\004\202\002L\333IS@\010CA\256@GE1T\367\010\215\001\022\002RE\247*\023\002\340\306$.\001\344\001\271\007\310\047TR_\204\320\013\345%Sd\000\204\212\002$\017\027\001B\337INARY\006\023TY\333PE#\020TOT\025US\371E\201`""\336\tPARTI\273AL\215\014POR\346/P{RE\373/QUOT\325@\234\200\205\007\265ASSL\245Nx\000R}_\265\204\006INCOR\307 \376\264HWEIRD_2\37727_FORMA|\t\016\366\204\001_REPL\202(\336.\003PASV\004\023SE\217RVER \023\214\002@\rR\271I\277\014\202\206\005NOT\225\000U\365N\352\205\004G\014\000NOTH\344\307\206\006\235\210\0012\267\207\003\006\002_ST\257REAM\010\0073\023\007_\344>\014\331\210\001_\342.\017\004ST_|\335\207\010&\002RANGE\004\017\177ETURNED#\t\377INTERFAC\375E\217\207\nLDAP_C\303AN\320\001\334`\275\207\004\021\002IN\377VALID_UR\371L\204\211\003\047\002SEARC\375H6\013IBRARY\276\273\rLOGIN\366\205\nM\213AL\312C_\376A\331\211\003t\002U\357ILT_\336\211\005NO_\374\203\210\004\362\210\002VAILAB=L\214\211\004OBSO\361\211\007\006\005S10\246\212\003\007\0062\001\0146\022\013\2552!\01424\021\0149B\0133jA\0143!\0144q\01441\202\013\2514 \r\201\0145\261\01451\0145\2657\322\0136\321\01475\362\0137|\350\005\275\214\004OPERA\301\213\002r\246\211\001D\242\211\006\n\013OUT\275\213\005\377OUT_OF_M\347EMO\351\207\005\214\207\017PEE\375R\342\213\004_VERIF\343IC`\002\262\215\003\214\213\010QUI\201C\314E\266\204\t\240\207\016\275\204\016\354\215\001\350\204\tR\376\367\217\001SIVE_APyI\244\216\002\237\216\003RECV\032\013\261M\210\210\001\262\213\001\370\212\014RE\025\002D\177ISK_FUL\324\204\004\374\017\004\201\214\002EXISTS\360P\005C\002\231\214\002\350\206\014RTSP\237_CSEQ\223\n\021\001S\347ESS\256\216\001\211\217\010SEN\370\200\206\n\013\002\240\216\001_REWI\276\302\207\005SETOP\366 P~\354\216\002SYNTAX\377\217\003\377SHARE_IN\354\265\205\001\013\004SH\001\005L_C\037ACERT\000\r\206\220\001\274\215\007\374\205\212\001\"\001PROBLE\235M2\010IPH\235\220\005 \002L\017IENTB\014\225\217\003\363\207\tK\002\373RLS\017ENGIN\306\251\001IT\372\217\t\205\213\001\024\004NOgTFO\267\211\006\016\010SE\"\016\374\377\207\004\334\001STATUS~\354\007ISSUER\204\r\350\221\204\002\213!\212\204\003E\234\047PIN\377NEDPUBKE\317YNOT\324\213\001\271(SH\363UT\202\222\001\256\221\nTELN\005E\3752T\222\220\001\302a\273g\016""\002\262i~\037\002ILLEGA\274\211\004~1\002NOSUCH\371\210\0078\016\004\210)Y\002PER\256\213\004h\002\377UNKNOWNI\376\341\222\004TOO_LAR\371G\245\223\004\013\001MANY_\217REDI\312\215\001\273\204\004/\004_\201O\320b\315\224\003\014\005\321\n\023\005\320\220\001V\273ER\357\211\001_PO\231\205\005U\337NSUPP\235\225\003PR\337OTOCO\217\213\004UP\004\263\224\002\345\223\tU\224`\343\212\006l\004\007\t\364\212\010P\202\220\001\223\217\r\370\216\003\236\216\017W\204\216\013F\232\000\317OW_A\276\206\003\007\004FI\347RST\316\226\005\033\004OBE\217YCOD\261\230\002.\004\275\230\005I\377NFO_ACTI\177VESOCKE\227\230\002\026\017\003PP\211\225\004_\332\223\001\212\231\001\004\021\315_(\007CAJ\001 \006CA\357PATH\005\007ERT\336\022\013ONDI\325\226\002UN\341Mn\010a\022\177\tg\tONN\351_\213c\305\002C\331\227\004LEN\017GTH_\315\227\005\212\007\n\023D\013 \235\230\002;\004\327C(\025\364DTO\016\205\224\005~\216\004OKIECH\246\220\001\001S\200\010\022\001\343\225\005\203B\233\265\001\377\216\004\006\007|\320\226\004\244BEARLY!\002yS\302\231\001\243GEFFE\300B\035_\307 HOD\245F\017\007\277\220\004\002B\003N\030\007\214\230\001\324J\t\005\317H\375\227\001\277ENTRY_\306JH\037EADER\246\t\013\004\250\t\000\036\004\203\227\005\354b\276\234\001\325\235\003\331\220\001\322f\016\006\017USED\t\n\211\221\005\276\204\005=\006X\364\215\001\350\213\001\226\204\006LA\373\204\001E\003\n\376\313\204\014LOCAL_I\341P*\007\014\002\344\226\001\335\204\006NAM\177ELOOKUP\360\204\013p\t\014\363\204\010\354\235\005\315\205\002NUM\274\222\005\266\350GOS\272\224\001NO\302\205\006P\377OSTTRANS\007FER\340\205\002\302\205\010\335\227\001\017\t+\007\233RE\032\027IM\204\224\001\320\010P\021R\r\003\320\n\022\000V\312\237\004\373\206\002\304\210\t\006\t\005XY\216P\345\234\002\217\241\002\225J\374\234\002\244\220\226\0079\007_\371\230\001\225\221\002Y\323\236\001L>\324\207\007QUEUE\344\r\262\212\005\362\204\235\001N\200\210\007\016\006HIST \210\222\004\263\210\002\047\006\224\210\n\t\n_4\020\376\204\t\303RE\371 \233\242\003L\004""\227\000ST\375_\242\204\nRESPON\347SE_\362j\204AY_A\003FT3\t\217\221\002\273\217\002\226\221\002\255\211\006\243\221\007\200\246\222\001\t\013\222\232\004\307\221\001\t\r\302\221\003\326\210\010S\317CHEM\324\204\007\304\237\002DE\007LIV\370\240\005\314\212\002\021\003\313\241\004\261\212\006\300\t\n\255\212\010\211\240\002\332\210\014\t\010\036\tPE\013ED\304\211\017S\n\n\037\016K\r@\002\000\252\211\016\244\235\001\361\210\r\013\006\371\210\t\276\221\007\303\211\007\317v\017STAR\326\205\013\205\047\n\016\301\214\010\367TEX\201\215\007TLS_\370\315\224\004\376\214\006\017\002SL_PT\275R\n\007OTAL\240\215\013TH\n\006\236\215\010\333\210\001_\255\243\006\376\215\002X\377\206\001\342\324\220\003M\377\224\001\277\244\003\300\214\004PEN\017ALTY\214\204\006\034\003\335\214\013\017\022\007MAX\315\244\004\312\226\002U\002\021\000\333\233\001\017CURR\206\246\001\225\236\003\021\013\347\244\001\334\370\233\010.\013PIP\355`NE\201_\336\215\003\242\251\001O\006\350\003\263\234\007l\007N\177ETWORK_\200\215\003}D-\006NOTIF\316\214\002\200\004\014\357\246\005W\006q\004\256\247\004\240\"\t\007_6\326\240\004BL\035\020_S\305\240\001\017\t\007USH\207\304\001R\007\016\000`\016\261\232\001\217K_EX\263\246\003\221B\204\247\005T\035H\204\251\001S_M\231\230\003\255B\271\221\003\020J\n\314\221\003\271\016\251\246\001Rs\n\r\002\345\n/SG_D\276\252\004M\t\000\322\214\001\360\345\"\025\000\325\252\005\246\231\001ABST\377RACT_UNI\303X_\270\222\007\027\002\255\247\002\223\247\004_M\360\314\232\002\016\007\366\251\nF\002DDRE?SS_SCO\303\245\003[\002\317LTSV\311\254\002\004\007_C9T\213\241\003|\002PPE\202\243\003\212\002\207UTO\307\211\010\235\002\225\255\t\331\232\001B\037UFFER\222\247\005\347\204\002\257\223\006\036\004\007_BLO\241\254\002\033\003\302\223\005\004)\003\353\232\001H\270\213\003\356\250\004\256\205\002\326\223\010\271\205\007\017BGN_\300i\323\205\007\372E\345\205\007\374\240\234\001\033\016LOSEPO\007LIC\200\257\002\227\206\002\017\001\341K\010\014\000`\016\323\253\003\233\252\010\337\206""\002\t\n\227H\360\225\005\225\256\005\346\"\010_T\272\217\0028\004V_F\217ROM_\325\205\005d\020\033\004UoTF8_\n\022TO$\030\016\263\224\002URL\250\003\302\224\001\215\254\005\010\007\003JA\332\260\002\031\007\266\253\005+\007\261\211\010\362\003\373PY\367\220\001FIELD>\216\204\006CRLFCd\005\t\000yI\354\244\003\210\211\002URLU\023\006\177USTOMRE\243\216\002>)\005DEBUG\305I\014\002\376\350MDEFAULT9_\264\232\t\354\237\001DIR\357\254\001\343)\377DISALLOWp\244\246\002\211\223\001\367\237\002\356\204\007DNS\360s\240\025\001\341\247\006\226\006+\000\356\223\0054\001\0216\364\036\t\243\252\003S\006\nHUFF/LE_A\237\206\003E\020\n\305\254\001\337GLOBA\203\241\002HE\006\214&OH\366\221\010\270\260\005\354\002\r\n\303\244\001\350\036\023\347\237\007.\005U\361\206\007ECH\016\250EEGD\356\207\013\324\262\t\316\242\001\231\263\002\374\364\206\003+\006XPECT_\317100_\222\210\017\272\262\001ON\240\313\263\006\221\243\001\356i\250\230\t\027\002N\307\240\002_\002\307\206\tF\r\004\355\206\r\260\235\003\200\227\001\322\263\001\352e\377FORBID_R\357EUSE\t\010M_B\370\244\242\001\356\257\004\202\002RESH_\334\237\263\010\227\002TPA\374\210\nFT\235P\302mFTP\332\227\005,\004S1S\333\267\002z\006\340\262\003OU\335\264\003Q\004\377_ALTERNA\316\236\236\001_TO\260\253\006\027\005CR\377EATE_MIS=S\354\265\001DIRSE\t\352\263\001\340\211\233\007L\005\310\224\006\203\210\014\253\260\002KIPr\230\260\001V\233\231\004\200\005SSL\236\tf\311\245\002CC\261\t\315\261\001EP\201\246\003\014\266\005\016\003SV\030\r\274\261\001\346\206\005\356\270\003\247_DE\244\243\001\211IH\322 Y\377_EYEBALL\301S\224p\036\000\370\265\001\300\206\r\020\004_C\000\203\226\003\344\232\003\325\247\001\253\234\003\336\207\005\271\234\003\373\212\t\313\234\003\034\237\213\r\341\234\003OPT0\006\230\251\004N\002\207STS\221\271\001:\n\r\0048\016S\003TS\277\242\002\035\r\324\242\002\032\021\337\215\n\364\272\001\23309\354\242\001OW\347\270\003\317\002T\377TP200ALI\363AS\216\207\007\362\261\003NO_P?RIORIT\264\214\006\213\262\003\177PSEUDO_\273""\236\003\371S\234\272\007H\006_SETT\007ING\255\217\006\275\262\t\006\014\274\252\001\246\211\0013PD\237\274\004\217\0053_\247\274\001\346,gTTP\014\tj\0173_~\035\3713\211\022\023\000IG_HA_SH_AL\253\0133\204\234\002\177EC_CURV\227+\364\025\003\346\247\001U\270\266\001XTEN,\270\254\001\353\n3_\376\226\001E\024\005\235/<\243\277\001\315fTTPB\210@\345\017\007GET\031\t\206/\266\241\005\254\275\005\327E\361P\364\273\004\007\006\355\273\001TUNN\213ELj\tS\374\000\367\000\353AHqM\t\r\344D \rKEY\000\0204\335\251\003\326e_\316\245\005DE\254\276\007\024\006\264\270\240\006\t\022V\347\222\001ON\321\216\005I?GNORE_\231\246\013\024\006\177MPERSON\273h\003IN\345\217\t\010\003\257\223\t\010\007\201\253\007\276\257\001|\361\215\016\370\266\002LEAVE\353\222\t|\014\007\223\223\rIOCTL\036\n\004\r\001\025\016P\227\277\004\327\006\215\256\002\204\260\005\205\002|\t\006\306\224\nKEEP_\221\261\001v\240\301\002N_\336\214\nKEY\326\300\002\375D\210\221\005KRB4LE\001V\345G\016\000\003\n\316\244\002\323\213\t\010\006\233\271\002\300\320\221\005\214\270\003\204\255\003\207\227\006\342\220\001\274\236\003LI\303MI\334\210\006\r\007\367\252\005\227\262\001MA\007IL_\343\204\t\014\002\202\224\001\264\222\005\035\002\343RC\244\211\007\010\006\246\254\001LOW\342\226\302\001S\035\016\321\210\003\r\014XAG\020\250b\267f\302\234\014\214\003X\313\301\005y\007\n\006\376\211kMAXLIFE`\252\301\001\336\271\002&\010\261\257\002\214\010X_\316\265\002\320\222$\337\257\005j\004\265B_\010\021IM}E\242\206\tMIME_\341,ONETR\312\231\006\010\002_\312\225\t\257NEW_\273\260\003O\354\251\001E\321R\260\232\007\027\001\243\303\002P\t\nOB\373OD\224\230\006NOPRO\321G\306\232\001\305\225\005\r\002X\026\010SI\007GNA\304\216\006\311\273\005\275\272\003\372\265\002\334\273\004{72\210\226\005OPEN\337\230\017\340\014\007\321\231\r\221\306\005\310\226\005\205\257\001_ASs_I\374\233\006\202\264\006LIC\371\207\010\206\331\237\001WA\373g\246\221\t\372\210\t\266\251\0013;01W\006OST\300\227\013\326\227\007\047IZE\025\017\374\305\001L\311I\207""\252\001`\272\302\002G\t\305\263\002\273\006\357\227\001OTC\007\273RE\276\307\001ATA\027\010R\033EQ\373\016RE\342\242\007\332\270\001\363\251\010\000\t\003\251C\203\234\t\273E:\017\363\263\003\275\047\203\264\004\tS\337\301\001\240\007O\345G\252\252\006\021\n\373\220\013\010\274\310\002\243N\325\221\002O\305\222\007\342\310\002\336\305\005\263\004\303XY\307\304\001\251\255\001p\n\334\304\001PW\rD\204\n_C\332\236\n\256\253\003\255\263\003\340\236\n\370\021\005\347\236\t&\004REDEN&\235\306\002NO\235\226\013\031\005L\224\234\t\221\254\003\001I\202\212\016\010\rl\020\361\211\016\335\254\003\236\204\025\375\312\001\036\376\243\002ICE_\375\016\202\255\001\207\213\t\034\251\255\003\314\225\001ERT\300.&\005\2020\207SSL\240\205\tp\003\017\0021\022KcEY/\023\206\216\014\207\006_C\205\275\002\001_\266\236\t\023\007\250\213\014,\007\333\256\003\324\233\t\014\r|\326\233\t\247\257\003TLS13i\004\235S\232kTLS\362\321\002\374r_P\026\005\246/0\005\375r_\337\261\006M\202\271\004\302\206\206\002U\313\226\006\340\246\013\202\300\001\257\302\003ID\260\336\250\010\016\006\313\316\001\246\313\001PA\260\271\001_\037NUMBE\376\240\006\351\302\002\323\262\002\376\266\313\002PARAMET\371E\217\232\007\334\207\nRANDO\001M\366\212\n\247\216\n\315\227\r\376\321\001\301\244\r\356\274\002\316\240\006`\341\246\006\010\014\230\207\t\227\246\014\310\241\004_T\314\275\001\030\337\230\006\316\220\014\203\321\004R_\320\255\002\340\235\n\014\014\004\216\017\320\322\001_\233\217\t\341\322\003\272\244\003\375\211\n\323\303\001\002\232\232\013R\302\261\020\243\303\001\374\303\002\372\242\014\220\304\002\302\261\014\340#\006\220\304\005\325\224\007)\003\231\314\002_UR\341I\370\243\005\326\304\002\271F\216\244\005SAS\322\366\220\003Z\226\225\007\017\002I\371\244\006SE\003EK\314\247\t\014\001\356\247\r\377\315\006\316\263\004\207\247\014\300\010\024\266\252\010\305\316\001\331\207\r\233\305\002\240\006OC\217KOPT|\n\r\003{\016O/CKS5\304\222\nS\r\003\216\236\004\007NECJ\t)\000\247\236\004~\004\223&\177PLIT_CO\346""\274\001\302\341\253\006S\207\232\001\276\331\001\230\322\001\t\nCO\301M\267\225\001\262\272\005\361\306\001)\001\340\325\001KE\035Y\265*SH_\020\004\270.\024\004\377_PUBLIC_\316\354\210\001MD5\246F\014\020SH\317A256\026\t\\\020KE\001YW\021\370\303\002\202\327\001\323\n\305\271\004y\001\220\251\t\010\367\001\215\007\014\013L\224\227\t\200\213\004\342\226\013\211\213\020\034\250\213\004\213\255\nSSL\346\307\003\351\007\n\004\301_\344\250\004\016\010\337\232\010\302\213\003b\016KEAY\323\216\t\350\213\003a\r\302\232\014\315\311\005_\275R\031L\276\213\021\203\312\002TX\240\246\n\014\005\321O\343L_\246\236\016\303\311\003\233\306\002ALP]N\362\010_EN\017\005S\004\020\215N\030\022TI\360\304\005\201\204\003\253\326\001L\003SE\265\267\002P\t\250\231\014\324\326\001\235\237\027\362\326\001\306\200\315\004ID\252\260\003\234\t\376\225\002TU\027RE_\250\236\006S\021\014\270\240\017\303\275\007\340\300\252\t\331\275\007\274\252\t\357\275\007\266\252\013STD3ER\245\210\007\364\210\003DE\301\262\001\255\206\007b\t\n_\307\253\006\300\326\003\264\334\001LU\377\317\001|\217\211\006\272\211\003WEIGH\233\245\006\360\252\311\001\313\263\002\275\307\005\362\237\014TCP_\215F\250\302\001PE\225\237\006\020\001\225\235\001A\310\314\274\001\204\257\005\r\005C\215\251\007 \005ID\274\232\257\007\013\006NTVL0\tN\037ODELA\264\262\006\313\314\003\364\234\014\016\307\314\002BLK\212\264\t\243\314\004\256\232\r\207\311\002\300\262\310\005\233\006\365\335\007\274\320\001\342\265\017\234\336\001VA\007LUE&\t\014\002\252\240\013\202\221\022\371\220\025\360\367\220\021\355\220\025\277\274\001\332\251\004ED_C\360\301\225\006\215\267\006\307\244\030\373\274\001GREA0\220\255\007\215\275\001\332\223\001\221\322\002S_\253\237\n\024\0053US\271\236\001\310\330\001HE\305\343\003\226\"\003LS\325\235\001\261\342\001\200\341\002*\016\231\234\001\236\001\367ERT\363\313\002STAM\311P\231\n\200\321\003_\363\262\014\240\276\001TR\377UST_ANCH\343OR\314\n\347\336\001\324\235\001ALP]S\300\302\002POI\304hR\250\343\001\005R\204""\267\tT\r\003\251\267\r\245\306\005\226\277\005\350B\350\271\306\005\344\260\r\210\272\010_\264\270\tUNR?ESTRIC\352\345\001\256\247\tsUP\221\243\002\243\334\002VAL\250\272\010`\374\313\007\233\325\001\352\317\004\267\271\017\202\320\005LA\256\252\007\034\246\262\010\362\337\001AGE\325\257\007\254\232\r\250\232\014|\224\320\004\215\266\005VERBO\224\261\007\377WILDCARD\000\275\323\006\266\326\001\315\254\016\305\254\022\303\320\002\376\255\013\326\320\002\267\317\005\312E\002S\252\253\020W\t\t\250\254\013WS\034\330\241\r\226\352\001SL_\225\327\001\212\214\021\030\004\006\345\266\001BL\207\310\001\372\212\t\213\302\001\227\321\001\230\273\t\354\014\005\276\273\rXO\242\353\0012_B\006\342\352\006PA\330\343\001\221\322\004\007\003\225\320\001\315\353\001(\025\003\374\306\005\004\007_\023\013S\316\275\004D\003\034\270\331\0029\006IPE\323\255\002\336\335\002\212\302\001\377_MULTIPL1E\247\331\002\r\002\204\342\010SH\214\352\003\366\324\007\034\016\001\316\327\005URL\t\003\321\331\005+\001\234\346\277\0057\001NOM\246\331\003\007\003T\323_B\241\340\010X\001O\242\353\002SH8\265\332\001/\007\t\002OCK\272\352\001\305\355\001\340\032\003\220\354\005(\003\253\224\0067\003UNL6 \016UN\025\rSE\262\301\006\326\223\006\000\314\204\006\010\007\255\356\003\370\223\006\204\221\010\214\224\006\341\355\007\237\224\006\374\334\352\005\260\224\006KEYBOA\001R\325\353\002\305\224\006\275\006\327\224\005\343\244\t\353\224\006\217\224\003\356\331\255\004WS_\262\350\007WS_\323CL\303\205\004\010\001O\316\354\003WS\373_N\307aOPONG\334\371\357\001\317\204\001FFS\216\326\003WS\347_PI\017\006\030\010RAW\335_\314\234\005WS_\261\310\005_C%A\250@N\233\215\004\244\336\001L\353\271\001\366\216\004@\007\006\324\356\003\026\006\275\353\004\340\345\003\374\314\006_\305\271\004\200\207\356\001\324\355\002\227\361\001\010\n\302\333\006\036\n\271`AqT\240\273\003\205\263\002\245\322\005_1_\253\344\002`\005\r\260\343\002\034\013\302\347\002\004\014TL\230\340\002\324\032\014?\0212\371\264\003_\264\333\001LE\001D\245""\333\003}\013\206\350\002\004\014\215\361\005\247\013\374\305\005,\275\013\343\361\005_I\204\257\005_\207\363\003\005\t\374\371\345\002\027\010WHATEV\n\222\363\003_\362\204\001_\242\342\004[\006\t\tZ\006\000\036\t\214\341\002\355\360\0024\n\201\273\001\245\347\003R\003\316\327\0020\315\360\010\t\n\327\302\005 \010DN\326#\220\002\002\213\330\002H\205\343\004E\010\230\013\261\330\002\226\013\304\330\002aP\253\273\003}\010\234\234\006\010\tSL\320\315\t \355\335\002\203\351\004\004\005\215\204\005\211\336\001_\347&\t\0024\016\n\326\344\001V\226\366\002_P\230\252\002\253\204\002P\323\364\002\254\204\002\n\010\257\210\003_\304\241\005_\033\007 \n\006\300\212\002\344\204\002\275\236\005\243\353\001T\336\236\001\010\013\200\346\363\001\032\013W\004\313\335\003\213\365\001A\003\333\335\002_\300\240\362\010\233\325\001\232\265\004\245\232\t\013\t\354fSS\021L#\005\276\316\001\325\232\010_\014\014\033\025\241\204\006\036<\014TLSv\211\206\005\006\022\221\206\003\340!\022\231\206\003<\022\323\205\003\254\010SSL\001v\037\016\021\001\031\016\215\002\365#\354\007\220\024\n\270\0031\030\0232/\023\356\206\003\331\222\010\365H\220\n\t\237d\225\276\006\363\357\007_\n\007\242ca\377llableCa\377ncelledE\377rrorCond\035i\306\373\002url\211\374\002\206\375\016\017\004|\201\375\016(\003get_cX\000{ba\220\375\001xcepF\005\177.clean_\367\374\003\377s_and_bu\037ffers\361\374\002\345\376\002\373\374\002\337debug\004\003up\370\246\375\003\223\375\002W\001reaso\377n_phrase\336\016\005info\265\375\002im\275pL\000onat\026\003p\377arse_coo\377kie_head\370e\005\023\003\316\376\001us_li\345n\047\005uN\004D\000for}m\212\376\002reset\224\376\002\337setop\005\003up\257keep\252\376\002v\277\000i;on\266\376\002ws_\276\007\n\000\357meta\021\005rec=v\035\005send\372\377\001\356#\374\350 \370\".__ini\367t__\203\377\001Mime\202\000\005.\3602\036\0010\000\3642\027\002a\353dd\377\000t=\006att\307achL\006\351&D\002fr\353om\210 s\346\002Sha\001r\332\"\004\002i\023\023\005\364R1\004\356B\201u\243\"C\004\272\047U\003""\356Fd\003s\366k\013un\010\006Warn\347ing\211\315\005\271\355\003EBA\377DFEllips\277isLock\247\327\001S\377HOW_BYTE\377SMY_ATTR\367IBU\n\000None\375O\211\204\002alPREF\377IXESPROA\375C\354\371\001WARNIN\377GPathPro\377actorEve\277ntLoop\016\000t\357ocol\314\233\001ON_OPHRA\203\372\002\312\316\004S\256\220\007\330\322\243\006\255\375\002\366\354\002_L\325\355\001RE\357SeleR\001Thr\307ead\000\013\357F\000\024.<\177locals>\006\000\277ambda>\010\036t\376b\002_manage\177r_anexte\r\377consume_\237waker\202\r\241\206\003_\311e\201!\005\024s\316\002\273\rru\373n_\004\023start\240\005\024\242\013\217-\236\001N\004o\232\ra\327dd_\317!e\005\021wr\343it\313\016\345\207\002\363,rem\307ove3\023\025\004D\005qu\377enceSimp\347leC\326\207\002\316CTyp\377eVarUnio\177nView.MQ\000\373ry\007\001WSAEN\373OT\253\354\001WSFraCme\000\004\307\206\017\017\007\320\211\016W\203\240\002\375V\232\330\001ENDWea\177kKeyDic\253\212\0017ary\r\001Se\272\207\001\370\211\004oCont\364@_C\002\013\370\273\207\017\017\020\315\212\016_File\377Descript\377orLike_H\333as\022\001no\000\007.f\374$\000\016\000T__Pyx\354\001\000\234\001_N\373`Ref\355_\202\204\003__\005\001not\267ate\007\002wa\361\210\001_?_class\032\001\003\003Wget\273@m+\001d\343\000V\003\002oc:\001e\326\000r\004\002\335x4\003fun\024\002ge\276R\000tribuU\003g\367ets_\005impo\372\375`_\335\211\005__mai\361n\211\001\242\212\001s\006modu\375l\223\002mro_en\312K\000e\220\002n\264@\267\001ne\375w\276\001prepar\372\274\002p\347\000check\363su\253\000\n\001resu\217lt__\026\001z\004!\001t\374\240`\017\003unpick\206e\000En,\005\n\006\241MA\003vyt\252\216\001\270!qual\205\005\237reduc\301\"\003\004c\317ytho\321\002\024\004ex^\354!set_\271\005s\212(>\326O_test\236A\271`Yi\301\216\010\334\002_e\241\217\001_\320\212\004x\346\214\003\220\206\006\316\216\002loop\376\214\003\235d\206\215\002ing\027\007\345\207\n_\357defa\242!cac\357ert_\337Bfor\376\314\000timeout\305_\267\217\023_\220\210\t\005\005\207\210\003_i\337s_cor9\000in\032\306\206\005s\233\207\001l_""\224\002\223\210\007\235\210\004\337_args\004\005co3nd\304\007\331\210\003or5\002\034\005Sor*\001\203\217\001_\303\210\t_\351\211\004`\350\211\014\367\211\014\315\211\004\301\210\n\370\211\003_r\001\004{w_\255\210\003saab\225 \277quirea\334\206\003d\201d\347\210\001\271\221\003\353\210\007\373\210\001\340\210\003\347\216\004a\315l\251\213\001te\326\221\004\334\001as_yncio\000\004.\230&\211s\022\004\227\"a\353B\235\217\003\271\222\001s\377lashrepl\376\233@baseboo_lbyte\000\001s\000\002\177_to_hex\224\214\007\377genexprc\346\313Cca\210\207\001\210\223\001_la\367ter\005\002soon\274\000\006\257$safe\253\223\005c\372\211\224\002c\214\224\005categ\377orycb_ma\235p\243aifi\257\223\026\335\223\001r\370\000\002\345\222\005\007\003resol\367vec\345\222\001_in_\333tr\317\002ck\357\223\002cl\377scodecol\276\236\216\001ions.\371 c\337ompil\023\000nf\317ig_w\367\217\003&\000nn\357ectc\326\211\001nt_|\314\206\001\007\002xtlib\342\223\003\377countcre~\331\210\001future\006\004\377taskcurl\267_cy\003\001._\t\001d\377aemondat\ta\361\224\002\366\224\002_\312\210\001\200\226\001\232\205\005\231\001\343de\250\205\004\256\205\005\310\224\004dis\377carddnsd\357oned\335\207\002is_\177objectd\270\225\005\367een\340\001enum\357erat\014\000vir\337onerr\022\002rr\377msgerrno\374\333\206\002\340\206\002sev_bi\353tm\263\000e\277\226\005exi\237stsfd\341\212\001\344\212\002a\363me\353\212\003\363\212\001sfla\363gs\264\225\001\270\225\001atfo\rr\347 nf\354\214\001\325\223\006\327\002\310`9s\226#\254dget\265\227\001\212\207\005\377verify_p\317aths\345\226\016\202\227\002un\000\211\223\001\320\206\002\356\227\001\244\206\005\000\t\254\221\007\220\210\025\335\213\001\377nfogetpr\237eferr\341 \244!i\037nggro\364\227\005\262\227\003\267\227\004\377hex_strh\257ttp.\322\227\003s\010\001_\376\376\226\004idignor\335e\376\227\010ind\264 nt\277is_pro\315\214\001s\376\000\002izejoin\337keysk\334`gs\217load\343\222\002\363\002\355\222\002e\374\312\211\001\310\211\007lowerm\377matchmem\377viewmess\177agemode\277@""\336\236\214\001ndim\351\222\001no\271t\300 \204`ono\376\231\002o\037spack\376\230\021\374\230\016\261\227\001\347ial\373!\377!lib\377pausepay\354\240\001\225\231\004pl\335Bmpo\377ppostfixl\301!\002\001in\315 oc\230\000q_\325\204\001\324 \357\224\001rea\377\211\003\234\275\232\003\212\231\001reg\315`\364!l\017ease\375\221\004\233\233\003\204\222\n\365\221\n\376\213\232\002returnr\237sseek\202\224\003\241\212\013e\203lf\340\231\001\363\214\001\265\204\006\200\215\001\223\216\003s\377etblocki\237ngset\201\214\004\330\232\003s\257hape\201\230\002s\335\222\002f\367ilt\335\232\001zesl\377eepsocke\345t\000\003_\223\212\003\r\003pai}r\031\001fdssl\000\000\263_s\230@\311\207\001ta\344\216\001v\363el\372\224\002\377\224\002swit\371h\223\220\002\376\233\001icmetGhod\207\234\004\210\210\001\216\234\010s\234\000\357rrstx\000top\374\370`\373`ictstr\365u\003\000u\354\234\001upprv\205`sy\335\225\001get\361\222\001\374\354\226\021\216\227\003ingthroowto\262\225\002to\354\213\003\337tuple\233\220\002ty?pingun\253a\371\231\004\277update\356\234\003u\367se_\364\236\005valu\025e\000\002s\377\234\004w\310\222\001\252\211\001\252\211\005\377weakrefw\335h\334@win\000\00032\246\221\226\002ws\245\235\005\241\235\004w\245\216\001c\373vw\213\216\001ndxxs\3771.01.12.\3750\370\375\001/(\\d\\.\377\\d) ([0-\3379]{3}\010\000.*i)\030\002\026\003 \022\005 (\026\000\277Oaset-\367\236\003:\377 \200\001\330\004\n\210+\373\220Q\005\001.\250a\250v\375\260\010\000\340\004\010\210\013\220\3771\320\024%\320%7\260\377q\330\010\017\210r\220\030\377\230\024\230Q\230a\330\010\377\013\2105\220\004\220B\220\377e\2307\240!\2401\330\377\014\023\2201\360\006\000\005\377\020\210s\320\022+\2501\377\330\004\007\200x\210x\220\377t\2302\230U\240\047\250\337\021\250(\260!@\001x\220\375q$\001\014\2107\220&\230\377\001\200\001\340\004\013\210;\357\220m\2401\007\001\037\230q\377\320 0\260\013\270;\300\377k\320QR\330\004\023\320\377\023#\2408\2501\250A\336M\001|\2207\230B\0002\260\377!\3203F\300n\320T\363U\330;\0007\000\360""\010\000\n\375\033\027\001\021\220\024\220[\240\377\004\240A\330\010\020\220\007\377\220q\230\006\230l\250!\276\211\001v\210W\220E\272\001\330\367\010\022\220\207\000\027\220q\340\373\010\027\235\000:\240W\250E\377\260\023\260D\270\013\3007\371\310\047\002\351\001\320\0171\260\024\377\260Q\260g\270[\310\007\265\310)\000\017\006\t\001\200_\000\013\377\2104\210w\220c\230\021\376\371\002\340\r\016\330\014\026\320?\026\047\240q\250\004\255\000\255 \365q \0038\262\002\014\r\330\010\377&\320&:\270!\2701\237\330\010\032\230#\225 \267 \240\375C-\000\003\2504\250u\260\376\262\000\016\210i\220q\330\014\377\030\230\001\320\031*\250!\377\250:\260Q\3206J\310\367!\3101m\0013\260=\300\377\001\300\024\300Q\330\010\026\337\220i\230q\240\203\001\0221\377\260\021\330\t\n\330\010\014\367\210E\220\210\000\020\220\016\230\177a\230s\240$\240a\000\021\316$\001N\230!\275\000.\010I\220\377Q\220f\230I\240X\250\337Q\250k\270\021H\001O\230\376o\00101\340\010\014\320\014\347\034\230F\341B\320\001\220\006\220\177a\220v\230W\240A\201 \37701\360\n\000\t\r\210?N\230&\240\001\2406\000\220!\274\276\000\265@*\250#\250\246\000\013\377\2101\210F\220!\2203\376\243#\033\2301\330\r\016\210\177f\220A\220S\230\003\n\000\211\014\000\017!\000\340\022\002\343\000\333 \230\277!\2306\240\021\240\273`\021\373\220\021\261a\230\021\340\010\017\337\210~\230]\250\304\000\340\010~\203At\2201\330\014\024\336@\377\021\330\020D\300M\320Q\177\\\320\\]\340\014\r\273\000\376\231\000!\2308\2401\360\016\371\000\243 \203@\020\037\320\0374\377\260A\260T\270\031\300!\377\3001\340\020\023\2209\230\177C\230q\330\024\025\330\t\000?8\2305\240\007\240\013\000\361\001\377$\240k\260\021\260+\270\377W\300H\310A\330\024\036\377\230h\240e\2501\330\024\377)\250\025\320.F\300a\377\330\024\027\320\027*\250\047\336\200@\030\034\230N\257@7\260\377!\330\031!\240\023\240A\265\330\017\000K\212`\001\340\022\006%\373\260{p\0009\310A\340\024\377\031\230\021\230!\330\023\024\177\330\020\030\230\005\230Qz\000\235\340}\000\024\037\230\262`\262\001G9\220""\360@\003\0035\320\030\211`\335A\233G\220\t\0000\260\373`\325\001H?\220E\320\031+\250!\004\t\002\337-\250Q\200A\254DA\330\374\265C\243\204\004q\330\021\022\330\024\277$\240A\240T\250\243a\320\363\020\"\320!\301\204\001z\230\023\230wA\330\020\022\007\220\014\230\333@\036\342!{\230-\240\215\002\326\205\001\312B\3277\220\047\356\204\001\030\221\001&\260\377\001\330\014\017\210z\230\027\017\240\001\330\020\316\205\002\000%\000M\000\235\366\230\201%\017\210\374B\035\230T\240\357\034\250Q\250\346\211\0027\220$\377\220d\230&\240\005\240S\377\250\004\250D\260\006\260j\205\300\366 \022\206A\354@\320\204\001\375\206\003\t\337\330\014\027\220v\235\212\002\017\020\335\330\356\207\001\020\220\001\034\003\022\023\375\340\241\207\001\017\210t\220:\230\377[\250\001\250\024\250[\270\366\027\002\034\230\257`\013\2106\220\377\026\320\027(\250\003\2506\377\260\026\260q\330\014\025\220\377U\230!\330\014\026\220g\212\356\212\001\340\327\210\001*\332\204\003\345\210\002\363\204\002!?\2504\250~\270X\215\210\001\215\213\001\375\007\270\210\001\025\220\\\320!5\377\260Q\260f\270G\3001\377\330\014\022\220)\2301\320\377\0349\270\021\270)\3001\377\300J\310e\320ST\200\371A\252\211\002\212\0014\220y\240\004w\240D\250\276`\033\320\033\373\213\001wt\2601\205\206\0015\230\007\221\206\001\376\256\207\001\020\024\220K\230q\330~\004\000O\2401\330\010\023\230\205\001\177\360\006\000\t\036\230S\366`\377\010\014\210H\220A\330\014\347\020\220\010\316\207\002\364\211\003\360\006\000\277\r\034\2301\230D\031\006\200\377A\360\006\000\034\035\330\027\373\030\330\003\000\026\027\360\026\000\377\t-\320,>\270a\270\377t\3001\340\010\037\230t\357\2407\250!\235\213\001/\240\021\337\240&\250\016\260\345\214\0024\210\367s\220!\302\004\230A\360\010\337\000\t\014\210=\230\002\014 \317\240\014\250G\254\000\244 o\240?Q\240f\250N\270\261 \341!\2373\220a\330\020\237\212\004\240\210\001;~\305 U\240$\240e\250\236\207\001X\220#J\000\302\000\014\210\030\001Q\303\205\003\317\021\230,\2406\000\274\207\002\240Q\327\330\021\033\277""\000L\230!!\240\375\0326\001\340\020!\240\021\340}\014\263#q\230\017\240w\240`\375\020\361\213\003\320(<\270A\270\375Q\201\214\002)\250\021\250&\320\2770@\300\001\300\021\237\206\001t\371\220\205\t\270!\014\2109\220GN\375\211\001\026\320\026\020\033\337\211\0015\312\215\001\376C\003:\230Q\230f\240A\316\354\206\001s\230!\247\211\004\366\010&\320_@P\320PQ\274\216\001\014\372\r\321\200\270$\260\215\006\231b\230\210c\035\320\277\0351\260\021\260$\360#;\372\324\215\003\r\325\214\001D\220\001\220\024\273\220Z\235@9\250M\306`\047\317\300\034\310V\304`\367\212\003x\220\277w\230a\330\014\r\336\216\001\320\377\031)\250\035\260a\260t\377\2707\300.\320PV\320\373VW\026\001Z\220t\2301\271\330\222d\276@\016\210_n\004\032\377\320\0320\260\001\260\024\260_Y\270e\3001\302\215\001M\225\212\002}\010\307\217\001U\230.\250\001\014\005\375)\367a\014\210K\220q\230\035\013\245`%\250z\246\215\001\253\206\002\330\213\001\373\014\210\305\r\360\020\000\016\017\356\276\205\001m\2401\334\204\002$(\250\333\001\330\000\002$%\201\212\002$A_\300\021\300$\300\313\221\0021\275\204\001\277\r\230Q\230e\240\306\221\001\t\377\020\210w\220d\320\032*\377\250\"\250D\3200J\310\377)\320ST\320TX\320\357XY\200A\310\214\001\020\210t\207\2209\230\202\220\002\226D\343\205\024\221aZ\377\300u\310A\200A\3602\367\000\r\025\247\205\001\034\230A\330\363\014\031\266\220\001\314`\330\014\035\230\374\374`\232\000\340\010\023\2207\230;\"\230\317\220\013\017\210y\246\216\002\335\212\001\373\330\021\266\220\001Y\240c\250\031\373\260#\261 c\300\031\310#\207\310Q\330\022\007\000\t\022\003\237\216\0019{\220C\325\220\001\026\320\026(\367\207\002\177X\260X\270Q\270a\352\007}:\350\210\002\014\017\210x\220\323`zJ\003\014\212\001!\330\r\026\337\221\003\316\034\036\023\220?\210\224\002\007\047\320\023\237%\240Q\240a9\047\377\n\014G\023\220=\362\220\002\227\010\307cX\221\211\001}\300\313\021u\220K\230w\337\206\001\377\027\220\177\240b\250\001\330\257\014\023\320\023\361\225\001q\274\200)1\373\210\001\334\210\001\031\230\t\240\021\276""\240\212\001d\230!\230>\323\216\001\031\377\230\026\230q\210!\210H\377\220D\230\013\240<\250q\377\3200D\300A\230a\320+\000\024\017\000\001\223\226\001q\230\225\001\345a}k\301@!\340\010\020\220\362a\377j\250\t\260\021\320\000\030\373\230\001\317\225\002\320\000\032\230!\377\330\004\010\210\010\220\001\330\233\r\021\324\223\002\320\020\252 \240\204\003W\267\240A\330\307`Q\220\275B\t\277\230\025\230a\230q\222\227\0014~\251`\007\230q\360\n\0002\000}\010\325\220\002\004\023\2206\230X\000\377\"\240+\250Z\260q\330\017\004\005\330\014D\002I\002\000\007\007\n\377\340\004\025\220Q\330\004\r\377\210X\220T\230\021\230\047\373\240\021\332\227\001\010\200v\210W{\320\024\327\223\001V\2607\270\246\212\002\377,\230a\230t\2402\240\365Q\325\226\001&\320\223\001\230F\240#\327\320%9\304\224\001\013\341\227\003\230\022\377\2301\230I\240Q\240c\377\250\021\250/\270\021\270(\326\365\222\002\010\t\264\230\0014\273\207\001\230q\376\305\220\001w\220f\230A\230R\357\230q\240\t\240\221\001\017\210v\377\220W\230O\2504\250v\377\260W\320<P\320PT\377\320TZ\320Za\320a\365b\247\223\0017\357\224\004\017\020\340\014\377\026\220l\240!\2404\240\335r\331\221\001\026\220f\316\223\001\240\006\337\240c\320)=\217\212\001\017\210\374O\n\230\225\001\250o\270Q\270h\377\300a\300q\320\004\027\220\362\267$q\262\216\001\3323\010\014\210O\304\301\210\001\363\227\001y\371\213\003\356\214\001\271\223\001\010\027\263\220x\213\227\001\326\226\004\2304\211A\014\017\210I\220V\362\210\001\000\006\270\210\002f\004\247\014\210J\351\001\263\227\001K\257\217\001\320\371\004\367A\261\230\001\320\004\033\320\033\3759\325\210\004\320\004\034\230E\240\377\026\240q\330\010\r\210R/\210y\230\001\336`x\013\001\360\215\002\323\320\004\267\207\001\305 \021\253A\020\026\377\220d\230.\250\003\2505\377\260\004\260D\270\004\270A\377\330\024\030\230\r\240U\250\315!\326\225\0014\220\336\225\003\362\231\001>\250\377\027\260\001\330\020\031\230\033\366\365\216\003\024\320\227\224\001\360\022\000\r\357\016\360\020\000K\000D\230\005\373\230V\213""\216\001\2509\260J\270\377a\330\020\025\220S\230\002\376\216\220\001\023\220;\230a\360\030\377\000\021\024\2201\220G\230\3773\230g\240Q\240g\250__\270E\300\021l\001\003\374\000\377v\240W\250A\250Q\250\377d\260)\2707\300%\300\177t\3104\310q\330\024\343!\377\030\035\230Q\340\030\031\340w\024\025\340\211\227\001\024\220K\210\227\004\377\3209J\310$\310a\330\377\023\024\360\016\000\024\025\320\377\004\037\230q\360\010\000\016\375\022\322\231\001\023\2204\220~\240\375S\254\206\001\020\320\020!\240\024\377\240Q\240d\250)\2605\357\270\005\270T\300\212\002i\310u\372\215\234\001\014\313\205\001W\240A\320\004\t \227\220\001\211\231\004\r\234\205\017\033\003\264\205\0165\000\277\320 8\270\001\330\231\204\001\020\357\220\004\220I\306\222\006\023\2201H\223\232\004\305\214\002%\002:\201\205\001\317\222\003^\243\235\001\237\320\004\"\320\"<\000\235 \t\367\023\220&\327\227\001\230f\240F\373\250\"\214\234\003t\2208\2301\357\230O\2501#\002@\300\001\304\210\233\004\362\214\003\036\252\230\001\013\014\371\232\004I\240\027Z\250q\340\233\001A\262!\220\233\001\265\213\001\366\230\233\0013\260\262\215\001\320\014&\240\377d\320*:\270!\340\016\337,\250A\360\020\222\233\001K\220uz\233\210\001\r\247\222\001\r\320\014\205\205\001\356\312\233\001=\270Q\301\221\001\r\210K?\220t\230<\240v\205\224\001\273\234\001\207I\220\\\342\232\003\266\204\001\004\004\236\236\0011|\342\214\001\363\215\003\004\230K\240t\272\001?#\320#A\300\021\255`\207\222\002\326\304\233\002\023\220\226\220\001a\213\233\003z\230\377\021\230.\250\007\250q\260\377\t\3209N\310d\320R\357S\320ST\243\236\003\010\020\220\367\005\220Q\206\214\001\r\260[\300\377\001\340\010\030\230\n\240!\377\320#3\3203M\310Q\353\310a\326\223\001\026\210\001\340\010\t\222\262\233\001\025\200A\354$%\240\235\001\371\240\003\003\337\320\023-\250Q\366\240\0015\230\257\002\320\032+\241\240\002\010\345\206\001a\377\220t\230=\250\001\320\004\317+\2501\340\246\236\002\214\204\001J\260\375d\256\210\001\t\210\027\220\005\320\277\025(\250\r\260Q\017\000\047\233""\300\026\375\206\001.\250\262\004\277\237\017&[\240a\361\0008\260\224\220\006%\347\211\001\377\017\210q\320\004/\320/\037K\3101\360\024\216\224\001\200\240\t\334\237\001\275&\301\234\002\010\023\320\023\210\223\001$\377\250h\260n\300F\310!\337\320\0044\260A\264!\022\220\227\034\230Q\262\237\001J\301\212\001\347\210\001V\353\2302\225\227\002\021\265\224\001e\2301r\360\236\0024\335\223\002\222\207\0038\3208\303 `\372\210\001d\014\277\222\004\343B\241\210\001\360\006\364\220\003\372\346\216\005Q\311\204\002!\240\024\320%\016\210\211\003\320\017\"\221\243\001\236\225\001\371\216\010\276\243\006o\r\021\320\020\373\240\001?\270\255\000\337D\300A\360(\322\r\340\014\376\276\220\002\035\230W\240B\240f\317\250B\250a\222\226\003\262\223\001\026\230\377s\240+\250S\260\001\340\317\014\025\220Y\227\223\001\276\230\004\330\r\231\024\355\224\003\277\206\001\320!\351\223\001\333\230\004T\367\240\021\330\213\235\002\020\024\220L\336\374\205\001\007\270q\340#\010\"\320o\"2\260!\343\226\003g\230\037\014\2479\270\027\303`Q\010 \301\244\001\001\371\260\225\216\002\035\0167\260w\270a\375\340i\036\2404\240|\3203?K\3107\320RS\245\222\003n\036\016-\003L\310G\345\204\002\332\222\001\350\005\305\214\001wS\230\001\350\237\001\001\330\014\345\0268W\032\277\023\241\003J\310\047\352\226\002h\t\307\020\320\020\020 \225>D\032#\320?#3\2601\260A\241\234\003\275E\216\265#M\310W\213\212\002\205\014\276Ii\317\230t\2401\363B\263%I\320;UV\335.$\320$\254\243\001\325\231\001\375\220#\rN\310i\320WX\210\220N\215\t\026\032\030\377\244\003\300\241\001\340\220\003\010\005\000\243\242\001\025\211\244\001\214\243\001\000\006\000\017 \001\276\271\244\0013\220i\230{\365\243\002$\377\260g\270S\300\001\340\024\337\032\230&\320 \200\236\001a\330\377\024\037\230u\240G\2501\237\250E\260\027\270\030\000\010\004\330\377\020\032\230)\240?\260!\305\340\336\233\002G\204!\364\245\001\024\000\047\240\337\037\260\001\330\021\223\225\003\020\032\273\320\032\217\253\001w\260a\362\233\001w\366\212\237\001\330\020\250\216\003\340""\014\022\320\377\022%\240Q\320&?\270\347r\300\021\206\246\001\226\243\004\020\220\n\273\230!!\003\320$6\212\232\002;s\300m\374\211\002\365\226\nT\300\021\212\206\007\356+\006*\320*\305\234\001T\320A\177R\320R_\320_`\323\251\002\334\256\227\007 \023\047\320\047\340\237\001$\270\277n\310M\320YZ\030\031\3201\020\230\216\001\302\001=+\013\230\224\240\002\375\234\001\235i\236\247\001\036\230g\344\217\001\331\ra\360\236\017\272\241\002\357\230\010\340\233\005%\230y\250_\001\250\030\260\021\206@\010\251\224\001\334\327\245\002\267\205\001\240\001\340\207\222\003F\320}F\355\211\002\006\000\t\r\320\245\232\002\n\216\252\001\036\201\256\001\014\006\007\315\232\001\346\246\006\255\252\002\232\371\246\003\037\205\223\002\320\014(\005\220\220\002\014;\320\014\023\002\013\2101\313\236\005\304\241\001\025\024\225\232\003Q\344\241\001L\267\220\003\004\031\201\240\002\336\234\256\0013\240a\3301\010\320\024\373&\240\250bt\220=\240\003{\2401\020\t\220O\2401\033\032\177\320\004M\310Q\360\n\264\235\002\367\032\320\032\332\206\001D\270\t\300\337\030\310\034\320U\310\236\002\010\014y\210\232\236\004\375\214\002[\320[\\\350\220\001\372\353\235\020\014\361\235\n\010\260\016\270a\377\270w\300a\300t\3108\377\320SZ\320Z`\320`\377a\320ae\320ef\320\377fj\320j|\320|\177\177\360\000\000@\002A\002\333\260\001\374\203\236\t\370\260\001t\2201\320\n\047\007\240q\320\333\220\001";
-    PyObject *data = __Pyx_DecompressString_LZSS(cstring, 15760, 30545);
+    #elif (CYTHON_COMPRESS_STRINGS) > 0 && (CYTHON_COMPRESS_STRINGS) <= 90 /* compression: lzss (15783 bytes) */
+static const char cstring[] = "\377\n\n    Pr\377oactor e\377vent loo\377p does n\377ot imple\375m\024\001add_re\377ader fam\377ily of m\377ethods r\377equired.\376M\002Registe\377ring an \3767\000itional\337 seleg\002th\346H\001 ft\000N\010sup\357port@\003To \377avoid th\177is warnL\001\317use:\262\002\267\001as\377yncio.se\353t_\271\002_\272\001_po\377licy(Win_dowsSm\004E\333\001\265L\333\000P\031\003))A\004[\377 at 0x b\373yt\363\000are a\317llow\313\000\r\003, ?but on\360\000\036\003\177]:  obj\307\000\377>!H\047_Fil\377eDescrip\376\304 Like\047(t\377ree frag\376\270!)) *, c\377url: (, \337multi\007\000..\373 S#\000https\347://\034\001\307\000/li\355b\047\001/c\002\005-er\377rors.htm\177l first\263\"\373mo\247\000detai\373ls\000H. Ple\177ase ope\271@\277n issu\013\000n\377 GitHub \277to hel\241`e\347bug\227C\234\002...\377.: << DA\377TA< SSL<\373Me\242\000yView\376\251a<contig\357uous\224`d d\216\257`ct>\007\r\263@\022\004s\277trided\"\010 7or \004\031><(\tA\006\353>>\220\002>\221\001?Ad\276x\000ata f\267 e\373d.\014\001field\372\t\005B\372\001excep\354\262\204\001\237\204\002cy\272A pa\277ckageC\235`a\357ble[\360\000, N\177one]Can\253\205\002\375u\266 local_\217path\341\003h\001\337`t\377he same \237time..\000\334\205\001a\237ssign\320!\330\205\001-\312\340bm\261\"v\263 \036\004du\377plicate \357clos\216 han\373dl;\006perfokrm\200\206\002e\232`on\022\023\377receive \377websocke\347t d\203!\027\025sen\375d\n\037urlm a\365l\226\207\001y\230\004! qu\367itt\372\206\001from\377 process\375_j\001Define7 ``\305\207\007``\276\207\006\330`\335b\342\000all\363@in\357 a b\357 gro\251u\210\000\266\207\003 \264\207\003.\266\210\003I\037nstan[\000\211\210\001\243\207\002kcl\320  \023\000rt<\000Kse\361`d-\004\341\"uR\001\360\377\207\005\342\207\004\334\207\001\212\210\004is c\375o\360\210\001tely h?idden \301\002\273A\337user;\260\211\002alkl \343@l\234\001s \260\207\001\361rW\000\367 \342Awrap\267ped\306\211\010\047s\252\013T\373yp\316@lly u\356\314Avia\220 Add9T\222\211\002\241\210\016``,\246\212\002""\204\210\001\357can \242 att\337ached\213\206\001a \240z\000\231\211\002\212\211\004\300\212\002\206\212\003F\340\204\002 \234\312 \003\004to \000\007\313b \323sh\361\210\001\317c:\022\tre\350\361a\023\t\301\210\003_-\002_in\377it retur\377ned NULL\362Z\007s\334`\263\210\002 buf\047fer\014\013l\003o\333\205\003\274\211\001\372\350\213\002f\343Bat In\377valid mo\377de, expe\377cted \047c\047\376\375\206\001\047fortra?n\047, go#\007\303\000\373pe\345\001axis \377NOT DONE\376\232\206\001Note th\377at Cytho\376\317\210\001 delibe\243ra\343B\345\207\001_\000r!\001n\377 PEP-484\366\237\210\002re\343\212\001s su\355b\325bes\363\214\001bui\377ltin typ\377es. If y_ou ne\211Cp\375b>\047\007then \214!\376\206\001\177\047annota\214\215\001=_<\000ing\047\202\211\004\227\206\001\276\230Blse.O\366\207\003u\375n\214\215\004ed: %s\317Read\356f\360\047To\337rnado\325\215\006Un\220\252&\262\210\002\354\213\002\220\205\001t\233\"\204\206\t,\373 p\321\212\032\nWrap\014\301\216\001\222\217\010to\317\216\001\221\217\007\310\002\223\"\020\337\210\001\306\206\022\254\217\004\273\205x \241\206\016\370\220\002\210\206+\354\205\220\001\333\207\003is\264\206\003aut\363om\313@\210\207\001y by\275 \205D; ap\257\212\003i\373on\274`hould\370\315\221\002\242a\363\221\002to re{fe\362`o it\207\215\004\273ly\322\210\005t i\364`a\253fe\355\215\001w\200Cy\230\222\tw\357ith \352\210\007, a\233ltd\000ghJ\001\303\213\003a\377kes sens\025e\345\222\002f\330\222\ns\215\205\003\265`\333\222\013\370\262P\340\222\016\273\003hemse\377lves (i.\037e. ``\354\221\004\313\223\005\352\221\006\367``)\347\223\003Clos\370\223\223\001\244c\326\210\031 also\314\353\214\003\271\211\001e \304\211\017\376\212\004Wr\\\334\206\001\270\222\003!= \340\214\004d\312\222\003\275.\264\224\001note\244\223\005A\177bstract\206\223\006\347col\221\224\001\244A.ab\255c\345\216\003/_\325\223\004_\243\213\006psxi\024\005\246\222\002pyx%\004\363ut\377\221\001\035\000dict\355[\375\222\020, \253\217\005]di\355s\267\217\001en\275\217\001gcg_etinf""\376@s\014\003\357dlis.\022]no\377 default\377 __reduc\277e__ du\233bn\377on-trivi\253al\033\000c\225\212\001_\266\001f\345.\225\217\002c\360\207\002\263\213\001con/vert\260\213\005P\212\211\003\307\224\003\376\211\226\002picklin/gsel:\000r\254\220\001\t2\237t cacg\000\204\213\001p\357roxy\006\007opt\355 \365\210\003.A\275\226\001GenN\205\212\001or[\307\221\001\312\221\004u\234\"\372\331\214\002l\315\221\001te ar\227ray\257\220\002.\013\020\371\212\003a\374\245\217\001\262\223\002s.{:02\373X}\002\001x}<la\377mbda>ASC\343II\362N\340\215\027\372\215\027.__\376\272@attribu\201t\211@\016\032\214C3\030\325\231\007\006\034w\037riter}\030\237\223\002\235\030?remove\305\232\004\006\037\366i\004ny\247BCurlj\000\006.\200\204\006c\323\215\002__\017\t?setsta\227 \n\020?check_\323\230\002C\010\277force_\233\225\001o\003ut\\\007\366\233\001\354\224\003p\007\337\003\373\232\001\202\216\001.\327\223\t\225\007\343\004,\r\367\224\003_\373ac\221\234\001CURLA\177UTH_ANY\000\t\357SAFE\022\007WS_\337SIGV4%\006BA\367SIC\004\007EARE\375RB\006DIGEST\366\000\014_IF\007GSSA\363PIr\006\014\000NEGO\357TIATj\007HTTqPq\000\227\006\020\017NON\231\007\317NTLM\"\007\n\000_W\335B\323\006ONL\330\002E_\377ABORTED_\377BY_CALLB\347ACK\376\001\026\000GAI}N\004\004LREAD\036\000\037OMPLE\215\0037\000\241!\357ERRO\343\002E_B\373AD>\002ING_O\367RDE\013\tONTE\377NT_ENCOD\370\035\000\\\003-\001DOWNL\375O7\000RESUME\376\017\007FUNCTIO\337N_ARG\026\000NT>*\007PASSW_\000L\000\337TERED\252\003CH\377UNK_FAIL\356\t\006ONV\000\016_RE\275Q*\005OULD\223\000C\223ON\265 Z\004C\016\004\215\000O\177LVE_HOS\003\024\357PROX\276$ECH\346T\001UI\205\006\202\003_IN\365I\262\004F\225\000SIZE\177_EXCEED\256\005\302\023\001_j\007\300 %\001\374#FT\377P_ACCEPT\374\312\n\014\010TIMEOU\375T!\013SS_DEN\221IY\006C\000\3216F\026\004\202\002L\333IS@\010CA\256@GE1T\367\010\215\001\022\002RE\247*\023\002\340\306$.\001\344\001\271\007\310\047TR_\204\320\013\345%Sd\000\204\212\002$\017\027\001B\337INARY\006\023TY\333PE#\020TOT\025US\371E\201`""\336\tPARTI\273AL\215\014POR\346/P{RE\373/QUOT\325@\234\200\205\007\265ASSL\245Nx\000R}_\265\204\006INCOR\307 \376\264HWEIRD_2\37727_FORMA|\t\016\366\204\001_REPL\202(\336.\003PASV\004\023SE\217RVER \023\214\002@\rR\271I\277\014\202\206\005NOT\225\000U\365N\352\205\004G\014\000NOTH\344\307\206\006\235\210\0012\267\207\003\006\002_ST\257REAM\010\0073\023\007_\344>\014\331\210\001_\342.\017\004ST_|\335\207\010&\002RANGE\004\017\177ETURNED#\t\377INTERFAC\375E\217\207\nLDAP_C\303AN\320\001\334`\275\207\004\021\002IN\377VALID_UR\371L\204\211\003\047\002SEARC\375H6\013IBRARY\276\273\rLOGIN\366\205\nM\213AL\312C_\376A\331\211\003t\002U\357ILT_\336\211\005NO_\374\203\210\004\362\210\002VAILAB=L\214\211\004OBSO\361\211\007\006\005S10\246\212\003\007\0062\001\0146\022\013\2552!\01424\021\0149B\0133jA\0143!\0144q\01441\202\013\2514 \r\201\0145\261\01451\0145\2657\322\0136\321\01475\362\0137|\350\005\275\214\004OPERA\301\213\002r\246\211\001D\242\211\006\n\013OUT\275\213\005\377OUT_OF_M\347EMO\351\207\005\214\207\017PEE\375R\342\213\004_VERIF\343IC`\002\262\215\003\214\213\010QUI\201C\314E\266\204\t\240\207\016\275\204\016\354\215\001\350\204\tR\376\367\217\001SIVE_APyI\244\216\002\237\216\003RECV\032\013\261M\210\210\001\262\213\001\370\212\014RE\025\002D\177ISK_FUL\324\204\004\374\017\004\201\214\002EXISTS\360P\005C\002\231\214\002\350\206\014RTSP\237_CSEQ\223\n\021\001S\347ESS\256\216\001\211\217\010SEN\370\200\206\n\013\002\240\216\001_REWI\276\302\207\005SETOP\366 P~\354\216\002SYNTAX\377\217\003\377SHARE_IN\354\265\205\001\013\004SH\001\005L_C\037ACERT\000\r\206\220\001\274\215\007\374\205\212\001\"\001PROBLE\235M2\010IPH\235\220\005 \002L\017IENTB\014\225\217\003\363\207\tK\002\373RLS\017ENGIN\306\251\001IT\372\217\t\205\213\001\024\004NOgTFO\267\211\006\016\010SE\"\016\374\377\207\004\334\001STATUS~\354\007ISSUER\204\r\350\221\204\002\213!\212\204\003E\234\047PIN\377NEDPUBKE\317YNOT\324\213\001\271(SH\363UT\202\222\001\256\221\nTELN\005E\3752T\222\220\001\302a\273g\016""\002\262i~\037\002ILLEGA\274\211\004~1\002NOSUCH\371\210\0078\016\004\210)Y\002PER\256\213\004h\002\377UNKNOWNI\376\341\222\004TOO_LAR\371G\245\223\004\013\001MANY_\217REDI\312\215\001\273\204\004/\004_\201O\320b\315\224\003\014\005\321\n\023\005\320\220\001V\273ER\357\211\001_PO\231\205\005U\337NSUPP\235\225\003PR\337OTOCO\217\213\004UP\004\263\224\002\345\223\tU\224`\343\212\006l\004\007\t\364\212\010P\202\220\001\223\217\r\370\216\003\236\216\017W\204\216\013F\232\000\317OW_A\276\206\003\007\004FI\347RST\316\226\005\033\004OBE\217YCOD\261\230\002.\004\275\230\005I\377NFO_ACTI\177VESOCKE\227\230\002\026\017\003PP\211\225\004_\332\223\001\212\231\001\004\021\315_(\007CAJ\001 \006CA\357PATH\005\007ERT\336\022\013ONDI\325\226\002UN\341Mn\010a\022\177\tg\tONN\351_\213c\305\002C\331\227\004LEN\017GTH_\315\227\005\212\007\n\023D\013 \235\230\002;\004\327C(\025\364DTO\016\205\224\005~\216\004OKIECH\246\220\001\001S\200\010\022\001\343\225\005\203B\233\265\001\377\216\004\006\007|\320\226\004\244BEARLY!\002yS\302\231\001\243GEFFE\300B\035_\307 HOD\245F\017\007\277\220\004\002B\003N\030\007\214\230\001\324J\t\005\317H\375\227\001\277ENTRY_\306JH\037EADER\246\t\013\004\250\t\000\036\004\203\227\005\354b\276\234\001\325\235\003\331\220\001\322f\016\006\017USED\t\n\211\221\005\276\204\005=\006X\364\215\001\350\213\001\226\204\006LA\373\204\001E\003\n\376\313\204\014LOCAL_I\341P*\007\014\002\344\226\001\335\204\006NAM\177ELOOKUP\360\204\013p\t\014\363\204\010\354\235\005\315\205\002NUM\274\222\005\266\350GOS\272\224\001NO\302\205\006P\377OSTTRANS\007FER\340\205\002\302\205\010\335\227\001\017\t+\007\233RE\032\027IM\204\224\001\320\010P\021R\r\003\320\n\022\000V\312\237\004\373\206\002\304\210\t\006\t\005XY\216P\345\234\002\217\241\002\225J\374\234\002\244\220\226\0079\007_\371\230\001\225\221\002Y\323\236\001L>\324\207\007QUEUE\344\r\262\212\005\362\204\235\001N\200\210\007\016\006HIST \210\222\004\263\210\002\047\006\224\210\n\t\n_4\020\376\204\t\303RE\371 \233\242\003L\004""\227\000ST\375_\242\204\nRESPON\347SE_\362j\204AY_A\003FT3\t\217\221\002\273\217\002\226\221\002\255\211\006\243\221\007\200\246\222\001\t\013\222\232\004\307\221\001\t\r\302\221\003\326\210\010S\317CHEM\324\204\007\304\237\002DE\007LIV\370\240\005\314\212\002\021\003\313\241\004\261\212\006\300\t\n\255\212\010\211\240\002\332\210\014\t\010\036\tPE\013ED\304\211\017S\n\n\037\016K\r@\002\000\252\211\016\244\235\001\361\210\r\013\006\371\210\t\276\221\007\303\211\007\317v\017STAR\326\205\013\205\047\n\016\301\214\010\367TEX\201\215\007TLS_\370\315\224\004\376\214\006\017\002SL_PT\275R\n\007OTAL\240\215\013TH\n\006\236\215\010\333\210\001_\255\243\006\376\215\002X\377\206\001\342\324\220\003M\377\224\001\277\244\003\300\214\004PEN\017ALTY\214\204\006\034\003\335\214\013\017\022\007MAX\315\244\004\312\226\002U\002\021\000\333\233\001\017CURR\206\246\001\225\236\003\021\013\347\244\001\334\370\233\010.\013PIP\355`NE\201_\336\215\003\242\251\001O\006\350\003\263\234\007l\007N\177ETWORK_\200\215\003}D-\006NOTIF\316\214\002\200\004\014\357\246\005W\006q\004\256\247\004\240\"\t\007_6\326\240\004BL\035\020_S\305\240\001\017\t\007USH\207\304\001R\007\016\000`\016\261\232\001\217K_EX\263\246\003\221B\204\247\005T\035H\204\251\001S_M\231\230\003\255B\271\221\003\020J\n\314\221\003\271\016\251\246\001Rs\n\r\002\345\n/SG_D\276\252\004M\t\000\322\214\001\360\345\"\025\000\325\252\005\246\231\001ABST\377RACT_UNI\303X_\270\222\007\027\002\255\247\002\223\247\004_M\360\314\232\002\016\007\366\251\nF\002DDRE?SS_SCO\303\245\003[\002\317LTSV\311\254\002\004\007_C9T\213\241\003|\002PPE\202\243\003\212\002\207UTO\307\211\010\235\002\225\255\t\331\232\001B\037UFFER\222\247\005\347\204\002\257\223\006\036\004\007_BLO\241\254\002\033\003\302\223\005\004)\003\353\232\001H\270\213\003\356\250\004\256\205\002\326\223\010\271\205\007\017BGN_\300i\323\205\007\372E\345\205\007\374\240\234\001\033\016LOSEPO\007LIC\200\257\002\227\206\002\017\001\341K\010\014\000`\016\323\253\003\233\252\010\337\206""\002\t\n\227H\360\225\005\225\256\005\346\"\010_T\272\217\0028\004V_F\217ROM_\325\205\005d\020\033\004UoTF8_\n\022TO$\030\016\263\224\002URL\250\003\302\224\001\215\254\005\010\007\003JA\332\260\002\031\007\266\253\005+\007\261\211\010\362\003\373PY\367\220\001FIELD>\216\204\006CRLFCd\005\t\000yI\354\244\003\210\211\002URLU\023\006\177USTOMRE\243\216\002>)\005DEBUG\305I\014\002\376\350MDEFAULT9_\264\232\t\354\237\001DIR\357\254\001\343)\377DISALLOWp\244\246\002\211\223\001\367\237\002\356\204\007DNS\360s\240\025\001\341\247\006\226\006+\000\356\223\0054\001\0216\364\036\t\243\252\003S\006\nHUFF/LE_A\237\206\003E\020\n\305\254\001\337GLOBA\203\241\002HE\006\214&OH\366\221\010\270\260\005\354\002\r\n\303\244\001\350\036\023\347\237\007.\005U\361\206\007ECH\016\250EEGD\356\207\013\324\262\t\316\242\001\231\263\002\374\364\206\003+\006XPECT_\317100_\222\210\017\272\262\001ON\240\313\263\006\221\243\001\356i\250\230\t\027\002N\307\240\002_\002\307\206\tF\r\004\355\206\r\260\235\003\200\227\001\322\263\001\352e\377FORBID_R\357EUSE\t\010M_B\370\244\242\001\356\257\004\202\002RESH_\334\237\263\010\227\002TPA\374\210\nFT\235P\302mFTP\332\227\005,\004S1S\333\267\002z\006\340\262\003OU\335\264\003Q\004\377_ALTERNA\316\236\236\001_TO\260\253\006\027\005CR\377EATE_MIS=S\354\265\001DIRSE\t\352\263\001\340\211\233\007L\005\310\224\006\203\210\014\253\260\002KIPr\230\260\001V\233\231\004\200\005SSL\236\tf\311\245\002CC\261\t\315\261\001EP\201\246\003\014\266\005\016\003SV\030\r\274\261\001\346\206\005\356\270\003\247_DE\244\243\001\211IH\322 Y\377_EYEBALL\301S\224p\036\000\370\265\001\300\206\r\020\004_C\000\203\226\003\344\232\003\325\247\001\253\234\003\336\207\005\271\234\003\373\212\t\313\234\003\034\237\213\r\341\234\003OPT0\006\230\251\004N\002\207STS\221\271\001:\n\r\0048\016S\003TS\277\242\002\035\r\324\242\002\032\021\337\215\n\364\272\001\23309\354\242\001OW\347\270\003\317\002T\377TP200ALI\363AS\216\207\007\362\261\003NO_P?RIORIT\264\214\006\213\262\003\177PSEUDO_\273""\236\003\371S\234\272\007H\006_SETT\007ING\255\217\006\275\262\t\006\014\274\252\001\246\211\0013PD\237\274\004\217\0053_\247\274\001\346,gTTP\014\tj\0173_~\035\3713\211\022\023\000IG_HA_SH_AL\253\0133\204\234\002\177EC_CURV\227+\364\025\003\346\247\001U\270\266\001XTEN,\270\254\001\353\n3_\376\226\001E\024\005\235/<\243\277\001\315fTTPB\210@\345\017\007GET\031\t\206/\266\241\005\254\275\005\327E\361P\364\273\004\007\006\355\273\001TUNN\213ELj\tS\374\000\367\000\353AHqM\t\r\344D \rKEY\000\0204\335\251\003\326e_\316\245\005DE\254\276\007\024\006\264\270\240\006\t\022V\347\222\001ON\321\216\005I?GNORE_\231\246\013\024\006\177MPERSON\273h\003IN\345\217\t\010\003\257\223\t\010\007\201\253\007\276\257\001|\361\215\016\370\266\002LEAVE\353\222\t|\014\007\223\223\rIOCTL\036\n\004\r\001\025\016P\227\277\004\327\006\215\256\002\204\260\005\205\002|\t\006\306\224\nKEEP_\221\261\001v\240\301\002N_\336\214\nKEY\326\300\002\375D\210\221\005KRB4LE\001V\345G\016\000\003\n\316\244\002\323\213\t\010\006\233\271\002\300\320\221\005\214\270\003\204\255\003\207\227\006\342\220\001\274\236\003LI\303MI\334\210\006\r\007\367\252\005\227\262\001MA\007IL_\343\204\t\014\002\202\224\001\264\222\005\035\002\343RC\244\211\007\010\006\246\254\001LOW\342\226\302\001S\035\016\321\210\003\r\014XAG\020\250b\267f\302\234\014\214\003X\313\301\005y\007\n\006\376\211kMAXLIFE`\252\301\001\336\271\002&\010\261\257\002\214\010X_\316\265\002\320\222$\337\257\005j\004\265B_\010\021IM}E\242\206\tMIME_\341,ONETR\312\231\006\010\002_\312\225\t\257NEW_\273\260\003O\354\251\001E\321R\260\232\007\027\001\243\303\002P\t\nOB\373OD\224\230\006NOPRO\321G\306\232\001\305\225\005\r\002X\026\010SI\007GNA\304\216\006\311\273\005\275\272\003\372\265\002\334\273\004{72\210\226\005OPEN\337\230\017\340\014\007\321\231\r\221\306\005\310\226\005\205\257\001_ASs_I\374\233\006\202\264\006LIC\371\207\010\206\331\237\001WA\373g\246\221\t\372\210\t\266\251\0013;01W\006OST\300\227\013\326\227\007\047IZE\025\017\374\305\001L\311I\207""\252\001`\272\302\002G\t\305\263\002\273\006\357\227\001OTC\007\273RE\276\307\001ATA\027\010R\033EQ\373\016RE\342\242\007\332\270\001\363\251\010\000\t\003\251C\203\234\t\273E:\017\363\263\003\275\047\203\264\004\tS\337\301\001\240\007O\345G\252\252\006\021\n\373\220\013\010\274\310\002\243N\325\221\002O\305\222\007\342\310\002\336\305\005\263\004\303XY\307\304\001\251\255\001p\n\334\304\001PW\rD\204\n_C\332\236\n\256\253\003\255\263\003\340\236\n\370\021\005\347\236\t&\004REDEN&\235\306\002NO\235\226\013\031\005L\224\234\t\221\254\003\001I\202\212\016\010\rl\020\361\211\016\335\254\003\236\204\025\375\312\001\036\376\243\002ICE_\375\016\202\255\001\207\213\t\034\251\255\003\314\225\001ERT\300.&\005\2020\207SSL\240\205\tp\003\017\0021\022KcEY/\023\206\216\014\207\006_C\205\275\002\001_\266\236\t\023\007\250\213\014,\007\333\256\003\324\233\t\014\r|\326\233\t\247\257\003TLS13i\004\235S\232kTLS\362\321\002\374r_P\026\005\246/0\005\375r_\337\261\006M\202\271\004\302\206\206\002U\313\226\006\340\246\013\202\300\001\257\302\003ID\260\336\250\010\016\006\313\316\001\246\313\001PA\260\271\001_\037NUMBE\376\240\006\351\302\002\323\262\002\376\266\313\002PARAMET\371E\217\232\007\334\207\nRANDO\001M\366\212\n\247\216\n\315\227\r\376\321\001\301\244\r\356\274\002\316\240\006`\341\246\006\010\014\230\207\t\227\246\014\310\241\004_T\314\275\001\030\337\230\006\316\220\014\203\321\004R_\320\255\002\340\235\n\014\014\004\216\017\320\322\001_\233\217\t\341\322\003\272\244\003\375\211\n\323\303\001\002\232\232\013R\302\261\020\243\303\001\374\303\002\372\242\014\220\304\002\302\261\014\340#\006\220\304\005\325\224\007)\003\231\314\002_UR\341I\370\243\005\326\304\002\271F\216\244\005SAS\322\366\220\003Z\226\225\007\017\002I\371\244\006SE\003EK\314\247\t\014\001\356\247\r\377\315\006\316\263\004\207\247\014\300\010\024\266\252\010\305\316\001\331\207\r\233\305\002\240\006OC\217KOPT|\n\r\003{\016O/CKS5\304\222\nS\r\003\216\236\004\007NECJ\t)\000\247\236\004~\004\223&\177PLIT_CO\346""\274\001\302\341\253\006S\207\232\001\276\331\001\230\322\001\t\nCO\301M\267\225\001\262\272\005\361\306\001)\001\340\325\001KE\035Y\265*SH_\020\004\270.\024\004\377_PUBLIC_\316\354\210\001MD5\246F\014\020SH\317A256\026\t\\\020KE\001YW\021\370\303\002\202\327\001\323\n\305\271\004y\001\220\251\t\010\367\001\215\007\014\013L\224\227\t\200\213\004\342\226\013\211\213\020\034\250\213\004\213\255\nSSL\346\307\003\351\007\n\004\301_\344\250\004\016\010\337\232\010\302\213\003b\016KEAY\323\216\t\350\213\003a\r\302\232\014\315\311\005_\275R\031L\276\213\021\203\312\002TX\240\246\n\014\005\321O\343L_\246\236\016\303\311\003\233\306\002ALP]N\362\010_EN\017\005S\004\020\215N\030\022TI\360\304\005\201\204\003\253\326\001L\003SE\265\267\002P\t\250\231\014\324\326\001\235\237\027\362\326\001\306\200\315\004ID\252\260\003\234\t\376\225\002TU\027RE_\250\236\006S\021\014\270\240\017\303\275\007\340\300\252\t\331\275\007\274\252\t\357\275\007\266\252\013STD3ER\245\210\007\364\210\003DE\301\262\001\255\206\007b\t\n_\307\253\006\300\326\003\264\334\001LU\377\317\001|\217\211\006\272\211\003WEIGH\233\245\006\360\252\311\001\313\263\002\275\307\005\362\237\014TCP_\215F\250\302\001PE\225\237\006\020\001\225\235\001A\310\314\274\001\204\257\005\r\005C\215\251\007 \005ID\274\232\257\007\013\006NTVL0\tN\037ODELA\264\262\006\313\314\003\364\234\014\016\307\314\002BLK\212\264\t\243\314\004\256\232\r\207\311\002\300\262\310\005\233\006\365\335\007\274\320\001\342\265\017\234\336\001VA\007LUE&\t\014\002\252\240\013\202\221\022\371\220\025\360\367\220\021\355\220\025\277\274\001\332\251\004ED_C\360\301\225\006\215\267\006\307\244\030\373\274\001GREA0\220\255\007\215\275\001\332\223\001\221\322\002S_\253\237\n\024\0053US\271\236\001\310\330\001HE\305\343\003\226\"\003LS\325\235\001\261\342\001\200\341\002*\016\231\234\001\236\001\367ERT\363\313\002STAM\311P\231\n\200\321\003_\363\262\014\240\276\001TR\377UST_ANCH\343OR\314\n\347\336\001\324\235\001ALP]S\300\302\002POI\304hR\250\343\001\005R\204""\267\tT\r\003\251\267\r\245\306\005\226\277\005\350B\350\271\306\005\344\260\r\210\272\010_\264\270\tUNR?ESTRIC\352\345\001\256\247\tsUP\221\243\002\243\334\002VAL\250\272\010`\374\313\007\233\325\001\352\317\004\267\271\017\202\320\005LA\256\252\007\034\246\262\010\362\337\001AGE\325\257\007\254\232\r\250\232\014|\224\320\004\215\266\005VERBO\224\261\007\377WILDCARD\000\275\323\006\266\326\001\315\254\016\305\254\022\303\320\002\376\255\013\326\320\002\267\317\005\312E\002S\252\253\020W\t\t\250\254\013WS\034\330\241\r\226\352\001SL_\225\327\001\212\214\021\030\004\006\345\266\001BL\207\310\001\372\212\t\213\302\001\227\321\001\230\273\t\354\014\005\276\273\rXO\242\353\0012_B\006\342\352\006PA\330\343\001\221\322\004\007\003\225\320\001\315\353\001(\025\003\374\306\005\004\007_\023\013S\316\275\004D\003\034\270\331\0029\006IPE\323\255\002\336\335\002\212\302\001\377_MULTIPL1E\247\331\002\r\002\204\342\010SH\214\352\003\366\324\007\034\016\001\316\327\005URL\t\003\321\331\005+\001\234\346\277\0057\001NOM\246\331\003\007\003T\323_B\241\340\010X\001O\242\353\002SH8\265\332\001/\007\t\002OCK\272\352\001\305\355\001\340\032\003\220\354\005(\003\253\224\0067\003UNL6 \016UN\025\rSE\262\301\006\326\223\006\000\314\204\006\010\007\255\356\003\370\223\006\204\221\010\214\224\006\341\355\007\237\224\006\374\334\352\005\260\224\006KEYBOA\001R\325\353\002\305\224\006\275\006\327\224\005\343\244\t\353\224\006\217\224\003\356\331\255\004WS_\262\350\007WS_\323CL\303\205\004\010\001O\316\354\003WS\373_N\307aOPONG\334\371\357\001\317\204\001FFS\216\326\003WS\347_PI\017\006\030\010RAW\335_\314\234\005WS_\261\310\005_C%A\250@N\233\215\004\244\336\001L\353\271\001\366\216\004@\007\006\324\356\003\026\006\275\353\004\340\345\003\374\314\006_\305\271\004\200\207\356\001\324\355\002\227\361\001\010\n\302\333\006\036\n\271`AqT\240\273\003\205\263\002\245\322\005_1_\253\344\002`\005\r\260\343\002\034\013\302\347\002\004\014TL\230\340\002\324\032\014?\0212\371\264\003_\264\333\001LE\001D\245""\333\003}\013\206\350\002\004\014\215\361\005\247\013\374\305\005,\275\013\343\361\005_I\204\257\005_\207\363\003\005\t\374\371\345\002\027\010WHATEV\n\222\363\003_\362\204\001_\242\342\004[\006\t\tZ\006\000\036\t\214\341\002\355\360\0024\n\201\273\001\245\347\003R\003\316\327\0020\315\360\010\t\n\327\302\005 \010DN\326#\220\002\002\213\330\002H\205\343\004E\010\230\013\261\330\002\226\013\304\330\002aP\253\273\003}\010\234\234\006\010\tSL\320\315\t \355\335\002\203\351\004\004\005\215\204\005\211\336\001_\347&\t\0024\016\n\326\344\001V\226\366\002_P\230\252\002\253\204\002P\323\364\002\254\204\002\n\010\257\210\003_\304\241\005_\033\007 \n\006\300\212\002\344\204\002\275\236\005\243\353\001T\336\236\001\010\013\200\346\363\001\032\013W\004\313\335\003\213\365\001A\003\333\335\002_\300\240\362\010\233\325\001\232\265\004\245\232\t\013\t\354fSS\021L#\005\276\316\001\325\232\010_\014\014\033\025\241\204\006\036<\014TLSv\211\206\005\006\022\221\206\003\340!\022\231\206\003<\022\323\205\003\254\010SSL\001v\037\016\021\001\031\016\215\002\365#\354\007\220\024\n\270\0031\030\0232/\023\356\206\003\331\222\010\365H\220\n\t\237d\225\276\006\363\357\007_\n\007\242ca\377llableCa\377ncelledE\377rrorCond\035i\306\373\002url\211\374\002\206\375\016\017\004|\201\375\016(\003get_cX\000{ba\220\375\001xcepF\005\177.clean_\367\374\003\377s_and_bu\037ffers\361\374\002\345\376\002\373\374\002\337debug\004\003up\370\246\375\003\223\375\002W\001reaso\377n_phrase\336\016\005info\265\375\002im\275pL\000onat\026\003p\377arse_coo\377kie_head\370e\005\023\003\316\376\001us_li\345n\047\005uN\004D\000for}m\212\376\002reset\224\376\002\337setop\005\003up\257keep\252\376\002v\277\000i;on\266\376\002ws_\276\007\n\000\357meta\021\005rec=v\035\005send\372\377\001\356#\374\350 \370\".__ini\367t__\203\377\001Mime\202\000\005.\3602\036\0010\000\3642\027\002a\353dd\377\000t=\006att\307achL\006\351&D\002fr\353om\210 s\346\002Sha\001r\332\"\004\002i\023\023\005\364R1\004\356B\001u\243\"C\004\272\047U\003""\356Fd\003\272bf\370`_st\013\000\014un\027\006\177Warning\241\315\005\376\321\355\003EBADFEl\377lipsisLo\373ck\277\327\001SHOW_\377BYTESMY_\177ATTRIBU\n\000\337NoneO\241\204\002al\377PREFIXES\337PROAC\204\372\001WA\377RNINGPat\377hProacto\377rEventLo\373op\016\000tocol\376\344\233\001ON_PHRA\204\233\372\002\342\316\004S\306\220\007\352\243\006\305\375\002\216\355\002_\375L\355\355\001RESele~R\001Thread\000\013\374\207f\000\024.<loca\367ls>\006\000ambd\353a>\010\036tb\002_ma\377nager_an\367exte\rcons\377ume_wake\231r\202\r\271\206\003_e\201!\005\024s\274\316\002\273\rrun_\004\023s\017tart\005\024\242\013\217-\236\001zN\004o\232\radd_\317!=e\005\021writ\313\016\375\207\002~\363,remove3\023\374\025\004D\005quence\177SimpleC\356\207\002\376\316CTypeVar\377UnionVie\267w.MQ\000ry\007\001W\277SAENOT\303\354\001W?SFrame\000\004\337\206\017\324\017\007\350\211\016W\233\240\002V\262\330\001EN\377DWeakKeywDic\303\212\001ary\r\001\363Se\322\207\001\220\212\004Cont\206\364@_C\002\013\323\207\017\017\020\345\212\016_\377FileDesc\377riptorLi\277ke_Has\022\001n\315o\000\007.f$\000\016\000T_\317_Pyx\001\000\234\001_N\336\373`Ref_\202\204\003__~\005\001notate\007\002\373wa\211\211\001__classs\032\001\003\003get\273@em+\001d\343\000\003\002oc:\001\325e\326\000r\004\002x4\003fu\355n\024\002geR\000tri{buU\003gets_\005\257impo\375`_\365\211\005_\037_main\211\001\272\212\001s\006\337modul\223\002mr\257o_enK\000e\220\002n\334\264@\267\001new\276\001pr\257epar\274\002p\347\000c?hecksu\253\000\n\001\377result__\310\026\001z\004!\001t\240`\017\003unopicke\000En,\005\230\n\006\241MA\003vt\302\216\001\270!q\367ual\205\005redu\371c\301\"\003\004cytho\354\321\002\024\004ex\354!set\345_\271\005s\212(\326O_te\223st\236A\271`i\331\216\010\334\002_\205e\271\217\001_\350\212\004\376\214\003\220\206\006\346\216\002l\327oop\226\215\003d\236\215\002in\371g\027\007\345\207\n_defa\376\242!cacert_\356\337Bfor\314\000tim_eout_\317\217\023_\220\210\t\374\005\005\207\210\003_is_co\255r9\000in\306\206\005s\233""\207\001l\361_\224\002\223\210\007\235\210\004_arg=s\004\005cond\304\007\331\210\0033or5\002\034\005or*\001\233\217\001\005_\303\210\t_\351\211\004\350\211\014\367\211\014\315\211\004\301\210\n\266\370\211\003_r\001\004w_\255\210\003s\367aab\225 quir\033ea\334\206\003dd\347\210\001\321\221\003\353\210\007\330\373\210\001\340\210\003\377\216\004al\251\213\001te\374\356\221\004\334\001asynci\225o\000\004.\230&s\022\004\227\"a\370\353B\265\217\003\321\222\001slash\357repl\233@bas\377eboolbyt\365e\000\001s\000\002_to_\367hex\224\214\007geneoxprc\313Cca\210\207\001~\240\223\001_later\005\002\317soon\000\006\257$sa\253fe\303\223\005c\241\224\002c\244\224\005c\377ategoryc\337b_map\243aif\211i\307\223\026\365\223\001r\000\002\375\222\005\007\003r\177esolvec\375\222\001\277_in_tr\317\002c\375k\207\224\002clscod\357ecol\236\216\001ion\373s.\371 compi\375l\023\000nfig_w\374\367\217\003&\000nnectc\316\326\211\001nt_\314\206\001\007\002xt\367lib\372\223\003coun\357tcre\331\210\001fut\367ure\006\004taskmc\357\220\001cy\003\001._\t\001\377daemonda\023ta\211\225\002\216\225\002_\312\210\001\230\226\001\232\205\005\306\231\001de\250\205\004\256\205\005\340\224\004di\377scarddns\337doned\335\207\002is\377_objectd\356\320\225\005een\340\001enu\337merat\014\000vi\277ronerr\022\002r\377rmsgerrn\371o\333\206\002\340\206\002sev_b\327itm\263\000e\327\226\005ex?istsfd\341\212\001\344\212\002\347ame\353\212\003\363\212\001sfl\347ags\314\225\001\320\225\001atf\033or\347 nf\354\214\001\355\223\006\327\002r\310`s\226#\254dget\204\223\013\374\333\227\001\230\207\005verify?_paths\213\227\016\250\227\002\003un\227\223\001\336\206\002\224\230\001\262\206\005\000\t\272\221\007\374\236\210\025\353\213\001nfoget\177preferr\357 ~\262!inggro\232\230\005\374\330\227\003\335\227\004hex_st\277rhttp.\370\227\003s\372\010\001_\244\227\004idignwore\244\230\010ind\302 \377ntis_pro\372\333\214\001s\000\002izejo\177inkeysk\352`?gsload\361\222\002\363\002\362\373\222\002e\330\211\001\326\211\007lowe\377rmmatchm""\377emviewme\377ssagemodye\315@\254\214\001ndim\367\222\001\347not\300 \222`ono~\244\232\002ospack\244\231\021\234\242\231\016\327\227\001ial\373!\377!l\377ibpausep\263ay\240\001\273\231\004pl\353Bm\377poppostf\263ix\301!\002\001in\315 o\305c\230\000_\343\204\001\324 \375\224\001reqa\215\212\003\343\232\003\260\231\001reg\333`>\364!lease\213\222\004\301\233\003\370\222\222\n\203\222\n\261\232\002retur\177nrsseek\220\224\003\016\257\212\013elf\206\232\001\201\215\001\303\204\006\216\215\001\376\241\216\003setbloc\177kingset\217\214\004\276\376\232\003shape\236\230\002s\336\353\222\002filt\203\233\001ze\377sleepsoc\227ket\000\003_\241\212\003\r\003p\367air\031\001fdss\315l\000\000_s\230@\327\207\001ta\316\362\216\001vel\210\225\002\215\225\002sw\347ith\241\220\002\244\234\001icm\037ethod\255\234\004\226\210\001\264\234\010\275s\234\000rrstx\000t\363op\370`\373`icts\327tru\003\000u\222\235\001up\333pr\205`sy\353\225\001ge\361t\377\222\001\372\226\021\234\227\003ingt\277hrowto\300\225\002t}o\372\213\003tuple\251\220\002\377typingun\374\253a\207\232\004update\336\224\235\003use_\232\237\005vaWlue\000\002s\245\235\004w\326\222\001\374\270\211\001\270\211\005weakrewfwh\334@win\000\000\23332\237\226\002ws\313\235\005\307\235\004w\356\263\216\001cvw\231\216\001ndx\377xs1.01.1\3672.0\236\376\001/(\\d\377\\.\\d) ([\1770-9]{3}\010\000\247.*)\030\002\026\003 \022\005 \375(\026\000Oaset-\376\235\237\003: \200\001\330\004\n\357\210+\220Q\005\001.\250a\367\250v\260\010\000\340\004\010\210\377\013\2201\320\024%\320%\3777\260q\330\010\017\210r\377\220\030\230\024\230Q\230a\377\330\010\013\2105\220\004\220\377B\220e\2307\240!\240\3771\330\014\023\2201\360\006\377\000\005\020\210s\320\022+\377\2501\330\004\007\200x\210\377x\220t\2302\230U\240\177\047\250\021\250(\260!@\001\367x\220q$\001\014\2107\220\377&\230\001\200\001\340\004\013\277\210;\220m\2401\007\001\037\377\230q\320 0\260\013\270\377;\300k\320QR\330\004\377\023\320\023#\2408\2501{\250AM\001|\2207\230B\000\3772\260!\3203F\300n""\317\320TU\330;\0007\000\360\010\367\000\n\033\027\001\021\220\024\220\377[\240\004\240A\330\010\020\377\220\007\220q\230\006\230l\373\250!\211\001v\210W\220E\336\272\001\330\010\022\220\207\000\027\220\357q\340\010\027\235\000:\240W\377\250E\260\023\260D\270\013\347\3007\310\047\002\351\001\320\0171\377\260\024\260Q\260g\270[\327\310\007\310)\000\017\006\t\001\200\376_\000\013\2104\210w\220c\373\230\021\371\002\340\r\016\330\014\377\026\320\026\047\240q\250\004\324\255\000\255 q \0038\262\002\014\r\377\330\010&\320&:\270!\177\2701\330\010\032\230#\225 \366\267 \240C-\000\003\2504\250\373u\260\262\000\016\210i\220q\377\330\014\030\230\001\320\031*\377\250!\250:\260Q\3206\337J\310!\3101m\0013\260\377=\300\001\300\024\300Q\330\177\010\026\220i\230q\240\203\001\377\0221\260\021\330\t\n\330\337\010\014\210E\220\210\000\020\220\377\016\230a\230s\240$\2409a\000\021$\001N\230!\275\000.\010\377I\220Q\220f\230I\240\177X\250Q\250k\270\021H\001\373O\230o\00101\340\010\014\237\320\014\034\230F\341B\320\001\220\377\006\220a\220v\230W\240\375A\201 01\360\n\000\t\377\r\210N\230&\240\001\240\3606\000\220!\276\000\265@*\250#\250\376\246\000\013\2101\210F\220!\373\2203\243#\033\2301\330\r\377\016\210f\220A\220S\230%\003\n\000\014\000\017!\000\340\022\002\343\000\376\333 \230!\2306\240\021\240\356\273`\021\220\021\261a\230\021\340\177\010\017\210~\230]\250\304\000\373\340\010\203At\2201\330\014\375\024\336@\021\330\020D\300M\377\320Q\\\320\\]\340\014\371\r\273\000\231\000!\2308\2401\347\360\016\000\243 \203@\020\037\320\377\0374\260A\260T\270\031\377\300!\3001\340\020\023\220\3779\230C\230q\330\024\025\375\330\t\0008\2305\240\007\240\374\013\000\361\001$\240k\260\021\260\377+\270W\300H\310A\330\377\024\036\230h\240e\2501\377\330\024)\250\025\320.F\377\300a\330\024\027\320\027*{\250\047\200@\030\034\230N\257@\3777\260!\330\031!\240\023\327\240A\330\017\000K\212`\001\340\356\022\006%\260{p\0009\310A\377\340\024\031\230\021\230!\330\377\023\024\330\020\030\230\005\230uQz\000\340}\000""\024\037\230\262`\346\262\001G\220\360@\003\0035\320\030l\211`\335AG\220\t\0000\260\373`\376\325\001H\220E\320\031+\250|!\004\t\002-\250Q\200A\254D\363A\330\265C\243\204\004q\330\021\022\377\330\024$\240A\240T\250\316\243a\320\020\"\320!\301\204\001z\230\337\023\230A\330\020\022\007\220\014y\230\333@\342!{\230-\240\215\002\377\017\210}\230A\230T\240\341\036\231\207\002a\000\347\205\001\333B7\220\047\372\377\204\001\030\242\001&\260\001\330\014\377\017\210z\230\027\240\001\330\301\020\337\205\002\000%\000M\000\235\230\201%\017\210z\215b\035\371 \034\250Q\250\367\211\002\3777\220$\220d\230&\240\377\005\240S\250\004\250D\260/\006\260j\300\366 \022\206A\375@\374\341\204\001\216\207\003\t\330\014\027\220v\356\256\212\002\017\020\330\377\207\001\020\220\001\356\034\003\022\023\340\262\207\001\017\210t\377\220:\230[\250\001\250\024\267\250[\270\027\002\034\230\300`\013\377\2106\220\026\320\027(\250\377\003\2506\260\026\260q\330\377\014\025\220U\230!\330\014W\026\220g\377\212\001\340\350\210\001*\353\204\003\374\366\210\002\204\205\002!\2504\250~\270\351X\236\210\001\236\213\001\007\311\210\001\025\220\\\377\320!5\260Q\260f\270\377G\3001\330\014\022\220)\377\2301\320\0349\270\021\270\377)\3001\300J\310e\320\317ST\200A\273\211\002\212\0014\220\277y\240\004\240D\250\276`\033\273\320\033\214\214\001t\2601\226\206\0015\363\230\007\242\206\001\277\207\001\020\024\220K\367\230q\330\004\000O\2401\330\373\010\023\251\205\001\360\006\000\t\036\373\230S\366`\010\014\210H\220?A\330\014\020\220\010\337\207\002\205\212\003\377\360\006\000\r\034\2301\230\375D\031\006\200A\360\006\000\034\337\035\330\027\030\330\003\000\026\027\377\360\026\000\t-\320,>\377\270a\270t\3001\340\010\177\037\230t\2407\250!\256\213\001\377/\240\021\240&\250\016\260\276\366\214\0024\210s\220!\302\004\230\377A\360\010\000\t\014\210=~\230\002\014 \240\014\250G\254\000\376\244 o\240Q\240f\250N\371\270\261 \341!3\220a\330\020\364\260\212\004\261\210\001;\305 U\240$\240\303e\250\257\207\001\220#J\000\302\000\014\210z""\030\001Q\303\205\003\021\230,\2406\000\276\315\207\002\240Q\330\021\033\277\000L\356\230!!\240\0326\001\340\020!\357\240\021\340\014\263#q\230\017\353\240w\240`\020\202\214\003\320(<\357\270A\270Q\222\214\002)\250\021\377\250&\3200@\300\001\300\315\021\237\206\001t\220\205\t\270!\014\210w9\220G\216\212\001\026\320\026\020\033\362\360\211\0015\333\215\001C\003:\230Q\230wf\240A\354\206\001s\230!\270\211\004\376\366\010&\320@P\320PQ\212\315\216\001\014\372\r\200\270$\301\215\006\231b\230\376\210c\035\320\0351\260\021\260\325$\360#;\345\215\003\r\346\214\001D\220\337\001\220\024\220Z\235@9\250}M\306`\047\300\034\310V\304`\376\210\213\003x\220w\230a\330\014\375\r\357\216\001\320\031)\250\035\260\377a\260t\2707\300.\320\337PV\320VW\026\001Z\220\317t\2301\330\222d\276@\016\210\375_n\004\032\320\0320\260\001\377\260\024\260Y\270e\3001\352\323\215\001M\246\212\002\010\330\217\001U\230.\353\250\001\014\005)\367a\014\210K\357\220q\230\013\245`%\250z\330\267\215\001\253\206\002\351\213\001\014\210\305\r\360\020w\000\016\017\276\205\001m\2401\334\204\002\337$(\250\001\330\000\002$%\376\222\212\002$A\300\021\300$\300\372\334\221\0021\275\204\001\r\230Q\230e\375\240\327\221\001\t\020\210w\220d\377\320\032*\250\"\250D\320\3770J\310)\320ST\320\177TX\320XY\200A\331\214\001?\020\210t\2209\230\223\220\002\226D\374\343\205\024\221aZ\300u\310A\200\277A\3602\000\r\025\247\205\001\034\237\230A\330\014\031\307\220\001\314`\330\347\014\035\230\374`\232\000\340\010\023\337\2207\230\"\230\340\220\013\017\210\331y\267\216\002\335\212\001\330\021\307\220\001Y\240\337c\250\031\260#\261 c\300?\031\310#\310Q\330\022\007\000\t\334\022\003\260\216\0019\220C\346\220\001\026\320\373\026(\367\207\002X\260X\270Q\353\270a\352\007:\350\210\002\014\017\210\323x\220\323`J\003\014\212\001!\330s\r\026\360\221\003\034\036\023\220?\231\224\002\376\007\047\320\023%\240Q\240a<9\047\377\n\014\023\220=\203\221\002\227\010\352\307cX\221\211\001\300\313\021u\220K\373\230w\337\206\001\027\220\177\240b\177\250\001\330""\014\023\320\023\202\226\001\335q\274\200)1\210\001\334\210\001\031\230\367\t\240\021\240\212\001d\230!\230\375>\344\216\001\031\230\026\230q\210\377!\210H\220D\230\013\240\377<\250q\3200D\300A_\230a\320\000\024\017\000\001\244\226\001\351q\251\225\001\345ak\301@!\340\010\373\020\220\362aj\250\t\260\021\337\320\000\030\230\001\340\225\002\320\000\377\032\230!\330\004\010\210\010\337\220\001\330\r\021\345\223\002\320\020\274\252 \240\204\003W\240A\330\307`Q\375\220\275B\t\230\025\230a\230\365q\243\227\0014\251`\007\230q\360\353\n\0002\000\010\346\220\002\004\023\220\3736\230X\000\"\240+\250Z\177\260q\330\004\005\330\014D\002\370I\002\000\007\007\n\340\004\025\220Q\377\330\004\r\210X\220T\230\337\021\230\047\240\021\353\227\001\010\200\337v\210W\320\024\350\223\001V\260\3737\270\246\212\002,\230a\230t\257\2402\240Q\346\226\001&\341\223\001\230\277F\240#\320%9\325\224\001\013\376\362\227\003\230\022\2301\230I\240\377Q\240c\250\021\250/\270\267\021\270(\206\223\002\010\t\305\230\0014\366\273\207\001\230q\305\220\001w\220f\230\177A\230R\230q\240\t\261\221\001\377\017\210v\220W\230O\250\3774\250v\260W\320<P\377\320PT\320TZ\320Z\257a\320ab\270\223\0017\200\225\004\017\377\020\340\014\026\220l\240!\357\2404\240r\352\221\001\026\220f\376\337\223\001\240\006\240c\320)=\346\217\212\001\017\210O\n\251\225\001\250o\270\377Q\270h\300a\300q\320\227\004\027\220\267$q\262\216\001\3323\010\047\014\210O\301\210\001\204\230\001y\371\213\003\356\214\001\236\312\223\001\010\027\220x\234\227\001\347\226\004\230}4\211A\014\210I\220V\362\210\0018\000\006\270\210\002f\004\014\210J\351\001\304\227\001\315K\257\217\001\320\004\367A\302\230\001\320\004\357\033\320\0339\325\210\004\320\004\034\377\230E\240\026\240q\330\010\177\r\210R\210y\230\001\336`\231x\013\001\360\215\002\320\004\267\207\001\305 \021\376\253A\020\026\220d\230.\250\377\003\2505\260\004\260D\270\377\004\270A\330\024\030\230\ro\240U\250!\347\225\0014\220\357\225\003\376\203\232\001>\250\027\260\001\330\020\267\031\230\033\365""\216\003\024\320\250\224\001\360\177\022\000\r\016\360\020\000K\000\337D\230\005\230V\213\216\001\2509\377\260J\270a\330\020\025\220\367S\230\002\216\220\001\023\220;\230\377a\360\030\000\021\024\2201\377\220G\2303\230g\240Q\377\240g\250_\270E\300\021\372l\001\003\374\000v\240W\250A\377\250Q\250d\260)\2707\377\300%\300t\3104\310q\373\330\024\343!\030\035\230Q\340\277\030\031\340\024\025\340\232\227\001\024\373\220K\231\227\004\3209J\310$\377\310a\330\023\024\360\016\000\377\024\025\320\004\037\230q\360\357\010\000\016\022\343\231\001\023\2204\357\220~\240S\254\206\001\020\320\020\377!\240\024\240Q\240d\250\177)\2605\270\005\270T\300\212\002\327i\310u\236\234\001\014\313\205\001W\240OA\320\004 \227\220\001\232\231\004\r\234\205\017\370\033\003\264\205\0165\000\320 8\270\001}\330\231\204\001\020\220\004\220I\306\222\006G\023\2201\244\232\004\305\214\002%\002:\201\205\001\372\317\222\003^\264\235\001\320\004\"\320\"\274<\000\235 \t\023\220&\350\227\001\230\337f\240F\250\"\235\234\003t\220\1778\2301\230O\2501#\002\047@\300\001\231\233\004\362\214\003\036\273\230\001\013\014\276\212\233\004I\240Z\250q\361\233\001A\260\262!\241\233\001\265\213\001\251\233\0013\260\262\215\001\320\377\014&\240d\320*:\270\377!\340\016,\250A\360\020\256\243\233\001K\220z\233\210\001\r\247\222\001\rs\320\014\205\205\001\333\233\001=\270Q\301\221\001\377\r\210K\220t\230<\2409v\205\224\001\314\234\001I\220\\\363\232\003\266\204\001\344\004\004\257\236\0011\342\214\001\363\215\003\004\230K\373\240t\272\001#\320#A\300\261\021\255`\207\222\002\325\233\002\023\220\226\220\001a\376\234\233\003z\230\021\230.\250\007\377\250q\260\t\3209N\310\177d\320RS\320ST\264\236\003\277\010\020\220\005\220Q\206\214\001\r\377\260[\300\001\340\010\030\230\377\n\240!\320#3\3203_M\310Q\310a\326\223\001\026\210\001\227\340\010\t\303\233\001\025\200A\354$%\374\261\235\001\212\241\003\003\320\023-\250Q~\207\241\0015\230\002\320\032+\262\240\002\375\010\345\206\001a\220t\230=\250\177\001\320\004+\2501\340\267\236\002\356""\214\204\001J\260d\256\210\001\t\210\027\377\220\005\320\025(\250\r\260\335Q\017\000\047\300\026\375\206\001.\250\334\262\004\320\237\017&\240a\361\0008\260\372\224\220\006%\347\211\001\017\210q\320\004\377/\320/K\3101\360\024\350\216\224\001\221\240\t\355\237\001&\322\234\002\010\023\320\375\023\210\223\001$\250h\260n\300\377F\310!\320\0044\260A\276\264!\022\220\034\230Q\303\237\001J\\\301\212\001\347\210\001V\2302\225\227\002\021\265\224\001\227e\2301\201\237\0024\335\223\002\222\207\0038\003\3208\303 \372\210\001d\014\277\222\004\343B\241\210\001\323\360\006\364\220\003\346\216\005Q\311\204\002!\240w\024\320%\210\211\003\320\017\"\242\243\001x\236\225\001\371\216\010\317\243\006\r\021\320\020\214\241\001\373?\270\255\000D\300A\360(\366\322\r\340\014\276\220\002\035\230W\240\177B\240f\250B\250a\222\226\003\376\262\223\001\026\230s\240+\250S\177\260\001\340\014\025\220Y\227\223\001\316\276\230\004\330\r\024\355\224\003\277\206\001\320!\274\351\223\001\333\230\004T\240\021\330\234\235\002\020\367\024\220L\374\205\001\007\270q\340~#\010\"\320\"2\260!\343\226\003;g\230\037\0149\270\027\303`Q\010\315 \322\244\001\001\260\225\216\002\035\0167\260\357w\270a\340i\036\2404\240\377|\3203K\3107\320RqS\245\222\003n\036-\003L\310G\345\204\002\270\332\222\001\350\005\305\214\001S\230\001\371\237\001\001\303\330\014\345\026W\032\277\023\241\003J\3109\047\352\226\002h\t\020\320\020\020 \225>\376D\032#\320#3\2601\260qA\241\234\003\275E\265#M\310W\213\212\002|\205\014\276Ii\230t\2401\363B\336\263%I\320UV\335.$\320\351$\275\243\001\325\231\001\220#\rN\310iG\320WX\220N\215\t\026\032\030\220\245\003,\300\241\001\340\220\003\010\000\264\242\001\025\232\244\001\235\243\001\360\000\006\000\017 \001\312\244\0013\220i\230\375{\206\244\002$\260g\270S\300\377\001\340\024\032\230&\320 \376\200\236\001a\330\024\037\230u\240\377G\2501\250E\260\027\270\374\030\000\010\004\330\020\032\230)\240/?\260!\340\336\233\002G\204!\205\246\001\376\024\000\047\240\037\260\001\330\021\336\223\225\003\020""\032\320\032\240\253\001w\260\265a\362\233\001w\212\237\001\330\020\250\216\003\340\377\014\022\320\022%\240Q\320?&?\270r\300\021\227\246\001\226\243\004\337\020\220\n\230!!\003\320$\2356\212\232\002;\300m\374\211\002\365\226\nTs\300\021\212\206\007+\006*\320*\305\234\001\377T\320AR\320R_\320\343_`\344\251\002\256\227\007 \023\047\320\047\376\340\237\001$\270n\310M\320Y\215Z\030\031\320\020\230\216\001\302\001=+\013\351\230\224\240\002\375\234\001i\257\247\001\036\230g\204\344\217\001\331\ra\236\017\272\241\002\357\230\010\340\233\005%\377\230y\250\001\250\030\260\021\342\206@\010\251\224\001\327\245\002\267\205\001\240\001\340\356\207\222\003F\320F\355\211\002\006\000\tS\r\320\245\232\002\237\252\001\036\222\256\001\014\006\007\320\315\232\001\367\246\006\276\252\002\212\247\003\037\205\223\002\320\014\334(\005\220\220\002\014\320\014\023\002\013\210\2511\313\236\005\304\241\001\024\225\232\003Q\344\241\001L\360\267\220\003\004\031\201\240\002\255\256\0013\240a\330\3361\010\320\024&\240\250bt\220\337=\240\003\2401\020\t\220O\373\2401\033\032\320\004M\310Q\273\360\n\264\235\002\032\320\032\332\206\001D\377\270\t\300\030\310\034\320U\316\310\236\002\010\014\210\232\236\004\375\214\002[\320\323[\\\350\220\001\353\235\020\014\361\235\n\010\260\377\016\270a\270w\300a\300\377t\3108\320SZ\320Z\377`\320`a\320ae\320\377ef\320fj\320j|\377\320|\177\360\000\000@\002\343A\002\354\260\001\203\236\t\211\261\001t\2201?\320\n\047\240q\320\333\220\001";
+    PyObject *data = __Pyx_DecompressString_LZSS(cstring, 15783, 30600);
     #define __Pyx_DecompressString_UNUSED
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #else /* compression: none (30545 bytes) */
-static const char bytes[] = "\n\n    Proactor event loop does not implement add_reader family of methods required.\n    Registering an additional selector thread for add_reader support.\n    To avoid this warning use:\n        asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())\n      [ at 0x bytes are allowed. bytes, but only  bytes]:  object>!H\047_FileDescriptorLike\047(tree fragment)) *, curl: (, multi: (.. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.. See https://curl.se/libcurl/c/libcurl-errors.html first for more details. Please open an issue on GitHub to help debug this error....: << DATA< SSL<MemoryView of <contiguous and direct><contiguous and indirect><strided and direct or indirect><strided and direct><strided and indirect>>> DATA> SSL?Add data failed.Add field failed.Base exception for cycurl packageCallable[..., None]Can not use local_path and data at the same time.Cannot assign to read-only memoryviewCannot duplicate closed handle.Cannot perform request on closed handle.Cannot receive websocket data on closed handle.Cannot send websocket data on closed handle.Curlm already closed! quitting from process_dataDefine ``add_reader`` methods to be called in a background select thread.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user;\n    all callbacks are run on the wrapped event loop\047s thread.\n\n    Typically used via ``AddThreadSelectorEventLoop``,\n    but can be attached to a running asyncio loop.\n    Failed in Failed to Failed to close share handle: Failed to create share handle, curl_share_init returned NULLFailed to set error bufferFailed to set share option File not found at Invalid mode, expected \047c\047 or \047fortran\047, got Invalid shape in axis NOT DONENoneNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the \047annotation_typing\047 directive to False.Option unsup""ported: %sRead callback returned Tornado selectorUnexpected curl multi state in process_data, please open an issue on GitHub\nWrap an event loop to add implementations of the ``add_reader`` method family.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user; all callbacks are\n    run on the wrapped event loop\047s thread.\n\n    This class is used automatically by Tornado; applications should not need\n    to refer to it directly.\n\n    It is safe to wrap any event loop with this class, although it only makes sense\n    for event loops that do not implement the ``add_reader`` family of methods\n    themselves (i.e. ``WindowsProactorEventLoop``)\n\n    Closing the ``AddThreadSelectorEventLoop`` also closes the wrapped event loop.\n\n    Wrote bytes != received bytes.add_noteasyncio.AbstractEventLoopcollections.abccycurl/_asyncio_selector.pxicycurl/_curl.pyxcycurl/utils.pxidict[_FileDescriptorLike, Callable]disableenablegcgetinfo isenabledlist[_FileDescriptorLike]no default __reduce__ due to non-trivial __cinit__self.form cannot be converted to a Python object for picklingself.frame cannot be converted to a Python object for picklingset cacertset proxy cacertsetopt typing.AsyncGenerator[None, None]unable to allocate array data.unable to allocate shape and strides.{:02X}{:02x}<lambda>ASCIIAbstractEventLoopAddThreadSelectorEventLoopAddThreadSelectorEventLoop.__getattribute__AddThreadSelectorEventLoop.__init__AddThreadSelectorEventLoop.add_readerAddThreadSelectorEventLoop.add_writerAddThreadSelectorEventLoop.closeAddThreadSelectorEventLoop.remove_readerAddThreadSelectorEventLoop.remove_writerAnyAsyncCurlAsyncCurl.__reduce_cython__AsyncCurl.__setstate_cython__AsyncCurl._check_errorAsyncCurl._force_timeoutAsyncCurl.add_handleAsyncCurl.closeAsyncCurl.process_dataAsyncCurl.remove_handleAsyncCurl.socket_actionCURLAUTH_ANYCURLAUTH_ANYSAFECURLAUTH_AWS_SIGV4CURLAUTH_BASICCURLAUTH_BEARERCURLAUTH_DIGESTCURLAU""TH_DIGEST_IECURLAUTH_GSSAPICURLAUTH_GSSNEGOTIATECURLAUTH_HTTPSIGCURLAUTH_NEGOTIATECURLAUTH_NONECURLAUTH_NTLMCURLAUTH_NTLM_WBCURLAUTH_ONLYCURLE_ABORTED_BY_CALLBACKCURLE_AGAINCURLE_ALREADY_COMPLETECURLE_AUTH_ERRORCURLE_BAD_CALLING_ORDERCURLE_BAD_CONTENT_ENCODINGCURLE_BAD_DOWNLOAD_RESUMECURLE_BAD_FUNCTION_ARGUMENTCURLE_BAD_PASSWORD_ENTEREDCURLE_CHUNK_FAILEDCURLE_CONV_FAILEDCURLE_CONV_REQDCURLE_COULDNT_CONNECTCURLE_COULDNT_RESOLVE_HOSTCURLE_COULDNT_RESOLVE_PROXYCURLE_ECH_REQUIREDCURLE_FAILED_INITCURLE_FILESIZE_EXCEEDEDCURLE_FILE_COULDNT_READ_FILECURLE_FTP_ACCEPT_FAILEDCURLE_FTP_ACCEPT_TIMEOUTCURLE_FTP_ACCESS_DENIEDCURLE_FTP_BAD_DOWNLOAD_RESUMECURLE_FTP_BAD_FILE_LISTCURLE_FTP_CANT_GET_HOSTCURLE_FTP_CANT_RECONNECTCURLE_FTP_COULDNT_GET_SIZECURLE_FTP_COULDNT_RETR_FILECURLE_FTP_COULDNT_SET_ASCIICURLE_FTP_COULDNT_SET_BINARYCURLE_FTP_COULDNT_SET_TYPECURLE_FTP_COULDNT_STOR_FILECURLE_FTP_COULDNT_USE_RESTCURLE_FTP_PARTIAL_FILECURLE_FTP_PORT_FAILEDCURLE_FTP_PRET_FAILEDCURLE_FTP_QUOTE_ERRORCURLE_FTP_SSL_FAILEDCURLE_FTP_USER_PASSWORD_INCORRECTCURLE_FTP_WEIRD_227_FORMATCURLE_FTP_WEIRD_PASS_REPLYCURLE_FTP_WEIRD_PASV_REPLYCURLE_FTP_WEIRD_SERVER_REPLYCURLE_FTP_WEIRD_USER_REPLYCURLE_FTP_WRITE_ERRORCURLE_FUNCTION_NOT_FOUNDCURLE_GOT_NOTHINGCURLE_HTTP2CURLE_HTTP2_STREAMCURLE_HTTP3CURLE_HTTP_NOT_FOUNDCURLE_HTTP_PORT_FAILEDCURLE_HTTP_POST_ERRORCURLE_HTTP_RANGE_ERRORCURLE_HTTP_RETURNED_ERRORCURLE_INTERFACE_FAILEDCURLE_LDAP_CANNOT_BINDCURLE_LDAP_INVALID_URLCURLE_LDAP_SEARCH_FAILEDCURLE_LIBRARY_NOT_FOUNDCURLE_LOGIN_DENIEDCURLE_MALFORMAT_USERCURLE_NOT_BUILT_INCURLE_NO_CONNECTION_AVAILABLECURLE_OBSOLETECURLE_OBSOLETE10CURLE_OBSOLETE12CURLE_OBSOLETE16CURLE_OBSOLETE20CURLE_OBSOLETE24CURLE_OBSOLETE29CURLE_OBSOLETE32CURLE_OBSOLETE34CURLE_OBSOLETE40CURLE_OBSOLETE41CURLE_OBSOLETE44CURLE_OBSOLETE46CURLE_OBSOLETE50CURLE_OBSOLETE51CURLE_OBSOLETE57CURLE_OBSOLETE62CURLE_OBSOLETE75CURLE_OBSOLETE76CURLE_OKCURLE_OPERATION_TIMEDOUTCURLE_OPERATION_TIMEOUTEDCURLE_OUT_OF_MEMORYCURLE_PARTIAL_FILECURLE_PEER_FAILED_VE""RIFICATIONCURLE_PROXYCURLE_QUIC_CONNECT_ERRORCURLE_QUOTE_ERRORCURLE_RANGE_ERRORCURLE_READ_ERRORCURLE_RECURSIVE_API_CALLCURLE_RECV_ERRORCURLE_REMOTE_ACCESS_DENIEDCURLE_REMOTE_DISK_FULLCURLE_REMOTE_FILE_EXISTSCURLE_REMOTE_FILE_NOT_FOUNDCURLE_RTSP_CSEQ_ERRORCURLE_RTSP_SESSION_ERRORCURLE_SEND_ERRORCURLE_SEND_FAIL_REWINDCURLE_SETOPT_OPTION_SYNTAXCURLE_SHARE_IN_USECURLE_SSHCURLE_SSL_CACERTCURLE_SSL_CACERT_BADFILECURLE_SSL_CERTPROBLEMCURLE_SSL_CIPHERCURLE_SSL_CLIENTCERTCURLE_SSL_CONNECT_ERRORCURLE_SSL_CRL_BADFILECURLE_SSL_ENGINE_INITFAILEDCURLE_SSL_ENGINE_NOTFOUNDCURLE_SSL_ENGINE_SETFAILEDCURLE_SSL_INVALIDCERTSTATUSCURLE_SSL_ISSUER_ERRORCURLE_SSL_PEER_CERTIFICATECURLE_SSL_PINNEDPUBKEYNOTMATCHCURLE_SSL_SHUTDOWN_FAILEDCURLE_TELNET_OPTION_SYNTAXCURLE_TFTP_DISKFULLCURLE_TFTP_EXISTSCURLE_TFTP_ILLEGALCURLE_TFTP_NOSUCHUSERCURLE_TFTP_NOTFOUNDCURLE_TFTP_PERMCURLE_TFTP_UNKNOWNIDCURLE_TOO_LARGECURLE_TOO_MANY_REDIRECTSCURLE_UNKNOWN_OPTIONCURLE_UNKNOWN_TELNET_OPTIONCURLE_UNRECOVERABLE_POLLCURLE_UNSUPPORTED_PROTOCOLCURLE_UPLOAD_FAILEDCURLE_URL_MALFORMATCURLE_URL_MALFORMAT_USERCURLE_USE_SSL_FAILEDCURLE_WEIRD_SERVER_REPLYCURLE_WRITE_ERRORCURLFOLLOW_ALLCURLFOLLOW_FIRSTONLYCURLFOLLOW_OBEYCODECURLFOLLOW_SAFECURLINFO_ACTIVESOCKETCURLINFO_APPCONNECT_TIMECURLINFO_APPCONNECT_TIME_TCURLINFO_CAINFOCURLINFO_CAPATHCURLINFO_CERTINFOCURLINFO_CONDITION_UNMETCURLINFO_CONNECT_TIMECURLINFO_CONNECT_TIME_TCURLINFO_CONN_IDCURLINFO_CONTENT_LENGTH_DOWNLOADCURLINFO_CONTENT_LENGTH_DOWNLOAD_TCURLINFO_CONTENT_LENGTH_UPLOADCURLINFO_CONTENT_LENGTH_UPLOAD_TCURLINFO_CONTENT_TYPECURLINFO_COOKIECHANGESCURLINFO_COOKIELISTCURLINFO_DATA_INCURLINFO_DATA_OUTCURLINFO_EARLYDATA_SENT_TCURLINFO_EFFECTIVE_METHODCURLINFO_EFFECTIVE_URLCURLINFO_ENDCURLINFO_FILETIMECURLINFO_FILETIME_TCURLINFO_FTP_ENTRY_PATHCURLINFO_HEADER_INCURLINFO_HEADER_OUTCURLINFO_HEADER_SIZECURLINFO_HTTPAUTH_AVAILCURLINFO_HTTPAUTH_USEDCURLINFO_HTTP_CONNECTCODECURLINFO_HTTP_VERSIONCURLINFO_LASTONECURLINFO_LASTSOCKETCURLINFO_LOCAL_IPCURLINFO_LOCAL_PORTCURLINFO_NAM""ELOOKUP_TIMECURLINFO_NAMELOOKUP_TIME_TCURLINFO_NONECURLINFO_NUM_CONNECTSCURLINFO_OS_ERRNOCURLINFO_POSTTRANSFER_TIME_TCURLINFO_PRETRANSFER_TIMECURLINFO_PRETRANSFER_TIME_TCURLINFO_PRIMARY_IPCURLINFO_PRIMARY_PORTCURLINFO_PRIVATECURLINFO_PROTOCOLCURLINFO_PROXYAUTH_AVAILCURLINFO_PROXYAUTH_USEDCURLINFO_PROXY_ERRORCURLINFO_PROXY_SSL_VERIFYRESULTCURLINFO_QUEUE_TIME_TCURLINFO_REDIRECT_COUNTCURLINFO_REDIRECT_HISTORYCURLINFO_REDIRECT_TIMECURLINFO_REDIRECT_TIME_TCURLINFO_REDIRECT_URLCURLINFO_REFERERCURLINFO_REQUEST_SIZECURLINFO_RESPONSE_CODECURLINFO_RETRY_AFTERCURLINFO_RTSP_CLIENT_CSEQCURLINFO_RTSP_CSEQ_RECVCURLINFO_RTSP_SERVER_CSEQCURLINFO_RTSP_SESSION_IDCURLINFO_SCHEMECURLINFO_SIZE_DELIVEREDCURLINFO_SIZE_DOWNLOADCURLINFO_SIZE_DOWNLOAD_TCURLINFO_SIZE_UPLOADCURLINFO_SIZE_UPLOAD_TCURLINFO_SPEED_DOWNLOADCURLINFO_SPEED_DOWNLOAD_TCURLINFO_SPEED_UPLOADCURLINFO_SPEED_UPLOAD_TCURLINFO_SSL_DATA_INCURLINFO_SSL_DATA_OUTCURLINFO_SSL_ENGINESCURLINFO_SSL_VERIFYRESULTCURLINFO_STARTTRANSFER_TIMECURLINFO_STARTTRANSFER_TIME_TCURLINFO_TEXTCURLINFO_TLS_SESSIONCURLINFO_TLS_SSL_PTRCURLINFO_TOTAL_TIMECURLINFO_TOTAL_TIME_TCURLINFO_USED_PROXYCURLINFO_XFER_IDCURLMOPT_CHUNK_LENGTH_PENALTY_SIZECURLMOPT_CONTENT_LENGTH_PENALTY_SIZECURLMOPT_MAXCONNECTSCURLMOPT_MAX_CONCURRENT_STREAMSCURLMOPT_MAX_HOST_CONNECTIONSCURLMOPT_MAX_PIPELINE_LENGTHCURLMOPT_MAX_TOTAL_CONNECTIONSCURLMOPT_NETWORK_CHANGEDCURLMOPT_NOTIFYDATACURLMOPT_NOTIFYFUNCTIONCURLMOPT_PIPELININGCURLMOPT_PIPELINING_SERVER_BLCURLMOPT_PIPELINING_SITE_BLCURLMOPT_PUSHDATACURLMOPT_PUSHFUNCTIONCURLMOPT_QUICK_EXITCURLMOPT_RESOLVE_THREADS_MAXCURLMOPT_SOCKETDATACURLMOPT_SOCKETFUNCTIONCURLMOPT_TIMERDATACURLMOPT_TIMERFUNCTIONCURLMSG_DONECURLMSG_LASTCURLMSG_NONECURLOPT_ABSTRACT_UNIX_SOCKETCURLOPT_ACCEPTTIMEOUT_MSCURLOPT_ACCEPT_ENCODINGCURLOPT_ADDRESS_SCOPECURLOPT_ALTSVCCURLOPT_ALTSVC_CTRLCURLOPT_APPENDCURLOPT_AUTOREFERERCURLOPT_AWS_SIGV4CURLOPT_BUFFERSIZECURLOPT_CAINFOCURLOPT_CAINFO_BLOBCURLOPT_CAPATHCURLOPT_CA_CACHE_TIMEOUTCURLOPT_CERTINFOCURLOPT_CHUNK_BGN_FUNCTI""ONCURLOPT_CHUNK_DATACURLOPT_CHUNK_END_FUNCTIONCURLOPT_CLOSEPOLICYCURLOPT_CLOSESOCKETDATACURLOPT_CLOSESOCKETFUNCTIONCURLOPT_CONNECTTIMEOUTCURLOPT_CONNECTTIMEOUT_MSCURLOPT_CONNECT_ONLYCURLOPT_CONNECT_TOCURLOPT_CONV_FROM_NETWORK_FUNCTIONCURLOPT_CONV_FROM_UTF8_FUNCTIONCURLOPT_CONV_TO_NETWORK_FUNCTIONCURLOPT_COOKIECURLOPT_COOKIEFILECURLOPT_COOKIEJARCURLOPT_COOKIELISTCURLOPT_COOKIESESSIONCURLOPT_COPYPOSTFIELDSCURLOPT_CRLFCURLOPT_CRLFILECURLOPT_CURLUCURLOPT_CUSTOMREQUESTCURLOPT_DEBUGDATACURLOPT_DEBUGFUNCTIONCURLOPT_DEFAULT_PROTOCOLCURLOPT_DIRLISTONLYCURLOPT_DISALLOW_USERNAME_IN_URLCURLOPT_DNS_CACHE_TIMEOUTCURLOPT_DNS_INTERFACECURLOPT_DNS_LOCAL_IP4CURLOPT_DNS_LOCAL_IP6CURLOPT_DNS_SERVERSCURLOPT_DNS_SHUFFLE_ADDRESSESCURLOPT_DNS_USE_GLOBAL_CACHECURLOPT_DOH_SSL_VERIFYHOSTCURLOPT_DOH_SSL_VERIFYPEERCURLOPT_DOH_SSL_VERIFYSTATUSCURLOPT_DOH_URLCURLOPT_ECHCURLOPT_EGDSOCKETCURLOPT_ENCODINGCURLOPT_ERRORBUFFERCURLOPT_EXPECT_100_TIMEOUT_MSCURLOPT_FAILONERRORCURLOPT_FILECURLOPT_FILETIMECURLOPT_FNMATCH_DATACURLOPT_FNMATCH_FUNCTIONCURLOPT_FOLLOWLOCATIONCURLOPT_FORBID_REUSECURLOPT_FORM_BOUNDARYCURLOPT_FRESH_CONNECTCURLOPT_FTPAPPENDCURLOPT_FTPLISTONLYCURLOPT_FTPPORTCURLOPT_FTPSSLAUTHCURLOPT_FTP_ACCOUNTCURLOPT_FTP_ALTERNATIVE_TO_USERCURLOPT_FTP_CREATE_MISSING_DIRSCURLOPT_FTP_FILEMETHODCURLOPT_FTP_RESPONSE_TIMEOUTCURLOPT_FTP_SKIP_PASV_IPCURLOPT_FTP_SSLCURLOPT_FTP_SSL_CCCCURLOPT_FTP_USE_EPRTCURLOPT_FTP_USE_EPSVCURLOPT_FTP_USE_PRETCURLOPT_GSSAPI_DELEGATIONCURLOPT_HAPPY_EYEBALLS_TIMEOUT_MSCURLOPT_HAPROXYPROTOCOLCURLOPT_HAPROXY_CLIENT_IPCURLOPT_HEADERCURLOPT_HEADERDATACURLOPT_HEADERFUNCTIONCURLOPT_HEADEROPTCURLOPT_HSTSCURLOPT_HSTSREADDATACURLOPT_HSTSREADFUNCTIONCURLOPT_HSTSWRITEDATACURLOPT_HSTSWRITEFUNCTIONCURLOPT_HSTS_CTRLCURLOPT_HTTP09_ALLOWEDCURLOPT_HTTP200ALIASESCURLOPT_HTTP2_NO_PRIORITYCURLOPT_HTTP2_PSEUDO_HEADERS_ORDERCURLOPT_HTTP2_SETTINGSCURLOPT_HTTP2_STREAMSCURLOPT_HTTP2_WINDOW_UPDATECURLOPT_HTTP3_HTTPHEADERCURLOPT_HTTP3_HTTPHEADER_ORDERCURLOPT_HTTP3_PSEUDO_HEADERS_ORDERCURLOPT_HTTP3_SETT""INGSCURLOPT_HTTP3_SIG_HASH_ALGSCURLOPT_HTTP3_SSL_EC_CURVESCURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONSCURLOPT_HTTP3_TLS_EXTENSION_ORDERCURLOPT_HTTPAUTHCURLOPT_HTTPBASEHEADERCURLOPT_HTTPGETCURLOPT_HTTPHEADERCURLOPT_HTTPHEADER_ORDERCURLOPT_HTTPPOSTCURLOPT_HTTPPROXYTUNNELCURLOPT_HTTPSIG_ALGORITHMCURLOPT_HTTPSIG_HEADERSCURLOPT_HTTPSIG_KEYCURLOPT_HTTPSIG_KEYIDCURLOPT_HTTP_CONTENT_DECODINGCURLOPT_HTTP_TRANSFER_DECODINGCURLOPT_HTTP_VERSIONCURLOPT_IGNORE_CONTENT_LENGTHCURLOPT_IMPERSONATECURLOPT_INFILECURLOPT_INFILESIZECURLOPT_INFILESIZE_LARGECURLOPT_INTERFACECURLOPT_INTERLEAVEDATACURLOPT_INTERLEAVEFUNCTIONCURLOPT_IOCTLDATACURLOPT_IOCTLFUNCTIONCURLOPT_IPRESOLVECURLOPT_ISSUERCERTCURLOPT_ISSUERCERT_BLOBCURLOPT_KEEP_SENDING_ON_ERRORCURLOPT_KEYPASSWDCURLOPT_KRB4LEVELCURLOPT_KRBLEVELCURLOPT_LOCALPORTCURLOPT_LOCALPORTRANGECURLOPT_LOGIN_OPTIONSCURLOPT_LOW_SPEED_LIMITCURLOPT_LOW_SPEED_TIMECURLOPT_MAIL_AUTHCURLOPT_MAIL_FROMCURLOPT_MAIL_RCPTCURLOPT_MAIL_RCPT_ALLLOWFAILSCURLOPT_MAIL_RCPT_ALLOWFAILSCURLOPT_MAXAGE_CONNCURLOPT_MAXCONNECTSCURLOPT_MAXFILESIZECURLOPT_MAXFILESIZE_LARGECURLOPT_MAXLIFETIME_CONNCURLOPT_MAXREDIRSCURLOPT_MAX_RECV_SPEED_LARGECURLOPT_MAX_SEND_SPEED_LARGECURLOPT_MIMEPOSTCURLOPT_MIME_OPTIONSCURLOPT_NETRCCURLOPT_NETRC_FILECURLOPT_NEW_DIRECTORY_PERMSCURLOPT_NEW_FILE_PERMSCURLOPT_NOBODYCURLOPT_NOPROGRESSCURLOPT_NOPROXYCURLOPT_NOSIGNALCURLOPT_OBSOLETE40CURLOPT_OBSOLETE72CURLOPT_OPENSOCKETDATACURLOPT_OPENSOCKETFUNCTIONCURLOPT_PASSWORDCURLOPT_PATH_AS_ISCURLOPT_PINNEDPUBLICKEYCURLOPT_PIPEWAITCURLOPT_PORTCURLOPT_POSTCURLOPT_POST301CURLOPT_POSTFIELDSCURLOPT_POSTFIELDSIZECURLOPT_POSTFIELDSIZE_LARGECURLOPT_POSTQUOTECURLOPT_POSTREDIRCURLOPT_PREQUOTECURLOPT_PREREQDATACURLOPT_PREREQFUNCTIONCURLOPT_PRE_PROXYCURLOPT_PRIVATECURLOPT_PROGRESSDATACURLOPT_PROGRESSFUNCTIONCURLOPT_PROTOCOLSCURLOPT_PROTOCOLS_STRCURLOPT_PROXYCURLOPT_PROXYAUTHCURLOPT_PROXYHEADERCURLOPT_PROXYPASSWORDCURLOPT_PROXYPORTCURLOPT_PROXYTYPECURLOPT_PROXYUSERNAMECURLOPT_PROXYUSERPWDCURLOPT_PROXY_CAINFOCURLOPT_PROXY_CAINFO_BLOBC""URLOPT_PROXY_CAPATHCURLOPT_PROXY_CREDENTIAL_NO_REUSECURLOPT_PROXY_CRLFILECURLOPT_PROXY_ISSUERCERTCURLOPT_PROXY_ISSUERCERT_BLOBCURLOPT_PROXY_KEYPASSWDCURLOPT_PROXY_PINNEDPUBLICKEYCURLOPT_PROXY_SERVICE_NAMECURLOPT_PROXY_SSLCERTCURLOPT_PROXY_SSLCERTTYPECURLOPT_PROXY_SSLCERT_BLOBCURLOPT_PROXY_SSLKEYCURLOPT_PROXY_SSLKEYTYPECURLOPT_PROXY_SSLKEY_BLOBCURLOPT_PROXY_SSLVERSIONCURLOPT_PROXY_SSL_CIPHER_LISTCURLOPT_PROXY_SSL_OPTIONSCURLOPT_PROXY_SSL_VERIFYHOSTCURLOPT_PROXY_SSL_VERIFYPEERCURLOPT_PROXY_TLS13_CIPHERSCURLOPT_PROXY_TLSAUTH_PASSWORDCURLOPT_PROXY_TLSAUTH_TYPECURLOPT_PROXY_TLSAUTH_USERNAMECURLOPT_PROXY_TRANSFER_MODECURLOPT_PUTCURLOPT_QUICK_EXITCURLOPT_QUIC_CID_LENGTHCURLOPT_QUIC_INITIAL_PACKET_NUMBERCURLOPT_QUIC_TRANSPORT_PARAMETERSCURLOPT_QUOTECURLOPT_RANDOM_FILECURLOPT_RANGECURLOPT_READDATACURLOPT_READFUNCTIONCURLOPT_REDIR_PROTOCOLSCURLOPT_REDIR_PROTOCOLS_STRCURLOPT_REFERERCURLOPT_REQUEST_TARGETCURLOPT_RESOLVECURLOPT_RESOLVER_START_DATACURLOPT_RESOLVER_START_FUNCTIONCURLOPT_RESUME_FROMCURLOPT_RESUME_FROM_LARGECURLOPT_RTSPHEADERCURLOPT_RTSP_CLIENT_CSEQCURLOPT_RTSP_REQUESTCURLOPT_RTSP_SERVER_CSEQCURLOPT_RTSP_SESSION_IDCURLOPT_RTSP_STREAM_URICURLOPT_RTSP_TRANSPORTCURLOPT_SASL_AUTHZIDCURLOPT_SASL_IRCURLOPT_SEEKDATACURLOPT_SEEKFUNCTIONCURLOPT_SERVER_RESPONSE_TIMEOUTCURLOPT_SERVER_RESPONSE_TIMEOUT_MSCURLOPT_SERVICE_NAMECURLOPT_SHARECURLOPT_SOCKOPTDATACURLOPT_SOCKOPTFUNCTIONCURLOPT_SOCKS5_AUTHCURLOPT_SOCKS5_GSSAPI_NECCURLOPT_SOCKS5_GSSAPI_SERVICECURLOPT_SPLIT_COOKIESCURLOPT_SSH_AUTH_TYPESCURLOPT_SSH_COMPRESSIONCURLOPT_SSH_HOSTKEYDATACURLOPT_SSH_HOSTKEYFUNCTIONCURLOPT_SSH_HOST_PUBLIC_KEY_MD5CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256CURLOPT_SSH_KEYDATACURLOPT_SSH_KEYFUNCTIONCURLOPT_SSH_KNOWNHOSTSCURLOPT_SSH_PRIVATE_KEYFILECURLOPT_SSH_PUBLIC_KEYFILECURLOPT_SSLCERTCURLOPT_SSLCERTPASSWDCURLOPT_SSLCERTTYPECURLOPT_SSLCERT_BLOBCURLOPT_SSLENGINECURLOPT_SSLENGINE_DEFAULTCURLOPT_SSLKEYCURLOPT_SSLKEYPASSWDCURLOPT_SSLKEYTYPECURLOPT_SSLKEY_BLOBCURLOPT_SSLVERSIONCURLOPT_SSL_CERT_COMPRESSIONCURLOPT""_SSL_CIPHER_LISTCURLOPT_SSL_CTX_DATACURLOPT_SSL_CTX_FUNCTIONCURLOPT_SSL_EC_CURVESCURLOPT_SSL_ENABLE_ALPNCURLOPT_SSL_ENABLE_ALPSCURLOPT_SSL_ENABLE_NPNCURLOPT_SSL_ENABLE_TICKETCURLOPT_SSL_FALSESTARTCURLOPT_SSL_OPTIONSCURLOPT_SSL_PERMUTE_EXTENSIONSCURLOPT_SSL_SESSIONID_CACHECURLOPT_SSL_SIGNATURE_ALGORITHMSCURLOPT_SSL_SIG_HASH_ALGSCURLOPT_SSL_VERIFYHOSTCURLOPT_SSL_VERIFYPEERCURLOPT_SSL_VERIFYSTATUSCURLOPT_STDERRCURLOPT_STREAM_DEPENDSCURLOPT_STREAM_DEPENDS_ECURLOPT_STREAM_EXCLUSIVECURLOPT_STREAM_WEIGHTCURLOPT_SUPPRESS_CONNECT_HEADERSCURLOPT_TCP_FASTOPENCURLOPT_TCP_KEEPALIVECURLOPT_TCP_KEEPCNTCURLOPT_TCP_KEEPIDLECURLOPT_TCP_KEEPINTVLCURLOPT_TCP_NODELAYCURLOPT_TELNETOPTIONSCURLOPT_TFTP_BLKSIZECURLOPT_TFTP_NO_OPTIONSCURLOPT_TIMECONDITIONCURLOPT_TIMEOUTCURLOPT_TIMEOUT_MSCURLOPT_TIMEVALUECURLOPT_TIMEVALUE_LARGECURLOPT_TLS13_CIPHERSCURLOPT_TLSAUTH_PASSWORDCURLOPT_TLSAUTH_TYPECURLOPT_TLSAUTH_USERNAMECURLOPT_TLS_DELEGATED_CREDENTIALSCURLOPT_TLS_EXTENSION_ORDERCURLOPT_TLS_GREASECURLOPT_TLS_KEY_SHARES_LIMITCURLOPT_TLS_KEY_USAGE_NO_CHECKCURLOPT_TLS_RECORD_SIZE_LIMITCURLOPT_TLS_SIGNED_CERT_TIMESTAMPSCURLOPT_TLS_STATUS_REQUESTCURLOPT_TLS_TRUST_ANCHORSCURLOPT_TLS_USE_NEW_ALPS_CODEPOINTCURLOPT_TRAILERDATACURLOPT_TRAILERFUNCTIONCURLOPT_TRANSFERTEXTCURLOPT_TRANSFER_ENCODINGCURLOPT_UNIX_SOCKET_PATHCURLOPT_UNRESTRICTED_AUTHCURLOPT_UPKEEP_INTERVAL_MSCURLOPT_UPLOADCURLOPT_UPLOAD_BUFFERSIZECURLOPT_UPLOAD_FLAGSCURLOPT_URLCURLOPT_USERAGENTCURLOPT_USERNAMECURLOPT_USERPWDCURLOPT_USE_SSLCURLOPT_VERBOSECURLOPT_WILDCARDMATCHCURLOPT_WRITEDATACURLOPT_WRITEFUNCTIONCURLOPT_WRITEHEADERCURLOPT_WRITEINFOCURLOPT_WS_HTTPHEADERCURLOPT_WS_HTTPHEADER_ORDERCURLOPT_WS_OPTIONSCURLOPT_WS_SSL_CERT_COMPRESSIONCURLOPT_WS_SSL_DISABLE_TICKETCURLOPT_XFERINFODATACURLOPT_XFERINFOFUNCTIONCURLOPT_XOAUTH2_BEARERCURLPAUSE_ALLCURLPAUSE_CONTCURLPAUSE_RECVCURLPAUSE_RECV_CONTCURLPAUSE_SENDCURLPAUSE_SEND_CONTCURLPIPE_HTTP1CURLPIPE_MULTIPLEXCURLPIPE_NOTHINGCURLSHE_BAD_OPTIONCURLSHE_INVALIDCURLSHE_IN_USECURLSHE_LASTCURLSHE_NOMEMCURLS""HE_NOT_BUILT_INCURLSHE_OKCURLSHOPT_LASTCURLSHOPT_LOCKFUNCCURLSHOPT_NONECURLSHOPT_SHARECURLSHOPT_UNLOCKFUNCCURLSHOPT_UNSHARECURLSHOPT_USERDATACURLSSH_AUTH_AGENTCURLSSH_AUTH_ANYCURLSSH_AUTH_DEFAULTCURLSSH_AUTH_GSSAPICURLSSH_AUTH_HOSTCURLSSH_AUTH_KEYBOARDCURLSSH_AUTH_NONECURLSSH_AUTH_PASSWORDCURLSSH_AUTH_PUBLICKEYCURLWS_BINARYCURLWS_CLOSECURLWS_CONTCURLWS_NOAUTOPONGCURLWS_OFFSETCURLWS_PINGCURLWS_PONGCURLWS_RAW_MODECURLWS_TEXTCURL_CA_BUNDLECURL_CSELECT_ERRCURL_CSELECT_INCURL_CSELECT_OUTCURL_ERROR_SIZECURL_FNMATCHFUNC_FAILCURL_FNMATCHFUNC_MATCHCURL_FNMATCHFUNC_NOMATCHCURL_HTTP_VERSION_1_0CURL_HTTP_VERSION_1_1CURL_HTTP_VERSION_2CURL_HTTP_VERSION_2TLSCURL_HTTP_VERSION_2_0CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGECURL_HTTP_VERSION_3CURL_HTTP_VERSION_3ONLYCURL_HTTP_VERSION_LASTCURL_HTTP_VERSION_NONECURL_IPRESOLVE_V4CURL_IPRESOLVE_V6CURL_IPRESOLVE_WHATEVERCURL_LOCK_ACCESS_LASTCURL_LOCK_ACCESS_NONECURL_LOCK_ACCESS_SHAREDCURL_LOCK_ACCESS_SINGLECURL_LOCK_DATA_CONNECTCURL_LOCK_DATA_COOKIECURL_LOCK_DATA_DNSCURL_LOCK_DATA_HSTSCURL_LOCK_DATA_LASTCURL_LOCK_DATA_NONECURL_LOCK_DATA_PSLCURL_LOCK_DATA_SHARECURL_LOCK_DATA_SSL_SESSIONCURL_POLL_INCURL_POLL_INOUTCURL_POLL_NONECURL_POLL_OUTCURL_POLL_REMOVECURL_PREREQFUNC_ABORTCURL_PREREQFUNC_OKCURL_READFUNC_ABORTCURL_READFUNC_PAUSECURL_SEEKFUNC_CANTSEEKCURL_SEEKFUNC_FAILCURL_SEEKFUNC_OKCURL_SOCKET_BADCURL_SOCKET_TIMEOUTCURL_SSLVERSION_DEFAULTCURL_SSLVERSION_LASTCURL_SSLVERSION_MAX_DEFAULTCURL_SSLVERSION_MAX_LASTCURL_SSLVERSION_MAX_NONECURL_SSLVERSION_MAX_TLSv1_0CURL_SSLVERSION_MAX_TLSv1_1CURL_SSLVERSION_MAX_TLSv1_2CURL_SSLVERSION_MAX_TLSv1_3CURL_SSLVERSION_SSLv2CURL_SSLVERSION_SSLv3CURL_SSLVERSION_TLSv1CURL_SSLVERSION_TLSv1_0CURL_SSLVERSION_TLSv1_1CURL_SSLVERSION_TLSv1_2CURL_SSLVERSION_TLSv1_3CURL_TRAILERFUNC_ABORTCURL_TRAILERFUNC_OKCURL_WRITEFUNC_ERRORCURL_WRITEFUNC_PAUSECallableCancelledErrorConditionCurlCurl.__reduce_cython__Curl.__setstate_cython__Curl._get_callback_exceptionCurl.clean_handles_and_buffersCurl.closeCurl.debugCurl.duphandleCurl.ge""t_reason_phraseCurl.getinfoCurl.impersonateCurl.parse_cookie_headersCurl.parse_status_lineCurl.pauseCurl.performCurl.resetCurl.setoptCurl.upkeepCurl.versionCurl.ws_closeCurl.ws_metaCurl.ws_recvCurl.ws_sendCurlErrorCurlError.__init__CurlMimeCurlMime.__reduce_cython__CurlMime.__setstate_cython__CurlMime.addpartCurlMime.attachCurlMime.closeCurlMime.from_listCurlShareCurlShare.__reduce_cython__CurlShare.__setstate_cython__CurlShare._cleanupCurlShare._setoptCurlShare.closeCurlShare.shareCurlShare.unshareCurlWarningDEFAULT_CACERTEBADFEllipsisLockMAX_SHOW_BYTESMY_ATTRIBUTESNoneOptionalPREFIXESPROACTOR_WARNINGPathProactorEventLoopProtocolREASON_PHRASE_REREQUESTS_CA_BUNDLESSL_CERT_FILESTATUS_LINE_RESelectorThreadSelectorThread.__init__SelectorThread.__init__.<locals>.<lambda>SelectorThread.__init__.<locals>.thread_manager_anextSelectorThread._consume_wakerSelectorThread._handle_eventSelectorThread._handle_selectSelectorThread._run_selectSelectorThread._start_selectSelectorThread._thread_managerSelectorThread._wake_selectorSelectorThread.add_readerSelectorThread.add_writerSelectorThread.closeSelectorThread.remove_readerSelectorThread.remove_writerSequenceSimpleCookieThreadTypeVarUnionView.MemoryViewWSAENOTSOCKWSFrameWSFrame.__reduce_cython__WSFrame.__setstate_cython__WS_RECVWS_SENDWeakKeyDictionaryWeakSet__CallbackContext_CallbackContext.__reduce_cython___CallbackContext.__setstate_cython___FileDescriptorLike_HasFileno_HasFileno.fileno_T__Pyx_PyDict_NextRef__anext____annotate____await____class____class_getitem____dict____doc____enter____exit____func____getattribute____getstate____import____init____main____metaclass____module____mro_entries____name____new____prepare____pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_unpickle__CallbackContext__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex____set_name____setstate____setstate_cython____test___atexit_callback_check_error_cleanup_close_selector_and_loop_closed_closing_selector_consume_waker_de""fault_cacert_dict_force_timeout_get_callback_exception_handle_event_handle_select_is_coroutine_readers_real_loop_run_select_select_args_select_cond_selector_selector_loops_selectors_setopt_start_select_thread_thread_manager_thread_manager_handle_wake_selector_waker_r_waker_w_writersaabcacquireactionaddadd_handleadd_readeradd_writeraddpartallocate_bufferargsasyncioasyncio.coroutinesasyncio_loopatexitattachbackslashreplacebaseboolbytebytesbytes_to_hex.<locals>.genexprccacertcafilecall_latercall_sooncall_soon_threadsafecallbackcancelcancelledcategorycb_mapcertificlean_handles_and_buffersclearclear_headersclear_resolvecline_in_tracebackcloseclscodecollections.abccompileconfig_warningsconnectcontent_typecontextlibcookiecountcreate_futurecreate_taskcurl_cycurl._curldaemondatadebugdebug_function_defaultdecodedefaultdefault_headersdiscarddnsdonedtype_is_objectduphandleeencodeenumerateenvironerrcodeerrmsgerrnoerrorerrorsev_bitmaskexceptionexistsfdfilefilenamefilenofilesflagsformformatfortranframefrom_listfunctoolsfuturegenexprgetget_default_verify_pathsget_reason_phraseget_running_loopget_selectorget_selector.<locals>._close_selector_and_loopgetinfogetpreferredencodinggrouphandleheaderheadershex_strhttp.cookieshttp_versionidignoreimpersonateindexintis_proitemsitemsizejoinkeyskwargsloadlocal_pathlocalelooploop_closelowermmatchmemviewmessagemodemsgnamendimnextnotifyobjonoptionospackparse_cookie_headersparse_status_linepartialpathpathlibpausepayloadperformplatformpoppostfixprefixprintprocess_datarrereadreal_loopreasonrecvregisterreleaseremove_handleremove_readerremove_writerresetreturnrsseekselectselector_loopselfsendset_exceptionset_resultsetblockingsetdefaultsetoptshapesharesimplefiltersizesleepsocketsocket_actionsocketpairsockfdsslssl_sessionstacklevelstartstartswithstatestaticmethodstatus_codestatus_linestderrstepstopstrstrictstructsupersuppresssystargettextthread_manager_anextthreadingthrowto_readto_writetupletype_typingunpackunshareupdateupkeepuse_setstatevaluevaluesversi""onwwaitwarnwarningsweakrefwherewinwin32writewsws_closews_metaws_recvws_sendxxs1.01.12.0HTTP/(\\d\\.\\d) ([0-9]{3}) (.*)HTTP/\\d\\.\\d [0-9]{3} (.*)Oaset-cookie: \200\001\330\004\n\210+\220Q\200\001\330\004.\250a\250v\260Q\200\001\340\004\010\210\013\2201\320\024%\320%7\260q\330\010\017\210r\220\030\230\024\230Q\230a\330\010\013\2105\220\004\220B\220e\2307\240!\2401\330\014\023\2201\360\006\000\005\020\210s\320\022+\2501\330\004\007\200x\210x\220t\2302\230U\240\047\250\021\250(\260!\330\010\017\210x\220q\360\006\000\005\014\2107\220&\230\001\200\001\340\004\013\210;\220m\2401\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\320\023#\2408\2501\250A\330\004\007\200|\2207\230!\330\0102\260!\3203F\300n\320TU\330\004\013\2101\200\001\360\010\000\n\033\230!\330\010\021\220\024\220[\240\004\240A\330\010\020\220\007\220q\230\006\230l\250!\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\230:\240W\250E\260\023\260D\270\013\3007\310!\330\004\007\200q\330\010\017\320\0171\260\024\260Q\260g\270[\310\007\310q\340\010\017\320\0171\260\024\260Q\260g\270[\310\001\200A\330\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026\047\240q\250\004\250A\330\010\017\210q\200A\330\010\013\2108\2207\230!\330\014\r\330\010&\320&:\270!\2701\330\010\032\230#\230U\240!\2401\240C\240q\250\003\2504\250u\260A\330\010\016\210i\220q\330\014\030\230\001\320\031*\250!\250:\260Q\3206J\310!\3101\200A\330\0103\260=\300\001\300\024\300Q\330\010\026\220i\230q\240\001\200A\330\0221\260\021\330\t\n\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210N\230!\200A\330\0221\260\021\330\t\n\330\010\014\210I\220Q\220f\230I\240X\250Q\250k\270\021\330\010\014\210O\2301\200A\33001\340\010\014\320\014\034\230F\240!\2401\330\010\017\210q\220\006\220a\220v\230W\240A\200A\33001\360\n\000\t\r\210N\230&\240\001\240\021\330\010\013\2104\210q\330\014""\023\320\023*\250#\250Q\330\010\013\2101\210F\220!\2203\220c\230\021\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\340\014\033\2301\330\010\026\220c\230\021\230!\2306\240\021\240!\330\010\021\220\021\220&\230\001\230\021\340\010\017\210~\230]\250!\200A\340\010\013\2104\210t\2201\330\014\024\220E\230\021\330\020D\300M\320Q\\\320\\]\340\014\r\340\010\014\210N\230!\2308\2401\360\016\000\t\n\330\014\r\330\020\037\320\0374\260A\260T\270\031\300!\3001\340\020\023\2209\230C\230q\330\024\025\330\020\023\2208\2305\240\007\240q\330\024\034\230F\240$\240k\260\021\260+\270W\300H\310A\330\024\036\230h\240e\2501\330\024)\250\025\320.F\300a\330\024\027\320\027*\250\047\260\021\330\030\034\230N\250!\2507\260!\330\031!\240\023\240A\330\030\034\230K\240q\250\001\340\030\034\230N\250!\2507\260%\260{\300!\3009\310A\340\024\031\230\021\230!\330\023\024\330\020\030\230\005\230Q\330\024\025\340\024\025\330\024\037\230q\200A\340\010\014\210G\2201\200A\340\010\014\210G\2205\320\030*\250!\330\010\014\210G\2205\320\0300\260\001\200A\340\010\014\210H\220E\320\031+\2501\200A\340\010\014\210H\220E\320\031-\250Q\200A\340\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\013\2104\210q\330\021\022\330\024$\240A\240T\250\021\330\014\020\320\020\"\240!\330\010\013\2104\210z\230\023\230A\330\020$\240A\240T\250\021\330\014\020\220\014\230A\200A\340\010\017\210{\230-\240q\200A\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027""\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\017\210q\200A\340\010\035\230T\240\034\250Q\250a\330\010\013\2107\220$\220d\230&\240\005\240S\250\004\250D\260\006\260j\300\001\330\014\022\220\047\230\021\200A\340\014\r\330\020\021\330\t\n\330\010\t\330\014\027\220v\230Q\230a\330\017\020\330\014\r\330\010\020\220\001\200A\340\014\r\330\022\023\340\t\n\330\010\017\210t\220:\230[\250\001\250\024\250[\270\001\200A\340\014\034\230A\340\010\013\2106\220\026\320\027(\250\003\2506\260\026\260q\330\014\025\220U\230!\330\014\026\220g\230Q\230a\340\014\026\320\026*\250!\2507\260!\340\r\016\330\014\027\320\027*\250!\2504\250~\270X\300Q\330\010\013\2105\220\007\220q\330\014\025\220\\\320!5\260Q\260f\270G\3001\330\014\022\220)\2301\320\0349\270\021\270)\3001\300J\310e\320ST\200A\340\r\016\330\014\017\210t\2204\220y\240\004\240D\250\001\330\020\033\320\033.\250a\250t\2601\330\020\023\2205\230\007\230q\330\024\033\2301\330\020\024\220K\230q\330\020\024\220O\2401\330\010\023\2201\200A\360\006\000\t\036\230S\240\001\330\010\014\210H\220A\330\014\020\220\010\230\003\2301\330\010\017\210q\200A\360\006\000\r\034\2301\230D\240\001\330\010\014\210H\220A\200A\360\006\000\034\035\330\027\030\330\034\035\330\026\027\360\026\000\t-\320,>\270a\270t\3001\340\010\037\230t\2407\250!\330\010\022\220/\240\021\240&""\250\016\260a\330\010\013\2104\210s\220!\330\014\022\220)\2301\230A\360\010\000\t\014\210=\230\007\230q\330\014 \240\014\250G\2601\330\014\026\220o\240Q\240f\250N\270!\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\210;\220g\230U\240$\240e\2507\260!\330\014\022\220)\2301\230A\360\006\000\t\014\210;\220g\230Q\330\014\017\210z\230\021\230,\240a\330\020!\240\023\240A\240Q\330\021\033\2301\230L\250\001\330\020!\240\032\2507\260!\340\020!\240\021\340\014\017\210t\2204\220q\230\017\240w\250a\330\020\026\320\026\047\240q\320(<\270A\270Q\330\014\026\320\026)\250\021\250&\3200@\300\001\300\021\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\360\006\000\t\014\2109\220G\2301\330\014\026\320\026)\250\021\250&\3200@\300\001\300\021\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\2105\220\007\220q\330\014\017\210t\220:\230Q\230f\240A\330\020\027\220s\230!\2305\240\007\240q\330\014\026\220o\240Q\240f\250N\270&\320@P\320PQ\320QR\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\200A\360\010\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\r\016\330\014\035\320\0351\260\021\260$\260a\330\010\013\210;\220c\230\021\330\014\r\330\010\014\210D\220\001\220\024\220Z\230t\2409\250M\270\021\270\047\300\034\310V\320ST\340\010\013\2104\210x\220w\230a\330\014\r\210W\220E\320\031)\250\035\260a\260t\2707\300.\320PV\320VW\330\014\r\210Z\220t\2301\330\010\017\210q\200A\360\010\000\t\016\210_\230A\340\r\016\330\014\032\320\0320\260\001\260\024\260Y\270e\3001\330\010\014\210M\230\021\230!\330\010\021\220\024\220U\230.\250\001\330\010\014\210M\230\021\230)\2401\330\010\014\210K\220q\230\013\2407\250%\250z\270\021\330\010\017\210q\200A\360\016\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\020\000\016\017\330\014\026\220m\2401\240D\250\001\330$(\250\001\330$(\250\001\330$%\240T\250\021\330$A\300\021\300$\300a\330\010\013\2101\330\014\020\220\r\230Q\230e\2401\360\006\000\t\020\210w\220d\320\032*\250\"\250D\3200J""\310)\320ST\320TX\320XY\200A\360\016\000\t\020\210t\2209\230A\330\010\013\2105\220\007\220q\330\014\025\220\\\320!5\260Q\260f\270G\3001\330\014\022\220)\2301\320\034<\270A\270Z\300u\310A\200A\3602\000\r\025\220A\330\014\034\230A\330\014\031\230\021\330\014!\240\021\330\014\035\230Q\330\014(\250\001\340\010\023\2207\230\"\230A\330\010\013\2104\210w\220c\230\021\330\014\017\210y\230\003\2301\330\020\027\220q\330\021\032\230#\230Y\240c\250\031\260#\260Y\270c\300\031\310#\310Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\340\010\013\2109\220C\220q\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210x\220s\230!\330\020\027\220q\330\014\023\2207\230!\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\220?\240!\2401\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\320\023%\240Q\240a\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210y\230\003\2301\330\020\027\220q\330\014\023\220=\240\001\240\021\330\r\026\220c\230\021\330\014\026\320\0260\260\001\260\024\260X\270X\300Q\300a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210u\220K\230w\240a\330\020\027\220\177\240b\250\001\330\014\023\320\023.\250a\250q\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\2201\210\001\360\006\000\r\031\230\t\240\021\330\014\026\220d\230!\230>\250\021\330\014\031\230\026\230q\210!\210H\220D\230\013\240<\250q\3200D\300A\230a\320\000\024\220D\230\001\330\004\007\200q\330\010\020\220\r\230Q\230k\250\031\260!\340\010\020\220\r\230Q\230j\250\t\260\021\320\000\030\230\001\330\004\013\2101\320\000\032\230!\330\004\010\210\010\220\001\330\r\021""\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\330\010\013\2104\210y\230\007\230q\360\n\000\r\021\220\010\230\005\230Q\330\004\023\2206\230\021\320\000\"\240+\250Z\260q\330\004\005\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\340\004\025\220Q\330\004\r\210X\220T\230\021\230\047\240\021\360\006\000\005\010\200v\210W\320\024*\250#\250V\2607\270!\330\010\022\220,\230a\230t\2402\240Q\330\010\022\220&\230\003\2301\230F\240#\320%9\270\021\330\010\013\2107\220&\230\001\230\022\2301\230I\240Q\240c\250\021\250/\270\021\270(\300!\3001\340\010\t\330\014\023\2204\220w\230a\230q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\330\014\017\210v\220W\230O\2504\250v\260W\320<P\320PT\320TZ\320Za\320ab\330\020\023\2207\230&\240\001\240\021\330\017\020\340\014\026\220l\240!\2404\240r\250\021\330\014\026\220f\230C\230q\240\006\240c\320)=\270Q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\250#\250Q\250o\270Q\270h\300a\300q\320\004\027\220q\330\010\013\2104\210q\330\014\r\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\010\014\210O\2301\330\010\013\2104\210y\230\007\230q\330\014\020\220\010\230\005\230Q\330\010\027\220x\230q\240\001\330\010\014\210N\230!\2304\230q\330\010\014\210I\220V\2301\330\010\014\210I\220V\2301\330\010\014\210K\220q\320\004\027\220q\330\010\014\210J\220f\230A\330\010\014\210K\220v\230Q\320\004\030\230\001\330\010\017\210q\320\004\033\320\0339\270\021\330\010\017\210q\320\004\034\230E\240\026\240q\330\010\r\210R\210y\230\001\230\026\230x\240q\330\010\014\210H\220A\320\004\035\230Q\330\010\t\330\021\025\220Q\330\020\026\220d\230.\250\003\2505\260\004\260D\270\004\270A\330\024\030\230\r\240U\250!\330\020\023\2204\220q\330\024\025\330\020\027\220t\230>\250\027\260\001\330\020\031\230\033\240D\250\001\330\020\024\320\024$\240A\360\022\000\r\016\360\020\000\021\025\220D\230\005\230V\2407\250!\2509\260J\270a\330""\020\025\220S\230\002\230!\330\014\023\220;\230a\360\030\000\021\024\2201\220G\2303\230g\240Q\240g\250_\270E\300\021\330\024\030\230\003\2304\230v\240W\250A\250Q\250d\260)\2707\300%\300t\3104\310q\330\024\027\220q\330\030\035\230Q\340\030\031\340\024\025\340\014\r\330\020\024\220K\320\0374\260A\260T\3209J\310$\310a\330\023\024\360\016\000\024\025\320\004\037\230q\360\010\000\016\022\220\021\330\014\023\2204\220~\240S\250\001\330\014\020\320\020!\240\024\240Q\240d\250)\2605\270\005\270T\300\021\300$\300i\310u\320TU\330\014\020\220\r\230W\240A\320\004 \240\001\330\010\013\2104\210q\330\014\r\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004 \240\001\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004 \320 8\270\001\330\010\t\330\014\020\220\004\220I\230Q\230a\330\017\020\330\014\023\2201\330\010\014\210O\2301\330\010\017\210q\320\004 \320 :\270!\330\010\017\210t\220:\230^\2501\250A\320\004\"\320\"8\270\001\360\030\000\t\023\220&\230\005\230Q\230f\240F\250\"\250A\330\010\017\210t\2208\2301\230O\2501\320\004\"\320\"@\300\001\330\010\014\210N\230!\330\010\014\210M\230\036\240q\250\001\320\004\"\320\"@\300\001\330\010\014\210N\230!\340\010\014\320\014\034\230I\240Z\250q\330\010\014\210A\340\014\r\330\010\014\320\014!\240\021\330\010\014\320\0143\2601\330\010\014\320\014&\240d\320*:\270!\340\016,\250A\360\020\000\t\r\210K\220z\240\021\330\014\r\360\006\000\t\r\320\014=\270Q\330\010\014\320\014=\270Q\360\010\000\t\r\210K\220t\230<\240v\250[\270\001\330\010\014\210I\220\\\240\021\240!\330\010\014\210I\220\\\240\021\240!\330\010\027\220t\2301\230A\330\010\014\210K\220q\230\004\230K\240t\2501\320\004#\320#A\300\021\360\022\000\t\014\210=\230\003\2301\330\014\023\220:\230Q\230a\340\010\013\2104\210z\230\021\230.\250\007\250q\260\t\3209N\310d\320RS\320ST\330\014\023\2201\340\010\020\220\005\220Q\320\026(\250\r\260[\300\001\340\010\030\230\n\240!\320#3\3203M\310Q\310a\360\006\000\t\026\220\\\240\021\340\010\t\360\016\000\t\025\220I\230Q\330\010\017\210q""\320\004%\240X\250Q\330\010\013\2105\220\003\320\023-\250Q\330\014\023\2205\230\002\320\032+\2501\250A\330\010\017\210w\220a\220t\230=\250\001\320\004+\2501\340\010\026\220i\230v\240W\250J\260d\270!\330\010\t\210\027\220\005\320\025(\250\r\260Q\260d\270\047\300\026\300q\320\004.\250a\340\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026&\240a\240t\2508\2601\330\010\014\210M\230\021\230%\230q\330\010\017\210q\320\004/\320/K\3101\360\024\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\032\230&\240\007\240q\330\010\023\320\023)\250\021\250$\250h\260n\300F\310!\320\0044\260A\360\022\000\t\022\220\034\230Q\330\010\014\210J\220a\330\014\017\210v\220V\2302\230[\250\001\250\021\330\020\026\220e\2301\230F\240!\2404\240w\250a\330\010\017\210q\320\0048\3208S\320Sa\320ab\360\024\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\006\000\t\r\210O\2301\360\006\000\016\017\330\014\026\320\026(\250\001\250\024\250Q\330\010\t\330\014!\240\024\320%=\270Q\330\014\017\320\017\"\240\047\250\021\330\020\026\220a\330\014\020\220\r\230Q\230e\2401\330\014\023\2201\360\006\000\r\021\320\020*\250!\250?\270!\320\004D\300A\360(\000\t\014\2104\210w\220c\230\021\330\014\023\2201\340\014\034\230A\330\014\035\230W\240B\240f\250B\250a\360\010\000\t\014\210;\220c\230\026\230s\240+\250S\260\001\340\014\025\220Y\230a\330\014\026\220g\230Q\230a\330\r\024\220G\2301\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 8\270\007\270q\340\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 9\270\027\300\001\340\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 7\260w\270a\340\r\024\220G\2301\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020""\"\320\"2\260!\2601\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203L\310G\320ST\330\014\031\230\021\330\r\024\220G\2301\330\014\017\210v\220S\230\001\330\020\030\230\001\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020#\320#3\2601\260A\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203M\310W\320TU\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203L\310I\320UV\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020$\320$4\260A\260Q\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020#\320#3\2601\260A\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\030\230\003\2301\330\014\017\210z\230\021\230\047\240\021\360\010\000\021\022\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\340\020\023\2203\220i\230{\250!\2507\260$\260g\270S\300\001\340\024\032\230&\320 5\260Q\260a\330\024\037\230u\240G\2501\250E\260\027\270\001\340\024\037\230u\240G\2501\330\020\032\230)\240?\260!\340\021\033\2301\230G\2401\330\020\033\2301\340\020\032\230\047\240\037\260\001\330\021%\240Q\240a\330\020\032\320\032.\250a\250w\260a\340\014\017\210w\220g\230Q\330\020\024\320\024$\240A\340\014""\022\320\022%\240Q\320&?\270r\300\021\340\010\013\2107\220\047\230\021\330\014\020\220\n\230!\330\020\024\320\024$\320$6\260a\260t\270;\300m\320ST\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\n\230!\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\n\230!\330\020\024\320\024\047\320\0479\270\021\270$\270n\310M\320YZ\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\320\020 \240\001\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\013\2301\330\020\023\220:\230Q\230i\240q\330\024\036\230g\240W\250A\330\020\024\320\024$\320$6\260a\260t\270;\300a\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\340\014\026\320\026(\250\001\250\024\250X\260X\270Q\330\010\014\210M\230\021\230%\230y\250\001\250\030\260\021\260!\340\010\013\2107\220\047\230\021\330\014\020\320\020 \240\001\340\010\017\210q\320\004F\320Fa\320ab\360\006\000\t\r\320\014\035\230Q\330\010\014\320\014\036\230a\330\010\014\320\014\035\230Q\330\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\014\320\014\037\230q\330\010\014\320\014\036\230a\330\010\014\320\014 \240\001\330\010\014\320\014\037\230q\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\340\014\017\210t\220=\240\003\2401\330\024(\250\001\250\024\250Q\330\020\024\220O\2401\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\320\004M\310Q\360\n\000\016\017\330\014\032\320\0323\2601\260D\270\t\300\030\310\034\320UV\320VW""\330\010\014\210M\230\021\230!\330\010\017\210q\320\004[\320[\\\360\030\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\014\000\016\017\330\014\026\220m\2401\240D\250\010\260\016\270a\270w\300a\300t\3108\320SZ\320Z`\320`a\320ae\320ef\320fj\320j|\320|\177\360\000\000@\002A\002\330\010\013\2101\330\014\020\220\r\230Q\230e\2401\330\010\017\210t\2201\320\n\047\240q\320\016,\250A";
+    #else /* compression: none (30600 bytes) */
+static const char bytes[] = "\n\n    Proactor event loop does not implement add_reader family of methods required.\n    Registering an additional selector thread for add_reader support.\n    To avoid this warning use:\n        asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())\n      [ at 0x bytes are allowed. bytes, but only  bytes]:  object>!H\047_FileDescriptorLike\047(tree fragment)) *, curl: (, multi: (.. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.. See https://curl.se/libcurl/c/libcurl-errors.html first for more details. Please open an issue on GitHub to help debug this error....: << DATA< SSL<MemoryView of <contiguous and direct><contiguous and indirect><strided and direct or indirect><strided and direct><strided and indirect>>> DATA> SSL?Add data failed.Add field failed.Base exception for cycurl packageCallable[..., None]Can not use local_path and data at the same time.Cannot assign to read-only memoryviewCannot duplicate closed handle.Cannot perform request on closed handle.Cannot receive websocket data on closed handle.Cannot send websocket data on closed handle.Curlm already closed! quitting from process_dataDefine ``add_reader`` methods to be called in a background select thread.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user;\n    all callbacks are run on the wrapped event loop\047s thread.\n\n    Typically used via ``AddThreadSelectorEventLoop``,\n    but can be attached to a running asyncio loop.\n    Failed in Failed to Failed to close share handle: Failed to create share handle, curl_share_init returned NULLFailed to set error bufferFailed to set share option File not found at Invalid mode, expected \047c\047 or \047fortran\047, got Invalid shape in axis NOT DONENoneNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the \047annotation_typing\047 directive to False.Option unsup""ported: %sRead callback returned Tornado selectorUnexpected curl multi state in process_data, please open an issue on GitHub\nWrap an event loop to add implementations of the ``add_reader`` method family.\n\n    Instances of this class start a second thread to run a selector.\n    This thread is completely hidden from the user; all callbacks are\n    run on the wrapped event loop\047s thread.\n\n    This class is used automatically by Tornado; applications should not need\n    to refer to it directly.\n\n    It is safe to wrap any event loop with this class, although it only makes sense\n    for event loops that do not implement the ``add_reader`` family of methods\n    themselves (i.e. ``WindowsProactorEventLoop``)\n\n    Closing the ``AddThreadSelectorEventLoop`` also closes the wrapped event loop.\n\n    Wrote bytes != received bytes.add_noteasyncio.AbstractEventLoopcollections.abccycurl/_asyncio_selector.pxicycurl/_curl.pyxcycurl/utils.pxidict[_FileDescriptorLike, Callable]disableenablegcgetinfo isenabledlist[_FileDescriptorLike]no default __reduce__ due to non-trivial __cinit__self.form cannot be converted to a Python object for picklingself.frame cannot be converted to a Python object for picklingset cacertset proxy cacertsetopt typing.AsyncGenerator[None, None]unable to allocate array data.unable to allocate shape and strides.{:02X}{:02x}<lambda>ASCIIAbstractEventLoopAddThreadSelectorEventLoopAddThreadSelectorEventLoop.__getattribute__AddThreadSelectorEventLoop.__init__AddThreadSelectorEventLoop.add_readerAddThreadSelectorEventLoop.add_writerAddThreadSelectorEventLoop.closeAddThreadSelectorEventLoop.remove_readerAddThreadSelectorEventLoop.remove_writerAnyAsyncCurlAsyncCurl.__reduce_cython__AsyncCurl.__setstate_cython__AsyncCurl._check_errorAsyncCurl._force_timeoutAsyncCurl.add_handleAsyncCurl.closeAsyncCurl.process_dataAsyncCurl.remove_handleAsyncCurl.socket_actionCURLAUTH_ANYCURLAUTH_ANYSAFECURLAUTH_AWS_SIGV4CURLAUTH_BASICCURLAUTH_BEARERCURLAUTH_DIGESTCURLAU""TH_DIGEST_IECURLAUTH_GSSAPICURLAUTH_GSSNEGOTIATECURLAUTH_HTTPSIGCURLAUTH_NEGOTIATECURLAUTH_NONECURLAUTH_NTLMCURLAUTH_NTLM_WBCURLAUTH_ONLYCURLE_ABORTED_BY_CALLBACKCURLE_AGAINCURLE_ALREADY_COMPLETECURLE_AUTH_ERRORCURLE_BAD_CALLING_ORDERCURLE_BAD_CONTENT_ENCODINGCURLE_BAD_DOWNLOAD_RESUMECURLE_BAD_FUNCTION_ARGUMENTCURLE_BAD_PASSWORD_ENTEREDCURLE_CHUNK_FAILEDCURLE_CONV_FAILEDCURLE_CONV_REQDCURLE_COULDNT_CONNECTCURLE_COULDNT_RESOLVE_HOSTCURLE_COULDNT_RESOLVE_PROXYCURLE_ECH_REQUIREDCURLE_FAILED_INITCURLE_FILESIZE_EXCEEDEDCURLE_FILE_COULDNT_READ_FILECURLE_FTP_ACCEPT_FAILEDCURLE_FTP_ACCEPT_TIMEOUTCURLE_FTP_ACCESS_DENIEDCURLE_FTP_BAD_DOWNLOAD_RESUMECURLE_FTP_BAD_FILE_LISTCURLE_FTP_CANT_GET_HOSTCURLE_FTP_CANT_RECONNECTCURLE_FTP_COULDNT_GET_SIZECURLE_FTP_COULDNT_RETR_FILECURLE_FTP_COULDNT_SET_ASCIICURLE_FTP_COULDNT_SET_BINARYCURLE_FTP_COULDNT_SET_TYPECURLE_FTP_COULDNT_STOR_FILECURLE_FTP_COULDNT_USE_RESTCURLE_FTP_PARTIAL_FILECURLE_FTP_PORT_FAILEDCURLE_FTP_PRET_FAILEDCURLE_FTP_QUOTE_ERRORCURLE_FTP_SSL_FAILEDCURLE_FTP_USER_PASSWORD_INCORRECTCURLE_FTP_WEIRD_227_FORMATCURLE_FTP_WEIRD_PASS_REPLYCURLE_FTP_WEIRD_PASV_REPLYCURLE_FTP_WEIRD_SERVER_REPLYCURLE_FTP_WEIRD_USER_REPLYCURLE_FTP_WRITE_ERRORCURLE_FUNCTION_NOT_FOUNDCURLE_GOT_NOTHINGCURLE_HTTP2CURLE_HTTP2_STREAMCURLE_HTTP3CURLE_HTTP_NOT_FOUNDCURLE_HTTP_PORT_FAILEDCURLE_HTTP_POST_ERRORCURLE_HTTP_RANGE_ERRORCURLE_HTTP_RETURNED_ERRORCURLE_INTERFACE_FAILEDCURLE_LDAP_CANNOT_BINDCURLE_LDAP_INVALID_URLCURLE_LDAP_SEARCH_FAILEDCURLE_LIBRARY_NOT_FOUNDCURLE_LOGIN_DENIEDCURLE_MALFORMAT_USERCURLE_NOT_BUILT_INCURLE_NO_CONNECTION_AVAILABLECURLE_OBSOLETECURLE_OBSOLETE10CURLE_OBSOLETE12CURLE_OBSOLETE16CURLE_OBSOLETE20CURLE_OBSOLETE24CURLE_OBSOLETE29CURLE_OBSOLETE32CURLE_OBSOLETE34CURLE_OBSOLETE40CURLE_OBSOLETE41CURLE_OBSOLETE44CURLE_OBSOLETE46CURLE_OBSOLETE50CURLE_OBSOLETE51CURLE_OBSOLETE57CURLE_OBSOLETE62CURLE_OBSOLETE75CURLE_OBSOLETE76CURLE_OKCURLE_OPERATION_TIMEDOUTCURLE_OPERATION_TIMEOUTEDCURLE_OUT_OF_MEMORYCURLE_PARTIAL_FILECURLE_PEER_FAILED_VE""RIFICATIONCURLE_PROXYCURLE_QUIC_CONNECT_ERRORCURLE_QUOTE_ERRORCURLE_RANGE_ERRORCURLE_READ_ERRORCURLE_RECURSIVE_API_CALLCURLE_RECV_ERRORCURLE_REMOTE_ACCESS_DENIEDCURLE_REMOTE_DISK_FULLCURLE_REMOTE_FILE_EXISTSCURLE_REMOTE_FILE_NOT_FOUNDCURLE_RTSP_CSEQ_ERRORCURLE_RTSP_SESSION_ERRORCURLE_SEND_ERRORCURLE_SEND_FAIL_REWINDCURLE_SETOPT_OPTION_SYNTAXCURLE_SHARE_IN_USECURLE_SSHCURLE_SSL_CACERTCURLE_SSL_CACERT_BADFILECURLE_SSL_CERTPROBLEMCURLE_SSL_CIPHERCURLE_SSL_CLIENTCERTCURLE_SSL_CONNECT_ERRORCURLE_SSL_CRL_BADFILECURLE_SSL_ENGINE_INITFAILEDCURLE_SSL_ENGINE_NOTFOUNDCURLE_SSL_ENGINE_SETFAILEDCURLE_SSL_INVALIDCERTSTATUSCURLE_SSL_ISSUER_ERRORCURLE_SSL_PEER_CERTIFICATECURLE_SSL_PINNEDPUBKEYNOTMATCHCURLE_SSL_SHUTDOWN_FAILEDCURLE_TELNET_OPTION_SYNTAXCURLE_TFTP_DISKFULLCURLE_TFTP_EXISTSCURLE_TFTP_ILLEGALCURLE_TFTP_NOSUCHUSERCURLE_TFTP_NOTFOUNDCURLE_TFTP_PERMCURLE_TFTP_UNKNOWNIDCURLE_TOO_LARGECURLE_TOO_MANY_REDIRECTSCURLE_UNKNOWN_OPTIONCURLE_UNKNOWN_TELNET_OPTIONCURLE_UNRECOVERABLE_POLLCURLE_UNSUPPORTED_PROTOCOLCURLE_UPLOAD_FAILEDCURLE_URL_MALFORMATCURLE_URL_MALFORMAT_USERCURLE_USE_SSL_FAILEDCURLE_WEIRD_SERVER_REPLYCURLE_WRITE_ERRORCURLFOLLOW_ALLCURLFOLLOW_FIRSTONLYCURLFOLLOW_OBEYCODECURLFOLLOW_SAFECURLINFO_ACTIVESOCKETCURLINFO_APPCONNECT_TIMECURLINFO_APPCONNECT_TIME_TCURLINFO_CAINFOCURLINFO_CAPATHCURLINFO_CERTINFOCURLINFO_CONDITION_UNMETCURLINFO_CONNECT_TIMECURLINFO_CONNECT_TIME_TCURLINFO_CONN_IDCURLINFO_CONTENT_LENGTH_DOWNLOADCURLINFO_CONTENT_LENGTH_DOWNLOAD_TCURLINFO_CONTENT_LENGTH_UPLOADCURLINFO_CONTENT_LENGTH_UPLOAD_TCURLINFO_CONTENT_TYPECURLINFO_COOKIECHANGESCURLINFO_COOKIELISTCURLINFO_DATA_INCURLINFO_DATA_OUTCURLINFO_EARLYDATA_SENT_TCURLINFO_EFFECTIVE_METHODCURLINFO_EFFECTIVE_URLCURLINFO_ENDCURLINFO_FILETIMECURLINFO_FILETIME_TCURLINFO_FTP_ENTRY_PATHCURLINFO_HEADER_INCURLINFO_HEADER_OUTCURLINFO_HEADER_SIZECURLINFO_HTTPAUTH_AVAILCURLINFO_HTTPAUTH_USEDCURLINFO_HTTP_CONNECTCODECURLINFO_HTTP_VERSIONCURLINFO_LASTONECURLINFO_LASTSOCKETCURLINFO_LOCAL_IPCURLINFO_LOCAL_PORTCURLINFO_NAM""ELOOKUP_TIMECURLINFO_NAMELOOKUP_TIME_TCURLINFO_NONECURLINFO_NUM_CONNECTSCURLINFO_OS_ERRNOCURLINFO_POSTTRANSFER_TIME_TCURLINFO_PRETRANSFER_TIMECURLINFO_PRETRANSFER_TIME_TCURLINFO_PRIMARY_IPCURLINFO_PRIMARY_PORTCURLINFO_PRIVATECURLINFO_PROTOCOLCURLINFO_PROXYAUTH_AVAILCURLINFO_PROXYAUTH_USEDCURLINFO_PROXY_ERRORCURLINFO_PROXY_SSL_VERIFYRESULTCURLINFO_QUEUE_TIME_TCURLINFO_REDIRECT_COUNTCURLINFO_REDIRECT_HISTORYCURLINFO_REDIRECT_TIMECURLINFO_REDIRECT_TIME_TCURLINFO_REDIRECT_URLCURLINFO_REFERERCURLINFO_REQUEST_SIZECURLINFO_RESPONSE_CODECURLINFO_RETRY_AFTERCURLINFO_RTSP_CLIENT_CSEQCURLINFO_RTSP_CSEQ_RECVCURLINFO_RTSP_SERVER_CSEQCURLINFO_RTSP_SESSION_IDCURLINFO_SCHEMECURLINFO_SIZE_DELIVEREDCURLINFO_SIZE_DOWNLOADCURLINFO_SIZE_DOWNLOAD_TCURLINFO_SIZE_UPLOADCURLINFO_SIZE_UPLOAD_TCURLINFO_SPEED_DOWNLOADCURLINFO_SPEED_DOWNLOAD_TCURLINFO_SPEED_UPLOADCURLINFO_SPEED_UPLOAD_TCURLINFO_SSL_DATA_INCURLINFO_SSL_DATA_OUTCURLINFO_SSL_ENGINESCURLINFO_SSL_VERIFYRESULTCURLINFO_STARTTRANSFER_TIMECURLINFO_STARTTRANSFER_TIME_TCURLINFO_TEXTCURLINFO_TLS_SESSIONCURLINFO_TLS_SSL_PTRCURLINFO_TOTAL_TIMECURLINFO_TOTAL_TIME_TCURLINFO_USED_PROXYCURLINFO_XFER_IDCURLMOPT_CHUNK_LENGTH_PENALTY_SIZECURLMOPT_CONTENT_LENGTH_PENALTY_SIZECURLMOPT_MAXCONNECTSCURLMOPT_MAX_CONCURRENT_STREAMSCURLMOPT_MAX_HOST_CONNECTIONSCURLMOPT_MAX_PIPELINE_LENGTHCURLMOPT_MAX_TOTAL_CONNECTIONSCURLMOPT_NETWORK_CHANGEDCURLMOPT_NOTIFYDATACURLMOPT_NOTIFYFUNCTIONCURLMOPT_PIPELININGCURLMOPT_PIPELINING_SERVER_BLCURLMOPT_PIPELINING_SITE_BLCURLMOPT_PUSHDATACURLMOPT_PUSHFUNCTIONCURLMOPT_QUICK_EXITCURLMOPT_RESOLVE_THREADS_MAXCURLMOPT_SOCKETDATACURLMOPT_SOCKETFUNCTIONCURLMOPT_TIMERDATACURLMOPT_TIMERFUNCTIONCURLMSG_DONECURLMSG_LASTCURLMSG_NONECURLOPT_ABSTRACT_UNIX_SOCKETCURLOPT_ACCEPTTIMEOUT_MSCURLOPT_ACCEPT_ENCODINGCURLOPT_ADDRESS_SCOPECURLOPT_ALTSVCCURLOPT_ALTSVC_CTRLCURLOPT_APPENDCURLOPT_AUTOREFERERCURLOPT_AWS_SIGV4CURLOPT_BUFFERSIZECURLOPT_CAINFOCURLOPT_CAINFO_BLOBCURLOPT_CAPATHCURLOPT_CA_CACHE_TIMEOUTCURLOPT_CERTINFOCURLOPT_CHUNK_BGN_FUNCTI""ONCURLOPT_CHUNK_DATACURLOPT_CHUNK_END_FUNCTIONCURLOPT_CLOSEPOLICYCURLOPT_CLOSESOCKETDATACURLOPT_CLOSESOCKETFUNCTIONCURLOPT_CONNECTTIMEOUTCURLOPT_CONNECTTIMEOUT_MSCURLOPT_CONNECT_ONLYCURLOPT_CONNECT_TOCURLOPT_CONV_FROM_NETWORK_FUNCTIONCURLOPT_CONV_FROM_UTF8_FUNCTIONCURLOPT_CONV_TO_NETWORK_FUNCTIONCURLOPT_COOKIECURLOPT_COOKIEFILECURLOPT_COOKIEJARCURLOPT_COOKIELISTCURLOPT_COOKIESESSIONCURLOPT_COPYPOSTFIELDSCURLOPT_CRLFCURLOPT_CRLFILECURLOPT_CURLUCURLOPT_CUSTOMREQUESTCURLOPT_DEBUGDATACURLOPT_DEBUGFUNCTIONCURLOPT_DEFAULT_PROTOCOLCURLOPT_DIRLISTONLYCURLOPT_DISALLOW_USERNAME_IN_URLCURLOPT_DNS_CACHE_TIMEOUTCURLOPT_DNS_INTERFACECURLOPT_DNS_LOCAL_IP4CURLOPT_DNS_LOCAL_IP6CURLOPT_DNS_SERVERSCURLOPT_DNS_SHUFFLE_ADDRESSESCURLOPT_DNS_USE_GLOBAL_CACHECURLOPT_DOH_SSL_VERIFYHOSTCURLOPT_DOH_SSL_VERIFYPEERCURLOPT_DOH_SSL_VERIFYSTATUSCURLOPT_DOH_URLCURLOPT_ECHCURLOPT_EGDSOCKETCURLOPT_ENCODINGCURLOPT_ERRORBUFFERCURLOPT_EXPECT_100_TIMEOUT_MSCURLOPT_FAILONERRORCURLOPT_FILECURLOPT_FILETIMECURLOPT_FNMATCH_DATACURLOPT_FNMATCH_FUNCTIONCURLOPT_FOLLOWLOCATIONCURLOPT_FORBID_REUSECURLOPT_FORM_BOUNDARYCURLOPT_FRESH_CONNECTCURLOPT_FTPAPPENDCURLOPT_FTPLISTONLYCURLOPT_FTPPORTCURLOPT_FTPSSLAUTHCURLOPT_FTP_ACCOUNTCURLOPT_FTP_ALTERNATIVE_TO_USERCURLOPT_FTP_CREATE_MISSING_DIRSCURLOPT_FTP_FILEMETHODCURLOPT_FTP_RESPONSE_TIMEOUTCURLOPT_FTP_SKIP_PASV_IPCURLOPT_FTP_SSLCURLOPT_FTP_SSL_CCCCURLOPT_FTP_USE_EPRTCURLOPT_FTP_USE_EPSVCURLOPT_FTP_USE_PRETCURLOPT_GSSAPI_DELEGATIONCURLOPT_HAPPY_EYEBALLS_TIMEOUT_MSCURLOPT_HAPROXYPROTOCOLCURLOPT_HAPROXY_CLIENT_IPCURLOPT_HEADERCURLOPT_HEADERDATACURLOPT_HEADERFUNCTIONCURLOPT_HEADEROPTCURLOPT_HSTSCURLOPT_HSTSREADDATACURLOPT_HSTSREADFUNCTIONCURLOPT_HSTSWRITEDATACURLOPT_HSTSWRITEFUNCTIONCURLOPT_HSTS_CTRLCURLOPT_HTTP09_ALLOWEDCURLOPT_HTTP200ALIASESCURLOPT_HTTP2_NO_PRIORITYCURLOPT_HTTP2_PSEUDO_HEADERS_ORDERCURLOPT_HTTP2_SETTINGSCURLOPT_HTTP2_STREAMSCURLOPT_HTTP2_WINDOW_UPDATECURLOPT_HTTP3_HTTPHEADERCURLOPT_HTTP3_HTTPHEADER_ORDERCURLOPT_HTTP3_PSEUDO_HEADERS_ORDERCURLOPT_HTTP3_SETT""INGSCURLOPT_HTTP3_SIG_HASH_ALGSCURLOPT_HTTP3_SSL_EC_CURVESCURLOPT_HTTP3_SSL_PERMUTE_EXTENSIONSCURLOPT_HTTP3_TLS_EXTENSION_ORDERCURLOPT_HTTPAUTHCURLOPT_HTTPBASEHEADERCURLOPT_HTTPGETCURLOPT_HTTPHEADERCURLOPT_HTTPHEADER_ORDERCURLOPT_HTTPPOSTCURLOPT_HTTPPROXYTUNNELCURLOPT_HTTPSIG_ALGORITHMCURLOPT_HTTPSIG_HEADERSCURLOPT_HTTPSIG_KEYCURLOPT_HTTPSIG_KEYIDCURLOPT_HTTP_CONTENT_DECODINGCURLOPT_HTTP_TRANSFER_DECODINGCURLOPT_HTTP_VERSIONCURLOPT_IGNORE_CONTENT_LENGTHCURLOPT_IMPERSONATECURLOPT_INFILECURLOPT_INFILESIZECURLOPT_INFILESIZE_LARGECURLOPT_INTERFACECURLOPT_INTERLEAVEDATACURLOPT_INTERLEAVEFUNCTIONCURLOPT_IOCTLDATACURLOPT_IOCTLFUNCTIONCURLOPT_IPRESOLVECURLOPT_ISSUERCERTCURLOPT_ISSUERCERT_BLOBCURLOPT_KEEP_SENDING_ON_ERRORCURLOPT_KEYPASSWDCURLOPT_KRB4LEVELCURLOPT_KRBLEVELCURLOPT_LOCALPORTCURLOPT_LOCALPORTRANGECURLOPT_LOGIN_OPTIONSCURLOPT_LOW_SPEED_LIMITCURLOPT_LOW_SPEED_TIMECURLOPT_MAIL_AUTHCURLOPT_MAIL_FROMCURLOPT_MAIL_RCPTCURLOPT_MAIL_RCPT_ALLLOWFAILSCURLOPT_MAIL_RCPT_ALLOWFAILSCURLOPT_MAXAGE_CONNCURLOPT_MAXCONNECTSCURLOPT_MAXFILESIZECURLOPT_MAXFILESIZE_LARGECURLOPT_MAXLIFETIME_CONNCURLOPT_MAXREDIRSCURLOPT_MAX_RECV_SPEED_LARGECURLOPT_MAX_SEND_SPEED_LARGECURLOPT_MIMEPOSTCURLOPT_MIME_OPTIONSCURLOPT_NETRCCURLOPT_NETRC_FILECURLOPT_NEW_DIRECTORY_PERMSCURLOPT_NEW_FILE_PERMSCURLOPT_NOBODYCURLOPT_NOPROGRESSCURLOPT_NOPROXYCURLOPT_NOSIGNALCURLOPT_OBSOLETE40CURLOPT_OBSOLETE72CURLOPT_OPENSOCKETDATACURLOPT_OPENSOCKETFUNCTIONCURLOPT_PASSWORDCURLOPT_PATH_AS_ISCURLOPT_PINNEDPUBLICKEYCURLOPT_PIPEWAITCURLOPT_PORTCURLOPT_POSTCURLOPT_POST301CURLOPT_POSTFIELDSCURLOPT_POSTFIELDSIZECURLOPT_POSTFIELDSIZE_LARGECURLOPT_POSTQUOTECURLOPT_POSTREDIRCURLOPT_PREQUOTECURLOPT_PREREQDATACURLOPT_PREREQFUNCTIONCURLOPT_PRE_PROXYCURLOPT_PRIVATECURLOPT_PROGRESSDATACURLOPT_PROGRESSFUNCTIONCURLOPT_PROTOCOLSCURLOPT_PROTOCOLS_STRCURLOPT_PROXYCURLOPT_PROXYAUTHCURLOPT_PROXYHEADERCURLOPT_PROXYPASSWORDCURLOPT_PROXYPORTCURLOPT_PROXYTYPECURLOPT_PROXYUSERNAMECURLOPT_PROXYUSERPWDCURLOPT_PROXY_CAINFOCURLOPT_PROXY_CAINFO_BLOBC""URLOPT_PROXY_CAPATHCURLOPT_PROXY_CREDENTIAL_NO_REUSECURLOPT_PROXY_CRLFILECURLOPT_PROXY_ISSUERCERTCURLOPT_PROXY_ISSUERCERT_BLOBCURLOPT_PROXY_KEYPASSWDCURLOPT_PROXY_PINNEDPUBLICKEYCURLOPT_PROXY_SERVICE_NAMECURLOPT_PROXY_SSLCERTCURLOPT_PROXY_SSLCERTTYPECURLOPT_PROXY_SSLCERT_BLOBCURLOPT_PROXY_SSLKEYCURLOPT_PROXY_SSLKEYTYPECURLOPT_PROXY_SSLKEY_BLOBCURLOPT_PROXY_SSLVERSIONCURLOPT_PROXY_SSL_CIPHER_LISTCURLOPT_PROXY_SSL_OPTIONSCURLOPT_PROXY_SSL_VERIFYHOSTCURLOPT_PROXY_SSL_VERIFYPEERCURLOPT_PROXY_TLS13_CIPHERSCURLOPT_PROXY_TLSAUTH_PASSWORDCURLOPT_PROXY_TLSAUTH_TYPECURLOPT_PROXY_TLSAUTH_USERNAMECURLOPT_PROXY_TRANSFER_MODECURLOPT_PUTCURLOPT_QUICK_EXITCURLOPT_QUIC_CID_LENGTHCURLOPT_QUIC_INITIAL_PACKET_NUMBERCURLOPT_QUIC_TRANSPORT_PARAMETERSCURLOPT_QUOTECURLOPT_RANDOM_FILECURLOPT_RANGECURLOPT_READDATACURLOPT_READFUNCTIONCURLOPT_REDIR_PROTOCOLSCURLOPT_REDIR_PROTOCOLS_STRCURLOPT_REFERERCURLOPT_REQUEST_TARGETCURLOPT_RESOLVECURLOPT_RESOLVER_START_DATACURLOPT_RESOLVER_START_FUNCTIONCURLOPT_RESUME_FROMCURLOPT_RESUME_FROM_LARGECURLOPT_RTSPHEADERCURLOPT_RTSP_CLIENT_CSEQCURLOPT_RTSP_REQUESTCURLOPT_RTSP_SERVER_CSEQCURLOPT_RTSP_SESSION_IDCURLOPT_RTSP_STREAM_URICURLOPT_RTSP_TRANSPORTCURLOPT_SASL_AUTHZIDCURLOPT_SASL_IRCURLOPT_SEEKDATACURLOPT_SEEKFUNCTIONCURLOPT_SERVER_RESPONSE_TIMEOUTCURLOPT_SERVER_RESPONSE_TIMEOUT_MSCURLOPT_SERVICE_NAMECURLOPT_SHARECURLOPT_SOCKOPTDATACURLOPT_SOCKOPTFUNCTIONCURLOPT_SOCKS5_AUTHCURLOPT_SOCKS5_GSSAPI_NECCURLOPT_SOCKS5_GSSAPI_SERVICECURLOPT_SPLIT_COOKIESCURLOPT_SSH_AUTH_TYPESCURLOPT_SSH_COMPRESSIONCURLOPT_SSH_HOSTKEYDATACURLOPT_SSH_HOSTKEYFUNCTIONCURLOPT_SSH_HOST_PUBLIC_KEY_MD5CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256CURLOPT_SSH_KEYDATACURLOPT_SSH_KEYFUNCTIONCURLOPT_SSH_KNOWNHOSTSCURLOPT_SSH_PRIVATE_KEYFILECURLOPT_SSH_PUBLIC_KEYFILECURLOPT_SSLCERTCURLOPT_SSLCERTPASSWDCURLOPT_SSLCERTTYPECURLOPT_SSLCERT_BLOBCURLOPT_SSLENGINECURLOPT_SSLENGINE_DEFAULTCURLOPT_SSLKEYCURLOPT_SSLKEYPASSWDCURLOPT_SSLKEYTYPECURLOPT_SSLKEY_BLOBCURLOPT_SSLVERSIONCURLOPT_SSL_CERT_COMPRESSIONCURLOPT""_SSL_CIPHER_LISTCURLOPT_SSL_CTX_DATACURLOPT_SSL_CTX_FUNCTIONCURLOPT_SSL_EC_CURVESCURLOPT_SSL_ENABLE_ALPNCURLOPT_SSL_ENABLE_ALPSCURLOPT_SSL_ENABLE_NPNCURLOPT_SSL_ENABLE_TICKETCURLOPT_SSL_FALSESTARTCURLOPT_SSL_OPTIONSCURLOPT_SSL_PERMUTE_EXTENSIONSCURLOPT_SSL_SESSIONID_CACHECURLOPT_SSL_SIGNATURE_ALGORITHMSCURLOPT_SSL_SIG_HASH_ALGSCURLOPT_SSL_VERIFYHOSTCURLOPT_SSL_VERIFYPEERCURLOPT_SSL_VERIFYSTATUSCURLOPT_STDERRCURLOPT_STREAM_DEPENDSCURLOPT_STREAM_DEPENDS_ECURLOPT_STREAM_EXCLUSIVECURLOPT_STREAM_WEIGHTCURLOPT_SUPPRESS_CONNECT_HEADERSCURLOPT_TCP_FASTOPENCURLOPT_TCP_KEEPALIVECURLOPT_TCP_KEEPCNTCURLOPT_TCP_KEEPIDLECURLOPT_TCP_KEEPINTVLCURLOPT_TCP_NODELAYCURLOPT_TELNETOPTIONSCURLOPT_TFTP_BLKSIZECURLOPT_TFTP_NO_OPTIONSCURLOPT_TIMECONDITIONCURLOPT_TIMEOUTCURLOPT_TIMEOUT_MSCURLOPT_TIMEVALUECURLOPT_TIMEVALUE_LARGECURLOPT_TLS13_CIPHERSCURLOPT_TLSAUTH_PASSWORDCURLOPT_TLSAUTH_TYPECURLOPT_TLSAUTH_USERNAMECURLOPT_TLS_DELEGATED_CREDENTIALSCURLOPT_TLS_EXTENSION_ORDERCURLOPT_TLS_GREASECURLOPT_TLS_KEY_SHARES_LIMITCURLOPT_TLS_KEY_USAGE_NO_CHECKCURLOPT_TLS_RECORD_SIZE_LIMITCURLOPT_TLS_SIGNED_CERT_TIMESTAMPSCURLOPT_TLS_STATUS_REQUESTCURLOPT_TLS_TRUST_ANCHORSCURLOPT_TLS_USE_NEW_ALPS_CODEPOINTCURLOPT_TRAILERDATACURLOPT_TRAILERFUNCTIONCURLOPT_TRANSFERTEXTCURLOPT_TRANSFER_ENCODINGCURLOPT_UNIX_SOCKET_PATHCURLOPT_UNRESTRICTED_AUTHCURLOPT_UPKEEP_INTERVAL_MSCURLOPT_UPLOADCURLOPT_UPLOAD_BUFFERSIZECURLOPT_UPLOAD_FLAGSCURLOPT_URLCURLOPT_USERAGENTCURLOPT_USERNAMECURLOPT_USERPWDCURLOPT_USE_SSLCURLOPT_VERBOSECURLOPT_WILDCARDMATCHCURLOPT_WRITEDATACURLOPT_WRITEFUNCTIONCURLOPT_WRITEHEADERCURLOPT_WRITEINFOCURLOPT_WS_HTTPHEADERCURLOPT_WS_HTTPHEADER_ORDERCURLOPT_WS_OPTIONSCURLOPT_WS_SSL_CERT_COMPRESSIONCURLOPT_WS_SSL_DISABLE_TICKETCURLOPT_XFERINFODATACURLOPT_XFERINFOFUNCTIONCURLOPT_XOAUTH2_BEARERCURLPAUSE_ALLCURLPAUSE_CONTCURLPAUSE_RECVCURLPAUSE_RECV_CONTCURLPAUSE_SENDCURLPAUSE_SEND_CONTCURLPIPE_HTTP1CURLPIPE_MULTIPLEXCURLPIPE_NOTHINGCURLSHE_BAD_OPTIONCURLSHE_INVALIDCURLSHE_IN_USECURLSHE_LASTCURLSHE_NOMEMCURLS""HE_NOT_BUILT_INCURLSHE_OKCURLSHOPT_LASTCURLSHOPT_LOCKFUNCCURLSHOPT_NONECURLSHOPT_SHARECURLSHOPT_UNLOCKFUNCCURLSHOPT_UNSHARECURLSHOPT_USERDATACURLSSH_AUTH_AGENTCURLSSH_AUTH_ANYCURLSSH_AUTH_DEFAULTCURLSSH_AUTH_GSSAPICURLSSH_AUTH_HOSTCURLSSH_AUTH_KEYBOARDCURLSSH_AUTH_NONECURLSSH_AUTH_PASSWORDCURLSSH_AUTH_PUBLICKEYCURLWS_BINARYCURLWS_CLOSECURLWS_CONTCURLWS_NOAUTOPONGCURLWS_OFFSETCURLWS_PINGCURLWS_PONGCURLWS_RAW_MODECURLWS_TEXTCURL_CA_BUNDLECURL_CSELECT_ERRCURL_CSELECT_INCURL_CSELECT_OUTCURL_ERROR_SIZECURL_FNMATCHFUNC_FAILCURL_FNMATCHFUNC_MATCHCURL_FNMATCHFUNC_NOMATCHCURL_HTTP_VERSION_1_0CURL_HTTP_VERSION_1_1CURL_HTTP_VERSION_2CURL_HTTP_VERSION_2TLSCURL_HTTP_VERSION_2_0CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGECURL_HTTP_VERSION_3CURL_HTTP_VERSION_3ONLYCURL_HTTP_VERSION_LASTCURL_HTTP_VERSION_NONECURL_IPRESOLVE_V4CURL_IPRESOLVE_V6CURL_IPRESOLVE_WHATEVERCURL_LOCK_ACCESS_LASTCURL_LOCK_ACCESS_NONECURL_LOCK_ACCESS_SHAREDCURL_LOCK_ACCESS_SINGLECURL_LOCK_DATA_CONNECTCURL_LOCK_DATA_COOKIECURL_LOCK_DATA_DNSCURL_LOCK_DATA_HSTSCURL_LOCK_DATA_LASTCURL_LOCK_DATA_NONECURL_LOCK_DATA_PSLCURL_LOCK_DATA_SHARECURL_LOCK_DATA_SSL_SESSIONCURL_POLL_INCURL_POLL_INOUTCURL_POLL_NONECURL_POLL_OUTCURL_POLL_REMOVECURL_PREREQFUNC_ABORTCURL_PREREQFUNC_OKCURL_READFUNC_ABORTCURL_READFUNC_PAUSECURL_SEEKFUNC_CANTSEEKCURL_SEEKFUNC_FAILCURL_SEEKFUNC_OKCURL_SOCKET_BADCURL_SOCKET_TIMEOUTCURL_SSLVERSION_DEFAULTCURL_SSLVERSION_LASTCURL_SSLVERSION_MAX_DEFAULTCURL_SSLVERSION_MAX_LASTCURL_SSLVERSION_MAX_NONECURL_SSLVERSION_MAX_TLSv1_0CURL_SSLVERSION_MAX_TLSv1_1CURL_SSLVERSION_MAX_TLSv1_2CURL_SSLVERSION_MAX_TLSv1_3CURL_SSLVERSION_SSLv2CURL_SSLVERSION_SSLv3CURL_SSLVERSION_TLSv1CURL_SSLVERSION_TLSv1_0CURL_SSLVERSION_TLSv1_1CURL_SSLVERSION_TLSv1_2CURL_SSLVERSION_TLSv1_3CURL_TRAILERFUNC_ABORTCURL_TRAILERFUNC_OKCURL_WRITEFUNC_ERRORCURL_WRITEFUNC_PAUSECallableCancelledErrorConditionCurlCurl.__reduce_cython__Curl.__setstate_cython__Curl._get_callback_exceptionCurl.clean_handles_and_buffersCurl.closeCurl.debugCurl.duphandleCurl.ge""t_reason_phraseCurl.getinfoCurl.impersonateCurl.parse_cookie_headersCurl.parse_status_lineCurl.pauseCurl.performCurl.resetCurl.setoptCurl.upkeepCurl.versionCurl.ws_closeCurl.ws_metaCurl.ws_recvCurl.ws_sendCurlErrorCurlError.__init__CurlMimeCurlMime.__reduce_cython__CurlMime.__setstate_cython__CurlMime.addpartCurlMime.attachCurlMime.closeCurlMime.from_listCurlShareCurlShare.__reduce_cython__CurlShare.__setstate_cython__CurlShare._cleanupCurlShare._setoptCurlShare.closeCurlShare.get_curl_shareCurlShare.shareCurlShare.unshareCurlWarningDEFAULT_CACERTEBADFEllipsisLockMAX_SHOW_BYTESMY_ATTRIBUTESNoneOptionalPREFIXESPROACTOR_WARNINGPathProactorEventLoopProtocolREASON_PHRASE_REREQUESTS_CA_BUNDLESSL_CERT_FILESTATUS_LINE_RESelectorThreadSelectorThread.__init__SelectorThread.__init__.<locals>.<lambda>SelectorThread.__init__.<locals>.thread_manager_anextSelectorThread._consume_wakerSelectorThread._handle_eventSelectorThread._handle_selectSelectorThread._run_selectSelectorThread._start_selectSelectorThread._thread_managerSelectorThread._wake_selectorSelectorThread.add_readerSelectorThread.add_writerSelectorThread.closeSelectorThread.remove_readerSelectorThread.remove_writerSequenceSimpleCookieThreadTypeVarUnionView.MemoryViewWSAENOTSOCKWSFrameWSFrame.__reduce_cython__WSFrame.__setstate_cython__WS_RECVWS_SENDWeakKeyDictionaryWeakSet__CallbackContext_CallbackContext.__reduce_cython___CallbackContext.__setstate_cython___FileDescriptorLike_HasFileno_HasFileno.fileno_T__Pyx_PyDict_NextRef__anext____annotate____await____class____class_getitem____dict____doc____enter____exit____func____getattribute____getstate____import____init____main____metaclass____module____mro_entries____name____new____prepare____pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_unpickle__CallbackContext__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex____set_name____setstate____setstate_cython____test___atexit_callback_check_error_cleanup_close_selector_and_loop_closed_closing_s""elector_consume_waker_default_cacert_dict_force_timeout_get_callback_exception_handle_event_handle_select_is_coroutine_readers_real_loop_run_select_select_args_select_cond_selector_selector_loops_selectors_setopt_start_select_thread_thread_manager_thread_manager_handle_wake_selector_waker_r_waker_w_writersaabcacquireactionaddadd_handleadd_readeradd_writeraddpartallocate_bufferargsasyncioasyncio.coroutinesasyncio_loopatexitattachbackslashreplacebaseboolbytebytesbytes_to_hex.<locals>.genexprccacertcafilecall_latercall_sooncall_soon_threadsafecallbackcancelcancelledcategorycb_mapcertificlean_handles_and_buffersclearclear_headersclear_resolvecline_in_tracebackcloseclscodecollections.abccompileconfig_warningsconnectcontent_typecontextlibcookiecountcreate_futurecreate_taskcurl_cycurl._curldaemondatadebugdebug_function_defaultdecodedefaultdefault_headersdiscarddnsdonedtype_is_objectduphandleeencodeenumerateenvironerrcodeerrmsgerrnoerrorerrorsev_bitmaskexceptionexistsfdfilefilenamefilenofilesflagsformformatfortranframefrom_listfunctoolsfuturegenexprgetget_curl_shareget_default_verify_pathsget_reason_phraseget_running_loopget_selectorget_selector.<locals>._close_selector_and_loopgetinfogetpreferredencodinggrouphandleheaderheadershex_strhttp.cookieshttp_versionidignoreimpersonateindexintis_proitemsitemsizejoinkeyskwargsloadlocal_pathlocalelooploop_closelowermmatchmemviewmessagemodemsgnamendimnextnotifyobjonoptionospackparse_cookie_headersparse_status_linepartialpathpathlibpausepayloadperformplatformpoppostfixprefixprintprocess_datarrereadreal_loopreasonrecvregisterreleaseremove_handleremove_readerremove_writerresetreturnrsseekselectselector_loopselfsendset_exceptionset_resultsetblockingsetdefaultsetoptshapesharesimplefiltersizesleepsocketsocket_actionsocketpairsockfdsslssl_sessionstacklevelstartstartswithstatestaticmethodstatus_codestatus_linestderrstepstopstrstrictstructsupersuppresssystargettextthread_manager_anextthreadingthrowto_readto_writetupletype_typingunpackunshareup""dateupkeepuse_setstatevaluevaluesversionwwaitwarnwarningsweakrefwherewinwin32writewsws_closews_metaws_recvws_sendxxs1.01.12.0HTTP/(\\d\\.\\d) ([0-9]{3}) (.*)HTTP/\\d\\.\\d [0-9]{3} (.*)Oaset-cookie: \200\001\330\004\n\210+\220Q\200\001\330\004.\250a\250v\260Q\200\001\340\004\010\210\013\2201\320\024%\320%7\260q\330\010\017\210r\220\030\230\024\230Q\230a\330\010\013\2105\220\004\220B\220e\2307\240!\2401\330\014\023\2201\360\006\000\005\020\210s\320\022+\2501\330\004\007\200x\210x\220t\2302\230U\240\047\250\021\250(\260!\330\010\017\210x\220q\360\006\000\005\014\2107\220&\230\001\200\001\340\004\013\210;\220m\2401\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\320\023#\2408\2501\250A\330\004\007\200|\2207\230!\330\0102\260!\3203F\300n\320TU\330\004\013\2101\200\001\360\010\000\n\033\230!\330\010\021\220\024\220[\240\004\240A\330\010\020\220\007\220q\230\006\230l\250!\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\230:\240W\250E\260\023\260D\270\013\3007\310!\330\004\007\200q\330\010\017\320\0171\260\024\260Q\260g\270[\310\007\310q\340\010\017\320\0171\260\024\260Q\260g\270[\310\001\200A\330\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026\047\240q\250\004\250A\330\010\017\210q\200A\330\010\013\2108\2207\230!\330\014\r\330\010&\320&:\270!\2701\330\010\032\230#\230U\240!\2401\240C\240q\250\003\2504\250u\260A\330\010\016\210i\220q\330\014\030\230\001\320\031*\250!\250:\260Q\3206J\310!\3101\200A\330\0103\260=\300\001\300\024\300Q\330\010\026\220i\230q\240\001\200A\330\0221\260\021\330\t\n\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210E\220\021\330\014\020\220\016\230a\230s\240$\240a\330\010\014\210N\230!\200A\330\0221\260\021\330\t\n\330\010\014\210I\220Q\220f\230I\240X\250Q\250k\270\021\330\010\014\210O\2301\200A\33001\340\010\014\320\014\034\230F\240!\2401\330\010\017\210q\220\006\220a\220v\230W\240A\200A\33001\360\n\000\t\r\210N\230&\240\001""\240\021\330\010\013\2104\210q\330\014\023\320\023*\250#\250Q\330\010\013\2101\210F\220!\2203\220c\230\021\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\330\r\016\210f\220A\220S\230\003\2301\330\014\033\2301\340\014\033\2301\330\010\026\220c\230\021\230!\2306\240\021\240!\330\010\021\220\021\220&\230\001\230\021\340\010\017\210~\230]\250!\200A\340\010\013\2104\210t\2201\330\014\024\220E\230\021\330\020D\300M\320Q\\\320\\]\340\014\r\340\010\014\210N\230!\2308\2401\360\016\000\t\n\330\014\r\330\020\037\320\0374\260A\260T\270\031\300!\3001\340\020\023\2209\230C\230q\330\024\025\330\020\023\2208\2305\240\007\240q\330\024\034\230F\240$\240k\260\021\260+\270W\300H\310A\330\024\036\230h\240e\2501\330\024)\250\025\320.F\300a\330\024\027\320\027*\250\047\260\021\330\030\034\230N\250!\2507\260!\330\031!\240\023\240A\330\030\034\230K\240q\250\001\340\030\034\230N\250!\2507\260%\260{\300!\3009\310A\340\024\031\230\021\230!\330\023\024\330\020\030\230\005\230Q\330\024\025\340\024\025\330\024\037\230q\200A\340\010\014\210G\2201\200A\340\010\014\210G\2205\320\030*\250!\330\010\014\210G\2205\320\0300\260\001\200A\340\010\014\210H\220E\320\031+\2501\200A\340\010\014\210H\220E\320\031-\250Q\200A\340\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\013\2104\210q\330\021\022\330\024$\240A\240T\250\021\330\014\020\320\020\"\240!\330\010\013\2104\210z\230\023\230A\330\020$\240A\240T\250\021\330\014\020\220\014\230A\200A\340\010\017\210{\230-\240q\200A\340\010\017\210}\230A\230T\240\036\250v\260Q\200A\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330""\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\021\220\024\220Q\330\010\013\2107\220\047\230\021\330\014\030\320\030*\250&\260\001\330\014\017\210z\230\027\240\001\330\020\027\220q\340\010\017\210q\200A\340\010\035\230T\240\034\250Q\250a\330\010\013\2107\220$\220d\230&\240\005\240S\250\004\250D\260\006\260j\300\001\330\014\022\220\047\230\021\200A\340\014\r\330\020\021\330\t\n\330\010\t\330\014\027\220v\230Q\230a\330\017\020\330\014\r\330\010\020\220\001\200A\340\014\r\330\022\023\340\t\n\330\010\017\210t\220:\230[\250\001\250\024\250[\270\001\200A\340\014\034\230A\340\010\013\2106\220\026\320\027(\250\003\2506\260\026\260q\330\014\025\220U\230!\330\014\026\220g\230Q\230a\340\014\026\320\026*\250!\2507\260!\340\r\016\330\014\027\320\027*\250!\2504\250~\270X\300Q\330\010\013\2105\220\007\220q\330\014\025\220\\\320!5\260Q\260f\270G\3001\330\014\022\220)\2301\320\0349\270\021\270)\3001\300J\310e\320ST\200A\340\r\016\330\014\017\210t\2204\220y\240\004\240D\250\001\330\020\033\320\033.\250a\250t\2601\330\020\023\2205\230\007\230q\330\024\033\2301\330\020\024\220K\230q\330\020\024\220O\2401\330\010\023\2201\200A\360\006\000\t\036\230S\240\001\330\010\014\210H\220A\330\014\020\220\010\230\003\2301\330\010\017\210q\200A\360\006\000\r\034\2301\230D\240\001\330\010\014\210H\220A\200A\360\006\000\034\035\330\027\030\330\034\035\330\026\027\360""\026\000\t-\320,>\270a\270t\3001\340\010\037\230t\2407\250!\330\010\022\220/\240\021\240&\250\016\260a\330\010\013\2104\210s\220!\330\014\022\220)\2301\230A\360\010\000\t\014\210=\230\007\230q\330\014 \240\014\250G\2601\330\014\026\220o\240Q\240f\250N\270!\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\210;\220g\230U\240$\240e\2507\260!\330\014\022\220)\2301\230A\360\006\000\t\014\210;\220g\230Q\330\014\017\210z\230\021\230,\240a\330\020!\240\023\240A\240Q\330\021\033\2301\230L\250\001\330\020!\240\032\2507\260!\340\020!\240\021\340\014\017\210t\2204\220q\230\017\240w\250a\330\020\026\320\026\047\240q\320(<\270A\270Q\330\014\026\320\026)\250\021\250&\3200@\300\001\300\021\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\360\006\000\t\014\2109\220G\2301\330\014\026\320\026)\250\021\250&\3200@\300\001\300\021\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\340\010\013\2105\220\007\220q\330\014\017\210t\220:\230Q\230f\240A\330\020\027\220s\230!\2305\240\007\240q\330\014\026\220o\240Q\240f\250N\270&\320@P\320PQ\320QR\330\014\017\210t\2203\220a\330\020\026\220i\230q\240\001\200A\360\010\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\340\r\016\330\014\035\320\0351\260\021\260$\260a\330\010\013\210;\220c\230\021\330\014\r\330\010\014\210D\220\001\220\024\220Z\230t\2409\250M\270\021\270\047\300\034\310V\320ST\340\010\013\2104\210x\220w\230a\330\014\r\210W\220E\320\031)\250\035\260a\260t\2707\300.\320PV\320VW\330\014\r\210Z\220t\2301\330\010\017\210q\200A\360\010\000\t\016\210_\230A\340\r\016\330\014\032\320\0320\260\001\260\024\260Y\270e\3001\330\010\014\210M\230\021\230!\330\010\021\220\024\220U\230.\250\001\330\010\014\210M\230\021\230)\2401\330\010\014\210K\220q\230\013\2407\250%\250z\270\021\330\010\017\210q\200A\360\016\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\020\000\016\017\330\014\026\220m\2401\240D\250\001\330$(\250\001\330$(\250\001\330$%\240T\250\021\330$A\300\021\300$\300a\330\010\013""\2101\330\014\020\220\r\230Q\230e\2401\360\006\000\t\020\210w\220d\320\032*\250\"\250D\3200J\310)\320ST\320TX\320XY\200A\360\016\000\t\020\210t\2209\230A\330\010\013\2105\220\007\220q\330\014\025\220\\\320!5\260Q\260f\270G\3001\330\014\022\220)\2301\320\034<\270A\270Z\300u\310A\200A\3602\000\r\025\220A\330\014\034\230A\330\014\031\230\021\330\014!\240\021\330\014\035\230Q\330\014(\250\001\340\010\023\2207\230\"\230A\330\010\013\2104\210w\220c\230\021\330\014\017\210y\230\003\2301\330\020\027\220q\330\021\032\230#\230Y\240c\250\031\260#\260Y\270c\300\031\310#\310Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\330\021\032\230#\230Q\330\020\027\220q\340\010\013\2109\220C\220q\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210x\220s\230!\330\020\027\220q\330\014\023\2207\230!\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\220?\240!\2401\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\320\023%\240Q\240a\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210y\230\003\2301\330\020\027\220q\330\014\023\220=\240\001\240\021\330\r\026\220c\230\021\330\014\026\320\0260\260\001\260\024\260X\270X\300Q\300a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\017\210u\220K\230w\240a\330\020\027\220\177\240b\250\001\330\014\023\320\023.\250a\250q\330\r\026\220c\230\021\330\014\026\320\026(\250\001\250\024\250X\260X\270Q\270a\330\014\020\220\r\230Q\230e\240:\250Q\250a\330\014\023\2201\210\001\360\006\000\r\031\230\t\240\021\330\014\026\220d\230!\230>\250\021\330\014\031\230\026\230q\210!\210H\220D\230\013\240<\250q\3200D\300A\230a\320\000\024\220D\230\001\330\004\007\200q\330\010\020\220\r\230Q\230k\250\031\260!\340\010\020\220\r\230Q\230j\250\t\260\021""\320\000\030\230\001\330\004\013\2101\320\000\032\230!\330\004\010\210\010\220\001\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\330\010\013\2104\210y\230\007\230q\360\n\000\r\021\220\010\230\005\230Q\330\004\023\2206\230\021\320\000\"\240+\250Z\260q\330\004\005\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\330\014%\240Q\340\004\025\220Q\330\004\r\210X\220T\230\021\230\047\240\021\360\006\000\005\010\200v\210W\320\024*\250#\250V\2607\270!\330\010\022\220,\230a\230t\2402\240Q\330\010\022\220&\230\003\2301\230F\240#\320%9\270\021\330\010\013\2107\220&\230\001\230\022\2301\230I\240Q\240c\250\021\250/\270\021\270(\300!\3001\340\010\t\330\014\023\2204\220w\230a\230q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\330\014\017\210v\220W\230O\2504\250v\260W\320<P\320PT\320TZ\320Za\320ab\330\020\023\2207\230&\240\001\240\021\330\017\020\340\014\026\220l\240!\2404\240r\250\021\330\014\026\220f\230C\230q\240\006\240c\320)=\270Q\330\014\017\210w\220f\230A\230R\230q\240\t\250\021\250#\250Q\250o\270Q\270h\300a\300q\320\004\027\220q\330\010\013\2104\210q\330\014\r\330\r\021\220\021\330\014\020\320\020%\240Q\330\014\020\220\r\230W\240A\330\010\014\210O\2301\330\010\013\2104\210y\230\007\230q\330\014\020\220\010\230\005\230Q\330\010\027\220x\230q\240\001\330\010\014\210N\230!\2304\230q\330\010\014\210I\220V\2301\330\010\014\210I\220V\2301\330\010\014\210K\220q\320\004\027\220q\330\010\014\210J\220f\230A\330\010\014\210K\220v\230Q\320\004\030\230\001\330\010\017\210q\320\004\033\320\0339\270\021\330\010\017\210q\320\004\034\230E\240\026\240q\330\010\r\210R\210y\230\001\230\026\230x\240q\330\010\014\210H\220A\320\004\035\230Q\330\010\t\330\021\025\220Q\330\020\026\220d\230.\250\003\2505\260\004\260D\270\004\270A\330\024\030\230\r\240U\250!\330\020\023\2204\220q\330\024\025\330\020\027\220t\230>\250\027\260\001\330\020\031\230\033\240D\250\001\330\020\024\320\024$""\240A\360\022\000\r\016\360\020\000\021\025\220D\230\005\230V\2407\250!\2509\260J\270a\330\020\025\220S\230\002\230!\330\014\023\220;\230a\360\030\000\021\024\2201\220G\2303\230g\240Q\240g\250_\270E\300\021\330\024\030\230\003\2304\230v\240W\250A\250Q\250d\260)\2707\300%\300t\3104\310q\330\024\027\220q\330\030\035\230Q\340\030\031\340\024\025\340\014\r\330\020\024\220K\320\0374\260A\260T\3209J\310$\310a\330\023\024\360\016\000\024\025\320\004\037\230q\360\010\000\016\022\220\021\330\014\023\2204\220~\240S\250\001\330\014\020\320\020!\240\024\240Q\240d\250)\2605\270\005\270T\300\021\300$\300i\310u\320TU\330\014\020\220\r\230W\240A\320\004 \240\001\330\010\013\2104\210q\330\014\r\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004 \240\001\330\r\025\220Q\220a\330\014\020\220\t\230\025\230a\230q\320\004 \320 8\270\001\330\010\t\330\014\020\220\004\220I\230Q\230a\330\017\020\330\014\023\2201\330\010\014\210O\2301\330\010\017\210q\320\004 \320 :\270!\330\010\017\210t\220:\230^\2501\250A\320\004\"\320\"8\270\001\360\030\000\t\023\220&\230\005\230Q\230f\240F\250\"\250A\330\010\017\210t\2208\2301\230O\2501\320\004\"\320\"@\300\001\330\010\014\210N\230!\330\010\014\210M\230\036\240q\250\001\320\004\"\320\"@\300\001\330\010\014\210N\230!\340\010\014\320\014\034\230I\240Z\250q\330\010\014\210A\340\014\r\330\010\014\320\014!\240\021\330\010\014\320\0143\2601\330\010\014\320\014&\240d\320*:\270!\340\016,\250A\360\020\000\t\r\210K\220z\240\021\330\014\r\360\006\000\t\r\320\014=\270Q\330\010\014\320\014=\270Q\360\010\000\t\r\210K\220t\230<\240v\250[\270\001\330\010\014\210I\220\\\240\021\240!\330\010\014\210I\220\\\240\021\240!\330\010\027\220t\2301\230A\330\010\014\210K\220q\230\004\230K\240t\2501\320\004#\320#A\300\021\360\022\000\t\014\210=\230\003\2301\330\014\023\220:\230Q\230a\340\010\013\2104\210z\230\021\230.\250\007\250q\260\t\3209N\310d\320RS\320ST\330\014\023\2201\340\010\020\220\005\220Q\320\026(\250\r\260[\300\001\340\010\030\230\n\240!\320#3\3203M\310Q""\310a\360\006\000\t\026\220\\\240\021\340\010\t\360\016\000\t\025\220I\230Q\330\010\017\210q\320\004%\240X\250Q\330\010\013\2105\220\003\320\023-\250Q\330\014\023\2205\230\002\320\032+\2501\250A\330\010\017\210w\220a\220t\230=\250\001\320\004+\2501\340\010\026\220i\230v\240W\250J\260d\270!\330\010\t\210\027\220\005\320\025(\250\r\260Q\260d\270\047\300\026\300q\320\004.\250a\340\010\013\2104\210w\220c\230\021\330\014\023\2201\340\r\016\330\014\026\320\026&\240a\240t\2508\2601\330\010\014\210M\230\021\230%\230q\330\010\017\210q\320\004/\320/K\3101\360\024\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\032\230&\240\007\240q\330\010\023\320\023)\250\021\250$\250h\260n\300F\310!\320\0044\260A\360\022\000\t\022\220\034\230Q\330\010\014\210J\220a\330\014\017\210v\220V\2302\230[\250\001\250\021\330\020\026\220e\2301\230F\240!\2404\240w\250a\330\010\017\210q\320\0048\3208S\320Sa\320ab\360\024\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\006\000\t\r\210O\2301\360\006\000\016\017\330\014\026\320\026(\250\001\250\024\250Q\330\010\t\330\014!\240\024\320%=\270Q\330\014\017\320\017\"\240\047\250\021\330\020\026\220a\330\014\020\220\r\230Q\230e\2401\330\014\023\2201\360\006\000\r\021\320\020*\250!\250?\270!\320\004D\300A\360(\000\t\014\2104\210w\220c\230\021\330\014\023\2201\340\014\034\230A\330\014\035\230W\240B\240f\250B\250a\360\010\000\t\014\210;\220c\230\026\230s\240+\250S\260\001\340\014\025\220Y\230a\330\014\026\220g\230Q\230a\330\r\024\220G\2301\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 8\270\007\270q\340\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 9\270\027\300\001\340\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\330\020\024\220L\320 7\260w\270a\340\r\024\220G\2301\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"""\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203L\310G\320ST\330\014\031\230\021\330\r\024\220G\2301\330\014\017\210v\220S\230\001\330\020\030\230\001\330\014\020\320\020!\320!1\260\021\260!\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203K\3107\320RS\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\r\024\220G\2301\330\014\020\320\020 \320 0\260\001\260\021\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203J\310\047\320QR\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020#\320#3\2601\260A\330\014\026\220g\230T\240\021\330\020\"\240!\2404\240|\3203M\310W\320TU\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020\"\320\"2\260!\2601\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203L\310I\320UV\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020$\320$4\260A\260Q\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\024\220G\2301\330\014\020\320\020#\320#3\2601\260A\330\014\026\220i\230t\2401\330\020\"\240!\2404\240|\3203N\310i\320WX\330\014\031\230\021\330\r\030\230\003\2301\330\014\017\210z\230\021\230\047\240\021\360\010\000\021\022\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\330\024\025\340\020\023\2203\220i\230{\250!\2507\260$\260g\270S\300\001\340\024\032\230&\320 5\260Q\260a\330\024\037\230u\240G\2501\250E\260\027\270\001\340\024\037\230u\240G\2501\330\020\032\230)\240?\260!\340\021\033\2301\230G\2401\330\020\033\2301\340\020\032\230\047\240\037\260\001\330\021%\240Q\240a\330""\020\032\320\032.\250a\250w\260a\340\014\017\210w\220g\230Q\330\020\024\320\024$\240A\340\014\022\320\022%\240Q\320&?\270r\300\021\340\010\013\2107\220\047\230\021\330\014\020\220\n\230!\330\020\024\320\024$\320$6\260a\260t\270;\300m\320ST\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\n\230!\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\n\230!\330\020\024\320\024\047\320\0479\270\021\270$\270n\310M\320YZ\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\320\020 \240\001\330\020\024\320\024*\320*<\270A\270T\320AR\320R_\320_`\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\330\r\024\220G\2301\330\014\020\220\013\2301\330\020\023\220:\230Q\230i\240q\330\024\036\230g\240W\250A\330\020\024\320\024$\320$6\260a\260t\270;\300a\330\014\026\320\026(\250\001\250\024\250X\260X\270T\300\021\340\014\026\320\026(\250\001\250\024\250X\260X\270Q\330\010\014\210M\230\021\230%\230y\250\001\250\030\260\021\260!\340\010\013\2107\220\047\230\021\330\014\020\320\020 \240\001\340\010\017\210q\320\004F\320Fa\320ab\360\006\000\t\r\320\014\035\230Q\330\010\014\320\014\036\230a\330\010\014\320\014\035\230Q\330\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\014\320\014\037\230q\330\010\014\320\014\036\230a\330\010\014\320\014 \240\001\330\010\014\320\014\037\230q\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\330\010\013\2101\330\014\017\210t\220:\230S\240\001\330\024(\250\001\250\024\250Q\330\020\024\220L\240\001\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\340\014\017\210t\220=\240\003\2401\330\024(\250\001\250\024\250Q\330\020\024\220O\2401\340\014\017\210t\320\023#\2403\240a\330\024(\250\001\250\024\250Q\330\020\024\320\024&\240a\320""\004M\310Q\360\n\000\016\017\330\014\032\320\0323\2601\260D\270\t\300\030\310\034\320UV\320VW\330\010\014\210M\230\021\230!\330\010\017\210q\320\004[\320[\\\360\030\000\t\014\2104\210w\220c\230\021\330\014\022\220)\2301\230A\360\014\000\016\017\330\014\026\220m\2401\240D\250\010\260\016\270a\270w\300a\300t\3108\320SZ\320Z`\320`a\320ae\320ef\320fj\320j|\320|\177\360\000\000@\002A\002\330\010\013\2101\330\014\020\220\r\230Q\230e\2401\330\010\017\210t\2201\320\n\047\240q\320\016,\250A";
     PyObject *data = NULL;
     #define __Pyx_DecompressString_UNUSED
     #define __Pyx_DecompressString_LZSS_UNUSED
     #endif
     PyObject **stringtab = __pyx_mstate->__pyx_string_tab;
     Py_ssize_t pos = 0;
-    for (int i = 0; i < 1273; i++) {
+    for (int i = 0; i < 1275; i++) {
       Py_ssize_t bytes_length = str_length_index[i].length;
       PyObject *string = PyUnicode_DecodeUTF8(bytes + pos, bytes_length, NULL);
       if (likely(string) && i >= 89) PyUnicode_InternInPlace(&string);
@@ -75711,8 +75830,8 @@ static const char bytes[] = "\n\n    Proactor event loop does not implement add_
       stringtab[i] = string;
       pos += bytes_length;
     }
-    for (int i = 1273; i < 1351; i++) {
-      Py_ssize_t bytes_length = bytes_length_index[i-1273].length;
+    for (int i = 1275; i < 1354; i++) {
+      Py_ssize_t bytes_length = bytes_length_index[i-1275].length;
       PyObject *string = PyBytes_FromStringAndSize(bytes + pos, bytes_length);
       stringtab[i] = string;
       pos += bytes_length;
@@ -75722,15 +75841,15 @@ static const char bytes[] = "\n\n    Proactor event loop does not implement add_
       }
     }
     Py_XDECREF(data);
-    for (Py_ssize_t i = 0; i < 1351; i++) {
+    for (Py_ssize_t i = 0; i < 1354; i++) {
       if (unlikely(PyObject_Hash(stringtab[i]) == -1)) {
         __PYX_ERR(0, 1, __pyx_L1_error)
       }
     }
     #if CYTHON_IMMORTAL_CONSTANTS
     {
-      PyObject **table = stringtab + 1273;
-      for (Py_ssize_t i=0; i<78; ++i) {
+      PyObject **table = stringtab + 1275;
+      for (Py_ssize_t i=0; i<79; ++i) {
         #if PY_VERSION_HEX >= 0x030F0000
         PyUnstable_SetImmortal(table[i]);
         #elif CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
@@ -76166,79 +76285,84 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[67] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_setstate_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[67])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1410};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_option, __pyx_mstate->__pyx_n_u_value};
-    __pyx_mstate_global->__pyx_codeobj_tab[68] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_setopt_2, __pyx_mstate->__pyx_kp_b_iso88591_A_A_6_6_q_U_gQa_7_4_XQ_5_q_5QfG1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[68])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1410};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
+    __pyx_mstate_global->__pyx_codeobj_tab[68] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_get_curl_share, __pyx_mstate->__pyx_kp_b_iso88591_A_AT_vQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[68])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1426};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_data};
-    __pyx_mstate_global->__pyx_codeobj_tab[69] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_share, __pyx_mstate->__pyx_kp_b_iso88591_A_HE_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[69])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1414};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_option, __pyx_mstate->__pyx_n_u_value};
+    __pyx_mstate_global->__pyx_codeobj_tab[69] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_setopt_2, __pyx_mstate->__pyx_kp_b_iso88591_A_A_6_6_q_U_gQa_7_4_XQ_5_q_5QfG1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[69])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1430};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_data};
-    __pyx_mstate_global->__pyx_codeobj_tab[70] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_unshare, __pyx_mstate->__pyx_kp_b_iso88591_A_HE_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[70])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[70] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_share, __pyx_mstate->__pyx_kp_b_iso88591_A_HE_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[70])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1434};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[71] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_cleanup, __pyx_mstate->__pyx_kp_b_iso88591_A_t4y_D_at1_5_q_1_Kq_O1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[71])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1434};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_data};
+    __pyx_mstate_global->__pyx_codeobj_tab[71] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_unshare, __pyx_mstate->__pyx_kp_b_iso88591_A_HE_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[71])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1445};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1438};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[72] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_t9A_5_q_5QfG1_1_AZuA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[72])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[72] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_cleanup, __pyx_mstate->__pyx_kp_b_iso88591_A_t4y_D_at1_5_q_1_Kq_O1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[72])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1449};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
+    __pyx_mstate_global->__pyx_codeobj_tab[73] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_t9A_5_q_5QfG1_1_AZuA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[73])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[73] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_reduce_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[73])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[74] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_reduce_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[74])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 3};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_pyx_state};
-    __pyx_mstate_global->__pyx_codeobj_tab[74] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_setstate_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[74])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[75] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_setstate_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[75])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1483};
+    const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1487};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_name, __pyx_mstate->__pyx_n_u_content_type, __pyx_mstate->__pyx_n_u_filename, __pyx_mstate->__pyx_n_u_local_path, __pyx_mstate->__pyx_n_u_data};
-    __pyx_mstate_global->__pyx_codeobj_tab[75] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_addpart, __pyx_mstate->__pyx_kp_b_iso88591_A_at1_t7_a_4s_1A_q_G1_oQfN_t3a_i, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[75])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[76] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_addpart, __pyx_mstate->__pyx_kp_b_iso88591_A_at1_t7_a_4s_1A_q_G1_oQfN_t3a_i, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[76])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1546};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1550};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_files, __pyx_mstate->__pyx_n_u_form, __pyx_mstate->__pyx_n_u_file};
-    __pyx_mstate_global->__pyx_codeobj_tab[76] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_from_list, __pyx_mstate->__pyx_kp_b_iso88591_A_S_HA_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[76])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[77] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_from_list, __pyx_mstate->__pyx_kp_b_iso88591_A_S_HA_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[77])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1554};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1558};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_curl_2};
-    __pyx_mstate_global->__pyx_codeobj_tab[77] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_attach, __pyx_mstate->__pyx_kp_b_iso88591_1_ivWJd_Qd_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[77])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[78] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_attach, __pyx_mstate->__pyx_kp_b_iso88591_1_ivWJd_Qd_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[78])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1559};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1563};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[78] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_1D_HA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[78])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[79] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_1D_HA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[79])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[79] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_reduce_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[79])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[80] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_reduce_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[80])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 3};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_pyx_state};
-    __pyx_mstate_global->__pyx_codeobj_tab[80] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_setstate_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[80])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[81] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_setstate_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[81])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1568};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1572};
     PyObject* const varnames[] = {0};
-    __pyx_mstate_global->__pyx_codeobj_tab[81] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_version, __pyx_mstate->__pyx_kp_b_iso88591_m1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[81])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[82] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_cycurl__curl_pyx, __pyx_mstate->__pyx_n_u_version, __pyx_mstate->__pyx_kp_b_iso88591_m1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[82])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 4};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_pyx_type, __pyx_mstate->__pyx_n_u_pyx_checksum, __pyx_mstate->__pyx_n_u_pyx_state, __pyx_mstate->__pyx_n_u_pyx_result};
-    __pyx_mstate_global->__pyx_codeobj_tab[82] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_pyx_unpickle__CallbackContext, __pyx_mstate->__pyx_kp_b_iso88591_q_0_kQR_81A_7_2_3FnTU_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[82])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[83] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_pyx_unpickle__CallbackContext, __pyx_mstate->__pyx_kp_b_iso88591_q_0_kQR_81A_7_2_3FnTU_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[83])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -80074,20 +80198,6 @@ static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key) {
 }
 #endif
 
-/* ListAppend */
-#if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS && CYTHON_ASSUME_SAFE_SIZE
-static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
-    PyListObject* L = (PyListObject*) list;
-    Py_ssize_t len = Py_SIZE(list);
-    if (likely(L->allocated > len) & likely(len > (L->allocated >> 1))) {
-        Py_INCREF(x);
-        __Pyx__ListComp_AppendAndDecref(list, len, x);
-        return 0;
-    }
-    return PyList_Append(list, x);
-}
-#endif
-
 /* WriteUnraisableException */
 static void __Pyx_WriteUnraisable(const char *name, int clineno,
                                   int lineno, const char *filename,
@@ -80123,6 +80233,20 @@ static void __Pyx_WriteUnraisable(const char *name, int clineno,
     if (nogil)
         PyGILState_Release(state);
 }
+
+/* ListAppend */
+#if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS && CYTHON_ASSUME_SAFE_SIZE
+static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
+    PyListObject* L = (PyListObject*) list;
+    Py_ssize_t len = Py_SIZE(list);
+    if (likely(L->allocated > len) & likely(len > (L->allocated >> 1))) {
+        Py_INCREF(x);
+        __Pyx__ListComp_AppendAndDecref(list, len, x);
+        return 0;
+    }
+    return PyList_Append(list, x);
+}
+#endif
 
 /* PyObjectVectorcallMethodKwds */
 #if !CYTHON_VECTORCALL

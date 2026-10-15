@@ -39,7 +39,7 @@ from threading import Lock as ThreadLock
 from time import monotonic as time_monotonic
 from time import sleep as sync_sleep
 from types import TracebackType
-from typing import TYPE_CHECKING, Literal, TypeVar, final
+from typing import TYPE_CHECKING, Any, Literal, TypeVar, final
 from warnings import warn as user_warning
 
 from cycurl import _curl as m # get_selector
@@ -1242,7 +1242,7 @@ class WebSocket(BaseWebSocket):
     def run_forever(
         self,
         url: str = "",
-        **kwargs,  # pyright: ignore[reportUnknownParameterType, reportMissingParameterType]
+        **kwargs: Any,
     ) -> None:
         """Run the WebSocket forever. See :meth:`connect` for details on parameters.
 
@@ -1267,7 +1267,7 @@ class WebSocket(BaseWebSocket):
         if url:
             _ = self.connect(
                 url,
-                **kwargs,  # pyright: ignore[reportUnknownArgumentType]
+                **kwargs,
             )
 
         _ = self._get_sock_fd()

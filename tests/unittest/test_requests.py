@@ -465,6 +465,50 @@ def test_charset_parse(server):
     assert r.encoding == "gbk"
 
 
+@pytest.mark.parametrize("media_type", ["text/plain", "application/json"])
+@pytest.mark.parametrize(
+    "parameter, encoding",
+    [
+        ("charset=gb2312", "gb2312"),
+        ('charset="gb2312"', "gb2312"),
+        ("charset='gb2312'", "gb2312"),
+        ("charset = gb2312", "gb2312"),
+        ("charset\t=\tgb2312", "gb2312"),
+        ("Charset=gb2312", "gb2312"),
+        ('CHARSET="GB2312"', "GB2312"),
+        ('ChArSeT = "Gb2312"', "Gb2312"),
+        ('charset="gb2312"; format=flowed', "gb2312"),
+        ('format=flowed; charset="gb2312"', "gb2312"),
+    ],
+)
+def test_response_charset_formats(media_type, parameter, encoding):
+    r = Response()
+    r.headers["Content-Type"] = f"{media_type}; {parameter}"
+    text = '{"foo":"中文"}'
+    r.content = text.encode("gb2312")
+
+    assert r.charset_encoding == encoding
+    assert r.encoding == encoding
+    if media_type == "application/json":
+        assert r.json() == {"foo": "中文"}
+    assert r.text == text
+
+
+@pytest.mark.parametrize(
+    "content_type",
+    [None, "", "text/plain", "text/plain; charset=", 'text/plain; charset=""'],
+)
+def test_response_charset_missing(content_type):
+    r = Response()
+    if content_type is not None:
+        r.headers["Content-Type"] = content_type
+    r.content = "中文".encode()
+
+    assert r.charset_encoding is None
+    assert r.encoding == "utf-8"
+    assert r.text == "中文"
+
+
 def test_json_charset_parse():
     r = Response()
     r.headers["Content-Type"] = "application/json; charset=gb2312"
@@ -1060,6 +1104,29 @@ def test_session_with_all_proxies(server, proxy_server):
     url = str(server.url.copy_with(path="/echo_headers"))
     r = s.get(url)
     assert r.text == "Hello from man in the middle"
+
+
+# The test server answers an absolute-form request as a proxy would, so the
+# body tells whether a request went through the proxy or straight to it.
+
+
+def test_env_proxy_is_used_by_default(server, monkeypatch):
+    monkeypatch.setenv("http_proxy", str(server.url))
+    r = requests.Session().get(str(server.url))
+    assert r.json() == {"Hello": "http_proxy!"}
+
+
+def test_trust_env_false_ignores_env_proxy(server, monkeypatch):
+    monkeypatch.setenv("http_proxy", str(server.url))
+    r = requests.Session(trust_env=False).get(str(server.url))
+    assert r.text == "Hello, world!"
+
+
+def test_trust_env_false_ignores_env_no_proxy(server, monkeypatch):
+    monkeypatch.setenv("no_proxy", server.url.host)
+    s = requests.Session(proxy=str(server.url), trust_env=False)
+    r = s.get(str(server.url))
+    assert r.json() == {"Hello": "http_proxy!"}
 
 
 # https://github.com/lexiforest/curl_cffi/issues/222

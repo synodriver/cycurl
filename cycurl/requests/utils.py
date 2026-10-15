@@ -613,6 +613,7 @@ def set_curl_options(
     proxies_list: list[Optional[ProxySpec]] = [],  # noqa: B006
     proxy: Optional[str] = None,
     proxy_auth: Optional[tuple[str, str]] = None,
+    trust_env: bool = True,
     verify_list: list[Union[bool, str, None]] = [],  # noqa: B006
     referer: Optional[str] = None,
     accept_encoding: Optional[str] = "gzip, deflate, br, zstd",
@@ -854,6 +855,7 @@ def set_curl_options(
     if proxies is None:
         proxies = base_proxies
 
+    proxy_set = False
     if proxies:
         # Turn on proxy_credential_no_reuse, which has the following benefits:
         # 1. New connection will be made when proxy username changed
@@ -874,6 +876,7 @@ def set_curl_options(
 
         if proxy is not None:
             c.setopt(m.CURLOPT_PROXY, proxy)
+            proxy_set = True
 
             if parts.scheme == "https":
                 if proxy.startswith("https://"):
@@ -893,6 +896,14 @@ def set_curl_options(
                 username, password = proxy_auth
                 c.setopt(m.CURLOPT_PROXYUSERNAME, username.encode())
                 c.setopt(m.CURLOPT_PROXYPASSWORD, password.encode())
+
+    # libcurl reads http_proxy, https_proxy, all_proxy and no_proxy on its own.
+    # An empty PROXY turns off the environment proxy, and an empty NOPROXY stops
+    # no_proxy from bypassing a proxy that was passed in explicitly.
+    if not trust_env:
+        if not proxy_set:
+            c.setopt(m.CURLOPT_PROXY, "")
+        c.setopt(m.CURLOPT_NOPROXY, "")
 
     # verify
     base_verify, verify = verify_list

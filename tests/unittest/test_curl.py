@@ -247,6 +247,7 @@ def test_repeated_headers_after_error(server):
     # another request
     url = str(server.url.copy_with(path="/echo_headers"))
     c.setopt(CURLOPT_URL, url.encode())
+    c.setopt(CURLOPT_TIMEOUT_MS, 0)
     c.setopt(CURLOPT_HTTPHEADER, [b"Foo: bar"])
     buffer = BytesIO()
     c.setopt(CURLOPT_WRITEDATA, buffer)

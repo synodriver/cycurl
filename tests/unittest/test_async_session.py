@@ -2,7 +2,7 @@ import asyncio
 import base64
 import json
 import pickle
-from contextlib import suppress
+from contextlib import closing, suppress
 from uuid import uuid4
 
 import pytest
@@ -38,10 +38,13 @@ def test_create_session_out_of_async(server):
     s = AsyncSession()
 
     async def get():
-        r = await s.get(str(server.url))
-        assert r.status_code == 200
+        async with s:
+            r = await s.get(str(server.url))
+            assert r.status_code == 200
 
-    asyncio.run(get())
+    # Leave pytest-asyncio's current loop intact so it can clean it up.
+    with closing(asyncio.new_event_loop()) as loop:
+        loop.run_until_complete(get())
 
 
 async def test_post_dict(server):
@@ -215,7 +218,8 @@ async def test_params(server):
 async def test_update_params(server):
     async with AsyncSession() as s:
         r = await s.get(
-            str(server.url.copy_with(path="/echo_params?foo=z")), params={"foo": "bar"}
+            str(server.url.copy_with(path="/echo_params", query=b"foo=z")),
+            params={"foo": "bar"},
         )
         assert r.status_code == 200
         assert r.content == b'{"params": {"foo": ["bar"]}}'
@@ -721,3 +725,10 @@ async def test_dropped_http2_connection_error_names_the_failure():
     finally:
         server.close()
         await server.wait_closed()
+
+
+async def test_trust_env_false_ignores_env_proxy(server, monkeypatch):
+    monkeypatch.setenv("http_proxy", str(server.url))
+    async with AsyncSession(trust_env=False) as s:
+        r = await s.get(str(server.url))
+        assert r.text == "Hello, world!"

@@ -198,14 +198,14 @@ cdef size_t read_callback(char *buffer, size_t size, size_t nitems, void *userda
         context.exception = e
         return curl.CURL_READFUNC_ABORT
 
-cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) with gil:
+cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) noexcept with gil:
     """ffi callback for ``curl_lock_function``, acquires the per-data mutex."""
     cdef dict locks = <dict>clientp
     cdef object lock = locks[data]
     if lock is not None:
         lock.acquire()
 
-cdef void unlock_function(curl.CURL *handle, int data, void *clientp) with gil:
+cdef void unlock_function(curl.CURL *handle, int data, void *clientp) noexcept with gil:
     """ffi callback for ``curl_unlock_function``, releases the per-data mutex."""
     cdef dict locks = <dict>clientp
     cdef object lock = locks[data]
@@ -1406,6 +1406,10 @@ cdef class CurlShare:
             self.share(curl.CURL_LOCK_DATA_DNS)
         if ssl_session:
             self.share(curl.CURL_LOCK_DATA_SSL_SESSION)
+
+    def get_curl_share(self):
+        """Get the underlying ``CURLSH`` pointer as a PyCapsule."""
+        return PyCapsule_New(self._curl_share, NULL, NULL)
 
     cpdef object _setopt(self, int option, object value):
         cdef:
