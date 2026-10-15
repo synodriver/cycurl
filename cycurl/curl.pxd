@@ -94,6 +94,10 @@ cdef extern from "curl/curl.h" nogil:
     int curl_mime_filedata(curl_mimepart *part, const char *filename)
     void curl_mime_free(curl_mime *mime)
 
+    void* curl_share_init()
+    int curl_share_cleanup(void *sh)
+    const char* curl_share_strerror(int code)
+
     # consts
     #CURLOPT_
     int CURLOPT_WRITEDATA
@@ -840,9 +844,41 @@ cdef extern from "curl/curl.h" nogil:
     int CURLPAUSE_SEND_CONT
     int CURLPAUSE_ALL
     int CURLPAUSE_CONT
+    #CURLSHOPT_
+    int CURLSHOPT_NONE
+    int CURLSHOPT_SHARE
+    int CURLSHOPT_UNSHARE
+    int CURLSHOPT_LOCKFUNC
+    int CURLSHOPT_UNLOCKFUNC
+    int CURLSHOPT_USERDATA
+    int CURLSHOPT_LAST
+    #CURL_LOCK_DATA_
+    int CURL_LOCK_DATA_NONE
+    int CURL_LOCK_DATA_SHARE
+    int CURL_LOCK_DATA_COOKIE
+    int CURL_LOCK_DATA_DNS
+    int CURL_LOCK_DATA_SSL_SESSION
+    int CURL_LOCK_DATA_CONNECT
+    int CURL_LOCK_DATA_PSL
+    int CURL_LOCK_DATA_HSTS
+    int CURL_LOCK_DATA_LAST
+    #CURL_LOCK_ACCESS_
+    int CURL_LOCK_ACCESS_NONE
+    int CURL_LOCK_ACCESS_SHARED
+    int CURL_LOCK_ACCESS_SINGLE
+    int CURL_LOCK_ACCESS_LAST
+    #CURLSHE_
+    int CURLSHE_OK
+    int CURLSHE_BAD_OPTION
+    int CURLSHE_IN_USE
+    int CURLSHE_INVALID
+    int CURLSHE_NOMEM
+    int CURLSHE_NOT_BUILT_IN
+    int CURLSHE_LAST
 
 
 
 cdef extern from "shim.h" nogil:
     int _curl_easy_setopt(CURL * curl, int option, void * param)
+    int _curl_share_setopt(void * share, int option, void * param)
     int _curl_easy_getinfo_socket(CURL *curl, int option, uintptr_t *result)

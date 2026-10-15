@@ -54,7 +54,7 @@ STATUS_LINE_RE = re.compile(rb"HTTP/(\d\.\d) ([0-9]{3}) (.*)")
 class CurlError(Exception):
     """Base exception for cycurl package"""
 
-    def __init__(self, msg, code: int = 0, *args, **kwargs):
+    def __init__(self, msg: str, code: int = 0, *args, **kwargs):
         super().__init__(msg, *args, **kwargs)
         self.code = code
 
@@ -197,6 +197,20 @@ cdef size_t read_callback(char *buffer, size_t size, size_t nitems, void *userda
     except BaseException as e:
         context.exception = e
         return curl.CURL_READFUNC_ABORT
+
+cdef void lock_function(curl.CURL *handle, int data, int access,  void *clientp) with gil:
+    """ffi callback for ``curl_lock_function``, acquires the per-data mutex."""
+    cdef dict locks = <dict>clientp
+    cdef object lock = locks[data]
+    if lock is not None:
+        lock.acquire()
+
+cdef void unlock_function(curl.CURL *handle, int data, void *clientp) with gil:
+    """ffi callback for ``curl_unlock_function``, releases the per-data mutex."""
+    cdef dict locks = <dict>clientp
+    cdef object lock = locks[data]
+    if lock is not None:
+        lock.release()
 
 cdef int seek_callback(void *clientp, curl.curl_off_t offset, int origin) except? 2 with gil:
     cdef _CallbackContext context = <_CallbackContext>clientp
@@ -346,6 +360,8 @@ cdef class Curl:
         char* _error_buffer # char[256]
         bint _debug
 
+        public CurlShare _share  # session.py access this
+
         size_t _WS_RECV_BUFFER_SIZE
         char* _ws_recv_buffer
         size_t _ws_recv_n_recv
@@ -391,6 +407,7 @@ cdef class Curl:
         self._xferinfo_handle = None
         self._fnmatch_handle = None
         self._debug = debug
+        self._share = None
         self._set_error_buffer()
 
         # Pre-allocated C objects for WebSocket performance
@@ -408,6 +425,12 @@ cdef class Curl:
         if self._curl:
             curl.curl_easy_cleanup(self._curl)
             self._curl = NULL
+        if self._share is not None:
+            # Cyclic GC may finalize the share before its attached handles.
+            with gil:
+                if self._share._finalizing:
+                    self._share._cleanup()
+                self._share = None
         if self._resolve:
             curl.curl_slist_free_all(self._resolve)
             self._resolve = NULL
@@ -975,6 +998,10 @@ cdef class Curl:
         if new_handle == NULL:
             raise MemoryError
         c = Curl(self._cacert, self._debug, PyCapsule_New(<void*>new_handle, NULL, NULL))
+        # duphandle does not inherit CURLOPT_SHARE, so re-attach it.
+        if self._share is not None:
+            c.setopt(curl.CURLOPT_SHARE, PyCapsule_New(self._share._curl_share, NULL, NULL))
+            c._share = self._share
         return c
 
     def reset(self):
@@ -1190,7 +1217,8 @@ cdef class AsyncCurl:
             await self._timeout_checker
         # Close all pending futures
         for curl_, future in self._curl2future.items():
-            curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
+            if (<Curl>curl_)._curl:
+                curl.curl_multi_remove_handle(self._curlm, (<Curl>curl_)._curl)
             if not future.done() and not future.cancelled():
                 future.set_result(None)
         # Cleanup curl_multi handle
@@ -1284,7 +1312,17 @@ cdef class AsyncCurl:
             errcode = curl.curl_multi_remove_handle(self._curlm, curl_._curl)
         self._check_error(errcode)
         self._curl2curl.pop(<long long><void*>curl_._curl, None)
-        return self._curl2future.pop(curl_, None)
+        future = self._curl2future.pop(curl_, None)
+        try:
+            if curl_._curl:
+                with nogil:
+                    errcode = curl.curl_multi_remove_handle(self._curlm, curl_._curl)
+                self._check_error(errcode)
+        except CurlError:
+            if future and not future.done() and not future.cancelled():
+                future.cancel()
+            raise
+        return future
 
     cpdef inline object remove_handle(self, Curl curl_):
         """Cancel a future for given curl handle."""
@@ -1314,6 +1352,111 @@ cdef class AsyncCurl:
             "See https://curl.se/libcurl/c/libcurl-errors.html first for more "
             "details. Please open an issue on GitHub to help debug this error.",
         )
+
+
+cdef class CurlShare:
+    """Wrapper for the ``curl_share_*`` API."""
+    cdef:
+        bint _closed
+        bint _finalizing
+        void* _curl_share
+        dict _locks  # dict[int, threading.Lock]
+        void* _userdata
+
+    def __cinit__(
+        self,
+        bint connect = False,
+        bint dns= True,
+        bint ssl_session = True,
+    ):
+        """
+        Parameters:
+            connect: share the connection cache. Only safe for serialized,
+                single-threaded use; libcurl does not support sharing
+                connections between concurrent threads.
+            dns: share the DNS cache.
+            ssl_session: share the TLS session cache.
+        """
+        self._closed = False
+        self._finalizing = False
+        self._curl_share = curl.curl_share_init()
+        if not self._curl_share:
+            raise CurlError(
+                "Failed to create share handle, curl_share_init returned NULL"
+            )
+        # Pass the lock table (not self) as userdata to avoid a reference cycle.
+        self._locks = {
+            curl.CURL_LOCK_DATA_NONE: threading.Lock(), # CURL_LOCK_DATA_NONE
+            curl.CURL_LOCK_DATA_SHARE: threading.Lock(), # CURL_LOCK_DATA_SHARE
+            curl.CURL_LOCK_DATA_COOKIE: threading.Lock(), # CURL_LOCK_DATA_COOKIE
+            curl.CURL_LOCK_DATA_DNS: threading.Lock(), # CURL_LOCK_DATA_DNS
+            curl.CURL_LOCK_DATA_SSL_SESSION: threading.Lock(), # CURL_LOCK_DATA_SSL_SESSION
+            curl.CURL_LOCK_DATA_CONNECT: threading.Lock(), # CURL_LOCK_DATA_CONNECT
+            curl.CURL_LOCK_DATA_PSL: threading.Lock(), # CURL_LOCK_DATA_PSL
+            curl.CURL_LOCK_DATA_HSTS: threading.Lock(), # CURL_LOCK_DATA_HSTS
+            curl.CURL_LOCK_DATA_LAST: threading.Lock(), # CURL_LOCK_DATA_LAST
+        } # CURL_LOCK_DATA_ constants
+        self._userdata = <void*>(self._locks)
+        self._setopt(curl.CURLSHOPT_LOCKFUNC, PyCapsule_New(<void*>lock_function, NULL, NULL))
+        self._setopt(curl.CURLSHOPT_UNLOCKFUNC, PyCapsule_New(<void*>unlock_function, NULL, NULL))
+        self._setopt(curl.CURLSHOPT_USERDATA, PyCapsule_New(self._userdata, NULL, NULL))
+        if connect:
+            self.share(curl.CURL_LOCK_DATA_CONNECT)
+        if dns:
+            self.share(curl.CURL_LOCK_DATA_DNS)
+        if ssl_session:
+            self.share(curl.CURL_LOCK_DATA_SSL_SESSION)
+
+    cpdef object _setopt(self, int option, object value):
+        cdef:
+            void* c_value = NULL
+            int intval
+        if option==curl.CURLSHOPT_SHARE or option==curl.CURLSHOPT_UNSHARE:
+            intval = <int>value
+            c_value = <void*>&intval
+        else:
+            c_value = PyCapsule_GetPointer(value, NULL)
+        cdef int code
+        with nogil:
+            code = curl._curl_share_setopt(self._curl_share, option, c_value)
+        if code != curl.CURLSHE_OK:
+            errmsg = <bytes>(curl.curl_share_strerror(code)).decode()
+            raise CurlError(f"Failed to set share option {option}: {errmsg}", code=code)
+
+    cpdef share(self, int data):
+        """Start sharing the given ``CurlLockData`` across attached handles."""
+        self._setopt(curl.CURLSHOPT_SHARE, data)
+
+    cpdef unshare(self, int data):
+        """Stop sharing the given ``CurlLockData``."""
+        self._setopt(curl.CURLSHOPT_UNSHARE, data)
+
+    cpdef int _cleanup(self):
+        cdef int code
+        with nogil:
+            if not self._closed and self._curl_share:
+                code = curl.curl_share_cleanup(self._curl_share)
+                if code != curl.CURLSHE_OK:
+                    return code
+                self._closed = True
+                self._curl_share = NULL
+        return curl.CURLSHE_OK
+
+    cpdef close(self):
+        """Cleanup the share handle, wrapper for ``curl_share_cleanup``.
+
+        Only call this once every attached easy handle has been closed,
+        otherwise raises ``CurlError`` with ``CurlShareCode.IN_USE`` and keeps
+        the share open so cleanup can be retried after closing those handles.
+        """
+        code = self._cleanup()
+        if code != curl.CURLSHE_OK:
+            errmsg = <bytes>(curl.curl_share_strerror(code)).decode()
+            raise CurlError(f"Failed to close share handle: {errmsg}", code=code)
+
+    def __dealloc__(self):
+        self._finalizing = True
+        self._cleanup()
 
 @cython.freelist(8)
 @cython.no_gc

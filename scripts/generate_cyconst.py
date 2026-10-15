@@ -211,8 +211,93 @@ async def main():
                 if l.startswith(b"#define CURLPAUSE_"):
                     name = l.split()[1].strip()
                     fconsts.write(name + b" = curl." + name + b"\n")
+        fconsts.write(b"#CURLSHOPT_\n")
+        proc = await asyncio.create_subprocess_shell(
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLSHOPT_.\+" | sed "s/,//g" """,
+            stdout=asyncio.subprocess.PIPE,
+        )
+        stdout, _ = await proc.communicate()
+        for line in stdout.splitlines():
+            if line.startswith(b"__attribute__"):
+                continue
+            if b"deprecated" in line:
+                matchobj = re.search(r"(__attribute__\(\(deprecated\(.+?\)\)\))", line.decode())
+                substring = line[matchobj.start(0): matchobj.end(0)]
+                line = line.replace(substring, b"")
+            try:
+                idx = line.index(b"=")
+                name = line[:idx].strip()
+            except ValueError:
+                name = line.strip()
+            if not name:
+                continue
+            fconsts.write(name + b" = curl." + name + b"\n")
 
+        fconsts.write(b"#CURL_LOCK_DATA_\n")
+        proc = await asyncio.create_subprocess_shell(
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURL_LOCK_DATA_.\+" | sed "s/,//g" """,
+            stdout=asyncio.subprocess.PIPE,
+        )
+        stdout, _ = await proc.communicate()
+        for line in stdout.splitlines():
+            if line.startswith(b"__attribute__"):
+                continue
+            if b"deprecated" in line:
+                matchobj = re.search(r"(__attribute__\(\(deprecated\(.+?\)\)\))", line.decode())
+                substring = line[matchobj.start(0): matchobj.end(0)]
+                line = line.replace(substring, b"")
+            try:
+                idx = line.index(b"=")
+                name = line[:idx].strip()
+            except ValueError:
+                name = line.strip()
+            if not name:
+                continue
+            fconsts.write(name + b" = curl." + name + b"\n")
 
+        fconsts.write(b"#CURL_LOCK_ACCESS_\n")
+        proc = await asyncio.create_subprocess_shell(
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURL_LOCK_ACCESS_.\+" | sed "s/,//g" """,
+            stdout=asyncio.subprocess.PIPE,
+        )
+        stdout, _ = await proc.communicate()
+        for line in stdout.splitlines():
+            if line.startswith(b"__attribute__"):
+                continue
+            if b"deprecated" in line:
+                matchobj = re.search(r"(__attribute__\(\(deprecated\(.+?\)\)\))", line.decode())
+                substring = line[matchobj.start(0): matchobj.end(0)]
+                line = line.replace(substring, b"")
+            try:
+                idx = line.index(b"=")
+                name = line[:idx].strip()
+            except ValueError:
+                name = line.strip()
+            if not name:
+                continue
+            fconsts.write(name + b" = curl." + name + b"\n")
+
+        fconsts.write(b"#CURLSHE_\n")
+        proc = await asyncio.create_subprocess_shell(
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLSHE_.\+" | sed "s/,//g" """,
+            stdout=asyncio.subprocess.PIPE,
+        )
+        stdout, _ = await proc.communicate()
+        for line in stdout.splitlines():
+            if line.startswith(b"__attribute__"):
+                continue
+            if b"deprecated" in line:
+                matchobj = re.search(r"(__attribute__\(\(deprecated\(.+?\)\)\))", line.decode())
+                substring = line[matchobj.start(0): matchobj.end(0)]
+                line = line.replace(substring, b"")
+            try:
+                idx = line.index(b"=")
+                name = line[:idx].strip()
+            except ValueError:
+                name = line.strip()
+            if not name:
+                continue
+            fconsts.write(name + b" = curl." + name + b"\n")
 
 if __name__ == "__main__":
     asyncio.run(main())
