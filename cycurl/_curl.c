@@ -3748,8 +3748,8 @@ static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* s
     return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
 }
 
-/* py_set_remove.proto */
-static CYTHON_INLINE int __Pyx_PySet_Remove(PyObject *set, PyObject *key);
+/* py_set_discard.proto */
+static CYTHON_INLINE int __Pyx_PySet_Discard(PyObject *set, PyObject *key);
 
 /* PyObjectCallMethod0.proto (used by dict_iter_common) */
 static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethod0(PyObject* obj, PyObject* method_name);
@@ -48205,7 +48205,7 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
  *         async_curl._sockfds.add(sockfd)
  *     # Need to remove the socket
  *     if what & curl.CURL_POLL_REMOVE:             # <<<<<<<<<<<<<<
- *         async_curl._sockfds.remove(sockfd)
+ *         async_curl._sockfds.discard(sockfd)
  *     return 0
 */
   __pyx_t_2 = ((__pyx_v_what & CURL_POLL_REMOVE) != 0);
@@ -48216,17 +48216,17 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
     /* "cycurl/_curl.pyx":1152
  *     # Need to remove the socket
  *     if what & curl.CURL_POLL_REMOVE:
- *         async_curl._sockfds.remove(sockfd)             # <<<<<<<<<<<<<<
+ *         async_curl._sockfds.discard(sockfd)             # <<<<<<<<<<<<<<
  *     return 0
  * 
 */
     if (unlikely(__pyx_v_async_curl->_sockfds == Py_None)) {
-      PyErr_Format(PyExc_AttributeError, "\047NoneType\047 object has no attribute \047%.30s\047", "remove");
+      PyErr_Format(PyExc_AttributeError, "\047NoneType\047 object has no attribute \047%.30s\047", "discard");
       __PYX_ERR(0, 1152, __pyx_L1_error)
     }
     __pyx_t_1 = __Pyx_PyLong_From_int(__pyx_v_sockfd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1152, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_9 = __Pyx_PySet_Remove(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1152, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PySet_Discard(__pyx_v_async_curl->_sockfds, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1152, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
 
@@ -48234,14 +48234,14 @@ static int __pyx_f_6cycurl_5_curl_socket_function(CYTHON_UNUSED CURL *__pyx_v_cu
  *         async_curl._sockfds.add(sockfd)
  *     # Need to remove the socket
  *     if what & curl.CURL_POLL_REMOVE:             # <<<<<<<<<<<<<<
- *         async_curl._sockfds.remove(sockfd)
+ *         async_curl._sockfds.discard(sockfd)
  *     return 0
 */
   }
 
   /* "cycurl/_curl.pyx":1153
  *     if what & curl.CURL_POLL_REMOVE:
- *         async_curl._sockfds.remove(sockfd)
+ *         async_curl._sockfds.discard(sockfd)
  *     return 0             # <<<<<<<<<<<<<<
  * 
  * # """
@@ -84254,7 +84254,7 @@ __pyx_return_false:
     return 0;
 }
 
-/* py_set_discard_unhashable (used by py_set_remove) */
+/* py_set_discard_unhashable (used by py_set_discard) */
 static int __Pyx_PySet_DiscardUnhashable(PyObject *set, PyObject *key) {
     PyObject *tmpkey;
     int rv;
@@ -84269,28 +84269,13 @@ static int __Pyx_PySet_DiscardUnhashable(PyObject *set, PyObject *key) {
     return rv;
 }
 
-/* py_set_remove */
-static int __Pyx_PySet_RemoveNotFound(PyObject *set, PyObject *key, int found) {
+/* py_set_discard */
+static CYTHON_INLINE int __Pyx_PySet_Discard(PyObject *set, PyObject *key) {
+    int found = PySet_Discard(set, key);
     if (unlikely(found < 0)) {
         found = __Pyx_PySet_DiscardUnhashable(set, key);
     }
-    if (likely(found == 0)) {
-        PyObject *tup;
-        tup = PyTuple_Pack(1, key);
-        if (!tup)
-            return -1;
-        PyErr_SetObject(PyExc_KeyError, tup);
-        Py_DECREF(tup);
-        return -1;
-    }
     return found;
-}
-static CYTHON_INLINE int __Pyx_PySet_Remove(PyObject *set, PyObject *key) {
-    int found = PySet_Discard(set, key);
-    if (unlikely(found != 1)) {
-        return __Pyx_PySet_RemoveNotFound(set, key, found);
-    }
-    return 0;
 }
 
 /* PyObjectCallMethod0 (used by dict_iter_common) */

@@ -122,6 +122,11 @@ def test_proxy_headers(server):
     assert "Foo" not in headers
 
 
+def test_http3_proxy_type():
+    c = Curl()
+    c.setopt(CurlOpt.PROXYTYPE, CurlProxyType.HTTPS3)
+
+
 def test_write_function_memory_leak(server):
     c = Curl()
     for _ in range(10):

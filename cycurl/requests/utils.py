@@ -631,11 +631,12 @@ def set_curl_options(
     doh_url: Optional[str] = None,
     cert: Optional[Union[str, tuple[str, str]]] = None,
     stream: Optional[bool] = None,
+    stream_response_callback: Optional[Callable[[], None]] = None,
     max_recv_speed: int = 0,
     multipart: Optional[m.CurlMime] = None,
     queue_class: Any = None,
     event_class: Any = None,
-    curl_options: Optional[dict[int, str]] = None,
+    curl_options: Optional[dict[int, Any]] = None,
 ):
     c = curl
 
@@ -1025,6 +1026,8 @@ def set_curl_options(
 
         def qput(chunk):
             if not header_recved.is_set():
+                if stream_response_callback is not None:
+                    stream_response_callback()
                 header_recved.set()
             if quit_now.is_set():
                 return m.CURL_WRITEFUNC_ERROR

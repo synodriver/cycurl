@@ -1,5 +1,7 @@
 name: Test pro features
 on:
+  schedule:
+    - cron: '0 0 * * *'
   push:
     branches:
       - main
@@ -26,14 +28,14 @@ jobs:
       matrix:
         os: [ubuntu-24.04, macos-15-intel, macos-14, windows-2022, windows-11-arm]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v7
       with:
         python-version: '3.11'
 
     - if: runner.os == 'Linux'
-      uses: docker/setup-qemu-action@v3
+      uses: docker/setup-qemu-action@v4
       with:
         platforms: all
 
@@ -43,4 +45,4 @@ jobs:
         brew install make automake libtool
 
     - name: Build and test wheels
-      uses: pypa/cibuildwheel@v3.3.1
+      uses: pypa/cibuildwheel@v4.2.1

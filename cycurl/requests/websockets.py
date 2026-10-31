@@ -606,7 +606,7 @@ class WebSocket(BaseWebSocket):
         interface: str | None = None,
         cert: str | tuple[str, str] | None = None,
         max_recv_speed: int = 0,
-        curl_options: dict[int, str] | None = None,
+        curl_options: dict[int, Any] | None = None,
         *,
         base_url: str | None = None,
         base_params: (

@@ -21,8 +21,8 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
+    - uses: actions/checkout@v7
+    - uses: actions/setup-python@v7
       with:
         python-version: "3.10"
     - name: Lint
@@ -30,13 +30,18 @@ jobs:
         pip install ruff
         ruff check --exclude issues
 
+    - name: Test packaging
+      run: |
+        pip install pytest setuptools
+        python -m pytest tests/packaging
+
   sdist:
     name: Build sdist wheel
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v7
       with:
         python-version: "3.10"
 
@@ -48,7 +53,7 @@ jobs:
         pip install ./dist/*.tar.gz
 
     - name: upload artifacts
-      uses: actions/upload-artifact@v4  # https://github.com/actions/upload-artifact/issues/478
+      uses: actions/upload-artifact@v7
       with:
         name: curl_cffi-${{ github.sha }}-sdist.zip
         path: ./dist/*.tar.gz
@@ -75,31 +80,31 @@ jobs:
         - os: windows-2022
         - os: windows-11-arm
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v7
       with:
         python-version: "3.11"
 
     - if: matrix.qemu
-      uses: docker/setup-qemu-action@v3
+      uses: docker/setup-qemu-action@v4
       with:
         platforms: all
 
     # macOS make is too old
     - if: runner.os == 'macOS'
       run: |
-        brew install make automake libtool
+        brew install make automake libtool pkg-config
 
     - name: Build and test wheels
-      uses: pypa/cibuildwheel@v3.3.1
+      uses: pypa/cibuildwheel@v4.2.1
       env:
         CIBW_ARCHS_LINUX: ${{ matrix.cibw_archs_linux }}
 
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v3
 
-    - uses: actions/upload-artifact@v4  # https://github.com/actions/upload-artifact/issues/478
+    - uses: actions/upload-artifact@v7
       with:
         name: curl_cffi-${{ github.sha }}-${{ matrix.os }}-${{ strategy.job-index }}.zip
         path: ./wheelhouse/*.whl
@@ -108,27 +113,27 @@ jobs:
     name: Build Android wheels
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v7
       with:
         python-version: '3.11'
 
-    - uses: actions/setup-java@v4
+    - uses: actions/setup-java@v6
       with:
         distribution: 'temurin'
         java-version: '17'
 
-    - uses: android-actions/setup-android@v3
+    - uses: android-actions/setup-android@v4
       with:
         packages: platform-tools
 
     - name: Build wheels (Android)
-      uses: pypa/cibuildwheel@v3.3.1
+      uses: pypa/cibuildwheel@v4.2.1
       env:
         CIBW_PLATFORM: android
         # One wheel per CPython minor, see the Android note in setup.py.
-        CIBW_BUILD: cp313-android_arm64_v8a cp314-android_arm64_v8a
+        CIBW_BUILD: cp313-android_arm64_v8a cp314-android_arm64_v8a cp315-android_arm64_v8a
         ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
         ANDROID_API_LEVEL: 24
 
@@ -137,9 +142,9 @@ jobs:
     - name: Check one wheel was built per CPython minor
       run: |
         ls -l ./wheelhouse/
-        for tag in cp313 cp314; do ls ./wheelhouse/*-$tag-*-android_*.whl; done
+        for tag in cp313 cp314 cp315; do ls ./wheelhouse/*-$tag-*-android_*.whl; done
 
-    - uses: actions/upload-artifact@v4  # https://github.com/actions/upload-artifact/issues/478
+    - uses: actions/upload-artifact@v7
       with:
         name: curl_cffi-${{ github.sha }}-android.zip
         path: ./wheelhouse/*.whl
@@ -153,21 +158,21 @@ jobs:
         # For linux, it's built inside a container, no need to test for latest versions.
         os: [macos-latest, windows-latest, windows-11-arm]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v7
       with:
         python-version: "3.11"
 
     - if: runner.os == 'Linux'
-      uses: docker/setup-qemu-action@v3
+      uses: docker/setup-qemu-action@v4
       with:
         platforms: all
 
     # macOS make is too old
     - if: runner.os == 'macOS'
       run: |
-        brew install make automake libtool
+        brew install make automake libtool pkg-config
 
     - name: Build and test wheels
-      uses: pypa/cibuildwheel@v3.3.1
+      uses: pypa/cibuildwheel@v4.2.1

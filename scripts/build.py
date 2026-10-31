@@ -1,8 +1,10 @@
 import json
 import os
 import platform
+import shlex
 import shutil
 import struct
+import subprocess
 import sys
 import tempfile
 import time
@@ -14,7 +16,7 @@ from urllib.request import urlretrieve
 from cffi import FFI
 
 # this is the upstream libcurl-impersonate version
-__version__ = "2.2.3"
+__version__ = "2.3.1"
 
 
 def is_android_env() -> bool:
@@ -32,20 +34,28 @@ def detect_arch():
         archs = json.loads(f.read())
 
     uname = platform.uname()
+
+    machine = os.environ.get("CURL_CFFI_TARGET_MACHINE", uname.machine)
+    pointer_size = int(
+        os.environ.get(
+            "CURL_CFFI_TARGET_POINTER_SIZE",
+            struct.calcsize("P") * 8,
+        )
+    )
+
     uname_system = "Android" if is_android_env() else uname.system
-    glibc_flavor = "gnueabihf" if uname.machine in ["armv7l", "armv6l"] else "gnu"
+    glibc_flavor = "gnueabihf" if machine in ["armv7l", "armv6l"] else "gnu"
 
     libc, _ = platform.libc_ver()
     # https://github.com/python/cpython/issues/87414
     libc = glibc_flavor if libc == "glibc" else "musl"
     if is_android_env():
         libc = "android"
-    pointer_size = struct.calcsize("P") * 8
 
     for arch in archs:
         if (
             arch["system"] == uname_system
-            and arch["machine"] == uname.machine
+            and arch["machine"] == machine
             and arch["pointer_size"] == pointer_size
             and ("libc" not in arch or arch.get("libc") == libc)
         ):
@@ -87,9 +97,9 @@ def get_obj_name(arch, link_type):
         return "libcurl-impersonate.a"
     if arch["system"] == "Darwin":
         return "libcurl-impersonate.dylib"
-    if arch["system"] == "Linux":
-        return "libcurl-impersonate.so"
-    return "libcurl-impersonate.dll"
+    if arch["system"] == "Windows":
+        return "libcurl-impersonate.dll"
+    return "libcurl-impersonate.so"
 
 
 arch = detect_arch()
@@ -179,6 +189,35 @@ def get_curl_libraries():
         return []
 
 
+def get_static_link_args():
+    # Release archives put the .pc beside the library; local installs use pkgconfig/.
+    pc_files = [
+        libdir / "libcurl-impersonate.pc",
+        libdir / "pkgconfig/libcurl-impersonate.pc",
+    ]
+    pc_file = next((path for path in pc_files if path.is_file()), None)
+    if pc_file is None:
+        raise RuntimeError(
+            f"Missing libcurl-impersonate.pc in {libdir}. "
+            "Use the complete curl-impersonate 2.3.0 or newer release archive."
+        )
+    env = os.environ.copy()
+    env["PKG_CONFIG_PATH"] = os.pathsep.join(
+        filter(None, [str(pc_file.parent.resolve()), env.get("PKG_CONFIG_PATH")])
+    )
+    try:
+        flags = subprocess.check_output(
+            ["pkg-config", "--static", "--libs", "libcurl-impersonate"],
+            env=env,
+            text=True,
+        )
+    except FileNotFoundError as e:
+        raise RuntimeError("Install pkg-config to build with static libcurl.") from e
+    # The exact archive is already force-loaded. Linking -lcurl-impersonate again
+    # could select the shared library shipped alongside it.
+    return [flag for flag in shlex.split(flags) if flag != "-lcurl-impersonate"]
+
+
 ffibuilder = FFI()
 system = platform.system()
 root_dir = Path(__file__).parent.parent
@@ -191,21 +230,17 @@ if is_static:
     if system == "Darwin":
         extra_link_args = [
             f"-Wl,-force_load,{static_libs[0]}",
-            "-lc++",
         ]
-    elif system == "FreeBSD" or system == "OpenBSD" or is_android:
-        extra_link_args = [
-            "-Wl,--whole-archive",
-            static_libs[0],
-            "-Wl,--no-whole-archive",
-            "-lc++",
-        ]
-    elif system == "Linux":
+        # Only macOS release archives ship the .pc with required system frameworks.
+        extra_link_args.extend(get_static_link_args())
+    elif system in ("FreeBSD", "OpenBSD", "Linux") or is_android:
         extra_link_args = [
             "-Wl,--whole-archive",
             static_libs[0],
             "-Wl,--no-whole-archive",
         ]
+        if system in ("FreeBSD", "OpenBSD") or is_android:
+            extra_link_args.append("-lc++")
 
 libraries = get_curl_libraries()
 

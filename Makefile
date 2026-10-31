@@ -5,8 +5,8 @@ PYTHON ?= python3
 PIP ?= $(PYTHON) -m pip
 
 # this is the upstream libcurl-impersonate version
-VERSION := 2.2.3
-CURL_VERSION := curl-8_22_0
+VERSION := 2.3.1
+CURL_VERSION := curl-8_23_0
 
 ifeq ($(OS),Windows_NT)
     CURRENT_USER := $(shell echo %USERNAME%)
@@ -22,7 +22,7 @@ $(CURL_VERSION):
 curl-impersonate-$(VERSION)/patches: $(CURL_VERSION)
 	curl -fL --retry 3 "https://github.com/lexiforest/curl-impersonate/archive/refs/tags/v$(VERSION).tar.gz" \
 		-o "curl-impersonate-$(VERSION).tar.gz"
-	tar -xf curl-impersonate-$(VERSION).tar.gz
+	tar -xzf curl-impersonate-$(VERSION).tar.gz
 
 .preprocessed: curl-impersonate-$(VERSION)/patches
 	cd $(CURL_VERSION)

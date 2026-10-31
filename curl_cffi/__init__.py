@@ -9,9 +9,11 @@ __all__ = [
     "CurlMOpt",
     "CurlECode",
     "CurlHttpVersion",
+    "CurlProxyType",
     "CurlFollow",
     "CurlSslVersion",
     "CurlWsFlag",
+    "CurlWsOption",
     "CurlShareOpt",
     "CurlLockData",
     "CurlLockAccess",
@@ -71,10 +73,12 @@ from .const import (
     CurlLockData,
     CurlMOpt,
     CurlOpt,
+    CurlProxyType,
     CurlShareCode,
     CurlShareOpt,
     CurlSslVersion,
     CurlWsFlag,
+    CurlWsOption,
 )
 from .curl import Curl, CurlError, CurlMime, CurlShare
 
