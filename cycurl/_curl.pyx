@@ -1149,7 +1149,7 @@ cdef int socket_function(curl.CURL *curl_, int sockfd, int what, void *clientp, 
         async_curl._sockfds.add(sockfd)
     # Need to remove the socket
     if what & curl.CURL_POLL_REMOVE:
-        async_curl._sockfds.remove(sockfd)
+        async_curl._sockfds.discard(sockfd)
     return 0
 
 # """

@@ -298,6 +298,32 @@ async def main():
             if not name:
                 continue
             fconsts.write(name + b" = curl." + name + b"\n")
+        fconsts.write(b"#CURLPROXY_\n")
+        proc = await asyncio.create_subprocess_shell(
+            r""" echo '#include "curl/curl.h"' | gcc -E - | grep -i "CURLPROXY_.\+" | sed "s/,//g" """,
+            stdout=asyncio.subprocess.PIPE,
+        )
+        stdout, _ = await proc.communicate()
+        for line in stdout.splitlines():
+            if line.startswith(b"__attribute__"):
+                continue
+            if b"deprecated" in line:
+                matchobj = re.search(r"(__attribute__\(\(deprecated\(.+?\)\)\))", line.decode())
+                substring = line[matchobj.start(0): matchobj.end(0)]
+                line = line.replace(substring, b"")
+            try:
+                idx = line.index(b"=")
+                name = line[:idx].strip()
+            except ValueError:
+                name = line.strip()
+            if not name:
+                continue
+            fconsts.write(name + b" = curl." + name + b"\n")
+        with open("curl/curl.h", "rb") as f1:
+            for l in f1.readlines():
+                if l.startswith(b"#define CURLPROXY_"):
+                    name = l.split()[1].strip()
+                    fconsts.write(name + b" = curl." + name + b"\n")
 
 if __name__ == "__main__":
     asyncio.run(main())

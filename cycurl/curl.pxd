@@ -750,6 +750,7 @@ cdef extern from "curl/curl.h" nogil:
     int CURLWS_PONG
     int CURLWS_RAW_MODE
     int CURLWS_NOAUTOPONG
+    int CURLWS_PERMESSAGE_DEFLATE
     #CURL_SSLVERSION_
     int CURL_SSLVERSION_DEFAULT
     int CURL_SSLVERSION_TLSv1
@@ -875,6 +876,17 @@ cdef extern from "curl/curl.h" nogil:
     int CURLSHE_NOMEM
     int CURLSHE_NOT_BUILT_IN
     int CURLSHE_LAST
+    #CURLPROXY_
+    int CURLPROXY_LAST
+    int CURLPROXY_HTTP
+    int CURLPROXY_HTTP_1_0
+    int CURLPROXY_HTTPS
+    int CURLPROXY_HTTPS2
+    int CURLPROXY_SOCKS4
+    int CURLPROXY_SOCKS5
+    int CURLPROXY_SOCKS4A
+    int CURLPROXY_SOCKS5_HOSTNAME
+    int CURLPROXY_HTTPS3
 
 
 
